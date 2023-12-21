@@ -15,8 +15,8 @@ variable "spring_cloud_service_id" {
 
 variable "gateway_ids" {
   description = "Specifies a list of Spring Cloud Gateway."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "https_only_enabled" {
   description = "is only https is allowed?"

@@ -62,7 +62,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Cognitive Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cognitive Account.
 
 
 variable "local_auth_enabled" {
@@ -98,7 +98,7 @@ variable "network_acls" {
 #
 # network_acls block structure :
 #   default_action (string)      : (REQUIRED) The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_rules'. Possible values are 'Allow' and 'Deny'.
-#   ip_rules (list)              : One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
+#   ip_rules (string)            : One or more IP Addresses, or CIDR Blocks which should be able to access the Cognitive Account.
 #   virtual_network_rules (block): A 'virtual_network_rules' block.
 #
 # virtual_network_rules block structure      :

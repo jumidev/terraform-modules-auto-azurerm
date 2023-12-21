@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the HTTP Action to be created within the Logic App Workflo..."   
-   logic_app_id = "Specifies the ID of the Logic App Workflow"   
+   # logic_app_id → set in component_inputs
    method = "Specifies the HTTP Method which should be used for this HTTP Action..."   
    uri = "Specifies the URI which will be called when this HTTP Action is triggered..."   
+}
+
+component_inputs = {
+   logic_app_id = "path/to/logic_app_workflow_component:id"   
 }
 
 tfstate_store = {

@@ -6,7 +6,7 @@ variable "data_flow" {
 }
 #
 # data_flow block structure  :
-#   destinations (string)      : (REQUIRED) Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'.
+#   destinations (list)        : (REQUIRED) Specifies a list of destination names. A 'azure_monitor_metrics' data source only allows for stream of kind 'Microsoft-InsightsMetrics'.
 #   streams (string)           : (REQUIRED) Specifies a list of streams. Possible values include but not limited to 'Microsoft-Event', 'Microsoft-InsightsMetrics', 'Microsoft-Perf', 'Microsoft-Syslog', 'Microsoft-WindowsEvent', and 'Microsoft-PrometheusMetrics'.
 #   built_in_transform (string): The built-in transform to transform stream data.
 #   output_stream (string)     : The output stream of the transform. Only required if the data flow changes data to a different stream.
@@ -28,6 +28,22 @@ variable "destinations" {
 #   storage_blob_direct (block)  : One or more 'storage_blob_direct' blocks.
 #   storage_table_direct (block) : One or more 'storage_table_direct' blocks.
 #
+# storage_table_direct block structure:
+#   table_name (string)                 : (REQUIRED) The Storage Table name.
+#   name (string)                       : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#   storage_account_id (string)         : (REQUIRED) The resource ID of the Storage Account.
+#
+# azure_monitor_metrics block structure:
+#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
+# monitor_account block structure:
+#   monitor_account_id (string)    : (REQUIRED) The resource ID of the Monitor Account.
+#   name (string)                  : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
+# event_hub block structure:
+#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
+#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#
 # storage_blob block structure:
 #   container_name (string)     : (REQUIRED) The Storage Container name.
 #   name (string)               : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
@@ -37,30 +53,14 @@ variable "destinations" {
 #   event_hub_id (string)           : (REQUIRED) The resource ID of the Event Hub.
 #   name (string)                   : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #
-# log_analytics block structure :
-#   name (string)                 : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#   workspace_resource_id (string): (REQUIRED) The ID of a Log Analytic Workspace resource.
-#
 # storage_blob_direct block structure:
 #   container_name (string)            : (REQUIRED) The Storage Container name.
 #   name (string)                      : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
 #   storage_account_id (string)        : (REQUIRED) The resource ID of the Storage Account.
 #
-# storage_table_direct block structure:
-#   table_name (string)                 : (REQUIRED) The Storage Table name.
-#   name (string)                       : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#   storage_account_id (string)         : (REQUIRED) The resource ID of the Storage Account.
-#
-# azure_monitor_metrics block structure:
-#   name (string)                        : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# event_hub block structure:
-#   event_hub_id (string)    : (REQUIRED) The resource ID of the Event Hub.
-#   name (string)            : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
-#
-# monitor_account block structure:
-#   monitor_account_id (string)    : (REQUIRED) The resource ID of the Monitor Account.
-#   name (string)                  : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+# log_analytics block structure :
+#   name (string)                 : (REQUIRED) The name which should be used for this destination. This name should be unique across all destinations regardless of type within the Data Collection Rule.
+#   workspace_resource_id (string): (REQUIRED) The ID of a Log Analytic Workspace resource.
 
 
 variable "location" {
@@ -120,7 +120,7 @@ variable "stream_declaration" {
 #
 # stream_declaration block structure:
 #   stream_name (string)              : (REQUIRED) The name of the custom stream. This name should be unique across all 'stream_declaration' blocks.
-#   column (list)                     : (REQUIRED) One or more 'column' blocks.
+#   column (string)                   : (REQUIRED) One or more 'column' blocks.
 
 
 variable "tags" {

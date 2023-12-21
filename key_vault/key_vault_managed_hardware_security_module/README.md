@@ -14,12 +14,13 @@ inputs = {
    name = "Specifies the name of the Key Vault Managed Hardware Security Module..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   admin_object_ids = "Specifies a list of administrators object IDs for the key vault Managed Hardware..."   
+   # admin_object_ids → set in component_inputs
    sku_name = "The Name of the SKU used for this Key Vault Managed Hardware Security Module..."   
    # tenant_id → set in component_inputs
 }
 
 component_inputs = {
+   admin_object_ids = ["path/to/key_vault_component:ids", "..."]   
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
@@ -38,7 +39,7 @@ tfstate_store = {
 | **name** | string |  Specifies the name of the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group in which to create the Key Vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
 | **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **admin_object_ids** | string |  Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
+| **admin_object_ids** | list |  Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
 | **sku_name** | string |  The Name of the SKU used for this Key Vault Managed Hardware Security Module. Possible value is `Standard_B1`. Changing this forces a new resource to be created. | 
 | **tenant_id** | string |  The Azure Active Directory Tenant ID that should be used for authenticating requests to the key vault Managed Hardware Security Module. Changing this forces a new resource to be created. | 
 

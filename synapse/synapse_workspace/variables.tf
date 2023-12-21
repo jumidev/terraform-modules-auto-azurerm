@@ -31,7 +31,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
 
 
 variable "sql_administrator_login" {

@@ -16,7 +16,7 @@ variable "dataset" {
 }
 #
 # dataset block structure:
-#   aggregation (list)     : (REQUIRED) One or more 'aggregation' blocks.
+#   aggregation (string)   : (REQUIRED) One or more 'aggregation' blocks.
 #   granularity (string)   : (REQUIRED) The granularity of rows in the report. Possible values are 'Daily' and 'Monthly'.
 #   grouping (block)       : One or more 'grouping' blocks.
 #   sorting (block)        : One or more 'sorting' blocks, containing the order by expression to be used in the report

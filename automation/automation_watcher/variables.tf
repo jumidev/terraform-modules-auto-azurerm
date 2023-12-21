@@ -45,8 +45,8 @@ variable "etag" {
 }
 variable "script_parameters" {
   description = "Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags which should be assigned to the Automation Watcher."

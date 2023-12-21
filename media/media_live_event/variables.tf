@@ -85,11 +85,11 @@ variable "preview" {
   default     = null
 }
 #
-# preview block structure       :
-#   alternative_media_id (string) : An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the 'CustomLicenseAcquisitionUrlTemplate' or the 'CustomKeyAcquisitionUrlTemplate' of the Streaming Policy specified in the 'streaming_policy_name' field.
-#   ip_access_control_allow (list): One or more 'ip_access_control_allow' blocks.
-#   preview_locator (string)      : The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
-#   streaming_policy_name (string): The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
+# preview block structure         :
+#   alternative_media_id (string)   : An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the 'CustomLicenseAcquisitionUrlTemplate' or the 'CustomKeyAcquisitionUrlTemplate' of the Streaming Policy specified in the 'streaming_policy_name' field.
+#   ip_access_control_allow (string): One or more 'ip_access_control_allow' blocks.
+#   preview_locator (string)        : The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created.
+#   streaming_policy_name (string)  : The name of streaming policy used for the live event preview. Changing this forces a new resource to be created.
 
 
 variable "stream_options" {
@@ -104,8 +104,8 @@ variable "tags" {
 }
 variable "transcription_languages" {
   description = "Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in 'BCP-47' format (e.g: 'en-US'). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 )."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "use_static_hostname" {
   description = "Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created."

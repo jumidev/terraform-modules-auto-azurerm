@@ -45,6 +45,6 @@ variable "track_selection" {
 }
 #
 # track_selection block structure:
-#   condition (list)               : (REQUIRED) One or more 'selection' blocks.
+#   condition (string)             : (REQUIRED) One or more 'selection' blocks.
 
 

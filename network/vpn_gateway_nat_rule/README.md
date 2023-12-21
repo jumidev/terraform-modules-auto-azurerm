@@ -40,13 +40,13 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **external_mapping** | list |  -  |  -  |  One or more `external_mapping` blocks. | 
-| **internal_mapping** | list |  -  |  -  |  One or more `internal_mapping` blocks. | 
+| **external_mapping** | string |  -  |  -  |  One or more `external_mapping` blocks. | 
+| **internal_mapping** | string |  -  |  -  |  One or more `internal_mapping` blocks. | 
 | **ip_configuration_id** | string |  -  |  `Instance0`, `Instance1`  |  The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are `Instance0` and `Instance1`. | 
 | **mode** | string |  `EgressSnat`  |  `EgressSnat`, `IngressSnat`  |  The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created. | 
 | **type** | string |  `Static`  |  `Dynamic`, `Static`  |  The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created. | 
-| **external_address_space_mappings** | string |  -  |  -  |  (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule. | 
-| **internal_address_space_mappings** | string |  -  |  -  |  (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule. | 
+| **external_address_space_mappings** | list |  -  |  -  |  (Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule. | 
+| **internal_address_space_mappings** | list |  -  |  -  |  (Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule. | 
 
 
 

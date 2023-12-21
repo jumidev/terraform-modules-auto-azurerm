@@ -121,8 +121,8 @@ variable "ipsec_policy" {
 }
 variable "traffic_selector_policy" {
   description = "One or more 'traffic_selector_policy' blocks which are documented below. A 'traffic_selector_policy' allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps)."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the HTTP Request Trigger to be created within the Logic Ap..."   
-   logic_app_id = "Specifies the ID of the Logic App Workflow"   
+   # logic_app_id → set in component_inputs
    schema = "A JSON Blob defining the Schema of the incoming request..."   
+}
+
+component_inputs = {
+   logic_app_id = "path/to/logic_app_workflow_component:id"   
 }
 
 tfstate_store = {

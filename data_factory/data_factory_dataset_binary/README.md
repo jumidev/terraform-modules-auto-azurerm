@@ -45,26 +45,10 @@ tfstate_store = {
 | **compression** | [block](#compression-block-structure) |  A `compression` block. | 
 | **description** | string |  The description for the Data Factory Dataset. | 
 | **folder** | string |  The folder that this Dataset is in. If not specified, the Dataset will appear at the root level. | 
-| **parameters** | string |  Specifies a list of parameters to associate with the Data Factory Binary Dataset. | 
+| **parameters** | list |  Specifies a list of parameters to associate with the Data Factory Binary Dataset. | 
 | **http_server_location** | [block](#http_server_location-block-structure) |  A `http_server_location` block. | 
 | **azure_blob_storage_location** | [block](#azure_blob_storage_location-block-structure) |  A `azure_blob_storage_location` block. | 
 | **sftp_server_location** | [block](#sftp_server_location-block-structure) |  A `sftp_server_location` block. | 
-
-### `compression` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
-| `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
-
-### `sftp_server_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
-| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
-| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
-| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 
 ### `http_server_location` block structure
 
@@ -84,6 +68,22 @@ tfstate_store = {
 | `path` | string | No | - | The folder path to the file in the blob container. |
 | `filename` | string | No | - | The filename of the file in the blob container. |
 | `dynamic_container_enabled` | bool | No | False | Is the 'container' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
+| `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
+
+### `compression` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of compression used during transport. Possible values are 'BZip2', 'Deflate', 'GZip', 'Tar', 'TarGZip' and 'ZipDeflate'. |
+| `level` | string | No | - | The level of compression. Possible values are 'Fastest' and 'Optimal'. |
+
+### `sftp_server_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | The folder path to the file on the SFTP server. |
+| `filename` | string | Yes | - | The filename of the file on the SFTP server. |
 | `dynamic_path_enabled` | bool | No | False | Is the 'path' using dynamic expression, function or system variables? Defaults to 'false'. |
 | `dynamic_filename_enabled` | bool | No | False | Is the 'filename' using dynamic expression, function or system variables? Defaults to 'false'. |
 

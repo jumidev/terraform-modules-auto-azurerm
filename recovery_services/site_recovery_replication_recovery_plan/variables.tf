@@ -77,7 +77,7 @@ variable "boot_recovery_group" {
 }
 #
 # boot_recovery_group block structure:
-#   replicated_protected_items (list)  : One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'.
+#   replicated_protected_items (string): One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'.
 #   pre_action (block)                 : one or more 'action' block. which will be executed before the group recovery.
 #   post_action (block)                : one or more 'action' block. which will be executed after the group recovery.
 #

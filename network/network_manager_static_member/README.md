@@ -12,8 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Manager Static Member..."   
-   network_group_id = "Specifies the ID of the Network Manager Group"   
-   target_virtual_network_id = "Specifies the Resource ID of the Virtual Network using as the Static Member..."   
+   # network_group_id → set in component_inputs
+   # target_virtual_network_id → set in component_inputs
+}
+
+component_inputs = {
+   network_group_id = "path/to/network_manager_component:id"   
+   target_virtual_network_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {

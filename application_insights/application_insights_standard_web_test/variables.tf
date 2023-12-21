@@ -22,7 +22,7 @@ variable "application_insights_id" {
 }
 variable "geo_locations" {
   description = "(REQUIRED) Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application."
-  type        = string
+  type        = list(any)
 
 }
 variable "request" {
@@ -34,7 +34,7 @@ variable "request" {
 #   url (string)                           : (REQUIRED) The WebTest request URL.
 #   body (string)                          : The WebTest request body.
 #   follow_redirects_enabled (bool)        : Should the following of redirects be enabled? Defaults to 'true'.
-#   header (list)                          : One or more 'header' blocks.
+#   header (string)                        : One or more 'header' blocks.
 #   http_verb (string)                     : Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'.
 #   parse_dependent_requests_enabled (bool): Should the parsing of dependend requests be enabled? Defaults to 'true'.
 

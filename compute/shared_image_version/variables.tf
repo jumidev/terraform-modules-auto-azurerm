@@ -27,7 +27,7 @@ variable "resource_group_name" {
 }
 variable "target_region" {
   description = "(REQUIRED) One or more 'target_region' blocks."
-  type        = list(any)
+  type        = string
 
 }
 

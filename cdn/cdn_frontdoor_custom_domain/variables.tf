@@ -38,6 +38,6 @@ variable "dns_zone_id" {
 
 variable "cdn_frontdoor_route_ids" {
   description = "(REQUIRED) One or more IDs of the Front Door Route to which the Front Door Custom Domain is associated with."
-  type        = list(any)
+  type        = string
 
 }

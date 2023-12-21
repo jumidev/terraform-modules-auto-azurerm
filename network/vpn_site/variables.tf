@@ -44,8 +44,8 @@ variable "link" {
 
 variable "address_cidrs" {
   description = "Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "device_model" {
   description = "The model of the VPN device."

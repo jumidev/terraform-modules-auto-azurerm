@@ -51,7 +51,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the identity type of the Nginx Deployment. Possible values is 'UserAssigned' where you can specify the Service Principal IDs in the 'identity_ids' field.
-#   identity_ids (string)   : Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'.
+#   identity_ids (list)     : Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'.
 
 
 variable "frontend_private" {
@@ -73,7 +73,7 @@ variable "frontend_public" {
 }
 #
 # frontend_public block structure:
-#   ip_address (string)            : Specifies a list of Public IP Resouce ID to this Nginx Deployment.
+#   ip_address (list)              : Specifies a list of Public IP Resouce ID to this Nginx Deployment.
 
 
 variable "logging_storage_account" {

@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   namespace_id = "Specifies the ServiceBus Namespace ID to which to attach the ServiceBus Namespac..."   
+   # namespace_id → set in component_inputs
+}
+
+component_inputs = {
+   namespace_id = "path/to/servicebus_namespace_component:id"   
 }
 
 tfstate_store = {
@@ -35,7 +39,7 @@ tfstate_store = {
 | **default_action** | string |  `Allow`  |  `Allow`, `Deny`  |  Specifies the default action for the ServiceBus Namespace Network Rule Set. Possible values are `Allow` and `Deny`. Defaults to `Allow`. | 
 | **public_network_access_enabled** | bool |  `True`  |  `true`, `false`  |  Whether to allow traffic over public network. Possible values are `true` and `false`. Defaults to `true`. | 
 | **trusted_services_allowed** | bool |  -  |  -  |  If True, then Azure Services that are known and trusted for this resource type are allowed to bypass firewall configuration. See [Trusted Microsoft Services](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/service-bus-messaging/includes/service-bus-trusted-services.md) | 
-| **ip_rules** | list |  -  |  -  |  One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. | 
+| **ip_rules** | string |  -  |  -  |  One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace. | 
 | **network_rules** | [block](#network_rules-block-structure) |  -  |  -  |  One or more `network_rules` blocks. | 
 
 ### `network_rules` block structure

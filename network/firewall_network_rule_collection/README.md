@@ -57,7 +57,7 @@ tfstate_store = {
 | `description` | string | No | - | Specifies a description for the rule. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
 | `source_ip_groups` | list | No | - | A list of IP Group IDs for the rule. |
-| `destination_addresses` | string | No | - | Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags). |
+| `destination_addresses` | list | No | - | Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags). |
 | `destination_ip_groups` | list | No | - | A list of destination IP Group IDs for the rule. |
 | `destination_fqdns` | list | No | - | A list of destination FQDNS for the rule. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |

@@ -104,7 +104,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this IoT Hub. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this IoT Hub.
 
 
 variable "network_rule_set" {

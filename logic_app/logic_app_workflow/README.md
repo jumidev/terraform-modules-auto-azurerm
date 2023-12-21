@@ -52,9 +52,9 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow. |
 
-### `content` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -65,28 +65,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-
-### `open_authentication_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The OAuth policy name for the Logic App Workflow. |
-| `claim` | [block](#claim-block-structure) | Yes | - | A 'claim' block. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
-
-### `access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | [block](#action-block-structure) | No | - | A 'action' block. |
-| `content` | [block](#content-block-structure) | No | - | A 'content' block. |
-| `trigger` | [block](#trigger-block-structure) | No | - | A 'trigger' block. |
-| `workflow_management` | [block](#workflow_management-block-structure) | No | - | A 'workflow_management' block. |
 
 ### `trigger` block structure
 
@@ -101,6 +79,28 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name of the OAuth policy claim for the Logic App Workflow. |
 | `value` | string | Yes | - | The value of the OAuth policy claim for the Logic App Workflow. |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | [block](#action-block-structure) | No | - | A 'action' block. |
+| `content` | [block](#content-block-structure) | No | - | A 'content' block. |
+| `trigger` | [block](#trigger-block-structure) | No | - | A 'trigger' block. |
+| `workflow_management` | [block](#workflow_management-block-structure) | No | - | A 'workflow_management' block. |
+
+### `content` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_caller_ip_address_range` | list | Yes | - | A list of the allowed caller IP address ranges. |
+
+### `open_authentication_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The OAuth policy name for the Logic App Workflow. |
+| `claim` | [block](#claim-block-structure) | Yes | - | A 'claim' block. |
 
 
 

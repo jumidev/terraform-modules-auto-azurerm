@@ -42,7 +42,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy.
 
 
 variable "insights" {
@@ -77,11 +77,11 @@ variable "intrusion_detection" {
 #   name (string)                 : (REQUIRED) The name which should be used for this bypass traffic setting.
 #   protocol (string)             : (REQUIRED) The protocols any of 'ANY', 'TCP', 'ICMP', 'UDP' that shall be bypassed by intrusion detection.
 #   description (string)          : The description for this bypass traffic setting.
-#   destination_addresses (string): Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
-#   destination_ip_groups (string): Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
-#   destination_ports (string)    : Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
-#   source_addresses (string)     : Specifies a list of source addresses that shall be bypassed by intrusion detection.
-#   source_ip_groups (string)     : Specifies a list of source IP groups that shall be bypassed by intrusion detection.
+#   destination_addresses (list)  : Specifies a list of destination IP addresses that shall be bypassed by intrusion detection.
+#   destination_ip_groups (list)  : Specifies a list of destination IP groups that shall be bypassed by intrusion detection.
+#   destination_ports (list)      : Specifies a list of destination IP ports that shall be bypassed by intrusion detection.
+#   source_addresses (list)       : Specifies a list of source addresses that shall be bypassed by intrusion detection.
+#   source_ip_groups (list)       : Specifies a list of source IP groups that shall be bypassed by intrusion detection.
 #
 # signature_overrides block structure:
 #   state (string)                     : state can be any of 'Off', 'Alert' or 'Deny'.

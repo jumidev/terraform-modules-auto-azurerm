@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Data Share"   
-   account_id = "The ID of the Data Share account in which the Data Share is created..."   
+   # account_id → set in component_inputs
    kind = "The kind of the Data Share"   
+}
+
+component_inputs = {
+   account_id = "path/to/data_share_component:id"   
 }
 
 tfstate_store = {

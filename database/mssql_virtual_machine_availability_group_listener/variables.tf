@@ -41,7 +41,7 @@ variable "load_balancer_configuration" {
 #   load_balancer_id (string)                  : (REQUIRED) The ID of the Load Balancer. Changing this forces a new resource to be created.
 #   private_ip_address (string)                : (REQUIRED) The private IP Address of the listener. Changing this forces a new resource to be created.
 #   probe_port (string)                        : (REQUIRED) The probe port of the listener. Changing this forces a new resource to be created.
-#   sql_virtual_machine_ids (string)           : (REQUIRED) Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
+#   sql_virtual_machine_ids (list)             : (REQUIRED) Specifies a list of SQL Virtual Machine IDs. Changing this forces a new resource to be created.
 #   subnet_id (string)                         : (REQUIRED) The ID of the Subnet to create the listener. Changing this forces a new resource to be created.
 
 

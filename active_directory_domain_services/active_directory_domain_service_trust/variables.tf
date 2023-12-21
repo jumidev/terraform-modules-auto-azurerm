@@ -17,7 +17,7 @@ variable "password" {
 }
 variable "trusted_domain_dns_ips" {
   description = "(REQUIRED) Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service."
-  type        = string
+  type        = list(any)
 
 }
 variable "trusted_domain_fqdn" {

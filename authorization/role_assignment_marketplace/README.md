@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Role De..."   
+   # principal_id → set in component_inputs
+}
+
+component_inputs = {
+   principal_id = "path/to/role_definition_component:id"   
 }
 
 tfstate_store = {

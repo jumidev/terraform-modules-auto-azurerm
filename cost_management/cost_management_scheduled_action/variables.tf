@@ -12,7 +12,7 @@ variable "email_address_sender" {
 }
 variable "email_addresses" {
   description = "(REQUIRED) Specifies a list of email addresses that will receive the Scheduled Action."
-  type        = string
+  type        = list(any)
 
 }
 variable "email_subject" {

@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   sql_pool_id = "Specifies the ID of the Synapse SQL Pool"   
+   # sql_pool_id → set in component_inputs
    policy_state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
+}
+
+component_inputs = {
+   sql_pool_id = "path/to/synapse_sql_pool_component:id"   
 }
 
 tfstate_store = {

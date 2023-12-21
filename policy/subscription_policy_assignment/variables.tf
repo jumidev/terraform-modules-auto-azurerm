@@ -67,8 +67,8 @@ variable "non_compliance_message" {
 
 variable "not_scopes" {
   description = "Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "parameters" {
   description = "A JSON mapping of any Parameters for this Policy."

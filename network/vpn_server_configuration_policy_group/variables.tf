@@ -12,7 +12,7 @@ variable "vpn_server_configuration_id" {
 }
 variable "policy" {
   description = "(REQUIRED) One or more 'policy' blocks."
-  type        = list(any)
+  type        = string
 
 }
 

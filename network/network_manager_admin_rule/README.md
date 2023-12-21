@@ -12,11 +12,15 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Manager Admin Rule..."   
-   admin_rule_collection_id = "Specifies the ID of the Network Manager Admin Rule Collection..."   
+   # admin_rule_collection_id → set in component_inputs
    action = "Specifies the action allowed for this Network Manager Admin Rule..."   
    direction = "Indicates if the traffic matched against the rule in inbound or outbound..."   
    priority = "The priority of the rule"   
    protocol = "Specifies which network protocol this Network Manager Admin Rule applies to..."   
+}
+
+component_inputs = {
+   admin_rule_collection_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {

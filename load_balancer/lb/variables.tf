@@ -25,8 +25,8 @@ variable "edge_zone" {
 }
 variable "frontend_ip_configuration" {
   description = "One or more 'frontend_ip_configuration' blocks."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "sku" {
   description = "The SKU of the Azure Load Balancer. Accepted values are 'Basic', 'Standard' and 'Gateway'. Defaults to 'Basic'. Changing this forces a new resource to be created."

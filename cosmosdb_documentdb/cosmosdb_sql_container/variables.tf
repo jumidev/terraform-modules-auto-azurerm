@@ -71,18 +71,18 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
+# included_path block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
+#
 # spatial_index block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
+#
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
-#
-# included_path block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
-#
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
 # excluded_path block structure:
 #   path (string)                : (REQUIRED) Path that is excluded from indexing.

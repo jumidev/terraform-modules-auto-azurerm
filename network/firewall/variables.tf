@@ -90,8 +90,8 @@ variable "virtual_hub" {
 
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

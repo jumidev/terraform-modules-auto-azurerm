@@ -34,7 +34,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  The Name which should be used for this VPN Server Configuration Policy Group. Changing this forces a new resource to be created. | 
 | **vpn_server_configuration_id** | string |  The ID of the VPN Server Configuration that the VPN Server Configuration Policy Group belongs to. Changing this forces a new resource to be created. | 
-| **policy** | list |  One or more `policy` blocks. | 
+| **policy** | string |  One or more `policy` blocks. | 
 
 ## Optional Variables
 

@@ -31,7 +31,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens. | 
 | **display_name** | string |  The display name which should be used for this Cost Anomaly Alert. | 
-| **email_addresses** | string |  Specifies a list of email addresses which the Anomaly Alerts are send to. | 
+| **email_addresses** | list |  Specifies a list of email addresses which the Anomaly Alerts are send to. | 
 | **email_subject** | string |  The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70. | 
 
 ## Optional Variables

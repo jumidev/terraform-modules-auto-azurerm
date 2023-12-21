@@ -13,11 +13,12 @@ source = {
 inputs = {
    name = "The name which should be used for this Policy Assignment..."   
    # policy_definition_id → set in component_inputs
-   resource_id = "The ID of the Resource (or Resource Scope) where this should be applied..."   
+   # resource_id → set in component_inputs
 }
 
 component_inputs = {
    policy_definition_id = "path/to/policy_definition_component:id"   
+   resource_id = "path/to/resource_policy_assignment_component:id"   
 }
 
 tfstate_store = {
@@ -47,10 +48,30 @@ tfstate_store = {
 | **location** | string |  -  |  The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created. | 
 | **metadata** | string |  -  |  A JSON mapping of any Metadata for this Policy. | 
 | **non_compliance_message** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
-| **not_scopes** | string |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
+| **not_scopes** | list |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
 | **parameters** | string |  -  |  A JSON mapping of any Parameters for this Policy. | 
 | **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
 | **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
+
+### `resource_selector` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
+| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
+
+### `resource_selectors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | Specifies a name for the resource selector. |
+| `selectors` | [block](#resource_selector-block-structure) | Yes | - | One or more 'resource_selector' block. |
+
+### `override_selector` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
 
 ### `overrides` block structure
 
@@ -65,26 +86,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
 | `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. |
-
-### `resource_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
-| `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
-
-### `override_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
-
-### `resource_selectors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Specifies a name for the resource selector. |
-| `selectors` | [block](#resource_selector-block-structure) | Yes | - | One or more 'resource_selector' block. |
 
 ### `non_compliance_message` block structure
 

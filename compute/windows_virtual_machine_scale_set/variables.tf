@@ -37,7 +37,7 @@ variable "network_interface" {
 #
 # network_interface block structure   :
 #   name (string)                       : (REQUIRED) The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
-#   ip_configuration (list)             : (REQUIRED) One or more 'ip_configuration' blocks.
+#   ip_configuration (string)           : (REQUIRED) One or more 'ip_configuration' blocks.
 #   dns_servers (list)                  : A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 #   enable_accelerated_networking (bool): Does this Network Interface support Accelerated Networking? Defaults to 'false'.
 #   enable_ip_forwarding (bool)         : Does this Network Interface support IP Forwarding? Defaults to 'false'.
@@ -245,7 +245,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Windows Virtual Machine Scale Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Windows Virtual Machine Scale Set.
 
 
 variable "license_type" {
@@ -328,7 +328,7 @@ variable "secret" {
 }
 #
 # secret block structure:
-#   certificate (list)    : (REQUIRED) One or more 'certificate' blocks.
+#   certificate (string)  : (REQUIRED) One or more 'certificate' blocks.
 #   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
 
 
@@ -436,6 +436,6 @@ variable "zone_balance" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Windows Virtual Machine Scale Set should be located. Changing this forces a new Windows Virtual Machine Scale Set to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

@@ -11,11 +11,12 @@ source = {
 }
 
 inputs = {
-   server_id = "The ID of the MySQL Server"   
+   # server_id → set in component_inputs
    # key_vault_key_id → set in component_inputs
 }
 
 component_inputs = {
+   server_id = "path/to/mysql_server_component:id"   
    key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 

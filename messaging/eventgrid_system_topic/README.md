@@ -14,8 +14,12 @@ inputs = {
    location = "${location}"   
    name = "The name which should be used for this Event Grid System Topic..."   
    resource_group_name = "${resource_group}"   
-   source_arm_resource_id = "The ID of the Event Grid System Topic ARM Source"   
+   # source_arm_resource_id → set in component_inputs
    topic_type = "The Topic Type of the Event Grid System Topic"   
+}
+
+component_inputs = {
+   source_arm_resource_id = "path/to/eventgrid_system_topic_component:id"   
 }
 
 tfstate_store = {
@@ -47,7 +51,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are 'SystemAssigned', 'UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic. |
 | `tags` | map | No | - | A mapping of tags which should be assigned to the Event Grid System Topic. |
 
 

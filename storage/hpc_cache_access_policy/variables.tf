@@ -12,6 +12,6 @@ variable "hpc_cache_id" {
 }
 variable "access_rule" {
   description = "(REQUIRED) One or more 'access_rule' blocks (up to three) as defined below."
-  type        = list(any)
+  type        = string
 
 }

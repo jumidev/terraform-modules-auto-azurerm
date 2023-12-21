@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **package_data** | string |  Specify the package data for this configuration. | 
 | **config_file** | [block](#config_file-block-structure) |  One or more `config_file` blocks. | 
-| **protected_file** | list |  One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified. | 
+| **protected_file** | string |  One or more `protected_file` blocks with sensitive information as defined below. If specified `config_file` must also be specified. | 
 
 ### `config_file` block structure
 

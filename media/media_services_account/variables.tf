@@ -56,7 +56,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Media Services Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Media Services Account.
 
 
 variable "public_network_access_enabled" {
@@ -77,7 +77,7 @@ variable "key_delivery_access_control" {
 #
 # key_delivery_access_control block structure:
 #   default_action (string)                    : The Default Action to use when no rules match from 'ip_allow_list'. Possible values are 'Allow' and 'Deny'.
-#   ip_allow_list (list)                       : One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
+#   ip_allow_list (string)                     : One or more IP Addresses, or CIDR Blocks which should be able to access the Key Delivery.
 
 
 variable "tags" {

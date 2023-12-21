@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the ServiceBus Queue resource..."   
-   namespace_id = "The ID of the ServiceBus Namespace to create this queue in..."   
+   # namespace_id → set in component_inputs
+}
+
+component_inputs = {
+   namespace_id = "path/to/servicebus_namespace_component:id"   
 }
 
 tfstate_store = {

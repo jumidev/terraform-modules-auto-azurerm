@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **enabled** | bool |  `True`  |  Is the Application Insights Smart Detection Rule enabled? Defaults to `true`. | 
 | **send_emails_to_subscription_owners** | bool |  `True`  |  Do emails get sent to subscription owners? Defaults to `true`. | 
-| **additional_email_recipients** | string |  -  |  Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule. | 
+| **additional_email_recipients** | list |  -  |  Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule. | 
 
 
 

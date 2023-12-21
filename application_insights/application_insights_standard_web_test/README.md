@@ -42,7 +42,7 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the Resource Group where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. | 
 | **location** | string |  The Azure Region where the Application Insights Standard WebTest should exist. Changing this forces a new Application Insights Standard WebTest to be created. It needs to correlate with location of the parent resource (azurerm_application_insights) | 
 | **application_insights_id** | string |  The ID of the Application Insights instance on which the WebTest operates. Changing this forces a new Application Insights Standard WebTest to be created. | 
-| **geo_locations** | string |  Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application. | 
+| **geo_locations** | list |  Specifies a list of where to physically run the tests from to give global coverage for accessibility of your application. | 
 | **request** | [block](#request-block-structure) |  A `request` block. | 
 
 ## Optional Variables
@@ -57,6 +57,17 @@ tfstate_store = {
 | **timeout** | string |  `30`  |  -  |  Seconds until this WebTest will timeout and fail. Default is `30`. | 
 | **validation_rules** | [block](#validation_rules-block-structure) |  -  |  -  |  A `validation_rules` block. | 
 
+### `request` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url` | string | Yes | - | The WebTest request URL. |
+| `body` | string | No | - | The WebTest request body. |
+| `follow_redirects_enabled` | bool | No | True | Should the following of redirects be enabled? Defaults to 'true'. |
+| `header` | string | No | - | One or more 'header' blocks. |
+| `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
+| `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
+
 ### `validation_rules` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,17 +76,6 @@ tfstate_store = {
 | `expected_status_code` | string | No | - | The expected status code of the response. Default is '200', '0' means 'response code < 400' |
 | `ssl_cert_remaining_lifetime` | number | No | - | The number of days of SSL certificate validity remaining for the checked endpoint. If the certificate has a shorter remaining lifetime left, the test will fail. This number should be between 1 and 365. |
 | `ssl_check_enabled` | bool | No | - | Should the SSL check be enabled? |
-
-### `request` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url` | string | Yes | - | The WebTest request URL. |
-| `body` | string | No | - | The WebTest request body. |
-| `follow_redirects_enabled` | bool | No | True | Should the following of redirects be enabled? Defaults to 'true'. |
-| `header` | list | No | - | One or more 'header' blocks. |
-| `http_verb` | string | No | GET | Which HTTP verb to use for the call. Options are 'GET', 'POST', 'PUT', 'PATCH', and 'DELETE'. Defaults to 'GET'. |
-| `parse_dependent_requests_enabled` | bool | No | True | Should the parsing of dependend requests be enabled? Defaults to 'true'. |
 
 ### `content` block structure
 

@@ -36,7 +36,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **display_name** | string |  -  |  User visible input name of the Cost Management Scheduled Action. | 
 | **email_address_sender** | string |  -  |  Email address of the point of contact that should get the unsubscribe requests of Scheduled Action notification emails. | 
-| **email_addresses** | string |  -  |  Specifies a list of email addresses that will receive the Scheduled Action. | 
+| **email_addresses** | list |  -  |  Specifies a list of email addresses that will receive the Scheduled Action. | 
 | **email_subject** | string |  -  |  Subject of the email. Length is limited to 70 characters. | 
 | **end_date** | string |  -  |  The end date and time of the Scheduled Action (UTC). | 
 | **frequency** | string |  `Daily`, `Monthly`, `Weekly`  |  Frequency of the schedule. Possible values are `Daily`, `Monthly` and `Weekly`. Value `Monthly` requires either `weeks_of_month` and `days_of_week` or `day_of_month` to be specified. Value `Weekly` requires `days_of_week` to be specified. | 

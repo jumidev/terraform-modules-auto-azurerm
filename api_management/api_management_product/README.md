@@ -13,13 +13,14 @@ source = {
 inputs = {
    # api_management_name → set in component_inputs
    display_name = "The Display Name for this API Management Product"   
-   product_id = "The Identifier for this Product, which must be unique within the API Management ..."   
+   # product_id → set in component_inputs
    published = "Is this Product Published?"   
    resource_group_name = "${resource_group}"   
 }
 
 component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
+   product_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {

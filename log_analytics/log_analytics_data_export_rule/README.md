@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "The name of the Log Analytics Data Export Rule"   
    resource_group_name = "${resource_group}"   
-   workspace_resource_id = "The resource ID of the workspace"   
+   # workspace_resource_id → set in component_inputs
    destination_resource_id = "The destination resource ID"   
    table_names = "A list of table names to export to the destination resource, for example: `["Hea..."   
+}
+
+component_inputs = {
+   workspace_resource_id = "path/to/log_analytics_data_export_rule_component:id"   
 }
 
 tfstate_store = {

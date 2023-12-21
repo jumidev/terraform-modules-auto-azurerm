@@ -44,7 +44,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **ignore_errors** | bool |  `False`  |  Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false` | 
 | **init_timeout** | string |  `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
-| **metadata** | list |  -  |  One or more `metadata` blocks as detailed below. | 
+| **metadata** | string |  -  |  One or more `metadata` blocks as detailed below. | 
 | **scopes** | list |  -  |  A list of scopes to which this component applies. | 
 | **secret** | [block](#secret-block-structure) |  -  |  A `secret` block as detailed below. | 
 

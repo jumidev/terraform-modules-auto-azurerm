@@ -61,12 +61,16 @@ tfstate_store = {
 | **sql_identity_control_enabled** | bool |  -  |  Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools? | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Synapse Workspace. | 
 
-### `identity` block structure
+### `github_repo` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
+| `account_name` | string | Yes | - | Specifies the GitHub account name. |
+| `branch_name` | string | Yes | - | Specifies the collaboration branch of the repository to get code from. |
+| `last_commit_id` | string | No | - | The last commit ID. |
+| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
+| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
+| `git_url` | string | No | - | Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. |
 
 ### `customer_managed_key` block structure
 
@@ -83,25 +87,6 @@ tfstate_store = {
 | `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
 | `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
 
-### `sql_aad_admin` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
-
-### `github_repo` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `account_name` | string | Yes | - | Specifies the GitHub account name. |
-| `branch_name` | string | Yes | - | Specifies the collaboration branch of the repository to get code from. |
-| `last_commit_id` | string | No | - | The last commit ID. |
-| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
-| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
-| `git_url` | string | No | - | Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. |
-
 ### `azure_devops_repo` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -113,6 +98,21 @@ tfstate_store = {
 | `repository_name` | string | Yes | - | Specifies the name of the git repository. |
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `tenant_id` | string | No | - | the ID of the tenant for the Azure DevOps account. |
+
+### `sql_aad_admin` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. |
 
 
 

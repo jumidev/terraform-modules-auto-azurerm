@@ -25,8 +25,8 @@ variable "audit_log_enabled" {
 }
 variable "client_token_ids" {
   description = "Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "log_level" {
   description = "The verbosity of the logs. Possible values are 'None', 'Debug', 'Information', 'Warning' and 'Error'. Defaults to 'None'."

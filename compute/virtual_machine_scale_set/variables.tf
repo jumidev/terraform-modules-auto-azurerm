@@ -29,6 +29,9 @@ variable "network_profile" {
 #   ip_forwarding (bool)              : Whether IP forwarding is enabled on this NIC. Defaults to 'false'.
 #   network_security_group_id (string): Specifies the identifier for the network security group.
 #
+# dns_settings block structure:
+#   dns_servers (string)        : (REQUIRED) Specifies an array of DNS servers.
+#
 # ip_configuration block structure                     :
 #   name (string)                                        : (REQUIRED) Specifies name of the IP configuration.
 #   subnet_id (string)                                   : (REQUIRED) Specifies the identifier of the subnet.
@@ -38,9 +41,6 @@ variable "network_profile" {
 #   primary (string)                                     : (REQUIRED) Specifies if this ip_configuration is the primary one.
 #   application_security_group_ids (string)              : Specifies up to '20' application security group IDs.
 #   public_ip_address_configuration (string)             : Describes a virtual machines scale set IP Configuration's PublicIPAddress configuration. The 'public_ip_address_configuration' block is documented below.
-#
-# dns_settings block structure:
-#   dns_servers (string)        : (REQUIRED) Specifies an array of DNS servers.
 
 
 variable "os_profile" {
@@ -140,7 +140,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the identity type to be assigned to the scale set. Allowable values are 'SystemAssigned' and 'UserAssigned'. For the 'SystemAssigned' identity the scale set's Service Principal ID (SPN) can be retrieved after the scale set has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'.
-#   identity_ids (string)   : Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'.
+#   identity_ids (list)     : Specifies a list of user managed identity ids to be assigned to the VMSS. Required if 'type' is 'UserAssigned'.
 
 
 variable "automatic_os_upgrade" {

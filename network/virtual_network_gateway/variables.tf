@@ -2,7 +2,7 @@
 
 variable "ip_configuration" {
   description = "(REQUIRED) One or more (up to 3) 'ip_configuration' blocks documented below. An active-standby gateway requires exactly one 'ip_configuration' block, an active-active gateway requires exactly two 'ip_configuration' blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three 'ip_configuration' blocks."
-  type        = list(any)
+  type        = string
 
 }
 variable "location" {

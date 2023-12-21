@@ -79,7 +79,7 @@ variable "service_fabric_cluster" {
 #   management_endpoints (list)              : (REQUIRED) A list of cluster management endpoints.
 #   max_partition_resolution_retries (number): (REQUIRED) The maximum number of retries when attempting resolve the partition.
 #   server_certificate_thumbprints (list)    : A list of thumbprints of the server certificates of the Service Fabric cluster.
-#   server_x509_name (list)                  : One or more 'server_x509_name' blocks.
+#   server_x509_name (string)                : One or more 'server_x509_name' blocks.
 
 
 variable "title" {

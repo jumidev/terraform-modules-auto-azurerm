@@ -30,8 +30,8 @@ variable "minimum_tls_version" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags which should be assigned to the Redis Enterprise Cluster."

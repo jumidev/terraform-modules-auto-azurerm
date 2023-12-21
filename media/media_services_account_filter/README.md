@@ -59,7 +59,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `condition` | list | Yes | - | One or more 'selection' blocks. |
+| `condition` | string | Yes | - | One or more 'selection' blocks. |
 
 
 

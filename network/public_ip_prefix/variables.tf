@@ -40,8 +40,8 @@ variable "tags" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 # REQUIRED VARIABLES
 

@@ -13,12 +13,13 @@ source = {
 inputs = {
    api_name = "The Name of the API Management API within the API Management Service..."   
    # api_management_name → set in component_inputs
-   product_id = "The ID of the API Management Product within the API Management Service..."   
+   # product_id → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
 component_inputs = {
    api_management_name = "path/to/api_management_component:name"   
+   product_id = "path/to/api_management_component:id"   
 }
 
 tfstate_store = {

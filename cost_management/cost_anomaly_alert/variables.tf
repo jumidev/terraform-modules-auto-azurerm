@@ -12,7 +12,7 @@ variable "display_name" {
 }
 variable "email_addresses" {
   description = "(REQUIRED) Specifies a list of email addresses which the Anomaly Alerts are send to."
-  type        = string
+  type        = list(any)
 
 }
 variable "email_subject" {

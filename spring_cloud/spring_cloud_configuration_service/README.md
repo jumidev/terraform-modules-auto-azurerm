@@ -54,7 +54,7 @@ tfstate_store = {
 | `host_key_algorithm` | string | No | - | Specifies the SSH key algorithm of git repository. |
 | `password` | string | No | - | Specifies the password of git repository basic auth. |
 | `private_key` | string | No | - | Specifies the SSH private key of git repository. |
-| `search_paths` | string | No | - | Specifies a list of searching path of the repository |
+| `search_paths` | list | No | - | Specifies a list of searching path of the repository |
 | `strict_host_key_checking` | string | No | - | Specifies whether enable the strict host key checking. |
 | `username` | string | No | - | Specifies the username of git repository basic auth. |
 

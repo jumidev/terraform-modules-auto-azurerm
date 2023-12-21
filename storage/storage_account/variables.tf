@@ -118,7 +118,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account.
 
 
 variable "blob_properties" {
@@ -138,8 +138,12 @@ variable "blob_properties" {
 #   last_access_time_enabled (bool)          : Is the last access time based tracking enabled? Default to 'false'.
 #   container_delete_retention_policy (block): A 'container_delete_retention_policy' block.
 #
-# container_delete_retention_policy block structure:
-#   days (string)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
+# cors_rule block structure  :
+#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
+#   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
+#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
+#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
 #
 # restore_policy block structure:
 #   days (string)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
@@ -147,12 +151,8 @@ variable "blob_properties" {
 # delete_retention_policy block structure:
 #   days (string)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
 #
-# cors_rule block structure  :
-#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
-#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
-#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
-#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
+# container_delete_retention_policy block structure:
+#   days (string)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
 
 
 variable "queue_properties" {
@@ -167,8 +167,8 @@ variable "queue_properties" {
 #   minute_metrics (block)          : A 'minute_metrics' block.
 #   hour_metrics (block)            : A 'hour_metrics' block.
 #
-# minute_metrics block structure:
-#   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
+# hour_metrics block structure  :
+#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
 #   version (string)              : (REQUIRED) The version of storage analytics to configure.
 #   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
 #   retention_policy_days (string): Specifies the number of days that logs will be retained.
@@ -180,18 +180,18 @@ variable "queue_properties" {
 #   write (string)                : (REQUIRED) Indicates whether all write requests should be logged.
 #   retention_policy_days (string): Specifies the number of days that logs will be retained.
 #
-# hour_metrics block structure  :
-#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
-#   version (string)              : (REQUIRED) The version of storage analytics to configure.
-#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (string): Specifies the number of days that logs will be retained.
-#
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
 #   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
+#
+# minute_metrics block structure:
+#   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
+#   version (string)              : (REQUIRED) The version of storage analytics to configure.
+#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
+#   retention_policy_days (string): Specifies the number of days that logs will be retained.
 
 
 variable "static_website" {
@@ -216,8 +216,12 @@ variable "share_properties" {
 #   retention_policy (block)        : A 'retention_policy' block.
 #   smb (block)                     : A 'smb' block.
 #
-# retention_policy block structure:
-#   days (string)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
+# smb block structure                     :
+#   versions (string)                       : A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'.
+#   authentication_types (string)           : A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'.
+#   kerberos_ticket_encryption_type (string): A set of Kerberos ticket encryption. Possible values are 'RC4-HMAC', and 'AES-256'.
+#   channel_encryption_type (string)        : A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'.
+#   multichannel_enabled (bool)             : Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts.
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
@@ -226,12 +230,8 @@ variable "share_properties" {
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
 #
-# smb block structure                     :
-#   versions (string)                       : A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'.
-#   authentication_types (string)           : A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'.
-#   kerberos_ticket_encryption_type (string): A set of Kerberos ticket encryption. Possible values are 'RC4-HMAC', and 'AES-256'.
-#   channel_encryption_type (string)        : A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'.
-#   multichannel_enabled (bool)             : Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts.
+# retention_policy block structure:
+#   days (string)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
 
 
 variable "network_rules" {

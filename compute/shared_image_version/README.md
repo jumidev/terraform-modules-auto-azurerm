@@ -41,7 +41,7 @@ tfstate_store = {
 | **image_name** | string |  The name of the Shared Image within the Shared Image Gallery in which this Version should be created. Changing this forces a new resource to be created. | 
 | **location** | string |  The Azure Region in which the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group in which the Shared Image Gallery exists. Changing this forces a new resource to be created. | 
-| **target_region** | list |  One or more `target_region` blocks. | 
+| **target_region** | string |  One or more `target_region` blocks. | 
 
 ## Optional Variables
 

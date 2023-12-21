@@ -88,7 +88,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'.
-#   identity_ids (string)   : (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
+#   identity_ids (list)     : (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port.
 
 
 variable "tags" {

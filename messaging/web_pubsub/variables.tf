@@ -59,7 +59,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Web PubSub. Possible values are 'SystemAssigned', 'UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Web PubSub.
 
 
 variable "local_auth_enabled" {

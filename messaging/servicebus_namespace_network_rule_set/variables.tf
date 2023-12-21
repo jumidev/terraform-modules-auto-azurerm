@@ -25,8 +25,8 @@ variable "trusted_services_allowed" {
 }
 variable "ip_rules" {
   description = "One or more IP Addresses, or CIDR Blocks which should be able to access the ServiceBus Namespace."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "network_rules" {
   description = "One or more 'network_rules' blocks."

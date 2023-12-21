@@ -56,7 +56,7 @@ variable "network_interface" {
 #
 # network_interface block structure   :
 #   name (string)                       : (REQUIRED) The Name which should be used for this Network Interface. Changing this forces a new resource to be created.
-#   ip_configuration (list)             : (REQUIRED) One or more 'ip_configuration' blocks.
+#   ip_configuration (string)           : (REQUIRED) One or more 'ip_configuration' blocks.
 #   dns_servers (list)                  : A list of IP Addresses of DNS Servers which should be assigned to the Network Interface.
 #   enable_accelerated_networking (bool): Does this Network Interface support Accelerated Networking? Possible values are 'true' and 'false'. Defaults to 'false'.
 #   enable_ip_forwarding (bool)         : Does this Network Interface support IP Forwarding? Possible values are 'true' and 'false'. Defaults to 'false'.
@@ -75,6 +75,10 @@ variable "os_profile" {
 #   windows_configuration (block): A 'windows_configuration' block.
 #   linux_configuration (block)  : A 'linux_configuration' block.
 #
+# certificate block structure:
+#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
+#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
+#
 # windows_configuration block structure:
 #   admin_username (string)              : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 #   admin_password (string)              : (REQUIRED) The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -88,22 +92,6 @@ variable "os_profile" {
 #   timezone (string)                    : Specifies the time zone of the virtual machine, the possible values are defined [here](https://jackstromberg.com/2017/01/list-of-time-zones-consumed-by-azure/).
 #   winrm_listener (block)               : One or more 'winrm_listener' blocks. Changing this forces a new resource to be created.
 #
-# winrm_listener block structure:
-#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
-#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
-#
-# certificate block structure:
-#   store (string)             : (REQUIRED) The certificate store on the Virtual Machine where the certificate should be added.
-#   url (string)               : (REQUIRED) The Secret URL of a Key Vault Certificate.
-#
-# secret block structure:
-#   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
-#   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
-#
-# admin_ssh_key block structure:
-#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
-#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
-#
 # linux_configuration block structure   :
 #   admin_username (string)               : (REQUIRED) The username of the local administrator on each Orchestrated Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
 #   admin_password (string)               : The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -114,6 +102,18 @@ variable "os_profile" {
 #   patch_mode (string)                   : Specifies the mode of in-guest patching of this Windows Virtual Machine. Possible values are 'ImageDefault' or 'AutomaticByPlatform'. Defaults to 'ImageDefault'. For more information on patch modes please see the [product documentation](https://docs.microsoft.com/azure/virtual-machines/automatic-vm-guest-patching#patch-orchestration-modes).
 #   provision_vm_agent (bool)             : Should the Azure VM Agent be provisioned on each Virtual Machine in the Scale Set? Defaults to 'true'. Changing this value forces a new resource to be created.
 #   secret (block)                        : One or more 'secret' blocks.
+#
+# winrm_listener block structure:
+#   protocol (string)             : (REQUIRED) Specifies the protocol of listener. Possible values are 'Http' or 'Https'. Changing this forces a new resource to be created.
+#   certificate_url (string)      : The Secret URL of a Key Vault Certificate, which must be specified when protocol is set to 'Https'. Changing this forces a new resource to be created.
+#
+# admin_ssh_key block structure:
+#   public_key (string)          : (REQUIRED) The Public Key which should be used for authentication, which needs to be at least 2048-bit and in ssh-rsa format.
+#   username (string)            : (REQUIRED) The Username for which this Public SSH Key should be configured.
+#
+# secret block structure:
+#   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
+#   certificate (block)   : (REQUIRED) One or more 'certificate' blocks.
 
 
 variable "os_disk" {
@@ -226,7 +226,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) The type of Managed Identity that should be configured on this Orchestrated Windows Virtual Machine Scale Set. Only possible value is 'UserAssigned'.
-#   identity_ids (string)   : (REQUIRED) Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
+#   identity_ids (list)     : (REQUIRED) Specifies a list of User Managed Identity IDs to be assigned to this Orchestrated Windows Virtual Machine Scale Set.
 
 
 variable "license_type" {
@@ -307,8 +307,8 @@ variable "zone_balance" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Orchestrated Virtual Machine should be located. Changing this forces a new Orchestrated Virtual Machine to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags which should be assigned to this Orchestrated Virtual Machine Scale Set."

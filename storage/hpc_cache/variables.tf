@@ -45,7 +45,7 @@ variable "default_access_policy" {
 }
 #
 # default_access_policy block structure:
-#   access_rule (list)                   : (REQUIRED) One or more 'access_rule' blocks (up to three).
+#   access_rule (string)                 : (REQUIRED) One or more 'access_rule' blocks (up to three).
 
 
 variable "ntp_server" {
@@ -117,7 +117,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created.
 
 
 variable "key_vault_key_id" {

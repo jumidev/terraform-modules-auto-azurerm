@@ -17,12 +17,12 @@ variable "virtual_network_gateway_id" {
 }
 variable "external_mapping" {
   description = "(REQUIRED) One or more 'external_mapping' blocks."
-  type        = list(any)
+  type        = string
 
 }
 variable "internal_mapping" {
   description = "(REQUIRED) One or more 'internal_mapping' blocks."
-  type        = list(any)
+  type        = string
 
 }
 

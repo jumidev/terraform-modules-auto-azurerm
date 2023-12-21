@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **addon_json** | string |  -  |  -  |  A JSON object that contains the addon configurations of the Spring Cloud Container Deployment. | 
-| **application_performance_monitoring_ids** | string |  -  |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
+| **application_performance_monitoring_ids** | list |  -  |  -  |  Specifies a list of Spring Cloud Application Performance Monitoring IDs. | 
 | **arguments** | string |  -  |  `CMD`  |  Specifies the arguments to the entrypoint. The docker image's `CMD` is used if not specified. | 
 | **commands** | string |  -  |  `ENTRYPOINT`  |  Specifies the entrypoint array. It will not be executed within a shell. The docker image's `ENTRYPOINT` is used if not specified. | 
 | **environment_variables** | string |  -  |  -  |  Specifies the environment variables of the Spring Cloud Deployment as a map of key-value pairs. | 

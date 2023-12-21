@@ -12,12 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Data Share Data Lake Gen2 Dataset..."   
-   share_id = "The resource ID of the Data Share where this Data Share Data Lake Gen2 Dataset s..."   
+   # share_id → set in component_inputs
    file_system_name = "The name of the data lake file system to be shared with the receiver..."   
    # storage_account_id → set in component_inputs
 }
 
 component_inputs = {
+   share_id = "path/to/data_share_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

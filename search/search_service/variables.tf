@@ -25,8 +25,8 @@ variable "sku" {
 
 variable "allowed_ips" {
   description = "Specifies a list of inbound IPv4 or CIDRs that are allowed to access the Search Service. If the incoming IP request is from an IP address which is not included in the 'allowed_ips' it will be blocked by the Search Services firewall."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "authentication_failure_mode" {
   description = "Specifies the response that the Search Service should return for requests that fail authentication. Possible values include 'http401WithBearerChallenge' or 'http403'."

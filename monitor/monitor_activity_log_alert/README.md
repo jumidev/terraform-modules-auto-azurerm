@@ -34,7 +34,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  The name of the activity log alert. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group in which to create the activity log alert instance. Changing this forces a new resource to be created. | 
-| **scopes** | string |  The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account). | 
+| **scopes** | list |  The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account). | 
 | **criteria** | [block](#criteria-block-structure) |  A `criteria` block. | 
 
 ## Optional Variables
@@ -45,13 +45,6 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Should this Activity Log Alert be enabled? Defaults to `true`. | 
 | **description** | string |  -  |  The description of this activity log alert. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 ### `criteria` block structure
 
@@ -79,6 +72,13 @@ tfstate_store = {
 | `recommendation_impact` | string | No | - | The recommendation impact of the event. Possible values are 'High', 'Medium' and 'Low'. It is only allowed when 'category' is 'Recommendation'. |
 | `resource_health` | string | No | - | A block to define fine grain resource health settings. |
 | `service_health` | string | No | - | A block to define fine grain service health settings. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 
 

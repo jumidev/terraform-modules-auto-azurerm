@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **minimum_tls_version** | string |  `1.2`  |  `1.0`, `1.1`, `1.2`  |  The minimum TLS version. Possible values are `1.0`, `1.1` and `1.2`. Defaults to `1.2`. Changing this forces a new Redis Enterprise Cluster to be created. | 
-| **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created. | 
+| **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Enterprise Cluster should be located. Changing this forces a new Redis Enterprise Cluster to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Redis Enterprise Cluster. | 
 
 

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Manager Admin Rule Coll..."   
-   security_admin_configuration_id = "Specifies the ID of the Network Manager Security Admin Configuration..."   
+   # security_admin_configuration_id → set in component_inputs
    network_group_ids = "A list of Network Group ID which this Network Manager Admin Rule Collection appl..."   
+}
+
+component_inputs = {
+   security_admin_configuration_id = "path/to/network_manager_component:id"   
 }
 
 tfstate_store = {

@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   cluster_id = "The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise ..."   
+   # cluster_id → set in component_inputs
+}
+
+component_inputs = {
+   cluster_id = "path/to/redis_enterprise_cluster_component:id"   
 }
 
 tfstate_store = {

@@ -30,16 +30,6 @@ variable "access_control" {
 #   trigger (block)               : A 'trigger' block.
 #   workflow_management (block)   : A 'workflow_management' block.
 #
-# content block structure               :
-#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
-#
-# workflow_management block structure   :
-#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
-#
-# open_authentication_policy block structure:
-#   name (string)                             : (REQUIRED) The OAuth policy name for the Logic App Workflow.
-#   claim (block)                             : (REQUIRED) A 'claim' block.
-#
 # action block structure                :
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #
@@ -47,9 +37,19 @@ variable "access_control" {
 #   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
 #   open_authentication_policy (block)    : A 'open_authentication_policy' block.
 #
+# workflow_management block structure   :
+#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
+#
 # claim block structure:
 #   name (string)        : (REQUIRED) The name of the OAuth policy claim for the Logic App Workflow.
 #   value (string)       : (REQUIRED) The value of the OAuth policy claim for the Logic App Workflow.
+#
+# content block structure               :
+#   allowed_caller_ip_address_range (list): (REQUIRED) A list of the allowed caller IP address ranges.
+#
+# open_authentication_policy block structure:
+#   name (string)                             : (REQUIRED) The OAuth policy name for the Logic App Workflow.
+#   claim (block)                             : (REQUIRED) A 'claim' block.
 
 
 variable "identity" {
@@ -60,7 +60,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Logic App Workflow. Possible values are 'SystemAssigned', 'UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Workflow.
 
 
 variable "integration_service_environment_id" {

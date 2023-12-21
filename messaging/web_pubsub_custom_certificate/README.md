@@ -13,11 +13,12 @@ source = {
 inputs = {
    name = "The name of the Web PubSub Custom Certificate"   
    # web_pubsub_id → set in component_inputs
-   custom_certificate_id = "The certificate ID of the Web PubSub Custom Certificate..."   
+   # custom_certificate_id → set in component_inputs
 }
 
 component_inputs = {
    web_pubsub_id = "path/to/web_pubsub_component:id"   
+   custom_certificate_id = "path/to/web_pubsub_component:id"   
 }
 
 tfstate_store = {

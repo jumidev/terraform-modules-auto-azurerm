@@ -28,7 +28,7 @@ variable "vpn_link" {
 #   bandwidth_mbps (number)                     : The expected connection bandwidth in MBPS. Defaults to '10'.
 #   bgp_enabled (bool)                          : Should the BGP be enabled? Defaults to 'false'. Changing this forces a new VPN Gateway Connection to be created.
 #   connection_mode (string)                    : The connection mode of this VPN Link. Possible values are 'Default', 'InitiatorOnly' and 'ResponderOnly'. Defaults to 'Default'.
-#   ipsec_policy (list)                         : One or more 'ipsec_policy' blocks.
+#   ipsec_policy (string)                       : One or more 'ipsec_policy' blocks.
 #   protocol (string)                           : The protocol used for this VPN Link Connection. Possible values are 'IKEv1' and 'IKEv2'. Defaults to 'IKEv2'.
 #   ratelimit_enabled (bool)                    : Should the rate limit be enabled? Defaults to 'false'.
 #   route_weight (string)                       : Routing weight for this VPN Link Connection. Defaults to '0'.

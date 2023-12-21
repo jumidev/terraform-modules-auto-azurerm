@@ -36,7 +36,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Event Grid System Topic. Possible values are 'SystemAssigned', 'UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Event Grid System Topic.
 #   tags (map)              : A mapping of tags which should be assigned to the Event Grid System Topic.
 
 

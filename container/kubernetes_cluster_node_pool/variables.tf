@@ -268,8 +268,8 @@ variable "workload_runtime" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "max_count" {
   description = "The maximum number of nodes which should exist within this Node Pool. Valid values are between '0' and '1000' and must be greater than or equal to 'min_count'."

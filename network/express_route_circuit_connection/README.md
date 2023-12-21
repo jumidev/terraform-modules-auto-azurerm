@@ -13,12 +13,13 @@ source = {
 inputs = {
    name = "The name which should be used for this Express Route Circuit Connection..."   
    # peering_id → set in component_inputs
-   peer_peering_id = "The ID of the peered Express Route Circuit Private Peering..."   
+   # peer_peering_id → set in component_inputs
    address_prefix_ipv4 = "The IPv4 address space from which to allocate customer address for global reach..."   
 }
 
 component_inputs = {
    peering_id = "path/to/express_route_circuit_peering_component:id"   
+   peer_peering_id = "path/to/express_route_circuit_component:id"   
 }
 
 tfstate_store = {

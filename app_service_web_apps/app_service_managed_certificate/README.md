@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   custom_hostname_binding_id = "The ID of the App Service Custom Hostname Binding for the Certificate..."   
+   # custom_hostname_binding_id → set in component_inputs
+}
+
+component_inputs = {
+   custom_hostname_binding_id = "path/to/app_service_component:id"   
 }
 
 tfstate_store = {

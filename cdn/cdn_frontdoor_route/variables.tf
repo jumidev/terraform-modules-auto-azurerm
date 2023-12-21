@@ -17,7 +17,7 @@ variable "cdn_frontdoor_origin_group_id" {
 }
 variable "cdn_frontdoor_origin_ids" {
   description = "(REQUIRED) One or more Front Door Origin resource IDs that this Front Door Route will link to."
-  type        = list(any)
+  type        = string
 
 }
 variable "patterns_to_match" {

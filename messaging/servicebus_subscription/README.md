@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name of the ServiceBus Subscription resource..."   
-   topic_id = "The ID of the ServiceBus Topic to create this Subscription in..."   
+   # topic_id → set in component_inputs
    max_delivery_count = "The maximum number of deliveries"   
+}
+
+component_inputs = {
+   topic_id = "path/to/servicebus_topic_component:id"   
 }
 
 tfstate_store = {

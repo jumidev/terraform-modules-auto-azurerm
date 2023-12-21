@@ -49,7 +49,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Specifies the name of the IP Configuration. |
-| `ip_configuration` | list | Yes | - | One or more 'ip_configuration' blocks. |
+| `ip_configuration` | string | Yes | - | One or more 'ip_configuration' blocks. |
 
 
 

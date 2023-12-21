@@ -91,16 +91,16 @@ variable "draft" {
 #   version (string)                    : Specifies the version of the content
 #   hash (block)                        : A 'hash' block.
 #
+# hash block structure:
+#   algorithm (string)  : (REQUIRED) Specifies the hash algorithm used to hash the content.
+#   value (string)      : (REQUIRED) Specifies the expected hash value of the content.
+#
 # parameters block structure:
 #   key (string)              : (REQUIRED) The name of the parameter.
 #   type (string)             : (REQUIRED) Specifies the type of this parameter.
 #   mandatory (string)        : Whether this parameter is mandatory.
 #   position (string)         : Specifies the position of the parameter.
 #   default_value (string)    : Specifies the default value of the parameter.
-#
-# hash block structure:
-#   algorithm (string)  : (REQUIRED) Specifies the hash algorithm used to hash the content.
-#   value (string)      : (REQUIRED) Specifies the expected hash value of the content.
 
 
 variable "automation_account_resource_group_name" {

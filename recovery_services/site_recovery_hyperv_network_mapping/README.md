@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "The name of the HyperV network mapping"   
-   recovery_vault_id = "The ID of the Recovery Services Vault where the HyperV network mapping should be..."   
+   # recovery_vault_id → set in component_inputs
    source_system_center_virtual_machine_manager_name = "Specifies the name of source System Center Virtual Machine Manager where the sou..."   
    source_network_name = "The Name of the primary network"   
    target_network_id = "The id of the recovery network"   
+}
+
+component_inputs = {
+   recovery_vault_id = "path/to/recovery_services_vault_component:id"   
 }
 
 tfstate_store = {

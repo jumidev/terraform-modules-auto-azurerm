@@ -40,7 +40,7 @@ variable "custom_rule" {
 #   enabled (bool)                         : Is the rule is enabled or disabled? Defaults to 'true'.
 #   priority (string)                      : The priority of the rule. Rules with a lower value will be evaluated before rules with a higher value. Defaults to '1'.
 #   type (string)                          : (REQUIRED) The type of rule. Possible values are 'MatchRule' or 'RateLimitRule'.
-#   match_condition (list)                 : One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks.
+#   match_condition (string)               : One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks.
 #   rate_limit_duration_in_minutes (number): The rate limit duration in minutes. Defaults to '1'.
 #   rate_limit_threshold (string)          : The rate limit threshold. Defaults to '10'.
 
@@ -67,11 +67,6 @@ variable "managed_rule" {
 #   exclusion (block)           : One or more 'exclusion' blocks.
 #   override (block)            : One or more 'override' blocks.
 #
-# exclusion block structure:
-#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.
-#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
-#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
-#
 # override block structure:
 #   rule_group_name (string): (REQUIRED) The managed rule group to override.
 #   exclusion (block)       : One or more 'exclusion' blocks.
@@ -82,6 +77,11 @@ variable "managed_rule" {
 #   action (string)     : (REQUIRED) The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
 #   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
 #   exclusion (block)   : One or more 'exclusion' blocks.
+#
+# exclusion block structure:
+#   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.
+#   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
+#   selector (string)        : (REQUIRED) Selector for the value in the 'match_variable' attribute this exclusion applies to.
 
 
 variable "tags" {

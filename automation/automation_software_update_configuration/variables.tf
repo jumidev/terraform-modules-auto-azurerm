@@ -43,8 +43,8 @@ variable "linux" {
 #
 # linux block structure            :
 #   classifications_included (string): Specifies the list of update classifications included in the Software Update Configuration. Possible values are 'Unclassified', 'Critical', 'Security' and 'Other'.
-#   excluded_packages (string)       : Specifies a list of packages to excluded from the Software Update Configuration.
-#   included_packages (string)       : Specifies a list of packages to included from the Software Update Configuration.
+#   excluded_packages (list)         : Specifies a list of packages to excluded from the Software Update Configuration.
+#   included_packages (list)         : Specifies a list of packages to included from the Software Update Configuration.
 #   reboot (string)                  : Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'.
 
 
@@ -54,22 +54,22 @@ variable "windows" {
   default     = null
 }
 #
-# windows block structure                 :
-#   classifications_included (string)       : Specifies the list of update classification. Possible values are 'Unclassified', 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'.
-#   excluded_knowledge_base_numbers (string): Specifies a list of knowledge base numbers excluded.
-#   included_knowledge_base_numbers (string): Specifies a list of knowledge base numbers included.
-#   reboot (string)                         : Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'.
+# windows block structure               :
+#   classifications_included (string)     : Specifies the list of update classification. Possible values are 'Unclassified', 'Critical', 'Security', 'UpdateRollup', 'FeaturePack', 'ServicePack', 'Definition', 'Tools' and 'Updates'.
+#   excluded_knowledge_base_numbers (list): Specifies a list of knowledge base numbers excluded.
+#   included_knowledge_base_numbers (list): Specifies a list of knowledge base numbers included.
+#   reboot (string)                       : Specifies the reboot settings after software update, possible values are 'IfRequired', 'Never', 'RebootOnly' and 'Always'. Defaults to 'IfRequired'.
 
 
 variable "virtual_machine_ids" {
   description = "Specifies a list of Azure Resource IDs of azure virtual machines."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "non_azure_computer_names" {
   description = "Specifies a list of names of non-Azure machines for the software update configuration."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "target" {
   description = "A 'target' blocks."
@@ -77,9 +77,9 @@ variable "target" {
   default     = null
 }
 #
-# target block structure:
-#   azure_query (list)    : One or more 'azure_query' blocks.
-#   non_azure_query (list): One or more 'non_azure_query' blocks.
+# target block structure  :
+#   azure_query (string)    : One or more 'azure_query' blocks.
+#   non_azure_query (string): One or more 'non_azure_query' blocks.
 
 
 variable "post_task" {

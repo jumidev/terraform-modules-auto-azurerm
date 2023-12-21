@@ -40,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **authorization** | list |  -  |  -  |  One or more `authorization` block defined below. | 
+| **authorization** | string |  -  |  -  |  One or more `authorization` block defined below. | 
 | **create_ui_definition** | string |  -  |  `createUiDefinition`, `Microsoft.Solutions/applications`  |  Specifies the `createUiDefinition` JSON for the backing template with `Microsoft.Solutions/applications` resource. | 
 | **description** | string |  -  |  -  |  Specifies the managed application definition description. | 
 | **package_enabled** | bool |  `True`  |  -  |  Is the package enabled? Defaults to `true`. | 

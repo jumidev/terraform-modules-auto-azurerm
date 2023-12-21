@@ -12,12 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Storage Mover Agent..."   
-   arc_virtual_machine_id = "Specifies the fully qualified ID of the Hybrid Compute resource for the Storage ..."   
+   # arc_virtual_machine_id → set in component_inputs
    arc_virtual_machine_uuid = "Specifies the Hybrid Compute resource's unique SMBIOS ID..."   
    # storage_mover_id → set in component_inputs
 }
 
 component_inputs = {
+   arc_virtual_machine_id = "path/to/storage_mover_agent_component:id"   
    storage_mover_id = "path/to/storage_mover_component:id"   
 }
 

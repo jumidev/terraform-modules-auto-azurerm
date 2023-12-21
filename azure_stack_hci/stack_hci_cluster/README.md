@@ -14,7 +14,11 @@ inputs = {
    name = "The name which should be used for this Azure Stack HCI Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   client_id = "The Client ID of the Azure Active Directory which is used by the Azure Stack HCI..."   
+   # client_id → set in component_inputs
+}
+
+component_inputs = {
+   client_id = "path/to/stack_hci_cluster_component:id"   
 }
 
 tfstate_store = {

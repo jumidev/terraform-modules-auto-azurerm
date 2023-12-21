@@ -15,8 +15,12 @@ inputs = {
    resource_group_name = "${resource_group}"   
    audience = "Specifies the audience for this Federated Identity Credential..."   
    issuer = "Specifies the issuer of this Federated Identity Credential..."   
-   parent_id = "Specifies parent ID of User Assigned Identity for this Federated Identity Creden..."   
+   # parent_id → set in component_inputs
    subject = "Specifies the subject for this Federated Identity Credential..."   
+}
+
+component_inputs = {
+   parent_id = "path/to/federated_identity_credential_component:id"   
 }
 
 tfstate_store = {

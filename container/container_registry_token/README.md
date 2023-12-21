@@ -14,11 +14,12 @@ inputs = {
    name = "Specifies the name of the token"   
    resource_group_name = "${resource_group}"   
    # container_registry_name → set in component_inputs
-   scope_map_id = "The ID of the Container Registry Scope Map associated with the token..."   
+   # scope_map_id → set in component_inputs
 }
 
 component_inputs = {
    container_registry_name = "path/to/container_registry_component:name"   
+   scope_map_id = "path/to/container_registry_component:id"   
 }
 
 tfstate_store = {

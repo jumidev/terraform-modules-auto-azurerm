@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   source_storage_account_id = "The ID of the source storage account"   
-   destination_storage_account_id = "The ID of the destination storage account"   
+   # source_storage_account_id → set in component_inputs
+   # destination_storage_account_id → set in component_inputs
    rules = {
       this_rules = {
          source_container_name = "..."         
@@ -21,6 +21,11 @@ inputs = {
       
    }
    
+}
+
+component_inputs = {
+   source_storage_account_id = "path/to/storage_account_component:id"   
+   destination_storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {
@@ -46,7 +51,7 @@ tfstate_store = {
 | `source_container_name` | string | Yes | - | The source storage container name. Changing this forces a new Storage Object Replication to be created. |
 | `destination_container_name` | string | Yes | - | The destination storage container name. Changing this forces a new Storage Object Replication to be created. |
 | `copy_blobs_created_after` | string | No | OnlyNewObjects | The time after which the Block Blobs created will be copies to the destination. Possible values are 'OnlyNewObjects', 'Everything' and time in RFC3339 format: '2006-01-02T15:04:00Z'. Defaults to 'OnlyNewObjects'. |
-| `filter_out_blobs_with_prefix` | string | No | - | Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated. |
+| `filter_out_blobs_with_prefix` | list | No | - | Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated. |
 
 
 

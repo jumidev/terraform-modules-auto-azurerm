@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   configuration_store_id = "Specifies the id of the App Configuration"   
+   # configuration_store_id → set in component_inputs
    name = "The name of the App Configuration Feature"   
+}
+
+component_inputs = {
+   configuration_store_id = "path/to/app_configuration_component:id"   
 }
 
 tfstate_store = {
@@ -44,19 +48,19 @@ tfstate_store = {
 | **targeting_filter** | [block](#targeting_filter-block-structure) |  A `targeting_filter` block. | 
 | **timewindow_filter** | [block](#timewindow_filter-block-structure) |  A `timewindow_filter` block. | 
 
-### `timewindow_filter` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `start` | string | No | - | The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
-| `end` | string | No | - | The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
-
 ### `targeting_filter` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name of the group. |
 | `rollout_percentage` | string | Yes | - | Rollout percentage of the group. |
+
+### `timewindow_filter` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `start` | string | No | - | The earliest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
+| `end` | string | No | - | The latest timestamp the feature is enabled. The timestamp must be in RFC3339 format. |
 
 
 

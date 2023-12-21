@@ -43,7 +43,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **link** | [block](#link-block-structure) |  One or more `link` blocks. | 
-| **address_cidrs** | string |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
+| **address_cidrs** | list |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
 | **device_model** | string |  The model of the VPN device. | 
 | **device_vendor** | string |  The name of the VPN device vendor. | 
 | **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
@@ -64,12 +64,6 @@ tfstate_store = {
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
 
-### `o365_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
-
 ### `link` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +74,12 @@ tfstate_store = {
 | `ip_address` | string | No | - | The IP address of this VPN Site Link. |
 | `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
 | `speed_in_mbps` | number | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
+
+### `o365_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
 
 
 

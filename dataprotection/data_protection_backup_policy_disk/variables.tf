@@ -12,7 +12,7 @@ variable "vault_id" {
 }
 variable "backup_repeating_time_intervals" {
   description = "(REQUIRED) Specifies a list of repeating time interval. It should follow 'ISO 8601' repeating time interval . Changing this forces a new Backup Policy Disk to be created."
-  type        = string
+  type        = list(any)
 
 }
 variable "default_retention_duration" {

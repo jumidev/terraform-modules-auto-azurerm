@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Recovery Service..."   
-   recovery_vault_id = "The ID of the Recovery Services Vault where the Site created..."   
+   # recovery_vault_id → set in component_inputs
+}
+
+component_inputs = {
+   recovery_vault_id = "path/to/recovery_services_vault_component:id"   
 }
 
 tfstate_store = {

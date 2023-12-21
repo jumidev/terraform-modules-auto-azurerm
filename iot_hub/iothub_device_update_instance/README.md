@@ -12,11 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this IoT Hub Device Update Instance..."   
-   device_update_account_id = "Specifies the ID of the IoT Hub Device Update Account where the IoT Hub Device U..."   
+   # device_update_account_id → set in component_inputs
    # iothub_id → set in component_inputs
 }
 
 component_inputs = {
+   device_update_account_id = "path/to/iothub_device_update_account_component:id"   
    iothub_id = "path/to/iothub_component:id"   
 }
 

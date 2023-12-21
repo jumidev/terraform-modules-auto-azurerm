@@ -11,8 +11,12 @@ source = {
 }
 
 inputs = {
-   configuration_store_id = "Specifies the id of the App Configuration"   
+   # configuration_store_id → set in component_inputs
    key = "The name of the App Configuration Key to create"   
+}
+
+component_inputs = {
+   configuration_store_id = "path/to/app_configuration_component:id"   
 }
 
 tfstate_store = {

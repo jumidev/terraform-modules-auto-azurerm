@@ -58,6 +58,13 @@ tfstate_store = {
 | **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
 
+### `spark_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The contents of a spark configuration. |
+| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
+
 ### `library_requirement` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +84,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `delay_in_minutes` | number | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
-
-### `spark_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The contents of a spark configuration. |
-| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
 
 
 

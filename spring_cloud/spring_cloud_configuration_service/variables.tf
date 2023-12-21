@@ -34,7 +34,7 @@ variable "repository" {
 #   host_key_algorithm (string)      : Specifies the SSH key algorithm of git repository.
 #   password (string)                : Specifies the password of git repository basic auth.
 #   private_key (string)             : Specifies the SSH private key of git repository.
-#   search_paths (string)            : Specifies a list of searching path of the repository
+#   search_paths (list)              : Specifies a list of searching path of the repository
 #   strict_host_key_checking (string): Specifies whether enable the strict host key checking.
 #   username (string)                : Specifies the username of git repository basic auth.
 

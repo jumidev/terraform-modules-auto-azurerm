@@ -48,16 +48,8 @@ tfstate_store = {
 | **management_ip_configuration** | [block](#management_ip_configuration-block-structure) |  -  |  -  |  A `management_ip_configuration` block, which allows force-tunnelling of traffic to be performed by the firewall. Adding or removing this block or changing the `subnet_id` in an existing block forces a new resource to be created. Changing this forces a new resource to be created. | 
 | **threat_intel_mode** | string |  `Alert`  |  `Off`, `Alert`, `Deny`  |  The operation mode for threat intelligence-based filtering. Possible values are: `Off`, `Alert` and `Deny`. Defaults to `Alert`. | 
 | **virtual_hub** | [block](#virtual_hub-block-structure) |  -  |  -  |  A `virtual_hub` block. | 
-| **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. | 
+| **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `ip_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
-| `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
-| `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. |
 
 ### `virtual_hub` block structure
 
@@ -73,6 +65,14 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the IP Configuration. |
 | `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
 | `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. |
+
+### `ip_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
+| `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. |
+| `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. |
 
 
 

@@ -12,7 +12,7 @@ variable "resource_group_name" {
 }
 variable "scopes" {
   description = "(REQUIRED) The Scope at which the Activity Log should be applied. A list of strings which could be a resource group , or a subscription, or a resource ID (such as a Storage Account)."
-  type        = string
+  type        = list(any)
 
 }
 variable "criteria" {

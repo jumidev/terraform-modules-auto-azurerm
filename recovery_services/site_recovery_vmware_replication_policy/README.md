@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Classic Replication Policy..."   
-   recovery_vault_id = "ID of the Recovery Services Vault"   
+   # recovery_vault_id → set in component_inputs
    recovery_point_retention_in_minutes = "Specifies the period up to which the recovery points will be retained..."   
    application_consistent_snapshot_frequency_in_minutes = "Specifies the frequency at which to create application consistent recovery point..."   
+}
+
+component_inputs = {
+   recovery_vault_id = "path/to/recovery_services_vault_component:id"   
 }
 
 tfstate_store = {

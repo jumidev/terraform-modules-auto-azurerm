@@ -49,7 +49,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **compression** | string |  `None`  |  -  |  Specifies compression type for the connection. Allowed values: `GZip` and `None`. Defaults to `None`. Changing this forces a new resource to be created. | 
-| **event_system_properties** | string |  -  |  -  |  Specifies a list of system properties for the Event Hub. | 
+| **event_system_properties** | list |  -  |  -  |  Specifies a list of system properties for the Event Hub. | 
 | **table_name** | string |  -  |  -  |  Specifies the target table name used for the message ingestion. Table must exist before resource is created. | 
 | **identity_id** | string |  -  |  -  |  The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub. | 
 | **mapping_rule_name** | string |  -  |  -  |  Specifies the mapping rule used for the message ingestion. Mapping rule must exist before resource is created. | 

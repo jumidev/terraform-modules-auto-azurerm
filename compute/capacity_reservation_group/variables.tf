@@ -20,8 +20,8 @@ variable "location" {
 
 variable "zones" {
   description = "Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

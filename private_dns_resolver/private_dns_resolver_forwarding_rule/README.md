@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Forwarding..."   
-   dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver Forwarding Ruleset..."   
+   # dns_forwarding_ruleset_id → set in component_inputs
    domain_name = "Specifies the domain name for the Private DNS Resolver Forwarding Rule..."   
    target_dns_servers = "Can be specified multiple times to define multiple target DNS servers..."   
+}
+
+component_inputs = {
+   dns_forwarding_ruleset_id = "path/to/private_dns_resolver_component:id"   
 }
 
 tfstate_store = {

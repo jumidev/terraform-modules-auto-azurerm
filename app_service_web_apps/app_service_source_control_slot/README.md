@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   slot_id = "The ID of the Linux or Windows Web App Slot"   
+   # slot_id → set in component_inputs
+}
+
+component_inputs = {
+   slot_id = "path/to/windows_web_app_slot_component:id"   
 }
 
 tfstate_store = {

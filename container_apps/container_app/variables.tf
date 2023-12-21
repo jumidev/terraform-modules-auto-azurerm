@@ -27,7 +27,7 @@ variable "template" {
 #
 # template block structure      :
 #   init_container (string)       : The definition of an init container that is part of the group as documented in the 'init_container' block below.
-#   container (list)              : (REQUIRED) One or more 'container' blocks as detailed below.
+#   container (string)            : (REQUIRED) One or more 'container' blocks as detailed below.
 #   max_replicas (number)         : The maximum number of replicas for this container.
 #   min_replicas (number)         : The minimum number of replicas for this container.
 #   azure_queue_scale_rule (block): One or more 'azure_queue_scale_rule' blocks.
@@ -37,11 +37,9 @@ variable "template" {
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
 #
-# azure_queue_scale_rule block structure:
-#   name (string)                         : (REQUIRED) The name of the Scaling Rule
-#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
-#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
-#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
 #
 # custom_scale_rule block structure:
 #   name (string)                    : (REQUIRED) The name of the Scaling Rule
@@ -49,24 +47,26 @@ variable "template" {
 #   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
 #   authentication (block)           : Zero or more 'authentication' blocks.
 #
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
+# tcp_scale_rule block structure:
+#   name (string)                 : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)        : Zero or more 'authentication' blocks.
 #
-# http_scale_rule block structure:
-#   name (string)                  : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)         : Zero or more 'authentication' blocks.
+# azure_queue_scale_rule block structure:
+#   name (string)                         : (REQUIRED) The name of the Scaling Rule
+#   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
+#   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
+#   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
 # volume block structure:
 #   name (string)         : (REQUIRED) The name of the volume.
 #   storage_name (string) : The name of the 'AzureFile' storage.
 #   storage_type (string) : The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'.
 #
-# tcp_scale_rule block structure:
-#   name (string)                 : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)        : Zero or more 'authentication' blocks.
+# http_scale_rule block structure:
+#   name (string)                  : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)         : Zero or more 'authentication' blocks.
 
 
 
@@ -103,7 +103,7 @@ variable "ingress" {
 #
 # ingress block structure          :
 #   allow_insecure_connections (bool): Should this ingress allow insecure connections?
-#   custom_domain (list)             : One or more 'custom_domain' block as detailed below.
+#   custom_domain (string)           : One or more 'custom_domain' block as detailed below.
 #   fqdn (string)                    : The FQDN of the ingress.
 #   external_enabled (bool)          : Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'.
 #   target_port (string)             : (REQUIRED) The target port on the container for the Ingress traffic.
@@ -133,8 +133,8 @@ variable "registry" {
 
 variable "secret" {
   description = "One or more 'secret' block as detailed below."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "workload_profile_name" {
   description = "The name of the Workload Profile in the Container App Environment to place this Container App."

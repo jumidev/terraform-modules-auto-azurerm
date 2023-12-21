@@ -41,7 +41,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
 
 
 variable "platform" {
@@ -66,7 +66,7 @@ variable "docker_step" {
 #   context_path (string)        : (REQUIRED) The URL (absolute or relative) of the source context for this step. If the context is an url you can reference a specific branch or folder via '#branch:folder'.
 #   dockerfile_path (string)     : (REQUIRED) The Dockerfile path relative to the source context.
 #   arguments (string)           : Specifies a map of arguments to be used when executing this step.
-#   image_names (string)         : Specifies a list of fully qualified image names including the repository and tag.
+#   image_names (list)           : Specifies a list of fully qualified image names including the repository and tag.
 #   cache_enabled (bool)         : Should the image cache be enabled? Defaults to 'true'.
 #   push_enabled (bool)          : Should the image built be pushed to the registry or not? Defaults to 'true'.
 #   secret_arguments (string)    : Specifies a map of *secret* arguments to be used when executing this step.
@@ -170,7 +170,7 @@ variable "registry_credential" {
 #
 # registry_credential block structure:
 #   source (block)                     : One 'source' block.
-#   custom (list)                      : One or more 'custom' blocks.
+#   custom (string)                    : One or more 'custom' blocks.
 #
 # source block structure:
 #   login_mode (string)   : (REQUIRED) The login mode for the source registry. Possible values are 'None' and 'Default'.

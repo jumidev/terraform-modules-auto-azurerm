@@ -64,14 +64,6 @@ tfstate_store = {
 | `manual_action_instruction` | string | No | - | Instructions of manual action. |
 | `script_path` | string | No | - | Path of action script. |
 
-### `boot_recovery_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `replicated_protected_items` | list | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
-| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
-| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
-
 ### `azure_to_azure_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +72,14 @@ tfstate_store = {
 | `recovery_zone` | string | No | - | The Availability Zone in which the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
 | `primary_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM exists. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
 | `recovery_edge_zone` | string | No | - | The Edge Zone within the Azure Region where the VM is recovered. Changing this forces a new Site Recovery Replication Recovery Plan to be created. |
+
+### `boot_recovery_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `replicated_protected_items` | string | No | - | One or more protected VM IDs. It must not be specified when 'type' is 'Shutdown'. |
+| `pre_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed before the group recovery. |
+| `post_action` | [block](#action-block-structure) | No | - | one or more 'action' block. which will be executed after the group recovery. |
 
 ### `failover_recovery_group` block structure
 

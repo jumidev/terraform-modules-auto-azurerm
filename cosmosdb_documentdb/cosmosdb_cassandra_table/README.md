@@ -12,12 +12,16 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Cosmos DB Cassandra Table..."   
-   cassandra_keyspace_id = "The ID of the Cosmos DB Cassandra Keyspace to create the table within..."   
+   # cassandra_keyspace_id → set in component_inputs
    schema = {
       column = "..."      
       partition_key = "..."      
    }
    
+}
+
+component_inputs = {
+   cassandra_keyspace_id = "path/to/cosmosdb_cassandra_keyspace_component:id"   
 }
 
 tfstate_store = {
@@ -45,19 +49,6 @@ tfstate_store = {
 | **analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
 
-### `cluster_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the cluster key to be created. |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
-### `partition_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the column to partition by. |
-
 ### `column` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +69,19 @@ tfstate_store = {
 | `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
 | `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
 | `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
+
+### `cluster_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the cluster key to be created. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
+
+### `partition_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to partition by. |
 
 
 

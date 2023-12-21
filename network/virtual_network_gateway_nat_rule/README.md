@@ -37,8 +37,8 @@ tfstate_store = {
 | **name** | string |  The name which should be used for this Virtual Network Gateway Nat Rule. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The Name of the Resource Group in which this Virtual Network Gateway Nat Rule should be created. Changing this forces a new resource to be created. | 
 | **virtual_network_gateway_id** | string |  The ID of the Virtual Network Gateway that this Virtual Network Gateway Nat Rule belongs to. Changing this forces a new resource to be created. | 
-| **external_mapping** | list |  One or more `external_mapping` blocks. | 
-| **internal_mapping** | list |  One or more `internal_mapping` blocks. | 
+| **external_mapping** | string |  One or more `external_mapping` blocks. | 
+| **internal_mapping** | string |  One or more `internal_mapping` blocks. | 
 
 ## Optional Variables
 

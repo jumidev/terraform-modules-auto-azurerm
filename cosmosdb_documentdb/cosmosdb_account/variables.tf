@@ -205,7 +205,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) The Type of Managed Identity assigned to this Cosmos account. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account.
 
 
 variable "restore" {

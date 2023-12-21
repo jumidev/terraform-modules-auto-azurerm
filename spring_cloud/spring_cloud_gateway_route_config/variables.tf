@@ -15,13 +15,13 @@ variable "spring_cloud_gateway_id" {
 
 variable "filters" {
   description = "Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response in app level."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "predicates" {
   description = "Specifies a list of conditions to evaluate a route for each request in app level. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "sso_validation_enabled" {
   description = "Should the sso validation be enabled in app level?"
@@ -37,8 +37,8 @@ variable "route" {
 # route block structure        :
 #   order (string)               : (REQUIRED) Specifies the route processing order.
 #   description (string)         : Specifies the description which will be applied to methods in the generated OpenAPI documentation.
-#   filters (string)             : Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
-#   predicates (string)          : Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
+#   filters (list)               : Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response.
+#   predicates (list)            : Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request.
 #   sso_validation_enabled (bool): Should the sso validation be enabled?
 #   classification_tags (string) : Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation.
 #   title (string)               : Specifies the title which will be applied to methods in the generated OpenAPI documentation.

@@ -176,7 +176,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine.
 
 
 variable "patch_assessment_mode" {
@@ -238,7 +238,7 @@ variable "secret" {
 }
 #
 # secret block structure:
-#   certificate (list)    : (REQUIRED) One or more 'certificate' blocks.
+#   certificate (string)  : (REQUIRED) One or more 'certificate' blocks.
 #   key_vault_id (string) : (REQUIRED) The ID of the Key Vault from which all Secrets should be sourced.
 
 

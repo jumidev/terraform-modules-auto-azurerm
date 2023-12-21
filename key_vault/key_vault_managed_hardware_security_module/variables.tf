@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "admin_object_ids" {
   description = "(REQUIRED) Specifies a list of administrators object IDs for the key vault Managed Hardware Security Module. Changing this forces a new resource to be created."
-  type        = string
+  type        = list(any)
 
 }
 variable "sku_name" {

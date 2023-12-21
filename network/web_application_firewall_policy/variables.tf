@@ -21,8 +21,8 @@ variable "managed_rules" {
 }
 #
 # managed_rules block structure:
-#   exclusion (list)             : One or more 'exclusion' block defined below.
-#   managed_rule_set (list)      : (REQUIRED) One or more 'managed_rule_set' block defined below.
+#   exclusion (string)           : One or more 'exclusion' block defined below.
+#   managed_rule_set (string)    : (REQUIRED) One or more 'managed_rule_set' block defined below.
 
 
 
@@ -74,7 +74,7 @@ variable "policy_settings" {
 #
 # log_scrubbing block structure:
 #   enabled (bool)               : Whether the log scrubbing is enabled or disabled. Defaults to 'true'.
-#   rule (list)                  : One or more 'scrubbing_rule' blocks as define below.
+#   rule (string)                : One or more 'scrubbing_rule' blocks as define below.
 
 
 variable "tags" {

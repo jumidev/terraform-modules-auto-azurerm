@@ -51,8 +51,8 @@ variable "folder" {
 }
 variable "parameters" {
   description = "Specifies a list of parameters to associate with the Data Factory Binary Dataset."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "http_server_location" {
   description = "A 'http_server_location' block."

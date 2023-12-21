@@ -45,8 +45,8 @@ variable "compression" {
 }
 variable "event_system_properties" {
   description = "Specifies a list of system properties for the Event Hub."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "table_name" {
   description = "Specifies the target table name used for the message ingestion. Table must exist before resource is created."

@@ -25,6 +25,6 @@ variable "send_emails_to_subscription_owners" {
 }
 variable "additional_email_recipients" {
   description = "Specifies a list of additional recipients that will be sent emails on this Application Insights Smart Detection Rule."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

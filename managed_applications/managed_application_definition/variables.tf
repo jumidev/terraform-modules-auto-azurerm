@@ -30,8 +30,8 @@ variable "display_name" {
 
 variable "authorization" {
   description = "One or more 'authorization' block defined below."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "create_ui_definition" {
   description = "Specifies the 'createUiDefinition' JSON for the backing template with 'Microsoft.Solutions/applications' resource."

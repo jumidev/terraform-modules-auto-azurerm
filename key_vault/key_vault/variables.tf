@@ -70,11 +70,11 @@ variable "network_acls" {
   default     = null
 }
 #
-# network_acls block structure     :
-#   bypass (string)                  : (REQUIRED) Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'.
-#   default_action (string)          : (REQUIRED) The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'.
-#   ip_rules (list)                  : One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
-#   virtual_network_subnet_ids (list): One or more Subnet IDs which should be able to access this Key Vault.
+# network_acls block structure       :
+#   bypass (string)                    : (REQUIRED) Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'.
+#   default_action (string)            : (REQUIRED) The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'.
+#   ip_rules (string)                  : One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault.
+#   virtual_network_subnet_ids (string): One or more Subnet IDs which should be able to access this Key Vault.
 
 
 variable "purge_protection_enabled" {

@@ -31,7 +31,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  The name which should be used for this Backup Policy Disk. Changing this forces a new Backup Policy Disk to be created. | 
 | **vault_id** | string |  The ID of the Backup Vault within which the Backup Policy Disk should exist. Changing this forces a new Backup Policy Disk to be created. | 
-| **backup_repeating_time_intervals** | string |  Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created. | 
+| **backup_repeating_time_intervals** | list |  Specifies a list of repeating time interval. It should follow `ISO 8601` repeating time interval . Changing this forces a new Backup Policy Disk to be created. | 
 | **default_retention_duration** | string |  The duration of default retention rule. It should follow `ISO 8601` duration format. Changing this forces a new Backup Policy Disk to be created. | 
 
 ## Optional Variables
@@ -39,6 +39,12 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **retention_rule** | [block](#retention_rule-block-structure) |  One or more `retention_rule` blocks. Changing this forces a new Backup Policy Disk to be created. | 
+
+### `criteria` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `absolute_criteria` | string | No | - | Possible values are 'FirstOfDay' and 'FirstOfWeek'. Changing this forces a new Backup Policy Disk to be created. |
 
 ### `retention_rule` block structure
 
@@ -48,12 +54,6 @@ tfstate_store = {
 | `duration` | string | Yes | - | Duration of deletion after given timespan. It should follow 'ISO 8601' duration format. Changing this forces a new Backup Policy Disk to be created. |
 | `criteria` | [block](#criteria-block-structure) | Yes | - | A 'criteria' block. Changing this forces a new Backup Policy Disk to be created. |
 | `priority` | string | Yes | - | Retention Tag priority. Changing this forces a new Backup Policy Disk to be created. |
-
-### `criteria` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `absolute_criteria` | string | No | - | Possible values are 'FirstOfDay' and 'FirstOfWeek'. Changing this forces a new Backup Policy Disk to be created. |
 
 
 

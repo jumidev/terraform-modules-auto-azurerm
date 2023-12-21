@@ -56,23 +56,15 @@ tfstate_store = {
 | **language_extensions** | string |  -  |  `PYTHON`, `PYTHON_3.10.8`, `R`  |  An list of `language_extensions` to enable. Valid values are: `PYTHON`, `PYTHON_3.10.8` and `R`. `PYTHON` is used to specify Python 3.6.5 image and `PYTHON_3.10.8` is used to specify Python 3.10.8 image. Note that `PYTHON_3.10.8` is only available in skus which support nested virtualization. | 
 | **optimized_auto_scale** | [block](#optimized_auto_scale-block-structure) |  -  |  -  |  An `optimized_auto_scale` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-| **trusted_external_tenants** | string |  -  |  -  |  Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants. | 
-| **zones** | string |  -  |  -  |  Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created. | 
-
-### `virtual_network_configuration` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The subnet resource id. |
-| `engine_public_ip_id` | string | Yes | - | Engine service's public IP address resource id. |
-| `data_management_public_ip_id` | string | Yes | - | Data management's service public IP address resource id. |
+| **trusted_external_tenants** | list |  -  |  -  |  Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use `trusted_external_tenants = ["*"]` to explicitly allow all other tenants, `trusted_external_tenants = ["MyTenantOnly"]` for only your tenant or `trusted_external_tenants = ["<tenantId1>", "<tenantIdx>"]` to allow specific other tenants. | 
+| **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created. | 
 
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
-| `identity_ids` | string | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster. |
 
 ### `sku` block structure
 
@@ -87,6 +79,14 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `minimum_instances` | number | Yes | - | The minimum number of allowed instances. Must between '0' and '1000'. |
 | `maximum_instances` | number | Yes | - | The maximum number of allowed instances. Must between '0' and '1000'. |
+
+### `virtual_network_configuration` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The subnet resource id. |
+| `engine_public_ip_id` | string | Yes | - | Engine service's public IP address resource id. |
+| `data_management_public_ip_id` | string | Yes | - | Data management's service public IP address resource id. |
 
 
 

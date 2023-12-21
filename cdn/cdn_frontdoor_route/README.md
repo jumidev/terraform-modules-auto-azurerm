@@ -22,7 +22,7 @@ inputs = {
 component_inputs = {
    cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id"   
    cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
-   cdn_frontdoor_origin_ids = ["path/to/cdn_frontdoor_origin_component:id", "..."]   
+   cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id"   
 }
 
 tfstate_store = {
@@ -55,7 +55,7 @@ component_inputs = {
 | **name** | string |  -  |  The name which should be used for this Front Door Route. Valid values must begin with a letter or number, end with a letter or number and may only contain letters, numbers and hyphens with a maximum length of 90 characters. Changing this forces a new Front Door Route to be created. | 
 | **cdn_frontdoor_endpoint_id** | string |  -  |  The resource ID of the Front Door Endpoint where this Front Door Route should exist. Changing this forces a new Front Door Route to be created. | 
 | **cdn_frontdoor_origin_group_id** | string |  -  |  The resource ID of the Front Door Origin Group where this Front Door Route should be created. | 
-| **cdn_frontdoor_origin_ids** | list |  -  |  One or more Front Door Origin resource IDs that this Front Door Route will link to. | 
+| **cdn_frontdoor_origin_ids** | string |  -  |  One or more Front Door Origin resource IDs that this Front Door Route will link to. | 
 | **patterns_to_match** | string |  -  |  The route patterns of the rule. | 
 | **supported_protocols** | string |  `Http`, `Https`  |  One or more Protocols supported by this Front Door Route. Possible values are `Http` or `Https`. | 
 

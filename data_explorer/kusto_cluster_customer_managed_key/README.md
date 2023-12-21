@@ -11,12 +11,13 @@ source = {
 }
 
 inputs = {
-   cluster_id = "The ID of the Kusto Cluster"   
+   # cluster_id → set in component_inputs
    # key_vault_id → set in component_inputs
    key_name = "The name of Key Vault Key"   
 }
 
 component_inputs = {
+   cluster_id = "path/to/kusto_cluster_component:id"   
    key_vault_id = "path/to/key_vault_component:id"   
 }
 

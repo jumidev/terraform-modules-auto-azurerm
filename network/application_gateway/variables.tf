@@ -147,7 +147,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Application Gateway. Only possible value is 'UserAssigned'.
-#   identity_ids (string)   : (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
+#   identity_ids (list)     : (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 
 
 variable "private_link_configuration" {
@@ -170,8 +170,8 @@ variable "private_link_configuration" {
 
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "trusted_client_certificate" {
   description = "One or more 'trusted_client_certificate' blocks."
@@ -306,7 +306,7 @@ variable "url_path_map" {
 #   default_backend_http_settings_name (string) : The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set.
 #   default_redirect_configuration_name (string): The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set.
 #   default_rewrite_rule_set_name (string)      : The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
-#   path_rule (list)                            : (REQUIRED) One or more 'path_rule' blocks.
+#   path_rule (string)                          : (REQUIRED) One or more 'path_rule' blocks.
 
 
 variable "waf_configuration" {
@@ -326,14 +326,14 @@ variable "waf_configuration" {
 #   max_request_body_size_kb (string): The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB.
 #   exclusion (block)                : One or more 'exclusion' blocks.
 #
+# disabled_rule_group block structure:
+#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'.
+#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
+#
 # exclusion block structure       :
 #   match_variable (string)         : (REQUIRED) Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are 'RequestArgKeys', 'RequestArgNames', 'RequestArgValues', 'RequestCookieKeys', 'RequestCookieNames', 'RequestCookieValues', 'RequestHeaderKeys', 'RequestHeaderNames' and 'RequestHeaderValues'
 #   selector_match_operator (string): Operator which will be used to search in the variable content. Possible values are 'Contains', 'EndsWith', 'Equals', 'EqualsAny' and 'StartsWith'. If empty will exclude all traffic on this 'match_variable'
 #   selector (string)               : String value which will be used for the filter operation. If empty will exclude all traffic on this 'match_variable'
-#
-# disabled_rule_group block structure:
-#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'.
-#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
 
 
 variable "custom_error_configuration" {
@@ -388,18 +388,18 @@ variable "rewrite_rule_set" {
 #   name (string)                   : (REQUIRED) Unique name of the rewrite rule set block
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
 #
-# rewrite_rule block structure        :
-#   name (string)                       : (REQUIRED) Unique name of the rewrite rule block
-#   rule_sequence (string)              : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
-#   condition (list)                    : One or more 'condition' blocks.
-#   request_header_configuration (list) : One or more 'request_header_configuration' blocks.
-#   response_header_configuration (list): One or more 'response_header_configuration' blocks.
-#   url (block)                         : One 'url' block
-#
 # url block structure  :
 #   path (string)        : The URL path to rewrite.
 #   query_string (string): The query string to rewrite.
 #   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
 #   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+#
+# rewrite_rule block structure          :
+#   name (string)                         : (REQUIRED) Unique name of the rewrite rule block
+#   rule_sequence (string)                : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
+#   condition (string)                    : One or more 'condition' blocks.
+#   request_header_configuration (string) : One or more 'request_header_configuration' blocks.
+#   response_header_configuration (string): One or more 'response_header_configuration' blocks.
+#   url (block)                           : One 'url' block
 
 

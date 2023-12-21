@@ -88,7 +88,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Logic App Standard. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Logic App Standard.
 
 
 variable "site_config" {
@@ -124,6 +124,12 @@ variable "site_config" {
 #   allowed_origins (string)    : (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 #   support_credentials (string): Are credentials supported?
 #
+# headers block structure   :
+#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
+#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
+#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
+#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
+#
 # ip_restriction block structure    :
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.
 #   service_tag (string)              : The Service Tag used for this IP Restriction.
@@ -132,12 +138,6 @@ variable "site_config" {
 #   priority (string)                 : The priority for this IP Restriction. Restrictions are enforced in priority order. By default, the priority is set to 65000 if not specified.
 #   action (string)                   : Does this restriction 'Allow' or 'Deny' access for this IP range. Defaults to 'Allow'.
 #   headers (block)                   : The 'headers' block for this specific as a 'ip_restriction' block.
-#
-# headers block structure   :
-#   x_azure_fdid (list)       : A list of allowed Azure FrontDoor IDs in UUID notation with a maximum of 8.
-#   x_fd_health_probe (string): A list to allow the Azure FrontDoor health probe header. Only allowed value is '1'.
-#   x_forwarded_for (list)    : A list of allowed 'X-Forwarded-For' IPs in CIDR notation with a maximum of 8
-#   x_forwarded_host (list)   : A list of allowed 'X-Forwarded-Host' domains with a maximum of 8.
 #
 # scm_ip_restriction block structure:
 #   ip_address (string)               : The IP Address used for this IP Restriction in CIDR notation.

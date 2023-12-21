@@ -30,8 +30,8 @@ variable "addon_json" {
 }
 variable "application_performance_monitoring_ids" {
   description = "Specifies a list of Spring Cloud Application Performance Monitoring IDs."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "arguments" {
   description = "Specifies the arguments to the entrypoint. The docker image's 'CMD' is used if not specified."

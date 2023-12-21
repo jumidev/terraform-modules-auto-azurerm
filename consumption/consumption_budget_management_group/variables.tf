@@ -33,7 +33,7 @@ variable "notification" {
 # notification block structure:
 #   operator (string)           : (REQUIRED) The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'.
 #   threshold (string)          : (REQUIRED) Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
-#   contact_emails (string)     : (REQUIRED) Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
+#   contact_emails (list)       : (REQUIRED) Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
 #   threshold_type (string)     : The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created.
 #   enabled (bool)              : Should the notification be enabled? Defaults to 'true'.
 
@@ -56,14 +56,14 @@ variable "filter" {
 #   dimension (block)     : One or more 'dimension' blocks to filter the budget on.
 #   tag (block)           : One or more 'tag' blocks to filter the budget on.
 #
-# dimension block structure:
-#   name (string)            : (REQUIRED) The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'.
-#   operator (string)        : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
-#   values (string)          : (REQUIRED) Specifies a list of values for the column.
-#
 # tag block structure:
 #   name (string)      : (REQUIRED) The name of the tag to use for the filter.
 #   operator (string)  : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
-#   values (string)    : (REQUIRED) Specifies a list of values for the tag.
+#   values (list)      : (REQUIRED) Specifies a list of values for the tag.
+#
+# dimension block structure:
+#   name (string)            : (REQUIRED) The name of the column to use for the filter. The allowed values are 'ChargeType', 'Frequency', 'InvoiceId', 'Meter', 'MeterCategory', 'MeterSubCategory', 'PartNumber', 'PricingModel', 'Product', 'ProductOrderId', 'ProductOrderName', 'PublisherType', 'ReservationId', 'ReservationName', 'ResourceGroupName', 'ResourceGuid', 'ResourceId', 'ResourceLocation', 'ResourceType', 'ServiceFamily', 'ServiceName', 'SubscriptionID', 'SubscriptionName', 'UnitOfMeasure'.
+#   operator (string)        : The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'.
+#   values (list)            : (REQUIRED) Specifies a list of values for the column.
 
 

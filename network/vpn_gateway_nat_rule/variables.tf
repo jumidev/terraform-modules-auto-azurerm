@@ -20,13 +20,13 @@ variable "vpn_gateway_id" {
 
 variable "external_mapping" {
   description = "One or more 'external_mapping' blocks."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "internal_mapping" {
   description = "One or more 'internal_mapping' blocks."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "ip_configuration_id" {
   description = "The ID of the IP Configuration this VPN Gateway NAT Rule applies to. Possible values are 'Instance0' and 'Instance1'."
@@ -45,11 +45,11 @@ variable "type" {
 }
 variable "external_address_space_mappings" {
   description = "(Deprecated) A list of CIDR Ranges which are used for external mapping of the VPN Gateway NAT Rule."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "internal_address_space_mappings" {
   description = "(Deprecated) A list of CIDR Ranges which are used for internal mapping of the VPN Gateway NAT Rule."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

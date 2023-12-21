@@ -54,7 +54,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
 
 
 variable "transparent_data_encryption_key_vault_key_id" {

@@ -137,8 +137,8 @@ variable "tags" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 
 # OPTIONAL VARIABLES

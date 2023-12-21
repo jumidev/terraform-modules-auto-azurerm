@@ -56,17 +56,13 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
-### `security` block structure
+### `notifications` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `kerberos_armoring_enabled` | bool | No | False | Whether to enable Kerberos Armoring. Defaults to 'false'. |
-| `kerberos_rc4_encryption_enabled` | bool | No | False | Whether to enable Kerberos RC4 Encryption. Defaults to 'false'. |
-| `ntlm_v1_enabled` | bool | No | False | Whether to enable legacy NTLM v1 support. Defaults to 'false'. |
-| `sync_kerberos_passwords` | bool | No | False | Whether to synchronize Kerberos password hashes to the managed domain. Defaults to 'false'. |
-| `sync_ntlm_passwords` | bool | No | False | Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. |
-| `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
-| `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
+| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
+| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
+| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
 
 ### `secure_ldap` block structure
 
@@ -83,13 +79,17 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
 
-### `notifications` block structure
+### `security` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
-| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
-| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
+| `kerberos_armoring_enabled` | bool | No | False | Whether to enable Kerberos Armoring. Defaults to 'false'. |
+| `kerberos_rc4_encryption_enabled` | bool | No | False | Whether to enable Kerberos RC4 Encryption. Defaults to 'false'. |
+| `ntlm_v1_enabled` | bool | No | False | Whether to enable legacy NTLM v1 support. Defaults to 'false'. |
+| `sync_kerberos_passwords` | bool | No | False | Whether to synchronize Kerberos password hashes to the managed domain. Defaults to 'false'. |
+| `sync_ntlm_passwords` | bool | No | False | Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. |
+| `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
+| `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
 
 
 

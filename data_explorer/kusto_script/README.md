@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Kusto Script..."   
-   database_id = "The ID of the Kusto Database"   
+   # database_id → set in component_inputs
+}
+
+component_inputs = {
+   database_id = "path/to/kusto_database_component:id"   
 }
 
 tfstate_store = {

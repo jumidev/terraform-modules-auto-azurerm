@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   datadog_monitor_id = "The Datadog Monitor Id which should be used for this Datadog Monitor SSO Configu..."   
+   # datadog_monitor_id → set in component_inputs
    single_sign_on_enabled = "The state of SingleSignOn configuration"   
    enterprise_application_id = "The application Id to perform SSO operation"   
+}
+
+component_inputs = {
+   datadog_monitor_id = "path/to/datadog_monitor_sso_configuration_component:id"   
 }
 
 tfstate_store = {

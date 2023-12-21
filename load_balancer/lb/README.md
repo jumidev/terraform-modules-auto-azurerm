@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created. | 
-| **frontend_ip_configuration** | list |  -  |  -  |  One or more `frontend_ip_configuration` blocks. | 
+| **frontend_ip_configuration** | string |  -  |  -  |  One or more `frontend_ip_configuration` blocks. | 
 | **sku** | string |  `Basic`  |  -  |  The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created. | 
 | **sku_tier** | string |  `Regional`  |  `Global`, `Regional`  |  `sku_tier` -  The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

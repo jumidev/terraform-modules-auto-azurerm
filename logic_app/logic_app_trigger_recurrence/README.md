@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of the Recurrence Triggers to be created within the Logic App..."   
-   logic_app_id = "Specifies the ID of the Logic App Workflow"   
+   # logic_app_id → set in component_inputs
    frequency = "Specifies the Frequency at which this Trigger should be run..."   
    interval = "Specifies interval used for the Frequency, for example a value of `4` for `inter..."   
+}
+
+component_inputs = {
+   logic_app_id = "path/to/logic_app_workflow_component:id"   
 }
 
 tfstate_store = {

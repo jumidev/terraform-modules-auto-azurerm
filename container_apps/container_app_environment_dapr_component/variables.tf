@@ -35,8 +35,8 @@ variable "init_timeout" {
 }
 variable "metadata" {
   description = "One or more 'metadata' blocks as detailed below."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "scopes" {
   description = "A list of scopes to which this component applies."

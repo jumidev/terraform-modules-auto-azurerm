@@ -31,7 +31,7 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **ip_configuration** | list |  -  |  One or more (up to 3) `ip_configuration` blocks documented below. An active-standby gateway requires exactly one `ip_configuration` block, an active-active gateway requires exactly two `ip_configuration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks. | 
+| **ip_configuration** | string |  -  |  One or more (up to 3) `ip_configuration` blocks documented below. An active-standby gateway requires exactly one `ip_configuration` block, an active-active gateway requires exactly two `ip_configuration` blocks whereas an active-active zone redundant gateway with P2S configuration requires exactly three `ip_configuration` blocks. | 
 | **location** | string |  -  |  The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created. | 
 | **name** | string |  -  |  The name of the Virtual Network Gateway. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created. | 
@@ -60,15 +60,6 @@ tfstate_store = {
 | **vpn_client_configuration** | string |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
 
-### `policy_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group. |
-| `policy_member` | [block](#policy_member-block-structure) | Yes | - | One or more 'policy_member' blocks. |
-| `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
-| `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
-
 ### `custom_route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +73,15 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
 | `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
 | `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
+
+### `policy_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group. |
+| `policy_member` | [block](#policy_member-block-structure) | Yes | - | One or more 'policy_member' blocks. |
+| `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
+| `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
 
 
 

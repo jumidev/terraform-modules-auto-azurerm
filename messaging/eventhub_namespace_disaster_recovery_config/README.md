@@ -14,11 +14,12 @@ inputs = {
    name = "Specifies the name of the Disaster Recovery Config"   
    # namespace_name → set in component_inputs
    resource_group_name = "${resource_group}"   
-   partner_namespace_id = "The ID of the EventHub Namespace to replicate to"   
+   # partner_namespace_id → set in component_inputs
 }
 
 component_inputs = {
    namespace_name = "path/to/eventhub_namespace_component:name"   
+   partner_namespace_id = "path/to/eventhub_namespace_component:id"   
 }
 
 tfstate_store = {

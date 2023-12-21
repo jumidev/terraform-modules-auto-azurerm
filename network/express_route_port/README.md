@@ -53,7 +53,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Express Route Port. Only possible value is 'UserAssigned'. |
-| `identity_ids` | string | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port. |
+| `identity_ids` | list | Yes | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Express Route Port. |
 
 ### `link` block structure
 

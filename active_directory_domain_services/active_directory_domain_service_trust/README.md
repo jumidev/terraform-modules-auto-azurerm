@@ -37,7 +37,7 @@ tfstate_store = {
 | **domain_service_id** | string |  The ID of the Active Directory Domain Service. Changing this forces a new Active Directory Domain Service Trust to be created. | 
 | **name** | string |  The name which should be used for this Active Directory Domain Service Trust. Changing this forces a new Active Directory Domain Service Trust to be created. | 
 | **password** | string |  The password of the inbound trust set in the on-premise Active Directory Domain Service. | 
-| **trusted_domain_dns_ips** | string |  Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service. | 
+| **trusted_domain_dns_ips** | list |  Specifies a list of DNS IPs that are used to resolve the on-premise Active Directory Domain Service. | 
 | **trusted_domain_fqdn** | string |  The FQDN of the on-premise Active Directory Domain Service. | 
 
 

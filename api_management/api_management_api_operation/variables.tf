@@ -49,16 +49,16 @@ variable "request" {
   default     = null
 }
 #
-# request block structure:
-#   description (string)   : A description of the HTTP Request, which may include HTML tags.
-#   header (list)          : One or more 'header' blocks.
-#   query_parameter (list) : One or more 'query_parameter' blocks.
-#   representation (block) : One or more 'representation' blocks.
+# request block structure :
+#   description (string)    : A description of the HTTP Request, which may include HTML tags.
+#   header (string)         : One or more 'header' blocks.
+#   query_parameter (string): One or more 'query_parameter' blocks.
+#   representation (block)  : One or more 'representation' blocks.
 #
 # representation block structure:
 #   content_type (string)         : (REQUIRED) The Content Type of this representation, such as 'application/json'.
-#   form_parameter (list)         : One or more 'form_parameter' block.
-#   example (list)                : One or more 'example' blocks.
+#   form_parameter (string)       : One or more 'form_parameter' block.
+#   example (string)              : One or more 'example' blocks.
 #   schema_id (string)            : The ID of an API Management Schema which represents this Response.
 #   type_name (string)            : The Type Name defined by the Schema.
 
@@ -72,13 +72,13 @@ variable "response" {
 # response block structure:
 #   status_code (string)    : (REQUIRED) The HTTP Status Code.
 #   description (string)    : A description of the HTTP Response, which may include HTML tags.
-#   header (list)           : One or more 'header' blocks.
+#   header (string)         : One or more 'header' blocks.
 #   representation (block)  : One or more 'representation' blocks.
 #
 # representation block structure:
 #   content_type (string)         : (REQUIRED) The Content Type of this representation, such as 'application/json'.
-#   form_parameter (list)         : One or more 'form_parameter' block.
-#   example (list)                : One or more 'example' blocks.
+#   form_parameter (string)       : One or more 'form_parameter' block.
+#   example (string)              : One or more 'example' blocks.
 #   schema_id (string)            : The ID of an API Management Schema which represents this Response.
 #   type_name (string)            : The Type Name defined by the Schema.
 
@@ -95,8 +95,8 @@ variable "template_parameter" {
 #   type (string)                     : (REQUIRED) The Type of this Template Parameter, such as a 'string'.
 #   description (string)              : A description of this Template Parameter.
 #   default_value (string)            : The default value for this Template Parameter.
-#   values (list)                     : One or more acceptable values for this Template Parameter.
-#   example (list)                    : One or more 'example' blocks.
+#   values (string)                   : One or more acceptable values for this Template Parameter.
+#   example (string)                  : One or more 'example' blocks.
 #   schema_id (string)                : The name of the Schema.
 #   type_name (string)                : The type name defined by the Schema.
 

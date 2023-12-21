@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "Specifies the name of this schema group"   
-   namespace_id = "Specifies the ID of the EventHub Namespace"   
+   # namespace_id → set in component_inputs
    schema_compatibility = "Specifies the compatibility of this schema group"   
    schema_type = "Specifies the Type of this schema group"   
+}
+
+component_inputs = {
+   namespace_id = "path/to/eventhub_namespace_component:id"   
 }
 
 tfstate_store = {

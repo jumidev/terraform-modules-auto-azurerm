@@ -48,7 +48,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **description** | string |  A description of this Automation Watcher. | 
 | **etag** | string |  A string of etag assigned to this Automation Watcher. | 
-| **script_parameters** | string |  Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created. | 
+| **script_parameters** | list |  Specifies a list of key-vaule parameters. Changing this forces a new Automation watcher to be created. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Automation Watcher. | 
 
 

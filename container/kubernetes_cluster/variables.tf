@@ -56,7 +56,7 @@ variable "default_node_pool" {
 #   upgrade_settings (block)              : A 'upgrade_settings' block.
 #   vnet_subnet_id (string)               : The ID of a Subnet where the Kubernetes Node Pool should exist.
 #   workload_runtime (string)             : Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'.
-#   zones (string)                        : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property.
+#   zones (list)                          : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property.
 #   max_count (number)                    : The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
@@ -92,6 +92,15 @@ variable "default_node_pool" {
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #
+# linux_os_config block structure       :
+#   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
+#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
+#
+# upgrade_settings block structure:
+#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+#
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
 #   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
@@ -106,15 +115,6 @@ variable "default_node_pool" {
 #
 # node_network_profile block structure:
 #   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
-#
-# linux_os_config block structure       :
-#   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
-#
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 
 
 
@@ -255,7 +255,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
 
 
 variable "image_cleaner_enabled" {

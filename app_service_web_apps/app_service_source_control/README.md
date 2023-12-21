@@ -11,7 +11,11 @@ source = {
 }
 
 inputs = {
-   app_id = "The ID of the Windows or Linux Web App"   
+   # app_id → set in component_inputs
+}
+
+component_inputs = {
+   app_id = "path/to/linux_web_app_component:id"   
 }
 
 tfstate_store = {

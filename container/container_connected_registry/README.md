@@ -13,11 +13,12 @@ source = {
 inputs = {
    # container_registry_id → set in component_inputs
    name = "The name which should be used for this Container Connected Registry..."   
-   sync_token_id = "The ID of the Container Registry Token which is used for synchronizing the Conne..."   
+   # sync_token_id → set in component_inputs
 }
 
 component_inputs = {
    container_registry_id = "path/to/container_registry_component:id"   
+   sync_token_id = "path/to/container_registry_token_component:id"   
 }
 
 tfstate_store = {
@@ -41,7 +42,7 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **audit_log_enabled** | bool |  -  |  -  |  Should the log auditing be enabled? | 
-| **client_token_ids** | string |  -  |  -  |  Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry. | 
+| **client_token_ids** | list |  -  |  -  |  Specifies a list of IDs of Container Registry Tokens, which are meant to be used by the clients to connect to the Connected Registry. | 
 | **log_level** | string |  `None`  |  `None`, `Debug`, `Information`, `Warning`, `Error`  |  The verbosity of the logs. Possible values are `None`, `Debug`, `Information`, `Warning` and `Error`. Defaults to `None`. | 
 | **mode** | string |  `ReadWrite`  |  `Mirror`, `ReadOnly`, `ReadWrite`, `Registry`  |  The mode of the Connected Registry. Possible values are `Mirror`, `ReadOnly`, `ReadWrite` and `Registry`. Changing this forces a new Container Connected Registry to be created. Defaults to `ReadWrite`. | 
 | **notification** | [block](#notification-block-structure) |  -  |  -  |  One or more `notification` blocks. | 

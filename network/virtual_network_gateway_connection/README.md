@@ -61,7 +61,7 @@ tfstate_store = {
 | **ingress_nat_rule_ids** | list |  -  |  -  |  A list of the ingress NAT Rule Ids. | 
 | **use_policy_based_traffic_selectors** | bool |  `False`  |  -  |  If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`. | 
 | **ipsec_policy** | string |  -  |  -  |  A `ipsec_policy` block which is documented below. Only a single policy can be defined for a connection. For details on custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). | 
-| **traffic_selector_policy** | list |  -  |  -  |  One or more `traffic_selector_policy` blocks which are documented below. A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps). | 
+| **traffic_selector_policy** | string |  -  |  -  |  One or more `traffic_selector_policy` blocks which are documented below. A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `custom_bgp_addresses` block structure

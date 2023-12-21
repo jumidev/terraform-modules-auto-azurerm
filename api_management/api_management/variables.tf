@@ -53,8 +53,8 @@ variable "additional_location" {
 
 variable "certificate" {
   description = "One or more 'certificate' blocks (up to 10) as defined below."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }
 variable "client_certificate_enabled" {
   description = "Enforce a client certificate to be presented on each request to the gateway? This is only supported when SKU type is 'Consumption'."
@@ -86,8 +86,8 @@ variable "min_api_version" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this API Management service should be located. Changing this forces a new API Management service to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "identity" {
   description = "An 'identity' block."
@@ -107,11 +107,11 @@ variable "hostname_configuration" {
 }
 #
 # hostname_configuration block structure:
-#   management (list)                     : One or more 'management' blocks.
-#   portal (list)                         : One or more 'portal' blocks.
-#   developer_portal (list)               : One or more 'developer_portal' blocks.
-#   proxy (list)                          : One or more 'proxy' blocks.
-#   scm (list)                            : One or more 'scm' blocks.
+#   management (string)                   : One or more 'management' blocks.
+#   portal (string)                       : One or more 'portal' blocks.
+#   developer_portal (string)             : One or more 'developer_portal' blocks.
+#   proxy (string)                        : One or more 'proxy' blocks.
+#   scm (string)                          : One or more 'scm' blocks.
 
 
 variable "notification_sender_email" {

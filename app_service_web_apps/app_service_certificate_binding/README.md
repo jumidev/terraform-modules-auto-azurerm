@@ -11,9 +11,14 @@ source = {
 }
 
 inputs = {
-   certificate_id = "The ID of the certificate to bind to the custom domain..."   
-   hostname_binding_id = "The ID of the Custom Domain/Hostname Binding"   
+   # certificate_id → set in component_inputs
+   # hostname_binding_id → set in component_inputs
    ssl_state = "The type of certificate binding"   
+}
+
+component_inputs = {
+   certificate_id = "path/to/app_service_certificate_binding_component:id"   
+   hostname_binding_id = "path/to/app_service_certificate_binding_component:id"   
 }
 
 tfstate_store = {

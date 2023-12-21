@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the ServiceBus Namespace Authorization Rule resource..."   
-   namespace_id = "Specifies the ID of the ServiceBus Namespace"   
+   # namespace_id → set in component_inputs
+}
+
+component_inputs = {
+   namespace_id = "path/to/servicebus_namespace_component:id"   
 }
 
 tfstate_store = {

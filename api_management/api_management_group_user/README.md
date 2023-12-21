@@ -11,13 +11,14 @@ source = {
 }
 
 inputs = {
-   user_id = "The ID of the API Management User which should be assigned to this API Managemen..."   
+   # user_id → set in component_inputs
    group_name = "The Name of the API Management Group within the API Management Service..."   
    # api_management_name → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
 
 component_inputs = {
+   user_id = "path/to/api_management_group_component:id"   
    api_management_name = "path/to/api_management_component:name"   
 }
 

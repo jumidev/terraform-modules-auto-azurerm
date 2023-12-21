@@ -11,7 +11,7 @@ source = {
 }
 
 inputs = {
-   server_id = "The resource ID of the MySQL Flexible Server"   
+   # server_id → set in component_inputs
    identity_id = "The resource ID of the identity used for AAD Authentication..."   
    login = "The login name of the principal to set as the server administrator..."   
    object_id = "The ID of the principal to set as the server administrator..."   
@@ -19,6 +19,7 @@ inputs = {
 }
 
 component_inputs = {
+   server_id = "path/to/mysql_flexible_server_component:id"   
    tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 

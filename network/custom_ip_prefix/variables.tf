@@ -55,6 +55,6 @@ variable "wan_validation_signed_message" {
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

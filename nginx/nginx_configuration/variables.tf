@@ -31,6 +31,6 @@ variable "config_file" {
 
 variable "protected_file" {
   description = "One or more 'protected_file' blocks with sensitive information as defined below. If specified 'config_file' must also be specified."
-  type        = list(any)
-  default     = []
+  type        = string
+  default     = null
 }

@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **zones** | string |  Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created. | 
+| **zones** | list |  Specifies a list of Availability Zones for this Capacity Reservation Group. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
 

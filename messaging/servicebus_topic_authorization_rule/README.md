@@ -12,7 +12,11 @@ source = {
 
 inputs = {
    name = "Specifies the name of the ServiceBus Topic Authorization Rule resource..."   
-   topic_id = "Specifies the ID of the ServiceBus Topic"   
+   # topic_id → set in component_inputs
+}
+
+component_inputs = {
+   topic_id = "path/to/servicebus_topic_component:id"   
 }
 
 tfstate_store = {

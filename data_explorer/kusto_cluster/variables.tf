@@ -51,7 +51,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that is configured on this Kusto Cluster. Possible values are: 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'.
-#   identity_ids (string)   : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kusto Cluster.
 
 
 variable "auto_stop_enabled" {
@@ -124,11 +124,11 @@ variable "tags" {
 }
 variable "trusted_external_tenants" {
   description = "Specifies a list of tenant IDs that are trusted by the cluster. Default setting trusts all other tenants. Use 'trusted_external_tenants = ['*']' to explicitly allow all other tenants, 'trusted_external_tenants = ['MyTenantOnly']' for only your tenant or 'trusted_external_tenants = ['<tenantId1>', '<tenantIdx>']' to allow specific other tenants."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "zones" {
   description = "Specifies a list of Availability Zones in which this Kusto Cluster should be located. Changing this forces a new Kusto Cluster to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
