@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "The name of the Policy Remediation"   
-   resource_id = "The Resource ID at which the Policy Remediation should be applied..."   
+   # resource_id → set in component_inputs
    policy_assignment_id = "The ID of the Policy Assignment that should be remediated..."   
+}
+
+component_inputs = {
+   resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
@@ -42,7 +46,7 @@ tfstate_store = {
 | **resource_discovery_mode** | string |  `ExistingNonCompliant`  |  `ExistingNonCompliant`, `ReEvaluateCompliance`  |  The way that resources to remediate are discovered. Possible values are `ExistingNonCompliant`, `ReEvaluateCompliance`. Defaults to `ExistingNonCompliant`. | 
 | **failure_percentage** | string |  -  |  -  |  A number between 0.0 to 1.0 representing the percentage failure threshold. The remediation will fail if the percentage of failed remediation operations (i.e. failed deployments) exceeds this threshold. | 
 | **parallel_deployments** | string |  -  |  -  |  Determines how many resources to remediate at any given time. Can be used to increase or reduce the pace of the remediation. If not provided, the default parallel deployments value is used. | 
-| **resource_count** | string |  -  |  -  |  Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used. | 
+| **resource_count** | number |  -  |  -  |  Determines the max number of resources that can be remediated by the remediation job. If not provided, the default resource count is used. | 
 
 
 

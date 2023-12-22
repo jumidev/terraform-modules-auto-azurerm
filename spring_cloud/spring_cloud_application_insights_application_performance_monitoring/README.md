@@ -43,7 +43,7 @@ tfstate_store = {
 | **role_name** | string |  -  |  Specifies the cloud role name used to label the component on the application map. | 
 | **role_instance** | string |  -  |  Specifies the cloud role instance. | 
 | **sampling_percentage** | string |  -  |  Specifies the percentage for fixed-percentage sampling. | 
-| **sampling_requests_per_second** | string |  -  |  Specifies the number of requests per second for the rate-limited sampling. | 
+| **sampling_requests_per_second** | number |  -  |  Specifies the number of requests per second for the rate-limited sampling. | 
 
 
 

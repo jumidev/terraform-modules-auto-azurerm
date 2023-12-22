@@ -13,12 +13,16 @@ source = {
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Inbound En..."   
    # private_dns_resolver_id → set in component_inputs
-   ip_configurations = "Can be specified multiple times to define multiple IP configurations..."   
+   ip_configurations = {
+      # subnet_id → set in component_inputs
+   }
+   
    location = "${location}"   
 }
 
 component_inputs = {
    private_dns_resolver_id = "path/to/private_dns_resolver_component:id"   
+   ip_configurations.subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {
@@ -35,7 +39,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **name** | string |  -  |  Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
 | **private_dns_resolver_id** | string |  -  |  Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **ip_configurations** | string |  `ip_configurations`  |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
+| **ip_configurations** | [block](#ip_configurations-block-structure) |  `ip_configurations`  |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
 | **location** | string |  -  |  Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
 
 ## Optional Variables
@@ -43,6 +47,13 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **tags** | map |  A mapping of tags which should be assigned to the Private DNS Resolver Inbound Endpoint. | 
+
+### `ip_configurations` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `private_ip_allocation_method` | string | No | Dynamic | Private IP address allocation method. Allowed value is 'Dynamic'. Defaults to 'Dynamic'. |
+| `subnet_id` | string | Yes | - | The subnet ID of the IP configuration. |
 
 
 

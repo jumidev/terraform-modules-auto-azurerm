@@ -125,7 +125,7 @@ variable "source_trigger" {
 #
 # source_trigger block structure:
 #   name (string)                 : (REQUIRED) The name which should be used for this trigger.
-#   events (string)               : (REQUIRED) Specifies a list of source events corresponding to the trigger. Possible values are 'commit' and 'pullrequest'.
+#   events (list)                 : (REQUIRED) Specifies a list of source events corresponding to the trigger. Possible values are 'commit' and 'pullrequest'.
 #   repository_url (string)       : (REQUIRED) The full URL to the source code repository.
 #   source_type (string)          : (REQUIRED) The type of the source control service. Possible values are 'Github' and 'VisualStudioTeamService'.
 #   authentication (block)        : A 'authentication' block.

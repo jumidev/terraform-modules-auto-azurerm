@@ -21,7 +21,7 @@ resource "azurerm_consumption_budget_management_group" "this" {
       operator       = lookup(notification.value, "operator")       # (Required) possible values: EqualTo | GreaterThan | GreaterThanOrEqualTo
       threshold      = lookup(notification.value, "threshold")      # (Required) 
       contact_emails = lookup(notification.value, "contact_emails") # (Required) 
-      threshold_type = lookup(notification.value, "threshold_type", "Actual")
+      threshold_type = lookup(notification.value, "threshold_type", false)
       enabled        = lookup(notification.value, "enabled", true)
     }
   }

@@ -62,7 +62,7 @@ resource "azurerm_batch_pool" "this" {
     }
   }
 
-  inter_node_communication = var.inter_node_communication # Default: Enabled
+  inter_node_communication = var.inter_node_communication # Default: False
 
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
@@ -141,7 +141,17 @@ resource "azurerm_batch_pool" "this" {
     content {
       type                  = lookup(container_configuration.value, "type", null)
       container_image_names = lookup(container_configuration.value, "container_image_names", null)
-      container_registries  = lookup(container_configuration.value, "container_registries", null)
+
+      dynamic "container_registries" { # container_configuration.value.container_registries
+        for_each = container_configuration.value.container_registries != null ? container_configuration.value.container_registries : []
+        content {
+          registry_server           = lookup(container_registries.value, "registry_server") # (Required) 
+          user_name                 = lookup(container_registries.value, "user_name", null)
+          password                  = lookup(container_registries.value, "password", null)
+          user_assigned_identity_id = lookup(container_registries.value, "user_assigned_identity_id", null)
+        }
+      }
+
     }
   }
 
@@ -205,11 +215,32 @@ resource "azurerm_batch_pool" "this" {
   dynamic "network_configuration" { # var.network_configuration
     for_each = var.network_configuration != null ? var.network_configuration : []
     content {
-      subnet_id                        = lookup(network_configuration.value, "subnet_id", null)
-      dynamic_vnet_assignment_scope    = lookup(network_configuration.value, "dynamic_vnet_assignment_scope", "none")
-      accelerated_networking_enabled   = lookup(network_configuration.value, "accelerated_networking_enabled", false)
-      public_ips                       = lookup(network_configuration.value, "public_ips", null)
-      endpoint_configuration           = lookup(network_configuration.value, "endpoint_configuration", null)
+      subnet_id                      = lookup(network_configuration.value, "subnet_id", null)
+      dynamic_vnet_assignment_scope  = lookup(network_configuration.value, "dynamic_vnet_assignment_scope", "none")
+      accelerated_networking_enabled = lookup(network_configuration.value, "accelerated_networking_enabled", false)
+      public_ips                     = lookup(network_configuration.value, "public_ips", null)
+
+      dynamic "endpoint_configuration" { # network_configuration.value.endpoint_configuration
+        for_each = network_configuration.value.endpoint_configuration != null ? network_configuration.value.endpoint_configuration : []
+        content {
+          name                = endpoint_configuration.key
+          backend_port        = lookup(endpoint_configuration.value, "backend_port")        # (Required) 
+          protocol            = lookup(endpoint_configuration.value, "protocol")            # (Required) 
+          frontend_port_range = lookup(endpoint_configuration.value, "frontend_port_range") # (Required) 
+
+          dynamic "network_security_group_rules" { # endpoint_configuration.value.network_security_group_rules
+            for_each = endpoint_configuration.value.network_security_group_rules != null ? endpoint_configuration.value.network_security_group_rules : []
+            content {
+              access                = lookup(network_security_group_rules.value, "access")                # (Required) 
+              priority              = lookup(network_security_group_rules.value, "priority")              # (Required) 
+              source_address_prefix = lookup(network_security_group_rules.value, "source_address_prefix") # (Required) 
+              source_port_ranges    = lookup(network_security_group_rules.value, "source_port_ranges", null)
+            }
+          }
+
+        }
+      }
+
       public_address_provisioning_type = lookup(network_configuration.value, "public_address_provisioning_type", null)
     }
   }

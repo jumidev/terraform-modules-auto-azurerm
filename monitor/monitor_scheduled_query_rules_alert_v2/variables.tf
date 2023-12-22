@@ -31,8 +31,8 @@ variable "criteria" {
 #   resource_id_column (string)     : Specifies the column containing the resource ID. The content of the column must be an uri formatted as resource ID.
 #
 # failing_periods block structure                  :
-#   minimum_failing_periods_to_trigger_alert (string): (REQUIRED) Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6.
-#   number_of_evaluation_periods (string)            : (REQUIRED) Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6.
+#   minimum_failing_periods_to_trigger_alert (number): (REQUIRED) Specifies the number of violations to trigger an alert. Should be smaller or equal to 'number_of_evaluation_periods'. Possible value is integer between 1 and 6.
+#   number_of_evaluation_periods (number)            : (REQUIRED) Specifies the number of aggregated look-back points. The look-back time window is calculated based on the aggregation granularity 'window_duration' and the selected number of aggregated points. Possible value is integer between 1 and 6.
 #
 # dimension block structure:
 #   name (string)            : (REQUIRED) Name of the dimension.
@@ -111,7 +111,7 @@ variable "query_time_range_override" {
 }
 variable "skip_query_validation" {
   description = "Specifies the flag which indicates whether the provided query should be validated or not. The default is false."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "tags" {

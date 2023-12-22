@@ -52,7 +52,7 @@ tfstate_store = {
 | **file_copy_enabled** | bool |  `False`  |  -  |  Is File Copy feature enabled for the Bastion Host. Defaults to `false`. | 
 | **sku** | string |  `Basic`  |  -  |  The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. | 
 | **ip_connect_enabled** | bool |  `False`  |  -  |  Is IP Connect feature enabled for the Bastion Host. Defaults to `false`. | 
-| **scale_units** | string |  `2`  |  `2`, `50`  |  The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`. | 
+| **scale_units** | number |  `2`  |  `2`, `50`  |  The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`. | 
 | **shareable_link_enabled** | bool |  `False`  |  -  |  Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`. | 
 | **tunneling_enabled** | bool |  `False`  |  -  |  Is Tunneling feature enabled for the Bastion Host. Defaults to `false`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

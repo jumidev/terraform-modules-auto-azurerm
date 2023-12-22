@@ -85,7 +85,7 @@ variable "virtual_hub" {
 #
 # virtual_hub block structure:
 #   virtual_hub_id (string)    : (REQUIRED) Specifies the ID of the Virtual Hub where the Firewall resides in.
-#   public_ip_count (string)   : Specifies the number of public IPs to assign to the Firewall. Defaults to '1'.
+#   public_ip_count (number)   : Specifies the number of public IPs to assign to the Firewall. Defaults to '1'.
 
 
 variable "zones" {

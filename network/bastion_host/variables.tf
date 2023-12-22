@@ -51,8 +51,8 @@ variable "ip_connect_enabled" {
 }
 variable "scale_units" {
   description = "The number of scale units with which to provision the Bastion Host. Possible values are between '2' and '50'. Defaults to '2'."
-  type        = string
-  default     = "2"
+  type        = number
+  default     = 2
 }
 variable "shareable_link_enabled" {
   description = "Is Shareable Link feature enabled for the Bastion Host. Defaults to 'false'."

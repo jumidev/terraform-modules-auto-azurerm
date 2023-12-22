@@ -40,3 +40,21 @@ variable "tenant_id" {
   type        = string
 
 }
+
+# OPTIONAL VARIABLES
+
+variable "kusto_cluster_resource_group_name" {
+  description = "The name of the Resource Group where the Kusto Cluster exists..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "kusto_database_resource_group_name" {
+  description = "The Resource Group where the Kusto Database exists..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "kusto_database_cluster_name" {
+  description = "The name of the Kusto Cluster this database is added to..  If not specified, value of var.cluster_name will be used."
+  type        = string
+  default     = null
+}

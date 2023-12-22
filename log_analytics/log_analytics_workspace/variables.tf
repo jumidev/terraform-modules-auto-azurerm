@@ -35,7 +35,7 @@ variable "sku" {
 }
 variable "retention_in_days" {
   description = "The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
-  type        = string
+  type        = number
   default     = null
 }
 variable "daily_quota_gb" {
@@ -71,7 +71,7 @@ variable "internet_query_enabled" {
 }
 variable "reservation_capacity_in_gb_per_day" {
   description = "The capacity reservation level in GB for this workspace. Possible values are '100', '200', '300', '400', '500', '1000', '2000' and '5000'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "data_collection_rule_id" {
@@ -88,11 +88,4 @@ variable "tags" {
   description = "A mapping of tags to assign to the resource."
   type        = map(any)
   default     = null
-}
-# REQUIRED VARIABLES
-
-variable "application_group_id" {
-  description = "(REQUIRED) The resource ID for the Virtual Desktop Application Group. Changing this forces a new resource to be created."
-  type        = string
-
 }

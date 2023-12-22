@@ -56,7 +56,7 @@ tfstate_store = {
 | `email` | string | Yes | - | Email of the user used by Logz for contacting them if needed. A valid email address consists of an email prefix and an email domain. The prefix and domain may contain only letters, numbers, underscores, periods and dashes. Changing this forces a new logz Sub Account to be created. |
 | `first_name` | string | Yes | - | First Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created. |
 | `last_name` | string | Yes | - | Last Name of the user. Possible values must be between 1 and 50 characters in length. Changing this forces a new logz Sub Account to be created. |
-| `phone_number` | string | Yes | - | Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created. |
+| `phone_number` | number | Yes | - | Phone number of the user used by Logz for contacting them if needed. Possible values must be between 1 and 40 characters in length. Changing this forces a new logz Sub Account to be created. |
 
 
 

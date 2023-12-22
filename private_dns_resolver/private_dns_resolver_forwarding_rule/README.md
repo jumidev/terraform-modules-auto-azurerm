@@ -14,7 +14,10 @@ inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Forwarding..."   
    # dns_forwarding_ruleset_id → set in component_inputs
    domain_name = "Specifies the domain name for the Private DNS Resolver Forwarding Rule..."   
-   target_dns_servers = "Can be specified multiple times to define multiple target DNS servers..."   
+   target_dns_servers = {
+      ip_address = "..."      
+   }
+   
 }
 
 component_inputs = {
@@ -36,7 +39,7 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name which should be used for this Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created. | 
 | **dns_forwarding_ruleset_id** | string |  -  |  Specifies the ID of the Private DNS Resolver Forwarding Ruleset. Changing this forces a new Private DNS Resolver Forwarding Rule to be created. | 
 | **domain_name** | string |  -  |  Specifies the domain name for the Private DNS Resolver Forwarding Rule. Changing this forces a new Private DNS Resolver Forwarding Rule to be created. | 
-| **target_dns_servers** | string |  `target_dns_servers`  |  Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block. | 
+| **target_dns_servers** | [block](#target_dns_servers-block-structure) |  `target_dns_servers`  |  Can be specified multiple times to define multiple target DNS servers. Each `target_dns_servers` block. | 
 
 ## Optional Variables
 
@@ -44,6 +47,13 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **enabled** | bool |  `True`  |  Specifies the state of the Private DNS Resolver Forwarding Rule. Defaults to `true`. | 
 | **metadata** | string |  -  |  Metadata attached to the Private DNS Resolver Forwarding Rule. | 
+
+### `target_dns_servers` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ip_address` | string | Yes | - | DNS server IP address. |
+| `port` | string | No | - | DNS server port. |
 
 
 

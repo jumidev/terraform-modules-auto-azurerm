@@ -27,9 +27,14 @@ variable "sku" {
 }
 variable "local_diagnostics_access" {
   description = "(REQUIRED) One or more 'local_diagnostics_access' blocks. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs."
-  type        = string
-
+  type        = map(map(any))
 }
+#
+# local_diagnostics_access block structure:
+#   authentication_type (string)            : (REQUIRED) How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'.
+#   https_server_certificate_url (string)   : The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress.
+
+
 
 # OPTIONAL VARIABLES
 

@@ -27,7 +27,7 @@ variable "scope" {
 
 variable "scope_accesses" {
   description = "(REQUIRED) A list of configuration deployment type. Possible values are 'Connectivity' and 'SecurityAdmin', corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager."
-  type        = string
+  type        = list(any)
 
 }
 

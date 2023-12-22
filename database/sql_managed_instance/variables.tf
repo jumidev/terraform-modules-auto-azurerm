@@ -22,7 +22,7 @@ variable "sku_name" {
 }
 variable "vcores" {
   description = "(REQUIRED) Number of cores that should be assigned to your instance. Values can be '8', '16', or '24' if 'sku_name' is 'GP_Gen4', or '8', '16', '24', '32', or '40' if 'sku_name' is 'GP_Gen5'."
-  type        = string
+  type        = number
 
 }
 variable "storage_size_in_gb" {

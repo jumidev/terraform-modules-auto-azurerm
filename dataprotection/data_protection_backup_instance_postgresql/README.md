@@ -13,9 +13,13 @@ source = {
 inputs = {
    name = "The name which should be used for this Backup Instance PostgreSQL..."   
    location = "${location}"   
-   vault_id = "The ID of the Backup Vault within which the PostgreSQL Backup Instance should ex..."   
+   # vault_id → set in component_inputs
    database_id = "The ID of the source database"   
    backup_policy_id = "The ID of the Backup Policy"   
+}
+
+component_inputs = {
+   vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {

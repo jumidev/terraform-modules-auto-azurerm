@@ -49,10 +49,10 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **day_of_month** | string |  -  |  UTC day on which cost analysis data will be emailed. Must be between `1` and `31`. This property is applicable when `frequency` is `Monthly`. | 
-| **days_of_week** | string |  `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday`, `Wednesday`  |  Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`. | 
+| **days_of_week** | number |  `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday`, `Wednesday`  |  Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is `Weekly` or `Monthly`. Possible values are `Friday`, `Monday`, `Saturday`, `Sunday`, `Thursday`, `Tuesday` and `Wednesday`. | 
 | **hour_of_day** | string |  -  |  UTC time at which cost analysis data will be emailed. Must be between `0` and `23`. | 
 | **message** | string |  -  |  Message to be added in the email. Length is limited to 250 characters. | 
-| **weeks_of_month** | string |  `First`, `Fourth`, `Last`, `Second`, `Third`  |  Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`. | 
+| **weeks_of_month** | list |  `First`, `Fourth`, `Last`, `Second`, `Third`  |  Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when `frequency` is `Monthly` and used in combination with `days_of_week`. Possible values are `First`, `Fourth`, `Last`, `Second` and `Third`. | 
 
 
 

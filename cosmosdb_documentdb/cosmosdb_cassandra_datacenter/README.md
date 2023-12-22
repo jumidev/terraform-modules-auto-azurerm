@@ -13,8 +13,13 @@ source = {
 inputs = {
    name = "The name which should be used for this Cassandra Datacenter..."   
    location = "${location}"   
-   cassandra_cluster_id = "The ID of the Cassandra Cluster"   
-   delegated_management_subnet_id = "The ID of the delegated management subnet for this Cassandra Datacenter..."   
+   # cassandra_cluster_id → set in component_inputs
+   # delegated_management_subnet_id → set in component_inputs
+}
+
+component_inputs = {
+   cassandra_cluster_id = "path/to/cosmosdb_cassandra_cluster_component:id"   
+   delegated_management_subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {

@@ -45,7 +45,7 @@ variable "encryption" {
 }
 #
 # encryption block structure:
-#   enforcement (string)      : (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'.
+#   enforcement (bool)        : (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'.
 
 
 variable "dns_servers" {
@@ -60,7 +60,7 @@ variable "edge_zone" {
 }
 variable "flow_timeout_in_minutes" {
   description = "The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between '4' and '30' minutes."
-  type        = string
+  type        = number
   default     = null
 }
 

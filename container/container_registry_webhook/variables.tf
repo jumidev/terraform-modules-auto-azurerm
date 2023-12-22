@@ -27,7 +27,7 @@ variable "service_uri" {
 }
 variable "actions" {
   description = "(REQUIRED) A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: 'push', 'delete', 'quarantine', 'chart_push', 'chart_delete'"
-  type        = string
+  type        = list(any)
 
 }
 

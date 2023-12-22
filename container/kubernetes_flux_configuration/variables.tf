@@ -47,8 +47,11 @@ variable "blob_storage" {
 #   managed_identity (block)         : A 'managed_identity' block.
 #   sas_token (string)               : Specifies the shared access token to access the storage container.
 #   service_principal (block)        : A 'service_principal' block.
-#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
-#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+#   sync_interval_in_seconds (number): Specifies the interval at which to re-reconcile the cluster Azure Blob source with the remote.
+#   timeout_in_seconds (number)      : Specifies the maximum time to attempt to reconcile the cluster Azure Blob source with the remote.
+#
+# managed_identity block structure:
+#   client_id (string)              : (REQUIRED) Specifies the client ID for authenticating a Managed Identity.
 #
 # service_principal block structure     :
 #   client_id (string)                    : (REQUIRED) Specifies the client ID for authenticating a Service Principal.
@@ -57,9 +60,6 @@ variable "blob_storage" {
 #   client_certificate_password (string)  : Specifies the password for the certificate used to authenticate a Service Principal .
 #   client_certificate_send_chain (string): Specifies whether to include x5c header in client claims when acquiring a token to enable subject name / issuer based authentication for the client certificate.
 #   client_secret (string)                : Specifies the client secret for authenticating a Service Principal.
-#
-# managed_identity block structure:
-#   client_id (string)              : (REQUIRED) Specifies the client ID for authenticating a Managed Identity.
 
 
 variable "bucket" {
@@ -75,8 +75,8 @@ variable "bucket" {
 #   secret_key_base64 (string)       : Specifies the Base64-encoded secret key used to authenticate with the bucket source.
 #   tls_enabled (bool)               : Specify whether to communicate with a bucket using TLS is enabled. Defaults to 'true'.
 #   local_auth_reference (string)    : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
-#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
-#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   sync_interval_in_seconds (number): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   timeout_in_seconds (number)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
 
 
 variable "git_repository" {
@@ -95,8 +95,8 @@ variable "git_repository" {
 #   local_auth_reference (string)    : Specifies the name of a local secret on the Kubernetes cluster to use as the authentication secret rather than the managed or user-provided configuration secrets. It must be between 1 and 63 characters. It can contain only lowercase letters, numbers, and hyphens (-). It must start and end with a lowercase letter or number.
 #   ssh_private_key_base64 (string)  : Specifies the Base64-encoded SSH private key in PEM format.
 #   ssh_known_hosts_base64 (string)  : Specifies the Base64-encoded known_hosts value containing public SSH keys required to access private git repositories over SSH.
-#   sync_interval_in_seconds (string): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
-#   timeout_in_seconds (string)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   sync_interval_in_seconds (number): Specifies the interval at which to re-reconcile the cluster git repository source with the remote. Defaults to '600'.
+#   timeout_in_seconds (number)      : Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'.
 
 
 variable "scope" {

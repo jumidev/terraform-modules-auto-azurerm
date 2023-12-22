@@ -33,7 +33,7 @@ variable "criteria" {
 #   resource_id (string)            : The specific resource monitored by the activity log alert. It should be within one of the 'scopes'.
 #   resource_ids (list)             : A list of specific resources monitored by the activity log alert. It should be within one of the 'scopes'.
 #   level (string)                  : The severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'.
-#   levels (string)                 : A list of severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'.
+#   levels (list)                   : A list of severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'.
 #   status (string)                 : The status of the event. For example, 'Started', 'Failed', or 'Succeeded'.
 #   statuses (list)                 : A list of status of the event. For example, 'Started', 'Failed', or 'Succeeded'.
 #   sub_status (string)             : The sub status of the event.

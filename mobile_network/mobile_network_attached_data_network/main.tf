@@ -38,8 +38,8 @@ resource "azurerm_mobile_network_attached_data_network" "this" {
         }
       }
 
-      tcp_port_reuse_minimum_hold_time_in_seconds = lookup(network_address_port_translation.value, "tcp_port_reuse_minimum_hold_time_in_seconds", "120")
-      udp_port_reuse_minimum_hold_time_in_seconds = lookup(network_address_port_translation.value, "udp_port_reuse_minimum_hold_time_in_seconds", "60")
+      tcp_port_reuse_minimum_hold_time_in_seconds = lookup(network_address_port_translation.value, "tcp_port_reuse_minimum_hold_time_in_seconds", 120)
+      udp_port_reuse_minimum_hold_time_in_seconds = lookup(network_address_port_translation.value, "udp_port_reuse_minimum_hold_time_in_seconds", 60)
     }
   }
 

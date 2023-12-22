@@ -30,8 +30,8 @@ variable "ip_version" {
 }
 variable "prefix_length" {
   description = "Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to '28'(16 addresses). Changing this forces a new resource to be created."
-  type        = string
-  default     = "28"
+  type        = number
+  default     = 28
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

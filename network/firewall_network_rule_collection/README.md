@@ -45,7 +45,7 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name of the Network Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created. | 
 | **azure_firewall_name** | string |  -  |  Specifies the name of the Firewall in which the Network Rule Collection should be created. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
-| **priority** | string |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
+| **priority** | number |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
@@ -61,7 +61,7 @@ tfstate_store = {
 | `destination_ip_groups` | list | No | - | A list of destination IP Group IDs for the rule. |
 | `destination_fqdns` | list | No | - | A list of destination FQDNS for the rule. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |
-| `protocols` | string | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. |
+| `protocols` | list | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. |
 
 
 

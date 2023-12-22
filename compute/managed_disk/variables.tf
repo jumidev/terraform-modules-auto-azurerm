@@ -60,7 +60,7 @@ variable "upload_size_bytes" {
 }
 variable "disk_size_gb" {
   description = "(Optional, Required for a new managed disk) Specifies the size of the managed disk to create in gigabytes. If 'create_option' is 'Copy' or 'FromImage', then the value must be equal to or greater than the source's size. The size can only be increased."
-  type        = string
+  type        = number
   default     = null
 }
 variable "edge_zone" {
@@ -78,13 +78,13 @@ variable "encryption_settings" {
 #   disk_encryption_key (block)        : A 'disk_encryption_key' block.
 #   key_encryption_key (block)         : A 'key_encryption_key' block.
 #
-# key_encryption_key block structure:
-#   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource.
-#   source_vault_id (string)          : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
-#
 # disk_encryption_key block structure:
 #   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource.
 #   source_vault_id (string)           : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
+#
+# key_encryption_key block structure:
+#   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource.
+#   source_vault_id (string)          : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
 
 
 variable "hyper_v_generation" {
@@ -144,7 +144,7 @@ variable "tier" {
 }
 variable "max_shares" {
   description = "The maximum number of VMs that can attach to the disk at the same time. Value greater than one indicates a disk that can be mounted on multiple VMs at the same time."
-  type        = string
+  type        = number
   default     = null
 }
 variable "trusted_launch_enabled" {

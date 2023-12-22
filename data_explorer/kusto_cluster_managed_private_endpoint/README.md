@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "The name of the Managed Private Endpoints to create..."   
-   cluster_name = "The name of the Kusto Cluster"   
+   # cluster_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    private_link_resource_id = "The ARM resource ID of the resource for which the managed private endpoint is cr..."   
    group_id = "The group id in which the managed private endpoint is created..."   
+}
+
+component_inputs = {
+   cluster_name = "path/to/kusto_cluster_component:name"   
 }
 
 tfstate_store = {

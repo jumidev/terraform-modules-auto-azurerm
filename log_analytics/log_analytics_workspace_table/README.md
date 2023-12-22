@@ -34,7 +34,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  Specifies the name of a table in a Log Analytics Workspace. | 
 | **workspace_id** | string |  The object ID of the Log Analytics Workspace that contains the table. | 
-| **retention_in_days** | string |  The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | 
+| **retention_in_days** | number |  The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | 
 
 
 

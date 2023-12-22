@@ -40,8 +40,8 @@ variable "path" {
 }
 variable "protocols" {
   description = "A list of protocols the operations in this API can be invoked. Possible values are 'http', 'https', 'ws', and 'wss'."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "contact" {
   description = "A 'contact' block."
@@ -106,7 +106,7 @@ variable "openid_authentication" {
 #
 # openid_authentication block structure:
 #   openid_provider_name (string)        : (REQUIRED) OpenID Connect provider identifier. The name of an [OpenID Connect Provider](https://www.terraform.io/docs/providers/azurerm/r/api_management_openid_connect_provider.html).
-#   bearer_token_sending_methods (string): How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'.
+#   bearer_token_sending_methods (list)  : How to send token to the server. A list of zero or more methods. Valid values are 'authorizationHeader' and 'query'.
 
 
 variable "service_url" {

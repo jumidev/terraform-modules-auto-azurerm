@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "base_size_in_tib" {
   description = "(REQUIRED) Specifies the base size of the Elastic SAN resource in TiB. Possible values are between '1' and '100'."
-  type        = string
+  type        = number
 
 }
 variable "sku" {
@@ -35,7 +35,7 @@ variable "sku" {
 
 variable "extended_size_in_tib" {
   description = "Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between '1' and '100'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "zones" {

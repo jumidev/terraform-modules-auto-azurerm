@@ -12,6 +12,6 @@ variable "workspace_id" {
 }
 variable "retention_in_days" {
   description = "(REQUIRED) The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
-  type        = string
+  type        = number
 
 }

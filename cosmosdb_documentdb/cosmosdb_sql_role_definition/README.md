@@ -12,13 +12,17 @@ source = {
 
 inputs = {
    resource_group_name = "${resource_group}"   
-   account_name = "The name of the Cosmos DB Account"   
+   # account_name → set in component_inputs
    assignable_scopes = "A list of fully qualified scopes at or below which Role Assignments may be creat..."   
    name = "An user-friendly name for the Cosmos DB SQL Role Definition which must be unique..."   
    permissions = {
       data_actions = "..."      
    }
    
+}
+
+component_inputs = {
+   account_name = "path/to/cosmosdb_account_component:name"   
 }
 
 tfstate_store = {

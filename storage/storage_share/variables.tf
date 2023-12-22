@@ -40,8 +40,8 @@ variable "acl" {
 
 variable "enabled_protocol" {
   description = "The protocol used for the share. Possible values are 'SMB' and 'NFS'. The 'SMB' indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The 'NFS' indicates the share can be accessed by NFSv4.1. Defaults to 'SMB'. Changing this forces a new resource to be created."
-  type        = string
-  default     = "SMB"
+  type        = bool
+  default     = false
 }
 variable "metadata" {
   description = "A mapping of MetaData for this File Share."
@@ -49,7 +49,7 @@ variable "metadata" {
   default     = null
 }
 variable "storage_account_resource_group_name" {
-  description = "Specifies the name of the resource group the Storage Account is located in..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  description = "Specifies the name of the resource group the Storage Account is located in..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }

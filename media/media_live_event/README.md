@@ -52,10 +52,27 @@ tfstate_store = {
 | **encoding** | [block](#encoding-block-structure) |  -  |  A `encoding` block. | 
 | **hostname_prefix** | string |  -  |  When `use_static_hostname` is set to true, the `hostname_prefix` specifies the first part of the hostname assigned to the live event preview and ingest endpoints. The final hostname would be a combination of this prefix, the media service account name and a short code for the Azure Media Services data center. | 
 | **preview** | [block](#preview-block-structure) |  -  |  A `preview` block. | 
-| **stream_options** | string |  `Default`, `LowLatency`, `LowLatencyV2`  |  A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created. | 
+| **stream_options** | list |  `Default`, `LowLatency`, `LowLatencyV2`  |  A list of options to use for the LiveEvent. Possible values are `Default`, `LowLatency`, `LowLatencyV2`. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Live Event. | 
 | **transcription_languages** | list |  -  |  Specifies a list of languages (locale) to be used for speech-to-text transcription – it should match the spoken language in the audio track. The value should be in `BCP-47` format (e.g: `en-US`). [See the Microsoft Documentation for more information about the live transcription feature and the list of supported languages](https://go.microsoft.com/fwlink/?linkid=2133742 ). | 
 | **use_static_hostname** | bool |  -  |  Specifies whether a static hostname would be assigned to the live event preview and ingest endpoints. Changing this forces a new Live Event to be created. | 
+
+### `ip_access_control_allow` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | No | - | The IP address or CIDR range. |
+| `name` | string | No | - | The friendly name for the IP address range. |
+| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
+### `preview` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `alternative_media_id` | string | No | - | An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the 'CustomLicenseAcquisitionUrlTemplate' or the 'CustomKeyAcquisitionUrlTemplate' of the Streaming Policy specified in the 'streaming_policy_name' field. |
+| `ip_access_control_allow` | string | No | - | One or more 'ip_access_control_allow' blocks. |
+| `preview_locator` | string | No | - | The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created. |
+| `streaming_policy_name` | string | No | - | The name of streaming policy used for the live event preview. Changing this forces a new resource to be created. |
 
 ### `input` block structure
 
@@ -72,23 +89,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `client_access_policy` | string | No | - | The content of clientaccesspolicy.xml used by Silverlight. |
 | `cross_domain_policy` | string | No | - | The content of the Cross Domain Policy ('crossdomain.xml'). |
-
-### `preview` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `alternative_media_id` | string | No | - | An alternative media identifier associated with the streaming locator created for the preview. The identifier can be used in the 'CustomLicenseAcquisitionUrlTemplate' or the 'CustomKeyAcquisitionUrlTemplate' of the Streaming Policy specified in the 'streaming_policy_name' field. |
-| `ip_access_control_allow` | string | No | - | One or more 'ip_access_control_allow' blocks. |
-| `preview_locator` | string | No | - | The identifier of the preview locator in GUID format. Specifying this at creation time allows the caller to know the preview locator url before the event is created. If omitted, the service will generate a random identifier. Changing this forces a new resource to be created. |
-| `streaming_policy_name` | string | No | - | The name of streaming policy used for the live event preview. Changing this forces a new resource to be created. |
-
-### `ip_access_control_allow` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | No | - | The IP address or CIDR range. |
-| `name` | string | No | - | The friendly name for the IP address range. |
-| `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
 
 ### `encoding` block structure
 

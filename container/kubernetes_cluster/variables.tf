@@ -61,6 +61,30 @@ variable "default_node_pool" {
 #   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
 #
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block. Changing this forces a new resource to be created.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
+#
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+#
+# kubelet_config block structure    :
+#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
+#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
+#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
+#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
+#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
+#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
+#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
+#   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
+#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
+#
+# upgrade_settings block structure:
+#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+#
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
 #   fs_file_max (string)                       : The sysctl setting fs.file-max. Must be between '8192' and '12000500'. Changing this forces a new resource to be created.
@@ -91,30 +115,6 @@ variable "default_node_pool" {
 #   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
-#
-# linux_os_config block structure       :
-#   swap_file_size_mb (string)            : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
-#
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
-#
-# kubelet_config block structure    :
-#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
-#   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-#   container_log_max_size_mb (string): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
-#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
-#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
-#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
-#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
-#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
-#   pod_max_pid (string)              : Specifies the maximum number of processes per pod.
-#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
-#
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 
 
 
@@ -178,7 +178,7 @@ variable "auto_scaler_profile" {
 #   scale_down_unneeded (string)             : How long a node should be unneeded before it is eligible for scale down. Defaults to '10m'.
 #   scale_down_unready (string)              : How long an unready node should be unneeded before it is eligible for scale down. Defaults to '20m'.
 #   scale_down_utilization_threshold (string): Node utilization level, defined as sum of requested resources divided by capacity, below which a node can be considered for scale down. Defaults to '0.5'.
-#   empty_bulk_delete_max (string)           : Maximum number of empty nodes that can be deleted at the same time. Defaults to '10'.
+#   empty_bulk_delete_max (number)           : Maximum number of empty nodes that can be deleted at the same time. Defaults to '10'.
 #   skip_nodes_with_local_storage (bool)     : If 'true' cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to 'true'.
 #   skip_nodes_with_system_pods (bool)       : If 'true' cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to 'true'.
 
@@ -328,7 +328,10 @@ variable "linux_profile" {
 #
 # linux_profile block structure:
 #   admin_username (string)      : (REQUIRED) The Admin Username for the Cluster. Changing this forces a new resource to be created.
-#   ssh_key (string)             : (REQUIRED) An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+#   ssh_key (block)              : (REQUIRED) An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview).
+#
+# ssh_key block structure:
+#   key_data (string)      : (REQUIRED) The Public SSH Key used to access the cluster.
 
 
 variable "local_account_disabled" {
@@ -346,13 +349,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# allowed block structure:
-#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   hours (string)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
-#
 # not_allowed block structure:
 #   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
 #   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
+#
+# allowed block structure:
+#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+#   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
 
 
 variable "maintenance_window_auto_upgrade" {
@@ -441,7 +444,7 @@ variable "network_profile" {
 #   pod_cidrs (list)               : A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 #   service_cidr (string)          : The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
 #   service_cidrs (list)           : A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
-#   ip_versions (string)           : Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created.
+#   ip_versions (list)             : Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created.
 #   load_balancer_sku (string)     : Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created.
 #   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
 #   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
@@ -524,7 +527,7 @@ variable "workload_autoscaler_profile" {
 }
 #
 # workload_autoscaler_profile block structure:
-#   keda_enabled (string)                      : Specifies whether KEDA Autoscaler can be used for workloads.
+#   keda_enabled (bool)                        : Specifies whether KEDA Autoscaler can be used for workloads.
 #   vertical_pod_autoscaler_enabled (bool)     : Specifies whether Vertical Pod Autoscaler should be enabled.
 
 

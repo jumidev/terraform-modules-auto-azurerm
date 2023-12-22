@@ -17,7 +17,7 @@ variable "resource_group_name" {
 }
 variable "priority" {
   description = "(REQUIRED) Specifies the priority of the rule collection. Possible values are between '100' - '65000'."
-  type        = string
+  type        = number
 
 }
 variable "action" {
@@ -35,7 +35,7 @@ variable "rule" {
 #   description (string)   : Specifies a description for the rule.
 #   source_addresses (list): A list of source IP addresses and/or IP ranges.
 #   source_ip_groups (list): A list of source IP Group IDs for the rule.
-#   fqdn_tags (string)     : A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
+#   fqdn_tags (map)        : A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
 #   target_fqdns (list)    : A list of FQDNs.
 #   protocol (block)       : One or more 'protocol' blocks.
 #

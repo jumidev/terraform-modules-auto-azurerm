@@ -48,7 +48,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The unique name for the routing policy. |
-| `destinations` | string | Yes | - | A list of destinations which this routing policy is applicable to. Possible values are 'Internet' and 'PrivateTraffic'. |
+| `destinations` | list | Yes | - | A list of destinations which this routing policy is applicable to. Possible values are 'Internet' and 'PrivateTraffic'. |
 | `next_hop` | string | Yes | - | The resource ID of the next hop on which this routing policy is applicable to. |
 
 

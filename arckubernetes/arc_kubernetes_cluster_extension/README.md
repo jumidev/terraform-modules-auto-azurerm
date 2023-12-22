@@ -12,16 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Arc Kubernetes Cluster Extensio..."   
-   # cluster_id → set in component_inputs
+   cluster_id = "Specifies the Cluster ID"   
    extension_type = "Specifies the type of extension"   
    identity = {
       type = "..."      
    }
    
-}
-
-component_inputs = {
-   cluster_id = "path/to/arc_kubernetes_cluster_extension_component:id"   
 }
 
 tfstate_store = {

@@ -43,15 +43,15 @@ tfstate_store = {
 | **purge_protection_enabled** | bool |  `False`  |  -  |  Whether Purge Protection is enabled. This field only works for `standard` sku. Defaults to `false`. | 
 | **replica** | [block](#replica-block-structure) |  -  |  -  |  One or more `replica` blocks. | 
 | **sku** | string |  `free`  |  `free`, `standard`  |  The SKU name of the App Configuration. Possible values are `free` and `standard`. Defaults to `free`. | 
-| **soft_delete_retention_days** | string |  `7`  |  `1`, `7`  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
+| **soft_delete_retention_days** | number |  `7`  |  `1`, `7`  |  The number of days that items should be retained for once soft-deleted. This field only works for `standard` sku. This value can be between `1` and `7` days. Defaults to `7`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `replica` block structure
+### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
-| `name` | string | Yes | - | Specifies the name of the replica. |
+| `key_vault_key_identifier` | string | No | - | Specifies the URI of the key vault key used to encrypt data. |
+| `identity_client_id` | string | No | - | Specifies the client id of the identity which will be used to access key vault. |
 
 ### `identity` block structure
 
@@ -60,12 +60,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this App Configuration. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this App Configuration. |
 
-### `encryption` block structure
+### `replica` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_identifier` | string | No | - | Specifies the URI of the key vault key used to encrypt data. |
-| `identity_client_id` | string | No | - | Specifies the client id of the identity which will be used to access key vault. |
+| `location` | string | Yes | - | Specifies the supported Azure location where the replica exists. |
+| `name` | string | Yes | - | Specifies the name of the replica. |
 
 
 

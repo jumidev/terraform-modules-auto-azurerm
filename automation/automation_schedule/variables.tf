@@ -50,7 +50,7 @@ variable "timezone" {
 }
 variable "week_days" {
   description = "List of days of the week that the job should execute on. Only valid when frequency is 'Week'. Possible values are 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "month_days" {

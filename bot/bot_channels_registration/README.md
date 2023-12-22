@@ -15,11 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = "The SKU of the Bot Channels Registration"   
-   # microsoft_app_id → set in component_inputs
-}
-
-component_inputs = {
-   microsoft_app_id = "path/to/bot_channels_registration_component:id"   
+   microsoft_app_id = "The Microsoft Application ID for the Bot Channels Registration..."   
 }
 
 tfstate_store = {

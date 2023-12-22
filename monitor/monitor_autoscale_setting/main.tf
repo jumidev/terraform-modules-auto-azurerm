@@ -20,9 +20,9 @@ resource "azurerm_monitor_autoscale_setting" "this" {
       dynamic "capacity" { # profile.value.capacity
         for_each = profile.value.capacity != null ? profile.value.capacity : []
         content {
-          default = lookup(capacity.value, "default", "0") # (Required) possible values: 0 | 1000
-          maximum = lookup(capacity.value, "maximum")      # (Required) possible values: 0 | 1000
-          minimum = lookup(capacity.value, "minimum")      # (Required) possible values: 0 | 1000
+          default = lookup(capacity.value, "default", 0) # (Required) possible values: 0 | 1000
+          maximum = lookup(capacity.value, "maximum")    # (Required) possible values: 0 | 1000
+          minimum = lookup(capacity.value, "minimum")    # (Required) possible values: 0 | 1000
         }
       }
 
@@ -77,7 +77,7 @@ resource "azurerm_monitor_autoscale_setting" "this" {
         content {
           end      = lookup(fixed_date.value, "end")   # (Required) 
           start    = lookup(fixed_date.value, "start") # (Required) 
-          timezone = lookup(fixed_date.value, "timezone", "UTC")
+          timezone = lookup(fixed_date.value, "timezone", [])
         }
       }
 
@@ -85,7 +85,7 @@ resource "azurerm_monitor_autoscale_setting" "this" {
       dynamic "recurrence" { # profile.value.recurrence
         for_each = profile.value.recurrence != null ? profile.value.recurrence : []
         content {
-          timezone = lookup(recurrence.value, "timezone", "UTC")
+          timezone = lookup(recurrence.value, "timezone", [])
           days     = lookup(recurrence.value, "days")    # (Required) possible values: Monday | Tuesday | Wednesday | Thursday | Friday | Saturday | Sunday
           hours    = lookup(recurrence.value, "hours")   # (Required) possible values: 0 | 23
           minutes  = lookup(recurrence.value, "minutes") # (Required) 

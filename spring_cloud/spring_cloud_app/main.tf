@@ -44,8 +44,8 @@ resource "azurerm_spring_cloud_app" "this" {
     for_each = var.ingress_settings != null ? var.ingress_settings : []
     content {
       backend_protocol        = lookup(ingress_settings.value, "backend_protocol", "Default")
-      read_timeout_in_seconds = lookup(ingress_settings.value, "read_timeout_in_seconds", "300")
-      send_timeout_in_seconds = lookup(ingress_settings.value, "send_timeout_in_seconds", "60")
+      read_timeout_in_seconds = lookup(ingress_settings.value, "read_timeout_in_seconds", 300)
+      send_timeout_in_seconds = lookup(ingress_settings.value, "send_timeout_in_seconds", 60)
       session_affinity        = lookup(ingress_settings.value, "session_affinity", "None")
       session_cookie_max_age  = lookup(ingress_settings.value, "session_cookie_max_age", null)
     }

@@ -47,7 +47,7 @@ tfstate_store = {
 | **start_time** | string |  -  |  -  |  Start time of the schedule. Must be at least five minutes in the future. Defaults to seven minutes in the future from the time the resource is created. | 
 | **expiry_time** | string |  -  |  -  |  The end time of the schedule. | 
 | **timezone** | string |  `Etc/UTC`  |  -  |  The timezone of the start time. Defaults to `Etc/UTC`. For possible values see: <https://docs.microsoft.com/en-us/rest/api/maps/timezone/gettimezoneenumwindows> | 
-| **week_days** | string |  -  |  `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`  |  List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. | 
+| **week_days** | number |  -  |  `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday`, `Sunday`  |  List of days of the week that the job should execute on. Only valid when frequency is `Week`. Possible values are `Monday`, `Tuesday`, `Wednesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. | 
 | **month_days** | number |  -  |  -  |  List of days of the month that the job should execute on. Must be between `1` and `31`. `-1` for last day of the month. Only valid when frequency is `Month`. | 
 
 

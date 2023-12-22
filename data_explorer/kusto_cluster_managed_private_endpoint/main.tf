@@ -1,3 +1,7 @@
+data "azurerm_kusto_cluster" "this" {
+  name                = var.kusto_cluster_name
+  resource_group_name = var.kusto_cluster_resource_group_name == null ? null : var.kusto_cluster_resource_group_name
+}
 data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
@@ -9,7 +13,7 @@ resource "azurerm_kusto_cluster_managed_private_endpoint" "this" {
   # required vars
   ########################################
   name                     = var.name
-  cluster_name             = var.cluster_name
+  cluster_name             = data.azurerm_kusto_cluster.this.name
   resource_group_name      = data.azurerm_resource_group.this.name
   private_link_resource_id = var.private_link_resource_id
   group_id                 = var.group_id

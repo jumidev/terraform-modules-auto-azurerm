@@ -48,7 +48,7 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name of the NAT Rule Collection which must be unique within the Firewall. Changing this forces a new resource to be created. | 
 | **azure_firewall_name** | string |  -  |  Specifies the name of the Firewall in which the NAT Rule Collection should be created. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
-| **priority** | string |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
+| **priority** | number |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **action** | string |  `Dnat`, `Snat`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Dnat` and `Snat`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
@@ -60,7 +60,7 @@ tfstate_store = {
 | `description` | string | No | - | Specifies a description for the rule. |
 | `destination_addresses` | list | Yes | - | A list of destination IP addresses and/or IP ranges. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |
-| `protocols` | string | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. If 'action' is 'Dnat', protocols can only be 'TCP' and 'UDP'. |
+| `protocols` | list | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. If 'action' is 'Dnat', protocols can only be 'TCP' and 'UDP'. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
 | `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. |
 | `translated_address` | string | Yes | - | The address of the service behind the Firewall. |

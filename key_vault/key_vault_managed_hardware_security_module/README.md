@@ -16,12 +16,11 @@ inputs = {
    location = "${location}"   
    # admin_object_ids → set in component_inputs
    sku_name = "The Name of the SKU used for this Key Vault Managed Hardware Security Module..."   
-   # tenant_id → set in component_inputs
+   tenant_id = "The Azure Active Directory Tenant ID that should be used for authenticating requ..."   
 }
 
 component_inputs = {
    admin_object_ids = ["path/to/key_vault_component:ids", "..."]   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {
@@ -48,11 +47,11 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **purge_protection_enabled** | bool |  -  |  -  |  Is Purge Protection enabled for this Key Vault Managed Hardware Security Module? Changing this forces a new resource to be created. | 
-| **soft_delete_retention_days** | string |  `90`  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created. | 
+| **soft_delete_retention_days** | number |  `90`  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` days. Defaults to `90`. Changing this forces a new resource to be created. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether traffic from public networks is permitted. Defaults to `true`. Changing this forces a new resource to be created. | 
 | **network_acls** | [block](#network_acls-block-structure) |  -  |  -  |  A `network_acls` block. | 
 | **security_domain_key_vault_certificate_ids** | list |  -  |  -  |  A list of KeyVault certificates resource IDs (minimum of three and up to a maximum of 10) to activate this Managed HSM. More information see [activate-your-managed-hsm](https://learn.microsoft.com/azure/key-vault/managed-hsm/quick-create-cli#activate-your-managed-hsm) | 
-| **security_domain_quorum** | string |  -  |  `security_domain_key_vault_certificate_ids`  |  Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10. | 
+| **security_domain_quorum** | number |  -  |  `security_domain_key_vault_certificate_ids`  |  Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when `security_domain_key_vault_certificate_ids` is specified. Valid values are between 2 and 10. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. Changing this forces a new resource to be created. | 
 
 ### `network_acls` block structure

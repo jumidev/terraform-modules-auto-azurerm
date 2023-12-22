@@ -14,13 +14,12 @@ inputs = {
    # synapse_workspace_id → set in component_inputs
    login = "The login name of the Azure AD Administrator of this Synapse Workspace..."   
    # object_id → set in component_inputs
-   # tenant_id → set in component_inputs
+   tenant_id = "The tenant id of the Azure AD Administrator of this Synapse Workspace..."   
 }
 
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
    object_id = "path/to/synapse_workspace_component:id"   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {

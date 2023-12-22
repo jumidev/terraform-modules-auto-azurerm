@@ -50,8 +50,8 @@ variable "environment_variables" {
 }
 variable "instance_count" {
   description = "Specifies the required instance count of the Spring Cloud Deployment. Possible Values are between '1' and '500'. Defaults to '1' if not specified."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 variable "language_framework" {
   description = "Specifies the language framework of the container image. The only possible value is 'springboot'."

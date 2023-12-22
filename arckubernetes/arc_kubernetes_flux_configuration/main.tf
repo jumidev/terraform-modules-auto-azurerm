@@ -60,8 +60,8 @@ resource "azurerm_arc_kubernetes_flux_configuration" "this" {
       secret_key_base64        = lookup(bucket.value, "secret_key_base64", null)
       tls_enabled              = lookup(bucket.value, "tls_enabled", true)
       local_auth_reference     = lookup(bucket.value, "local_auth_reference", null)
-      sync_interval_in_seconds = lookup(bucket.value, "sync_interval_in_seconds", "600")
-      timeout_in_seconds       = lookup(bucket.value, "timeout_in_seconds", "600")
+      sync_interval_in_seconds = lookup(bucket.value, "sync_interval_in_seconds", 600)
+      timeout_in_seconds       = lookup(bucket.value, "timeout_in_seconds", 600)
     }
   }
 
@@ -78,8 +78,8 @@ resource "azurerm_arc_kubernetes_flux_configuration" "this" {
       local_auth_reference     = lookup(git_repository.value, "local_auth_reference", null)
       ssh_private_key_base64   = lookup(git_repository.value, "ssh_private_key_base64", null)
       ssh_known_hosts_base64   = lookup(git_repository.value, "ssh_known_hosts_base64", null)
-      sync_interval_in_seconds = lookup(git_repository.value, "sync_interval_in_seconds", "600")
-      timeout_in_seconds       = lookup(git_repository.value, "timeout_in_seconds", "600")
+      sync_interval_in_seconds = lookup(git_repository.value, "sync_interval_in_seconds", 600)
+      timeout_in_seconds       = lookup(git_repository.value, "timeout_in_seconds", 600)
     }
   }
 

@@ -40,8 +40,8 @@ variable "purge_protection_enabled" {
 }
 variable "soft_delete_retention_days" {
   description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' days. Defaults to '90'. Changing this forces a new resource to be created."
-  type        = string
-  default     = "90"
+  type        = number
+  default     = 90
 }
 variable "public_network_access_enabled" {
   description = "Whether traffic from public networks is permitted. Defaults to 'true'. Changing this forces a new resource to be created."
@@ -66,7 +66,7 @@ variable "security_domain_key_vault_certificate_ids" {
 }
 variable "security_domain_quorum" {
   description = "Specifies the minimum number of shares required to decrypt the security domain for recovery. This is required when 'security_domain_key_vault_certificate_ids' is specified. Valid values are between 2 and 10."
-  type        = string
+  type        = number
   default     = null
 }
 variable "tags" {

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Azure Cosmos DB for PostgreSQL Role..."   
-   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
+   # cluster_id → set in component_inputs
    password = "The password of the Azure Cosmos DB for PostgreSQL Role..."   
+}
+
+component_inputs = {
+   cluster_id = "path/to/cosmosdb_postgresql_cluster_component:id"   
 }
 
 tfstate_store = {

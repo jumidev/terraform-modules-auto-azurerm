@@ -41,3 +41,7 @@ output "logs_ingestion_endpoint" {
   value       = azurerm_monitor_data_collection_endpoint.this.logs_ingestion_endpoint
 }
 
+output "monitor_data_collection_rule_association" {
+  value = var.monitor_data_collection_rule_association
+}
+

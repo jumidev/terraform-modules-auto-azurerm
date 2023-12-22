@@ -5,10 +5,6 @@ data "azurerm_mssql_server" "this" {
   name                = var.mssql_server_name
   resource_group_name = var.mssql_server_resource_group_name == null ? null : var.mssql_server_resource_group_name
 }
-data "azurerm_maintenance_configuration" "this" {
-  name                = var.maintenance_configuration_name
-  resource_group_name = var.maintenance_configuration_resource_group_name == null ? null : var.maintenance_configuration_resource_group_name
-}
 
 
 resource "azurerm_mssql_elasticpool" "this" {
@@ -38,7 +34,7 @@ resource "azurerm_mssql_elasticpool" "this" {
   ########################################
   # optional vars
   ########################################
-  maintenance_configuration_name = data.azurerm_maintenance_configuration.this.name
+  maintenance_configuration_name = var.maintenance_configuration_name # Default: SQL_Default
   max_size_gb                    = var.max_size_gb
   max_size_bytes                 = var.max_size_bytes
   enclave_type                   = var.enclave_type

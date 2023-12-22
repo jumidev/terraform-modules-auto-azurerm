@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **administrator_login** | string |  -  |  -  |  The Administrator login for the MySQL Flexible Server. Required when `create_mode` is `Default`. Changing this forces a new MySQL Flexible Server to be created. | 
 | **administrator_password** | string |  `Random string of 32 characters`  |  -  |  The Password associated with the `administrator_login` for the MySQL Flexible Server. Required when `create_mode` is `Default`. | 
-| **backup_retention_days** | string |  `7`  |  `1`, `35`  |  The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`. | 
+| **backup_retention_days** | number |  `7`  |  `1`, `35`  |  The backup retention days for the MySQL Flexible Server. Possible values are between `1` and `35` days. Defaults to `7`. | 
 | **create_mode** | string |  -  |  `Default`, `PointInTimeRestore`, `GeoRestore`, `Replica`  |  The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `GeoRestore`, and `Replica`. Changing this forces a new MySQL Flexible Server to be created. | 
 | **customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  -  |  A `customer_managed_key` block. | 
 | **delegated_subnet_id** | string |  -  |  -  |  The ID of the virtual network subnet to create the MySQL Flexible Server. Changing this forces a new MySQL Flexible Server to be created. | 
@@ -56,6 +56,23 @@ tfstate_store = {
 | **zone** | string |  -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the MySQL Flexible Server. | 
 
+### `storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
+| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
+| `iops` | number | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
+| `size_gb` | number | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
+
+### `maintenance_window` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | No | 0 | The day of week for maintenance window. Defaults to '0'. |
+| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
+| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
+
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,29 +89,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
 | `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
 
-### `maintenance_window` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | No | 0 | The day of week for maintenance window. Defaults to '0'. |
-| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
-| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
-
 ### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. |
 | `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. |
-
-### `storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `auto_grow_enabled` | bool | No | True | Should Storage Auto Grow be enabled? Defaults to 'true'. |
-| `io_scaling_enabled` | bool | No | False | Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'. |
-| `iops` | string | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
-| `size_gb` | string | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
 
 
 

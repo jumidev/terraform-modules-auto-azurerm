@@ -13,16 +13,17 @@ source = {
 inputs = {
    name = "The name of the kusto principal assignment"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "The name of the cluster in which to create the resource..."   
-   database_name = "The name of the database in which to create the resource..."   
+   # cluster_name → set in component_inputs
+   # database_name → set in component_inputs
    principal_id = "The object id of the principal"   
    principal_type = "The type of the principal"   
    role = "The database role assigned to the principal"   
-   # tenant_id → set in component_inputs
+   tenant_id = "The tenant id in which the principal resides"   
 }
 
 component_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
+   cluster_name = "path/to/kusto_cluster_component:name"   
+   database_name = "path/to/kusto_database_component:name"   
 }
 
 tfstate_store = {

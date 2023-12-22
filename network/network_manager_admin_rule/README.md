@@ -20,7 +20,7 @@ inputs = {
 }
 
 component_inputs = {
-   admin_rule_collection_id = "path/to/network_manager_component:id"   
+   admin_rule_collection_id = "path/to/network_manager_admin_rule_collection_component:id"   
 }
 
 tfstate_store = {
@@ -47,9 +47,9 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **description** | string |  -  |  A description of the Network Manager Admin Rule. | 
-| **destination_port_ranges** | string |  `1024-65535`  |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
+| **destination_port_ranges** | list |  `1024-65535`  |  A list of string specifies the destination port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
 | **destination** | [block](#destination-block-structure) |  -  |  One or more `destination` blocks. | 
-| **source_port_ranges** | string |  `1024-65535`  |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
+| **source_port_ranges** | list |  `1024-65535`  |  A list of string specifies the source port ranges. Specify one or more single port number or port ranges such as `1024-65535`. Use `*` to specify any port. | 
 | **source** | [block](#source-block-structure) |  -  |  One or more `source` blocks. | 
 
 ### `source` block structure

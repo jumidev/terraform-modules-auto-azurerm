@@ -80,7 +80,7 @@ variable "default_to_oauth_authentication" {
 }
 variable "is_hns_enabled" {
   description = "Is Hierarchical Namespace enabled? This can be used with Azure Data Lake Storage Gen 2 ([see here for more information](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account/)). Changing this forces a new resource to be created."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "nfsv3_enabled" {
@@ -133,26 +133,26 @@ variable "blob_properties" {
 #   restore_policy (block)                   : A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'.
 #   versioning_enabled (bool)                : Is versioning enabled? Default to 'false'.
 #   change_feed_enabled (bool)               : Is the blob service properties for change feed events enabled? Default to 'false'.
-#   change_feed_retention_in_days (string)   : The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
+#   change_feed_retention_in_days (number)   : The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed.
 #   default_service_version (string)         : The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version.
 #   last_access_time_enabled (bool)          : Is the last access time based tracking enabled? Default to 'false'.
 #   container_delete_retention_policy (block): A 'container_delete_retention_policy' block.
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
 #
-# restore_policy block structure:
-#   days (string)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
-#
 # delete_retention_policy block structure:
-#   days (string)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
+#   days (number)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
 #
 # container_delete_retention_policy block structure:
-#   days (string)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
+#   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
+#
+# restore_policy block structure:
+#   days (number)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
 
 
 variable "queue_properties" {
@@ -167,22 +167,16 @@ variable "queue_properties" {
 #   minute_metrics (block)          : A 'minute_metrics' block.
 #   hour_metrics (block)            : A 'hour_metrics' block.
 #
-# hour_metrics block structure  :
-#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
-#   version (string)              : (REQUIRED) The version of storage analytics to configure.
-#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (string): Specifies the number of days that logs will be retained.
-#
 # logging block structure       :
 #   delete (string)               : (REQUIRED) Indicates whether all delete requests should be logged.
 #   read (string)                 : (REQUIRED) Indicates whether all read requests should be logged.
 #   version (string)              : (REQUIRED) The version of storage analytics to configure.
 #   write (string)                : (REQUIRED) Indicates whether all write requests should be logged.
-#   retention_policy_days (string): Specifies the number of days that logs will be retained.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
@@ -191,7 +185,13 @@ variable "queue_properties" {
 #   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
 #   version (string)              : (REQUIRED) The version of storage analytics to configure.
 #   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (string): Specifies the number of days that logs will be retained.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
+#
+# hour_metrics block structure  :
+#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
+#   version (string)              : (REQUIRED) The version of storage analytics to configure.
+#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
 
 
 variable "static_website" {
@@ -216,6 +216,13 @@ variable "share_properties" {
 #   retention_policy (block)        : A 'retention_policy' block.
 #   smb (block)                     : A 'smb' block.
 #
+# cors_rule block structure  :
+#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
+#   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
+#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
+#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
+#
 # smb block structure                     :
 #   versions (string)                       : A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'.
 #   authentication_types (string)           : A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'.
@@ -223,15 +230,8 @@ variable "share_properties" {
 #   channel_encryption_type (string)        : A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'.
 #   multichannel_enabled (bool)             : Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts.
 #
-# cors_rule block structure  :
-#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (string)   : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
-#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
-#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
-#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
-#
 # retention_policy block structure:
-#   days (string)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
+#   days (number)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
 
 
 variable "network_rules" {
@@ -310,7 +310,7 @@ variable "immutability_policy" {
 }
 #
 # immutability_policy block structure   :
-#   allow_protected_append_writes (string): (REQUIRED) When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
+#   allow_protected_append_writes (bool)  : (REQUIRED) When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted.
 #   state (string)                        : (REQUIRED) Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted.
 #   period_since_creation_in_days (number): (REQUIRED) The immutability period for the blobs in the container since the policy creation, in days.
 

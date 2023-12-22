@@ -13,8 +13,12 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   # bot_name → set in component_inputs
    skill_id = "The Alexa skill ID for the Alexa Channel"   
+}
+
+component_inputs = {
+   bot_name = "path/to/bot_channels_registration_component:name"   
 }
 
 tfstate_store = {

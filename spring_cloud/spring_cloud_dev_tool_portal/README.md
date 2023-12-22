@@ -50,7 +50,7 @@ tfstate_store = {
 | `client_id` | string | No | - | Specifies the public identifier for the application. |
 | `client_secret` | string | No | - | Specifies the secret known only to the application and the authorization server. |
 | `metadata_url` | string | No | - | Specifies the URI of a JSON file with generic OIDC provider configuration. |
-| `scope` | string | No | - | Specifies a list of specific actions applications can be allowed to do on a user's behalf. |
+| `scope` | list | No | - | Specifies a list of specific actions applications can be allowed to do on a user's behalf. |
 
 
 

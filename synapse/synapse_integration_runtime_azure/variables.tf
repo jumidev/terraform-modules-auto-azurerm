@@ -25,8 +25,8 @@ variable "compute_type" {
 }
 variable "core_count" {
   description = "Core count of the cluster which will execute data flow job. Valid values are '8', '16', '32', '48', '80', '144' and '272'. Defaults to '8'."
-  type        = string
-  default     = "8"
+  type        = number
+  default     = 8
 }
 variable "description" {
   description = "Integration runtime description."

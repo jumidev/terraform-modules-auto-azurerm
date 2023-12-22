@@ -17,7 +17,7 @@ variable "resource_group_name" {
 }
 variable "priority" {
   description = "(REQUIRED) Specifies the priority of the rule collection. Possible values are between '100' - '65000'."
-  type        = string
+  type        = number
 
 }
 variable "action" {
@@ -39,7 +39,7 @@ variable "rule" {
 #   destination_ip_groups (list): A list of destination IP Group IDs for the rule.
 #   destination_fqdns (list)    : A list of destination FQDNS for the rule.
 #   destination_ports (list)    : (REQUIRED) A list of destination ports.
-#   protocols (string)          : (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'.
+#   protocols (list)            : (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'.
 
 
 

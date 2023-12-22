@@ -7,7 +7,7 @@ variable "datadog_monitor_id" {
 }
 variable "single_sign_on_enabled" {
   description = "(REQUIRED) The state of SingleSignOn configuration. Possible values are 'Enable' and 'Disable'."
-  type        = string
+  type        = bool
 
 }
 variable "enterprise_application_id" {

@@ -37,7 +37,7 @@ variable "authentication" {
 
 variable "backup_retention_days" {
   description = "The backup retention days for the PostgreSQL Flexible Server. Possible values are between '7' and '35' days."
-  type        = string
+  type        = number
   default     = null
 }
 variable "customer_managed_key" {
@@ -140,7 +140,7 @@ variable "auto_grow_enabled" {
 }
 variable "storage_mb" {
   description = "The max storage allowed for the PostgreSQL Flexible Server. Possible values are '32768', '65536', '131072', '262144', '524288', '1048576', '2097152', '4193280', '4194304', '8388608', '16777216' and '33553408'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "tags" {

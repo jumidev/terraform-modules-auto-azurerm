@@ -20,7 +20,7 @@ resource "azurerm_consumption_budget_resource_group" "this" {
     content {
       operator       = lookup(notification.value, "operator")  # (Required) possible values: EqualTo | GreaterThan | GreaterThanOrEqualTo
       threshold      = lookup(notification.value, "threshold") # (Required) 
-      threshold_type = lookup(notification.value, "threshold_type", "Actual")
+      threshold_type = lookup(notification.value, "threshold_type", false)
       contact_emails = lookup(notification.value, "contact_emails", null)
       contact_groups = lookup(notification.value, "contact_groups", null)
       contact_roles  = lookup(notification.value, "contact_roles", null)

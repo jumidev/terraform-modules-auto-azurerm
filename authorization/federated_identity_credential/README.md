@@ -20,7 +20,7 @@ inputs = {
 }
 
 component_inputs = {
-   parent_id = "path/to/federated_identity_credential_component:id"   
+   parent_id = "path/to/user_assigned_identity_component:id"   
 }
 
 tfstate_store = {

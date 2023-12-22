@@ -36,7 +36,7 @@ tfstate_store = {
 | **registry_name** | string |  -  |  The Name of Container registry this Webhook belongs to. Changing this forces a new resource to be created. | 
 | **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **service_uri** | string |  -  |  Specifies the service URI for the Webhook to post notifications. | 
-| **actions** | string |  `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`  |  A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete` | 
+| **actions** | list |  `push`, `delete`, `quarantine`, `chart_push`, `chart_delete`  |  A list of actions that trigger the Webhook to post notifications. At least one action needs to be specified. Valid values are: `push`, `delete`, `quarantine`, `chart_push`, `chart_delete` | 
 
 ## Optional Variables
 

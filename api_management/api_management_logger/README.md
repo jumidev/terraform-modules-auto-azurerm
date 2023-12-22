@@ -46,6 +46,12 @@ tfstate_store = {
 | **eventhub** | [block](#eventhub-block-structure) |  -  |  An `eventhub` block. Changing this forces a new resource to be created. | 
 | **resource_id** | string |  -  |  The target resource id which will be linked in the API-Management portal page. Changing this forces a new resource to be created. | 
 
+### `application_insights` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `instrumentation_key` | string | Yes | - | The instrumentation key used to push data to Application Insights. |
+
 ### `eventhub` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,12 +60,6 @@ tfstate_store = {
 | `connection_string` | string | No | - | The connection string of an EventHub Namespace. |
 | `user_assigned_identity_client_id` | string | No | - | The Client Id of the User Assigned Identity  with the 'Azure Event Hubs Data Sender' role to the target EventHub Namespace. Required when 'endpoint_uri' is set. If not specified the System Assigned Identity will be used. |
 | `endpoint_uri` | string | No | - | The endpoint address of an EventHub Namespace. Required when 'client_id' is set. |
-
-### `application_insights` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `instrumentation_key` | string | Yes | - | The instrumentation key used to push data to Application Insights. |
 
 
 

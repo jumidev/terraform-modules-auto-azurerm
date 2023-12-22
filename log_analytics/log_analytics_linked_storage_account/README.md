@@ -18,7 +18,7 @@ inputs = {
 }
 
 component_inputs = {
-   workspace_resource_id = "path/to/log_analytics_linked_storage_account_component:id"   
+   workspace_resource_id = "path/to/log_analytics_workspace_component:id"   
    storage_account_ids = "path/to/storage_account_component:id"   
 }
 

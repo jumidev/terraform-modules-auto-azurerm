@@ -25,7 +25,7 @@ variable "sku" {
 
 variable "capacity" {
   description = "Specifies the number of units associated with this Web PubSub resource. Valid values are: Free: '1', Standard: '1', '2', '5', '10', '20', '50', '100'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "public_network_access_enabled" {

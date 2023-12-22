@@ -13,10 +13,14 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   # bot_name → set in component_inputs
    client_id = "The Client ID that will be used to authenticate with Slack..."   
    client_secret = "The Client Secret that will be used to authenticate with Slack..."   
    verification_token = "The Verification Token that will be used to authenticate with Slack..."   
+}
+
+component_inputs = {
+   bot_name = "path/to/bot_channels_registration_component:name"   
 }
 
 tfstate_store = {

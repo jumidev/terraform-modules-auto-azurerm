@@ -35,8 +35,8 @@ variable "compute_type" {
 }
 variable "core_count" {
   description = "Core count of the cluster which will execute data flow job. Valid values are '8', '16', '32', '48', '80', '144' and '272'. Defaults to '8'."
-  type        = string
-  default     = "8"
+  type        = number
+  default     = 8
 }
 variable "time_to_live_min" {
   description = "Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to '0'."

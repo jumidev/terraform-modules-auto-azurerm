@@ -53,7 +53,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **purchase_plan** | [block](#purchase_plan-block-structure) |  -  |  -  |  A `purchase_plan` block. | 
 | **description** | string |  -  |  -  |  A description of this Shared Image. | 
-| **disk_types_not_allowed** | string |  -  |  `Standard_LRS`, `Premium_LRS`  |  One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`. | 
+| **disk_types_not_allowed** | bool |  -  |  `Standard_LRS`, `Premium_LRS`  |  One or more Disk Types not allowed for the Image. Possible values include `Standard_LRS` and `Premium_LRS`. | 
 | **end_of_life_date** | string |  -  |  -  |  The end of life date in RFC3339 format of the Image. | 
 | **eula** | string |  -  |  -  |  The End User Licence Agreement for the Shared Image. Changing this forces a new resource to be created. | 
 | **specialized** | string |  -  |  -  |  Specifies that the Operating System used inside this Image has not been Generalized (for example, `sysprep` on Windows has not been run). Changing this forces a new resource to be created. | 
@@ -72,14 +72,6 @@ tfstate_store = {
 | **accelerated_network_support_enabled** | bool |  -  |  -  |  Specifies if the Shared Image supports Accelerated Network. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Shared Image. | 
 
-### `identifier` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `offer` | string | Yes | - | The Offer Name for this Shared Image. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. |
-| `sku` | string | Yes | - | The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. |
-
 ### `purchase_plan` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,6 +79,14 @@ tfstate_store = {
 | `name` | string | Yes | - | The Purchase Plan Name for this Shared Image. Changing this forces a new resource to be created. |
 | `publisher` | string | No | - | The Purchase Plan Publisher for this Gallery Image. Changing this forces a new resource to be created. |
 | `product` | string | No | - | The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. |
+
+### `identifier` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `offer` | string | Yes | - | The Offer Name for this Shared Image. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | The Publisher Name for this Gallery Image. Changing this forces a new resource to be created. |
+| `sku` | string | Yes | - | The Name of the SKU for this Gallery Image. Changing this forces a new resource to be created. |
 
 
 

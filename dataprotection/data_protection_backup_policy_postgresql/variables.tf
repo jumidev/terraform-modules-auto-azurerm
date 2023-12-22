@@ -42,7 +42,7 @@ variable "retention_rule" {
 #
 # criteria block structure     :
 #   absolute_criteria (string)   : Possible values are 'AllBackup', 'FirstOfDay', 'FirstOfWeek', 'FirstOfMonth' and 'FirstOfYear'. These values mean the first successful backup of the day/week/month/year. Changing this forces a new Backup Policy PostgreSQL to be created.
-#   days_of_week (string)        : Possible values are 'Monday', 'Tuesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. Changing this forces a new Backup Policy PostgreSQL to be created.
+#   days_of_week (number)        : Possible values are 'Monday', 'Tuesday', 'Thursday', 'Friday', 'Saturday' and 'Sunday'. Changing this forces a new Backup Policy PostgreSQL to be created.
 #   months_of_year (string)      : Possible values are 'January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November' and 'December'. Changing this forces a new Backup Policy PostgreSQL to be created.
 #   scheduled_backup_times (list): Specifies a list of backup times for backup in the 'RFC3339' format. Changing this forces a new Backup Policy PostgreSQL to be created.
 #   weeks_of_month (string)      : Possible values are 'First', 'Second', 'Third', 'Fourth' and 'Last'. Changing this forces a new Backup Policy PostgreSQL to be created.

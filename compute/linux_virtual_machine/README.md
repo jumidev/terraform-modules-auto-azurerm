@@ -143,19 +143,18 @@ component_inputs = {
 | `security_encryption_type` | string | No | - | Encryption Type when the Virtual Machine is a Confidential VM. Possible values are 'VMGuestStateOnly' and 'DiskWithVMGuestState'. Changing this forces a new resource to be created. |
 | `write_accelerator_enabled` | bool | No | False | Should Write Accelerator be Enabled for this OS Disk? Defaults to 'false'. |
 
-### `plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
-
 ### `additional_capabilities` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `ultra_ssd_enabled` | bool | No | False | Should the capacity to enable Data Disks of the 'UltraSSD_LRS' storage account type be supported on this Virtual Machine? Defaults to 'false'. |
+
+### `diff_disk_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
+| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
 
 ### `gallery_application` block structure
 
@@ -163,21 +162,16 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `version_id` | string | Yes | - | Specifies the Gallery Application Version resource ID. |
 | `configuration_blob_uri` | string | No | - | Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. |
-| `order` | string | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
+| `order` | number | No | - | Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. |
 | `tag` | string | No | - | Specifies a passthrough value for more generic context. This field can be any valid 'string' value. |
 
-### `boot_diagnostics` block structure
+### `plan` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
-
-### `termination_notification` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
-| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+| `name` | string | Yes | - | Specifies the Name of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `product` | string | Yes | - | Specifies the Product of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
+| `publisher` | string | Yes | - | Specifies the Publisher of the Marketplace Image this Virtual Machine should be created from. Changing this forces a new resource to be created. |
 
 ### `source_image_reference` block structure
 
@@ -188,19 +182,11 @@ component_inputs = {
 | `sku` | string | Yes | - | Specifies the SKU of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 | `version` | string | Yes | - | Specifies the version of the image used to create the virtual machines. Changing this forces a new resource to be created. |
 
-### `admin_ssh_key` block structure
+### `boot_diagnostics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in 'ssh-rsa' format. Changing this forces a new resource to be created. |
-| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created. |
-
-### `diff_disk_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `option` | string | Yes | - | Specifies the Ephemeral Disk Settings for the OS Disk. At this time the only possible value is 'Local'. Changing this forces a new resource to be created. |
-| `placement` | string | No | CacheDisk | Specifies where to store the Ephemeral Disk. Possible values are 'CacheDisk' and 'ResourceDisk'. Defaults to 'CacheDisk'. Changing this forces a new resource to be created. |
+| `storage_account_uri` | string | No | - | The Primary/Secondary Endpoint for the Azure Storage Account which should be used to store Boot Diagnostics, including Console Output and Screenshots from the Hypervisor. |
 
 ### `identity` block structure
 
@@ -209,12 +195,26 @@ component_inputs = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Linux Virtual Machine. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Linux Virtual Machine. |
 
+### `termination_notification` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Should the termination notification be enabled on this Virtual Machine? |
+| `timeout` | string | No | PT5M | Length of time (in minutes, between '5' and '15') a notification to be sent to the VM on the instance metadata server till the VM gets deleted. The time duration should be specified in ISO 8601 format. Defaults to 'PT5M'. |
+
 ### `secret` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `certificate` | string | Yes | - | One or more 'certificate' blocks. |
 | `key_vault_id` | string | Yes | - | The ID of the Key Vault from which all Secrets should be sourced. |
+
+### `admin_ssh_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `public_key` | string | Yes | - | The Public Key which should be used for authentication, which needs to be at least 2048-bit and in 'ssh-rsa' format. Changing this forces a new resource to be created. |
+| `username` | string | Yes | - | The Username for which this Public SSH Key should be configured. Changing this forces a new resource to be created. |
 
 
 

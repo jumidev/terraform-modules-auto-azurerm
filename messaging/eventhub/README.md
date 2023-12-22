@@ -37,8 +37,8 @@ tfstate_store = {
 | **name** | string |  Specifies the name of the EventHub resource. Changing this forces a new resource to be created. | 
 | **namespace_name** | string |  Specifies the name of the EventHub Namespace. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group in which the EventHub's parent Namespace exists. Changing this forces a new resource to be created. | 
-| **partition_count** | string |  Specifies the current number of shards on the Event Hub. | 
-| **message_retention** | string |  Specifies the number of days to retain the events for this Event Hub. | 
+| **partition_count** | number |  Specifies the current number of shards on the Event Hub. | 
+| **message_retention** | number |  Specifies the number of days to retain the events for this Event Hub. | 
 
 ## Optional Variables
 
@@ -46,6 +46,17 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **capture_description** | [block](#capture_description-block-structure) |  -  |  -  |  A `capture_description` block. | 
 | **status** | string |  `Active`  |  `Active`, `Disabled`, `SendDisabled`  |  Specifies the status of the Event Hub resource. Possible values are `Active`, `Disabled` and `SendDisabled`. Defaults to `Active`. | 
+
+### `capture_description` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Specifies if the Capture Description is Enabled. |
+| `encoding` | string | Yes | - | Specifies the Encoding used for the Capture Description. Possible values are 'Avro' and 'AvroDeflate'. |
+| `interval_in_seconds` | number | No | 300 | Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds. |
+| `size_limit_in_bytes` | string | No | 314572800 | Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes. |
+| `skip_empty_archives` | bool | No | False | Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. |
+| `destination` | [block](#destination-block-structure) | Yes | - | A 'destination' block. |
 
 ### `destination` block structure
 
@@ -55,17 +66,6 @@ tfstate_store = {
 | `archive_name_format` | string | Yes | - | The Blob naming convention for archiving. e.g. '{Namespace}/{EventHub}/{PartitionId}/{Year}/{Month}/{Day}/{Hour}/{Minute}/{Second}'. Here all the parameters (Namespace,EventHub .. etc) are mandatory irrespective of order |
 | `blob_container_name` | string | Yes | - | The name of the Container within the Blob Storage Account where messages should be archived. |
 | `storage_account_id` | string | Yes | - | The ID of the Blob Storage Account where messages should be archived. |
-
-### `capture_description` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Specifies if the Capture Description is Enabled. |
-| `encoding` | string | Yes | - | Specifies the Encoding used for the Capture Description. Possible values are 'Avro' and 'AvroDeflate'. |
-| `interval_in_seconds` | string | No | 300 | Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds. |
-| `size_limit_in_bytes` | string | No | 314572800 | Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes. |
-| `skip_empty_archives` | bool | No | False | Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'. |
-| `destination` | [block](#destination-block-structure) | Yes | - | A 'destination' block. |
 
 
 

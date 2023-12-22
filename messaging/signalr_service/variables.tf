@@ -22,7 +22,7 @@ variable "sku" {
 #
 # sku block structure:
 #   name (string)      : (REQUIRED) Specifies which tier to use. Valid values are 'Free_F1', 'Standard_S1' and 'Premium_P1'.
-#   capacity (string)  : (REQUIRED) Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'.
+#   capacity (number)  : (REQUIRED) Specifies the number of units associated with this SignalR service. Valid values are '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '20', '30', '40', '50', '60', '70', '80', '90' and '100'.
 
 
 
@@ -34,8 +34,8 @@ variable "cors" {
   default     = null
 }
 #
-# cors block structure    :
-#   allowed_origins (string): (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
+# cors block structure  :
+#   allowed_origins (list): (REQUIRED) A list of origins which should be able to make cross-origin calls. '*' can be used to allow all calls.
 
 
 variable "connectivity_logs_enabled" {
@@ -91,8 +91,8 @@ variable "tls_client_cert_enabled" {
 }
 variable "serverless_connection_timeout_in_seconds" {
   description = "Specifies the client connection timeout. Defaults to '30'."
-  type        = string
-  default     = "30"
+  type        = number
+  default     = 30
 }
 variable "service_mode" {
   description = "Specifies the service mode. Possible values are 'Classic', 'Default' and 'Serverless'. Defaults to 'Default'."

@@ -18,7 +18,7 @@ inputs = {
 }
 
 component_inputs = {
-   arc_virtual_machine_id = "path/to/storage_mover_agent_component:id"   
+   arc_virtual_machine_id = "path/to/storage_mover_component:id"   
    storage_mover_id = "path/to/storage_mover_component:id"   
 }
 

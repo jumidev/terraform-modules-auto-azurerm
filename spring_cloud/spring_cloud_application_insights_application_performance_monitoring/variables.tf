@@ -40,6 +40,6 @@ variable "sampling_percentage" {
 }
 variable "sampling_requests_per_second" {
   description = "Specifies the number of requests per second for the rate-limited sampling."
-  type        = string
+  type        = number
   default     = null
 }

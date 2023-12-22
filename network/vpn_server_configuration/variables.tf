@@ -17,7 +17,7 @@ variable "location" {
 }
 variable "vpn_authentication_types" {
   description = "(REQUIRED) A list of Authentication Types applicable for this VPN Server Configuration. Possible values are 'AAD' (Azure Active Directory), 'Certificate' and 'Radius'."
-  type        = string
+  type        = list(any)
 
 }
 variable "azure_active_directory_authentication" {
@@ -63,8 +63,8 @@ variable "ipsec_policy" {
 
 variable "vpn_protocols" {
   description = "A list of VPN Protocols to use for this Server Configuration. Possible values are 'IkeV2' and 'OpenVPN'."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

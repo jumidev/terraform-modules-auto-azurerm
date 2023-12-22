@@ -15,11 +15,7 @@ inputs = {
    location = "${location}"   
    resource_group_name = "${resource_group}"   
    sku_name = "The Name of the SKU used for this Key Vault"   
-   # tenant_id → set in component_inputs
-}
-
-component_inputs = {
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
+   tenant_id = "The Azure Active Directory tenant ID that should be used for authenticating requ..."   
 }
 
 tfstate_store = {
@@ -52,7 +48,7 @@ tfstate_store = {
 | **network_acls** | [block](#network_acls-block-structure) |  -  |  -  |  A `network_acls` block. | 
 | **purge_protection_enabled** | bool |  -  |  -  |  Is Purge Protection enabled for this Key Vault? | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
-| **soft_delete_retention_days** | string |  -  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
+| **soft_delete_retention_days** | number |  -  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. | 
 | **contact** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
@@ -68,6 +64,14 @@ tfstate_store = {
 | `secret_permissions` | list | No | - | List of secret permissions, must be one or more from the following: 'Backup', 'Delete', 'Get', 'List', 'Purge', 'Recover', 'Restore' and 'Set'. |
 | `storage_permissions` | list | No | - | List of storage permissions, must be one or more from the following: 'Backup', 'Delete', 'DeleteSAS', 'Get', 'GetSAS', 'List', 'ListSAS', 'Purge', 'Recover', 'RegenerateKey', 'Restore', 'Set', 'SetSAS' and 'Update'. |
 
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
+| `phone` | number | No | - | Phone number of the contact. |
+
 ### `network_acls` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,14 +80,6 @@ tfstate_store = {
 | `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
 | `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
 | `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
-
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | E-mail address of the contact. |
-| `name` | string | No | - | Name of the contact. |
-| `phone` | number | No | - | Phone number of the contact. |
 
 
 

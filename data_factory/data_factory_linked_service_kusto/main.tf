@@ -1,7 +1,7 @@
 data "azurerm_kusto_database" "this" {
   name                = var.kusto_database_name
-  resource_group_name = var.kusto_database_resource_group_name
-  cluster_name        = var.kusto_database_cluster_name
+  resource_group_name = var.kusto_database_resource_group_name == null ? null : var.kusto_database_resource_group_name
+  cluster_name        = var.kusto_database_cluster_name == null ? null : var.kusto_database_cluster_name
 }
 
 

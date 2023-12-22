@@ -42,13 +42,27 @@ tfstate_store = {
 | **auto_inflate_enabled** | bool |  -  |  -  |  Is Auto Inflate enabled for the EventHub Namespace? | 
 | **dedicated_cluster_id** | string |  -  |  -  |  Specifies the ID of the EventHub Dedicated Cluster where this Namespace should created. Changing this forces a new resource to be created. | 
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
-| **maximum_throughput_units** | string |  -  |  `1`, `20`  |  Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`. | 
+| **maximum_throughput_units** | number |  -  |  `1`, `20`  |  Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from `1` - `20`. | 
 | **zone_redundant** | bool |  `False`  |  -  |  Specifies if the EventHub Namespace should be Zone Redundant (created across Availability Zones). Changing this forces a new resource to be created. Defaults to `false`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **network_rulesets** | [block](#network_rulesets-block-structure) |  -  |  -  |  A `network_rulesets` block. | 
 | **local_authentication_enabled** | bool |  `True`  |  -  |  Is SAS authentication enabled for the EventHub Namespace? Defaults to `true`. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Is public network access enabled for the EventHub Namespace? Defaults to `true`. | 
 | **minimum_tls_version** | string |  -  |  `1.0`, `1.1`, `1.2`  |  The minimum supported TLS version for this EventHub Namespace. Valid values are: `1.0`, `1.1` and `1.2`. The current default minimum TLS version is `1.2`. | 
+
+### `virtual_network_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The id of the subnet to match on. |
+| `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
 
 ### `network_rulesets` block structure
 
@@ -59,20 +73,6 @@ tfstate_store = {
 | `trusted_service_access_enabled` | bool | No | - | Whether Trusted Microsoft Services are allowed to bypass firewall. |
 | `virtual_network_rule` | [block](#virtual_network_rule-block-structure) | No | - | One or more 'virtual_network_rule' blocks. |
 | `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Event Hub Namespace. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this EventHub namespace. |
-
-### `virtual_network_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The id of the subnet to match on. |
-| `ignore_missing_virtual_network_service_endpoint` | string | No | - | Are missing virtual network service endpoints ignored? |
 
 ### `ip_rule` block structure
 

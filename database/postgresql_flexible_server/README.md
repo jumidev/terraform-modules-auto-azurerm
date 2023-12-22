@@ -39,7 +39,7 @@ tfstate_store = {
 | **administrator_login** | string |  -  |  -  |  The Administrator login for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. | 
 | **administrator_password** | string |  `Random string of 32 characters`  |  -  |  The Password associated with the `administrator_login` for the PostgreSQL Flexible Server. Required when `create_mode` is `Default` and `authentication.password_auth_enabled` is `true`. | 
 | **authentication** | [block](#authentication-block-structure) |  -  |  -  |  An `authentication` block. | 
-| **backup_retention_days** | string |  -  |  `7`, `35`  |  The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days. | 
+| **backup_retention_days** | number |  -  |  `7`, `35`  |  The backup retention days for the PostgreSQL Flexible Server. Possible values are between `7` and `35` days. | 
 | **customer_managed_key** | [block](#customer_managed_key-block-structure) |  -  |  -  |  A `customer_managed_key` block. Changing this forces a new resource to be created. | 
 | **geo_redundant_backup_enabled** | bool |  `False`  |  -  |  Is Geo-Redundant backup enabled on the PostgreSQL Flexible Server. Defaults to `false`. Changing this forces a new PostgreSQL Flexible Server to be created. | 
 | **create_mode** | string |  -  |  `Default`, `PointInTimeRestore`, `Replica`, `Update`  |  The creation mode which can be used to restore or replicate existing servers. Possible values are `Default`, `PointInTimeRestore`, `Replica` and `Update`. | 
@@ -53,26 +53,10 @@ tfstate_store = {
 | **sku_name** | string |  -  |  -  |  The SKU Name for the PostgreSQL Flexible Server. The name of the SKU, follows the `tier` + `name` pattern (e.g. `B_Standard_B1ms`, `GP_Standard_D2s_v3`, `MO_Standard_E4s_v3`). | 
 | **source_server_id** | string |  -  |  -  |  The resource ID of the source PostgreSQL Flexible Server to be restored. Required when `create_mode` is `PointInTimeRestore` or `Replica`. Changing this forces a new PostgreSQL Flexible Server to be created. | 
 | **auto_grow_enabled** | bool |  `False`  |  -  |  Is the storage auto grow for PostgreSQL Flexible Server enabled? Defaults to `false`. | 
-| **storage_mb** | string |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216`, `33553408`  |  The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`. | 
+| **storage_mb** | number |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216`, `33553408`  |  The max storage allowed for the PostgreSQL Flexible Server. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4193280`, `4194304`, `8388608`, `16777216` and `33553408`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the PostgreSQL Flexible Server. | 
 | **version** | string |  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`. | 
 | **zone** | string |  -  |  -  |  Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located. | 
-
-### `customer_managed_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
-| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
-| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
-| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | [block](#customer_managed_key-block-structure) | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
 
 ### `authentication` block structure
 
@@ -89,6 +73,22 @@ tfstate_store = {
 | `day_of_week` | string | No | 0 | The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'. |
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
+
+### `customer_managed_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key. |
+| `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
+| `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
+| `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | [block](#customer_managed_key-block-structure) | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
 
 ### `high_availability` block structure
 

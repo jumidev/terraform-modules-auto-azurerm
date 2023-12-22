@@ -14,7 +14,11 @@ inputs = {
    name = "The name of the Kusto Database to create"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "Specifies the name of the Kusto Cluster this database will be added to..."   
+   # cluster_name → set in component_inputs
+}
+
+component_inputs = {
+   cluster_name = "path/to/kusto_cluster_component:name"   
 }
 
 tfstate_store = {

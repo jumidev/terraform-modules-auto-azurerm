@@ -22,6 +22,25 @@ resource "azurerm_mobile_network_service" "this" {
   ########################################
   # optional vars
   ########################################
-  service_qos_policy = var.service_qos_policy
-  tags               = var.tags
+
+  dynamic "service_qos_policy" { # var.service_qos_policy
+    for_each = var.service_qos_policy != null ? var.service_qos_policy : []
+    content {
+      allocation_and_retention_priority_level = lookup(service_qos_policy.value, "allocation_and_retention_priority_level", "9")
+      qos_indicator                           = lookup(service_qos_policy.value, "qos_indicator", null)
+
+      dynamic "maximum_bit_rate" { # service_qos_policy.value.maximum_bit_rate
+        for_each = service_qos_policy.value.maximum_bit_rate != null ? service_qos_policy.value.maximum_bit_rate : []
+        content {
+          downlink = lookup(maximum_bit_rate.value, "downlink") # (Required) 
+          uplink   = lookup(maximum_bit_rate.value, "uplink")   # (Required) 
+        }
+      }
+
+      preemption_capability    = lookup(service_qos_policy.value, "preemption_capability", null)
+      preemption_vulnerability = lookup(service_qos_policy.value, "preemption_vulnerability", null)
+    }
+  }
+
+  tags = var.tags
 }

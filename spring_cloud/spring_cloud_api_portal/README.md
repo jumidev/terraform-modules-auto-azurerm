@@ -40,7 +40,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **gateway_ids** | list |  -  |  -  |  Specifies a list of Spring Cloud Gateway. | 
 | **https_only_enabled** | bool |  -  |  -  |  is only https is allowed? | 
-| **instance_count** | string |  `1`  |  `1`, `500`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
+| **instance_count** | number |  `1`  |  `1`, `500`  |  Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified. | 
 | **public_network_access_enabled** | bool |  -  |  -  |  Is the public network access enabled? | 
 | **sso** | [block](#sso-block-structure) |  -  |  -  |  A `sso` block. | 
 

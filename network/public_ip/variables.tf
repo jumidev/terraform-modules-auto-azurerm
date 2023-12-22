@@ -50,7 +50,7 @@ variable "edge_zone" {
 }
 variable "idle_timeout_in_minutes" {
   description = "Specifies the timeout for the TCP idle connection. The value can be set between 4 and 30 minutes."
-  type        = string
+  type        = number
   default     = null
 }
 variable "ip_tags" {

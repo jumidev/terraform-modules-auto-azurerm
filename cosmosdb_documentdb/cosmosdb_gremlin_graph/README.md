@@ -13,9 +13,14 @@ source = {
 inputs = {
    name = "Specifies the name of the Cosmos DB Gremlin Graph"   
    resource_group_name = "${resource_group}"   
-   account_name = "The name of the CosmosDB Account to create the Gremlin Graph within..."   
-   database_name = "The name of the Cosmos DB Graph Database in which the Cosmos DB Gremlin Graph is..."   
+   # account_name → set in component_inputs
+   # database_name → set in component_inputs
    partition_key_path = "Define a partition key"   
+}
+
+component_inputs = {
+   account_name = "path/to/cosmosdb_account_component:name"   
+   database_name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 tfstate_store = {
@@ -81,12 +86,31 @@ component_inputs = {
 | ---- | --------- |  ----------- | ----------- |
 | **partition_key_version** | string |  `1`, `2`  |  Define a partition key version. Changing this forces a new resource to be created. Possible values are `1`and `2`. This should be set to `2` in order to use large partition keys. | 
 | **throughput** | string |  -  |  The throughput of the Gremlin graph (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
-| **analytical_storage_ttl** | string |  `-1`, `2147483647`, `0`  |  The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire. | 
+| **analytical_storage_ttl** | number |  `-1`, `2147483647`, `0`  |  The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between `-1` to `2147483647` not including `0`. If present and the value is set to `-1`, it means never expire. | 
 | **default_ttl** | string |  -  |  The default time to live (TTL) of the Gremlin graph. If the value is missing or set to "-1", items don’t expire. | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires `partition_key_path` to be set. | 
 | **index_policy** | [block](#index_policy-block-structure) |  -  |  The configuration of the indexing policy. One or more `index_policy` blocks. | 
 | **conflict_resolution_policy** | [block](#conflict_resolution_policy-block-structure) |  -  |  A `conflict_resolution_policy` blocks. Changing this forces a new resource to be created. | 
 | **unique_key** | [block](#unique_key-block-structure) |  -  |  One or more `unique_key` blocks. Changing this forces a new resource to be created. | 
+
+### `spatial_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
+
+### `index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
+| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
+
+### `composite_index` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
 
 ### `index_policy` block structure
 
@@ -99,25 +123,11 @@ component_inputs = {
 | `composite_index` | [block](#composite_index-block-structure) | No | - | One or more 'composite_index' blocks. |
 | `spatial_index` | [block](#spatial_index-block-structure) | No | - | One or more 'spatial_index' blocks. |
 
-### `conflict_resolution_policy` block structure
+### `unique_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'. |
-| `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of LastWriterWins mode. |
-| `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of custom mode. |
-
-### `spatial_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path. |
-
-### `composite_index` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `index` | [block](#index-block-structure) | Yes | - | One or more 'index' blocks. |
+| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
 
 ### `autoscale_settings` block structure
 
@@ -125,18 +135,13 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_throughput` | string | No | - | The maximum throughput of the Gremlin graph (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
-### `index` block structure
+### `conflict_resolution_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `path` | string | Yes | - | Path for which the indexing behaviour applies to. |
-| `order` | string | Yes | - | Order of the index. Possible values are 'Ascending' or 'Descending'. |
-
-### `unique_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `paths` | list | Yes | - | A list of paths to use for this unique key. Changing this forces a new resource to be created. |
+| `mode` | string | Yes | - | Indicates the conflict resolution mode. Possible values include: 'LastWriterWins', 'Custom'. |
+| `conflict_resolution_path` | string | No | - | The conflict resolution path in the case of LastWriterWins mode. |
+| `conflict_resolution_procedure` | string | No | - | The procedure to resolve conflicts in the case of custom mode. |
 
 
 

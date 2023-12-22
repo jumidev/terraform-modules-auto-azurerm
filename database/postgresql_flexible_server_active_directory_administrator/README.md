@@ -14,14 +14,13 @@ inputs = {
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
-   # tenant_id → set in component_inputs
+   tenant_id = "The Azure Tenant ID"   
    principal_name = "The name of Azure Active Directory principal"   
    principal_type = "The type of Azure Active Directory principal"   
 }
 
 component_inputs = {
    server_name = "path/to/postgresql_server_component:name"   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {

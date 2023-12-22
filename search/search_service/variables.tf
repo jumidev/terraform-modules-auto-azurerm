@@ -60,8 +60,8 @@ variable "local_authentication_enabled" {
 }
 variable "partition_count" {
   description = "Specifies the number of partitions which should be created. This field cannot be set when using a 'free' or 'basic' sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier)). Possible values include '1', '2', '3', '4', '6', or '12'. Defaults to '1'."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 variable "public_network_access_enabled" {
   description = "Specifies whether Public Network Access is allowed for this resource. Defaults to 'true'."
@@ -70,7 +70,7 @@ variable "public_network_access_enabled" {
 }
 variable "replica_count" {
   description = "Specifies the number of Replica's which should be created for this Search Service. This field cannot be set when using a 'free' sku ([see the Microsoft documentation](https://learn.microsoft.com/azure/search/search-sku-tier))."
-  type        = string
+  type        = number
   default     = null
 }
 variable "semantic_search_sku" {

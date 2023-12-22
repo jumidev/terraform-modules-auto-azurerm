@@ -66,7 +66,7 @@ resource "azurerm_frontdoor" "this" {
   dynamic "backend_pool_settings" { # var.backend_pool_settings
     for_each = var.backend_pool_settings != null ? var.backend_pool_settings : []
     content {
-      backend_pools_send_receive_timeout_seconds   = lookup(backend_pool_settings.value, "backend_pools_send_receive_timeout_seconds", "60")
+      backend_pools_send_receive_timeout_seconds   = lookup(backend_pool_settings.value, "backend_pools_send_receive_timeout_seconds", 60)
       enforce_backend_pools_certificate_name_check = lookup(backend_pool_settings.value, "enforce_backend_pools_certificate_name_check") # (Required) 
     }
   }

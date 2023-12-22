@@ -50,8 +50,8 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name of the workload profile. |
 | `workload_profile_type` | string | Yes | - | Workload profile type for the workloads to run on. Possible values include 'D4', 'D8', 'D16', 'D32', 'E4', 'E8', 'E16' and 'E32'. |
-| `maximum_count` | string | No | - | The maximum number of instances of workload profile that can be deployed in the Container App Environment. |
-| `minimum_count` | string | No | - | The minimum number of instances of workload profile that can be deployed in the Container App Environment. |
+| `maximum_count` | number | No | - | The maximum number of instances of workload profile that can be deployed in the Container App Environment. |
+| `minimum_count` | number | No | - | The minimum number of instances of workload profile that can be deployed in the Container App Environment. |
 
 
 

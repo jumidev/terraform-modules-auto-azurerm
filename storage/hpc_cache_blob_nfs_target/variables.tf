@@ -35,12 +35,12 @@ variable "usage_model" {
 
 variable "verification_timer_in_seconds" {
   description = "The amount of time the cache waits before it checks the back-end storage for file updates. Possible values are between '1' and '31536000'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "write_back_timer_in_seconds" {
   description = "The amount of time the cache waits after the last file change before it copies the changed file to back-end storage. Possible values are between '1' and '31536000'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "access_policy_name" {

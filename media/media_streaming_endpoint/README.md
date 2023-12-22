@@ -38,7 +38,7 @@ tfstate_store = {
 | **media_services_account_name** | string |  -  |  The Media Services account name. Changing this forces a new Streaming Endpoint to be created. | 
 | **name** | string |  -  |  The name which should be used for this Streaming Endpoint maximum length is `24`. Changing this forces a new Streaming Endpoint to be created. | 
 | **resource_group_name** | string |  -  |  The name of the Resource Group where the Streaming Endpoint should exist. Changing this forces a new Streaming Endpoint to be created. | 
-| **scale_units** | string |  `1`, `10`  |  The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`. | 
+| **scale_units** | number |  `1`, `10`  |  The number of scale units. To create a Standard Streaming Endpoint set `0`. For Premium Streaming Endpoint valid values are between `1` and `10`. | 
 
 ## Optional Variables
 
@@ -55,12 +55,12 @@ tfstate_store = {
 | **max_cache_age_seconds** | number |  Max cache age in seconds. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Streaming Endpoint. | 
 
-### `access_control` block structure
+### `cross_site_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
-| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
+| `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
+| `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
 
 ### `akamai_signature_header_authentication_key` block structure
 
@@ -70,13 +70,6 @@ tfstate_store = {
 | `expiration` | string | No | - | The expiration time of the authentication key. |
 | `identifier` | string | No | - | Identifier of the key. |
 
-### `cross_site_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_access_policy` | string | No | - | The content of 'clientaccesspolicy.xml' used by Silverlight. |
-| `cross_domain_policy` | string | No | - | The content of 'crossdomain.xml' used by Silverlight. |
-
 ### `ip_allow` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,6 +77,13 @@ tfstate_store = {
 | `address` | string | No | - | The IP address to allow. |
 | `name` | string | No | - | The friendly name for the IP address range. |
 | `subnet_prefix_length` | string | No | - | The subnet mask prefix length (see CIDR notation). |
+
+### `access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `akamai_signature_header_authentication_key` | [block](#akamai_signature_header_authentication_key-block-structure) | No | - | One or more 'akamai_signature_header_authentication_key' blocks. |
+| `ip_allow` | [block](#ip_allow-block-structure) | No | - | A 'ip_allow' block. |
 
 
 

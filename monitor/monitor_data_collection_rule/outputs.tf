@@ -66,3 +66,7 @@ output "tenant_id" {
   value       = azurerm_monitor_data_collection_rule.this.tenant_id
 }
 
+output "monitor_data_collection_rule_association" {
+  value = var.monitor_data_collection_rule_association
+}
+

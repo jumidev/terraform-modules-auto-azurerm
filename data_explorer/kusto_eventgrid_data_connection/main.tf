@@ -1,6 +1,15 @@
 data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
+data "azurerm_kusto_cluster" "this" {
+  name                = var.kusto_cluster_name
+  resource_group_name = var.kusto_cluster_resource_group_name == null ? null : var.kusto_cluster_resource_group_name
+}
+data "azurerm_kusto_database" "this" {
+  name                = var.kusto_database_name
+  resource_group_name = var.kusto_database_resource_group_name == null ? null : var.kusto_database_resource_group_name
+  cluster_name        = var.kusto_database_cluster_name == null ? null : var.kusto_database_cluster_name
+}
 data "azurerm_eventhub_consumer_group" "this" {
   name                = var.eventhub_consumer_group_name
   namespace_name      = var.eventhub_consumer_group_namespace_name
@@ -18,8 +27,8 @@ resource "azurerm_kusto_eventgrid_data_connection" "this" {
   name                         = var.name
   location                     = var.location
   resource_group_name          = data.azurerm_resource_group.this.name
-  cluster_name                 = var.cluster_name
-  database_name                = var.database_name
+  cluster_name                 = data.azurerm_kusto_cluster.this.name
+  database_name                = data.azurerm_kusto_database.this.name
   storage_account_id           = var.storage_account_id
   eventhub_id                  = var.eventhub_id
   eventhub_consumer_group_name = data.azurerm_eventhub_consumer_group.this.name

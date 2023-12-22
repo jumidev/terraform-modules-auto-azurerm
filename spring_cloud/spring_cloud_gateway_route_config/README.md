@@ -61,7 +61,7 @@ tfstate_store = {
 | `filters` | list | No | - | Specifies a list of filters which are used to modify the request before sending it to the target endpoint, or the received response. |
 | `predicates` | list | No | - | Specifies a list of conditions to evaluate a route for each request. Each predicate may be evaluated against request headers and parameter values. All of the predicates associated with a route must evaluate to true for the route to be matched to the request. |
 | `sso_validation_enabled` | bool | No | - | Should the sso validation be enabled? |
-| `classification_tags` | string | No | - | Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation. |
+| `classification_tags` | map | No | - | Specifies the classification tags which will be applied to methods in the generated OpenAPI documentation. |
 | `title` | string | No | - | Specifies the title which will be applied to methods in the generated OpenAPI documentation. |
 | `token_relay` | string | No | - | Should pass currently-authenticated user's identity token to application service? |
 | `uri` | string | No | - | Specifies the full uri which will override 'appName'. |

@@ -1,6 +1,15 @@
 data "azurerm_resource_group" "this" {
   name = var.resource_group_name
 }
+data "azurerm_kusto_cluster" "this" {
+  name                = var.kusto_cluster_name
+  resource_group_name = var.kusto_cluster_resource_group_name == null ? null : var.kusto_cluster_resource_group_name
+}
+data "azurerm_kusto_database" "this" {
+  name                = var.kusto_database_name
+  resource_group_name = var.kusto_database_resource_group_name == null ? null : var.kusto_database_resource_group_name
+  cluster_name        = var.kusto_database_cluster_name == null ? null : var.kusto_database_cluster_name
+}
 
 
 resource "azurerm_kusto_attached_database_configuration" "this" {
@@ -11,9 +20,9 @@ resource "azurerm_kusto_attached_database_configuration" "this" {
   name                = var.name
   location            = var.location
   resource_group_name = data.azurerm_resource_group.this.name
-  cluster_name        = var.cluster_name
+  cluster_name        = data.azurerm_kusto_cluster.this.name
   cluster_resource_id = var.cluster_resource_id
-  database_name       = var.database_name
+  database_name       = data.azurerm_kusto_database.this.name
 
   ########################################
   # optional vars

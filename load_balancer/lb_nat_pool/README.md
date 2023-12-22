@@ -51,7 +51,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **idle_timeout_in_minutes** | string |  `4`  |  `4`, `30`  |  Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`. | 
+| **idle_timeout_in_minutes** | number |  `4`  |  `4`, `30`  |  Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30`. Defaults to `4`. | 
 | **floating_ip_enabled** | bool |  -  |  -  |  Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. | 
 | **tcp_reset_enabled** | bool |  -  |  -  |  Is TCP Reset enabled for this Load Balancer Rule? | 
 

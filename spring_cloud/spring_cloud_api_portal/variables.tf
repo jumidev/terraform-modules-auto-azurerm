@@ -25,8 +25,8 @@ variable "https_only_enabled" {
 }
 variable "instance_count" {
   description = "Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between '1' and '500'. Defaults to '1' if not specified."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 variable "public_network_access_enabled" {
   description = "Is the public network access enabled?"

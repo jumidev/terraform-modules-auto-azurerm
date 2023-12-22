@@ -16,11 +16,12 @@ inputs = {
    # workspace_id → set in component_inputs
    address_space_prefixes = "A list of address blocks reserved for this virtual network in CIDR notation..."   
    remote_address_space_prefixes = "A list of address blocks reserved for the remote virtual network in CIDR notatio..."   
-   remote_virtual_network_id = "The ID of the remote virtual network"   
+   # remote_virtual_network_id → set in component_inputs
 }
 
 component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
+   remote_virtual_network_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {

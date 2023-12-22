@@ -17,7 +17,7 @@ variable "key_type" {
 }
 variable "key_opts" {
   description = "(REQUIRED) A list of JSON web key operations. Possible values include: 'decrypt', 'encrypt', 'sign', 'unwrapKey', 'verify' and 'wrapKey'. Please note these values are case sensitive."
-  type        = string
+  type        = list(any)
 
 }
 

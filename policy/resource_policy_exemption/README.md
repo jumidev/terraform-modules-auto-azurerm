@@ -12,9 +12,13 @@ source = {
 
 inputs = {
    name = "The name of the Policy Exemption"   
-   resource_id = "The Resource ID where the Policy Exemption should be applied..."   
+   # resource_id → set in component_inputs
    exemption_category = "The category of this policy exemption"   
    policy_assignment_id = "The ID of the Policy Assignment to be exempted at the specified Scope..."   
+}
+
+component_inputs = {
+   resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {

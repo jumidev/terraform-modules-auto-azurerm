@@ -157,7 +157,7 @@ resource "azurerm_orchestrated_virtual_machine_scale_set" "this" {
     for_each = var.automatic_instance_repair != null ? var.automatic_instance_repair : []
     content {
       enabled      = lookup(automatic_instance_repair.value, "enabled") # (Required) possible values: true | false
-      grace_period = lookup(automatic_instance_repair.value, "grace_period", "PT30M")
+      grace_period = lookup(automatic_instance_repair.value, "grace_period", pt30m)
     }
   }
 
@@ -268,7 +268,7 @@ resource "azurerm_orchestrated_virtual_machine_scale_set" "this" {
   dynamic "priority_mix" { # var.priority_mix
     for_each = var.priority_mix != null ? var.priority_mix : []
     content {
-      base_regular_count            = lookup(priority_mix.value, "base_regular_count", "0")
+      base_regular_count            = lookup(priority_mix.value, "base_regular_count", 0)
       regular_percentage_above_base = lookup(priority_mix.value, "regular_percentage_above_base", "0")
     }
   }

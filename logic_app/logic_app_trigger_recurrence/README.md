@@ -50,9 +50,9 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `at_these_minutes` | string | No | - | Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59. |
-| `at_these_hours` | string | No | - | Specifies a list of hours when the trigger should run. Valid values are between 0 and 23. |
-| `on_these_days` | string | No | - | Specifies a list of days when the trigger should run. Valid values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. |
+| `at_these_minutes` | number | No | - | Specifies a list of minutes when the trigger should run. Valid values are between 0 and 59. |
+| `at_these_hours` | list | No | - | Specifies a list of hours when the trigger should run. Valid values are between 0 and 23. |
+| `on_these_days` | number | No | - | Specifies a list of days when the trigger should run. Valid values include 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', and 'Sunday'. |
 
 
 

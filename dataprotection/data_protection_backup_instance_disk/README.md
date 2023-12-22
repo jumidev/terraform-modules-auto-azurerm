@@ -13,10 +13,15 @@ source = {
 inputs = {
    name = "The name which should be used for this Backup Instance Disk..."   
    location = "${location}"   
-   vault_id = "The ID of the Backup Vault within which the Backup Instance Disk should exist..."   
-   disk_id = "The ID of the source Disk"   
+   # vault_id → set in component_inputs
+   # disk_id → set in component_inputs
    snapshot_resource_group_name = "The name of the Resource Group where snapshots are stored..."   
    backup_policy_id = "The ID of the Backup Policy"   
+}
+
+component_inputs = {
+   vault_id = "path/to/key_vault_component:id"   
+   disk_id = "path/to/managed_disk_component:id"   
 }
 
 tfstate_store = {

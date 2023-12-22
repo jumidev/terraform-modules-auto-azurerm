@@ -13,10 +13,15 @@ source = {
 inputs = {
    name = "Specifies the name of the Cosmos DB SQL Stored Procedure..."   
    resource_group_name = "${resource_group}"   
-   account_name = "The name of the Cosmos DB Account to create the stored procedure within..."   
-   database_name = "The name of the Cosmos DB SQL Database to create the stored procedure within..."   
+   # account_name → set in component_inputs
+   # database_name → set in component_inputs
    container_name = "The name of the Cosmos DB SQL Container to create the stored procedure within..."   
    body = "The body of the stored procedure"   
+}
+
+component_inputs = {
+   account_name = "path/to/cosmosdb_account_component:name"   
+   database_name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 tfstate_store = {

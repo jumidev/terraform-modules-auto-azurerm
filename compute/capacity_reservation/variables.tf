@@ -17,7 +17,7 @@ variable "sku" {
 #
 # sku block structure:
 #   name (string)      : (REQUIRED) Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created.
-#   capacity (string)  : (REQUIRED) Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription.
+#   capacity (number)  : (REQUIRED) Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription.
 
 
 

@@ -51,33 +51,14 @@ tfstate_store = {
 | **webhook_receiver** | [block](#webhook_receiver-block-structure) |  -  |  One or more `webhook_receiver` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `sms_receiver` block structure
+### `webhook_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
-| `country_code` | string | Yes | - | The country code of the SMS receiver. |
-| `phone_number` | number | Yes | - | The phone number of the SMS receiver. |
-
-### `event_hub_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the EventHub Receiver, must be unique within action group. |
-| `event_hub_id` | string | No | - | The resource ID of the respective Event Hub. |
-| `event_hub_name` | string | No | - | The name of the specific Event Hub queue. |
-| `event_hub_namespace` | string | No | - | The namespace name of the Event Hub. |
-| `subscription_id` | string | No | - | The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group. |
-| `tenant_id` | string | No | - | The Tenant ID for the subscription containing this Event Hub. |
-| `use_common_alert_schema` | bool | No | - | Indicates whether to use common alert schema. |
-
-### `email_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
-| `email_address` | string | Yes | - | The email address of this receiver. |
+| `name` | string | Yes | - | The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
+| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+| `aad_auth` | [block](#aad_auth-block-structure) | No | - | The 'aad_auth' block. |
 
 ### `automation_runbook_receiver` block structure
 
@@ -91,6 +72,14 @@ tfstate_store = {
 | `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
+### `arm_role_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the ARM role receiver. |
+| `role_id` | string | Yes | - | The arm role id. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
 ### `logic_app_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -98,29 +87,6 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the logic app receiver. |
 | `resource_id` | string | Yes | - | The Azure resource ID of the logic app. |
 | `callback_url` | string | Yes | - | The callback url where HTTP request sent to. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-
-### `azure_app_push_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Azure app push receiver. |
-| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
-
-### `voice_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the voice receiver. |
-| `country_code` | string | Yes | - | The country code of the voice receiver. |
-| `phone_number` | number | Yes | - | The phone number of the voice receiver. |
-
-### `arm_role_receiver` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the ARM role receiver. |
-| `role_id` | string | Yes | - | The arm role id. |
 | `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
 
 ### `itsm_receiver` block structure
@@ -132,6 +98,34 @@ tfstate_store = {
 | `connection_id` | string | Yes | - | The unique connection identifier of the ITSM connection. |
 | `ticket_configuration` | string | Yes | - | A JSON blob for the configurations of the ITSM action. CreateMultipleWorkItems option will be part of this blob as well. |
 | `region` | string | Yes | - | The region of the workspace. |
+
+### `email_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the email receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
+| `email_address` | string | Yes | - | The email address of this receiver. |
+| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
+
+### `event_hub_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the EventHub Receiver, must be unique within action group. |
+| `event_hub_id` | string | No | - | The resource ID of the respective Event Hub. |
+| `event_hub_name` | string | No | - | The name of the specific Event Hub queue. |
+| `event_hub_namespace` | string | No | - | The namespace name of the Event Hub. |
+| `subscription_id` | string | No | - | The ID for the subscription containing this Event Hub. Default to the subscription ID of the Action Group. |
+| `tenant_id` | string | No | - | The Tenant ID for the subscription containing this Event Hub. |
+| `use_common_alert_schema` | bool | No | - | Indicates whether to use common alert schema. |
+
+### `sms_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the SMS receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
+| `country_code` | string | Yes | - | The country code of the SMS receiver. |
+| `phone_number` | number | Yes | - | The phone number of the SMS receiver. |
 
 ### `azure_function_receiver` block structure
 
@@ -151,14 +145,20 @@ tfstate_store = {
 | `identifier_uri` | string | No | - | The identifier URI for AAD auth. |
 | `tenant_id` | string | No | - | The tenant id for AAD auth. |
 
-### `webhook_receiver` block structure
+### `voice_receiver` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the webhook receiver. Names must be unique (case-insensitive) across all receivers within an action group. |
-| `service_uri` | string | Yes | - | The URI where webhooks should be sent. |
-| `use_common_alert_schema` | bool | No | - | Enables or disables the common alert schema. |
-| `aad_auth` | [block](#aad_auth-block-structure) | No | - | The 'aad_auth' block. |
+| `name` | string | Yes | - | The name of the voice receiver. |
+| `country_code` | string | Yes | - | The country code of the voice receiver. |
+| `phone_number` | number | Yes | - | The phone number of the voice receiver. |
+
+### `azure_app_push_receiver` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Azure app push receiver. |
+| `email_address` | string | Yes | - | The email address of the user signed into the mobile app who will receive push notifications from this receiver. |
 
 
 

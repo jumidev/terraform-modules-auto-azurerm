@@ -34,6 +34,6 @@ resource "azurerm_storage_share" "this" {
     }
   }
 
-  enabled_protocol = var.enabled_protocol # Default: SMB
+  enabled_protocol = var.enabled_protocol # Default: False
   metadata         = var.metadata
 }

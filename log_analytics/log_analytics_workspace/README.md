@@ -23,21 +23,6 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
-
-
-### `application_group_id` 
-
-- If set to a valid `azurerm_virtual_desktop_application_group` `id`, makes a **azurerm_virtual_desktop_workspace_application_group_association** - Manages a Virtual Desktop Workspace Application Group Association.
-
-Example component snippet:
-
-```hcl
-component_inputs = {
-   application_group_id = "path/to/virtual_desktop_application_group_component:id"
-}
-```
-
 
 ## Required Variables
 
@@ -54,13 +39,13 @@ component_inputs = {
 | **allow_resource_only_permissions** | bool |  `True`  |  -  |  Specifies if the log Analytics Workspace allow users accessing to data associated with resources they have permission to view, without permission to workspace. Defaults to `true`. | 
 | **local_authentication_disabled** | bool |  `False`  |  -  |  Specifies if the log Analytics workspace should enforce authentication using Azure AD. Defaults to `false`. | 
 | **sku** | string |  `PerGB2018`  |  `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, `PerGB2018`, `2018-04-03`  |  Specifies the SKU of the Log Analytics Workspace. Possible values are `Free`, `PerNode`, `Premium`, `Standard`, `Standalone`, `Unlimited`, `CapacityReservation`, and `PerGB2018` (new SKU as of `2018-04-03`). Defaults to `PerGB2018`. | 
-| **retention_in_days** | string |  -  |  -  |  The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | 
+| **retention_in_days** | number |  -  |  -  |  The workspace data retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. | 
 | **daily_quota_gb** | number |  -  |  -  |  The workspace daily quota for ingestion in GB. Defaults to -1 (unlimited) if omitted. | 
 | **cmk_for_query_forced** | bool |  -  |  -  |  Is Customer Managed Storage mandatory for query management? | 
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **internet_ingestion_enabled** | bool |  `True`  |  -  |  Should the Log Analytics Workspace support ingestion over the Public Internet? Defaults to `true`. | 
 | **internet_query_enabled** | bool |  `True`  |  -  |  Should the Log Analytics Workspace support querying over the Public Internet? Defaults to `true`. | 
-| **reservation_capacity_in_gb_per_day** | string |  -  |  `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`  |  The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`. | 
+| **reservation_capacity_in_gb_per_day** | number |  -  |  `100`, `200`, `300`, `400`, `500`, `1000`, `2000`, `5000`  |  The capacity reservation level in GB for this workspace. Possible values are `100`, `200`, `300`, `400`, `500`, `1000`, `2000` and `5000`. | 
 | **data_collection_rule_id** | string |  -  |  -  |  The ID of the Data Collection Rule to use for this workspace. | 
 | **immediate_data_purge_on_30_days_enabled** | bool |  -  |  -  |  Whether to remove the data in the Log Analytics Workspace immediately after 30 days. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 

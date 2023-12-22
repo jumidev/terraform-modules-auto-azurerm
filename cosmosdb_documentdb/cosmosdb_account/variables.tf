@@ -178,8 +178,8 @@ variable "backup" {
 #
 # backup block structure      :
 #   type (string)               : (REQUIRED) The type of the 'backup'. Possible values are 'Continuous' and 'Periodic'. Migration of 'Periodic' to 'Continuous' is one-way, changing 'Continuous' to 'Periodic' forces a new resource to be created.
-#   interval_in_minutes (string): The interval in minutes between two backups. This is configurable only when 'type' is 'Periodic'. Possible values are between 60 and 1440.
-#   retention_in_hours (string) : The time in hours that each backup is retained. This is configurable only when 'type' is 'Periodic'. Possible values are between 8 and 720.
+#   interval_in_minutes (number): The interval in minutes between two backups. This is configurable only when 'type' is 'Periodic'. Possible values are between 60 and 1440.
+#   retention_in_hours (number) : The time in hours that each backup is retained. This is configurable only when 'type' is 'Periodic'. Possible values are between 8 and 720.
 #   storage_redundancy (string) : The storage redundancy is used to indicate the type of backup residency. This is configurable only when 'type' is 'Periodic'. Possible values are 'Geo', 'Local' and 'Zone'.
 
 
@@ -191,10 +191,10 @@ variable "cors_rule" {
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (string)   : (REQUIRED) A list of HTTP headers that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_methods (list)     : (REQUIRED) A list of HTTP headers that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
-#   max_age_in_seconds (string): The number of seconds the client should cache a preflight response. Possible values are between '1' and '2147483647'.
+#   max_age_in_seconds (number): The number of seconds the client should cache a preflight response. Possible values are between '1' and '2147483647'.
 
 
 variable "identity" {

@@ -15,12 +15,11 @@ inputs = {
    resource_group_name = "${resource_group}"   
    login = "The login name of the principal to set as the Managed Instance administrator..."   
    object_id = "The ID of the principal to set as the Managed Instance administrator..."   
-   # tenant_id → set in component_inputs
+   tenant_id = "The Azure Tenant ID"   
 }
 
 component_inputs = {
    managed_instance_name = "path/to/sql_server_component:name"   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {

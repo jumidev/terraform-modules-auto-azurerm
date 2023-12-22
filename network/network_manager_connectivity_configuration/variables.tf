@@ -18,8 +18,8 @@ variable "applies_to_group" {
 # applies_to_group block structure:
 #   group_connectivity (string)     : (REQUIRED) Specifies the group connectivity type. Possible values are 'None' and 'DirectlyConnected'.
 #   network_group_id (string)       : (REQUIRED) Specifies the resource ID of Network Group which the configuration applies to.
-#   global_mesh_enabled (string)    : Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'.
-#   use_hub_gateway (string)        : Indicates whether the hub gateway is used. Possible values are 'true' and 'false'.
+#   global_mesh_enabled (bool)      : Indicates whether to global mesh is supported for this group. Possible values are 'true' and 'false'.
+#   use_hub_gateway (bool)          : Indicates whether the hub gateway is used. Possible values are 'true' and 'false'.
 
 
 variable "connectivity_topology" {
@@ -32,7 +32,7 @@ variable "connectivity_topology" {
 
 variable "delete_existing_peering_enabled" {
   description = "Indicates whether to remove current existing Virtual Network Peering in the Connectivity Configuration affected scope. Possible values are 'true' and 'false'."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "description" {
@@ -42,7 +42,7 @@ variable "description" {
 }
 variable "global_mesh_enabled" {
   description = "Indicates whether to global mesh is supported. Possible values are 'true' and 'false'."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "hub" {

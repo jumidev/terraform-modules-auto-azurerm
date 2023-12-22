@@ -37,7 +37,7 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **requires_client_authorization** | bool |  `True`  |  Specify if client authorization is needed for this hybrid connection. Changing this forces a new resource to be created. Defaults to `true`. | 
-| **user_metadata** | string |  -  |  The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored. | 
+| **user_metadata** | list |  -  |  The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored. | 
 
 
 

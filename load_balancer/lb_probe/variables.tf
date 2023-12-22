@@ -25,8 +25,8 @@ variable "protocol" {
 }
 variable "probe_threshold" {
   description = "The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from '1' to '100'. The default value is '1'."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 variable "request_path" {
   description = "The URI used for requesting health status from the backend endpoint. Required if protocol is set to 'Http' or 'Https'. Otherwise, it is not allowed."

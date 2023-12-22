@@ -45,9 +45,9 @@ tfstate_store = {
 | **resource_group_name** | string |  The name of the resource group in which to create the scheduled query rule instance. Changing this forces a new resource to be created. | 
 | **location** | string |  Specifies the Azure Region where the resource should exist. Changing this forces a new resource to be created. | 
 | **data_source_id** | string |  The resource URI over which log search query is to be run. | 
-| **frequency** | string |  Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive). | 
+| **frequency** | number |  Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive). | 
 | **query** | string |  Log search query. | 
-| **time_window** | string |  Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive). | 
+| **time_window** | number |  Time window for which data needs to be fetched for query (must be greater than or equal to `frequency`). Values must be between 5 and 2880 (inclusive). | 
 | **trigger** | [block](#trigger-block-structure) |  A `trigger` block. | 
 | **action** | [block](#action-block-structure) |  An `action` block. | 
 
@@ -61,7 +61,7 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  -  |  Whether this scheduled query rule is enabled. Default is `true`. | 
 | **query_type** | string |  `ResultCount`  |  `ResultCount`, `Number`  |  The type of query results. Possible values are `ResultCount` and `Number`. Default is `ResultCount`. If set to `ResultCount`, `query` must include an `AggregatedValue` column of a numeric type, for example, `Heartbeat | summarize AggregatedValue = count() by bin(TimeGenerated, 5m)`. | 
 | **severity** | string |  -  |  -  |  Severity of the alert. Possible values include: 0, 1, 2, 3, or 4. | 
-| **throttling** | string |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
+| **throttling** | number |  -  |  -  |  Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `trigger` block structure
@@ -70,7 +70,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `metric_trigger` | [block](#metric_trigger-block-structure) | No | - | A 'metric_trigger' block. Trigger condition for metric query rule. |
 | `operator` | string | Yes | - | Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
-| `threshold` | string | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
+| `threshold` | number | Yes | - | Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive. |
 
 ### `metric_trigger` block structure
 
@@ -78,7 +78,7 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `metric_trigger_type` | string | Yes | - | Metric Trigger Type - 'Consecutive' or 'Total'. |
 | `operator` | string | Yes | - | Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'. |
-| `threshold` | string | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
+| `threshold` | number | Yes | - | The threshold of the metric trigger. Values must be between 0 and 10000 inclusive. |
 | `metric_column` | string | No | - | Evaluation of metric on a particular column. |
 
 ### `action` block structure

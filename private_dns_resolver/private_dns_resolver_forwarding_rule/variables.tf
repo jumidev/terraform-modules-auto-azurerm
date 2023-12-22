@@ -17,9 +17,14 @@ variable "domain_name" {
 }
 variable "target_dns_servers" {
   description = "(REQUIRED) Can be specified multiple times to define multiple target DNS servers. Each 'target_dns_servers' block."
-  type        = string
-
+  type        = map(any)
 }
+#
+# target_dns_servers block structure:
+#   ip_address (string)               : (REQUIRED) DNS server IP address.
+#   port (string)                     : DNS server port.
+
+
 
 # OPTIONAL VARIABLES
 

@@ -14,14 +14,16 @@ inputs = {
    name = "The name of the Kusto Event Grid Data Connection to create..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
-   database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
+   # cluster_name → set in component_inputs
+   # database_name → set in component_inputs
    # storage_account_id → set in component_inputs
    # eventhub_id → set in component_inputs
    # eventhub_consumer_group_name → set in component_inputs
 }
 
 component_inputs = {
+   cluster_name = "path/to/kusto_cluster_component:name"   
+   database_name = "path/to/kusto_database_component:name"   
    storage_account_id = "path/to/storage_account_component:id"   
    eventhub_id = "path/to/eventhub_component:id"   
    eventhub_consumer_group_name = "path/to/eventhub_consumer_group_component:name"   

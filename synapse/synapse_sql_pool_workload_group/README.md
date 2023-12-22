@@ -18,7 +18,7 @@ inputs = {
 }
 
 component_inputs = {
-   sql_pool_id = "path/to/synapse_sql_pool_workload_group_component:id"   
+   sql_pool_id = "path/to/synapse_sql_pool_component:id"   
 }
 
 tfstate_store = {

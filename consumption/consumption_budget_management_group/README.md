@@ -66,15 +66,13 @@ tfstate_store = {
 | `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
 | `values` | list | Yes | - | Specifies a list of values for the column. |
 
-### `notification` block structure
+### `tag` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
-| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
-| `contact_emails` | list | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
-| `threshold_type` | string | No | Actual | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
-| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
+| `name` | string | Yes | - | The name of the tag to use for the filter. |
+| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
+| `values` | list | Yes | - | Specifies a list of values for the tag. |
 
 ### `time_period` block structure
 
@@ -90,13 +88,15 @@ tfstate_store = {
 | `dimension` | [block](#dimension-block-structure) | No | - | One or more 'dimension' blocks to filter the budget on. |
 | `tag` | [block](#tag-block-structure) | No | - | One or more 'tag' blocks to filter the budget on. |
 
-### `tag` block structure
+### `notification` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the tag to use for the filter. |
-| `operator` | string | No | In | The operator to use for comparison. The allowed values are 'In'. Defaults to 'In'. |
-| `values` | list | Yes | - | Specifies a list of values for the tag. |
+| `operator` | string | Yes | - | The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'. |
+| `threshold` | string | Yes | - | Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000. |
+| `contact_emails` | list | Yes | - | Specifies a list of email addresses to send the budget notification to when the threshold is exceeded. |
+| `threshold_type` | bool | No | False | The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created. |
+| `enabled` | bool | No | True | Should the notification be enabled? Defaults to 'true'. |
 
 
 

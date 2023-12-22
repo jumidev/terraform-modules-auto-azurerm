@@ -25,8 +25,8 @@ variable "administrator_login" {
 }
 variable "backup_retention_days" {
   description = "The backup retention days for the MySQL Flexible Server. Possible values are between '1' and '35' days. Defaults to '7'."
-  type        = string
-  default     = "7"
+  type        = number
+  default     = 7
 }
 variable "create_mode" {
   description = "The creation mode which can be used to restore or replicate existing servers. Possible values are 'Default', 'PointInTimeRestore', 'GeoRestore', and 'Replica'. Changing this forces a new MySQL Flexible Server to be created."
@@ -124,8 +124,8 @@ variable "storage" {
 # storage block structure  :
 #   auto_grow_enabled (bool) : Should Storage Auto Grow be enabled? Defaults to 'true'.
 #   io_scaling_enabled (bool): Should IOPS be scaled automatically? If 'true', 'iops' can not be set. Defaults to 'false'.
-#   iops (string)            : The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'.
-#   size_gb (string)         : The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'.
+#   iops (number)            : The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'.
+#   size_gb (number)         : The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'.
 
 
 variable "version" {

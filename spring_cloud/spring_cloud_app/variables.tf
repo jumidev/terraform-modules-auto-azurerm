@@ -66,8 +66,8 @@ variable "ingress_settings" {
 #
 # ingress_settings block structure:
 #   backend_protocol (string)       : Specifies how ingress should communicate with this app backend service. Allowed values are 'GRPC' and 'Default'. Defaults to 'Default'.
-#   read_timeout_in_seconds (string): Specifies the ingress read time out in seconds. Defaults to '300'.
-#   send_timeout_in_seconds (string): Specifies the ingress send time out in seconds. Defaults to '60'.
+#   read_timeout_in_seconds (number): Specifies the ingress read time out in seconds. Defaults to '300'.
+#   send_timeout_in_seconds (number): Specifies the ingress send time out in seconds. Defaults to '60'.
 #   session_affinity (string)       : Specifies the type of the affinity, set this to 'Cookie' to enable session affinity. Allowed values are 'Cookie' and 'None'. Defaults to 'None'.
 #   session_cookie_max_age (string) : Specifies the time in seconds until the cookie expires.
 
@@ -79,7 +79,7 @@ variable "persistent_disk" {
 }
 #
 # persistent_disk block structure:
-#   size_in_gb (string)            : (REQUIRED) Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'.
+#   size_in_gb (number)            : (REQUIRED) Specifies the size of the persistent disk in GB. Possible values are between '0' and '50'.
 #   mount_path (string)            : Specifies the mount path of the persistent disk. Defaults to '/persistent'.
 
 

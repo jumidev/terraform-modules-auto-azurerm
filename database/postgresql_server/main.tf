@@ -41,6 +41,6 @@ resource "azurerm_postgresql_server" "this" {
   infrastructure_encryption_enabled = var.infrastructure_encryption_enabled
   public_network_access_enabled     = var.public_network_access_enabled # Default: True
   restore_point_in_time             = var.restore_point_in_time
-  ssl_minimal_tls_version_enforced  = var.ssl_minimal_tls_version_enforced # Default: TLS1_2
+  ssl_minimal_tls_version_enforced  = var.ssl_minimal_tls_version_enforced # Default: False
   storage_mb                        = var.storage_mb
 }

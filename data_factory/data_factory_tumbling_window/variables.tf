@@ -70,8 +70,8 @@ variable "end_time" {
 }
 variable "max_concurrency" {
   description = "The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between '1' and '50'. Defaults to '50'."
-  type        = string
-  default     = "50"
+  type        = number
+  default     = 50
 }
 variable "retry" {
   description = "A 'retry' block."

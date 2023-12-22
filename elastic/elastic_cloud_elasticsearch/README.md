@@ -44,14 +44,6 @@ tfstate_store = {
 | **monitoring_enabled** | bool |  `True`  |  Specifies if the Elasticsearch should have monitoring configured? Defaults to `true`. Changing this forces a new Elasticsearch to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Elasticsearch resource. | 
 
-### `filtering_tag` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
-| `name` | string | Yes | - | Specifies the name (key) of the Tag which should be filtered. |
-| `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
-
 ### `logs` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -60,6 +52,14 @@ tfstate_store = {
 | `send_activity_logs` | bool | No | False | Specifies if the Azure Activity Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
 | `send_azuread_logs` | bool | No | False | Specifies if the AzureAD Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
 | `send_subscription_logs` | bool | No | False | Specifies if the Azure Subscription Logs should be sent to the Elasticsearch cluster. Defaults to 'false'. |
+
+### `filtering_tag` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action` | string | Yes | - | Specifies the type of action which should be taken when the Tag matches the 'name' and 'value'. Possible values are 'Exclude' and 'Include'. |
+| `name` | string | Yes | - | Specifies the name (key) of the Tag which should be filtered. |
+| `value` | string | Yes | - | Specifies the value of the Tag which should be filtered. |
 
 
 

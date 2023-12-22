@@ -67,16 +67,16 @@ variable "managed_rule" {
 #   exclusion (block)           : One or more 'exclusion' blocks.
 #   override (block)            : One or more 'override' blocks.
 #
-# override block structure:
-#   rule_group_name (string): (REQUIRED) The managed rule group to override.
-#   exclusion (block)       : One or more 'exclusion' blocks.
-#   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
-#
 # rule block structure:
 #   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
 #   action (string)     : (REQUIRED) The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
 #   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
 #   exclusion (block)   : One or more 'exclusion' blocks.
+#
+# override block structure:
+#   rule_group_name (string): (REQUIRED) The managed rule group to override.
+#   exclusion (block)       : One or more 'exclusion' blocks.
+#   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
 #
 # exclusion block structure:
 #   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.

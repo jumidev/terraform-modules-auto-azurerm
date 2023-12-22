@@ -12,13 +12,12 @@ source = {
 
 inputs = {
    # key_vault_id → set in component_inputs
-   # tenant_id → set in component_inputs
+   tenant_id = "The Azure Active Directory tenant ID that should be used for authenticating requ..."   
    object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
 }
 
 component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {

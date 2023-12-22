@@ -33,6 +33,11 @@ variable "autoscale_settings" {
 #   max_throughput (string)           : The maximum throughput of the Gremlin database (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'.
 
 
+variable "cosmosdb_account_resource_group_name" {
+  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
 
 # OPTIONAL VARIABLES
 

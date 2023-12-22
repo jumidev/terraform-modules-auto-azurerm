@@ -20,8 +20,8 @@ variable "sku_name" {
 
 variable "response_timeout_seconds" {
   description = "Specifies the maximum response timeout in seconds. Possible values are between '16' and '240' seconds (inclusive). Defaults to '120' seconds."
-  type        = string
-  default     = "120"
+  type        = number
+  default     = 120
 }
 variable "tags" {
   description = "Specifies a mapping of tags to assign to the resource."

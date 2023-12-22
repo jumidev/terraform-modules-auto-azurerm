@@ -50,13 +50,6 @@ tfstate_store = {
 | **primary_user_assigned_identity_id** | string |  -  |  `type`, `UserAssigned`, `identity_ids`  |  Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. |
-
 ### `azuread_administrator` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,6 +58,13 @@ tfstate_store = {
 | `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this SQL Server. |
 | `tenant_id` | string | No | - | The tenant id of the Azure AD Administrator of this SQL Server. |
 | `azuread_authentication_only` | string | No | - | Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. |
 
 
 

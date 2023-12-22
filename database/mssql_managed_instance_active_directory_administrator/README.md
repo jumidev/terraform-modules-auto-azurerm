@@ -14,12 +14,11 @@ inputs = {
    # managed_instance_id → set in component_inputs
    login_username = "The login name of the principal to set as the Managed Instance Administrator..."   
    object_id = "The Object ID of the principal to set as the Managed Instance Administrator..."   
-   # tenant_id → set in component_inputs
+   tenant_id = "The Azure Active Directory Tenant ID"   
 }
 
 component_inputs = {
    managed_instance_id = "path/to/mssql_managed_instance_component:id"   
-   tenant_id = "path/to/aadb2c_directory_component:tenant_id"   
 }
 
 tfstate_store = {

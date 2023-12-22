@@ -11,13 +11,9 @@ source = {
 }
 
 inputs = {
-   # managed_api_id → set in component_inputs
+   managed_api_id = "The ID of the Managed API which this API Connection is linked to..."   
    name = "The Name which should be used for this API Connection..."   
    resource_group_name = "${resource_group}"   
-}
-
-component_inputs = {
-   managed_api_id = "path/to/api_connection_component:id"   
 }
 
 tfstate_store = {

@@ -13,7 +13,11 @@ source = {
 inputs = {
    name = "Specifies the name of the Cosmos DB Gremlin Database..."   
    resource_group_name = "${resource_group}"   
-   account_name = "The name of the CosmosDB Account to create the Gremlin Database within..."   
+   # account_name → set in component_inputs
+}
+
+component_inputs = {
+   account_name = "path/to/cosmosdb_account_component:name"   
 }
 
 tfstate_store = {

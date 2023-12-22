@@ -13,8 +13,13 @@ source = {
 inputs = {
    name = "Specifies the name of the Cosmos DB Mongo Collection..."   
    resource_group_name = "${resource_group}"   
-   account_name = "The name of the Cosmos DB Account in which the Cosmos DB Mongo Collection is cre..."   
-   database_name = "The name of the Cosmos DB Mongo Database in which the Cosmos DB Mongo Collection..."   
+   # account_name → set in component_inputs
+   # database_name → set in component_inputs
+}
+
+component_inputs = {
+   account_name = "path/to/cosmosdb_account_component:name"   
+   database_name = "path/to/cosmosdb_sql_database_component:name"   
 }
 
 tfstate_store = {

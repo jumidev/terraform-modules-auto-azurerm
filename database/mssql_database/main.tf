@@ -1,7 +1,3 @@
-data "azurerm_maintenance_configuration" "this" {
-  name                = var.maintenance_configuration_name
-  resource_group_name = var.maintenance_configuration_resource_group_name
-}
 
 
 resource "azurerm_mssql_database" "this" {
@@ -35,9 +31,9 @@ resource "azurerm_mssql_database" "this" {
   collation                      = var.collation
   elastic_pool_id                = var.elastic_pool_id
   enclave_type                   = var.enclave_type
-  geo_backup_enabled             = var.geo_backup_enabled # Default: True
-  maintenance_configuration_name = data.azurerm_maintenance_configuration.this.name
-  ledger_enabled                 = var.ledger_enabled # Default: False
+  geo_backup_enabled             = var.geo_backup_enabled             # Default: True
+  maintenance_configuration_name = var.maintenance_configuration_name # Default: SQL_Default
+  ledger_enabled                 = var.ledger_enabled                 # Default: False
   license_type                   = var.license_type
 
   dynamic "long_term_retention_policy" { # var.long_term_retention_policy

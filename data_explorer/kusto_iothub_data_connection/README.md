@@ -14,14 +14,16 @@ inputs = {
    name = "The name of the Kusto IotHub Data Connection to create..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
-   cluster_name = "Specifies the name of the Kusto Cluster this data connection will be added to..."   
-   database_name = "Specifies the name of the Kusto Database this data connection will be added to..."   
+   # cluster_name → set in component_inputs
+   # database_name → set in component_inputs
    # iothub_id → set in component_inputs
    consumer_group = "Specifies the IotHub consumer group this data connection will use for ingestion..."   
    shared_access_policy_name = "Specifies the IotHub Shared Access Policy this data connection will use for inge..."   
 }
 
 component_inputs = {
+   cluster_name = "path/to/kusto_cluster_component:name"   
+   database_name = "path/to/kusto_database_component:name"   
    iothub_id = "path/to/iothub_component:id"   
 }
 

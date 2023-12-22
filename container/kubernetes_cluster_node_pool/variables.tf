@@ -61,14 +61,14 @@ variable "kubelet_config" {
 #
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created.
-#   container_log_max_line (string)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
-#   container_log_max_size_mb (string): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
+#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created.
+#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created.
 #   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created.
 #   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value. Changing this forces a new resource to be created.
 #   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created.
 #   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created.
 #   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created.
-#   pod_max_pid (string)              : Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
+#   pod_max_pid (number)              : Specifies the maximum number of processes per pod. Changing this forces a new resource to be created.
 #   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created.
 
 
@@ -78,11 +78,11 @@ variable "linux_os_config" {
   default     = null
 }
 #
-# linux_os_config block structure       :
-#   swap_file_size_mb (string)            : Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
-#   sysctl_config (block)                 : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string) : specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created.
-#   transparent_huge_page_enabled (string): Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created.
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created.
+#   sysctl_config (block)                : A 'sysctl_config' block. Changing this forces a new resource to be created.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
@@ -273,16 +273,16 @@ variable "zones" {
 }
 variable "max_count" {
   description = "The maximum number of nodes which should exist within this Node Pool. Valid values are between '0' and '1000' and must be greater than or equal to 'min_count'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "min_count" {
   description = "The minimum number of nodes which should exist within this Node Pool. Valid values are between '0' and '1000' and must be less than or equal to 'max_count'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "node_count" {
   description = "The number of nodes which should exist within this Node Pool. Valid values are between '0' and '1000' (inclusive) for user pools and between '1' and '1000' (inclusive) for system pools."
-  type        = string
+  type        = number
   default     = null
 }

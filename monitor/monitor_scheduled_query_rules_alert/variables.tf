@@ -22,7 +22,7 @@ variable "data_source_id" {
 }
 variable "frequency" {
   description = "(REQUIRED) Frequency (in minutes) at which rule condition should be evaluated. Values must be between 5 and 1440 (inclusive)."
-  type        = string
+  type        = number
 
 }
 variable "query" {
@@ -32,7 +32,7 @@ variable "query" {
 }
 variable "time_window" {
   description = "(REQUIRED) Time window for which data needs to be fetched for query (must be greater than or equal to 'frequency'). Values must be between 5 and 2880 (inclusive)."
-  type        = string
+  type        = number
 
 }
 variable "trigger" {
@@ -43,12 +43,12 @@ variable "trigger" {
 # trigger block structure:
 #   metric_trigger (block) : A 'metric_trigger' block. Trigger condition for metric query rule.
 #   operator (string)      : (REQUIRED) Evaluation operation for rule - 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
-#   threshold (string)     : (REQUIRED) Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
+#   threshold (number)     : (REQUIRED) Result or count threshold based on which rule should be triggered. Values must be between 0 and 10000 inclusive.
 #
 # metric_trigger block structure:
 #   metric_trigger_type (string)  : (REQUIRED) Metric Trigger Type - 'Consecutive' or 'Total'.
 #   operator (string)             : (REQUIRED) Evaluation operation for rule - 'Equal', 'GreaterThan', GreaterThanOrEqual', 'LessThan', or 'LessThanOrEqual'.
-#   threshold (string)            : (REQUIRED) The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
+#   threshold (number)            : (REQUIRED) The threshold of the metric trigger. Values must be between 0 and 10000 inclusive.
 #   metric_column (string)        : Evaluation of metric on a particular column.
 
 
@@ -98,7 +98,7 @@ variable "severity" {
 }
 variable "throttling" {
   description = "Time (in minutes) for which Alerts should be throttled or suppressed. Values must be between 0 and 10000 (inclusive)."
-  type        = string
+  type        = number
   default     = null
 }
 variable "tags" {

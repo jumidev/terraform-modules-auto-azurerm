@@ -164,7 +164,7 @@ variable "gallery_application" {
 # gallery_application block structure:
 #   version_id (string)                : (REQUIRED) Specifies the Gallery Application Version resource ID.
 #   configuration_blob_uri (string)    : Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided.
-#   order (string)                     : Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'.
+#   order (number)                     : Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'.
 #   tag (string)                       : Specifies a passthrough value for more generic context. This field can be any valid 'string' value.
 
 

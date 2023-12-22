@@ -23,6 +23,38 @@ tfstate_store = {
 }
 
 ```
+## Optional associated resource
+
+
+### `monitor_data_collection_rule_association` 
+
+If set, makes a **azurerm_monitor_data_collection_rule_association** - With the following options:
+
+| attribute | type | required? | default |
+| --------- | ---- | --------- | ------- |
+| `target_resource_id` | string | True | null |
+| `name` | string | False | "configurationAccessEndpoint" |
+| `data_collection_rule_id` | string | False | null |
+| `description` | string | False | null |
+
+
+Example component snippet:
+
+```hcl
+inputs = {
+   monitor_data_collection_rule_association = {
+      name = "configurationAccessEndpoint"      
+      description = "..."      
+   }
+   
+}
+
+component_inputs = {
+   monitor_data_collection_rule_association.target_resource_id = "path/to/any_resource_component:id"   
+}
+
+```
+
 
 ## Required Variables
 

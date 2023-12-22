@@ -41,7 +41,21 @@ resource "azurerm_virtual_network_gateway_connection" "this" {
   egress_nat_rule_ids                = var.egress_nat_rule_ids
   ingress_nat_rule_ids               = var.ingress_nat_rule_ids
   use_policy_based_traffic_selectors = var.use_policy_based_traffic_selectors # Default: False
-  ipsec_policy                       = var.ipsec_policy
-  traffic_selector_policy            = var.traffic_selector_policy
-  tags                               = var.tags
+
+  dynamic "ipsec_policy" { # var.ipsec_policy
+    for_each = var.ipsec_policy != null ? var.ipsec_policy : []
+    content {
+      dh_group         = lookup(ipsec_policy.value, "dh_group")         # (Required) possible values: DHGroup1 | DHGroup14 | DHGroup2 | DHGroup2048 | DHGroup24 | ECP256 | ECP384 | None
+      ike_encryption   = lookup(ipsec_policy.value, "ike_encryption")   # (Required) possible values: AES128 | AES192 | AES256 | DES | DES3 | GCMAES128 | GCMAES256
+      ike_integrity    = lookup(ipsec_policy.value, "ike_integrity")    # (Required) possible values: GCMAES128 | GCMAES256 | MD5 | SHA1 | SHA256 | SHA384
+      ipsec_encryption = lookup(ipsec_policy.value, "ipsec_encryption") # (Required) possible values: AES128 | AES192 | AES256 | DES | DES3 | GCMAES128 | GCMAES192 | GCMAES256 | None
+      ipsec_integrity  = lookup(ipsec_policy.value, "ipsec_integrity")  # (Required) possible values: GCMAES128 | GCMAES192 | GCMAES256 | MD5 | SHA1 | SHA256
+      pfs_group        = lookup(ipsec_policy.value, "pfs_group")        # (Required) possible values: ECP256 | ECP384 | PFS1 | PFS14 | PFS2 | PFS2048 | PFS24 | PFSMM | None
+      sa_datasize      = lookup(ipsec_policy.value, "sa_datasize", "102400000")
+      sa_lifetime      = lookup(ipsec_policy.value, "sa_lifetime", "27000")
+    }
+  }
+
+  traffic_selector_policy = var.traffic_selector_policy
+  tags                    = var.tags
 }

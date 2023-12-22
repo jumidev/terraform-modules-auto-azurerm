@@ -13,12 +13,13 @@ source = {
 inputs = {
    name = "The name which should be used for this Backup Instance Blob Storage..."   
    location = "${location}"   
-   vault_id = "The ID of the Backup Vault within which the Backup Instance Blob Storage should ..."   
+   # vault_id → set in component_inputs
    # storage_account_id → set in component_inputs
    backup_policy_id = "The ID of the Backup Policy"   
 }
 
 component_inputs = {
+   vault_id = "path/to/key_vault_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }
 

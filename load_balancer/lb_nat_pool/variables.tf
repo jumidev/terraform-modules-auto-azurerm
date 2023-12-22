@@ -45,8 +45,8 @@ variable "backend_port" {
 
 variable "idle_timeout_in_minutes" {
   description = "Specifies the idle timeout in minutes for TCP connections. Valid values are between '4' and '30'. Defaults to '4'."
-  type        = string
-  default     = "4"
+  type        = number
+  default     = 4
 }
 variable "floating_ip_enabled" {
   description = "Are the floating IPs enabled for this Load Balancer Rule? A floating IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group."

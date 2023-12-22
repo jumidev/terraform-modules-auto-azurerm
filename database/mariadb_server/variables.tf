@@ -27,7 +27,7 @@ variable "version" {
 }
 variable "ssl_enforcement_enabled" {
   description = "(REQUIRED) Specifies if SSL should be enforced on connections. Possible values are 'true' and 'false'."
-  type        = string
+  type        = bool
 
 }
 
@@ -75,12 +75,12 @@ variable "restore_point_in_time" {
 }
 variable "ssl_minimal_tls_version_enforced" {
   description = "The minimum TLS version to support on the sever. Possible values are 'TLSEnforcementDisabled', 'TLS1_0', 'TLS1_1', and 'TLS1_2'. Defaults to 'TLS1_2'."
-  type        = string
-  default     = "TLS1_2"
+  type        = bool
+  default     = false
 }
 variable "storage_mb" {
   description = "Max storage allowed for a server. Possible values are between '5120' MB (5GB) and '1024000'MB (1TB) for the Basic SKU and between '5120' MB (5GB) and '4096000' MB (4TB) for General Purpose/Memory Optimized SKUs. For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#storageprofile)."
-  type        = string
+  type        = number
   default     = null
 }
 variable "tags" {

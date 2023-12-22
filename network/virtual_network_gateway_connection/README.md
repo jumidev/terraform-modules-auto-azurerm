@@ -60,9 +60,22 @@ tfstate_store = {
 | **egress_nat_rule_ids** | list |  -  |  -  |  A list of the egress NAT Rule Ids. | 
 | **ingress_nat_rule_ids** | list |  -  |  -  |  A list of the ingress NAT Rule Ids. | 
 | **use_policy_based_traffic_selectors** | bool |  `False`  |  -  |  If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`. | 
-| **ipsec_policy** | string |  -  |  -  |  A `ipsec_policy` block which is documented below. Only a single policy can be defined for a connection. For details on custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). | 
+| **ipsec_policy** | [block](#ipsec_policy-block-structure) |  -  |  -  |  A `ipsec_policy` block which is documented below. Only a single policy can be defined for a connection. For details on custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). | 
 | **traffic_selector_policy** | string |  -  |  -  |  One or more `traffic_selector_policy` blocks which are documented below. A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+
+### `ipsec_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dh_group` | string | Yes | - | The DH group used in IKE phase 1 for initial SA. Valid options are 'DHGroup1', 'DHGroup14', 'DHGroup2', 'DHGroup2048', 'DHGroup24', 'ECP256', 'ECP384', or 'None'. |
+| `ike_encryption` | string | Yes | - | The IKE encryption algorithm. Valid options are 'AES128', 'AES192', 'AES256', 'DES', 'DES3', 'GCMAES128', or 'GCMAES256'. |
+| `ike_integrity` | string | Yes | - | The IKE integrity algorithm. Valid options are 'GCMAES128', 'GCMAES256', 'MD5', 'SHA1', 'SHA256', or 'SHA384'. |
+| `ipsec_encryption` | string | Yes | - | The IPSec encryption algorithm. Valid options are 'AES128', 'AES192', 'AES256', 'DES', 'DES3', 'GCMAES128', 'GCMAES192', 'GCMAES256', or 'None'. |
+| `ipsec_integrity` | string | Yes | - | The IPSec integrity algorithm. Valid options are 'GCMAES128', 'GCMAES192', 'GCMAES256', 'MD5', 'SHA1', or 'SHA256'. |
+| `pfs_group` | string | Yes | - | The DH group used in IKE phase 2 for new child SA. Valid options are 'ECP256', 'ECP384', 'PFS1', 'PFS14', 'PFS2', 'PFS2048', 'PFS24', 'PFSMM', or 'None'. |
+| `sa_datasize` | string | No | 102400000 | The IPSec SA payload size in KB. Must be at least '1024' KB. Defaults to '102400000' KB. |
+| `sa_lifetime` | string | No | 27000 | The IPSec SA lifetime in seconds. Must be at least '300' seconds. Defaults to '27000' seconds. |
 
 ### `custom_bgp_addresses` block structure
 

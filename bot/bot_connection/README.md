@@ -14,10 +14,14 @@ inputs = {
    name = "Specifies the name of the Bot Connection"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "The name of the Bot Resource this connection will be associated with..."   
+   # bot_name → set in component_inputs
    service_provider_name = "The name of the service provider that will be associated with this connection..."   
    client_id = "The Client ID that will be used to authenticate with the service provider..."   
    client_secret = "The Client Secret that will be used to authenticate with the service provider..."   
+}
+
+component_inputs = {
+   bot_name = "path/to/bot_channels_registration_component:name"   
 }
 
 tfstate_store = {

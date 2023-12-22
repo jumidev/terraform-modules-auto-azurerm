@@ -45,16 +45,9 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **cluster_name** | string |  -  |  Specifies the name of the Managed Kubernetes Cluster. | 
 | **description** | string |  -  |  The description of the Alert Management Prometheus Rule Group. | 
-| **rule_group_enabled** | string |  `true`, `false`  |  Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`. | 
-| **interval** | string |  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
+| **rule_group_enabled** | bool |  `true`, `false`  |  Is this Alert Management Prometheus Rule Group enabled? Possible values are `true` and `false`. | 
+| **interval** | number |  `PT1M`, `PT15M`  |  Specifies the interval in which to run the Alert Management Prometheus Rule Group represented in ISO 8601 duration format. Possible values are between `PT1M` and `PT15M`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Alert Management Prometheus Rule Group. | 
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
-| `action_properties` | string | No | - | Specifies the properties of an action group object. |
 
 ### `alert_resolution` block structure
 
@@ -70,13 +63,20 @@ tfstate_store = {
 | `action` | [block](#action-block-structure) | No | - | An 'action' block. |
 | `alert` | string | No | - | Specifies the Alert rule name. |
 | `annotations` | string | No | - | Specifies a set of informational labels that can be used to store longer additional information such as alert descriptions or runbook links. |
-| `enabled` | string | No | - | Is this rule enabled? Possible values are 'true' and 'false'. |
+| `enabled` | bool | No | - | Is this rule enabled? Possible values are 'true' and 'false'. |
 | `expression` | string | Yes | - | Specifies the Prometheus Query Language expression to evaluate. For more details see [this doc](https://prometheus.io/docs/prometheus/latest/querying/basics). Evaluate at the period given by 'interval' and record the result as a new set of time series with the metric name given by 'record'. |
 | `for` | string | No | - | Specifies the amount of time alert must be active before firing, represented in ISO 8601 duration format. |
 | `labels` | string | No | - | Specifies the labels to add or overwrite before storing the result. |
 | `record` | string | No | - | Specifies the recorded metrics name. |
 | `alert_resolution` | [block](#alert_resolution-block-structure) | No | - | An 'alert_resolution' block. |
-| `severity` | string | No | - | Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4. |
+| `severity` | number | No | - | Specifies the severity of the alerts fired by the rule. Possible values are between 0 and 4. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | Specifies the resource id of the monitor action group. |
+| `action_properties` | string | No | - | Specifies the properties of an action group object. |
 
 
 

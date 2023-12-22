@@ -3,7 +3,8 @@ data "azurerm_resource_group" "this" {
 }
 data "azurerm_storage_account" "this" {
   name                = var.storage_account_name
-  resource_group_name = var.storage_account_resource_group_name == null ? null : var.storage_account_resource_group_name
+  resource_group_name = var.storage_account_resource_group_name != null ? var.storage_account_resource_group_name : var.resource_group_name
+
 }
 
 

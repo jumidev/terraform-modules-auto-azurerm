@@ -13,11 +13,7 @@ source = {
 inputs = {
    name = "Specifies the name of the Disaster Recovery Config"   
    primary_namespace_id = "The ID of the primary Service Bus Namespace to replicate..."   
-   # partner_namespace_id → set in component_inputs
-}
-
-component_inputs = {
-   partner_namespace_id = "path/to/servicebus_namespace_component:id"   
+   partner_namespace_id = "The ID of the Service Bus Namespace to replicate to..."   
 }
 
 tfstate_store = {

@@ -55,23 +55,6 @@ tfstate_store = {
 | **log_activity_trace_level** | string |  `0`, `9`, `15`  |  Specifies the activity-level tracing options of the runbook, available only for Graphical runbooks. Possible values are `0` for None, `9` for Basic, and `15` for Detailed. Must turn on Verbose logging in order to see the tracing. | 
 | **draft** | [block](#draft-block-structure) |  -  |  A `draft` block . | 
 
-### `draft` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
-| `content_link` | [block](#publish_content_link-block-structure) | No | - | A 'publish_content_link' block. |
-| `output_types` | string | No | - | Specifies the output types of the runbook. |
-| `parameters` | [block](#parameters-block-structure) | No | - | A list of 'parameters' block. |
-
-### `publish_content_link` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `uri` | string | Yes | - | The URI of the runbook content. |
-| `version` | string | No | - | Specifies the version of the content |
-| `hash` | [block](#hash-block-structure) | No | - | A 'hash' block. |
-
 ### `hash` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +71,23 @@ tfstate_store = {
 | `mandatory` | string | No | - | Whether this parameter is mandatory. |
 | `position` | string | No | - | Specifies the position of the parameter. |
 | `default_value` | string | No | - | Specifies the default value of the parameter. |
+
+### `publish_content_link` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `uri` | string | Yes | - | The URI of the runbook content. |
+| `version` | string | No | - | Specifies the version of the content |
+| `hash` | [block](#hash-block-structure) | No | - | A 'hash' block. |
+
+### `draft` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `edit_mode_enabled` | bool | No | - | Whether the draft in edit mode. |
+| `content_link` | [block](#publish_content_link-block-structure) | No | - | A 'publish_content_link' block. |
+| `output_types` | string | No | - | Specifies the output types of the runbook. |
+| `parameters` | [block](#parameters-block-structure) | No | - | A list of 'parameters' block. |
 
 
 

@@ -17,7 +17,7 @@ inputs = {
 }
 
 component_inputs = {
-   account_id = "path/to/data_share_component:id"   
+   account_id = "path/to/data_share_account_component:id"   
 }
 
 tfstate_store = {

@@ -38,7 +38,7 @@ tfstate_store = {
 | **name** | string |  -  |  The name of the HPC Cache. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created. | 
 | **location** | string |  -  |  Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created. | 
-| **cache_size_in_gb** | string |  `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152`, `86491`  |  The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created. | 
+| **cache_size_in_gb** | number |  `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152`, `86491`  |  The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created. | 
 | **subnet_id** | string |  -  |  The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created. | 
 | **sku_name** | string |  `Standard_2G`, `Standard_4G`, `Standard_8G`, `Standard_L4_5G`, `Standard_L9G`, `Standard_L16G`  |  The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created. | 
 
@@ -58,6 +58,29 @@ tfstate_store = {
 | **automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 
 
+### `directory_active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
+| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
+| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
+| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
+| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
+| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+
+### `directory_ldap` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `server` | string | Yes | - | The FQDN or IP address of the LDAP server. |
+| `base_dn` | string | Yes | - | The base distinguished name (DN) for the LDAP domain. |
+| `encrypted` | bool | No | - | Whether the LDAP connection should be encrypted? |
+| `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
+| `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
+| `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
+
 ### `default_access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,35 +94,12 @@ tfstate_store = {
 | `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
 | `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
 
-### `directory_ldap` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `server` | string | Yes | - | The FQDN or IP address of the LDAP server. |
-| `base_dn` | string | Yes | - | The base distinguished name (DN) for the LDAP domain. |
-| `encrypted` | bool | No | - | Whether the LDAP connection should be encrypted? |
-| `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
-| `download_certificate_automatically` | string | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
-| `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
-
 ### `dns` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
 | `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
-### `directory_active_directory` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
-| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
-| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
-| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
-| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
-| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
-| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
 
 ### `bind` block structure
 
@@ -122,7 +122,7 @@ tfstate_store = {
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The `id` of the HPC Cache. | 
 | **identity** | block | No  | An `identity` block. | 
-| **mount_addresses** | string | No  | A list of IP Addresses where the HPC Cache can be mounted. | 
+| **mount_addresses** | list | No  | A list of IP Addresses where the HPC Cache can be mounted. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
 

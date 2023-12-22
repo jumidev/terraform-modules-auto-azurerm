@@ -48,8 +48,8 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **user** | string |  -  |  -  |  Username used to login to the Microsoft SQL Server. Changing this forces a new resource to be created. Required if `authentication_mode` is `ConnectionString`. | 
 | **password** | string |  -  |  -  |  Password used together with username, to login to the Microsoft SQL Server. Required if `authentication_mode` is `ConnectionString`. | 
-| **max_batch_count** | string |  `10000`  |  `1`, `1073741824`  |  The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`. | 
-| **max_writer_count** | string |  `1`  |  `0`, `1`  |  The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer. | 
+| **max_batch_count** | number |  `10000`  |  `1`, `1073741824`  |  The max batch count to write to the SQL Database. Defaults to `10000`. Possible values are between `1` and `1073741824`. | 
+| **max_writer_count** | number |  `1`  |  `0`, `1`  |  The max writer count for the SQL Database. Defaults to `1`. Possible values are `0` which bases the writer count on the query partition and `1` which corresponds to a single writer. | 
 | **authentication_mode** | string |  `ConnectionString`  |  `Msi`, `ConnectionString`  |  The authentication mode for the Stream Output. Possible values are `Msi` and `ConnectionString`. Defaults to `ConnectionString`. | 
 
 

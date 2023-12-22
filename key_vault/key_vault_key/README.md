@@ -36,7 +36,7 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name of the Key Vault Key. Changing this forces a new resource to be created. | 
 | **key_vault_id** | string |  -  |  The ID of the Key Vault where the Key should be created. Changing this forces a new resource to be created. | 
 | **key_type** | string |  `EC`, `EC-HSM`, `RSA`, `RSA-HSM`  |  Specifies the Key Type to use for this Key Vault Key. Possible values are `EC` (Elliptic Curve), `EC-HSM`, `RSA` and `RSA-HSM`. Changing this forces a new resource to be created. | 
-| **key_opts** | string |  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
+| **key_opts** | list |  `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify`, `wrapKey`  |  A list of JSON web key operations. Possible values include: `decrypt`, `encrypt`, `sign`, `unwrapKey`, `verify` and `wrapKey`. Please note these values are case sensitive. | 
 
 ## Optional Variables
 
@@ -49,6 +49,13 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **rotation_policy** | [block](#rotation_policy-block-structure) |  -  |  -  |  A `rotation_policy` block. | 
 
+### `automatic` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+
 ### `rotation_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,13 +63,6 @@ tfstate_store = {
 | `expire_after` | string | No | - | Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | `automatic` | [block](#automatic-block-structure) | No | - | An 'automatic' block. |
 | `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-
-### `automatic` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
 
 

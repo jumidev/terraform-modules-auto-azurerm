@@ -40,7 +40,7 @@ variable "throughput" {
 }
 variable "analytical_storage_ttl" {
   description = "The time to live of Analytical Storage for this Cosmos DB Gremlin Graph. Possible values are between '-1' to '2147483647' not including '0'. If present and the value is set to '-1', it means never expire."
-  type        = string
+  type        = number
   default     = null
 }
 variable "default_ttl" {
@@ -75,12 +75,12 @@ variable "index_policy" {
 # spatial_index block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
 #
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
+#
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
-#
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 
 
 variable "conflict_resolution_policy" {
@@ -105,6 +105,21 @@ variable "unique_key" {
 #   paths (list)              : (REQUIRED) A list of paths to use for this unique key. Changing this forces a new resource to be created.
 
 
+variable "cosmosdb_account_resource_group_name" {
+  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "cosmosdb_sql_database_resource_group_name" {
+  description = "The name of the resource group in which the Cosmos DB SQL Database is created..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "cosmosdb_sql_database_account_name" {
+  description = "The name of the Cosmos DB SQL Database to create the table within..  If not specified, value of var.account_name will be used..  If not specified, value of var.account_name will be used."
+  type        = string
+  default     = null
+}
 
 # OPTIONAL VARIABLES
 

@@ -9,9 +9,9 @@ resource "azurerm_cdn_frontdoor_origin_group" "this" {
   cdn_frontdoor_profile_id = var.cdn_frontdoor_profile_id
 
   load_balancing {
-    additional_latency_in_milliseconds = lookup(load_balancing.value, "additional_latency_in_milliseconds", "50")
-    sample_size                        = lookup(load_balancing.value, "sample_size", "4")
-    successful_samples_required        = lookup(load_balancing.value, "successful_samples_required", "3")
+    additional_latency_in_milliseconds = lookup(load_balancing.value, "additional_latency_in_milliseconds", 50)
+    sample_size                        = lookup(load_balancing.value, "sample_size", 4)
+    successful_samples_required        = lookup(load_balancing.value, "successful_samples_required", 3)
   }
 
 

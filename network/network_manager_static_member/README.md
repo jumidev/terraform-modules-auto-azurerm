@@ -18,7 +18,7 @@ inputs = {
 
 component_inputs = {
    network_group_id = "path/to/network_manager_component:id"   
-   target_virtual_network_id = "path/to/network_manager_component:id"   
+   target_virtual_network_id = "path/to/virtual_network_component:id"   
 }
 
 tfstate_store = {

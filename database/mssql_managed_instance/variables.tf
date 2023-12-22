@@ -42,7 +42,7 @@ variable "subnet_id" {
 }
 variable "vcores" {
   description = "(REQUIRED) Number of cores that should be assigned to the SQL Managed Instance. Values can be '8', '16', or '24' for Gen4 SKUs, or '4', '6', '8', '10', '12', '16', '20', '24', '32', '40', '48', '56', '64', '80', '96' or '128' for Gen5 SKUs."
-  type        = string
+  type        = number
 
 }
 
@@ -103,9 +103,4 @@ variable "timezone_id" {
   description = "The TimeZone ID that the SQL Managed Instance will be operating in. Default value is 'UTC'. Changing this forces a new resource to be created."
   type        = string
   default     = "UTC"
-}
-variable "maintenance_configuration_resource_group_name" {
-  description = "Specifies the name of the Resource Group where this Maintenance Configuration exists..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
 }

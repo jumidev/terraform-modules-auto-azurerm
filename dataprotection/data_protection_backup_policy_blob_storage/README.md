@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Backup Policy Blob Storage..."   
-   vault_id = "The ID of the Backup Vault within which the Backup Policy Blob Storage should ex..."   
+   # vault_id → set in component_inputs
    retention_duration = "Duration of deletion after given timespan"   
+}
+
+component_inputs = {
+   vault_id = "path/to/key_vault_component:id"   
 }
 
 tfstate_store = {

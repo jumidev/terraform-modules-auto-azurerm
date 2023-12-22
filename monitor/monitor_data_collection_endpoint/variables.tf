@@ -38,3 +38,10 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
+
+# OPTIONAL VARIABLES
+
+variable "monitor_data_collection_rule_association" {
+  type    = map(any)
+  default = null
+}

@@ -12,7 +12,7 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Network Function Collector Poli..."   
-   # traffic_collector_id → set in component_inputs
+   traffic_collector_id = "Specifies the Azure Traffic Collector ID of the Network Function Collector Polic..."   
    location = "${location}"   
    ipfx_emission = {
       destination_types = "..."      
@@ -22,10 +22,6 @@ inputs = {
       source_resource_ids = "..."      
    }
    
-}
-
-component_inputs = {
-   traffic_collector_id = "path/to/network_function_collector_policy_component:id"   
 }
 
 tfstate_store = {

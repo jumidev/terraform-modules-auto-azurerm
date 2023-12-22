@@ -16,8 +16,13 @@ inputs = {
    scopes = "The Scope at which the Activity Log should be applied..."   
    criteria = {
       category = "..."      
+      # resource_id → (optional) set in component_inputs
    }
    
+}
+
+component_inputs = {
+   criteria.resource_id = "path/to/any_resource_component:id"   
 }
 
 tfstate_store = {
@@ -46,6 +51,13 @@ tfstate_store = {
 | **description** | string |  -  |  The description of this activity log alert. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
+| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
+
 ### `criteria` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,7 +74,7 @@ tfstate_store = {
 | `resource_id` | string | No | - | The specific resource monitored by the activity log alert. It should be within one of the 'scopes'. |
 | `resource_ids` | list | No | - | A list of specific resources monitored by the activity log alert. It should be within one of the 'scopes'. |
 | `level` | string | No | - | The severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'. |
-| `levels` | string | No | - | A list of severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'. |
+| `levels` | list | No | - | A list of severity level of the event. Possible values are 'Verbose', 'Informational', 'Warning', 'Error', and 'Critical'. |
 | `status` | string | No | - | The status of the event. For example, 'Started', 'Failed', or 'Succeeded'. |
 | `statuses` | list | No | - | A list of status of the event. For example, 'Started', 'Failed', or 'Succeeded'. |
 | `sub_status` | string | No | - | The sub status of the event. |
@@ -72,13 +84,6 @@ tfstate_store = {
 | `recommendation_impact` | string | No | - | The recommendation impact of the event. Possible values are 'High', 'Medium' and 'Low'. It is only allowed when 'category' is 'Recommendation'. |
 | `resource_health` | string | No | - | A block to define fine grain resource health settings. |
 | `service_health` | string | No | - | A block to define fine grain service health settings. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_group_id` | string | Yes | - | The ID of the Action Group can be sourced from [the 'azurerm_monitor_action_group' resource](./monitor_action_group.html). |
-| `webhook_properties` | string | No | - | The map of custom string properties to include with the post operation. These data are appended to the webhook payload. |
 
 
 

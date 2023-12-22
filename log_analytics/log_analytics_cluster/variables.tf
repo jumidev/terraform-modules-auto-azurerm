@@ -29,8 +29,8 @@ variable "identity" {
 
 variable "size_gb" {
   description = "The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include '500', '1000', '2000' or '5000'. Defaults to '1000'."
-  type        = string
-  default     = "1000"
+  type        = number
+  default     = 1000
 }
 variable "tags" {
   description = "A mapping of tags which should be assigned to the Log Analytics Cluster."

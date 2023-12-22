@@ -25,8 +25,8 @@ variable "backend_pool" {
 #   enabled (bool)         : Specifies if the backend is enabled or not. Valid options are 'true' or 'false'. Defaults to 'true'.
 #   address (string)       : (REQUIRED) Location of the backend (IP address or FQDN)
 #   host_header (string)   : (REQUIRED) The value to use as the host header sent to the backend.
-#   http_port (string)     : (REQUIRED) The HTTP TCP port number. Possible values are between '1' - '65535'.
-#   https_port (string)    : (REQUIRED) The HTTPS TCP port number. Possible values are between '1' - '65535'.
+#   http_port (number)     : (REQUIRED) The HTTP TCP port number. Possible values are between '1' - '65535'.
+#   https_port (number)    : (REQUIRED) The HTTPS TCP port number. Possible values are between '1' - '65535'.
 #   priority (string)      : Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy. Defaults to '1'.
 #   weight (number)        : Weight of this endpoint for load balancing purposes. Defaults to '50'.
 
@@ -123,7 +123,7 @@ variable "backend_pool_settings" {
 }
 #
 # backend_pool_settings block structure              :
-#   backend_pools_send_receive_timeout_seconds (string): Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'.
+#   backend_pools_send_receive_timeout_seconds (number): Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'.
 #   enforce_backend_pools_certificate_name_check (bool): (REQUIRED) Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'.
 
 

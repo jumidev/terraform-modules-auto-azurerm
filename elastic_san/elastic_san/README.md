@@ -36,14 +36,14 @@ tfstate_store = {
 | **name** | string |  -  |  Specifies the name of this Elastic SAN resource. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group within which this Elastic SAN resource should exist. Changing this forces a new resource to be created. | 
 | **location** | string |  -  |  The Azure Region where the Elastic SAN resource should exist. Changing this forces a new resource to be created. | 
-| **base_size_in_tib** | string |  `1`, `100`  |  Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`. | 
+| **base_size_in_tib** | number |  `1`, `100`  |  Specifies the base size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`. | 
 | **sku** | [block](#sku-block-structure) |  -  |  A `sku` block. | 
 
 ## Optional Variables
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **extended_size_in_tib** | string |  `1`, `100`  |  Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`. | 
+| **extended_size_in_tib** | number |  `1`, `100`  |  Specifies the extended size of the Elastic SAN resource in TiB. Possible values are between `1` and `100`. | 
 | **zones** | string |  -  |  Logical zone for the Elastic SAN resource. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Elastic SAN resource. | 
 

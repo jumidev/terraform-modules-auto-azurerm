@@ -55,7 +55,7 @@ variable "day_of_month" {
 }
 variable "days_of_week" {
   description = "Specifies a list of day names on which cost analysis data will be emailed. This property is applicable when frequency is 'Weekly' or 'Monthly'. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "hour_of_day" {
@@ -70,6 +70,6 @@ variable "message" {
 }
 variable "weeks_of_month" {
   description = "Specifies a list of weeks in which cost analysis data will be emailed. This property is applicable when 'frequency' is 'Monthly' and used in combination with 'days_of_week'. Possible values are 'First', 'Fourth', 'Last', 'Second' and 'Third'."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

@@ -11,11 +11,7 @@ source = {
 }
 
 inputs = {
-   # datadog_monitor_id → set in component_inputs
-}
-
-component_inputs = {
-   datadog_monitor_id = "path/to/datadog_monitor_tag_rule_component:id"   
+   datadog_monitor_id = "The Datadog Monitor Id which should be used for this Datadog Monitor Tag Rule..."   
 }
 
 tfstate_store = {

@@ -12,11 +12,7 @@ source = {
 
 inputs = {
    scope = "The scope at which the Role Assignment applies to, such as `/subscriptions/0b1f6..."   
-   # principal_id → set in component_inputs
-}
-
-component_inputs = {
-   principal_id = "path/to/role_definition_component:id"   
+   principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Role De..."   
 }
 
 tfstate_store = {

@@ -55,7 +55,7 @@ tfstate_store = {
 | **delay** | string |  -  |  -  |  Specifies how long the trigger waits before triggering new run. formatted as an `D.HH:MM:SS`. | 
 | **description** | string |  -  |  -  |  The description for the Data Factory Tumbling Window Trigger. | 
 | **end_time** | string |  -  |  -  |  Specifies the end time of Tumbling Window, formatted as an RFC3339 string. | 
-| **max_concurrency** | string |  `50`  |  `1`, `50`  |  The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`. | 
+| **max_concurrency** | number |  `50`  |  `1`, `50`  |  The max number for simultaneous trigger run fired by Tumbling Window. Possible values are between `1` and `50`. Defaults to `50`. | 
 | **retry** | [block](#retry-block-structure) |  -  |  -  |  A `retry` block. | 
 | **trigger_dependency** | [block](#trigger_dependency-block-structure) |  -  |  -  |  One or more `trigger_dependency` block. | 
 

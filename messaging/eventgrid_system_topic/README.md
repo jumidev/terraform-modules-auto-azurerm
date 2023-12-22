@@ -14,12 +14,8 @@ inputs = {
    location = "${location}"   
    name = "The name which should be used for this Event Grid System Topic..."   
    resource_group_name = "${resource_group}"   
-   # source_arm_resource_id → set in component_inputs
+   source_arm_resource_id = "The ID of the Event Grid System Topic ARM Source"   
    topic_type = "The Topic Type of the Event Grid System Topic"   
-}
-
-component_inputs = {
-   source_arm_resource_id = "path/to/eventgrid_system_topic_component:id"   
 }
 
 tfstate_store = {

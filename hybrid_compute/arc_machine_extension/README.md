@@ -11,11 +11,15 @@ source = {
 }
 
 inputs = {
-   arc_machine_id = "The ID of the Hybrid Compute Machine Extension"   
+   # arc_machine_id → set in component_inputs
    location = "${location}"   
    name = "The name which should be used for this Hybrid Compute Machine Extension..."   
    publisher = "The name of the extension handler publisher, such as `Microsoft..."   
    type = "Specifies the type of the extension"   
+}
+
+component_inputs = {
+   arc_machine_id = "path/to/arc_machine_extension_component:id"   
 }
 
 tfstate_store = {

@@ -42,25 +42,13 @@ variable "condition" {
 #   target_resource_group (block): A 'target_resource_group' block.
 #   target_resource_type (block) : A 'target_resource_type' block.
 #
-# monitor_service block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)                : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'.
-#
-# target_resource block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
+# monitor_condition block structure:
+#   operator (string)                : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (list)                    : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
 #
 # alert_context block structure:
 #   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)                : (REQUIRED) Specifies a list of values to match for a given condition.
-#
-# severity block structure:
-#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)         : (REQUIRED) Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
-#
-# target_resource_group block structure:
-#   operator (string)                    : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                        : (REQUIRED) A list of values to match for a given condition. The values should be valid resource group IDs.
 #
 # description block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
@@ -74,17 +62,29 @@ variable "condition" {
 #   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)                  : (REQUIRED) Specifies a list of values to match for a given condition.
 #
-# monitor_condition block structure:
-#   operator (string)                : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)                  : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
-#
 # target_resource_type block structure:
 #   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types. (e.g. Microsoft.Compute/VirtualMachines)
 #
+# severity block structure:
+#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (string)         : (REQUIRED) Specifies list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
+#
 # signal_type block structure:
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)            : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'.
+#   values (list)              : (REQUIRED) Specifies a list of values to match for a given condition. Possible values are 'Metric', 'Log', 'Unknown', and 'Health'.
+#
+# monitor_service block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (list)                  : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Prometheus', 'Resource Health', 'Smart Detector', and 'VM Insights - Health'.
+#
+# target_resource_group block structure:
+#   operator (string)                    : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                        : (REQUIRED) A list of values to match for a given condition. The values should be valid resource group IDs.
+#
+# target_resource block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                  : (REQUIRED) A list of values to match for a given condition. The values should be valid resource IDs.
 
 
 variable "description" {
@@ -115,7 +115,7 @@ variable "schedule" {
 #   monthly (string)          : One or more 'monthly' blocks.
 #
 # weekly block structure:
-#   days_of_week (string) : (REQUIRED) Specifies a list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', and 'Saturday'.
+#   days_of_week (number) : (REQUIRED) Specifies a list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', and 'Saturday'.
 #   start_time (string)   : Specifies the recurrence start time (H:M:S).
 #   end_time (string)     : Specifies the recurrence end time (H:M:S).
 

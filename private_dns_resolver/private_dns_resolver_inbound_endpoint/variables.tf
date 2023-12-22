@@ -12,9 +12,14 @@ variable "private_dns_resolver_id" {
 }
 variable "ip_configurations" {
   description = "(REQUIRED) Can be specified multiple times to define multiple IP configurations. Each 'ip_configurations' block."
-  type        = string
-
+  type        = map(any)
 }
+#
+# ip_configurations block structure    :
+#   private_ip_allocation_method (string): Private IP address allocation method. Allowed value is 'Dynamic'. Defaults to 'Dynamic'.
+#   subnet_id (string)                   : (REQUIRED) The subnet ID of the IP configuration.
+
+
 variable "location" {
   description = "(REQUIRED) Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created."
   type        = string

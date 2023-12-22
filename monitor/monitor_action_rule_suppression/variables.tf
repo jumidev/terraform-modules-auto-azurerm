@@ -23,7 +23,7 @@ variable "suppression" {
 #   start_date_utc (string)    : (REQUIRED) specifies the recurrence UTC start datetime (Y-m-d'T'H:M:S'Z').
 #   end_date_utc (string)      : (REQUIRED) specifies the recurrence UTC end datetime (Y-m-d'T'H:M:S'Z').
 #   recurrence_weekly (string) : specifies the list of dayOfWeek to recurrence. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   recurrence_monthly (string): specifies the list of dayOfMonth to recurrence. Possible values are between '1' - '31'. Required if 'recurrence_type' is 'Monthly'.
+#   recurrence_monthly (number): specifies the list of dayOfMonth to recurrence. Possible values are between '1' - '31'. Required if 'recurrence_type' is 'Monthly'.
 
 
 
@@ -65,23 +65,7 @@ variable "condition" {
 #   severity (block)            : A 'severity' block.
 #   target_resource_type (block): A 'target_resource_type' block.
 #
-# monitor_service block structure:
-#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)                : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'.
-#
-# monitor block structure:
-#   operator (string)      : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
-#   values (string)        : (REQUIRED) A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
-#
 # alert_context block structure:
-#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
-#   values (list)                : (REQUIRED) A list of values to match for a given condition.
-#
-# severity block structure:
-#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals'and 'NotEquals'.
-#   values (string)         : (REQUIRED) A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
-#
-# alert_rule_id block structure:
 #   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)                : (REQUIRED) A list of values to match for a given condition.
 #
@@ -89,9 +73,25 @@ variable "condition" {
 #   operator (string)          : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
 #   values (list)              : (REQUIRED) A list of values to match for a given condition.
 #
+# alert_rule_id block structure:
+#   operator (string)            : (REQUIRED) The operator for a given condition. Possible values are 'Equals', 'NotEquals', 'Contains', and 'DoesNotContain'.
+#   values (list)                : (REQUIRED) A list of values to match for a given condition.
+#
 # target_resource_type block structure:
 #   operator (string)                   : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
 #   values (list)                       : (REQUIRED) A list of values to match for a given condition. The values should be valid resource types.
+#
+# monitor block structure:
+#   operator (string)      : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (list)          : (REQUIRED) A list of values to match for a given condition. Possible values are 'Fired' and 'Resolved'.
+#
+# severity block structure:
+#   operator (string)       : (REQUIRED) The operator for a given condition. Possible values are 'Equals'and 'NotEquals'.
+#   values (list)           : (REQUIRED) A list of values to match for a given condition. Possible values are 'Sev0', 'Sev1', 'Sev2', 'Sev3', and 'Sev4'.
+#
+# monitor_service block structure:
+#   operator (string)              : (REQUIRED) The operator for a given condition. Possible values are 'Equals' and 'NotEquals'.
+#   values (list)                  : (REQUIRED) A list of values to match for a given condition. Possible values are 'ActivityLog Administrative', 'ActivityLog Autoscale', 'ActivityLog Policy', 'ActivityLog Recommendation', 'ActivityLog Security', 'Application Insights', 'Azure Backup', 'Azure Stack Edge', 'Azure Stack Hub', 'Custom', 'Data Box Gateway', 'Health Platform', 'Log Alerts V2', 'Log Analytics', 'Platform', 'Resource Health', 'Smart Detector' and 'VM Insights - Health'.
 
 
 variable "tags" {

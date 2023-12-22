@@ -45,13 +45,13 @@ variable "password" {
 }
 variable "max_batch_count" {
   description = "The max batch count to write to the SQL Database. Defaults to '10000'. Possible values are between '1' and '1073741824'."
-  type        = string
-  default     = "10000"
+  type        = number
+  default     = 10000
 }
 variable "max_writer_count" {
   description = "The max writer count for the SQL Database. Defaults to '1'. Possible values are '0' which bases the writer count on the query partition and '1' which corresponds to a single writer."
-  type        = string
-  default     = "1"
+  type        = number
+  default     = 1
 }
 variable "authentication_mode" {
   description = "The authentication mode for the Stream Output. Possible values are 'Msi' and 'ConnectionString'. Defaults to 'ConnectionString'."

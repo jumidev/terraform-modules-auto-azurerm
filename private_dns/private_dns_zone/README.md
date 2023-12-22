@@ -92,9 +92,9 @@ component_inputs = {
 | **id** | string | No  | The Private DNS Zone ID. | 
 | **soa_record** | block | No  | A `soa_record` block. | 
 | **number_of_record_sets** | number | No  | The current number of record sets in this Private DNS zone. | 
-| **max_number_of_record_sets** | string | No  | The maximum number of record sets that can be created in this Private DNS zone. | 
-| **max_number_of_virtual_network_links** | string | No  | The maximum number of virtual networks that can be linked to this Private DNS zone. | 
-| **max_number_of_virtual_network_links_with_registration** | string | No  | The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. | 
+| **max_number_of_record_sets** | number | No  | The maximum number of record sets that can be created in this Private DNS zone. | 
+| **max_number_of_virtual_network_links** | number | No  | The maximum number of virtual networks that can be linked to this Private DNS zone. | 
+| **max_number_of_virtual_network_links_with_registration** | number | No  | The maximum number of virtual networks that can be linked to this Private DNS zone with registration enabled. | 
 | **fqdn** | string | No  | The fully qualified domain name of the Record Set. | 
 | **host_name** | string | No  | The domain name of the authoritative name server for the SOA record. | 
 | **serial_number** | string | No  | The serial number for the SOA record. | 

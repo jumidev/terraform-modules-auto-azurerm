@@ -43,7 +43,7 @@ tfstate_store = {
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group where the Network Managers should exist. Changing this forces a new Network Managers to be created. | 
 | **location** | string |  -  |  Specifies the Azure Region where the Network Managers should exist. Changing this forces a new resource to be created. | 
 | **scope** | [block](#scope-block-structure) |  -  |  A `scope` block. | 
-| **scope_accesses** | string |  `Connectivity`, `SecurityAdmin`  |  A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager. | 
+| **scope_accesses** | list |  `Connectivity`, `SecurityAdmin`  |  A list of configuration deployment type. Possible values are `Connectivity` and `SecurityAdmin`, corresponds to if Connectivity Configuration and Security Admin Configuration is allowed for the Network Manager. | 
 
 ## Optional Variables
 

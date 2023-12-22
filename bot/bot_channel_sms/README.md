@@ -13,10 +13,14 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   bot_name = "The name of the Bot Resource this channel will be associated with..."   
+   # bot_name → set in component_inputs
    phone_number = "The phone number for the SMS Channel"   
    sms_channel_account_security_id = "The account security identifier (SID) for the SMS Channel..."   
    sms_channel_auth_token = "The authorization token for the SMS Channel"   
+}
+
+component_inputs = {
+   bot_name = "path/to/bot_channels_registration_component:name"   
 }
 
 tfstate_store = {

@@ -58,7 +58,7 @@ variable "description" {
 }
 variable "disk_types_not_allowed" {
   description = "One or more Disk Types not allowed for the Image. Possible values include 'Standard_LRS' and 'Premium_LRS'."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "end_of_life_date" {

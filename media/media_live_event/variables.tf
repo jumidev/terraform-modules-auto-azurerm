@@ -94,8 +94,8 @@ variable "preview" {
 
 variable "stream_options" {
   description = "A list of options to use for the LiveEvent. Possible values are 'Default', 'LowLatency', 'LowLatencyV2'. Please see more at this [document](https://learn.microsoft.com/en-us/azure/media-services/latest/live-event-latency-reference#lowlatency-and-lowlatencyv2-options). Changing this forces a new resource to be created."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }
 variable "tags" {
   description = "A mapping of tags which should be assigned to the Live Event."

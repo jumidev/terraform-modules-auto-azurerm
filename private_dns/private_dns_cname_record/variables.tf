@@ -17,7 +17,7 @@ variable "zone_name" {
 }
 variable "ttl" {
   description = "(REQUIRED) The Time To Live (TTL) of the DNS record in seconds. Possible values are between '0' and '2147483647'."
-  type        = string
+  type        = number
 
 }
 variable "record" {

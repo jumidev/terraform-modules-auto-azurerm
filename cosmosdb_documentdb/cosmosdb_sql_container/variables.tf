@@ -71,21 +71,21 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
-# included_path block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
-#
 # spatial_index block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
-#
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 #
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
+#
 # excluded_path block structure:
 #   path (string)                : (REQUIRED) Path that is excluded from indexing.
+#
+# included_path block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
 
 
 variable "default_ttl" {
@@ -110,3 +110,18 @@ variable "conflict_resolution_policy" {
 #   conflict_resolution_procedure (string)    : The procedure to resolve conflicts in the case of 'Custom' mode.
 
 
+variable "cosmosdb_account_resource_group_name" {
+  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "cosmosdb_sql_database_resource_group_name" {
+  description = "The name of the resource group in which the Cosmos DB SQL Database is created..  If not specified, value of var.resource_group_name will be used."
+  type        = string
+  default     = null
+}
+variable "cosmosdb_sql_database_account_name" {
+  description = "The name of the Cosmos DB SQL Database to create the table within..  If not specified, value of var.account_name will be used."
+  type        = string
+  default     = null
+}

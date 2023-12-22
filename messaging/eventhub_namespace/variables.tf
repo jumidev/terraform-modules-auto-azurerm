@@ -51,7 +51,7 @@ variable "identity" {
 
 variable "maximum_throughput_units" {
   description = "Specifies the maximum number of throughput units when Auto Inflate is Enabled. Valid values range from '1' - '20'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "zone_redundant" {
@@ -77,13 +77,13 @@ variable "network_rulesets" {
 #   virtual_network_rule (block)         : One or more 'virtual_network_rule' blocks.
 #   ip_rule (block)                      : One or more 'ip_rule' blocks.
 #
-# ip_rule block structure:
-#   ip_mask (string)       : (REQUIRED) The IP mask to match on.
-#   action (string)        : The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'.
-#
 # virtual_network_rule block structure                    :
 #   subnet_id (string)                                      : (REQUIRED) The id of the subnet to match on.
 #   ignore_missing_virtual_network_service_endpoint (string): Are missing virtual network service endpoints ignored?
+#
+# ip_rule block structure:
+#   ip_mask (string)       : (REQUIRED) The IP mask to match on.
+#   action (string)        : The action to take when the rule is matched. Possible values are 'Allow'. Defaults to 'Allow'.
 
 
 variable "local_authentication_enabled" {

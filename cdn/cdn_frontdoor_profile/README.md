@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **response_timeout_seconds** | string |  `120`  |  `16`, `240`  |  Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds. | 
+| **response_timeout_seconds** | number |  `120`  |  `16`, `240`  |  Specifies the maximum response timeout in seconds. Possible values are between `16` and `240` seconds (inclusive). Defaults to `120` seconds. | 
 | **tags** | map |  -  |  -  |  Specifies a mapping of tags to assign to the resource. | 
 
 

@@ -20,7 +20,7 @@ variable "state" {
 
 variable "disabled_alerts" {
   description = "Specifies an array of alerts that are disabled. Allowed values are: 'Sql_Injection', 'Sql_Injection_Vulnerability', 'Access_Anomaly', 'Data_Exfiltration', 'Unsafe_Action'."
-  type        = string
+  type        = bool
   default     = null
 }
 variable "email_account_admins" {
@@ -35,8 +35,8 @@ variable "email_addresses" {
 }
 variable "retention_days" {
   description = "Specifies the number of days to keep in the Threat Detection audit logs. Defaults to '0'."
-  type        = string
-  default     = "0"
+  type        = number
+  default     = 0
 }
 variable "storage_endpoint" {
   description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs."

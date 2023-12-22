@@ -20,7 +20,7 @@ variable "target_resource_id" {
 
 variable "weight" {
   description = "Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between '1' and '1000'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "custom_header" {

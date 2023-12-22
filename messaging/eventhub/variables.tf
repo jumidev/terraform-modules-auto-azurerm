@@ -17,12 +17,12 @@ variable "resource_group_name" {
 }
 variable "partition_count" {
   description = "(REQUIRED) Specifies the current number of shards on the Event Hub."
-  type        = string
+  type        = number
 
 }
 variable "message_retention" {
   description = "(REQUIRED) Specifies the number of days to retain the events for this Event Hub."
-  type        = string
+  type        = number
 
 }
 
@@ -37,7 +37,7 @@ variable "capture_description" {
 # capture_description block structure:
 #   enabled (bool)                     : (REQUIRED) Specifies if the Capture Description is Enabled.
 #   encoding (string)                  : (REQUIRED) Specifies the Encoding used for the Capture Description. Possible values are 'Avro' and 'AvroDeflate'.
-#   interval_in_seconds (string)       : Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds.
+#   interval_in_seconds (number)       : Specifies the time interval in seconds at which the capture will happen. Values can be between '60' and '900' seconds. Defaults to '300' seconds.
 #   size_limit_in_bytes (string)       : Specifies the amount of data built up in your EventHub before a Capture Operation occurs. Value should be between '10485760' and '524288000' bytes. Defaults to '314572800' bytes.
 #   skip_empty_archives (bool)         : Specifies if empty files should not be emitted if no events occur during the Capture time window. Defaults to 'false'.
 #   destination (block)                : (REQUIRED) A 'destination' block.

@@ -40,12 +40,12 @@ variable "coordinator_server_edition" {
 }
 variable "coordinator_storage_quota_in_mb" {
   description = "The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are '32768', '65536', '131072', '262144', '524288', '1048576', '2097152', '4194304', '8388608', '16777216', and '33554432'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "coordinator_vcore_count" {
   description = "The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are '1', '2', '4', '8', '16', '32', '64' and '96'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "ha_enabled" {
@@ -77,7 +77,7 @@ variable "node_server_edition" {
 }
 variable "node_storage_quota_in_mb" {
   description = "The storage quota in MB on each worker node. Possible values are '32768', '65536', '131072', '262144', '524288', '1048576', '2097152', '4194304', '8388608' and '16777216'."
-  type        = string
+  type        = number
   default     = null
 }
 variable "node_vcores" {

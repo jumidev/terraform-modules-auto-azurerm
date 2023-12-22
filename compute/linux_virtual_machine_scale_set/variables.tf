@@ -151,7 +151,7 @@ variable "data_disk" {
 #   storage_account_type (string)          : (REQUIRED) The Type of Storage Account which should back this Data Disk. Possible values include 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS', 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS' and 'UltraSSD_LRS'.
 #   disk_encryption_set_id (string)        : The ID of the Disk Encryption Set which should be used to encrypt this Data Disk. Changing this forces a new resource to be created.
 #   ultra_ssd_disk_iops_read_write (string): Specifies the Read-Write IOPS for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
-#   ultra_ssd_disk_mbps_read_write (string): Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
+#   ultra_ssd_disk_mbps_read_write (number): Specifies the bandwidth in MB per second for this Data Disk. Only settable when 'storage_account_type' is 'PremiumV2_LRS' or 'UltraSSD_LRS'.
 #   write_accelerator_enabled (bool)       : Should Write Accelerator be enabled for this Data Disk? Defaults to 'false'.
 
 
@@ -223,7 +223,7 @@ variable "gallery_application" {
 # gallery_application block structure:
 #   version_id (string)                : (REQUIRED) Specifies the Gallery Application Version resource ID. Changing this forces a new resource to be created.
 #   configuration_blob_uri (string)    : Specifies the URI to an Azure Blob that will replace the default configuration for the package if provided. Changing this forces a new resource to be created.
-#   order (string)                     : Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. Changing this forces a new resource to be created.
+#   order (number)                     : Specifies the order in which the packages have to be installed. Possible values are between '0' and '2,147,483,647'. Changing this forces a new resource to be created.
 #   tag (string)                       : Specifies a passthrough value for more generic context. This field can be any valid 'string' value. Changing this forces a new resource to be created.
 
 
@@ -272,7 +272,7 @@ variable "plan" {
 
 variable "platform_fault_domain_count" {
   description = "Specifies the number of fault domains that are used by this Linux Virtual Machine Scale Set. Changing this forces a new resource to be created."
-  type        = string
+  type        = number
   default     = null
 }
 variable "priority" {
@@ -297,12 +297,12 @@ variable "rolling_upgrade_policy" {
 }
 #
 # rolling_upgrade_policy block structure          :
-#   cross_zone_upgrades_enabled (string)            : Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'.
+#   cross_zone_upgrades_enabled (bool)              : Should the Virtual Machine Scale Set ignore the Azure Zone boundaries when constructing upgrade batches? Possible values are 'true' or 'false'.
 #   max_batch_instance_percent (string)             : (REQUIRED) The maximum percent of total virtual machine instances that will be upgraded simultaneously by the rolling upgrade in one batch. As this is a maximum, unhealthy instances in previous or future batches can cause the percentage of instances in a batch to decrease to ensure higher reliability.
 #   max_unhealthy_instance_percent (string)         : (REQUIRED) The maximum percentage of the total virtual machine instances in the scale set that can be simultaneously unhealthy, either as a result of being upgraded, or by being found in an unhealthy state by the virtual machine health checks before the rolling upgrade aborts. This constraint will be checked prior to starting any batch.
 #   max_unhealthy_upgraded_instance_percent (string): (REQUIRED) The maximum percentage of upgraded virtual machine instances that can be found to be in an unhealthy state. This check will happen after each batch is upgraded. If this percentage is ever exceeded, the rolling update aborts.
 #   pause_time_between_batches (string)             : (REQUIRED) The wait time between completing the update for all virtual machines in one batch and starting the next batch. The time duration should be specified in ISO 8601 format.
-#   prioritize_unhealthy_instances_enabled (string) : Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'.
+#   prioritize_unhealthy_instances_enabled (bool)   : Upgrade all unhealthy instances in a scale set before any healthy instances. Possible values are 'true' or 'false'.
 
 
 variable "scale_in" {

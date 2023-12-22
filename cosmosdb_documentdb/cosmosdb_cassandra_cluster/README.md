@@ -14,8 +14,12 @@ inputs = {
    name = "The name which should be used for this Cassandra Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   delegated_management_subnet_id = "The ID of the delegated management subnet for this Cassandra Cluster..."   
+   # delegated_management_subnet_id → set in component_inputs
    default_admin_password = "The initial admin password for this Cassandra Cluster..."   
+}
+
+component_inputs = {
+   delegated_management_subnet_id = "path/to/subnet_component:id"   
 }
 
 tfstate_store = {

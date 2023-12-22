@@ -25,6 +25,6 @@ variable "requires_client_authorization" {
 }
 variable "user_metadata" {
   description = "The usermetadata is a placeholder to store user-defined string data for the hybrid connection endpoint. For example, it can be used to store descriptive data, such as a list of teams and their contact information. Also, user-defined configuration settings can be stored."
-  type        = string
-  default     = null
+  type        = list(any)
+  default     = []
 }

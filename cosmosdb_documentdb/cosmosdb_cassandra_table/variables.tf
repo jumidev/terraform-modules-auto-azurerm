@@ -47,7 +47,7 @@ variable "default_ttl" {
 }
 variable "analytical_storage_ttl" {
   description = "Time to live of the Analytical Storage. Possible values are between '-1' and '2147483647' except '0'. '-1' means the Analytical Storage never expires. Changing this forces a new resource to be created."
-  type        = string
+  type        = number
   default     = null
 }
 variable "autoscale_settings" {

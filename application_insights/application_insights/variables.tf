@@ -25,7 +25,7 @@ variable "application_type" {
 
 variable "daily_data_cap_in_gb" {
   description = "Specifies the Application Insights component daily data volume cap in GB."
-  type        = string
+  type        = number
   default     = null
 }
 variable "daily_data_cap_notifications_disabled" {
@@ -35,8 +35,8 @@ variable "daily_data_cap_notifications_disabled" {
 }
 variable "retention_in_days" {
   description = "Specifies the retention period in days. Possible values are '30', '60', '90', '120', '180', '270', '365', '550' or '730'. Defaults to '90'."
-  type        = string
-  default     = "90"
+  type        = number
+  default     = 90
 }
 variable "sampling_percentage" {
   description = "Specifies the percentage of the data produced by the monitored application that is sampled for Application Insights telemetry. Defaults to '100'."

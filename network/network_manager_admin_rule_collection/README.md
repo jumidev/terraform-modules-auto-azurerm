@@ -17,7 +17,7 @@ inputs = {
 }
 
 component_inputs = {
-   security_admin_configuration_id = "path/to/network_manager_component:id"   
+   security_admin_configuration_id = "path/to/network_manager_security_admin_configuration_component:id"   
 }
 
 tfstate_store = {

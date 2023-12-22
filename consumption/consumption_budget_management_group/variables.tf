@@ -34,7 +34,7 @@ variable "notification" {
 #   operator (string)           : (REQUIRED) The comparison operator for the notification. Must be one of 'EqualTo', 'GreaterThan', or 'GreaterThanOrEqualTo'.
 #   threshold (string)          : (REQUIRED) Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000.
 #   contact_emails (list)       : (REQUIRED) Specifies a list of email addresses to send the budget notification to when the threshold is exceeded.
-#   threshold_type (string)     : The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created.
+#   threshold_type (bool)       : The type of threshold for the notification. This determines whether the notification is triggered by forecasted costs or actual costs. The allowed values are 'Actual' and 'Forecasted'. Default is 'Actual'. Changing this forces a new resource to be created.
 #   enabled (bool)              : Should the notification be enabled? Defaults to 'true'.
 
 

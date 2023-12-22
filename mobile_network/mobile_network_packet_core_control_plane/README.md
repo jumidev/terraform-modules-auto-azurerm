@@ -14,9 +14,19 @@ inputs = {
    name = "Specifies The name of the Mobile Network Packet Core Control Plane..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   site_ids = "A list of Mobile Network Site IDs in which this packet core control plane should..."   
+   # site_ids → set in component_inputs
    sku = "The SKU defining the throughput and SIM allowances for this packet core control ..."   
-   local_diagnostics_access = "One or more `local_diagnostics_access` blocks"   
+   local_diagnostics_access = {
+      this_local_diagnostics_access = {
+         authentication_type = "Possible values: AAD | Password"         
+      }
+      
+   }
+   
+}
+
+component_inputs = {
+   site_ids = ["path/to/mobile_network_site_component:ids", "..."]   
 }
 
 tfstate_store = {
@@ -36,7 +46,7 @@ tfstate_store = {
 | **location** | string |  -  |  Specifies the Azure Region where the Mobile Network Packet Core Control Plane should exist. Changing this forces a new Mobile Network Packet Core Control Plane to be created. | 
 | **site_ids** | list |  -  |  A list of Mobile Network Site IDs in which this packet core control plane should be deployed. The Sites must be in the same location as the packet core control plane. | 
 | **sku** | string |  `G0`, `G1`, `G2`, `G3`, `G4`, `G5`, `G10`  |  The SKU defining the throughput and SIM allowances for this packet core control plane deployment. Possible values are `G0`, `G1`, `G2`, `G3`, `G4`, `G5` and `G10`. | 
-| **local_diagnostics_access** | string |  -  |  One or more `local_diagnostics_access` blocks. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs. | 
+| **local_diagnostics_access** | [block](#local_diagnostics_access-block-structure) |  -  |  One or more `local_diagnostics_access` blocks. Specifies the Kubernetes ingress configuration that controls access to the packet core diagnostics through local APIs. | 
 
 ## Optional Variables
 
@@ -54,12 +64,12 @@ tfstate_store = {
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Mobile Network Packet Core Control Plane. | 
 | **software_version** | string |  -  |  Specifies the version of the packet core software that is deployed. | 
 
-### `identity` block structure
+### `local_diagnostics_access` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
+| `authentication_type` | string | Yes | - | How to authenticate users to access local diagnostics APIs. Possible values are 'AAD' and 'Password'. |
+| `https_server_certificate_url` | string | No | - | The versionless certificate URL used to secure local access to packet core diagnostics over local APIs by the Kubernetes ingress. |
 
 ### `platform` block structure
 
@@ -70,6 +80,13 @@ tfstate_store = {
 | `arc_kubernetes_cluster_id` | string | No | - | The ID of the Azure Arc connected cluster where the packet core is deployed. |
 | `stack_hci_cluster_id` | string | No | - | The ID of the Azure Stack HCI cluster where the packet core is deployed. |
 | `custom_location_id` | string | No | - | The ID of the Azure Arc custom location where the packet core is deployed. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | Yes | - | A list of the IDs for User Assigned Managed Identity resources to be assigned. |
 
 
 
