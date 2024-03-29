@@ -54,6 +54,11 @@ output "resource_selectors" {
   value = azurerm_resource_policy_assignment.this.resource_selectors
 }
 
+output "not_in" {
+  description = "The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_resource_policy_assignment.this.not_in
+}
+
 output "id" {
   description = "The ID of the Resource Policy Assignment."
   value       = azurerm_resource_policy_assignment.this.id

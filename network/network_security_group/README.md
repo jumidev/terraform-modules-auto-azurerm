@@ -61,10 +61,10 @@ component_inputs = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **security_rule** | [block](#security_rule-block-structure) |  List of `security_rule` objects representing security rules, as defined below. | 
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **security_rule** | [block](#security_rule-block-structure) |  `azurerm_network_security_rule`, `[]`  |  List of `security_rule` objects representing security rules, as defined below. -> **NOTE** Since `security_rule` can be configured both inline and via the separate `azurerm_network_security_rule` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `security_rule` block structure
 
@@ -89,6 +89,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **direction** | string | No  | The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are `Inbound` and `Outbound`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Network Security Group. | 
 
 Additionally, all variables are provided as outputs.

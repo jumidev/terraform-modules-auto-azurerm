@@ -49,12 +49,12 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **copy_paste_enabled** | bool |  `True`  |  -  |  Is Copy/Paste feature enabled for the Bastion Host. Defaults to `true`. | 
-| **file_copy_enabled** | bool |  `False`  |  -  |  Is File Copy feature enabled for the Bastion Host. Defaults to `false`. | 
-| **sku** | string |  `Basic`  |  -  |  The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. | 
-| **ip_connect_enabled** | bool |  `False`  |  -  |  Is IP Connect feature enabled for the Bastion Host. Defaults to `false`. | 
-| **scale_units** | number |  `2`  |  `2`, `50`  |  The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`. | 
-| **shareable_link_enabled** | bool |  `False`  |  -  |  Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`. | 
-| **tunneling_enabled** | bool |  `False`  |  -  |  Is Tunneling feature enabled for the Bastion Host. Defaults to `false`. | 
+| **file_copy_enabled** | bool |  `False`  |  -  |  Is File Copy feature enabled for the Bastion Host. Defaults to `false`. ~> **Note:** `file_copy_enabled` is only supported when `sku` is `Standard`. | 
+| **sku** | string |  `Basic`  |  -  |  The SKU of the Bastion Host. Accepted values are `Basic` and `Standard`. Defaults to `Basic`. ~> **Note** Downgrading the SKU will force a new resource to be created. | 
+| **ip_connect_enabled** | bool |  `False`  |  -  |  Is IP Connect feature enabled for the Bastion Host. Defaults to `false`. ~> **Note:** `ip_connect_enabled` is only supported when `sku` is `Standard`. | 
+| **scale_units** | number |  `2`  |  `sku`, `Standard`  |  The number of scale units with which to provision the Bastion Host. Possible values are between `2` and `50`. Defaults to `2`. ~> **Note:** `scale_units` only can be changed when `sku` is `Standard`. `scale_units` is always `2` when `sku` is `Basic`. | 
+| **shareable_link_enabled** | bool |  `False`  |  -  |  Is Shareable Link feature enabled for the Bastion Host. Defaults to `false`. ~> **Note:** `shareable_link_enabled` is only supported when `sku` is `Standard`. | 
+| **tunneling_enabled** | bool |  `False`  |  -  |  Is Tunneling feature enabled for the Bastion Host. Defaults to `false`. ~> **Note:** `tunneling_enabled` is only supported when `sku` is `Standard`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
 ### `ip_configuration` block structure
@@ -62,7 +62,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name of the IP configuration. Changing this forces a new resource to be created. |
-| `subnet_id` | string | Yes | - | Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. |
+| `subnet_id` | string | Yes | - | Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. ~> **Note:** The Subnet used for the Bastion Host must have the name 'AzureBastionSubnet' and the subnet mask must be at least a '/26'. |
 | `public_ip_address_id` | string | Yes | - | Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. |
 
 
@@ -71,6 +71,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **public_ip_address_id** | string | No  | Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Bastion Host. | 
 | **dns_name** | string | No  | The FQDN for the Bastion Host. | 
 

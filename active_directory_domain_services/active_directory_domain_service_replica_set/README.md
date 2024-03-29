@@ -43,6 +43,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **subnet_id** | string | No  | The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Domain Service Replica Set. | 
 | **domain_controller_ip_addresses** | list | No  | A list of subnet IP addresses for the domain controllers in this Replica Set, typically two. | 
 | **external_access_ip_address** | string | No  | The publicly routable IP address for the domain controllers in this Replica Set. | 

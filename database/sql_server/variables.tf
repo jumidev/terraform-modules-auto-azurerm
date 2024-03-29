@@ -40,6 +40,6 @@ variable "identity" {
 }
 #
 # identity block structure:
-#   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is 'SystemAssigned'.
+#   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. The only possible value is 'SystemAssigned'. ~> **NOTE:** The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned' and the Microsoft SQL Server has been created. More details are available below.
 
 

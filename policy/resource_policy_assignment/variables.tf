@@ -11,7 +11,7 @@ variable "policy_definition_id" {
 
 }
 variable "resource_id" {
-  description = "(REQUIRED) The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created."
+  description = "(REQUIRED) The ID of the Resource (or Resource Scope) where this should be applied. Changing this forces a new Resource Policy Assignment to be created. ~> To create a Policy Assignment at a Management Group use the 'azurerm_management_group_policy_assignment' resource, for a Resource Group use the 'azurerm_resource_group_policy_assignment' and for a Subscription use the 'azurerm_subscription_policy_assignment' resource."
   type        = string
 
 }
@@ -34,14 +34,14 @@ variable "enforce" {
   default     = true
 }
 variable "identity" {
-  description = "An 'identity' block."
+  description = "An 'identity' block. -> **Note:** The 'location' field must also be specified when 'identity' is specified."
   type        = map(any)
   default     = null
 }
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'.
-#   identity_ids (list)     : A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+#   identity_ids (list)     : A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'.
 
 
 variable "location" {

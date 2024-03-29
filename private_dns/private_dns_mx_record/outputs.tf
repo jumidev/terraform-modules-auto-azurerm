@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_private_dns_mx_record.this.tags
 }
 
+output "exchange" {
+  description = "The FQDN of the exchange to MX record points to. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_dns_mx_record.this.exchange
+}
+
 output "id" {
   description = "The Private DNS MX Record ID."
   value       = azurerm_private_dns_mx_record.this.id

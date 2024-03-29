@@ -21,7 +21,7 @@ variable "resource_group_name" {
 
 }
 variable "sku" {
-  description = "(REQUIRED) Configuration of the size and capacity of the virtual network gateway. Valid options are 'Basic', 'Standard', 'HighPerformance', 'UltraPerformance', 'ErGw1AZ', 'ErGw2AZ', 'ErGw3AZ', 'VpnGw1', 'VpnGw2', 'VpnGw3', 'VpnGw4','VpnGw5', 'VpnGw1AZ', 'VpnGw2AZ', 'VpnGw3AZ','VpnGw4AZ' and 'VpnGw5AZ' and depend on the 'type', 'vpn_type' and 'generation' arguments. A 'PolicyBased' gateway only supports the 'Basic' SKU. Further, the 'UltraPerformance' SKU is only supported by an 'ExpressRoute' gateway."
+  description = "(REQUIRED) Configuration of the size and capacity of the virtual network gateway. Valid options are 'Basic', 'Standard', 'HighPerformance', 'UltraPerformance', 'ErGw1AZ', 'ErGw2AZ', 'ErGw3AZ', 'VpnGw1', 'VpnGw2', 'VpnGw3', 'VpnGw4','VpnGw5', 'VpnGw1AZ', 'VpnGw2AZ', 'VpnGw3AZ','VpnGw4AZ' and 'VpnGw5AZ' and depend on the 'type', 'vpn_type' and 'generation' arguments. A 'PolicyBased' gateway only supports the 'Basic' SKU. Further, the 'UltraPerformance' SKU is only supported by an 'ExpressRoute' gateway. ~> **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU 'Basic' not 'Standard' ~> **NOTE:** Not all SKUs (e.g. 'ErGw1AZ') are available in all regions. If you see 'StatusCode=400 -- Original Error: Code='InvalidGatewaySkuSpecifiedForGatewayDeploymentType'' please try another region."
   type        = string
 
 }
@@ -61,12 +61,8 @@ variable "bgp_settings" {
 #
 # bgp_settings block structure:
 #   asn (string)                : The Autonomous System Number (ASN) to use as part of the BGP.
-#   peering_addresses (block)   : A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'.
+#   peering_addresses (list)    : A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'.
 #   peer_weight (string)        : The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'.
-#
-# peering_addresses block structure:
-#   ip_configuration_name (string)   : The name of the IP configuration of this Virtual Network Gateway. In case there are multiple 'ip_configuration' blocks defined, this property is **required** to specify.
-#   apipa_addresses (list)           : A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway.
 
 
 variable "custom_route" {
@@ -80,7 +76,7 @@ variable "custom_route" {
 
 
 variable "generation" {
-  description = "The Generation of the Virtual Network gateway. Possible values include 'Generation1', 'Generation2' or 'None'. Changing this forces a new resource to be created."
+  description = "The Generation of the Virtual Network gateway. Possible values include 'Generation1', 'Generation2' or 'None'. Changing this forces a new resource to be created. -> **NOTE:** The available values depend on the 'type' and 'sku' arguments - where 'Generation2' is only value for a 'sku' larger than 'VpnGw2' or 'VpnGw2AZ'."
   type        = string
   default     = null
 }
@@ -155,7 +151,7 @@ variable "vpn_client_configuration" {
 #   radius_server_address (string)                   : The address of the Radius server.
 #   radius_server_secret (string)                    : The secret used by the Radius server.
 #   vpn_client_protocols (string)                    : List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'.
-#   vpn_auth_types (string)                          : List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'.
+#   vpn_auth_types (string)                          : List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. -> **NOTE:** 'vpn_auth_types' must be set when using multiple vpn authentication types.
 #   virtual_network_gateway_client_connection (block): One or more 'virtual_network_gateway_client_connection' blocks.
 #
 # ipsec_policy block structure      :

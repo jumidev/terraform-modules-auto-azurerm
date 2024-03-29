@@ -105,7 +105,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID associated with this Managed Service Identity."
+  description = "The Tenant ID associated with this Managed Service Identity. -> You can access the Principal ID via 'azurerm_container_registry.example.identity.0.principal_id' and the Tenant ID via 'azurerm_container_registry.example.identity.0.tenant_id'"
   value       = azurerm_container_registry.this.tenant_id
 }
 

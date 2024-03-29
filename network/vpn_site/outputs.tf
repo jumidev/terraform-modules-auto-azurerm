@@ -38,6 +38,11 @@ output "tags" {
   value = azurerm_vpn_site.this.tags
 }
 
+output "optimize_endpoint_enabled" {
+  description = "Is optimize endpoint enabled? The 'Optimize' endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to 'false'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_vpn_site.this.optimize_endpoint_enabled
+}
+
 output "id" {
   description = "The ID of the VPN Site Link."
   value       = azurerm_vpn_site.this.id

@@ -24,7 +24,7 @@ variable "client_id" {
 # OPTIONAL VARIABLES
 
 variable "tenant_id" {
-  description = "The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created."
+  description = "The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created. ~> **NOTE** If unspecified the Tenant ID of the Provider will be used."
   type        = string
   default     = null
 }

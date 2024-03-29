@@ -14,6 +14,11 @@ output "virtual_network_id" {
   value = azurerm_lb_backend_address_pool.this.virtual_network_id
 }
 
+output "port" {
+  description = "The port number that this Gateway Lodbalancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_lb_backend_address_pool.this.port
+}
+
 output "id" {
   description = "The ID of the Backend Address Pool."
   value       = azurerm_lb_backend_address_pool.this.id

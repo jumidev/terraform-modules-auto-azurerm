@@ -61,18 +61,8 @@ resource "azurerm_postgresql_flexible_server" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type = lookup(identity.value, "type") # (Required) possible values: UserAssigned
-
-      dynamic "identity_ids" { # identity.value.identity_ids
-        for_each = identity.value.identity_ids != null ? identity.value.identity_ids : []
-        content {
-          key_vault_key_id                     = lookup(identity_ids.value, "key_vault_key_id", null)
-          primary_user_assigned_identity_id    = lookup(identity_ids.value, "primary_user_assigned_identity_id", null)
-          geo_backup_key_vault_key_id          = lookup(identity_ids.value, "geo_backup_key_vault_key_id", null)
-          geo_backup_user_assigned_identity_id = lookup(identity_ids.value, "geo_backup_user_assigned_identity_id", null)
-        }
-      }
-
+      type         = lookup(identity.value, "type")         # (Required) possible values: UserAssigned
+      identity_ids = lookup(identity.value, "identity_ids") # (Required) 
     }
   }
 

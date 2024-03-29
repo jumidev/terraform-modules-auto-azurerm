@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the User Assigned Identity. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the User Assigned Identity. | 
 | **client_id** | string | No  | The ID of the app associated with the Identity. | 
 | **principal_id** | string | No  | The ID of the Service Principal object associated with the created Identity. | 

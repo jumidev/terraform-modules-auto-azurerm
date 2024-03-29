@@ -82,6 +82,11 @@ output "zones" {
   value = azurerm_redis_cache.this.zones
 }
 
+output "notify_keyspace_events" {
+  description = "Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) '''hcl redis_configuration { maxmemory_reserved = 10 maxmemory_delta    = 2 maxmemory_policy   = 'allkeys-lru' } ''' ### Default Redis Configuration Values | Redis Value                     | Basic        | Standard     | Premium      | | ------------------------------- | ------------ | ------------ | ------------ | | enable_authentication           | true         | true         | true         | | maxmemory_reserved              | 2            | 50           | 200          | | maxfragmentationmemory_reserved | 2            | 50           | 200          | | maxmemory_delta                 | 2            | 50           | 200          | | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru | ~> **NOTE:** The 'maxmemory_reserved', 'maxmemory_delta' and 'maxfragmentationmemory_reserved' settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_redis_cache.this.notify_keyspace_events
+}
+
 output "id" {
   description = "The Route ID."
   value       = azurerm_redis_cache.this.id
@@ -130,7 +135,7 @@ output "redis_configuration" {
 }
 
 output "maxclients" {
-  description = "Returns the max number of connected clients at the same time."
+  description = "Returns the max number of connected clients at the same time. ## Relevant Links * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq) * [Redis: Available Configuration Settings](https://redis.io/topics/config)"
   value       = azurerm_redis_cache.this.maxclients
 }
 

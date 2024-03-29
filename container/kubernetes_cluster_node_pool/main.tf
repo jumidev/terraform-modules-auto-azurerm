@@ -17,7 +17,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "this" {
   enable_auto_scaling           = var.enable_auto_scaling
   enable_host_encryption        = var.enable_host_encryption
   enable_node_public_ip         = var.enable_node_public_ip
-  eviction_policy               = var.eviction_policy
+  eviction_policy               = var.eviction_policy # Default: Delete
   host_group_id                 = var.host_group_id
 
   dynamic "kubelet_config" { # var.kubelet_config

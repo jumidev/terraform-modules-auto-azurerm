@@ -70,6 +70,11 @@ output "direction" {
   value = azurerm_network_security_rule.this.direction
 }
 
+output "direction" {
+  description = "The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are 'Inbound' and 'Outbound'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_security_rule.this.direction
+}
+
 output "id" {
   description = "The ID of the Network Security Rule."
   value       = azurerm_network_security_rule.this.id

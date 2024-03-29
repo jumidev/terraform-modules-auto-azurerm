@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **collation** | string | No  | Specifies the Collation for the Azure PostgreSQL Flexible Server Database, which needs [to be a valid PostgreSQL Collation](https://www.postgresql.org/docs/current/static/collation.html). Defaults to `en_US.utf8`. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Azure PostgreSQL Flexible Server Database. | 
 
 Additionally, all variables are provided as outputs.

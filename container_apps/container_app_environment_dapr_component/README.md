@@ -45,7 +45,7 @@ tfstate_store = {
 | **ignore_errors** | bool |  `False`  |  Should the Dapr sidecar to continue initialisation if the component fails to load. Defaults to `false` | 
 | **init_timeout** | string |  `5s`  |  The timeout for component initialisation as a `ISO8601` formatted string. e.g. `5s`, `2h`, `1m`. Defaults to `5s`. | 
 | **metadata** | string |  -  |  One or more `metadata` blocks as detailed below. | 
-| **scopes** | list |  -  |  A list of scopes to which this component applies. | 
+| **scopes** | list |  -  |  A list of scopes to which this component applies. ~> **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes | 
 | **secret** | [block](#secret-block-structure) |  -  |  A `secret` block as detailed below. | 
 
 ### `secret` block structure
@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | The value for this secret. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Container App Environment Dapr Component | 
 
 Additionally, all variables are provided as outputs.

@@ -46,7 +46,7 @@ tfstate_store = {
 | **auto_scale** | [block](#auto_scale-block-structure) |  -  |  -  |  An `auto_scale` block. Exactly one of `node_count` or `auto_scale` must be specified. | 
 | **auto_pause** | [block](#auto_pause-block-structure) |  -  |  -  |  An `auto_pause` block. | 
 | **cache_size** | string |  -  |  -  |  The cache size in the Spark Pool. | 
-| **compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. | 
+| **compute_isolation_enabled** | bool |  `False`  |  -  |  Indicates whether compute isolation is enabled or not. Defaults to `false`. ~> **NOTE:** The `compute_isolation_enabled` is only available with the XXXLarge (80 vCPU / 504 GB) node size and only available in the following regions: East US, West US 2, South Central US, US Gov Arizona, US Gov Virginia. See [Isolated Compute](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations#isolated-compute) for more information. | 
 | **dynamic_executor_allocation_enabled** | bool |  `False`  |  -  |  Indicates whether Dynamic Executor Allocation is enabled or not. Defaults to `false`. | 
 | **min_executors** | number |  -  |  -  |  The minimum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
 | **max_executors** | number |  -  |  -  |  The maximum number of executors allocated only when `dynamic_executor_allocation_enabled` set to `true`. | 
@@ -57,6 +57,13 @@ tfstate_store = {
 | **spark_events_folder** | string |  `/events`  |  -  |  The Spark events folder. Defaults to `/events`. | 
 | **spark_version** | string |  `2.4`  |  `2.4`, `3.1`, `3.2`, `3.3`  |  The Apache Spark version. Possible values are `2.4` , `3.1` , `3.2` and `3.3`. Defaults to `2.4`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Synapse Spark Pool. | 
+
+### `spark_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content` | string | Yes | - | The contents of a spark configuration. |
+| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
 
 ### `auto_scale` block structure
 
@@ -78,19 +85,13 @@ tfstate_store = {
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
 
-### `spark_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `content` | string | Yes | - | The contents of a spark configuration. |
-| `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **filename** | string | No  | The name of the file where the spark configuration `content` will be stored. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse Spark Pool. | 
 
 Additionally, all variables are provided as outputs.

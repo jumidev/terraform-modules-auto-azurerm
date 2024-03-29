@@ -79,7 +79,7 @@ variable "http_listener" {
 #   frontend_ip_configuration_name (string): (REQUIRED) The Name of the Frontend IP Configuration used for this HTTP Listener.
 #   frontend_port_name (string)            : (REQUIRED) The Name of the Frontend Port use for this HTTP Listener.
 #   host_name (string)                     : The Hostname which should be used for this HTTP Listener. Setting this value changes Listener Type to 'Multi site'.
-#   host_names (list)                      : A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters.
+#   host_names (list)                      : A list of Hostname(s) should be used for this HTTP Listener. It allows special wildcard characters. -> **NOTE** The 'host_names' and 'host_name' are mutually exclusive and cannot both be set.
 #   protocol (string)                      : (REQUIRED) The Protocol to use for this HTTP Listener. Possible values are 'Http' and 'Https'.
 #   require_sni (bool)                     : Should Server Name Indication be Required? Defaults to 'false'.
 #   ssl_certificate_name (string)          : The name of the associated SSL Certificate which should be used for this HTTP Listener.
@@ -104,9 +104,9 @@ variable "request_routing_rule" {
 #   backend_address_pool_name (string)  : The Name of the Backend Address Pool which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set.
 #   backend_http_settings_name (string) : The Name of the Backend HTTP Settings Collection which should be used for this Routing Rule. Cannot be set if 'redirect_configuration_name' is set.
 #   redirect_configuration_name (string): The Name of the Redirect Configuration which should be used for this Routing Rule. Cannot be set if either 'backend_address_pool_name' or 'backend_http_settings_name' is set.
-#   rewrite_rule_set_name (string)      : The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs.
+#   rewrite_rule_set_name (string)      : The Name of the Rewrite Rule Set which should be used for this Routing Rule. Only valid for v2 SKUs. -> **NOTE:** 'backend_address_pool_name', 'backend_http_settings_name', 'redirect_configuration_name', and 'rewrite_rule_set_name' are applicable only when 'rule_type' is 'Basic'.
 #   url_path_map_name (string)          : The Name of the URL Path Map which should be associated with this Routing Rule.
-#   priority (string)                   : Rule evaluation order can be dictated by specifying an integer value from '1' to '20000' with '1' being the highest priority and '20000' being the lowest priority.
+#   priority (string)                   : Rule evaluation order can be dictated by specifying an integer value from '1' to '20000' with '1' being the highest priority and '20000' being the lowest priority. -> **NOTE:** 'priority' is required when 'sku.0.tier' is set to '*_v2'.
 
 
 variable "sku" {
@@ -116,7 +116,7 @@ variable "sku" {
 #
 # sku block structure:
 #   name (string)      : (REQUIRED) The Name of the SKU to use for this Application Gateway. Possible values are 'Standard_Small', 'Standard_Medium', 'Standard_Large', 'Standard_v2', 'WAF_Medium', 'WAF_Large', and 'WAF_v2'.
-#   tier (string)      : (REQUIRED) The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'.
+#   tier (string)      : (REQUIRED) The Tier of the SKU to use for this Application Gateway. Possible values are 'Standard', 'Standard_v2', 'WAF' and 'WAF_v2'. !> **NOTE:** The 'Standard' and 'WAF' SKU have been deprecated in favour of the 'Standard_v2' and 'WAF_v2' SKU. Please see the [Azure documentation](https://aka.ms/V1retirement) for more details.
 #   capacity (string)  : The Capacity of the SKU to use for this Application Gateway. When using a V1 SKU this value must be between '1' and '32', and '1' to '125' for a V2 SKU. This property is optional if 'autoscale_configuration' is set.
 
 
@@ -158,7 +158,7 @@ variable "private_link_configuration" {
 #
 # private_link_configuration block structure:
 #   name (string)                             : (REQUIRED) The name of the private link configuration.
-#   ip_configuration (block)                  : (REQUIRED) One or more 'ip_configuration' blocks.
+#   ip_configuration (block)                  : (REQUIRED) One or more 'ip_configuration' blocks. -> **Please Note**: The 'AllowApplicationGatewayPrivateLink' feature must be registered on the subscription before enabling private link '''bash az feature register --name AllowApplicationGatewayPrivateLink --namespace Microsoft.Network '''
 #
 # ip_configuration block structure      :
 #   name (string)                         : (REQUIRED) The name of the IP configuration.
@@ -169,7 +169,7 @@ variable "private_link_configuration" {
 
 
 variable "zones" {
-  description = "Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created."
+  description = "Specifies a list of Availability Zones in which this Application Gateway should be located. Changing this forces a new Application Gateway to be created. -> **Please Note**: Availability Zones are not supported in all regions at this time, please check the [official documentation](https://docs.microsoft.com/azure/availability-zones/az-overview) for more information. They are also only supported for [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant)"
   type        = list(any)
   default     = []
 }
@@ -198,9 +198,9 @@ variable "ssl_profile" {
 #   ssl_policy (block)                           : a 'ssl_policy' block.
 #
 # ssl_policy block structure   :
-#   disabled_protocols (bool)    : A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'.
-#   policy_type (string)         : The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'.
-#   policy_name (string)         : The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'.
+#   disabled_protocols (list)    : A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. ~> **NOTE:** 'disabled_protocols' cannot be set when 'policy_name' or 'policy_type' are set.
+#   policy_type (string)         : The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'. ~> **NOTE:** 'policy_type' is Required when 'policy_name' is set - cannot be set if 'disabled_protocols' is set. When using a 'policy_type' of 'Predefined' the following fields are supported:
+#   policy_name (string)         : The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'. When using a 'policy_type' of 'Custom' the following fields are supported:
 #   cipher_suites (list)         : A List of accepted cipher suites. Possible values are: 'TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA256', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA256', 'TLS_DHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_DHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA256', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_RSA_WITH_AES_256_CBC_SHA256' and 'TLS_RSA_WITH_AES_256_GCM_SHA384'.
 #   min_protocol_version (string): The minimal TLS version. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'.
 
@@ -225,7 +225,7 @@ variable "trusted_root_certificate" {
 # trusted_root_certificate block structure:
 #   name (string)                           : (REQUIRED) The Name of the Trusted Root Certificate to use.
 #   data (string)                           : The contents of the Trusted Root Certificate which should be used. Required if 'key_vault_secret_id' is not set.
-#   key_vault_secret_id (string)            : The Secret ID of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if 'data' is not set.
+#   key_vault_secret_id (string)            : The Secret ID of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for the Key Vault to use this feature. Required if 'data' is not set. -> **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs). -> **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via 'identity' block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 
 
 variable "ssl_policy" {
@@ -235,9 +235,9 @@ variable "ssl_policy" {
 }
 #
 # ssl_policy block structure   :
-#   disabled_protocols (bool)    : A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'.
-#   policy_type (string)         : The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'.
-#   policy_name (string)         : The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'.
+#   disabled_protocols (list)    : A list of SSL Protocols which should be disabled on this Application Gateway. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'. ~> **NOTE:** 'disabled_protocols' cannot be set when 'policy_name' or 'policy_type' are set.
+#   policy_type (string)         : The Type of the Policy. Possible values are 'Predefined', 'Custom' and 'CustomV2'. ~> **NOTE:** 'policy_type' is Required when 'policy_name' is set - cannot be set if 'disabled_protocols' is set. When using a 'policy_type' of 'Predefined' the following fields are supported:
+#   policy_name (string)         : The Name of the Policy e.g. AppGwSslPolicy20170401S. Required if 'policy_type' is set to 'Predefined'. Possible values can change over time and are published here <https://docs.microsoft.com/azure/application-gateway/application-gateway-ssl-policy-overview>. Not compatible with 'disabled_protocols'. When using a 'policy_type' of 'Custom' the following fields are supported:
 #   cipher_suites (list)         : A List of accepted cipher suites. Possible values are: 'TLS_DHE_DSS_WITH_3DES_EDE_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_128_CBC_SHA256', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA', 'TLS_DHE_DSS_WITH_AES_256_CBC_SHA256', 'TLS_DHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_DHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_DHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256', 'TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA', 'TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384', 'TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384', 'TLS_RSA_WITH_3DES_EDE_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA', 'TLS_RSA_WITH_AES_128_CBC_SHA256', 'TLS_RSA_WITH_AES_128_GCM_SHA256', 'TLS_RSA_WITH_AES_256_CBC_SHA', 'TLS_RSA_WITH_AES_256_CBC_SHA256' and 'TLS_RSA_WITH_AES_256_GCM_SHA384'.
 #   min_protocol_version (string): The minimal TLS version. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'.
 
@@ -284,9 +284,9 @@ variable "ssl_certificate" {
 #
 # ssl_certificate block structure:
 #   name (string)                  : (REQUIRED) The Name of the SSL certificate that is unique within this Application Gateway
-#   data (string)                  : The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set.
+#   data (string)                  : The base64-encoded PFX certificate data. Required if 'key_vault_secret_id' is not set. -> **NOTE:** When specifying a file, use 'data = filebase64('path/to/file')' to encode the contents of that file.
 #   password (string)              : Password for the pfx file specified in data. Required if 'data' is set.
-#   key_vault_secret_id (string)   : The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set.
+#   key_vault_secret_id (string)   : The Secret ID of (base-64 encoded unencrypted pfx) the 'Secret' or 'Certificate' object stored in Azure KeyVault. You need to enable soft delete for Key Vault to use this feature. Required if 'data' is not set. -> **NOTE:** TLS termination with Key Vault certificates is limited to the [v2 SKUs](https://docs.microsoft.com/azure/application-gateway/key-vault-certs). -> **NOTE:** For TLS termination with Key Vault certificates to work properly existing user-assigned managed identity, which Application Gateway uses to retrieve certificates from Key Vault, should be defined via 'identity' block. Additionally, access policies in the Key Vault to allow the identity to be granted *get* access to the secret should be defined.
 
 
 variable "tags" {
@@ -304,7 +304,7 @@ variable "url_path_map" {
 #   name (string)                               : (REQUIRED) The Name of the URL Path Map.
 #   default_backend_address_pool_name (string)  : The Name of the Default Backend Address Pool which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set.
 #   default_backend_http_settings_name (string) : The Name of the Default Backend HTTP Settings Collection which should be used for this URL Path Map. Cannot be set if 'default_redirect_configuration_name' is set.
-#   default_redirect_configuration_name (string): The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set.
+#   default_redirect_configuration_name (string): The Name of the Default Redirect Configuration which should be used for this URL Path Map. Cannot be set if either 'default_backend_address_pool_name' or 'default_backend_http_settings_name' is set. -> **NOTE:** Both 'default_backend_address_pool_name' and 'default_backend_http_settings_name' or 'default_redirect_configuration_name' should be specified.
 #   default_rewrite_rule_set_name (string)      : The Name of the Default Rewrite Rule Set which should be used for this URL Path Map. Only valid for v2 SKUs.
 #   path_rule (string)                          : (REQUIRED) One or more 'path_rule' blocks.
 
@@ -318,8 +318,8 @@ variable "waf_configuration" {
 # waf_configuration block structure:
 #   enabled (bool)                   : (REQUIRED) Is the Web Application Firewall enabled?
 #   firewall_mode (string)           : (REQUIRED) The Web Application Firewall Mode. Possible values are 'Detection' and 'Prevention'.
-#   rule_set_type (string)           : The Type of the Rule Set used for this Web Application Firewall. Possible values are 'OWASP' and 'Microsoft_BotManagerRuleSet'. Defaults to 'OWASP'.
-#   rule_set_version (string)        : (REQUIRED) The Version of the Rule Set used for this Web Application Firewall. Possible values are '0.1', '1.0', '2.2.9', '3.0', '3.1' and '3.2'.
+#   rule_set_type (string)           : The Type of the Rule Set used for this Web Application Firewall. Possible values are 'OWASP', 'Microsoft_BotManagerRuleSet' and 'Microsoft_DefaultRuleSet'. Defaults to 'OWASP'.
+#   rule_set_version (string)        : (REQUIRED) The Version of the Rule Set used for this Web Application Firewall. Possible values are '0.1', '1.0', '2.1', '2.2.9', '3.0', '3.1' and '3.2'.
 #   disabled_rule_group (block)      : One or more 'disabled_rule_group' blocks.
 #   file_upload_limit_mb (number)    : The File Upload Limit in MB. Accepted values are in the range '1'MB to '750'MB for the 'WAF_v2' SKU, and '1'MB to '500'MB for all other SKUs. Defaults to '100'MB.
 #   request_body_check (bool)        : Is Request Body Inspection enabled? Defaults to 'true'.
@@ -327,7 +327,7 @@ variable "waf_configuration" {
 #   exclusion (block)                : One or more 'exclusion' blocks.
 #
 # disabled_rule_group block structure:
-#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'General', 'GoodBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA' and 'UnknownBots'.
+#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'crs_49_inbound_blocking', 'General', 'GoodBots', 'KnownBadBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA', 'UnknownBots', 'METHOD-ENFORCEMENT', 'PROTOCOL-ENFORCEMENT', 'PROTOCOL-ATTACK', 'LFI', 'RFI', 'RCE', 'PHP', 'NODEJS', 'XSS', 'SQLI', 'FIX', 'JAVA', 'MS-ThreatIntel-WebShells', 'MS-ThreatIntel-AppSec', 'MS-ThreatIntel-SQLI' and 'MS-ThreatIntel-CVEs'.
 #   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
 #
 # exclusion block structure       :
@@ -388,6 +388,12 @@ variable "rewrite_rule_set" {
 #   name (string)                   : (REQUIRED) Unique name of the rewrite rule set block
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
 #
+# url block structure  :
+#   path (string)        : The URL path to rewrite.
+#   query_string (string): The query string to rewrite.
+#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only. ~> **Note:** One or both of 'path' and 'query_string' must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite 'path' or 'query_string', use 'components'.
+#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
+#
 # rewrite_rule block structure          :
 #   name (string)                         : (REQUIRED) Unique name of the rewrite rule block
 #   rule_sequence (string)                : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
@@ -395,11 +401,5 @@ variable "rewrite_rule_set" {
 #   request_header_configuration (string) : One or more 'request_header_configuration' blocks.
 #   response_header_configuration (string): One or more 'response_header_configuration' blocks.
 #   url (block)                           : One 'url' block
-#
-# url block structure  :
-#   path (string)        : The URL path to rewrite.
-#   query_string (string): The query string to rewrite.
-#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only.
-#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 
 

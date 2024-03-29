@@ -38,6 +38,11 @@ output "version" {
   value = azurerm_arc_kubernetes_cluster_extension.this.version
 }
 
+output "type" {
+  description = "Specifies the type of Managed Service Identity. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_arc_kubernetes_cluster_extension.this.type
+}
+
 output "id" {
   description = "The ID of the Arc Kubernetes Cluster Extension."
   value       = azurerm_arc_kubernetes_cluster_extension.this.id

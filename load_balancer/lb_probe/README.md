@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **number_of_probes** | number | No  | The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to `2`. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Load Balancer Probe. | 
 
 Additionally, all variables are provided as outputs.

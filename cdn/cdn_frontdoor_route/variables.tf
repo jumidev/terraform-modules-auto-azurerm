@@ -26,7 +26,7 @@ variable "patterns_to_match" {
 
 }
 variable "supported_protocols" {
-  description = "(REQUIRED) One or more Protocols supported by this Front Door Route. Possible values are 'Http' or 'Https'."
+  description = "(REQUIRED) One or more Protocols supported by this Front Door Route. Possible values are 'Http' or 'Https'. ~> **NOTE:** If 'https_redirect_enabled' is set to 'true' the 'supported_protocols' field must contain both 'Http' and 'Https' values."
   type        = string
 
 }
@@ -39,15 +39,15 @@ variable "forwarding_protocol" {
   default     = "MatchRequest"
 }
 variable "cache" {
-  description = "A 'cache' block."
+  description = "A 'cache' block. ~> **NOTE:** To disable caching, do not provide the 'cache' block in the configuration file."
   type        = map(any)
   default     = null
 }
 #
 # cache block structure                 :
-#   query_string_caching_behavior (string): Defines how the Front Door Route will cache requests that include query strings. Possible values include 'IgnoreQueryString', 'IgnoreSpecifiedQueryStrings', 'IncludeSpecifiedQueryStrings' or 'UseQueryString'. Defaults to 'IgnoreQueryString'.
+#   query_string_caching_behavior (string): Defines how the Front Door Route will cache requests that include query strings. Possible values include 'IgnoreQueryString', 'IgnoreSpecifiedQueryStrings', 'IncludeSpecifiedQueryStrings' or 'UseQueryString'. Defaults to 'IgnoreQueryString'. ~> **NOTE:** The value of the 'query_string_caching_behavior' determines if the 'query_strings' field will be used as an include list or an ignore list.
 #   query_strings (string)                : Query strings to include or ignore.
-#   compression_enabled (bool)            : Is content compression enabled? Possible values are 'true' or 'false'. Defaults to 'false'.
+#   compression_enabled (bool)            : Is content compression enabled? Possible values are 'true' or 'false'. Defaults to 'false'. ~> **NOTE:** Content won't be compressed when the requested content is smaller than '1 KB' or larger than '8 MB'(inclusive).
 #   content_types_to_compress (list)      : A list of one or more 'Content types' (formerly known as 'MIME types') to compress. Possible values include 'application/eot', 'application/font', 'application/font-sfnt', 'application/javascript', 'application/json', 'application/opentype', 'application/otf', 'application/pkcs7-mime', 'application/truetype', 'application/ttf', 'application/vnd.ms-fontobject', 'application/xhtml+xml', 'application/xml', 'application/xml+rss', 'application/x-font-opentype', 'application/x-font-truetype', 'application/x-font-ttf', 'application/x-httpd-cgi', 'application/x-mpegurl', 'application/x-opentype', 'application/x-otf', 'application/x-perl', 'application/x-ttf', 'application/x-javascript', 'font/eot', 'font/ttf', 'font/otf', 'font/opentype', 'image/svg+xml', 'text/css', 'text/csv', 'text/html', 'text/javascript', 'text/js', 'text/plain', 'text/richtext', 'text/tab-separated-values', 'text/xml', 'text/x-script', 'text/x-component' or 'text/x-java-source'.
 
 
@@ -72,7 +72,7 @@ variable "enabled" {
   default     = true
 }
 variable "https_redirect_enabled" {
-  description = "Automatically redirect HTTP traffic to HTTPS traffic? Possible values are 'true' or 'false'. Defaults to 'true'."
+  description = "Automatically redirect HTTP traffic to HTTPS traffic? Possible values are 'true' or 'false'. Defaults to 'true'. ~> **NOTE:** The 'https_redirect_enabled' rule is the first rule that will be executed."
   type        = bool
   default     = true
 }

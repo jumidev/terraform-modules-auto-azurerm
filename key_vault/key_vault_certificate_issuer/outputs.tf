@@ -27,6 +27,11 @@ output "password" {
   sensitive = true
 }
 
+output "phone" {
+  description = "Phone number of the admin. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_key_vault_certificate_issuer.this.phone
+}
+
 output "id" {
   description = "The ID of the Key Vault Certificate Issuer."
   value       = azurerm_key_vault_certificate_issuer.this.id

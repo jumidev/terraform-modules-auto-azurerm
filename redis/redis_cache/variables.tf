@@ -26,7 +26,7 @@ variable "family" {
 
 }
 variable "sku_name" {
-  description = "(REQUIRED) The SKU of Redis to use. Possible values are 'Basic', 'Standard' and 'Premium'."
+  description = "(REQUIRED) The SKU of Redis to use. Possible values are 'Basic', 'Standard' and 'Premium'. ~> **Note** Downgrading the SKU will force a new resource to be created."
   type        = string
 
 }
@@ -46,7 +46,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster.
+#   identity_ids (list)     : A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
 
 
 variable "minimum_tls_version" {
@@ -56,16 +56,9 @@ variable "minimum_tls_version" {
 }
 variable "patch_schedule" {
   description = "A list of 'patch_schedule' blocks."
-  type        = map(map(any))
-  default     = null
+  type        = list(any)
+  default     = []
 }
-#
-# patch_schedule block structure:
-#   day_of_week (string)          : (REQUIRED) the Weekday name - possible values include 'Monday', 'Tuesday', 'Wednesday' etc.
-#   start_hour_utc (string)       : the Start Hour for maintenance in UTC - possible values range from '0 - 23'.
-#   maintenance_window (string)   : The ISO 8601 timespan which specifies the amount of time the Redis Cache can be updated. Defaults to 'PT5H'.
-
-
 variable "private_static_ip_address" {
   description = "The Static IP Address to assign to the Redis Cache when hosted inside the Virtual Network. This argument implies the use of 'subnet_id'. Changing this forces a new resource to be created."
   type        = string
@@ -83,25 +76,25 @@ variable "redis_configuration" {
 }
 #
 # redis_configuration block structure           :
-#   aof_backup_enabled (bool)                     : Enable or disable AOF persistence for this Redis Cache. Defaults to 'false'.
+#   aof_backup_enabled (bool)                     : Enable or disable AOF persistence for this Redis Cache. Defaults to 'false'. ~> **NOTE:** 'aof_backup_enabled' can only be set when SKU is 'Premium'.
 #   aof_storage_connection_string_0 (string)      : First Storage Account connection string for AOF persistence.
-#   aof_storage_connection_string_1 (string)      : Second Storage Account connection string for AOF persistence.
-#   enable_authentication (bool)                  : If set to 'false', the Redis instance will be accessible without authentication. Defaults to 'true'.
+#   aof_storage_connection_string_1 (string)      : Second Storage Account connection string for AOF persistence. Example usage: '''hcl redis_configuration { aof_backup_enabled              = true aof_storage_connection_string_0 = 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.nc-cruks-storage-account.primary_blob_endpoint};AccountName=${azurerm_storage_account.mystorageaccount.name};AccountKey=${azurerm_storage_account.mystorageaccount.primary_access_key}' aof_storage_connection_string_1 = 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.mystorageaccount.primary_blob_endpoint};AccountName=${azurerm_storage_account.mystorageaccount.name};AccountKey=${azurerm_storage_account.mystorageaccount.secondary_access_key}' } '''
+#   enable_authentication (bool)                  : If set to 'false', the Redis instance will be accessible without authentication. Defaults to 'true'. -> **NOTE:** 'enable_authentication' can only be set to 'false' if a 'subnet_id' is specified; and only works if there aren't existing instances within the subnet with 'enable_authentication' set to 'true'.
 #   active_directory_authentication_enabled (bool): Enable Microsoft Entra (AAD) authentication. Defaults to 'false'.
 #   maxmemory_reserved (string)                   : Value in megabytes reserved for non-cache usage e.g. failover. Defaults are shown below.
 #   maxmemory_delta (string)                      : The max-memory delta for this Redis instance. Defaults are shown below.
 #   maxmemory_policy (string)                     : How Redis will select what to remove when 'maxmemory' is reached. Defaults to 'volatile-lru'.
 #   maxfragmentationmemory_reserved (string)      : Value in megabytes reserved to accommodate for memory fragmentation. Defaults are shown below.
-#   rdb_backup_enabled (bool)                     : Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'.
+#   rdb_backup_enabled (bool)                     : Is Backup Enabled? Only supported on Premium SKUs. Defaults to 'false'. -> **NOTE:** If 'rdb_backup_enabled' set to 'true', 'rdb_storage_connection_string' must also be set.
 #   rdb_backup_frequency (string)                 : The Backup Frequency in Minutes. Only supported on Premium SKUs. Possible values are: '15', '30', '60', '360', '720' and '1440'.
 #   rdb_backup_max_snapshot_count (number)        : The maximum number of snapshots to create as a backup. Only supported for Premium SKUs.
-#   rdb_storage_connection_string (string)        : The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'.
-#   storage_account_subscription_id (string)      : The ID of the Subscription containing the Storage Account.
-#   notify_keyspace_events (string)               : Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
+#   rdb_storage_connection_string (string)        : The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. ~> **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the 'ignore_changes' attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.:
+#   storage_account_subscription_id (string)      : The ID of the Subscription containing the Storage Account. '''hcl resource 'azurerm_redis_cache' 'example' { # ... ignore_changes = [redis_configuration.0.rdb_storage_connection_string] } '''
+#   notify_keyspace_events (string)               : Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) '''hcl redis_configuration { maxmemory_reserved = 10 maxmemory_delta    = 2 maxmemory_policy   = 'allkeys-lru' } ''' ### Default Redis Configuration Values | Redis Value                     | Basic        | Standard     | Premium      | | ------------------------------- | ------------ | ------------ | ------------ | | enable_authentication           | true         | true         | true         | | maxmemory_reserved              | 2            | 50           | 200          | | maxfragmentationmemory_reserved | 2            | 50           | 200          | | maxmemory_delta                 | 2            | 50           | 200          | | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru | ~> **NOTE:** The 'maxmemory_reserved', 'maxmemory_delta' and 'maxfragmentationmemory_reserved' settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below.
 
 
 variable "replicas_per_master" {
-  description = "Amount of replicas to create per master for this Redis Cache."
+  description = "Amount of replicas to create per master for this Redis Cache. ~> **Note:** Configuring the number of replicas per master is only available when using the Premium SKU and cannot be used in conjunction with shards."
   type        = number
   default     = null
 }
@@ -136,7 +129,7 @@ variable "tags" {
   default     = null
 }
 variable "zones" {
-  description = "Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created."
+  description = "Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created. -> **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll)."
   type        = list(any)
   default     = []
 }

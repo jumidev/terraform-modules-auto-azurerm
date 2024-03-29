@@ -111,6 +111,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **port** | string | No  | The port number that this Gateway Lodbalancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Backend Address Pool. | 
 | **backend_ip_configurations** | string | No  | The Backend IP Configurations associated with this Backend Address Pool. | 
 | **load_balancing_rules** | string | No  | The Load Balancing Rules associated with this Backend Address Pool. | 

@@ -62,6 +62,11 @@ output "tags" {
   value = azurerm_log_analytics_workspace.this.tags
 }
 
+output "identity_ids" {
+  description = "Specifies a list of user managed identity ids to be assigned. Required if 'type' is 'UserAssigned'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_log_analytics_workspace.this.identity_ids
+}
+
 output "id" {
   description = "The Log Analytics Workspace ID."
   value       = azurerm_log_analytics_workspace.this.id

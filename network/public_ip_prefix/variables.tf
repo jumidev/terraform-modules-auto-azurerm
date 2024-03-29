@@ -19,7 +19,7 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "sku" {
-  description = "The SKU of the Public IP Prefix. Accepted values are 'Standard'. Defaults to 'Standard'. Changing this forces a new resource to be created."
+  description = "The SKU of the Public IP Prefix. Accepted values are 'Standard'. Defaults to 'Standard'. Changing this forces a new resource to be created. -> **Note:** Public IP Prefix can only be created with Standard SKUs at this time."
   type        = string
   default     = "Standard"
 }
@@ -29,7 +29,7 @@ variable "ip_version" {
   default     = "IPv4"
 }
 variable "prefix_length" {
-  description = "Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to '28'(16 addresses). Changing this forces a new resource to be created."
+  description = "Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to '28'(16 addresses). Changing this forces a new resource to be created. -> **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address)"
   type        = number
   default     = 28
 }
@@ -39,7 +39,7 @@ variable "tags" {
   default     = null
 }
 variable "zones" {
-  description = "Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created."
+  description = "Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. -> **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview)."
   type        = list(any)
   default     = []
 }

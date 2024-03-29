@@ -58,6 +58,11 @@ output "tags" {
   value = azurerm_firewall.this.tags
 }
 
+output "public_ip_count" {
+  description = "Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_firewall.this.public_ip_count
+}
+
 output "id" {
   description = "The ID of the Azure Firewall."
   value       = azurerm_firewall.this.id

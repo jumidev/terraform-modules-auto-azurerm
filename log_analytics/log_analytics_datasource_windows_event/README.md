@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **event_types** | string | No  | Specifies an array of event types applied to the specified event log. Possible values include `Error`, `Warning` and `Information`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Log Analytics Windows Event DataSource. | 
 
 Additionally, all variables are provided as outputs.

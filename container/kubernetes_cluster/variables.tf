@@ -24,24 +24,23 @@ variable "default_node_pool" {
 #   name (string)                         : (REQUIRED) The name which should be used for the default Kubernetes Node Pool.
 #   vm_size (string)                      : (REQUIRED) The size of the Virtual Machine, such as 'Standard_DS2_v2'. 'temporary_name_for_rotation' must be specified when attempting a resize.
 #   capacity_reservation_group_id (string): Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
-#   custom_ca_trust_enabled (bool)        : Specifies whether to trust a Custom CA.
-#   enable_auto_scaling (bool)            : Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool?
-#   enable_host_encryption (bool)         : Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property.
+#   custom_ca_trust_enabled (bool)        : Specifies whether to trust a Custom CA. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/CustomCATrustPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
+#   enable_auto_scaling (bool)            : Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? -> **Note:** This requires that the 'type' is set to 'VirtualMachineScaleSets'. -> **Note:** If you're using AutoScaling, you may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'node_count' field.
+#   enable_host_encryption (bool)         : Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableEncryptionAtHostPreview' is enabled and the Resource Provider is re-registered.
 #   enable_node_public_ip (bool)          : Should nodes in this Node Pool have a Public IP Address? 'temporary_name_for_rotation' must be specified when changing this property.
 #   gpu_instance (string)                 : Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are 'MIG1g', 'MIG2g', 'MIG3g', 'MIG4g' and 'MIG7g'. Changing this forces a new resource to be created.
 #   host_group_id (string)                : Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 #   kubelet_config (block)                : A 'kubelet_config' block. 'temporary_name_for_rotation' must be specified when changing this block.
 #   linux_os_config (block)               : A 'linux_os_config' block. 'temporary_name_for_rotation' must be specified when changing this block.
-#   fips_enabled (bool)                   : Should the nodes in this Node Pool have Federal Information Processing Standard enabled? 'temporary_name_for_rotation' must be specified when changing this block.
+#   fips_enabled (bool)                   : Should the nodes in this Node Pool have Federal Information Processing Standard enabled? 'temporary_name_for_rotation' must be specified when changing this block. Changing this forces a new resource to be created.
 #   kubelet_disk_type (string)            : The type of disk used by kubelet. Possible values are 'OS' and 'Temporary'.
 #   max_pods (number)                     : The maximum number of pods that can run on each agent. 'temporary_name_for_rotation' must be specified when changing this property.
 #   message_of_the_day (string)           : A base64-encoded string which will be written to /etc/motd after decoding. This allows customization of the message of the day for Linux nodes. It cannot be specified for Windows nodes and must be a static string (i.e. will be printed raw and not executed as a script). Changing this forces a new resource to be created.
 #   node_network_profile (block)          : A 'node_network_profile' block.
 #   node_public_ip_prefix_id (string)     : Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. 'enable_node_public_ip' should be 'true'. Changing this forces a new resource to be created.
 #   node_labels (string)                  : A map of Kubernetes labels which should be applied to nodes in the Default Node Pool.
-#   node_taints (list)                    : A list of the taints added to new nodes during node pool create and scale. 'temporary_name_for_rotation' must be specified when changing this property.
 #   only_critical_addons_enabled (bool)   : Enabling this option will taint default node pool with 'CriticalAddonsOnly=true:NoSchedule' taint. 'temporary_name_for_rotation' must be specified when changing this property.
-#   orchestrator_version (string)         : Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version).
+#   orchestrator_version (string)         : Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). -> **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 #   os_disk_size_gb (number)              : The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   os_disk_type (string)                 : The type of disk which should be used for the Operating System. Possible values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   os_sku (string)                       : Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change.
@@ -50,25 +49,50 @@ variable "default_node_pool" {
 #   scale_down_mode (string)              : Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are 'Delete' and 'Deallocate'. Defaults to 'Delete'.
 #   snapshot_id (string)                  : The ID of the Snapshot which should be used to create this default Node Pool. 'temporary_name_for_rotation' must be specified when changing this property.
 #   temporary_name_for_rotation (string)  : Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
-#   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created.
-#   tags (map)                            : A mapping of tags to assign to the Node Pool.
+#   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created. -> **Note:** When creating a cluster that supports multiple node pools, the cluster must use 'VirtualMachineScaleSets'. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
+#   tags (map)                            : A mapping of tags to assign to the Node Pool. ~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's 'ignore_changes' functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API.
 #   ultra_ssd_enabled (bool)              : Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to 'false'. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   upgrade_settings (block)              : A 'upgrade_settings' block.
-#   vnet_subnet_id (string)               : The ID of a Subnet where the Kubernetes Node Pool should exist.
-#   workload_runtime (string)             : Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'.
-#   zones (list)                          : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property.
+#   vnet_subnet_id (string)               : The ID of a Subnet where the Kubernetes Node Pool should exist. ~> **Note:** A Route Table must be configured on this Subnet.
+#   workload_runtime (string)             : Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'. ~> **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
+#   zones (list)                          : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property. -> **Note:** This requires that the 'type' is set to 'VirtualMachineScaleSets' and that 'load_balancer_sku' is set to 'standard'. If 'enable_auto_scaling' is set to 'true', then the following fields can also be configured:
 #   max_count (number)                    : The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
 #   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
-#   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'.
+#   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. -> **Note:** If specified you may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field. -> **Note:** If 'enable_auto_scaling' is set to 'false' both 'min_count' and 'max_count' fields need to be set to 'null' or omitted from the configuration.
 #
-# linux_os_config block structure      :
-#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                : A 'sysctl_config' block. Changing this forces a new resource to be created.
-#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
+# upgrade_settings block structure:
+#   max_surge (number)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the 'node_count' value on the current cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+# sysctl_config block structure              :
+#   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'.
+#   fs_file_max (string)                       : The sysctl setting fs.file-max. Must be between '8192' and '12000500'.
+#   fs_inotify_max_user_watches (string)       : The sysctl setting fs.inotify.max_user_watches. Must be between '781250' and '2097152'.
+#   fs_nr_open (string)                        : The sysctl setting fs.nr_open. Must be between '8192' and '20000500'.
+#   kernel_threads_max (string)                : The sysctl setting kernel.threads-max. Must be between '20' and '513785'.
+#   net_core_netdev_max_backlog (string)       : The sysctl setting net.core.netdev_max_backlog. Must be between '1000' and '3240000'.
+#   net_core_optmem_max (string)               : The sysctl setting net.core.optmem_max. Must be between '20480' and '4194304'.
+#   net_core_rmem_default (string)             : The sysctl setting net.core.rmem_default. Must be between '212992' and '134217728'.
+#   net_core_rmem_max (string)                 : The sysctl setting net.core.rmem_max. Must be between '212992' and '134217728'.
+#   net_core_somaxconn (string)                : The sysctl setting net.core.somaxconn. Must be between '4096' and '3240000'.
+#   net_core_wmem_default (string)             : The sysctl setting net.core.wmem_default. Must be between '212992' and '134217728'.
+#   net_core_wmem_max (string)                 : The sysctl setting net.core.wmem_max. Must be between '212992' and '134217728'.
+#   net_ipv4_ip_local_port_range_max (string)  : The sysctl setting net.ipv4.ip_local_port_range max value. Must be between '32768' and '65535'.
+#   net_ipv4_ip_local_port_range_min (string)  : The sysctl setting net.ipv4.ip_local_port_range min value. Must be between '1024' and '60999'.
+#   net_ipv4_neigh_default_gc_thresh1 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between '128' and '80000'.
+#   net_ipv4_neigh_default_gc_thresh2 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between '512' and '90000'.
+#   net_ipv4_neigh_default_gc_thresh3 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between '1024' and '100000'.
+#   net_ipv4_tcp_fin_timeout (string)          : The sysctl setting net.ipv4.tcp_fin_timeout. Must be between '5' and '120'.
+#   net_ipv4_tcp_keepalive_intvl (string)      : The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between '10' and '90'.
+#   net_ipv4_tcp_keepalive_probes (string)     : The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between '1' and '15'.
+#   net_ipv4_tcp_keepalive_time (string)       : The sysctl setting net.ipv4.tcp_keepalive_time. Must be between '30' and '432000'.
+#   net_ipv4_tcp_max_syn_backlog (string)      : The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between '128' and '3240000'.
+#   net_ipv4_tcp_max_tw_buckets (string)       : The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between '8000' and '1440000'.
+#   net_ipv4_tcp_tw_reuse (string)             : The sysctl setting net.ipv4.tcp_tw_reuse.
+#   net_netfilter_nf_conntrack_buckets (string): The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'.
+#   net_netfilter_nf_conntrack_max (string)    : The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'.
+#   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'.
+#   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'.
+#   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'.
 #
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
@@ -82,39 +106,14 @@ variable "default_node_pool" {
 #   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
 #   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
 #
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 #
-# sysctl_config block structure              :
-#   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'. Changing this forces a new resource to be created.
-#   fs_file_max (string)                       : The sysctl setting fs.file-max. Must be between '8192' and '12000500'. Changing this forces a new resource to be created.
-#   fs_inotify_max_user_watches (string)       : The sysctl setting fs.inotify.max_user_watches. Must be between '781250' and '2097152'. Changing this forces a new resource to be created.
-#   fs_nr_open (string)                        : The sysctl setting fs.nr_open. Must be between '8192' and '20000500'. Changing this forces a new resource to be created.
-#   kernel_threads_max (string)                : The sysctl setting kernel.threads-max. Must be between '20' and '513785'. Changing this forces a new resource to be created.
-#   net_core_netdev_max_backlog (string)       : The sysctl setting net.core.netdev_max_backlog. Must be between '1000' and '3240000'. Changing this forces a new resource to be created.
-#   net_core_optmem_max (string)               : The sysctl setting net.core.optmem_max. Must be between '20480' and '4194304'. Changing this forces a new resource to be created.
-#   net_core_rmem_default (string)             : The sysctl setting net.core.rmem_default. Must be between '212992' and '134217728'. Changing this forces a new resource to be created.
-#   net_core_rmem_max (string)                 : The sysctl setting net.core.rmem_max. Must be between '212992' and '134217728'. Changing this forces a new resource to be created.
-#   net_core_somaxconn (string)                : The sysctl setting net.core.somaxconn. Must be between '4096' and '3240000'. Changing this forces a new resource to be created.
-#   net_core_wmem_default (string)             : The sysctl setting net.core.wmem_default. Must be between '212992' and '134217728'. Changing this forces a new resource to be created.
-#   net_core_wmem_max (string)                 : The sysctl setting net.core.wmem_max. Must be between '212992' and '134217728'. Changing this forces a new resource to be created.
-#   net_ipv4_ip_local_port_range_max (string)  : The sysctl setting net.ipv4.ip_local_port_range max value. Must be between '32768' and '65535'. Changing this forces a new resource to be created.
-#   net_ipv4_ip_local_port_range_min (string)  : The sysctl setting net.ipv4.ip_local_port_range min value. Must be between '1024' and '60999'. Changing this forces a new resource to be created.
-#   net_ipv4_neigh_default_gc_thresh1 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh1. Must be between '128' and '80000'. Changing this forces a new resource to be created.
-#   net_ipv4_neigh_default_gc_thresh2 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh2. Must be between '512' and '90000'. Changing this forces a new resource to be created.
-#   net_ipv4_neigh_default_gc_thresh3 (string) : The sysctl setting net.ipv4.neigh.default.gc_thresh3. Must be between '1024' and '100000'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_fin_timeout (string)          : The sysctl setting net.ipv4.tcp_fin_timeout. Must be between '5' and '120'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_keepalive_intvl (string)      : The sysctl setting net.ipv4.tcp_keepalive_intvl. Must be between '10' and '90'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_keepalive_probes (string)     : The sysctl setting net.ipv4.tcp_keepalive_probes. Must be between '1' and '15'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_keepalive_time (string)       : The sysctl setting net.ipv4.tcp_keepalive_time. Must be between '30' and '432000'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_max_syn_backlog (string)      : The sysctl setting net.ipv4.tcp_max_syn_backlog. Must be between '128' and '3240000'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_max_tw_buckets (string)       : The sysctl setting net.ipv4.tcp_max_tw_buckets. Must be between '8000' and '1440000'. Changing this forces a new resource to be created.
-#   net_ipv4_tcp_tw_reuse (string)             : The sysctl setting net.ipv4.tcp_tw_reuse. Changing this forces a new resource to be created.
-#   net_netfilter_nf_conntrack_buckets (string): The sysctl setting net.netfilter.nf_conntrack_buckets. Must be between '65536' and '524288'. Changing this forces a new resource to be created.
-#   net_netfilter_nf_conntrack_max (string)    : The sysctl setting net.netfilter.nf_conntrack_max. Must be between '131072' and '2097152'. Changing this forces a new resource to be created.
-#   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'. Changing this forces a new resource to be created.
-#   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created.
-#   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created.
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 
 
 
@@ -126,7 +125,7 @@ variable "dns_prefix" {
   default     = null
 }
 variable "dns_prefix_private_cluster" {
-  description = "Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created."
+  description = "Specifies the DNS prefix to use with private clusters. Changing this forces a new resource to be created. -> **Note:** You must define either a 'dns_prefix' or a 'dns_prefix_private_cluster' field. In addition, one of either 'identity' or 'service_principal' blocks must be specified."
   type        = string
   default     = null
 }
@@ -137,11 +136,11 @@ variable "aci_connector_linux" {
 }
 #
 # aci_connector_linux block structure:
-#   subnet_name (string)               : (REQUIRED) The subnet name for the virtual nodes to run.
+#   subnet_name (string)               : (REQUIRED) The subnet name for the virtual nodes to run. -> **Note:** At this time ACI Connectors are not supported in Azure China. -> **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so. '''hcl resource 'azurerm_subnet' 'virtual' { #... delegation { name = 'aciDelegation' service_delegation { name    = 'Microsoft.ContainerInstance/containerGroups' actions = ['Microsoft.Network/virtualNetworks/subnets/action'] } } } '''
 
 
 variable "automatic_channel_upgrade" {
-  description = "The upgrade channel for this Kubernetes Cluster. Possible values are 'patch', 'rapid', 'node-image' and 'stable'. Omitting this field sets this value to 'none'."
+  description = "The upgrade channel for this Kubernetes Cluster. Possible values are 'patch', 'rapid', 'node-image' and 'stable'. Omitting this field sets this value to 'none'. !> **Note:** Cluster Auto-Upgrade will update the Kubernetes Cluster (and its Node Pools) to the latest GA version of Kubernetes automatically - please [see the Azure documentation for more information](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel). -> **Note:** Cluster Auto-Upgrade only updates to GA versions of Kubernetes and will not update to Preview versions."
   type        = string
   default     = null
 }
@@ -154,7 +153,7 @@ variable "api_server_access_profile" {
 # api_server_access_profile block structure:
 #   authorized_ip_ranges (string)            : Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24'].
 #   subnet_id (string)                       : The ID of the Subnet where the API server endpoint is delegated to.
-#   vnet_integration_enabled (bool)          : Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration).
+#   vnet_integration_enabled (bool)          : Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information.
 
 
 variable "auto_scaler_profile" {
@@ -184,16 +183,16 @@ variable "auto_scaler_profile" {
 
 
 variable "azure_active_directory_role_based_access_control" {
-  description = "A 'azure_active_directory_role_based_access_control' block."
+  description = "A 'azure_active_directory_role_based_access_control' block. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AKS-PrometheusAddonPreview' is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information."
   type        = map(any)
   default     = null
 }
 #
 # azure_active_directory_role_based_access_control block structure:
 #   managed (string)                                                : Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
-#   tenant_id (string)                                              : The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used.
+#   tenant_id (string)                                              : The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used. When 'managed' is set to 'true' the following properties can be specified:
 #   admin_group_object_ids (list)                                   : A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-#   azure_rbac_enabled (bool)                                       : Is Role Based Access Control based on Azure AD enabled?
+#   azure_rbac_enabled (bool)                                       : Is Role Based Access Control based on Azure AD enabled? When 'managed' is set to 'false' the following properties can be specified:
 #   client_app_id (string)                                          : The Client ID of an Azure Active Directory Application.
 #   server_app_id (string)                                          : The Server ID of an Azure Active Directory Application.
 #   server_app_secret (string)                                      : The Server Secret of an Azure Active Directory Application.
@@ -215,7 +214,7 @@ variable "confidential_computing" {
 
 
 variable "custom_ca_trust_certificates_base64" {
-  description = "A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the 'custom_ca_trust_enabled' feature enabled."
+  description = "A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the 'custom_ca_trust_enabled' feature enabled. -> **Note:** Removing 'custom_ca_trust_certificates_base64' after it has been set forces a new resource to be created."
   type        = list(any)
   default     = []
 }
@@ -230,7 +229,7 @@ variable "edge_zone" {
   default     = null
 }
 variable "http_application_routing_enabled" {
-  description = "Should HTTP Application Routing be enabled?"
+  description = "Should HTTP Application Routing be enabled? -> **Note:** At this time HTTP Application Routing is not supported in Azure China or Azure US Government."
   type        = bool
   default     = null
 }
@@ -243,19 +242,19 @@ variable "http_proxy_config" {
 # http_proxy_config block structure:
 #   http_proxy (string)              : The proxy address to be used when communicating over HTTP.
 #   https_proxy (string)             : The proxy address to be used when communicating over HTTPS.
-#   no_proxy (string)                : The list of domains that will not use the proxy for communication.
+#   no_proxy (string)                : The list of domains that will not use the proxy for communication. -> **Note:** If you specify the 'default_node_pool.0.vnet_subnet_id', be sure to include the Subnet CIDR in the 'no_proxy' list. -> **Note:** You may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore the changes to this field.
 #   trusted_ca (string)              : The base64 encoded alternative CA certificate content in PEM format.
 
 
 variable "identity" {
-  description = "An 'identity' block. One of either 'identity' or 'service_principal' must be specified."
+  description = "An 'identity' block. One of either 'identity' or 'service_principal' must be specified. !> **Note:** A migration scenario from 'service_principal' to 'identity' is supported. When upgrading 'service_principal' to 'identity', your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured 'service_principal' until you upgrade your Node Pool."
   type        = map(any)
   default     = null
 }
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'.
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ~> **Note:** This is required when 'type' is set to 'UserAssigned'.
 
 
 variable "image_cleaner_enabled" {
@@ -264,12 +263,12 @@ variable "image_cleaner_enabled" {
   default     = null
 }
 variable "image_cleaner_interval_hours" {
-  description = "Specifies the interval in hours when images should be cleaned up. Defaults to '48'."
+  description = "Specifies the interval in hours when images should be cleaned up. Defaults to '48'. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableImageCleanerPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information."
   type        = string
   default     = "48"
 }
 variable "ingress_application_gateway" {
-  description = "A 'ingress_application_gateway' block."
+  description = "A 'ingress_application_gateway' block. -> **Note:** Since the Application Gateway is deployed inside a Virtual Network, users (and Service Principals) that are operating the Application Gateway must have the 'Microsoft.Network/virtualNetworks/subnets/join/action' permission on the Virtual Network or Subnet. For more details, please visit [Virtual Network Permission](https://learn.microsoft.com/en-us/azure/application-gateway/configuration-infrastructure#virtual-network-permission)."
   type        = map(any)
   default     = null
 }
@@ -278,7 +277,7 @@ variable "ingress_application_gateway" {
 #   gateway_id (string)                        : The ID of the Application Gateway to integrate with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-existing) page for further details.
 #   gateway_name (string)                      : The name of the Application Gateway to be used or created in the Nodepool Resource Group, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
 #   subnet_cidr (string)                       : The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
-#   subnet_id (string)                         : The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details.
+#   subnet_id (string)                         : The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. -> **Note:** Exactly one of 'gateway_id', 'subnet_id' or 'subnet_cidr' must be specified. -> **Note:** If specifying 'ingress_application_gateway' in conjunction with 'only_critical_addons_enabled', the AGIC pod will fail to start. A separate 'azurerm_kubernetes_cluster_node_pool' is required to run the AGIC pod successfully. This is because AGIC is classed as a 'non-critical addon'.
 
 
 variable "key_management_service" {
@@ -300,7 +299,7 @@ variable "key_vault_secrets_provider" {
 #
 # key_vault_secrets_provider block structure:
 #   secret_rotation_enabled (bool)            : Should the secret store CSI driver on the AKS cluster be enabled?
-#   secret_rotation_interval (string)         : The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'.
+#   secret_rotation_interval (string)         : The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. -> **Note:** To enable'key_vault_secrets_provider' either 'secret_rotation_enabled' or 'secret_rotation_interval' must be specified.
 
 
 variable "kubelet_identity" {
@@ -312,11 +311,11 @@ variable "kubelet_identity" {
 # kubelet_identity block structure  :
 #   client_id (string)                : The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
 #   object_id (string)                : The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
-#   user_assigned_identity_id (string): The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created.
+#   user_assigned_identity_id (string): The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. -> **Note:** When 'kubelet_identity' is enabled - The 'type' field in the 'identity' block must be set to 'UserAssigned' and 'identity_ids' must be set.
 
 
 variable "kubernetes_version" {
-  description = "Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version)."
+  description = "Version of Kubernetes specified when creating the AKS managed cluster. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). -> **Note:** Upgrading your cluster may take up to 10 minutes per node."
   type        = string
   default     = null
 }
@@ -335,7 +334,7 @@ variable "linux_profile" {
 
 
 variable "local_account_disabled" {
-  description = "If 'true' local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information."
+  description = "If 'true' local accounts will be disabled. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts) for more information. -> **Note:** If 'local_account_disabled' is set to 'true', it is required to enable Kubernetes RBAC and AKS-managed Azure AD integration. See [the documentation](https://docs.microsoft.com/azure/aks/managed-aad#azure-ad-authentication-overview) for more information."
   type        = bool
   default     = null
 }
@@ -349,13 +348,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# not_allowed block structure:
-#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
-#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
-#
 # allowed block structure:
 #   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
 #   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
+#
+# not_allowed block structure:
+#   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
+#   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
 
 
 variable "maintenance_window_auto_upgrade" {
@@ -426,49 +425,49 @@ variable "monitor_metrics" {
 
 
 variable "network_profile" {
-  description = "A 'network_profile' block. Changing this forces a new resource to be created."
+  description = "A 'network_profile' block. Changing this forces a new resource to be created. -> **Note:** If 'network_profile' is not defined, 'kubenet' profile will be used by default."
   type        = map(any)
   default     = null
 }
 #
 # network_profile block structure:
-#   network_plugin (string)        : (REQUIRED) Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created.
-#   network_mode (string)          : Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created.
-#   network_policy (string)        : Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'.
+#   network_plugin (string)        : (REQUIRED) Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. -> **Note:** When 'network_plugin' is set to 'azure' - the 'pod_cidr' field must not be set.
+#   network_mode (string)          : Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ~> **Note:** 'network_mode' can only be set to 'bridge' for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future. ~> **Note:** This property can only be set when 'network_plugin' is set to 'azure'.
+#   network_policy (string)        : Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'ebpf_data_plane' field must be set to 'cilium'.
 #   dns_service_ip (string)        : IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
-#   docker_bridge_cidr (string)    : IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
-#   ebpf_data_plane (string)       : Specifies the eBPF data plane used for building the Kubernetes network. Possible value is 'cilium'. Disabling this forces a new resource to be created.
-#   network_plugin_mode (string)   : Specifies the network plugin mode used for building the Kubernetes network. Possible value is 'overlay'.
+#   docker_bridge_cidr (string)    : IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. -> **Note:** 'docker_bridge_cidr' has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
+#   ebpf_data_plane (string)       : Specifies the eBPF data plane used for building the Kubernetes network. Possible value is 'cilium'. Disabling this forces a new resource to be created. ~> **Note:** When 'ebpf_data_plane' is set to 'cilium', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'ebpf_data_plane' is set to 'cilium', one of either 'network_plugin_mode = 'overlay'' or 'pod_subnet_id' must be specified. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/CiliumDataplanePreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
+#   network_plugin_mode (string)   : Specifies the network plugin mode used for building the Kubernetes network. Possible value is 'overlay'. ~> **Note:** When 'network_plugin_mode' is set to 'overlay', the 'network_plugin' field can only be set to 'azure'. When upgrading from Azure CNI without overlay, 'pod_subnet_id' must be specified.
 #   outbound_type (string)         : The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are 'loadBalancer', 'userDefinedRouting', 'managedNATGateway' and 'userAssignedNATGateway'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created.
 #   pod_cidr (string)              : The CIDR to use for pod IP addresses. This field can only be set when 'network_plugin' is set to 'kubenet'. Changing this forces a new resource to be created.
 #   pod_cidrs (list)               : A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
 #   service_cidr (string)          : The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
-#   service_cidrs (list)           : A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
-#   ip_versions (list)             : Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created.
+#   service_cidrs (list)           : A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. 'docker_bridge_cidr', 'dns_service_ip' and 'service_cidr' should all be empty or all should be set. Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be [found in the './examples/kubernetes/' directory in the GitHub repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/kubernetes).
+#   ip_versions (list)             : Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created. ->**Note:** To configure dual-stack networking 'ip_versions' should be set to '['IPv4', 'IPv6']'. ->**Note:** Dual-stack networking requires that the Preview Feature 'Microsoft.ContainerService/AKS-EnableDualStack' is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
 #   load_balancer_sku (string)     : Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created.
 #   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
 #   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
 #
-# load_balancer_profile block structure:
-#   idle_timeout_in_minutes (number)     : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
-#   managed_outbound_ip_count (number)   : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
-#   managed_outbound_ipv6_count (number) : The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack.
-#   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer.
-#   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer.
-#   outbound_ports_allocated (number)    : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
-#
 # nat_gateway_profile block structure:
 #   idle_timeout_in_minutes (number)   : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
 #   managed_outbound_ip_count (number) : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
+#
+# load_balancer_profile block structure:
+#   idle_timeout_in_minutes (number)     : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
+#   managed_outbound_ip_count (number)   : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
+#   managed_outbound_ipv6_count (number) : The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. ~> **Note:** 'managed_outbound_ipv6_count' requires dual-stack networking. To enable dual-stack networking the Preview Feature 'Microsoft.ContainerService/AKS-EnableDualStack' needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
+#   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. -> **Note:** Set 'outbound_ip_address_ids' to an empty slice '[]' in order to unlink it from the cluster. Unlinking a 'outbound_ip_address_ids' will revert the load balancing for the cluster back to a managed one.
+#   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. -> **Note:** Set 'outbound_ip_prefix_ids' to an empty slice '[]' in order to unlink it from the cluster. Unlinking a 'outbound_ip_prefix_ids' will revert the load balancing for the cluster back to a managed one.
+#   outbound_ports_allocated (number)    : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
 
 
 variable "node_os_channel_upgrade" {
-  description = "The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are 'Unmanaged', 'SecurityPatch', 'NodeImage' and 'None'."
+  description = "The upgrade channel for this Kubernetes Cluster Nodes' OS Image. Possible values are 'Unmanaged', 'SecurityPatch', 'NodeImage' and 'None'. -> **Note:** 'node_os_channel_upgrade' must be set to 'NodeImage' if 'automatic_channel_upgrade' has been set to 'node-image' -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodeOsUpgradeChannelPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/auto-upgrade-node-image#register-the-nodeosupgradechannelpreview-feature-flag) for more information."
   type        = string
   default     = null
 }
 variable "node_resource_group" {
-  description = "The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created."
+  description = "The name of the Resource Group where the Kubernetes Nodes should exist. Changing this forces a new resource to be created. -> **Note:** Azure requires that a new, non-existent Resource Group is used, as otherwise, the provisioning of the Kubernetes Service will fail."
   type        = string
   default     = null
 }
@@ -504,12 +503,12 @@ variable "private_dns_zone_id" {
   default     = null
 }
 variable "private_cluster_public_fqdn_enabled" {
-  description = "Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to 'false'."
+  description = "Specifies whether a Public FQDN for this Private Cluster should be added. Defaults to 'false'. -> **Note:** If you use BYO DNS Zone, the AKS cluster should either use a User Assigned Identity or a service principal (which is deprecated) with the 'Private DNS Zone Contributor' role and access to this Private DNS Zone. If 'UserAssigned' identity is used - to prevent improper resource order destruction - the cluster should depend on the role assignment, like in this example: '''hcl resource 'azurerm_resource_group' 'example' { name     = 'example' location = 'West Europe' } resource 'azurerm_private_dns_zone' 'example' { name                = 'privatelink.eastus2.azmk8s.io' resource_group_name = azurerm_resource_group.example.name } resource 'azurerm_user_assigned_identity' 'example' { name                = 'aks-example-identity' resource_group_name = azurerm_resource_group.example.name location            = azurerm_resource_group.example.location } resource 'azurerm_role_assignment' 'example' { scope                = azurerm_private_dns_zone.example.id role_definition_name = 'Private DNS Zone Contributor' principal_id         = azurerm_user_assigned_identity.example.principal_id } resource 'azurerm_kubernetes_cluster' 'example' { name                    = 'aksexamplewithprivatednszone1' location                = azurerm_resource_group.example.location resource_group_name     = azurerm_resource_group.example.name dns_prefix              = 'aksexamplednsprefix1' private_cluster_enabled = true private_dns_zone_id     = azurerm_private_dns_zone.example.id # rest of configuration omitted for brevity depends_on = [ azurerm_role_assignment.example, ] } '''"
   type        = bool
   default     = false
 }
 variable "service_mesh_profile" {
-  description = "A 'service_mesh_profile' block."
+  description = "A 'service_mesh_profile' block. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information."
   type        = map(any)
   default     = null
 }
@@ -517,7 +516,7 @@ variable "service_mesh_profile" {
 # service_mesh_profile block structure   :
 #   mode (string)                          : (REQUIRED) The mode of the service mesh. Possible value is 'Istio'.
 #   internal_ingress_gateway_enabled (bool): Is Istio Internal Ingress Gateway enabled?
-#   external_ingress_gateway_enabled (bool): Is Istio External Ingress Gateway enabled?
+#   external_ingress_gateway_enabled (bool): Is Istio External Ingress Gateway enabled? -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information. -> **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 
 
 variable "workload_autoscaler_profile" {
@@ -528,16 +527,16 @@ variable "workload_autoscaler_profile" {
 #
 # workload_autoscaler_profile block structure:
 #   keda_enabled (bool)                        : Specifies whether KEDA Autoscaler can be used for workloads.
-#   vertical_pod_autoscaler_enabled (bool)     : Specifies whether Vertical Pod Autoscaler should be enabled.
+#   vertical_pod_autoscaler_enabled (bool)     : Specifies whether Vertical Pod Autoscaler should be enabled. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AKS-VPAPreview' is enabled and the Resource Provider is re-registered, see [the documentation]([Microsoft.ContainerService/AKS-VPAPreview](https://learn.microsoft.com/en-us/azure/aks/vertical-pod-autoscaler#register-the-aks-vpapreview-feature-flag) for more information.
 
 
 variable "workload_identity_enabled" {
-  description = "Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to 'false'."
+  description = "Specifies whether Azure AD Workload Identity should be enabled for the Cluster. Defaults to 'false'. -> **Note:** To enable Azure AD Workload Identity 'oidc_issuer_enabled' must be set to 'true'. -> **Note:** Enabling this option will allocate Workload Identity resources to the 'kube-system' namespace in Kubernetes. If you wish to customize the deployment of Workload Identity, you can refer to [the documentation on Azure AD Workload Identity.](https://azure.github.io/azure-workload-identity/docs/installation/mutating-admission-webhook.html) The documentation provides guidance on how to install the mutating admission webhook, which allows for the customization of Workload Identity deployment."
   type        = bool
   default     = false
 }
 variable "public_network_access_enabled" {
-  description = "Whether public network access is allowed for this Kubernetes Cluster. Defaults to 'true'."
+  description = "Whether public network access is allowed for this Kubernetes Cluster. Defaults to 'true'. !> **Note:** 'public_network_access_enabled' is currently not functional and is not passed to the Azure API. For further information please see this [issue](https://github.com/Azure/AKS/issues/3690). For controlling the public and private exposure of a cluster please see the properties 'private_cluster_enabled' and 'api_server_access_profile'."
   type        = bool
   default     = true
 }
@@ -552,7 +551,7 @@ variable "run_command_enabled" {
   default     = true
 }
 variable "service_principal" {
-  description = "A 'service_principal' block. One of either 'identity' or 'service_principal' must be specified."
+  description = "A 'service_principal' block. One of either 'identity' or 'service_principal' must be specified. !> **Note:** A migration scenario from 'service_principal' to 'identity' is supported. When upgrading 'service_principal' to 'identity', your cluster's control plane and addon pods will switch to use managed identity, but the kubelets will keep using your configured 'service_principal' until you upgrade your Node Pool."
   type        = map(any)
   default     = null
 }
@@ -563,7 +562,7 @@ variable "service_principal" {
 
 
 variable "sku_tier" {
-  description = "The SKU Tier that should be used for this Kubernetes Cluster. Possible values are 'Free', 'Standard' (which includes the Uptime SLA) and 'Premium'. Defaults to 'Free'."
+  description = "The SKU Tier that should be used for this Kubernetes Cluster. Possible values are 'Free', 'Standard' (which includes the Uptime SLA) and 'Premium'. Defaults to 'Free'. -> **Note:** Whilst the AKS API previously supported the 'Paid' SKU - the AKS API introduced a breaking change in API Version '2023-02-01' (used in v3.51.0 and later) where the value 'Paid' must now be set to 'Standard'."
   type        = string
   default     = "Free"
 }
@@ -576,7 +575,7 @@ variable "storage_profile" {
 # storage_profile block structure   :
 #   blob_driver_enabled (bool)        : Is the Blob CSI driver enabled? Defaults to 'false'.
 #   disk_driver_enabled (bool)        : Is the Disk CSI driver enabled? Defaults to 'true'.
-#   disk_driver_version (string)      : Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'.
+#   disk_driver_version (string)      : Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. -> **Note:** 'Azure Disk CSI driver v2' is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature 'EnableAzureDiskCSIDriverV2' for namespace 'Microsoft.ContainerService' must be requested.
 #   file_driver_enabled (bool)        : Is the File CSI driver enabled? Defaults to 'true'.
 #   snapshot_controller_enabled (bool): Is the Snapshot Controller enabled? Defaults to 'true'.
 
@@ -615,6 +614,6 @@ variable "windows_profile" {
 #
 # gmsa block structure:
 #   dns_server (string) : (REQUIRED) Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
-#   root_domain (string): (REQUIRED) Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster.
+#   root_domain (string): (REQUIRED) Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. -> **Note:** The properties 'dns_server' and 'root_domain' must both either be set or unset, i.e. empty.
 
 

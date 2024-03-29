@@ -38,6 +38,11 @@ output "autoscale_settings" {
   value = azurerm_cosmosdb_mongo_collection.this.autoscale_settings
 }
 
+output "unique" {
+  description = "Identifies whether the table contains no duplicate values."
+  value       = azurerm_cosmosdb_mongo_collection.this.unique
+}
+
 output "id" {
   description = "The ID of the Cosmos DB Mongo Collection."
   value       = azurerm_cosmosdb_mongo_collection.this.id
@@ -51,10 +56,5 @@ output "system_indexes" {
 output "keys" {
   description = "The list of system keys which are not settable for each Cosmos DB Mongo Collection."
   value       = azurerm_cosmosdb_mongo_collection.this.keys
-}
-
-output "unique" {
-  description = "Identifies whether the table contains no duplicate values."
-  value       = azurerm_cosmosdb_mongo_collection.this.unique
 }
 

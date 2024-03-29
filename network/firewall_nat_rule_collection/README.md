@@ -62,7 +62,7 @@ tfstate_store = {
 | `destination_ports` | list | Yes | - | A list of destination ports. |
 | `protocols` | list | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. If 'action' is 'Dnat', protocols can only be 'TCP' and 'UDP'. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
-| `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. |
+| `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. -> **NOTE** At least one of 'source_addresses' and 'source_ip_groups' must be specified for a rule. |
 | `translated_address` | string | Yes | - | The address of the service behind the Firewall. |
 | `translated_port` | string | Yes | - | The port of the service behind the Firewall. |
 

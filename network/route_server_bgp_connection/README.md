@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **peer_ip** | string | No  | The peer ip address for the Route Server Bgp Connection. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Route Server Bgp Connection. | 
 
 Additionally, all variables are provided as outputs.

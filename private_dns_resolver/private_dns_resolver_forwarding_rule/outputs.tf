@@ -22,6 +22,11 @@ output "metadata" {
   value = azurerm_private_dns_resolver_forwarding_rule.this.metadata
 }
 
+output "port" {
+  description = "DNS server port. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_dns_resolver_forwarding_rule.this.port
+}
+
 output "id" {
   description = "The ID of the Private DNS Resolver Forwarding Rule."
   value       = azurerm_private_dns_resolver_forwarding_rule.this.id

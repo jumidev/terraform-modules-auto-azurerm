@@ -11,9 +11,13 @@ source = {
 }
 
 inputs = {
-   cosmos_mongo_database_id = "The resource ID of the Mongo DB"   
+   # cosmos_mongo_database_id → set in component_inputs
    username = "The username for the Mongo User Definition"   
    password = "The password for the Mongo User Definition"   
+}
+
+component_inputs = {
+   cosmos_mongo_database_id = "path/to/cosmosdb_mongo_database_component:id"   
 }
 
 tfstate_store = {
@@ -36,7 +40,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **inherited_role_names** | list |  A list of Mongo Roles that are inherited to the Mongo User Definition. | 
+| **inherited_role_names** | list |  A list of Mongo Roles that are inherited to the Mongo User Definition. ~> **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`. | 
 
 
 
@@ -44,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **inherited_role_names** | list | No  | A list of Mongo Roles that are inherited to the Mongo User Definition. ~> **Note:** The role that needs to be inherited should exist in the Mongo DB of `cosmos_mongo_database_id`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Cosmos DB Mongo User Definition. | 
 
 Additionally, all variables are provided as outputs.

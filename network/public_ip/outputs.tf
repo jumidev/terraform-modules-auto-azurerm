@@ -66,13 +66,18 @@ output "tags" {
   value = azurerm_public_ip.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_public_ip.this.tags
+}
+
 output "id" {
   description = "The ID of this Public IP."
   value       = azurerm_public_ip.this.id
 }
 
 output "ip_address" {
-  description = "The IP address value that was allocated."
+  description = "The IP address value that was allocated. ~> **Note** 'Dynamic' Public IP Addresses aren't allocated until they're attached to a device (e.g. a Virtual Machine/Load Balancer). Instead you can obtain the IP Address once the Public IP has been assigned via the ['azurerm_public_ip' Data Source](../d/public_ip.html)."
   value       = azurerm_public_ip.this.ip_address
 }
 
@@ -91,6 +96,11 @@ output "nat_gateway_id" {
 
 output "public_ip_address_id" {
   value = azurerm_nat_gateway_public_ip_association.this.*.public_ip_address_id
+}
+
+output "public_ip_address_id" {
+  description = "The ID of the Public IP which this NAT Gateway which should be connected to. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_nat_gateway_public_ip_association.this.*.public_ip_address_id
 }
 
 output "id" {

@@ -19,12 +19,12 @@ variable "account_name" {
 # OPTIONAL VARIABLES
 
 variable "throughput" {
-  description = "The throughput of the Gremlin database (RU/s). Must be set in increments of '100'. The minimum value is '400'. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply."
+  description = "The throughput of the Gremlin database (RU/s). Must be set in increments of '100'. The minimum value is '400'. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** throughput has a maximum value of '1000000' unless a higher limit is requested via Azure Support"
   type        = string
   default     = null
 }
 variable "autoscale_settings" {
-  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply."
+  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed."
   type        = map(any)
   default     = null
 }
@@ -34,7 +34,7 @@ variable "autoscale_settings" {
 
 
 variable "cosmosdb_account_resource_group_name" {
-  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }

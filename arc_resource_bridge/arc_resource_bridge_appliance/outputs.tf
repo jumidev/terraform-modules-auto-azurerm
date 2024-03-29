@@ -30,6 +30,11 @@ output "tags" {
   value = azurerm_arc_resource_bridge_appliance.this.tags
 }
 
+output "type" {
+  description = "Specifies the type of Managed Service Identity that should be configured on this Arc Resource Bridge Appliance. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_arc_resource_bridge_appliance.this.type
+}
+
 output "id" {
   description = "The ID of the Arc Resource Bridge Appliance."
   value       = azurerm_arc_resource_bridge_appliance.this.id

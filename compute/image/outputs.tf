@@ -34,6 +34,11 @@ output "hyper_v_generation" {
   value = azurerm_image.this.hyper_v_generation
 }
 
+output "size_gb" {
+  description = "Specifies the size of the image to be created. The target size can't be smaller than the source size. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_image.this.size_gb
+}
+
 output "id" {
   description = "The ID of the Image."
   value       = azurerm_image.this.id

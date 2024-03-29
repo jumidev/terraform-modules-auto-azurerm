@@ -38,6 +38,11 @@ output "tags" {
   value = azurerm_point_to_site_vpn_gateway.this.tags
 }
 
+output "labels" {
+  description = "The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_point_to_site_vpn_gateway.this.labels
+}
+
 output "id" {
   description = "The ID of the Point-to-Site VPN Gateway."
   value       = azurerm_point_to_site_vpn_gateway.this.id

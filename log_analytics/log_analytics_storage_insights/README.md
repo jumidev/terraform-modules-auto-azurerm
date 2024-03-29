@@ -54,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **table_names** | string | No  | The names of the Azure tables that the workspace should read. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Log Analytics Storage Insights. | 
 
 Additionally, all variables are provided as outputs.

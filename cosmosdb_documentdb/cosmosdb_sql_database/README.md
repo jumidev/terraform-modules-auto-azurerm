@@ -79,8 +79,8 @@ component_inputs = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **throughput** | string |  The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azurerm_cosmosdb_account` is configured with `EnableServerless` capability. | 
-| **autoscale_settings** | [block](#autoscale_settings-block-structure) |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. | 
+| **throughput** | string |  The throughput of SQL database (RU/s). Must be set in increments of `100`. The minimum value is `400`. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Do not set when `azurerm_cosmosdb_account` is configured with `EnableServerless` capability. ~> **Note:** Throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support | 
+| **autoscale_settings** | [block](#autoscale_settings-block-structure) |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed. | 
 
 ### `autoscale_settings` block structure
 
@@ -94,6 +94,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **max_throughput** | string | No  | The maximum throughput of the SQL database (RU/s). Must be between `1,000` and `1,000,000`. Must be set in increments of `1,000`. Conflicts with `throughput`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the CosmosDB SQL Database. | 
 
 Additionally, all variables are provided as outputs.

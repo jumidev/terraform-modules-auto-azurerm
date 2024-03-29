@@ -34,6 +34,11 @@ output "secret" {
   value = azurerm_container_app_environment_dapr_component.this.secret
 }
 
+output "value" {
+  description = "The value for this secret. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_container_app_environment_dapr_component.this.value
+}
+
 output "id" {
   description = "The ID of the Container App Environment Dapr Component"
   value       = azurerm_container_app_environment_dapr_component.this.id

@@ -21,7 +21,7 @@ variable "container" {
 
 }
 variable "os_type" {
-  description = "(REQUIRED) The OS for the container group. Allowed values are 'Linux' and 'Windows'. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The OS for the container group. Allowed values are 'Linux' and 'Windows'. Changing this forces a new resource to be created. ~> **Note:** if 'os_type' is set to 'Windows' currently only a single 'container' block is supported. Windows containers are not supported in virtual networks."
   type        = string
 
 }
@@ -40,8 +40,8 @@ variable "identity" {
 }
 #
 # identity block structure:
-#   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group.
+#   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ~> **NOTE:** When 'type' is set to 'SystemAssigned', the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. ~> **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network.
 
 
 variable "init_container" {
@@ -78,7 +78,7 @@ variable "diagnostics" {
 
 
 variable "dns_name_label" {
-  description = "The DNS label/name for the container group's IP. Changing this forces a new resource to be created."
+  description = "The DNS label/name for the container group's IP. Changing this forces a new resource to be created. ~> **Note:** DNS label/name is not supported when deploying to virtual networks."
   type        = string
   default     = null
 }
@@ -88,18 +88,12 @@ variable "dns_name_label_reuse_policy" {
   default     = "Unsecure"
 }
 variable "exposed_port" {
-  description = "Zero or more 'exposed_port' blocks. Changing this forces a new resource to be created."
-  type        = map(map(any))
-  default     = null
+  description = "Zero or more 'exposed_port' blocks. Changing this forces a new resource to be created. ~> **Note:** The 'exposed_port' can only contain ports that are also exposed on one or more containers in the group."
+  type        = list(any)
+  default     = []
 }
-#
-# exposed_port block structure:
-#   port (string)               : The port number the container will expose. Changing this forces a new resource to be created.
-#   protocol (string)           : The network protocol associated with port. Possible values are 'TCP' & 'UDP'. Changing this forces a new resource to be created. Defaults to 'TCP'.
-
-
 variable "ip_address_type" {
-  description = "Specifies the IP address type of the container. 'Public', 'Private' or 'None'. Changing this forces a new resource to be created. If set to 'Private', 'subnet_ids' also needs to be set. Defaults to 'Public'."
+  description = "Specifies the IP address type of the container. 'Public', 'Private' or 'None'. Changing this forces a new resource to be created. If set to 'Private', 'subnet_ids' also needs to be set. Defaults to 'Public'. ~> **Note:** 'dns_name_label' and 'os_type' set to 'windows' are not compatible with 'Private' 'ip_address_type'"
   type        = string
   default     = "Public"
 }
@@ -131,6 +125,11 @@ variable "image_registry_credential" {
 #   server (string)                          : (REQUIRED) The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created.
 
 
+variable "priority" {
+  description = "The priority of the Container Group. Possible values are 'Regular' and 'Spot'. Changing this forces a new resource to be created. ~> **NOTE:** When 'priority' is set to 'Spot', the 'ip_address_type' has to be 'None'."
+  type        = string
+  default     = null
+}
 variable "restart_policy" {
   description = "Restart policy for the container group. Allowed values are 'Always', 'Never', 'OnFailure'. Defaults to 'Always'. Changing this forces a new resource to be created."
   type        = string

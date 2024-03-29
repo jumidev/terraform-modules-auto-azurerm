@@ -34,7 +34,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **customer_managed_key_name** | string |  Specifies the name of the workspace key. Should match the name of the key in the synapse workspace. | 
 | **synapse_workspace_id** | string |  The ID of the Synapse Workspace where the encryption key should be configured. | 
-| **active** | string |  Specifies if the workspace should be encrypted with this key. | 
+| **active** | string |  Specifies if the workspace should be encrypted with this key. -> **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys. | 
 
 ## Optional Variables
 

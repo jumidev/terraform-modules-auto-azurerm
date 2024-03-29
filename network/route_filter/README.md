@@ -54,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **rule_type** | string | No  | The rule type of the rule. The only possible value is `Community`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Route Filter. | 
 
 Additionally, all variables are provided as outputs.

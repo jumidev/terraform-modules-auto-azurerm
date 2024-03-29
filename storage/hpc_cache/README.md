@@ -38,9 +38,9 @@ tfstate_store = {
 | **name** | string |  -  |  The name of the HPC Cache. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  The name of the Resource Group in which to create the HPC Cache. Changing this forces a new resource to be created. | 
 | **location** | string |  -  |  Specifies the supported Azure Region where the HPC Cache should be created. Changing this forces a new resource to be created. | 
-| **cache_size_in_gb** | number |  `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152`, `86491`  |  The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created. | 
+| **cache_size_in_gb** | number |  `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152`, `86491`  |  The size of the HPC Cache, in GB. Possible values are `3072`, `6144`, `12288`, `21623`, `24576`, `43246`, `49152` and `86491`. Changing this forces a new resource to be created. -> **NOTE:** The `21623`, `43246` and `86491` sizes are restricted to read only resources. | 
 | **subnet_id** | string |  -  |  The ID of the Subnet for the HPC Cache. Changing this forces a new resource to be created. | 
-| **sku_name** | string |  `Standard_2G`, `Standard_4G`, `Standard_8G`, `Standard_L4_5G`, `Standard_L9G`, `Standard_L16G`  |  The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created. | 
+| **sku_name** | string |  `Standard_2G`, `Standard_4G`, `Standard_8G`, `Standard_L4_5G`, `Standard_L9G`, `Standard_L16G`  |  The SKU of HPC Cache to use. Possible values are (ReadWrite) - `Standard_2G`, `Standard_4G` `Standard_8G` or (ReadOnly) - `Standard_L4_5G`, `Standard_L9G`, and `Standard_L16G`. Changing this forces a new resource to be created. -> **NOTE:** The read-only SKUs have restricted cache sizes. `Standard_L4_5G` must be set to `21623`. `Standard_L9G` to `43246` and `Standard_L16G` to `86491`. | 
 
 ## Optional Variables
 
@@ -52,11 +52,44 @@ tfstate_store = {
 | **dns** | [block](#dns-block-structure) |  -  |  A `dns` block. | 
 | **directory_active_directory** | [block](#directory_active_directory-block-structure) |  -  |  A `directory_active_directory` block. | 
 | **directory_flat_file** | [block](#directory_flat_file-block-structure) |  -  |  A `directory_flat_file` block. | 
-| **directory_ldap** | [block](#directory_ldap-block-structure) |  -  |  A `directory_ldap` block. | 
+| **directory_ldap** | [block](#directory_ldap-block-structure) |  -  |  A `directory_ldap` block. ~> **Note:** Only one of `directory_active_directory`, `directory_flat_file` and `directory_ldap` can be set. | 
 | **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. Changing this forces a new resource to be created. | 
 | **key_vault_key_id** | string |  -  |  The ID of the Key Vault Key which should be used to encrypt the data in this HPC Cache. | 
 | **automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 
+
+### `bind` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
+
+### `directory_flat_file` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
+| `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
+
+### `default_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
+
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
+| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
 
 ### `directory_active_directory` block structure
 
@@ -81,45 +114,13 @@ tfstate_store = {
 | `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
 | `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
 
-### `default_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
-
-### `directory_flat_file` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
-| `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
-
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
-| `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
-
-### `bind` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **identity_ids** | list | No  | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when `type` is set to `UserAssigned` or `SystemAssigned, UserAssigned`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The `id` of the HPC Cache. | 
 | **identity** | block | No  | An `identity` block. | 
 | **mount_addresses** | list | No  | A list of IP Addresses where the HPC Cache can be mounted. | 

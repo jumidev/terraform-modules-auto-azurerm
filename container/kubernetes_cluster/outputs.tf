@@ -218,6 +218,11 @@ output "windows_profile" {
   value = azurerm_kubernetes_cluster.this.windows_profile
 }
 
+output "max_surge" {
+  description = "The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the 'node_count' value on the current cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_kubernetes_cluster.this.max_surge
+}
+
 output "id" {
   description = "The Kubernetes Managed Cluster ID."
   value       = azurerm_kubernetes_cluster.this.id
@@ -369,7 +374,7 @@ output "username" {
 }
 
 output "password" {
-  description = "A password or token used to authenticate to the Kubernetes cluster."
+  description = "A password or token used to authenticate to the Kubernetes cluster. -> **Note:** It's possible to use these credentials with [the Kubernetes Provider](/providers/hashicorp/kubernetes/latest/docs) like so: '''hcl provider 'kubernetes' { host                   = azurerm_kubernetes_cluster.main.kube_config.0.host username               = azurerm_kubernetes_cluster.main.kube_config.0.username password               = azurerm_kubernetes_cluster.main.kube_config.0.password client_certificate     = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_certificate) client_key             = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_key) cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate) } '''"
   value       = azurerm_kubernetes_cluster.this.password
   sensitive   = true
 }

@@ -22,7 +22,7 @@ variable "sku" {
 #
 # sku block structure:
 #   tier (string)      : (REQUIRED) The service tier. Possible values are 'Basic', 'Local', 'Standard' or 'Premium'.
-#   family (string)    : (REQUIRED) The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'.
+#   family (string)    : (REQUIRED) The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'. ~> **NOTE:** You can migrate from 'MeteredData' to 'UnlimitedData', but not the other way around.
 
 
 
@@ -39,7 +39,7 @@ variable "peering_location" {
   default     = null
 }
 variable "bandwidth_in_mbps" {
-  description = "The bandwidth in Mbps of the circuit being created on the Service Provider."
+  description = "The bandwidth in Mbps of the circuit being created on the Service Provider. ~> **NOTE:** Once you increase your bandwidth, you will not be able to decrease it to its previous value. ~> **NOTE:** The 'service_provider_name', the 'peering_location' and the 'bandwidth_in_mbps' should be set together and they conflict with 'express_route_port_id' and 'bandwidth_in_gbps'."
   type        = number
   default     = null
 }
@@ -54,7 +54,7 @@ variable "express_route_port_id" {
   default     = null
 }
 variable "bandwidth_in_gbps" {
-  description = "The bandwidth in Gbps of the circuit being created on the Express Route Port."
+  description = "The bandwidth in Gbps of the circuit being created on the Express Route Port. ~> **NOTE:** The 'express_route_port_id' and the 'bandwidth_in_gbps' should be set together and they conflict with 'service_provider_name', 'peering_location' and 'bandwidth_in_mbps'."
   type        = number
   default     = null
 }

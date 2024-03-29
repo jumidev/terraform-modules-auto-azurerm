@@ -58,6 +58,11 @@ output "elastic_pool_name" {
   value = azurerm_sql_database.this.elastic_pool_name
 }
 
+output "storage_endpoint" {
+  description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if 'state' is 'Enabled'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_sql_database.this.storage_endpoint
+}
+
 output "id" {
   description = "The SQL Database ID."
   value       = azurerm_sql_database.this.id

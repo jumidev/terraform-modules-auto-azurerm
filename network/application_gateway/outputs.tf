@@ -130,6 +130,11 @@ output "rewrite_rule_set" {
   value = azurerm_application_gateway.this.rewrite_rule_set
 }
 
+output "reroute" {
+  description = "Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration) In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_application_gateway.this.reroute
+}
+
 output "id" {
   description = "The ID of the Rewrite Rule Set"
   value       = azurerm_application_gateway.this.id

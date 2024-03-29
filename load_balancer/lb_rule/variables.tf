@@ -34,7 +34,7 @@ variable "backend_port" {
 # OPTIONAL VARIABLES
 
 variable "backend_address_pool_ids" {
-  description = "A list of reference to a Backend Address Pool over which this Load Balancing Rule operates."
+  description = "A list of reference to a Backend Address Pool over which this Load Balancing Rule operates. ~> **NOTE:** In most cases users can only set one Backend Address Pool ID in the 'backend_address_pool_ids'. Especially, when the sku of the LB is 'Gateway', users can set up to two IDs in the 'backend_address_pool_ids'."
   type        = list(any)
   default     = []
 }

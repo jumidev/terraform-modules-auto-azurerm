@@ -44,6 +44,14 @@ tfstate_store = {
 | **internet_security_enabled** | bool |  `False`  |  Should Internet Security be enabled to secure internet traffic? Defaults to `false`. | 
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 
+### `static_vnet_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | The name which should be used for this Static Route. |
+| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
+| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
+
 ### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,20 +70,13 @@ tfstate_store = {
 | `labels` | string | No | - | The list of labels to assign to this route table. |
 | `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
 
-### `static_vnet_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | The name which should be used for this Static Route. |
-| `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
-| `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **next_hop_ip_address** | string | No  | The IP Address which should be used for the Next Hop. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Hub Connection. | 
 
 Additionally, all variables are provided as outputs.

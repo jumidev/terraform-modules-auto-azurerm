@@ -11,7 +11,7 @@ variable "policy_type" {
 
 }
 variable "mode" {
-  description = "(REQUIRED) The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are 'All', 'Indexed', 'Microsoft.ContainerService.Data', 'Microsoft.CustomerLockbox.Data', 'Microsoft.DataCatalog.Data', 'Microsoft.KeyVault.Data', 'Microsoft.Kubernetes.Data', 'Microsoft.MachineLearningServices.Data', 'Microsoft.Network.Data' and 'Microsoft.Synapse.Data'."
+  description = "(REQUIRED) The policy resource manager mode that allows you to specify which resource types will be evaluated. Possible values are 'All', 'Indexed', 'Microsoft.ContainerService.Data', 'Microsoft.CustomerLockbox.Data', 'Microsoft.DataCatalog.Data', 'Microsoft.KeyVault.Data', 'Microsoft.Kubernetes.Data', 'Microsoft.MachineLearningServices.Data', 'Microsoft.Network.Data' and 'Microsoft.Synapse.Data'. ~> **Note:** Other resource provider modes only support built-in policy definitions but may later become available in custom definitions, these include; 'Microsoft.ContainerService.Data', 'Microsoft.CustomerLockbox.Data', 'Microsoft.DataCatalog.Data', 'Microsoft.KeyVault.Data', 'Microsoft.Kubernetes.Data', 'Microsoft.MachineLearningServices.Data', 'Microsoft.Network.Data' and 'Microsoft.Synapse.Data'. [See here](https://docs.microsoft.com/en-us/azure/governance/policy/concepts/definition-structure#resource-provider-modes) for more details."
   type        = string
 
 }

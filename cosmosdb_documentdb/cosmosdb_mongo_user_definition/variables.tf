@@ -19,7 +19,7 @@ variable "password" {
 # OPTIONAL VARIABLES
 
 variable "inherited_role_names" {
-  description = "A list of Mongo Roles that are inherited to the Mongo User Definition."
+  description = "A list of Mongo Roles that are inherited to the Mongo User Definition. ~> **Note:** The role that needs to be inherited should exist in the Mongo DB of 'cosmos_mongo_database_id'."
   type        = list(any)
   default     = []
 }

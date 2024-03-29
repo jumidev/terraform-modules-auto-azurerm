@@ -38,6 +38,11 @@ output "rotation_policy" {
   value = azurerm_key_vault_key.this.rotation_policy
 }
 
+output "time_before_expiry" {
+  description = "Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_key_vault_key.this.time_before_expiry
+}
+
 output "id" {
   description = "The Key Vault Key ID."
   value       = azurerm_key_vault_key.this.id

@@ -60,6 +60,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **phone** | number | No  | Phone number of the admin. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Key Vault Certificate Issuer. | 
 
 Additionally, all variables are provided as outputs.

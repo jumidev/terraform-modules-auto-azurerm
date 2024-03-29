@@ -28,7 +28,7 @@ variable "consistency_policy" {
 # consistency_policy block structure:
 #   consistency_level (string)        : (REQUIRED) The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'.
 #   max_interval_in_seconds (number)  : When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'.
-#   max_staleness_prefix (number)     : When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' – '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'.
+#   max_staleness_prefix (number)     : When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' – '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'. ~> **Note:** 'max_interval_in_seconds' and 'max_staleness_prefix' can only be set to custom values when 'consistency_level' is set to 'BoundedStaleness' - otherwise they will return the default values shown above.
 
 
 variable "geo_location" {
@@ -71,12 +71,12 @@ variable "capacity" {
 
 
 variable "create_mode" {
-  description = "The creation mode for the CosmosDB Account. Possible values are 'Default' and 'Restore'. Changing this forces a new resource to be created."
+  description = "The creation mode for the CosmosDB Account. Possible values are 'Default' and 'Restore'. Changing this forces a new resource to be created. ~> **NOTE:** 'create_mode' only works when 'backup.type' is 'Continuous'."
   type        = string
   default     = null
 }
 variable "default_identity_type" {
-  description = "The default identity for accessing Key Vault. Possible values are 'FirstPartyIdentity', 'SystemAssignedIdentity' or 'UserAssignedIdentity'. Defaults to 'FirstPartyIdentity'."
+  description = "The default identity for accessing Key Vault. Possible values are 'FirstPartyIdentity', 'SystemAssignedIdentity' or 'UserAssignedIdentity'. Defaults to 'FirstPartyIdentity'. ~> **NOTE:** When 'default_identity_type' is a 'UserAssignedIdentity' it must include the User Assigned Identity ID in the following format: 'UserAssignedIdentity=/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{userAssignedIdentityName}'."
   type        = string
   default     = "FirstPartyIdentity"
 }
@@ -86,7 +86,7 @@ variable "kind" {
   default     = "GlobalDocumentDB"
 }
 variable "ip_range_filter" {
-  description = "CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces."
+  description = "CosmosDB Firewall Support: This value specifies the set of IP addresses or IP address ranges in CIDR form to be included as the allowed list of client IPs for a given database account. IP addresses/ranges must be comma separated and must not contain any spaces. ~> **NOTE:** To enable the 'Allow access from the Azure portal' behavior, you should add the IP addresses provided by the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-the-azure-portal) to this list. ~> **NOTE:** To enable the 'Accept connections from within public Azure datacenters' behavior, you should add '0.0.0.0' to the list, see the [documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-configure-firewall#allow-requests-from-global-azure-datacenters-or-other-sources-within-azure) for more details."
   type        = string
   default     = null
 }
@@ -117,7 +117,7 @@ variable "capabilities" {
 }
 #
 # capabilities block structure:
-#   name (string)               : (REQUIRED) The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'.
+#   name (string)               : (REQUIRED) The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'. ~> **NOTE:** Setting 'MongoDBv3.4' also requires setting 'EnableMongo'. ~> **NOTE:** Only 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'MongoDBv3.4', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnableUniqueCompoundNestedDocs', 'EnableMongo16MBDocumentSupport', 'mongoEnableDocLevelTTL', 'EnableTtlOnCustomPath' and 'EnablePartialUniqueIndex' can be added to an existing Cosmos DB account. ~> **NOTE:** Only 'DisableRateLimitingResponses' and 'EnableMongoRetryableWrites' can be removed from an existing Cosmos DB account.
 
 
 variable "is_virtual_network_filter_enabled" {
@@ -126,7 +126,7 @@ variable "is_virtual_network_filter_enabled" {
   default     = null
 }
 variable "key_vault_key_id" {
-  description = "A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created."
+  description = "A versionless Key Vault Key ID for CMK encryption. Changing this forces a new resource to be created. ~> **NOTE:** When referencing an 'azurerm_key_vault_key' resource, use 'versionless_id' instead of 'id' ~> **NOTE:** In order to use a 'Custom Key' from Key Vault for encryption you must grant Azure Cosmos DB Service access to your key vault. For instructions on how to configure your Key Vault correctly please refer to the [product documentation](https://docs.microsoft.com/azure/cosmos-db/how-to-setup-cmk#add-an-access-policy-to-your-azure-key-vault-instance)"
   type        = string
   default     = null
 }
@@ -209,13 +209,13 @@ variable "identity" {
 
 
 variable "restore" {
-  description = "A 'restore' block."
+  description = "A 'restore' block. ~> **NOTE:** 'restore' should be set when 'create_mode' is 'Restore'."
   type        = map(any)
   default     = null
 }
 #
 # restore block structure            :
-#   source_cosmosdb_account_id (string): (REQUIRED) The resource ID of the restorable database account from which the restore has to be initiated. The example is '/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}'. Changing this forces a new resource to be created.
+#   source_cosmosdb_account_id (string): (REQUIRED) The resource ID of the restorable database account from which the restore has to be initiated. The example is '/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}'. Changing this forces a new resource to be created. ~> **NOTE:** Any database account with 'Continuous' type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by 'azurerm_cosmosdb_restorable_database_accounts'.
 #   restore_timestamp_in_utc (string)  : (REQUIRED) The creation time of the database or the collection (Datetime Format 'RFC 3339'). Changing this forces a new resource to be created.
 #   database (block)                   : A 'database' block. Changing this forces a new resource to be created.
 #

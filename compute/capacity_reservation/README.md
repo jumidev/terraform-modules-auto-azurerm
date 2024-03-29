@@ -60,6 +60,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **capacity** | number | No  | Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Capacity Reservation. | 
 
 Additionally, all variables are provided as outputs.

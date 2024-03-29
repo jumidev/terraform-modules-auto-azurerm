@@ -38,6 +38,11 @@ output "visibility_subscription_ids" {
   value = azurerm_private_link_service.this.visibility_subscription_ids
 }
 
+output "private_ip_address_version" {
+  description = "The version of the IP Protocol which should be used. At this time the only supported value is 'IPv4'. Defaults to 'IPv4'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_link_service.this.private_ip_address_version
+}
+
 output "alias" {
   description = "A globally unique DNS Name for your Private Link Service. You can use this alias to request a connection to your Private Link Service."
   value       = azurerm_private_link_service.this.alias

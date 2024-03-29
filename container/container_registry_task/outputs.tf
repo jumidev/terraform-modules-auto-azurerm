@@ -70,6 +70,11 @@ output "timeout_in_seconds" {
   value = azurerm_container_registry_task.this.timeout_in_seconds
 }
 
+output "enabled" {
+  description = "Should the trigger be enabled? Defaults to 'true'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_container_registry_task.this.enabled
+}
+
 output "id" {
   description = "The ID of the Container Registry Task."
   value       = azurerm_container_registry_task.this.id

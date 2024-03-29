@@ -26,6 +26,11 @@ output "tags" {
   value = azurerm_mssql_failover_group.this.tags
 }
 
+output "grace_minutes" {
+  description = "The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_mssql_failover_group.this.grace_minutes
+}
+
 output "id" {
   description = "The ID of the Failover Group."
   value       = azurerm_mssql_failover_group.this.id
@@ -42,7 +47,7 @@ output "location" {
 }
 
 output "role" {
-  description = "The replication role of the partner server. Possible values include 'Primary' or 'Secondary'."
+  description = "The replication role of the partner server. Possible values include 'Primary' or 'Secondary'. ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
   value       = azurerm_mssql_failover_group.this.role
 }
 
@@ -62,7 +67,7 @@ output "read" {
 }
 
 output "delete" {
-  description = "(Defaults to 30 minutes) Used when deleting the Failover Group."
+  description = "(Defaults to 30 minutes) Used when deleting the Failover Group. ## Import Failover Groups can be imported using the 'resource id', e.g. '''shell terraform import azurerm_mssql_failover_group.example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1 '''"
   value       = azurerm_mssql_failover_group.this.delete
 }
 

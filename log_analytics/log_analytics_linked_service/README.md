@@ -39,7 +39,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **read_access_id** | string |  The ID of the readable Resource that will be linked to the workspace. This should be used for linking to an Automation Account resource. | 
-| **write_access_id** | string |  The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource. | 
+| **write_access_id** | string |  The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource. ~> **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`). | 
 
 
 
@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **write_access_id** | string | No  | The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource. ~> **NOTE:** You must define at least one of the above access resource id attributes (e.g. `read_access_id` or `write_access_id`). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Log Analytics Linked Service ID. | 
 | **name** | string | No  | The generated name of the Linked Service. The format for this attribute is always `<workspace name>/<linked service type>`(e.g. `workspace1/Automation` or `workspace1/Cluster`) | 
 

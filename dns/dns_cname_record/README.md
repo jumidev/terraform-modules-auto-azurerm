@@ -44,7 +44,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **record** | string |  The target of the CNAME. | 
 | **target_resource_id** | string |  The Azure resource id of the target object. Conflicts with `record`. | 
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. ~> **Note:** either `record` OR `target_resource_id` must be specified, but not both. | 
 
 
 
@@ -52,7 +52,8 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. ~> **Note:** either `record` OR `target_resource_id` must be specified, but not both. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS CName Record ID. | 
-| **fqdn** | string | No  | The FQDN of the DNS CName Record. | 
+| **fqdn** | string | No  | The FQDN of the DNS CName Record. ~> **Note:** The FQDN of the DNS CNAME Record which has a full-stop at the end is by design. Please see the documentation for more information. | 
 
 Additionally, all variables are provided as outputs.

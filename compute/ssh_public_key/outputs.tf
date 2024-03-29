@@ -18,6 +18,11 @@ output "tags" {
   value = azurerm_ssh_public_key.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags which should be assigned to the SSH Public Key. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_ssh_public_key.this.tags
+}
+
 output "id" {
   description = "The ID of the SSH Public Key."
   value       = azurerm_ssh_public_key.this.id

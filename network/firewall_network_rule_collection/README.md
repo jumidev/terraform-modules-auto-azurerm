@@ -56,10 +56,10 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the rule. |
 | `description` | string | No | - | Specifies a description for the rule. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
-| `source_ip_groups` | list | No | - | A list of IP Group IDs for the rule. |
+| `source_ip_groups` | list | No | - | A list of IP Group IDs for the rule. -> **NOTE** At least one of 'source_addresses' and 'source_ip_groups' must be specified for a rule. |
 | `destination_addresses` | list | No | - | Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags). |
 | `destination_ip_groups` | list | No | - | A list of destination IP Group IDs for the rule. |
-| `destination_fqdns` | list | No | - | A list of destination FQDNS for the rule. |
+| `destination_fqdns` | list | No | - | A list of destination FQDNS for the rule. -> **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules). -> **NOTE** At least one of 'destination_addresses', 'destination_ip_groups' and 'destination_fqdns' must be specified for a rule. |
 | `destination_ports` | list | Yes | - | A list of destination ports. |
 | `protocols` | list | Yes | - | A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'. |
 

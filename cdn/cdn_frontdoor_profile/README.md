@@ -45,6 +45,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | Specifies a mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of this Front Door Profile. | 
 | **resource_guid** | string | No  | The UUID of this Front Door Profile which will be sent in the HTTP Header as the `X-Azure-FDID` attribute. | 
 

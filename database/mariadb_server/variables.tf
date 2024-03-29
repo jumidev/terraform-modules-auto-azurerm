@@ -26,7 +26,7 @@ variable "version" {
 
 }
 variable "ssl_enforcement_enabled" {
-  description = "(REQUIRED) Specifies if SSL should be enforced on connections. Possible values are 'true' and 'false'."
+  description = "(REQUIRED) Specifies if SSL should be enforced on connections. Possible values are 'true' and 'false'. -> **NOTE:** 'ssl_minimal_tls_version_enforced' must be set to 'TLSEnforcementDisabled' when 'ssl_enforcement_enabled' is set to 'false'."
   type        = bool
 
 }

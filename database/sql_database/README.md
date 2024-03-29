@@ -72,6 +72,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_endpoint** | string | No  | Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if `state` is `Enabled`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The SQL Database ID. | 
 | **creation_date** | string | No  | The creation date of the SQL Database. | 
 | **default_secondary_location** | string | No  | The default secondary location of the SQL Database. | 

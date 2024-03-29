@@ -33,7 +33,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **container_registry_id** | string |  The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created. | 
+| **container_registry_id** | string |  The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created. -> If `parent_registry_id` is not specified, the Connected Registry will be connected to the Container Registry identified by `container_registry_id`. | 
 | **name** | string |  The name which should be used for this Container Connected Registry. Changing this forces a new Container Connected Registry to be created. | 
 | **sync_token_id** | string |  The ID of the Container Registry Token which is used for synchronizing the Connected Registry. Changing this forces a new Container Connected Registry to be created. | 
 
@@ -58,7 +58,7 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the artifact that wants to be subscribed for the Connected Registry. |
 | `action` | string | Yes | - | The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any). |
 | `tag` | string | No | - | The tag of the artifact that wants to be subscribed for the Connected Registry. |
-| `digest` | string | No | - | The digest of the artifact that wants to be subscribed for the Connected Registry. |
+| `digest` | string | No | - | The digest of the artifact that wants to be subscribed for the Connected Registry. ~> **NOTE:** One of either 'tag' or 'digest' can be specified. |
 
 
 
@@ -66,6 +66,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **digest** | string | No  | The digest of the artifact that wants to be subscribed for the Connected Registry. ~> **NOTE:** One of either `tag` or `digest` can be specified. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Container Connected Registry. | 
 
 Additionally, all variables are provided as outputs.

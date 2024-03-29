@@ -41,11 +41,11 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
 
 
 variable "platform" {
-  description = "A 'platform' block."
+  description = "A 'platform' block. ~> **NOTE:** The 'platform' is required for non-system task (when 'is_system_task' is set to 'false')."
   type        = map(any)
   default     = null
 }
@@ -89,7 +89,7 @@ variable "encoded_step" {
 
 
 variable "file_step" {
-  description = "A 'file_step' block."
+  description = "A 'file_step' block. ~> **NOTE:** For non-system task (when 'is_system_task' is set to 'false'), one and only one of the 'docker_step', 'encoded_step' and 'file_step' should be specified."
   type        = map(any)
   default     = null
 }
@@ -153,7 +153,7 @@ variable "timer_trigger" {
 
 
 variable "is_system_task" {
-  description = "Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to 'false'."
+  description = "Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to 'false'. ~> **NOTE:** For system task, the 'name' has to be set as 'quicktask'. And the following properties can't be specified: 'docker_step', 'encoded_step', 'file_step', 'platform', 'base_image_trigger', 'source_trigger', 'timer_trigger'."
   type        = bool
   default     = false
 }

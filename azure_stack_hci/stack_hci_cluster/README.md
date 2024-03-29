@@ -38,7 +38,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **tenant_id** | string |  The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created. | 
+| **tenant_id** | string |  The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created. ~> **NOTE** If unspecified the Tenant ID of the Provider will be used. | 
 | **tags** | map |  A mapping of tags which should be assigned to the Azure Stack HCI Cluster. | 
 | **automanage_configuration_id** | string |  The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster. | 
 
@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **automanage_configuration_id** | string | No  | The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Azure Stack HCI Cluster. | 
 
 Additionally, all variables are provided as outputs.

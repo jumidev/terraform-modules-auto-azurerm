@@ -98,8 +98,23 @@ output "storage_account_type" {
   value = azurerm_mssql_database.this.storage_account_type
 }
 
+output "identity_ids" {
+  description = "Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Database. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_mssql_database.this.identity_ids
+}
+
 output "id" {
   description = "The ID of the MS SQL Database."
   value       = azurerm_mssql_database.this.id
+}
+
+output "principal_id" {
+  description = "The Principal ID for the Service Principal associated with the Identity of this SQL Database."
+  value       = azurerm_mssql_database.this.principal_id
+}
+
+output "tenant_id" {
+  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Database. -> You can access the Principal ID via 'azurerm_mssql_database.example.identity.0.principal_id' and the Tenant ID via 'azurerm_mssql_database.example.identity.0.tenant_id'"
+  value       = azurerm_mssql_database.this.tenant_id
 }
 

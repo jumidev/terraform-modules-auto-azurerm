@@ -41,7 +41,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **ignore_missing_vnet_service_endpoint** | bool |  `False`  |  Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`. | 
+| **ignore_missing_vnet_service_endpoint** | bool |  `False`  |  Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`. ~> **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule. | 
 
 
 
@@ -49,6 +49,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **ignore_missing_vnet_service_endpoint** | bool | No  | Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to `false`. ~> **NOTE:** If `ignore_missing_vnet_service_endpoint` is false, and the target subnet does not contain the `Microsoft.SQL` endpoint in the `service_endpoints` array, the deployment will fail when it tries to create the SQL virtual network rule. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the SQL virtual network rule. | 
 
 Additionally, all variables are provided as outputs.

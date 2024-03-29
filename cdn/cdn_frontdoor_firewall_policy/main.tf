@@ -16,8 +16,9 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "this" {
   ########################################
   # optional vars
   ########################################
-  enabled      = var.enabled # Default: True
-  redirect_url = var.redirect_url
+  enabled                    = var.enabled                    # Default: True
+  request_body_check_enabled = var.request_body_check_enabled # Default: True
+  redirect_url               = var.redirect_url
 
   dynamic "custom_rule" { # var.custom_rule
     for_each = var.custom_rule != null ? var.custom_rule : []

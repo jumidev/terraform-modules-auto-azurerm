@@ -14,6 +14,11 @@ output "value" {
   value = azurerm_mysql_configuration.this.value
 }
 
+output "value" {
+  description = "Specifies the value of the MySQL Configuration. See the MySQL documentation for valid values. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_mysql_configuration.this.value
+}
+
 output "id" {
   description = "The ID of the MySQL Configuration."
   value       = azurerm_mysql_configuration.this.id

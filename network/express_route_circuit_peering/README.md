@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **peering_type** | string |  The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. | 
+| **peering_type** | string |  The type of the ExpressRoute Circuit Peering. Acceptable values include `AzurePrivatePeering`, `AzurePublicPeering` and `MicrosoftPeering`. ~> **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering. | 
 | **express_route_circuit_name** | string |  The name of the ExpressRoute Circuit in which to create the Peering. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group in which to create the Express Route Circuit Peering. Changing this forces a new resource to be created. | 
 | **vlan_id** | string |  A valid VLAN ID to establish this peering on. | 
@@ -69,7 +69,7 @@ tfstate_store = {
 | `secondary_peer_address_prefix` | string | Yes | - | A subnet for the secondary link. |
 | `enabled` | bool | No | True | A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'. |
 | `microsoft_peering` | [block](#microsoft_peering-block-structure) | No | - | A 'microsoft_peering' block. |
-| `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. |
+| `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. ~> **NOTE:** 'ipv6' can be specified when 'peering_type' is 'MicrosoftPeering' or 'AzurePrivatePeering' |
 
 ### `microsoft_peering` block structure
 
@@ -86,6 +86,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **advertised_communities** | string | No  | The communities of Bgp Peering specified for microsoft peering. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the ExpressRoute Circuit Peering. | 
 | **azure_asn** | string | No  | The ASN used by Azure. | 
 | **primary_azure_port** | string | No  | The Primary Port used by Azure for this Peering. | 

@@ -122,6 +122,11 @@ output "restore" {
   value = azurerm_cosmosdb_account.this.restore
 }
 
+output "collection_names" {
+  description = "A list of the collection names for the restore request. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_account.this.collection_names
+}
+
 output "id" {
   description = "The CosmosDB Account ID."
   value       = azurerm_cosmosdb_account.this.id

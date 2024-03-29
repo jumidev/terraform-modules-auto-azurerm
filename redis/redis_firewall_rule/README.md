@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **end_ip** | string | No  | The highest IP address included in the range. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Redis Firewall Rule. | 
 
 Additionally, all variables are provided as outputs.

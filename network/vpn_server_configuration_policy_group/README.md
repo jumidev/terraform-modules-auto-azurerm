@@ -49,6 +49,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | The value of the attribute that is used for the VPN Server Configuration Policy member. In addition to the arguments above, the following attributes are exported: | 
 | **id** | string | No  | The ID of the VPN Server Configuration Policy Group. | 
 
 Additionally, all variables are provided as outputs.

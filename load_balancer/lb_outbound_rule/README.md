@@ -60,6 +60,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **name** | string | No  | The name of the Frontend IP Configuration. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Load Balancer Outbound Rule. | 
 
 Additionally, all variables are provided as outputs.

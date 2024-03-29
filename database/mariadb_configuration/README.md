@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | Specifies the value of the MariaDB Configuration. See the MariaDB documentation for valid values. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MariaDB Configuration. | 
 
 Additionally, all variables are provided as outputs.

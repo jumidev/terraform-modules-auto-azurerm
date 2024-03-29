@@ -49,13 +49,6 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **rotation_policy** | [block](#rotation_policy-block-structure) |  -  |  -  |  A `rotation_policy` block. | 
 
-### `automatic` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-
 ### `rotation_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,12 +57,20 @@ tfstate_store = {
 | `automatic` | [block](#automatic-block-structure) | No | - | An 'automatic' block. |
 | `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
+### `automatic` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **time_before_expiry** | string | No  | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Key Vault Key ID. | 
 | **resource_id** | string | No  | The (Versioned) ID for this Key Vault Key. This property points to a specific version of a Key Vault Key, as such using this won't auto-rotate values if used in other Azure Services. | 
 | **resource_versionless_id** | string | No  | The Versionless ID of the Key Vault Key. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Key is updated. | 

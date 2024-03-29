@@ -22,7 +22,7 @@ variable "nat_ip_configuration" {
 #
 # nat_ip_configuration block structure:
 #   name (string)                       : (REQUIRED) Specifies the name which should be used for the NAT IP Configuration. Changing this forces a new resource to be created.
-#   subnet_id (string)                  : (REQUIRED) Specifies the ID of the Subnet which should be used for the Private Link Service.
+#   subnet_id (string)                  : (REQUIRED) Specifies the ID of the Subnet which should be used for the Private Link Service. -> **NOTE:** Verify that the Subnet's 'enforce_private_link_service_network_policies' attribute is set to 'true'.
 #   primary (bool)                      : (REQUIRED) Is this is the Primary IP Configuration? Changing this forces a new resource to be created.
 #   private_ip_address (string)         : Specifies a Private Static IP Address for this IP Configuration.
 #   private_ip_address_version (string) : The version of the IP Protocol which should be used. At this time the only supported value is 'IPv4'. Defaults to 'IPv4'.
@@ -57,7 +57,7 @@ variable "tags" {
   default     = null
 }
 variable "visibility_subscription_ids" {
-  description = "A list of Subscription UUID/GUID's that will be able to see this Private Link Service."
+  description = "A list of Subscription UUID/GUID's that will be able to see this Private Link Service. -> **NOTE:** If no Subscription IDs are specified then Azure allows every Subscription to see this Private Link Service."
   type        = list(any)
   default     = []
 }

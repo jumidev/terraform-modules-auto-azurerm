@@ -54,16 +54,16 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' ~> **NOTE:** When 'type' is set to 'SystemAssigned', the assigned 'principal_id' and 'tenant_id' can be retrieved after the Microsoft SQL Server has been created. More details are available below.
 
 
 variable "transparent_data_encryption_key_vault_key_id" {
-  description = "The fully versioned 'Key Vault' 'Key' URL (e.g. ''https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>') to be used as the 'Customer Managed Key'(CMK/BYOK) for the 'Transparent Data Encryption'(TDE) layer."
+  description = "The fully versioned 'Key Vault' 'Key' URL (e.g. ''https://<YourVaultName>.vault.azure.net/keys/<YourKeyName>/<YourKeyVersion>') to be used as the 'Customer Managed Key'(CMK/BYOK) for the 'Transparent Data Encryption'(TDE) layer. ~> **NOTE:** To successfully deploy a 'Microsoft SQL Server' in CMK/BYOK TDE the 'Key Vault' must have 'Soft-delete' and 'purge protection' enabled to protect from data loss due to accidental key and/or key vault deletion. The 'Key Vault' and the 'Microsoft SQL Server' 'User Managed Identity Instance' must belong to the same 'Azure Active Directory' 'tenant'. ~> **NOTE:**  Cross-tenant 'Key Vault' and 'Microsoft SQL Server' interactions are not supported. Please see the [product documentation](https://learn.microsoft.com/azure/azure-sql/database/transparent-data-encryption-byok-overview?view=azuresql#requirements-for-configuring-customer-managed-tde) for more information. ~> **NOTE:** When using a firewall with a 'Key Vault', you must enable the option 'Allow trusted Microsoft services to bypass the firewall'."
   type        = string
   default     = null
 }
 variable "minimum_tls_version" {
-  description = "The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: '1.0', '1.1' , '1.2' and 'Disabled'. Defaults to '1.2'."
+  description = "The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: '1.0', '1.1' , '1.2' and 'Disabled'. Defaults to '1.2'. ~> **NOTE:** The 'minimum_tls_version' is set to 'Disabled' means all TLS versions are allowed. After you enforce a version of 'minimum_tls_version', it's not possible to revert to 'Disabled'."
   type        = string
   default     = "1.2"
 }

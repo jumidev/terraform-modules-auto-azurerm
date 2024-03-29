@@ -34,7 +34,7 @@ variable "target_resource_id" {
   default     = null
 }
 variable "tags" {
-  description = "A mapping of tags to assign to the resource."
+  description = "A mapping of tags to assign to the resource. ~> **Note:** either 'record' OR 'target_resource_id' must be specified, but not both."
   type        = map(any)
   default     = null
 }

@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **metadata** | string | No  | The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Policy Exemption id. | 
 
 Additionally, all variables are provided as outputs.

@@ -12,8 +12,12 @@ source = {
 
 inputs = {
    name = "The name which should be used for this SQL User Defined Function..."   
-   container_id = "The id of the Cosmos DB SQL Container to create the SQL User Defined Function wi..."   
+   # container_id → set in component_inputs
    body = "Body of the User Defined Function"   
+}
+
+component_inputs = {
+   container_id = "path/to/cosmosdb_sql_container_component:id"   
 }
 
 tfstate_store = {
@@ -38,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **body** | string | No  | Body of the User Defined Function. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the SQL User Defined Function. | 
 
 Additionally, all variables are provided as outputs.

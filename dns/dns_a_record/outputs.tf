@@ -26,13 +26,18 @@ output "tags" {
   value = azurerm_dns_a_record.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the resource. ~> **Note:** either 'records' OR 'target_resource_id' must be specified, but not both. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_dns_a_record.this.tags
+}
+
 output "id" {
   description = "The DNS A Record ID."
   value       = azurerm_dns_a_record.this.id
 }
 
 output "fqdn" {
-  description = "The FQDN of the DNS A Record."
+  description = "The FQDN of the DNS A Record. ~> **Note:** The FQDN of the DNS A Record which has a full-stop at the end is by design. Please [see the documentation](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) for more information."
   value       = azurerm_dns_a_record.this.fqdn
 }
 

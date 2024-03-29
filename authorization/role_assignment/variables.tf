@@ -6,7 +6,7 @@ variable "scope" {
 
 }
 variable "principal_id" {
-  description = "(REQUIRED) The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The ID of the Principal (User, Group or Service Principal) to assign the Role Definition to. Changing this forces a new resource to be created. ~> **NOTE:** The Principal ID is also known as the Object ID (ie not the 'Application ID' for applications)."
   type        = string
 
 }
@@ -28,6 +28,11 @@ variable "role_definition_name" {
   type        = string
   default     = null
 }
+variable "principal_type" {
+  description = "The type of the 'principal_id'. Possible values are 'User', 'Group' and 'ServicePrincipal'. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
 variable "condition" {
   description = "The condition that limits the resources that the role can be assigned to. Changing this forces a new resource to be created."
   type        = string
@@ -39,7 +44,7 @@ variable "condition_version" {
   default     = null
 }
 variable "delegated_managed_identity_resource_id" {
-  description = "The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created."
+  description = "The delegated Azure Resource Id which contains a Managed Identity. Changing this forces a new resource to be created. ~> **NOTE:** this field is only used in cross tenant scenario."
   type        = string
   default     = null
 }
@@ -49,7 +54,7 @@ variable "description" {
   default     = null
 }
 variable "skip_service_principal_aad_check" {
-  description = "If the 'principal_id' is a newly provisioned 'Service Principal' set this value to 'true' to skip the 'Azure Active Directory' check which may fail due to replication lag. This argument is only valid if the 'principal_id' is a 'Service Principal' identity. Defaults to 'false'."
+  description = "If the 'principal_id' is a newly provisioned 'Service Principal' set this value to 'true' to skip the 'Azure Active Directory' check which may fail due to replication lag. This argument is only valid if the 'principal_id' is a 'Service Principal' identity. Defaults to 'false'. ~> **NOTE:** If it is not a 'Service Principal' identity it will cause the role assignment to fail."
   type        = bool
   default     = false
 }

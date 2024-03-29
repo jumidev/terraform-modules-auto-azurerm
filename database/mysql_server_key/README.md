@@ -41,6 +41,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **key_vault_key_id** | string | No  | The URL to a Key Vault Key. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MySQL Server Key. | 
 
 Additionally, all variables are provided as outputs.

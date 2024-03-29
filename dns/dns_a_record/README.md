@@ -35,7 +35,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **name** | string |  -  |  The name of the DNS A Record. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  Specifies the resource group where the DNS Zone (parent resource) exists. Changing this forces a new resource to be created. | 
-| **zone_name** | string |  -  |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
+| **zone_name** | string |  -  |  Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. ~> **Note:** The `zone_name` should be the name of resource `azurerm_dns_zone` instead of `azurerm_private_dns_zone`. | 
 | **ttl** | number |  `300`  |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables
@@ -44,7 +44,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **records** | string |  List of IPv4 Addresses. Conflicts with `target_resource_id`. | 
 | **target_resource_id** | string |  The Azure resource id of the target object. Conflicts with `records`. | 
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. ~> **Note:** either `records` OR `target_resource_id` must be specified, but not both. | 
 
 
 
@@ -52,7 +52,8 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. ~> **Note:** either `records` OR `target_resource_id` must be specified, but not both. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS A Record ID. | 
-| **fqdn** | string | No  | The FQDN of the DNS A Record. | 
+| **fqdn** | string | No  | The FQDN of the DNS A Record. ~> **Note:** The FQDN of the DNS A Record which has a full-stop at the end is by design. Please [see the documentation](https://en.wikipedia.org/wiki/Fully_qualified_domain_name) for more information. | 
 
 Additionally, all variables are provided as outputs.

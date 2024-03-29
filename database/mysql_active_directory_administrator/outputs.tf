@@ -18,6 +18,11 @@ output "tenant_id" {
   value = azurerm_mysql_active_directory_administrator.this.tenant_id
 }
 
+output "tenant_id" {
+  description = "The Azure Tenant ID In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_mysql_active_directory_administrator.this.tenant_id
+}
+
 output "id" {
   description = "The ID of the MySQL Active Directory Administrator."
   value       = azurerm_mysql_active_directory_administrator.this.id

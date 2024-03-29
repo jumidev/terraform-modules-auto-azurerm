@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Load Balancer should exist. Changing this forces a new Load Balancer to be created. | 
 | **frontend_ip_configuration** | string |  -  |  -  |  One or more `frontend_ip_configuration` blocks. | 
-| **sku** | string |  `Basic`  |  -  |  The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created. | 
+| **sku** | string |  `Basic`  |  -  |  The SKU of the Azure Load Balancer. Accepted values are `Basic`, `Standard` and `Gateway`. Defaults to `Basic`. Changing this forces a new resource to be created. -> **NOTE:** The `Microsoft.Network/AllowGatewayLoadBalancer` feature is required to be registered in order to use the `Gateway` SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that. | 
 | **sku_tier** | string |  `Regional`  |  `Global`, `Regional`  |  `sku_tier` -  The SKU tier of this Load Balancer. Possible values are `Global` and `Regional`. Defaults to `Regional`. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **public_ip_prefix_id** | string | No  | The ID of a Public IP Prefix which is associated with the Load Balancer. | 
 | **id** | string | No  | The id of the Frontend IP Configuration. | 
 | **frontend_ip_configuration** | block | No  | A `frontend_ip_configuration` block. | 
 | **private_ip_address** | string | No  | Private IP Address to assign to the Load Balancer. | 
@@ -58,7 +59,6 @@ tfstate_store = {
 | **outbound_rules** | string | No  | The list of IDs outbound rules that use this frontend IP. | 
 | **private_ip_address_allocation** | string | No  | The allocation method for the Private IP Address used by this Load Balancer. Possible values are `Dynamic` and `Static`. | 
 | **public_ip_address_id** | string | No  | The ID of a Public IP Address which is associated with this Load Balancer. | 
-| **public_ip_prefix_id** | string | No  | The ID of a Public IP Prefix which is associated with the Load Balancer. | 
 | **subnet_id** | string | No  | The ID of the Subnet which is associated with the IP Configuration. | 
 
 Additionally, all variables are provided as outputs.

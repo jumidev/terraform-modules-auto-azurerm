@@ -32,8 +32,8 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **name** | string |  The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created. | 
-| **kubernetes_cluster_id** | string |  The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created. ~> **NOTE:** A Windows Node Pool cannot have a `name` longer than 6 characters. | 
+| **kubernetes_cluster_id** | string |  The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created. ~> **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be `VirtualMachineScaleSets` to attach multiple node pools. | 
 | **vm_size** | string |  The SKU which should be used for the Virtual Machines used in this Node Pool. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
@@ -41,15 +41,15 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **capacity_reservation_group_id** | string |  -  |  -  |  Specifies the ID of the Capacity Reservation Group where this Node Pool should exist. Changing this forces a new resource to be created. | 
-| **custom_ca_trust_enabled** | bool |  -  |  -  |  Specifies whether to trust a Custom CA. | 
+| **custom_ca_trust_enabled** | bool |  -  |  -  |  Specifies whether to trust a Custom CA. -> **Note:** This requires that the Preview Feature `Microsoft.ContainerService/CustomCATrustPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information. | 
 | **enable_auto_scaling** | bool |  -  |  -  |  Whether to enable [auto-scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler). | 
-| **enable_host_encryption** | bool |  -  |  -  |  Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created. | 
+| **enable_host_encryption** | bool |  -  |  -  |  Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created. ~> **NOTE:** Additional fields must be configured depending on the value of this field - see below. | 
 | **enable_node_public_ip** | bool |  -  |  -  |  Should each node have a Public IP Address? Changing this forces a new resource to be created. | 
-| **eviction_policy** | string |  -  |  `Deallocate`, `Delete`  |  The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created. | 
+| **eviction_policy** | string |  `Delete`  |  `Deallocate`, `Delete`  |  The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are `Deallocate` and `Delete`. Changing this forces a new resource to be created. ~> **Note:** An Eviction Policy can only be configured when `priority` is set to `Spot` and will default to `Delete` unless otherwise specified. | 
 | **host_group_id** | string |  -  |  -  |  The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created. | 
 | **kubelet_config** | [block](#kubelet_config-block-structure) |  -  |  -  |  A `kubelet_config` block. Changing this forces a new resource to be created. | 
 | **linux_os_config** | [block](#linux_os_config-block-structure) |  -  |  -  |  A `linux_os_config` block. Changing this forces a new resource to be created. | 
-| **fips_enabled** | bool |  -  |  -  |  Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created. | 
+| **fips_enabled** | bool |  -  |  -  |  Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created. ~> **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview). | 
 | **gpu_instance** | string |  -  |  `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g`, `MIG7g`  |  Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are `MIG1g`, `MIG2g`, `MIG3g`, `MIG4g` and `MIG7g`. Changing this forces a new resource to be created. | 
 | **kubelet_disk_type** | string |  -  |  `OS`, `Temporary`  |  The type of disk used by kubelet. Possible values are `OS` and `Temporary`. | 
 | **max_pods** | number |  -  |  -  |  The maximum number of pods that can run on each agent. Changing this forces a new resource to be created. | 
@@ -59,69 +59,39 @@ tfstate_store = {
 | **node_labels** | string |  -  |  -  |  A map of Kubernetes labels which should be applied to nodes in this Node Pool. | 
 | **node_public_ip_prefix_id** | string |  -  |  -  |  Resource ID for the Public IP Addresses Prefix for the nodes in this Node Pool. `enable_node_public_ip` should be `true`. Changing this forces a new resource to be created. | 
 | **node_taints** | list |  -  |  -  |  A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created. | 
-| **orchestrator_version** | string |  -  |  -  |  Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). | 
+| **orchestrator_version** | string |  -  |  -  |  Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as `1.22` are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). -> **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first. | 
 | **os_disk_size_gb** | number |  -  |  -  |  The Agent Operating System disk size in GB. Changing this forces a new resource to be created. | 
 | **os_disk_type** | string |  `Managed`  |  `Ephemeral`, `Managed`  |  The type of disk which should be used for the Operating System. Possible values are `Ephemeral` and `Managed`. Defaults to `Managed`. Changing this forces a new resource to be created. | 
 | **pod_subnet_id** | string |  -  |  -  |  The ID of the Subnet where the pods in the Node Pool should exist. Changing this forces a new resource to be created. | 
 | **os_sku** | string |  `Ubuntu`  |  `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019`, `Windows2022`  |  Specifies the OS SKU used by the agent pool. Possible values are `AzureLinux`, `CBLMariner`, `Mariner`, `Ubuntu`, `Windows2019` and `Windows2022`. If not specified, the default is `Ubuntu` if OSType=Linux or `Windows2019` if OSType=Windows. And the default Windows OSSKU will be changed to `Windows2022` after Windows2019 is deprecated. Changing this forces a new resource to be created. | 
 | **os_type** | string |  `Linux`  |  `Linux`, `Windows`  |  The Operating System which should be used for this Node Pool. Changing this forces a new resource to be created. Possible values are `Linux` and `Windows`. Defaults to `Linux`. | 
 | **priority** | string |  `Regular`  |  `Regular`, `Spot`  |  The Priority for Virtual Machines within the Virtual Machine Scale Set that powers this Node Pool. Possible values are `Regular` and `Spot`. Defaults to `Regular`. Changing this forces a new resource to be created. | 
-| **proximity_placement_group_id** | string |  -  |  -  |  The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created. | 
-| **spot_max_price** | string |  -  |  `-1`  |  The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created. | 
+| **proximity_placement_group_id** | string |  -  |  -  |  The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created. -> **Note:** When setting `priority` to Spot - you must configure an `eviction_policy`, `spot_max_price` and add the applicable `node_labels` and `node_taints` [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool). | 
+| **spot_max_price** | string |  -  |  `-1`, `priority`, `Spot`  |  The maximum price you're willing to pay in USD per Virtual Machine. Valid values are `-1` (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created. ~> **Note:** This field can only be configured when `priority` is set to `Spot`. | 
 | **snapshot_id** | string |  -  |  -  |  The ID of the Snapshot which should be used to create this Node Pool. Changing this forces a new resource to be created. | 
-| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. ~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's `ignore_changes` functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API. | 
 | **scale_down_mode** | string |  `Delete`  |  `Delete`, `Deallocate`  |  Specifies how the node pool should deal with scaled-down nodes. Allowed values are `Delete` and `Deallocate`. Defaults to `Delete`. | 
 | **ultra_ssd_enabled** | bool |  `False`  |  -  |  Used to specify whether the UltraSSD is enabled in the Node Pool. Defaults to `false`. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. Changing this forces a new resource to be created. | 
 | **upgrade_settings** | [block](#upgrade_settings-block-structure) |  -  |  -  |  A `upgrade_settings` block. | 
-| **vnet_subnet_id** | string |  -  |  -  |  The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created. | 
+| **vnet_subnet_id** | string |  -  |  -  |  The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created. ~> **NOTE:** A route table must be configured on this Subnet. | 
 | **windows_profile** | [block](#windows_profile-block-structure) |  -  |  -  |  A `windows_profile` block. Changing this forces a new resource to be created. | 
-| **workload_runtime** | string |  -  |  `OCIContainer`, `WasmWasi`, `KataMshvVmIsolation`  |  Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`. | 
+| **workload_runtime** | string |  -  |  `OCIContainer`, `WasmWasi`, `KataMshvVmIsolation`  |  Used to specify the workload runtime. Allowed values are `OCIContainer`, `WasmWasi` and `KataMshvVmIsolation`. ~> **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools) ~> **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing) | 
 | **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Kubernetes Cluster Node Pool should be located. Changing this forces a new Kubernetes Cluster Node Pool to be created. | 
 | **max_count** | number |  -  |  `0`, `1000`, `min_count`  |  The maximum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be greater than or equal to `min_count`. | 
 | **min_count** | number |  -  |  `0`, `1000`, `max_count`  |  The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`. | 
 | **node_count** | number |  -  |  `0`, `1000`, `1`  |  The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools. | 
-
-### `linux_os_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | number | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
-| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-
-### `node_network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. |
-
-### `kubelet_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created. |
-| `container_log_max_line` | number | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created. |
-| `container_log_max_size_mb` | number | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created. |
-| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created. |
-| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. Changing this forces a new resource to be created. |
-| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created. |
-| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created. |
-| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created. |
-| `pod_max_pid` | number | No | - | Specifies the maximum number of processes per pod. Changing this forces a new resource to be created. |
-| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created. |
-
-### `windows_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. |
 
 ### `upgrade_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_surge` | string | Yes | - | The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. |
+
+### `windows_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade. |
 
 ### `sysctl_config` block structure
 
@@ -157,12 +127,43 @@ tfstate_store = {
 | `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 | `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. Changing this forces a new resource to be created. |
 
+### `kubelet_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). Changing this forces a new resource to be created. |
+| `container_log_max_line` | number | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. Changing this forces a new resource to be created. |
+| `container_log_max_size_mb` | number | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. Changing this forces a new resource to be created. |
+| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? Changing this forces a new resource to be created. |
+| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. Changing this forces a new resource to be created. |
+| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static', Changing this forces a new resource to be created. |
+| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. Changing this forces a new resource to be created. |
+| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. Changing this forces a new resource to be created. |
+| `pod_max_pid` | number | No | - | Specifies the maximum number of processes per pod. Changing this forces a new resource to be created. |
+| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. Changing this forces a new resource to be created. |
+
+### `node_network_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | number | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
+| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **outbound_nat_enabled** | bool | No  | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to `true`. Changing this forces a new resource to be created. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than `max_count` during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Kubernetes Cluster Node Pool. | 
 
 Additionally, all variables are provided as outputs.

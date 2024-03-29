@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Redis Enterprise Cluster. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Redis Enterprise Cluster. | 
 | **hostname** | string | No  | DNS name of the cluster endpoint. | 
 

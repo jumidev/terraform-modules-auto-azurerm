@@ -18,6 +18,11 @@ output "tags" {
   value = azurerm_capacity_reservation.this.tags
 }
 
+output "capacity" {
+  description = "Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_capacity_reservation.this.capacity
+}
+
 output "id" {
   description = "The ID of the Capacity Reservation."
   value       = azurerm_capacity_reservation.this.id

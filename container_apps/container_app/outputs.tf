@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_container_app.this.tags
 }
 
+output "username" {
+  description = "The username to use for this Container Registry, 'password_secret_name' must also be supplied.. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_container_app.this.username
+}
+
 output "id" {
   description = "The ID of the Container App."
   value       = azurerm_container_app.this.id

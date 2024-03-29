@@ -42,21 +42,11 @@ tfstate_store = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **link1** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
-| **link2** | [block](#link-block-structure) |  -  |  A list of `link` blocks. | 
+| **link1** | list |  -  |  A list of `link` blocks. | 
+| **link2** | list |  -  |  A list of `link` blocks. | 
 | **billing_type** | string |  `MeteredData`, `UnlimitedData`  |  The billing type of the Express Route Port. Possible values are `MeteredData` and `UnlimitedData`. | 
 | **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Express Route Port. | 
-
-### `link` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_enabled` | bool | No | False | Whether enable administration state on the Express Route Port Link? Defaults to 'false'. |
-| `macsec_cipher` | string | No | GcmAes128 | The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'. |
-| `macsec_ckn_keyvault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link. |
-| `macsec_cak_keyvault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link. |
-| `macsec_sci_enabled` | bool | No | False | Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'. |
 
 ### `identity` block structure
 
@@ -71,10 +61,11 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **macsec_sci_enabled** | bool | No  | Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to `false`. ~> **NOTE** `macsec_ckn_keyvault_secret_id` and `macsec_cak_keyvault_secret_id` should be used together with `identity`, so that the Express Route Port instance have the right permission to access the Key Vault. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of this Express Route Port Link. | 
 | **identity** | block | No  | A `identity` block. | 
-| **link1** | block | No  | A list of `link` blocks. | 
-| **link2** | block | No  | A list of `link` blocks. | 
+| **link1** | list | No  | A list of `link` blocks. | 
+| **link2** | list | No  | A list of `link` blocks. | 
 | **guid** | string | No  | The resource GUID of the Express Route Port. | 
 | **ethertype** | string | No  | The EtherType of the Express Route Port. | 
 | **mtu** | string | No  | The maximum transmission unit of the Express Route Port. | 

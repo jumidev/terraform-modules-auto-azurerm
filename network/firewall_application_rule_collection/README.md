@@ -47,6 +47,13 @@ tfstate_store = {
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,17 +61,10 @@ tfstate_store = {
 | `name` | string | Yes | - | Specifies the name of the rule. |
 | `description` | string | No | - | Specifies a description for the rule. |
 | `source_addresses` | list | No | - | A list of source IP addresses and/or IP ranges. |
-| `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. |
-| `fqdn_tags` | map | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
+| `source_ip_groups` | list | No | - | A list of source IP Group IDs for the rule. -> **NOTE** At least one of 'source_addresses' and 'source_ip_groups' must be specified for a rule. |
+| `fqdn_tags` | list | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
 | `target_fqdns` | list | No | - | A list of FQDNs. |
 | `protocol` | [block](#protocol-block-structure) | No | - | One or more 'protocol' blocks. |
-
-### `protocol` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | Specify a port for the connection. |
-| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
 
 
 

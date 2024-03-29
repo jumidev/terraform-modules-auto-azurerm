@@ -10,6 +10,11 @@ output "metadata" {
   value = azurerm_storage_queue.this.metadata
 }
 
+output "metadata" {
+  description = "A mapping of MetaData which should be assigned to this Storage Queue. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_queue.this.metadata
+}
+
 output "id" {
   description = "The ID of the Storage Queue."
   value       = azurerm_storage_queue.this.id

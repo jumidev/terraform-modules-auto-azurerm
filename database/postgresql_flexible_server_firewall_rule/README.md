@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **end_ip_address** | string | No  | The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the PostgreSQL Flexible Server Firewall Rule. | 
 
 Additionally, all variables are provided as outputs.

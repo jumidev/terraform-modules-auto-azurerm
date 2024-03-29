@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_active_directory_domain_service.this.tags
 }
 
+output "tls_v1_enabled" {
+  description = "Whether to enable legacy TLS v1 support. Defaults to 'false'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_active_directory_domain_service.this.tls_v1_enabled
+}
+
 output "id" {
   description = "A unique ID for the replica set."
   value       = azurerm_active_directory_domain_service.this.id

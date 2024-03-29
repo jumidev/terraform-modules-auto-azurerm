@@ -14,6 +14,11 @@ output "ttl" {
   value = azurerm_dns_caa_record.this.ttl
 }
 
+output "value" {
+  description = "A property value such as a registrar domain. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_dns_caa_record.this.value
+}
+
 output "id" {
   description = "The DNS CAA Record ID."
   value       = azurerm_dns_caa_record.this.id

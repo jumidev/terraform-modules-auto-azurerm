@@ -26,7 +26,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include 'SystemAssigned' or 'UserAssigned'.
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource. ~> **NOTE:** 'identity_ids' are required when 'type' is set to 'UserAssigned'.
 
 
 variable "tags" {

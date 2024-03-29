@@ -49,7 +49,7 @@ variable "throughput" {
   default     = null
 }
 variable "autoscale_settings" {
-  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires 'partition_key_path' to be set."
+  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. Requires 'partition_key_path' to be set. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed."
   type        = map(any)
   default     = null
 }
@@ -71,12 +71,12 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
-# spatial_index block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
-#
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
+#
+# spatial_index block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
 #
 # composite_index block structure:
 #   index (block)                  : (REQUIRED) One or more 'index' blocks.

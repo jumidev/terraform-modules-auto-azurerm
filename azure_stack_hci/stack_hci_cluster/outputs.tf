@@ -26,6 +26,11 @@ output "automanage_configuration_id" {
   value = azurerm_stack_hci_cluster.this.automanage_configuration_id
 }
 
+output "automanage_configuration_id" {
+  description = "The ID of the Automanage Configuration assigned to the Azure Stack HCI Cluster. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_stack_hci_cluster.this.automanage_configuration_id
+}
+
 output "id" {
   description = "The ID of the Azure Stack HCI Cluster."
   value       = azurerm_stack_hci_cluster.this.id

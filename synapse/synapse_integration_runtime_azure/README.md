@@ -51,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **time_to_live_min** | string | No  | Time to live (in minutes) setting of the cluster which will execute data flow job. Defaults to `0`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse Azure Integration Runtime. | 
 
 Additionally, all variables are provided as outputs.

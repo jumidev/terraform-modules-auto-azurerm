@@ -42,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **account_name** | string | No  | The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the SQL Notebook Workspace. | 
 | **server_endpoint** | string | No  | Specifies the endpoint of Notebook server. | 
 

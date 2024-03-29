@@ -37,7 +37,7 @@ tfstate_store = {
 | **role_definition_id** | string |  A unique UUID/GUID which identifies this role - one will be generated if not specified. Changing this forces a new resource to be created. | 
 | **description** | string |  A description of the Role Definition. | 
 | **permissions** | [block](#permissions-block-structure) |  A `permissions` block. | 
-| **assignable_scopes** | string |  One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. | 
+| **assignable_scopes** | string |  One or more assignable scopes for this Role Definition, such as `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333`, `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup`, or `/subscriptions/0b1f6471-1bf0-4dda-aec3-111122223333/resourceGroups/myGroup/providers/Microsoft.Compute/virtualMachines/myVM`. ~> **NOTE:** The value for `scope` is automatically included in this list if no other values supplied. | 
 
 ### `permissions` block structure
 
@@ -54,6 +54,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **not_data_actions** | string | No  | One or more Disallowed Data Actions, such as `*`, `Microsoft.Resources/subscriptions/resourceGroups/read`. See ['Azure Resource Manager resource provider operations'](https://docs.microsoft.com/azure/role-based-access-control/resource-provider-operations) for details. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | This ID is specific to Terraform - and is of the format `{roleDefinitionId}|{scope}`. | 
 | **role_definition_id** | string | No  | The Role Definition ID. Changing this forces a new resource to be created. | 
 | **role_definition_resource_id** | string | No  | The Azure Resource Manager ID for the resource. | 

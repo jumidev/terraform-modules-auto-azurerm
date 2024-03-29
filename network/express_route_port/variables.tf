@@ -35,46 +35,14 @@ variable "peering_location" {
 
 variable "link1" {
   description = "A list of 'link' blocks."
-  type        = map(map(any))
-  default     = null
+  type        = list(any)
+  default     = []
 }
-#
-# link1 block structure                 :
-#   admin_enabled (bool)                  : Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
-#   macsec_cipher (string)                : The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
-#   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-#   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-#   macsec_sci_enabled (bool)             : Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
-#
-# link block structure                  :
-#   admin_enabled (bool)                  : Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
-#   macsec_cipher (string)                : The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
-#   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-#   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-#   macsec_sci_enabled (bool)             : Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
-
-
 variable "link2" {
   description = "A list of 'link' blocks."
-  type        = map(map(any))
-  default     = null
+  type        = list(any)
+  default     = []
 }
-#
-# link2 block structure                 :
-#   admin_enabled (bool)                  : Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
-#   macsec_cipher (string)                : The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
-#   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-#   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-#   macsec_sci_enabled (bool)             : Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
-#
-# link block structure                  :
-#   admin_enabled (bool)                  : Whether enable administration state on the Express Route Port Link? Defaults to 'false'.
-#   macsec_cipher (string)                : The MACSec cipher used for this Express Route Port Link. Possible values are 'GcmAes128' and 'GcmAes256'. Defaults to 'GcmAes128'.
-#   macsec_ckn_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the MACSec CKN key for this Express Route Port Link.
-#   macsec_cak_keyvault_secret_id (string): The ID of the Key Vault Secret that contains the Mac security CAK key for this Express Route Port Link.
-#   macsec_sci_enabled (bool)             : Should Secure Channel Identifier on the Express Route Port Link be enabled? Defaults to 'false'.
-
-
 variable "billing_type" {
   description = "The billing type of the Express Route Port. Possible values are 'MeteredData' and 'UnlimitedData'."
   type        = string

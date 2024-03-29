@@ -18,30 +18,8 @@ resource "azurerm_express_route_port" "this" {
   ########################################
   # optional vars
   ########################################
-
-  dynamic "link1" { # var.link1
-    for_each = var.link1 != null ? var.link1 : []
-    content {
-      admin_enabled                 = lookup(link1.value, "admin_enabled", false)
-      macsec_cipher                 = lookup(link1.value, "macsec_cipher", "GcmAes128")
-      macsec_ckn_keyvault_secret_id = lookup(link1.value, "macsec_ckn_keyvault_secret_id", null)
-      macsec_cak_keyvault_secret_id = lookup(link1.value, "macsec_cak_keyvault_secret_id", null)
-      macsec_sci_enabled            = lookup(link1.value, "macsec_sci_enabled", false)
-    }
-  }
-
-
-  dynamic "link2" { # var.link2
-    for_each = var.link2 != null ? var.link2 : []
-    content {
-      admin_enabled                 = lookup(link2.value, "admin_enabled", false)
-      macsec_cipher                 = lookup(link2.value, "macsec_cipher", "GcmAes128")
-      macsec_ckn_keyvault_secret_id = lookup(link2.value, "macsec_ckn_keyvault_secret_id", null)
-      macsec_cak_keyvault_secret_id = lookup(link2.value, "macsec_cak_keyvault_secret_id", null)
-      macsec_sci_enabled            = lookup(link2.value, "macsec_sci_enabled", false)
-    }
-  }
-
+  link1        = var.link1
+  link2        = var.link2
   billing_type = var.billing_type
 
   dynamic "identity" { # var.identity

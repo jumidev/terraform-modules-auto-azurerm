@@ -17,12 +17,9 @@ variable "server_name" {
 }
 variable "partner_servers" {
   description = "(REQUIRED) A list of 'partner_servers' blocks."
-  type        = map(map(any))
+  type        = list(any)
+
 }
-#
-# partner_servers block structure:
-
-
 variable "read_write_endpoint_failover_policy" {
   description = "(REQUIRED) A 'read_write_endpoint_failover_policy' block."
   type        = map(any)
@@ -37,7 +34,7 @@ variable "read_write_endpoint_failover_policy" {
 # OPTIONAL VARIABLES
 
 variable "databases" {
-  description = "A list of database ids to add to the failover group"
+  description = "A list of database ids to add to the failover group -> **NOTE:** The failover group will create a secondary database for each database listed in 'databases'. If the secondary databases need to be managed through Terraform, they should be defined as resources and a dependency added to the failover group to ensure the secondary databases are created first. Please refer to the detailed example which can be found in [the './examples/sql-azure/failover_group' directory within the GitHub Repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/sql-azure/failover_group)"
   type        = list(any)
   default     = []
 }
@@ -57,7 +54,7 @@ variable "tags" {
   default     = null
 }
 variable "sql_server_resource_group_name" {
-  description = "Specifies the name of the Resource Group where the SQL Server exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  description = "Specifies the name of the Resource Group where the SQL Server exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }

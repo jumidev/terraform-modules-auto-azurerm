@@ -57,20 +57,11 @@ resource "azurerm_container_app" "this" {
       custom_domain              = lookup(ingress.value, "custom_domain", null)
       fqdn                       = lookup(ingress.value, "fqdn", null)
       external_enabled           = lookup(ingress.value, "external_enabled", false)
+      ip_security_restriction    = lookup(ingress.value, "ip_security_restriction", null)
       target_port                = lookup(ingress.value, "target_port") # (Required) 
       exposed_port               = lookup(ingress.value, "exposed_port", null)
-
-      dynamic "traffic_weight" { # ingress.value.traffic_weight
-        for_each = ingress.value.traffic_weight != null ? ingress.value.traffic_weight : []
-        content {
-          label           = lookup(traffic_weight.value, "label", null)
-          latest_revision = lookup(traffic_weight.value, "latest_revision", null)
-          revision_suffix = lookup(traffic_weight.value, "revision_suffix", null)
-          percentage      = lookup(traffic_weight.value, "percentage") # (Required) 
-        }
-      }
-
-      transport = lookup(ingress.value, "transport", "auto")
+      traffic_weight             = lookup(ingress.value, "traffic_weight") # (Required) 
+      transport                  = lookup(ingress.value, "transport", "auto")
     }
   }
 

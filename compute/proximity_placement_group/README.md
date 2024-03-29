@@ -34,11 +34,11 @@ tfstate_store = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **allowed_vm_sizes** | string |  Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group. | 
-| **zone** | string |  Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created. | 
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **allowed_vm_sizes** | string |  `allowed_vm_sizes`  |  Specifies the supported sizes of Virtual Machines that can be created in the Proximity Placement Group. ~> **NOTE:** Removing `allowed_vm_sizes` after it is set forces a new resource to be created. | 
+| **zone** | string |  `allowed_vm_sizes`, `zone`  |  Specifies the supported zone of the Proximity Placement Group. Changing this forces a new resource to be created. ~> **NOTE:** `allowed_vm_sizes` must be set when `zone` is specified. | 
+| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
 
 
@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Proximity Placement Group. | 
 
 Additionally, all variables are provided as outputs.

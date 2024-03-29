@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **azuread_authentication_only** | string | No  | Specifies whether only AD Users and administrators can be used to login (`true`) or also local database users (`false`). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the SQL Active Directory Administrator. | 
 
 Additionally, all variables are provided as outputs.

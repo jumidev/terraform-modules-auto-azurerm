@@ -29,7 +29,7 @@ variable "frontend_ip_configuration" {
   default     = null
 }
 variable "sku" {
-  description = "The SKU of the Azure Load Balancer. Accepted values are 'Basic', 'Standard' and 'Gateway'. Defaults to 'Basic'. Changing this forces a new resource to be created."
+  description = "The SKU of the Azure Load Balancer. Accepted values are 'Basic', 'Standard' and 'Gateway'. Defaults to 'Basic'. Changing this forces a new resource to be created. -> **NOTE:** The 'Microsoft.Network/AllowGatewayLoadBalancer' feature is required to be registered in order to use the 'Gateway' SKU. The feature can only be registered by the Azure service team, please submit an [Azure support ticket](https://azure.microsoft.com/en-us/support/create-ticket/) for that."
   type        = string
   default     = "Basic"
 }

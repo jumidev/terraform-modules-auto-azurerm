@@ -8,12 +8,12 @@ variable "ip_configuration" {
 # ip_configuration block structure                           :
 #   name (string)                                              : (REQUIRED) A name used for this IP Configuration.
 #   gateway_load_balancer_frontend_ip_configuration_id (string): The Frontend IP Configuration ID of a Gateway SKU Load Balancer.
-#   subnet_id (string)                                         : The ID of the Subnet where this Network Interface should be located in.
+#   subnet_id (string)                                         : The ID of the Subnet where this Network Interface should be located in. -> **Note:** This is required when 'private_ip_address_version' is set to 'IPv4'.
 #   private_ip_address_version (string)                        : The IP Version to use. Possible values are 'IPv4' or 'IPv6'. Defaults to 'IPv4'.
-#   private_ip_address_allocation (string)                     : (REQUIRED) The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'.
+#   private_ip_address_allocation (string)                     : (REQUIRED) The allocation method used for the Private IP Address. Possible values are 'Dynamic' and 'Static'. ~> **Note:** 'Dynamic' means 'An IP is automatically assigned during creation of this Network Interface'; 'Static' means 'User supplied IP address will be used'
 #   public_ip_address_id (string)                              : Reference to a Public IP Address to associate with this NIC
-#   primary (bool)                                             : Is this the Primary IP Configuration? Must be 'true' for the first 'ip_configuration' when multiple are specified. Defaults to 'false'.
-#   private_ip_address (string)                                : The Static IP Address which should be used.
+#   primary (bool)                                             : Is this the Primary IP Configuration? Must be 'true' for the first 'ip_configuration' when multiple are specified. Defaults to 'false'. When 'private_ip_address_allocation' is set to 'Static' the following fields can be configured:
+#   private_ip_address (string)                                : The Static IP Address which should be used. When 'private_ip_address_version' is set to 'IPv4' the following fields can be configured:
 
 
 variable "location" {
@@ -35,17 +35,17 @@ variable "resource_group_name" {
 # OPTIONAL VARIABLES
 
 variable "auxiliary_mode" {
-  description = "Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are 'AcceleratedConnections', 'Floating', 'MaxConnections' and 'None'."
+  description = "Specifies the auxiliary mode used to enable network high-performance feature on Network Virtual Appliances (NVAs). This feature offers competitive performance in Connections Per Second (CPS) optimization, along with improvements to handling large amounts of simultaneous connections. Possible values are 'AcceleratedConnections', 'Floating', 'MaxConnections' and 'None'. -> **Note:** 'auxiliary_mode' is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites)."
   type        = string
   default     = null
 }
 variable "auxiliary_sku" {
-  description = "Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are 'A8', 'A4', 'A1', 'A2' and 'None'."
+  description = "Specifies the SKU used for the network high-performance feature on Network Virtual Appliances (NVAs). Possible values are 'A8', 'A4', 'A1', 'A2' and 'None'. -> **Note:** 'auxiliary_sku' is in **Preview** and requires that the preview is enabled - [more information can be found in the Azure documentation](https://learn.microsoft.com/azure/networking/nva-accelerated-connections#prerequisites)."
   type        = string
   default     = null
 }
 variable "dns_servers" {
-  description = "A list of IP Addresses defining the DNS Servers which should be used for this Network Interface."
+  description = "A list of IP Addresses defining the DNS Servers which should be used for this Network Interface. -> **Note:** Configuring DNS Servers on the Network Interface will override the DNS Servers defined on the Virtual Network."
   type        = list(any)
   default     = []
 }
@@ -60,7 +60,7 @@ variable "enable_ip_forwarding" {
   default     = false
 }
 variable "enable_accelerated_networking" {
-  description = "Should Accelerated Networking be enabled? Defaults to 'false'."
+  description = "Should Accelerated Networking be enabled? Defaults to 'false'. -> **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli). -> **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster."
   type        = bool
   default     = false
 }

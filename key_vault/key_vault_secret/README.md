@@ -30,11 +30,11 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created. | 
-| **value** | string |  Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. | 
-| **key_vault_id** | string |  The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created. | 
+| **value** | string |  `\n`, `replace(file("my_secret_file"), "/\n/", "\n")`, `base64encode(file("my_secret_file"))`  |  Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. ~> **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively. | 
+| **key_vault_id** | string |  -  |  The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
@@ -51,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **expiration_date** | string | No  | Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Key Vault Secret ID. | 
 | **resource_id** | string | No  | The (Versioned) ID for this Key Vault Secret. This property points to a specific version of a Key Vault Secret, as such using this won't auto-rotate values if used in other Azure Services. | 
 | **resource_versionless_id** | string | No  | The Versionless ID of the Key Vault Secret. This property allows other Azure Services (that support it) to auto-rotate their value when the Key Vault Secret is updated. | 

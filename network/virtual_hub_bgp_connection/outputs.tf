@@ -18,6 +18,11 @@ output "virtual_network_connection_id" {
   value = azurerm_virtual_hub_bgp_connection.this.virtual_network_connection_id
 }
 
+output "virtual_network_connection_id" {
+  description = "The ID of virtual network connection. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_hub_bgp_connection.this.virtual_network_connection_id
+}
+
 output "id" {
   description = "The ID of the Virtual Hub Bgp Connection."
   value       = azurerm_virtual_hub_bgp_connection.this.id

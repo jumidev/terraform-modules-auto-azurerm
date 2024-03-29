@@ -90,6 +90,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **remote_address_cidrs** | string | No  | List of remote CIDRs. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Network Gateway Connection. | 
 
 Additionally, all variables are provided as outputs.

@@ -75,6 +75,11 @@ output "storage_mb" {
   value = azurerm_postgresql_server.this.storage_mb
 }
 
+output "storage_endpoint" {
+  description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_postgresql_server.this.storage_endpoint
+}
+
 output "id" {
   description = "The ID of the PostgreSQL Server."
   value       = azurerm_postgresql_server.this.id

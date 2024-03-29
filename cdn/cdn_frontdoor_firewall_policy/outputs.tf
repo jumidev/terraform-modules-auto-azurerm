@@ -18,6 +18,10 @@ output "mode" {
   value = azurerm_cdn_frontdoor_firewall_policy.this.mode
 }
 
+output "request_body_check_enabled" {
+  value = azurerm_cdn_frontdoor_firewall_policy.this.request_body_check_enabled
+}
+
 output "redirect_url" {
   value = azurerm_cdn_frontdoor_firewall_policy.this.redirect_url
 }
@@ -40,6 +44,11 @@ output "managed_rule" {
 
 output "tags" {
   value = azurerm_cdn_frontdoor_firewall_policy.this.tags
+}
+
+output "selector" {
+  description = "Selector for the value in the 'match_variable' attribute this exclusion applies to. -> **NOTE:** 'selector' must be set to '*' if 'operator' is set to 'EqualsAny'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cdn_frontdoor_firewall_policy.this.selector
 }
 
 output "id" {

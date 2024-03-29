@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **interval_seconds** | number | No  | The time of sample interval in seconds. Supports values between 10 and 2147483647. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Log Analytics Windows Performance Counter DataSource. | 
 
 Additionally, all variables are provided as outputs.

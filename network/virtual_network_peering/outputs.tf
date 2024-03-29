@@ -34,6 +34,11 @@ output "triggers" {
   value = azurerm_virtual_network_peering.this.triggers
 }
 
+output "triggers" {
+  description = "A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See [the trigger example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering#example-usage-triggers) for an example on how to set it up. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_network_peering.this.triggers
+}
+
 output "id" {
   description = "The ID of the Virtual Network Peering."
   value       = azurerm_virtual_network_peering.this.id

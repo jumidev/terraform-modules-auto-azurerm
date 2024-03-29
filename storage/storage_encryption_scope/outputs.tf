@@ -18,6 +18,11 @@ output "key_vault_key_id" {
   value = azurerm_storage_encryption_scope.this.key_vault_key_id
 }
 
+output "key_vault_key_id" {
+  description = "The ID of the Key Vault Key. Required when 'source' is 'Microsoft.KeyVault'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_encryption_scope.this.key_vault_key_id
+}
+
 output "id" {
   description = "The ID of the Storage Encryption Scope."
   value       = azurerm_storage_encryption_scope.this.id

@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | Specifies the value of the MySQL Flexible Server Configuration. See the MySQL documentation for valid values. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MySQL Flexible Server Configuration. | 
 
 Additionally, all variables are provided as outputs.

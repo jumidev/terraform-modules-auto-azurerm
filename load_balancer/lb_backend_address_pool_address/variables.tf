@@ -24,7 +24,7 @@ variable "virtual_network_id" {
   default     = null
 }
 variable "backend_address_ip_configuration_id" {
-  description = "The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool."
+  description = "The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool. -> **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2."
   type        = string
   default     = null
 }

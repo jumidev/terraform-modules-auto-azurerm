@@ -31,7 +31,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be associated with this Synapse Workspace. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Synapse Workspace. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
 
 
 variable "sql_administrator_login" {
@@ -105,7 +105,7 @@ variable "github_repo" {
 #   last_commit_id (string)    : The last commit ID.
 #   repository_name (string)   : (REQUIRED) Specifies the name of the git repository.
 #   root_folder (string)       : (REQUIRED) Specifies the root folder within the repository. Set to '/' for the top level.
-#   git_url (string)           : Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>.
+#   git_url (string)           : Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. -> **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository.
 
 
 variable "linking_allowed_for_aad_tenant_ids" {

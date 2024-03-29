@@ -70,6 +70,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **target** | string | No  | The FQDN of the service. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Private DNS SRV Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS SRV Record. | 
 

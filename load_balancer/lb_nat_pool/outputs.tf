@@ -42,6 +42,11 @@ output "tcp_reset_enabled" {
   value = azurerm_lb_nat_pool.this.tcp_reset_enabled
 }
 
+output "tcp_reset_enabled" {
+  description = "Is TCP Reset enabled for this Load Balancer Rule? In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_lb_nat_pool.this.tcp_reset_enabled
+}
+
 output "id" {
   description = "The ID of the Load Balancer NAT pool."
   value       = azurerm_lb_nat_pool.this.id

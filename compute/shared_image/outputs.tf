@@ -102,6 +102,11 @@ output "tags" {
   value = azurerm_shared_image.this.tags
 }
 
+output "product" {
+  description = "The Purchase Plan Product for this Gallery Image. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_shared_image.this.product
+}
+
 output "id" {
   description = "The ID of the Shared Image."
   value       = azurerm_shared_image.this.id

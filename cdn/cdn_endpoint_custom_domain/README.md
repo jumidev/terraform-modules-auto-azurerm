@@ -41,14 +41,14 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **cdn_managed_https** | [block](#cdn_managed_https-block-structure) |  A `cdn_managed_https` block. | 
-| **user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. | 
+| **user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. ~> **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified. | 
 
 ### `user_managed_https` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_certificate_id` | string | No | - | The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of 'key_vault_secret_id'. |
-| `key_vault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the HTTPS certificate. |
+| `key_vault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the HTTPS certificate. ~> **NOTE** Either 'key_vault_certificate_id' or 'key_vault_secret_id' has to be specified. |
 | `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
 
 ### `cdn_managed_https` block structure
@@ -65,6 +65,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tls_version** | string | No  | The minimum TLS protocol version that is used for HTTPS. Possible values are `TLS10` (representing TLS 1.0/1.1), `TLS12` (representing TLS 1.2) and `None` (representing no minimums). Defaults to `TLS12`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the CDN Endpoint Custom Domain. | 
 
 Additionally, all variables are provided as outputs.

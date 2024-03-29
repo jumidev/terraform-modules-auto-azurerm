@@ -11,7 +11,7 @@ variable "resource_group_name" {
 
 }
 variable "zone_name" {
-  description = "(REQUIRED) Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created."
+  description = "(REQUIRED) Specifies the DNS Zone where the resource exists. Changing this forces a new resource to be created. ~> **Note:** The 'zone_name' should be the name of resource 'azurerm_dns_zone' instead of 'azurerm_private_dns_zone'."
   type        = string
 
 }
@@ -34,7 +34,7 @@ variable "target_resource_id" {
   default     = null
 }
 variable "tags" {
-  description = "A mapping of tags to assign to the resource."
+  description = "A mapping of tags to assign to the resource. ~> **Note:** either 'records' OR 'target_resource_id' must be specified, but not both."
   type        = map(any)
   default     = null
 }

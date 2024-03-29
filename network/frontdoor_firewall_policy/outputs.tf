@@ -38,6 +38,11 @@ output "tags" {
   value = azurerm_frontdoor_firewall_policy.this.tags
 }
 
+output "selector" {
+  description = "Selector for the value in the 'match_variable' attribute this exclusion applies to. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_frontdoor_firewall_policy.this.selector
+}
+
 output "id" {
   description = "The ID of the Front Door Firewall Policy."
   value       = azurerm_frontdoor_firewall_policy.this.id

@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_network_interface.this.tags
 }
 
+output "private_ip_address" {
+  description = "The first private IP address of the network interface. ~> **Note:** If a 'Dynamic' allocation method is used Azure will allocate an IP Address on Network Interface creation."
+  value       = azurerm_network_interface.this.private_ip_address
+}
+
 output "applied_dns_servers" {
   description = "If the Virtual Machine using this Network Interface is part of an Availability Set, then this list will have the union of all DNS servers from all Network Interfaces that are part of the Availability Set."
   value       = azurerm_network_interface.this.applied_dns_servers
@@ -66,13 +71,8 @@ output "mac_address" {
   value       = azurerm_network_interface.this.mac_address
 }
 
-output "private_ip_address" {
-  description = "The first private IP address of the network interface."
-  value       = azurerm_network_interface.this.private_ip_address
-}
-
 output "private_ip_addresses" {
-  description = "The private IP addresses of the network interface."
+  description = "The private IP addresses of the network interface. ~> **Note:** If a 'Dynamic' allocation method is used Azure will allocate an IP Address on Network Interface creation."
   value       = azurerm_network_interface.this.private_ip_addresses
 }
 
@@ -93,6 +93,11 @@ output "application_security_group_id" {
   value = azurerm_network_interface_application_security_group_association.this.*.application_security_group_id
 }
 
+output "application_security_group_id" {
+  description = "The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_interface_application_security_group_association.this.*.application_security_group_id
+}
+
 output "id" {
   description = "The (Terraform specific) ID of the Association between the Network Interface and the Application Security Group."
   value       = azurerm_network_interface_application_security_group_association.this.*.id
@@ -108,6 +113,11 @@ output "network_interface_id" {
 
 output "network_security_group_id" {
   value = azurerm_network_interface_security_group_association.this.*.network_security_group_id
+}
+
+output "network_security_group_id" {
+  description = "The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_interface_security_group_association.this.*.network_security_group_id
 }
 
 output "id" {

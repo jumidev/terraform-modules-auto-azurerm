@@ -90,6 +90,11 @@ output "vpn_type" {
   value = azurerm_virtual_network_gateway.this.vpn_type
 }
 
+output "address_prefixes" {
+  description = "A list of address prefixes for P2S VPN Client. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_network_gateway.this.address_prefixes
+}
+
 output "id" {
   description = "The ID of the Virtual Network Gateway."
   value       = azurerm_virtual_network_gateway.this.id

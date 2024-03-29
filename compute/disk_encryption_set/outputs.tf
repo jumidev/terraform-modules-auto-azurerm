@@ -34,6 +34,11 @@ output "tags" {
   value = azurerm_disk_encryption_set.this.tags
 }
 
+output "identity_ids" {
+  description = "A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_disk_encryption_set.this.identity_ids
+}
+
 output "id" {
   description = "The ID of the Disk Encryption Set."
   value       = azurerm_disk_encryption_set.this.id

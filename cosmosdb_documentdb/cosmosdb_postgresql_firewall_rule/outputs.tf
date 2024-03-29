@@ -14,6 +14,11 @@ output "start_ip_address" {
   value = azurerm_cosmosdb_postgresql_firewall_rule.this.start_ip_address
 }
 
+output "start_ip_address" {
+  description = "The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_postgresql_firewall_rule.this.start_ip_address
+}
+
 output "id" {
   description = "The ID of the Azure Cosmos DB for PostgreSQL Firewall Rule."
   value       = azurerm_cosmosdb_postgresql_firewall_rule.this.id

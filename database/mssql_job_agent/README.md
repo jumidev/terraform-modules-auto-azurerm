@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Database. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Elastic Job Agent. | 
 
 Additionally, all variables are provided as outputs.

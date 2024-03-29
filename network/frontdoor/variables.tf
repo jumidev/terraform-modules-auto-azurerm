@@ -11,7 +11,7 @@ variable "resource_group_name" {
 
 }
 variable "backend_pool" {
-  description = "(REQUIRED) A 'backend_pool' block."
+  description = "(REQUIRED) A 'backend_pool' block. -> Azure by default allows specifying up to 50 Backend Pools - but this quota can be increased via Microsoft Support."
   type        = map(any)
 }
 #
@@ -41,7 +41,7 @@ variable "backend_pool_health_probe" {
 #   enabled (bool)                           : Is this health probe enabled? Defaults to 'true'.
 #   path (string)                            : The path to use for the Health Probe. Default is '/'.
 #   protocol (string)                        : Protocol scheme to use for the Health Probe. Possible values are 'Http' and 'Https'. Defaults to 'Http'.
-#   probe_method (string)                    : Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'.
+#   probe_method (string)                    : Specifies HTTP method the health probe uses when querying the backend pool instances. Possible values include: 'GET' and 'HEAD'. Defaults to 'GET'. -> **NOTE:** Use the 'HEAD' method if you do not need to check the response body of your health probe.
 #   interval_in_seconds (number)             : The number of seconds between each Health Probe. Defaults to '120'.
 
 
@@ -84,6 +84,14 @@ variable "routing_rule" {
 #   forwarding_configuration (block): A 'forwarding_configuration' block.
 #   redirect_configuration (block)  : A 'redirect_configuration' block.
 #
+# redirect_configuration block structure:
+#   custom_host (string)                  : Set this to change the URL for the redirection.
+#   redirect_protocol (string)            : (REQUIRED) Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'.
+#   redirect_type (string)                : (REQUIRED) Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'.
+#   custom_fragment (string)              : The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
+#   custom_path (string)                  : The path to retain as per the incoming request, or update in the URL for the redirection.
+#   custom_query_string (string)          : Replace any existing query string from the incoming request URL.
+#
 # forwarding_configuration block structure      :
 #   backend_pool_name (string)                    : (REQUIRED) Specifies the name of the Backend Pool to forward the incoming traffic to.
 #   cache_enabled (bool)                          : Specifies whether to Enable caching or not. Valid options are 'true' or 'false'. Defaults to 'false'.
@@ -93,14 +101,6 @@ variable "routing_rule" {
 #   cache_duration (string)                       : Specify the minimum caching duration (in ISO8601 notation e.g. 'P1DT2H' for 1 day and 2 hours). Needs to be greater than 0 and smaller than 365 days. 'cache_duration' works only in combination with 'cache_enabled' set to 'true'.
 #   custom_forwarding_path (string)               : Path to use when constructing the request to forward to the backend. This functions as a URL Rewrite. Default behaviour preserves the URL path.
 #   forwarding_protocol (string)                  : Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'. Defaults to 'HttpsOnly'.
-#
-# redirect_configuration block structure:
-#   custom_host (string)                  : Set this to change the URL for the redirection.
-#   redirect_protocol (string)            : (REQUIRED) Protocol to use when redirecting. Valid options are 'HttpOnly', 'HttpsOnly', or 'MatchRequest'.
-#   redirect_type (string)                : (REQUIRED) Status code for the redirect. Valida options are 'Moved', 'Found', 'TemporaryRedirect', 'PermanentRedirect'.
-#   custom_fragment (string)              : The destination fragment in the portion of URL after '#'. Set this to add a fragment to the redirect URL.
-#   custom_path (string)                  : The path to retain as per the incoming request, or update in the URL for the redirection.
-#   custom_query_string (string)          : Replace any existing query string from the incoming request URL.
 
 
 
@@ -124,7 +124,7 @@ variable "backend_pool_settings" {
 #
 # backend_pool_settings block structure              :
 #   backend_pools_send_receive_timeout_seconds (number): Specifies the send and receive timeout on forwarding request to the backend. When the timeout is reached, the request fails and returns. Possible values are between '0' - '240'. Defaults to '60'.
-#   enforce_backend_pools_certificate_name_check (bool): (REQUIRED) Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'.
+#   enforce_backend_pools_certificate_name_check (bool): (REQUIRED) Enforce certificate name check on 'HTTPS' requests to all backend pools, this setting will have no effect on 'HTTP' requests. Permitted values are 'true' or 'false'. -> **NOTE:** 'backend_pools_send_receive_timeout_seconds' and 'enforce_backend_pools_certificate_name_check' apply to all backend pools.
 
 
 variable "tags" {

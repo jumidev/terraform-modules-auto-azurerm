@@ -26,7 +26,7 @@ variable "remote_address_space_prefixes" {
 
 }
 variable "remote_virtual_network_id" {
-  description = "(REQUIRED) The ID of the remote virtual network. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The ID of the remote virtual network. Changing this forces a new resource to be created. ~> **NOTE:** The remote virtual network should be in the same region as the databricks workspace. Please see the [product documentation](https://learn.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering) for more information."
   type        = string
 
 }
@@ -49,12 +49,12 @@ variable "allow_gateway_transit" {
   default     = false
 }
 variable "use_remote_gateways" {
-  description = "Can remote gateways be used on the Databricks virtual network? Defaults to 'false'."
+  description = "Can remote gateways be used on the Databricks virtual network? Defaults to 'false'. ~> **NOTE:** If the 'use_remote_gateways' is set to 'true', and 'allow_gateway_transit' on the remote peering is also 'true', the virtual network will use the gateways of the remote virtual network for transit. Only one peering can have this flag set to 'true'. 'use_remote_gateways' cannot be set if the virtual network already has a gateway."
   type        = bool
   default     = false
 }
 variable "virtual_network_id" {
-  description = "The ID of the internal Virtual Network used by the DataBricks Workspace."
+  description = "The ID of the internal Virtual Network used by the DataBricks Workspace. ~> **NOTE:** The 'virtual_network_id' field is the value you must supply to the 'azurerm_virtual_network_peering' resources 'remote_virtual_network_id' field to successfully peer the Databricks Virtual Network with the remote virtual network."
   type        = string
   default     = null
 }

@@ -57,6 +57,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the Record Set. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS Zone ID. | 
 | **max_number_of_record_sets** | number | No  | Maximum number of Records in the zone. Defaults to `1000`. | 
 | **number_of_record_sets** | number | No  | The number of records already in the zone. | 

@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **trusted_domain_fqdn** | string | No  | The FQDN of the on-premise Active Directory Domain Service. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Active Directory Domain Service Trust. | 
 
 Additionally, all variables are provided as outputs.

@@ -14,17 +14,17 @@ variable "default_action" {
 # OPTIONAL VARIABLES
 
 variable "bypass" {
-  description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'."
+  description = "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'. -> **NOTE** User has to explicitly set 'bypass' to empty slice ('[]') to remove it."
   type        = string
   default     = null
 }
 variable "ip_rules" {
-  description = "List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed."
+  description = "List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)) are not allowed. -> **NOTE** Small address ranges using '/31' or '/32' prefix sizes are not supported. These ranges should be configured using individual IP address rules without prefix specified. -> **NOTE** IP network rules have no effect on requests originating from the same Azure region as the storage account. Use Virtual network rules to allow same-region requests. Services deployed in the same region as the storage account use private Azure IP addresses for communication. Thus, you cannot restrict access to specific Azure services based on their public outbound IP address range. -> **NOTE** User has to explicitly set 'ip_rules' to empty slice ('[]') to remove it."
   type        = string
   default     = null
 }
 variable "virtual_network_subnet_ids" {
-  description = "A list of virtual network subnet ids to secure the storage account."
+  description = "A list of virtual network subnet ids to secure the storage account. -> **NOTE** User has to explicitly set 'virtual_network_subnet_ids' to empty slice ('[]') to remove it."
   type        = list(any)
   default     = []
 }

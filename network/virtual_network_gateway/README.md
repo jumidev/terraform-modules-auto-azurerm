@@ -35,7 +35,7 @@ tfstate_store = {
 | **location** | string |  -  |  The location/region where the Virtual Network Gateway is located. Changing this forces a new resource to be created. | 
 | **name** | string |  -  |  The name of the Virtual Network Gateway. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  -  |  The name of the resource group in which to create the Virtual Network Gateway. Changing this forces a new resource to be created. | 
-| **sku** | string |  `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`, `VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`, `VpnGw4AZ`, `VpnGw5AZ`, `type`, `vpn_type`, `generation`, `PolicyBased`, `ExpressRoute`  |  Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway. | 
+| **sku** | string |  `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`, `VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`, `VpnGw4AZ`, `VpnGw5AZ`, `type`, `vpn_type`, `generation`, `PolicyBased`, `ExpressRoute`, `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"`  |  Configuration of the size and capacity of the virtual network gateway. Valid options are `Basic`, `Standard`, `HighPerformance`, `UltraPerformance`, `ErGw1AZ`, `ErGw2AZ`, `ErGw3AZ`, `VpnGw1`, `VpnGw2`, `VpnGw3`, `VpnGw4`,`VpnGw5`, `VpnGw1AZ`, `VpnGw2AZ`, `VpnGw3AZ`,`VpnGw4AZ` and `VpnGw5AZ` and depend on the `type`, `vpn_type` and `generation` arguments. A `PolicyBased` gateway only supports the `Basic` SKU. Further, the `UltraPerformance` SKU is only supported by an `ExpressRoute` gateway. ~> **NOTE:** To build a UltraPerformance ExpressRoute Virtual Network gateway, the associated Public IP needs to be SKU "Basic" not "Standard" ~> **NOTE:** Not all SKUs (e.g. `ErGw1AZ`) are available in all regions. If you see `StatusCode=400 -- Original Error: Code="InvalidGatewaySkuSpecifiedForGatewayDeploymentType"` please try another region. | 
 | **type** | string |  `Vpn`, `ExpressRoute`  |  The type of the Virtual Network Gateway. Valid options are `Vpn` or `ExpressRoute`. Changing the type forces a new resource to be created. | 
 
 ## Optional Variables
@@ -48,7 +48,7 @@ tfstate_store = {
 | **enable_bgp** | bool |  `False`  |  -  |  If `true`, BGP (Border Gateway Protocol) will be enabled for this Virtual Network Gateway. Defaults to `false`. | 
 | **bgp_settings** | [block](#bgp_settings-block-structure) |  -  |  -  |  A `bgp_settings` block which is documented below. In this block the BGP specific settings can be defined. | 
 | **custom_route** | [block](#custom_route-block-structure) |  -  |  -  |  A `custom_route` block. Specifies a custom routes address space for a virtual network gateway and a VpnClient. | 
-| **generation** | string |  -  |  `Generation1`, `Generation2`, `None`  |  The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created. | 
+| **generation** | string |  -  |  `Generation1`, `Generation2`, `None`  |  The Generation of the Virtual Network gateway. Possible values include `Generation1`, `Generation2` or `None`. Changing this forces a new resource to be created. -> **NOTE:** The available values depend on the `type` and `sku` arguments - where `Generation2` is only value for a `sku` larger than `VpnGw2` or `VpnGw2AZ`. | 
 | **private_ip_address_enabled** | bool |  -  |  -  |  Should private IP be enabled on this gateway for connections? Changing this forces a new resource to be created. | 
 | **bgp_route_translation_for_nat_enabled** | bool |  `False`  |  -  |  Is BGP Route Translation for NAT enabled? Defaults to `false`. | 
 | **dns_forwarding_enabled** | bool |  -  |  -  |  Is DNS forwarding enabled? | 
@@ -59,6 +59,39 @@ tfstate_store = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **vpn_client_configuration** | [block](#vpn_client_configuration-block-structure) |  -  |  -  |  A `vpn_client_configuration` block which is documented below. In this block the Virtual Network Gateway can be configured to accept IPSec point-to-site connections. | 
 | **vpn_type** | string |  `RouteBased`  |  `RouteBased`, `PolicyBased`  |  The routing type of the Virtual Network Gateway. Valid options are `RouteBased` or `PolicyBased`. Defaults to `RouteBased`. Changing this forces a new resource to be created. | 
+
+### `policy_member` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
+| `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
+| `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
+
+### `virtual_network_gateway_client_connection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Client Connection. |
+| `policy_group_names` | list | Yes | - | A list of names of Virtual Network Gateway Policy Groups. |
+| `address_prefixes` | list | Yes | - | A list of address prefixes for P2S VPN Client. |
+
+### `radius_server` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address` | string | Yes | - | The address of the Radius Server. |
+| `secret` | string | Yes | - | The secret that is used to communicate with the Radius Server. |
+| `score` | number | Yes | - | The score of the Radius Server determines the priority of the server. Possible values are between '1' and '30'. |
+
+### `policy_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group. |
+| `policy_member` | [block](#policy_member-block-structure) | Yes | - | One or more 'policy_member' blocks. |
+| `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
+| `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
 
 ### `ipsec_policy` block structure
 
@@ -72,52 +105,6 @@ tfstate_store = {
 | `pfs_group` | string | Yes | - | The Pfs Group, used in IKE Phase 2. Possible values are 'ECP256', 'ECP384', 'PFS1', 'PFS2', 'PFS14', 'PFS24', 'PFS2048', 'PFSMM' and 'None'. |
 | `sa_lifetime_in_seconds` | number | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. Possible values are between '300' and '172799'. |
 | `sa_data_size_in_kilobytes` | number | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. Possible values are between '1024' and '2147483647'. |
-
-### `bgp_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `asn` | string | No | - | The Autonomous System Number (ASN) to use as part of the BGP. |
-| `peering_addresses` | [block](#peering_addresses-block-structure) | No | - | A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. |
-| `peer_weight` | string | No | - | The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'. |
-
-### `virtual_network_gateway_client_connection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Virtual Network Gateway Client Connection. |
-| `policy_group_names` | list | Yes | - | A list of names of Virtual Network Gateway Policy Groups. |
-| `address_prefixes` | list | Yes | - | A list of address prefixes for P2S VPN Client. |
-
-### `policy_member` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group Member. |
-| `type` | string | Yes | - | The VPN Policy Member attribute type. Possible values are 'AADGroupId', 'CertificateGroupId' and 'RadiusAzureGroupId'. |
-| `value` | string | Yes | - | The value of attribute that is used for this Virtual Network Gateway Policy Group Member. |
-
-### `custom_route` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
-
-### `policy_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Virtual Network Gateway Policy Group. |
-| `policy_member` | [block](#policy_member-block-structure) | Yes | - | One or more 'policy_member' blocks. |
-| `is_default` | bool | No | False | Is this a Default Virtual Network Gateway Policy Group? Defaults to 'false'. |
-| `priority` | string | No | 0 | The priority for the Virtual Network Gateway Policy Group. Defaults to '0'. |
-
-### `peering_addresses` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ip_configuration_name` | string | No | primary | The name of the IP configuration of this Virtual Network Gateway. In case there are multiple 'ip_configuration' blocks defined, this property is **required** to specify. |
-| `apipa_addresses` | list | No | - | A list of Azure custom APIPA addresses assigned to the BGP peer of the Virtual Network Gateway. |
 
 ### `vpn_client_configuration` block structure
 
@@ -134,16 +121,22 @@ tfstate_store = {
 | `radius_server_address` | string | No | - | The address of the Radius server. |
 | `radius_server_secret` | string | No | - | The secret used by the Radius server. |
 | `vpn_client_protocols` | string | No | - | List of the protocols supported by the vpn client. The supported values are 'SSTP', 'IkeV2' and 'OpenVPN'. Values 'SSTP' and 'IkeV2' are incompatible with the use of 'aad_tenant', 'aad_audience' and 'aad_issuer'. |
-| `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. |
+| `vpn_auth_types` | string | No | - | List of the vpn authentication types for the virtual network gateway. The supported values are 'AAD', 'Radius' and 'Certificate'. -> **NOTE:** 'vpn_auth_types' must be set when using multiple vpn authentication types. |
 | `virtual_network_gateway_client_connection` | [block](#virtual_network_gateway_client_connection-block-structure) | No | - | One or more 'virtual_network_gateway_client_connection' blocks. |
 
-### `radius_server` block structure
+### `bgp_settings` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `address` | string | Yes | - | The address of the Radius Server. |
-| `secret` | string | Yes | - | The secret that is used to communicate with the Radius Server. |
-| `score` | number | Yes | - | The score of the Radius Server determines the priority of the server. Possible values are between '1' and '30'. |
+| `asn` | string | No | - | The Autonomous System Number (ASN) to use as part of the BGP. |
+| `peering_addresses` | list | No | - | A list of 'peering_addresses' blocks. Only one 'peering_addresses' block can be specified except when 'active_active' of this Virtual Network Gateway is 'true'. |
+| `peer_weight` | string | No | - | The weight added to routes which have been learned through BGP peering. Valid values can be between '0' and '100'. |
+
+### `custom_route` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_prefixes` | list | No | - | A list of address blocks reserved for this virtual network in CIDR notation. |
 
 
 
@@ -151,6 +144,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **address_prefixes** | list | No  | A list of address prefixes for P2S VPN Client. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Network Gateway. | 
 | **bgp_settings** | string | No  | A block of `bgp_settings`. | 
 | **peering_addresses** | list | No  | A list of `peering_addresses` as defined below. | 

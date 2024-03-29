@@ -40,13 +40,6 @@ tfstate_store = {
 | **sharing** | [block](#sharing-block-structure) |  A `sharing` block. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
-### `sharing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. |
-| `community_gallery` | [block](#community_gallery-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. |
-
 ### `community_gallery` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,12 +49,20 @@ tfstate_store = {
 | `publisher_email` | string | Yes | - | Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_uri` | string | Yes | - | URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
 
+### `sharing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.Compute/CommunityGalleries' is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information. |
+| `community_gallery` | [block](#community_gallery-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. ~> **NOTE:** 'community_gallery' must be set when 'permission' is set to 'Community'. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **publisher_uri** | string | No  | URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Shared Image Gallery. | 
 | **unique_name** | string | No  | The Unique Name for this Shared Image Gallery. | 
 | **name** | string | No  | The community public name of the Shared Image Gallery. | 

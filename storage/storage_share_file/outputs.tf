@@ -34,6 +34,11 @@ output "metadata" {
   value = azurerm_storage_share_file.this.metadata
 }
 
+output "metadata" {
+  description = "A mapping of metadata to assign to this file. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_share_file.this.metadata
+}
+
 output "id" {
   description = "The ID of the file within the File Share."
   value       = azurerm_storage_share_file.this.id

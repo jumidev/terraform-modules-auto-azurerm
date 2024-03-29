@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assigned to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of Database Migration Service. | 
 
 Additionally, all variables are provided as outputs.

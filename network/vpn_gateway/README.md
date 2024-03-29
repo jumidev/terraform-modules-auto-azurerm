@@ -69,6 +69,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **custom_ips** | list | No  | A list of custom BGP peering addresses to assign to this instance. In addition to the arguments above, the following attributes are exported: | 
 | **id** | string | No  | The ID of the VPN Gateway. | 
 | **bgp_settings** | block | No  | A `bgp_settings` block. | 
 | **bgp_peering_address** | string | No  | The Address which should be used for the BGP Peering. | 

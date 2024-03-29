@@ -40,6 +40,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **name** | string | No  | The name which should be used for this MSSQL Server DNS Alias. Changing this forces a new MSSQL Server DNS Alias to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MSSQL Server DNS Alias. | 
 | **dns_record** | string | No  | The fully qualified DNS record for alias. | 
 

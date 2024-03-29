@@ -14,6 +14,11 @@ output "ttl" {
   value = azurerm_dns_srv_record.this.ttl
 }
 
+output "target" {
+  description = "FQDN of the service. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_dns_srv_record.this.target
+}
+
 output "id" {
   description = "The DNS SRV Record ID."
   value       = azurerm_dns_srv_record.this.id

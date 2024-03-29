@@ -6,7 +6,7 @@ variable "name" {
 
 }
 variable "value" {
-  description = "(REQUIRED) Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret."
+  description = "(REQUIRED) Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. ~> **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with ''n' or by base 64 encoding them with 'replace(file('my_secret_file'), '/'n/', ''n')' or 'base64encode(file('my_secret_file'))', respectively."
   type        = string
 
 }

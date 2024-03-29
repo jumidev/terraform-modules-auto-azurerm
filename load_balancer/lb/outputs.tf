@@ -30,6 +30,11 @@ output "tags" {
   value = azurerm_lb.this.tags
 }
 
+output "public_ip_prefix_id" {
+  description = "The ID of a Public IP Prefix which is associated with the Load Balancer."
+  value       = azurerm_lb.this.public_ip_prefix_id
+}
+
 output "id" {
   description = "The id of the Frontend IP Configuration."
   value       = azurerm_lb.this.id
@@ -78,11 +83,6 @@ output "private_ip_address_allocation" {
 output "public_ip_address_id" {
   description = "The ID of a Public IP Address which is associated with this Load Balancer."
   value       = azurerm_lb.this.public_ip_address_id
-}
-
-output "public_ip_prefix_id" {
-  description = "The ID of a Public IP Prefix which is associated with the Load Balancer."
-  value       = azurerm_lb.this.public_ip_prefix_id
 }
 
 output "subnet_id" {

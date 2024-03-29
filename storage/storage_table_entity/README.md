@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **entity** | string | No  | A map of key/value pairs that describe the entity to be inserted/merged in to the storage table. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Entity within the Table in the Storage Account. | 
 
 Additionally, all variables are provided as outputs.

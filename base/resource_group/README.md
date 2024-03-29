@@ -78,6 +78,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Resource Group. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Resource Group. | 
 
 Additionally, all variables are provided as outputs.

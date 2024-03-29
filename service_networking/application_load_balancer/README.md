@@ -75,6 +75,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Application Gateway for Containers (ALB). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Application Gateway for Containers (ALB). | 
 | **primary_configuration_endpoint** | string | No  | The primary configuration endpoints of the Application Gateway for Containers (ALB). | 
 

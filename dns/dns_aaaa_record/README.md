@@ -44,7 +44,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **records** | string |  List of IPv6 Addresses. Conflicts with `target_resource_id`. | 
 | **target_resource_id** | string |  The Azure resource id of the target object. Conflicts with `records`. | 
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags to assign to the resource. ~> **Note:** either `records` OR `target_resource_id` must be specified, but not both. | 
 
 
 
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. ~> **Note:** either `records` OR `target_resource_id` must be specified, but not both. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS AAAA Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS AAAA Record. | 
 

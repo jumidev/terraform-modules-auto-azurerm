@@ -18,6 +18,11 @@ output "tags" {
   value = azurerm_key_vault_certificate.this.tags
 }
 
+output "upns" {
+  description = "A list of User Principal Names identified by the Certificate. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_key_vault_certificate.this.upns
+}
+
 output "id" {
   description = "The Key Vault Certificate ID."
   value       = azurerm_key_vault_certificate.this.id

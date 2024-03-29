@@ -68,12 +68,6 @@ tfstate_store = {
 | `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
 | `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
 
-### `initial_replica_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
-
 ### `notifications` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -91,12 +85,19 @@ tfstate_store = {
 | `pfx_certificate` | string | Yes | - | The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file). |
 | `pfx_certificate_password` | string | Yes | - | The password to use for decrypting the PKCS#12 bundle (PFX file). |
 
+### `initial_replica_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tls_v1_enabled** | bool | No  | Whether to enable legacy TLS v1 support. Defaults to `false`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | A unique ID for the replica set. | 
 | **deployment_id** | string | No  | A unique ID for the managed domain deployment. | 
 | **resource_id** | string | No  | The Azure resource ID for the domain service. | 

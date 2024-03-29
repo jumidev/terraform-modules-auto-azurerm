@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **server_role** | string | No  | The role of the linked Redis cache (eg "Secondary"). Changing this forces a new Redis to be created. Possible values are `Primary` and `Secondary`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Redis. | 
 | **name** | string | No  | The name of the linked server. | 
 | **geo_replicated_primary_host_name** | string | No  | The geo-replicated primary hostname for this linked server. | 

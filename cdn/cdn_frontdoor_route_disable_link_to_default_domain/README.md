@@ -41,6 +41,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **cdn_frontdoor_custom_domain_ids** | string | No  | The resource IDs of the Front Door Custom Domains which are associated with this Front Door Route. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Front Door Route Disable Link To Default Domain. | 
 
 Additionally, all variables are provided as outputs.

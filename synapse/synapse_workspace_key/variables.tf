@@ -11,7 +11,7 @@ variable "synapse_workspace_id" {
 
 }
 variable "active" {
-  description = "(REQUIRED) Specifies if the workspace should be encrypted with this key."
+  description = "(REQUIRED) Specifies if the workspace should be encrypted with this key. -> **Note:** Only one key can actively encrypt a workspace. When performing a key rotation, setting a new key as the active key will disable existing keys."
   type        = string
 
 }

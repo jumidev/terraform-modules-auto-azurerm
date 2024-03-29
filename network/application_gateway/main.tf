@@ -276,12 +276,12 @@ resource "azurerm_application_gateway" "this" {
       enabled          = lookup(waf_configuration.value, "enabled")       # (Required) 
       firewall_mode    = lookup(waf_configuration.value, "firewall_mode") # (Required) possible values: Detection | Prevention
       rule_set_type    = lookup(waf_configuration.value, "rule_set_type", "OWASP")
-      rule_set_version = lookup(waf_configuration.value, "rule_set_version") # (Required) possible values: 0.1 | 1.0 | 2.2.9 | 3.0 | 3.1 | 3.2
+      rule_set_version = lookup(waf_configuration.value, "rule_set_version") # (Required) possible values: 0.1 | 1.0 | 2.1 | 2.2.9 | 3.0 | 3.1 | 3.2
 
       dynamic "disabled_rule_group" { # waf_configuration.value.disabled_rule_group
         for_each = waf_configuration.value.disabled_rule_group != null ? waf_configuration.value.disabled_rule_group : []
         content {
-          rule_group_name = lookup(disabled_rule_group.value, "rule_group_name") # (Required) possible values: BadBots | crs_20_protocol_violations | crs_21_protocol_anomalies | crs_23_request_limits | crs_30_http_policy | crs_35_bad_robots | crs_40_generic_attacks | crs_41_sql_injection_attacks | crs_41_xss_attacks | crs_42_tight_security | crs_45_trojans | General | GoodBots | Known-CVEs | REQUEST-911-METHOD-ENFORCEMENT | REQUEST-913-SCANNER-DETECTION | REQUEST-920-PROTOCOL-ENFORCEMENT | REQUEST-921-PROTOCOL-ATTACK | REQUEST-930-APPLICATION-ATTACK-LFI | REQUEST-931-APPLICATION-ATTACK-RFI | REQUEST-932-APPLICATION-ATTACK-RCE | REQUEST-933-APPLICATION-ATTACK-PHP | REQUEST-941-APPLICATION-ATTACK-XSS | REQUEST-942-APPLICATION-ATTACK-SQLI | REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION | REQUEST-944-APPLICATION-ATTACK-JAVA | UnknownBots
+          rule_group_name = lookup(disabled_rule_group.value, "rule_group_name") # (Required) possible values: BadBots | crs_20_protocol_violations | crs_21_protocol_anomalies | crs_23_request_limits | crs_30_http_policy | crs_35_bad_robots | crs_40_generic_attacks | crs_41_sql_injection_attacks | crs_41_xss_attacks | crs_42_tight_security | crs_45_trojans | crs_49_inbound_blocking | General | GoodBots | KnownBadBots | Known-CVEs | REQUEST-911-METHOD-ENFORCEMENT | REQUEST-913-SCANNER-DETECTION | REQUEST-920-PROTOCOL-ENFORCEMENT | REQUEST-921-PROTOCOL-ATTACK | REQUEST-930-APPLICATION-ATTACK-LFI | REQUEST-931-APPLICATION-ATTACK-RFI | REQUEST-932-APPLICATION-ATTACK-RCE | REQUEST-933-APPLICATION-ATTACK-PHP | REQUEST-941-APPLICATION-ATTACK-XSS | REQUEST-942-APPLICATION-ATTACK-SQLI | REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION | REQUEST-944-APPLICATION-ATTACK-JAVA | UnknownBots | METHOD-ENFORCEMENT | PROTOCOL-ENFORCEMENT | PROTOCOL-ATTACK | LFI | RFI | RCE | PHP | NODEJS | XSS | SQLI | FIX | JAVA | MS-ThreatIntel-WebShells | MS-ThreatIntel-AppSec | MS-ThreatIntel-SQLI | MS-ThreatIntel-CVEs
           rules           = lookup(disabled_rule_group.value, "rules", null)
         }
       }

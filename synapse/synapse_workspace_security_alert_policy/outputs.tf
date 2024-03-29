@@ -31,6 +31,11 @@ output "storage_endpoint" {
   value = azurerm_synapse_workspace_security_alert_policy.this.storage_endpoint
 }
 
+output "storage_endpoint" {
+  description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_synapse_workspace_security_alert_policy.this.storage_endpoint
+}
+
 output "id" {
   description = "The ID of the Synapse Workspace Security Alert Policy."
   value       = azurerm_synapse_workspace_security_alert_policy.this.id

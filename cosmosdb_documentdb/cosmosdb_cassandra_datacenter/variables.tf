@@ -49,7 +49,7 @@ variable "managed_disk_customer_key_uri" {
   default     = null
 }
 variable "sku_name" {
-  description = "Determines the selected sku."
+  description = "Determines the selected sku. -> **NOTE:** In v4.0 of the provider the 'sku_name' will have a default value of 'Standard_E16s_v5'."
   type        = string
   default     = null
 }

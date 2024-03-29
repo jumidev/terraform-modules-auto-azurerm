@@ -42,6 +42,11 @@ output "radius" {
   value = azurerm_vpn_server_configuration.this.radius
 }
 
+output "public_cert_data" {
+  description = "The Public Key Data associated with the Certificate. In addition to the arguments above, the following attributes are exported:"
+  value       = azurerm_vpn_server_configuration.this.public_cert_data
+}
+
 output "id" {
   description = "The ID of the VPN Server Configuration."
   value       = azurerm_vpn_server_configuration.this.id

@@ -44,7 +44,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on the Databricks Access Connector. Possible values include 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to the Databricks Access Connector. Only one User Assigned Managed Identity ID is supported per Databricks Access Connector resource. ~> **NOTE:** 'identity_ids' are required when 'type' is set to 'UserAssigned'. |
 
 
 
@@ -53,7 +53,7 @@ tfstate_store = {
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
 | **id** | string | No  | The ID of the Databricks Access Connector in the Azure management plane. | 
-| **identity** | block | No  | A list of `identity` blocks containing the system-assigned managed identities as defined below. | 
+| **identity** | list | No  | A list of `identity` blocks containing the system-assigned managed identities as defined below. | 
 | **type** | string | No  | The type of Managed Service Identity that is configured on this Access Connector. | 
 | **principal_id** | string | No  | The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector. | 
 | **tenant_id** | string | No  | The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector. | 

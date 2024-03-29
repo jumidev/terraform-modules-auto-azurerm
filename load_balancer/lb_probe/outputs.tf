@@ -30,6 +30,11 @@ output "number_of_probes" {
   value = azurerm_lb_probe.this.number_of_probes
 }
 
+output "number_of_probes" {
+  description = "The number of failed probe attempts after which the backend endpoint is removed from rotation. Default to '2'. NumberOfProbes multiplied by intervalInSeconds value must be greater or equal to 10.Endpoints are returned to rotation when at least one probe is successful. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_lb_probe.this.number_of_probes
+}
+
 output "id" {
   description = "The ID of the Load Balancer Probe."
   value       = azurerm_lb_probe.this.id

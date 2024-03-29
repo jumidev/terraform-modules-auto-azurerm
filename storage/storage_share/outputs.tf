@@ -26,6 +26,11 @@ output "metadata" {
   value = azurerm_storage_share.this.metadata
 }
 
+output "expiry" {
+  description = "The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_share.this.expiry
+}
+
 output "id" {
   description = "The ID of the File Share."
   value       = azurerm_storage_share.this.id

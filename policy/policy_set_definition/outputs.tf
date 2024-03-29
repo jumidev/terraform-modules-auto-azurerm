@@ -34,6 +34,11 @@ output "parameters" {
   value = azurerm_policy_set_definition.this.parameters
 }
 
+output "additional_metadata_resource_id" {
+  description = "The ID of a resource that contains additional metadata about this policy definition group. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_policy_set_definition.this.additional_metadata_resource_id
+}
+
 output "id" {
   description = "The ID of the Policy Set Definition."
   value       = azurerm_policy_set_definition.this.id

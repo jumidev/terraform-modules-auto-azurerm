@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_log_analytics_cluster.this.tags
 }
 
+output "type" {
+  description = "The identity type of this Managed Service Identity. -> You can access the Principal ID via 'azurerm_log_analytics_cluster.example.identity.0.principal_id' and the Tenant ID via 'azurerm_log_analytics_cluster.example.identity.0.tenant_id'"
+  value       = azurerm_log_analytics_cluster.this.type
+}
+
 output "id" {
   description = "The ID of the Log Analytics Cluster."
   value       = azurerm_log_analytics_cluster.this.id
@@ -45,10 +50,5 @@ output "principal_id" {
 output "tenant_id" {
   description = "The Tenant ID associated with this Managed Service Identity."
   value       = azurerm_log_analytics_cluster.this.tenant_id
-}
-
-output "type" {
-  description = "The identity type of this Managed Service Identity."
-  value       = azurerm_log_analytics_cluster.this.type
 }
 

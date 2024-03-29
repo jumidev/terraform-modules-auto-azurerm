@@ -53,10 +53,11 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **id** | string | No  | The ID of the ExpressRoute gateway. | 
+| **tags** | map | No  | A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **id** | string | No  | The ID of the ExpressRoute gateway. ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
 | **create** | string | No  | (Defaults to 90 minutes) Used when creating the ExpressRoute Gateway. | 
 | **update** | string | No  | (Defaults to 90 minutes) Used when updating the ExpressRoute Gateway. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the ExpressRoute Gateway. | 
-| **delete** | string | No  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. | 
+| **delete** | string | No  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. ## Import ExpressRoute Gateways can be imported using the `resource id`, e.g. ```shell terraform import azurerm_express_route_gateway.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway ``` | 
 
 Additionally, all variables are provided as outputs.

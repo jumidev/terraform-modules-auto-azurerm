@@ -14,6 +14,11 @@ output "ttl" {
   value = azurerm_dns_mx_record.this.ttl
 }
 
+output "exchange" {
+  description = "The mail server responsible for the domain covered by the MX record. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_dns_mx_record.this.exchange
+}
+
 output "id" {
   description = "The DNS MX Record ID."
   value       = azurerm_dns_mx_record.this.id

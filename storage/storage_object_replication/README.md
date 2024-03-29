@@ -59,6 +59,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **filter_out_blobs_with_prefix** | list | No  | Specifies a list of filters prefixes, the blobs whose names begin with which will be replicated. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Storage Object Replication in the destination storage account. It's composed as format `source_object_replication_id;destination_object_replication_id`. | 
 | **source_object_replication_id** | string | No  | The ID of the Object Replication in the source storage account. | 
 | **destination_object_replication_id** | string | No  | The ID of the Object Replication in the destination storage account. | 

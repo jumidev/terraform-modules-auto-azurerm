@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Container App Environment Certificate | 
 | **expiration_date** | string | No  | The expiration date for the Certificate. | 
 | **issue_date** | string | No  | The date of issue for the Certificate. | 

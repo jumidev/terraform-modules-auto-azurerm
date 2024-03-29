@@ -42,7 +42,7 @@ tfstate_store = {
 | **citus_version** | string |  -  |  `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3`, `12.1`  |  The citus extension version on the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `8.3`, `9.0`, `9.1`, `9.2`, `9.3`, `9.4`, `9.5`, `10.0`, `10.1`, `10.2`, `11.0`, `11.1`, `11.2`, `11.3` and `12.1`. | 
 | **coordinator_public_ip_access_enabled** | bool |  `True`  |  -  |  Is public access enabled on coordinator? Defaults to `true`. | 
 | **coordinator_server_edition** | string |  `GeneralPurpose`  |  `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose`, `MemoryOptimized`  |  The edition of the coordinator server. Possible values are `BurstableGeneralPurpose`, `BurstableMemoryOptimized`, `GeneralPurpose` and `MemoryOptimized`. Defaults to `GeneralPurpose`. | 
-| **coordinator_storage_quota_in_mb** | number |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, `33554432`  |  The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`. | 
+| **coordinator_storage_quota_in_mb** | number |  -  |  `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, `33554432`  |  The coordinator storage allowed for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `32768`, `65536`, `131072`, `262144`, `524288`, `1048576`, `2097152`, `4194304`, `8388608`, `16777216`, and `33554432`. -> **NOTE:** More information on [the types of compute resources available for CosmosDB can be found in the product documentation](https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute) | 
 | **coordinator_vcore_count** | number |  -  |  `1`, `2`, `4`, `8`, `16`, `32`, `64`, `96`  |  The coordinator vCore count for the Azure Cosmos DB for PostgreSQL Cluster. Possible values are `1`, `2`, `4`, `8`, `16`, `32`, `64` and `96`. | 
 | **ha_enabled** | bool |  `False`  |  -  |  Is high availability enabled for the Azure Cosmos DB for PostgreSQL cluster? Defaults to `false`. | 
 | **maintenance_window** | [block](#maintenance_window-block-structure) |  -  |  -  |  A `maintenance_window` block. | 
@@ -72,6 +72,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **start_minute** | string | No  | The start minute for maintenance window. Defaults to `0`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Azure Cosmos DB for PostgreSQL Cluster. | 
 | **earliest_restore_time** | string | No  | The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster. | 
 

@@ -34,6 +34,11 @@ output "tags" {
   value = azurerm_private_endpoint.this.tags
 }
 
+output "member_name" {
+  description = "Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created. -> **NOTE:** 'member_name' will be required and will not take the value of 'subresource_name' in the next major version. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_endpoint.this.member_name
+}
+
 output "id" {
   description = "The ID of the Private DNS Zone Config."
   value       = azurerm_private_endpoint.this.id
@@ -70,7 +75,7 @@ output "fqdn" {
 }
 
 output "ip_addresses" {
-  description = "A list of all IP Addresses that map to the 'private_dns_zone' fqdn."
+  description = "A list of all IP Addresses that map to the 'private_dns_zone' fqdn. -> **NOTE:** If a Private DNS Zone Group has not been configured correctly the 'record_sets' attributes will be empty."
   value       = azurerm_private_endpoint.this.ip_addresses
 }
 
@@ -110,6 +115,11 @@ output "application_security_group_id" {
 
 output "private_endpoint_id" {
   value = azurerm_private_endpoint_application_security_group_association.this.*.private_endpoint_id
+}
+
+output "private_endpoint_id" {
+  description = "The id of private endpoint to associate. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_endpoint_application_security_group_association.this.*.private_endpoint_id
 }
 
 output "id" {

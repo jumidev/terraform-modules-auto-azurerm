@@ -41,7 +41,7 @@ variable "gateway_address" {
   default     = null
 }
 variable "gateway_fqdn" {
-  description = "The gateway FQDN to connect with."
+  description = "The gateway FQDN to connect with. -> **NOTE:** Either 'gateway_address' or 'gateway_fqdn' should be specified."
   type        = string
   default     = null
 }

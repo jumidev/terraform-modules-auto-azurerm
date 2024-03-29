@@ -45,7 +45,7 @@ tfstate_store = {
 | **email_addresses** | string |  -  |  -  |  Specifies an array of email addresses to which the alert is sent. | 
 | **retention_days** | number |  `0`  |  -  |  Specifies the number of days to keep in the Threat Detection audit logs. Defaults to `0`. | 
 | **storage_endpoint** | string |  -  |  -  |  Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. | 
-| **storage_account_access_key** | string |  -  |  `storage_endpoint`  |  Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint. | 
+| **storage_account_access_key** | string |  -  |  `storage_endpoint`, `shared_access_key_enabled = false`, `azurerm_mssql_server_security_alert_policy`  |  Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint. -> **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azurerm_mssql_server_security_alert_policy` with `storage_endpoint` for now. | 
 
 
 
@@ -53,6 +53,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_account_access_key** | string | Yes  | Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use `storage_endpoint` to specify a storage account blob endpoint. -> **NOTE:**  Please note that storage accounts configured with `shared_access_key_enabled = false` cannot be used to configure `azurerm_mssql_server_security_alert_policy` with `storage_endpoint` for now. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MS SQL Server Security Alert Policy. | 
 
 Additionally, all variables are provided as outputs.

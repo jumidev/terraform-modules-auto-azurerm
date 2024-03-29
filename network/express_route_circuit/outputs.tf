@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_express_route_circuit.this.tags
 }
 
+output "family" {
+  description = "The billing mode for bandwidth. Possible values are 'MeteredData' or 'UnlimitedData'. ~> **NOTE:** You can migrate from 'MeteredData' to 'UnlimitedData', but not the other way around. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_express_route_circuit.this.family
+}
+
 output "id" {
   description = "The ID of the ExpressRoute circuit."
   value       = azurerm_express_route_circuit.this.id

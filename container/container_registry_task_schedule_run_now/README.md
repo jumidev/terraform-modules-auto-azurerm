@@ -38,6 +38,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **container_registry_task_id** | string | No  | The ID of the Container Registry Task that to be scheduled. Changing this forces a new Container Registry Task Schedule to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Container Registry Task Schedule. | 
 
 Additionally, all variables are provided as outputs.

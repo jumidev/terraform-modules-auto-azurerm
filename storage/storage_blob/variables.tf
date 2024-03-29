@@ -24,7 +24,7 @@ variable "type" {
 # OPTIONAL VARIABLES
 
 variable "size" {
-  description = "Used only for 'page' blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to '0'. Changing this forces a new resource to be created."
+  description = "Used only for 'page' blobs to specify the size in bytes of the blob to be created. Must be a multiple of 512. Defaults to '0'. Changing this forces a new resource to be created. ~> **Note:** 'size' is required if 'source_uri' is not set."
   type        = string
   default     = "0"
 }
@@ -44,7 +44,7 @@ variable "content_type" {
   default     = "application/octet-stream"
 }
 variable "content_md5" {
-  description = "The MD5 sum of the blob contents. Cannot be defined if 'source_uri' is defined, or if blob type is Append or Page. Changing this forces a new resource to be created."
+  description = "The MD5 sum of the blob contents. Cannot be defined if 'source_uri' is defined, or if blob type is Append or Page. Changing this forces a new resource to be created. ~> **NOTE:** This property is intended to be used with the Terraform internal [filemd5](https://www.terraform.io/docs/configuration/functions/filemd5.html) and [md5](https://www.terraform.io/docs/configuration/functions/md5.html) functions when 'source' or 'source_content', respectively, are defined."
   type        = string
   default     = null
 }
@@ -64,17 +64,12 @@ variable "source_uri" {
   default     = null
 }
 variable "parallelism" {
-  description = "The number of workers per CPU core to run for concurrent uploads. Defaults to '8'. Changing this forces a new resource to be created."
+  description = "The number of workers per CPU core to run for concurrent uploads. Defaults to '8'. Changing this forces a new resource to be created. ~> **NOTE:** 'parallelism' is only applicable for Page blobs - support for [Block Blobs is blocked on the upstream issue](https://github.com/tombuildsstuff/giovanni/issues/15)."
   type        = number
   default     = 8
 }
 variable "metadata" {
   description = "A map of custom blob metadata."
-  type        = string
-  default     = null
-}
-variable "storage_account_resource_group_name" {
-  description = "Specifies the name of the resource group the Storage Account is located in..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }

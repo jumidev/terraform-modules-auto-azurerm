@@ -32,13 +32,13 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created. | 
-| **server_name** | string |  Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
-| **start_ip_address** | string |  Specifies the Start IP Address associated with this Firewall Rule. | 
-| **end_ip_address** | string |  Specifies the End IP Address associated with this Firewall Rule. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specifies the name of the MySQL Firewall Rule. Changing this forces a new resource to be created. | 
+| **server_name** | string |  -  |  Specifies the name of the MySQL Flexible Server. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  The name of the resource group in which the MySQL Flexible Server exists. Changing this forces a new resource to be created. | 
+| **start_ip_address** | string |  -  |  Specifies the Start IP Address associated with this Firewall Rule. | 
+| **end_ip_address** | string |  `start_ip_address`, `end_ip_address`, `0.0.0.0`  |  Specifies the End IP Address associated with this Firewall Rule. -> **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)). | 
 
 
 
@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **end_ip_address** | string | No  | Specifies the End IP Address associated with this Firewall Rule. -> **NOTE:** The Azure feature `Allow access to Azure services` can be enabled by setting `start_ip_address` and `end_ip_address` to `0.0.0.0` which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MySQL Firewall Rule. | 
 
 Additionally, all variables are provided as outputs.

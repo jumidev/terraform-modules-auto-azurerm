@@ -87,6 +87,11 @@ output "tags" {
   value = azurerm_mysql_flexible_server.this.tags
 }
 
+output "size_gb" {
+  description = "The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_mysql_flexible_server.this.size_gb
+}
+
 output "id" {
   description = "The ID of the MySQL Flexible Server."
   value       = azurerm_mysql_flexible_server.this.id

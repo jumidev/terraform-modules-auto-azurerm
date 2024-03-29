@@ -34,6 +34,11 @@ output "filter" {
   value = azurerm_network_packet_capture.this.filter
 }
 
+output "remote_port" {
+  description = "The remote port to be filtered on. Notation: '80' for single port entry.'80-85' for range. '80;443;' for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_packet_capture.this.remote_port
+}
+
 output "id" {
   description = "The Packet Capture ID."
   value       = azurerm_network_packet_capture.this.id

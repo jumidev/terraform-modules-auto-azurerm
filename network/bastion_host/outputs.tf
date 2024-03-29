@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_bastion_host.this.tags
 }
 
+output "public_ip_address_id" {
+  description = "Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_bastion_host.this.public_ip_address_id
+}
+
 output "id" {
   description = "The ID of the Bastion Host."
   value       = azurerm_bastion_host.this.id

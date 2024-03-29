@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tenant_id** | string | No  | The Azure Tenant ID In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MySQL Active Directory Administrator. | 
 
 Additionally, all variables are provided as outputs.

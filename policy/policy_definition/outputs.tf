@@ -34,6 +34,11 @@ output "parameters" {
   value = azurerm_policy_definition.this.parameters
 }
 
+output "parameters" {
+  description = "Parameters for the policy definition. This field is a JSON string that allows you to parameterize your policy definition. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_policy_definition.this.parameters
+}
+
 output "id" {
   description = "The ID of the Policy Definition."
   value       = azurerm_policy_definition.this.id

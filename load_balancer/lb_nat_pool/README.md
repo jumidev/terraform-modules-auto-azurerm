@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tcp_reset_enabled** | bool | No  | Is TCP Reset enabled for this Load Balancer Rule? In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Load Balancer NAT pool. | 
 
 Additionally, all variables are provided as outputs.

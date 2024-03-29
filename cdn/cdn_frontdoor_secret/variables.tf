@@ -19,7 +19,7 @@ variable "secret" {
 #   customer_certificate (block): (REQUIRED) A 'customer_certificate' block. Changing this forces a new Front Door Secret to be created.
 #
 # customer_certificate block structure:
-#   key_vault_certificate_id (string)   : (REQUIRED) The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created.
+#   key_vault_certificate_id (string)   : (REQUIRED) The ID of the Key Vault certificate resource to use. Changing this forces a new Front Door Secret to be created. ->**NOTE:** If you would like to use the **latest version** of the Key Vault Certificate use the Key Vault Certificates 'versionless_id' attribute as the 'key_vault_certificate_id' fields value(e.g. 'key_vault_certificate_id = azurerm_key_vault_certificate.example.versionless_id').
 #   subject_alternative_names (list)    : (Computed) One or more 'subject alternative names' contained within the key vault certificate.
 
 

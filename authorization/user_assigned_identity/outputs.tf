@@ -14,6 +14,11 @@ output "tags" {
   value = azurerm_user_assigned_identity.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags which should be assigned to the User Assigned Identity. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_user_assigned_identity.this.tags
+}
+
 output "id" {
   description = "The ID of the User Assigned Identity."
   value       = azurerm_user_assigned_identity.this.id

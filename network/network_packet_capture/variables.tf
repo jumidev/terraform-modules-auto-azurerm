@@ -16,7 +16,7 @@ variable "resource_group_name" {
 
 }
 variable "target_resource_id" {
-  description = "(REQUIRED) The ID of the Resource to capture packets from. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The ID of the Resource to capture packets from. Changing this forces a new resource to be created. ~> **NOTE:** Currently only Virtual Machines IDs are supported."
   type        = string
 
 }
@@ -27,7 +27,7 @@ variable "storage_location" {
 #
 # storage_location block structure:
 #   file_path (string)              : A valid local path on the targeting VM. Must include the name of the capture file (*.cap). For Linux virtual machine it must start with '/var/captures'.
-#   storage_account_id (string)     : The ID of the storage account to save the packet capture session
+#   storage_account_id (string)     : The ID of the storage account to save the packet capture session ~> **NOTE:** At least one of 'file_path' or 'storage_account_id' must be specified.
 
 
 

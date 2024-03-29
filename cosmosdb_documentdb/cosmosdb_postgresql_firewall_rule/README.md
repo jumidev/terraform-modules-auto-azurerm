@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **start_ip_address** | string | No  | The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Azure Cosmos DB for PostgreSQL Firewall Rule. | 
 
 Additionally, all variables are provided as outputs.

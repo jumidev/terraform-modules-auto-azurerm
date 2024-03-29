@@ -36,7 +36,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **enabled** | bool |  `True`  |  `true`, `false`  |  Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`. | 
+| **enabled** | bool |  `True`  |  `true`, `false`  |  Whether to enable the extended auditing policy. Possible values are `true` and `false`. Defaults to `true`. ->**NOTE:**  If `enabled` is `true`, `storage_endpoint` or `log_monitoring_enabled` are required. | 
 | **storage_endpoint** | string |  -  |  -  |  The blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all extended auditing logs. | 
 | **retention_in_days** | number |  `0`  |  -  |  The number of days to retain logs for in the storage account. Defaults to `0`. | 
 | **storage_account_access_key** | string |  -  |  -  |  The access key to use for the auditing storage account. | 
@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_account_subscription_id** | string | No  | The ID of the Subscription containing the Storage Account. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MS SQL Server Extended Auditing Policy. | 
 
 Additionally, all variables are provided as outputs.

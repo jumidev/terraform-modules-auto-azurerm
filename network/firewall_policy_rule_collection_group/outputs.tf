@@ -22,6 +22,11 @@ output "network_rule_collection" {
   value = azurerm_firewall_policy_rule_collection_group.this.network_rule_collection
 }
 
+output "value" {
+  description = "Specifies the value of the value. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_firewall_policy_rule_collection_group.this.value
+}
+
 output "id" {
   description = "The ID of the Firewall Policy Rule Collection Group."
   value       = azurerm_firewall_policy_rule_collection_group.this.id

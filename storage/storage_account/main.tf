@@ -280,6 +280,6 @@ resource "azurerm_storage_account" "this" {
   }
 
   allowed_copy_scope = var.allowed_copy_scope
-  sftp_enabled       = var.sftp_enabled
+  sftp_enabled       = var.sftp_enabled # Default: False
   tags               = var.tags
 }

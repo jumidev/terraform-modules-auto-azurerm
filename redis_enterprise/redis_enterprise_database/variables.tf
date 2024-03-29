@@ -34,7 +34,7 @@ variable "eviction_policy" {
   default     = "VolatileLRU"
 }
 variable "module" {
-  description = "A 'module' block. Changing this forces a new resource to be created."
+  description = "A 'module' block. Changing this forces a new resource to be created. -> **NOTE:** Only 'RediSearch' and 'RedisJSON' modules are allowed with geo-replication"
   type        = map(any)
   default     = null
 }
@@ -45,7 +45,7 @@ variable "module" {
 
 
 variable "linked_database_id" {
-  description = "A list of database resources to link with this database with a maximum of 5."
+  description = "A list of database resources to link with this database with a maximum of 5. -> **NOTE:** Only the newly created databases can be added to an existing geo-replication group. Existing regular databases or recreated databases cannot be added to the existing geo-replication group. Any linked database be removed from the list will be forcefully unlinked.The only recommended operation is to delete after force-unlink and the recommended scenario of force-unlink is region outrage. The database cannot be linked again after force-unlink."
   type        = list(any)
   default     = []
 }

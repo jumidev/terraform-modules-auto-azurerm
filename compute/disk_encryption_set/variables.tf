@@ -16,7 +16,7 @@ variable "location" {
 
 }
 variable "key_vault_key_id" {
-  description = "(REQUIRED) Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret)."
+  description = "(REQUIRED) Specifies the URL to a Key Vault Key (either from a Key Vault Key, or the Key URL for the Key Vault Secret). -> **NOTE** Access to the KeyVault must be granted for this Disk Encryption Set, if you want to further use this Disk Encryption Set in a Managed Disk or Virtual Machine, or Virtual Machine Scale Set. For instructions, please refer to the doc of [Server side encryption of Azure managed disks](https://docs.microsoft.com/azure/virtual-machines/linux/disk-encryption). -> **NOTE** A KeyVault using [enable_rbac_authorization](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/key_vault#enable_rbac_authorization) requires to use 'azurerm_role_assignment' to assigne the role 'Key Vault Crypto Service Encryption User' to this Disk Encryption Set. In this case, 'azurerm_key_vault_access_policy' is not needed."
   type        = string
 
 }
@@ -27,14 +27,14 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) The type of Managed Service Identity that is configured on this Disk Encryption Set. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both).
-#   identity_ids (list)     : A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set.
+#   identity_ids (list)     : A list of User Assigned Managed Identity IDs to be assigned to this Disk Encryption Set. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'.
 
 
 
 # OPTIONAL VARIABLES
 
 variable "auto_key_rotation_enabled" {
-  description = "Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are 'true' or 'false'. Defaults to 'false'."
+  description = "Boolean flag to specify whether Azure Disk Encryption Set automatically rotates the encryption Key to latest version or not. Possible values are 'true' or 'false'. Defaults to 'false'. -> **NOTE** When 'auto_key_rotation_enabled' is set to 'true' the 'key_vault_key_id' must use the 'versionless_id'. -> **NOTE** To validate which Key Vault Key version is currently being used by the service it is recommended that you use the 'azurerm_disk_encryption_set' data source or run a 'terraform refresh' command and check the value of the exported 'key_vault_key_url' field. -> **NOTE** It may take between 10 to 20 minutes for the service to update the Key Vault Key URL once the keys have been rotated."
   type        = bool
   default     = false
 }

@@ -34,8 +34,8 @@ variable "rule" {
 #   name (string)          : (REQUIRED) Specifies the name of the rule.
 #   description (string)   : Specifies a description for the rule.
 #   source_addresses (list): A list of source IP addresses and/or IP ranges.
-#   source_ip_groups (list): A list of source IP Group IDs for the rule.
-#   fqdn_tags (map)        : A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
+#   source_ip_groups (list): A list of source IP Group IDs for the rule. -> **NOTE** At least one of 'source_addresses' and 'source_ip_groups' must be specified for a rule.
+#   fqdn_tags (list)       : A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'.
 #   target_fqdns (list)    : A list of FQDNs.
 #   protocol (block)       : One or more 'protocol' blocks.
 #

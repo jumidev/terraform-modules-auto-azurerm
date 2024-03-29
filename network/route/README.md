@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **next_hop_in_ip_address** | string | No  | Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is `VirtualAppliance`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Route ID. | 
 
 Additionally, all variables are provided as outputs.

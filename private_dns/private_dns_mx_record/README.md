@@ -65,6 +65,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **exchange** | string | No  | The FQDN of the exchange to MX record points to. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Private DNS MX Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS MX Record. | 
 

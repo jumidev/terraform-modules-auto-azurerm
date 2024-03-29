@@ -54,6 +54,11 @@ output "metadata" {
   value = azurerm_storage_blob.this.metadata
 }
 
+output "metadata" {
+  description = "A map of custom blob metadata. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_blob.this.metadata
+}
+
 output "id" {
   description = "The ID of the Storage Blob."
   value       = azurerm_storage_blob.this.id

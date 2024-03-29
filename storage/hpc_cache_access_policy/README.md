@@ -42,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **anonymous_gid** | string | No  | The anonymous GID used when `root_squash_enabled` is `true`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the HPC Cache Access Policy. | 
 
 Additionally, all variables are provided as outputs.

@@ -70,6 +70,10 @@ output "image_registry_credential" {
   value = azurerm_container_group.this.image_registry_credential
 }
 
+output "priority" {
+  value = azurerm_container_group.this.priority
+}
+
 output "restart_policy" {
   value = azurerm_container_group.this.restart_policy
 }
@@ -80,6 +84,11 @@ output "zones" {
 
 output "tags" {
   value = azurerm_container_group.this.tags
+}
+
+output "privilege_enabled" {
+  description = "Whether the container's permission is elevated to privileged? Changing this forces a new resource to be created. ~> **NOTE:** Currently, this only applies when the 'os_type' is 'Linux' and the 'sku' is 'Confidential'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_container_group.this.privilege_enabled
 }
 
 output "id" {

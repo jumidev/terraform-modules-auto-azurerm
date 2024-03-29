@@ -19,13 +19,13 @@ resource "azurerm_log_analytics_workspace" "this" {
   local_authentication_disabled   = var.local_authentication_disabled   # Default: False
   sku                             = var.sku                             # Default: PerGB2018
   retention_in_days               = var.retention_in_days
-  daily_quota_gb                  = var.daily_quota_gb
+  daily_quota_gb                  = var.daily_quota_gb # Default: sku
   cmk_for_query_forced            = var.cmk_for_query_forced
 
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned | identity_ids
+      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned | identity_ids | type | principal_id | tenant_id
       identity_ids = lookup(identity.value, "identity_ids", null)
     }
   }

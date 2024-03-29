@@ -46,6 +46,11 @@ output "sync_window" {
   value = azurerm_container_connected_registry.this.sync_window
 }
 
+output "digest" {
+  description = "The digest of the artifact that wants to be subscribed for the Connected Registry. ~> **NOTE:** One of either 'tag' or 'digest' can be specified. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_container_connected_registry.this.digest
+}
+
 output "id" {
   description = "The ID of the Container Connected Registry."
   value       = azurerm_container_connected_registry.this.id

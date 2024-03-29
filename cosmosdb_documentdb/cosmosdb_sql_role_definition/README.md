@@ -39,7 +39,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **resource_group_name** | string |  The name of the Resource Group in which the Cosmos DB SQL Role Definition is created. Changing this forces a new resource to be created. | 
 | **account_name** | string |  The name of the Cosmos DB Account. Changing this forces a new resource to be created. | 
-| **assignable_scopes** | list |  A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes. | 
+| **assignable_scopes** | list |  A list of fully qualified scopes at or below which Role Assignments may be created using this Cosmos DB SQL Role Definition. It will allow application of this Cosmos DB SQL Role Definition on the entire Database Account or any underlying Database/Collection. Scopes higher than Database Account are not enforceable as assignable scopes. ~> **NOTE:** The resources referenced in assignable scopes need not exist. | 
 | **name** | string |  An user-friendly name for the Cosmos DB SQL Role Definition which must be unique for the Database Account. | 
 | **permissions** | [block](#permissions-block-structure) |  A `permissions` block. | 
 

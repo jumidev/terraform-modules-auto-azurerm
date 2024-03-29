@@ -1,7 +1,7 @@
 # REQUIRED VARIABLES
 
 variable "peering_type" {
-  description = "(REQUIRED) The type of the ExpressRoute Circuit Peering. Acceptable values include 'AzurePrivatePeering', 'AzurePublicPeering' and 'MicrosoftPeering'."
+  description = "(REQUIRED) The type of the ExpressRoute Circuit Peering. Acceptable values include 'AzurePrivatePeering', 'AzurePublicPeering' and 'MicrosoftPeering'. ~> **NOTE:** only one Peering of each Type can be created. Attempting to create multiple peerings of the same type will overwrite the original peering."
   type        = string
 
 }
@@ -72,7 +72,7 @@ variable "ipv6" {
 #   secondary_peer_address_prefix (string): (REQUIRED) A subnet for the secondary link.
 #   enabled (bool)                        : A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'.
 #   microsoft_peering (block)             : A 'microsoft_peering' block.
-#   route_filter_id (string)              : The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'.
+#   route_filter_id (string)              : The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. ~> **NOTE:** 'ipv6' can be specified when 'peering_type' is 'MicrosoftPeering' or 'AzurePrivatePeering'
 #
 # microsoft_peering block structure:
 #   advertised_public_prefixes (list): A list of Advertised Public Prefixes.

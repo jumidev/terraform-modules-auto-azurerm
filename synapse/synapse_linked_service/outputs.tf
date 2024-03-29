@@ -34,6 +34,11 @@ output "parameters" {
   value = azurerm_synapse_linked_service.this.parameters
 }
 
+output "parameters" {
+  description = "A map of parameters to associate with the integration runtime. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_synapse_linked_service.this.parameters
+}
+
 output "id" {
   description = "The ID of the Synapse Linked Service."
   value       = azurerm_synapse_linked_service.this.id

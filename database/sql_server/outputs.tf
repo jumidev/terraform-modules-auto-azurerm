@@ -31,6 +31,11 @@ output "identity" {
   value = azurerm_sql_server.this.identity
 }
 
+output "storage_endpoint" {
+  description = "Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. Required if 'state' is 'Enabled'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_sql_server.this.storage_endpoint
+}
+
 output "id" {
   description = "The Microsoft SQL Server ID."
   value       = azurerm_sql_server.this.id
@@ -47,7 +52,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server."
+  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via '${azurerm_mssql_server.example.identity.0.principal_id}' and the Tenant ID via '${azurerm_mssql_server.example.identity.0.tenant_id}' ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
   value       = azurerm_sql_server.this.tenant_id
 }
 
@@ -67,7 +72,7 @@ output "read" {
 }
 
 output "delete" {
-  description = "(Defaults to 60 minutes) Used when deleting the Microsoft SQL Server."
+  description = "(Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. ## Import SQL Servers can be imported using the 'resource id', e.g. '''shell terraform import azurerm_sql_server.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver '''"
   value       = azurerm_sql_server.this.delete
 }
 

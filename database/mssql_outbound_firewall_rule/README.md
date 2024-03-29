@@ -40,6 +40,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **server_id** | string | No  | The resource ID of the SQL Server on which to create the Outbound Firewall Rule. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The SQL Outbound Firewall Rule ID. | 
 
 Additionally, all variables are provided as outputs.

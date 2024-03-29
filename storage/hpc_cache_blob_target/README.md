@@ -38,7 +38,7 @@ tfstate_store = {
 | **name** | string |  The name of the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group in which to create the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
 | **namespace_path** | string |  The client-facing file path of the HPC Cache Blob Target. | 
-| **storage_container_id** | string |  The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. | 
+| **storage_container_id** | string |  The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. -> **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the `azurerm_storage_container` Data Source/Resource as `resource_manager_id`. | 
 
 ## Optional Variables
 
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **access_policy_name** | string | No  | The name of the access policy applied to this target. Defaults to `default`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the HPC Cache Blob Target. | 
 
 Additionally, all variables are provided as outputs.

@@ -40,6 +40,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **cdn_frontdoor_profile_id** | string | No  | The ID of the Front Door Profile. Changing this forces a new Front Door Rule Set to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Front Door Rule Set. | 
 
 Additionally, all variables are provided as outputs.

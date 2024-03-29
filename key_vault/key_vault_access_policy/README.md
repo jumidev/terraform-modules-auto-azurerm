@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **id** | string | No  | Key Vault Access Policy ID. | 
+| **storage_permissions** | list | No  | List of storage permissions, must be one or more from the following: `Backup`, `Delete`, `DeleteSAS`, `Get`, `GetSAS`, `List`, `ListSAS`, `Purge`, `Recover`, `RegenerateKey`, `Restore`, `Set`, `SetSAS` and `Update`. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **id** | string | No  | Key Vault Access Policy ID. -> **NOTE:** This Identifier is unique to Terraform and doesn't map to an existing object within Azure. | 
 
 Additionally, all variables are provided as outputs.

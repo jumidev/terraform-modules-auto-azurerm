@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_private_dns_a_record.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_dns_a_record.this.tags
+}
+
 output "id" {
   description = "The Private DNS A Record ID."
   value       = azurerm_private_dns_a_record.this.id

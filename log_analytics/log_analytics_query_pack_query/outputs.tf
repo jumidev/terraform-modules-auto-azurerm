@@ -38,6 +38,11 @@ output "tags" {
   value = azurerm_log_analytics_query_pack_query.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags which should be assigned to the Log Analytics Query Pack Query. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_log_analytics_query_pack_query.this.tags
+}
+
 output "id" {
   description = "The ID of the Log Analytics Query Pack Query."
   value       = azurerm_log_analytics_query_pack_query.this.id

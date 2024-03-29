@@ -91,6 +91,11 @@ output "tags" {
   value = azurerm_cosmosdb_postgresql_cluster.this.tags
 }
 
+output "start_minute" {
+  description = "The start minute for maintenance window. Defaults to '0'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_postgresql_cluster.this.start_minute
+}
+
 output "id" {
   description = "The ID of the Azure Cosmos DB for PostgreSQL Cluster."
   value       = azurerm_cosmosdb_postgresql_cluster.this.id

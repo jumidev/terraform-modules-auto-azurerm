@@ -27,10 +27,10 @@ variable "private_service_connection" {
 #
 # private_service_connection block structure:
 #   name (string)                             : (REQUIRED) Specifies the Name of the Private Service Connection. Changing this forces a new resource to be created.
-#   is_manual_connection (string)             : (REQUIRED) Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created.
+#   is_manual_connection (string)             : (REQUIRED) Does the Private Endpoint require Manual Approval from the remote resource owner? Changing this forces a new resource to be created. -> **NOTE:** If you are trying to connect the Private Endpoint to a remote resource without having the correct RBAC permissions on the remote resource set this value to 'true'.
 #   private_connection_resource_id (string)   : The ID of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created. For a web app or function app slot, the parent web app should be used in this field instead of a reference to the slot itself.
 #   private_connection_resource_alias (string): The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created.
-#   subresource_names (list)                  : A list of subresource names which the Private Endpoint is able to connect to. 'subresource_names' corresponds to 'group_id'. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the 'Subresources' column. Changing this forces a new resource to be created.
+#   subresource_names (list)                  : A list of subresource names which the Private Endpoint is able to connect to. 'subresource_names' corresponds to 'group_id'. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the 'Subresources' column. Changing this forces a new resource to be created. -> **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint.
 #   request_message (string)                  : A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of '140' characters in length. Only valid if 'is_manual_connection' is set to 'true'.
 
 
@@ -63,7 +63,7 @@ variable "ip_configuration" {
 #   name (string)                   : (REQUIRED) Specifies the Name of the IP Configuration. Changing this forces a new resource to be created.
 #   private_ip_address (string)     : (REQUIRED) Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created.
 #   subresource_name (string)       : Specifies the subresource this IP address applies to. 'subresource_names' corresponds to 'group_id'. Changing this forces a new resource to be created.
-#   member_name (string)            : Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created.
+#   member_name (string)            : Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created. -> **NOTE:** 'member_name' will be required and will not take the value of 'subresource_name' in the next major version.
 
 
 variable "tags" {

@@ -19,7 +19,7 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "security_rule" {
-  description = "List of 'security_rule' objects representing security rules, as defined below."
+  description = "List of 'security_rule' objects representing security rules, as defined below. -> **NOTE** Since 'security_rule' can be configured both inline and via the separate 'azurerm_network_security_rule' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
   default     = null
 }

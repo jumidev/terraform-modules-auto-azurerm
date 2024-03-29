@@ -51,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_endpoint** | string | No  | Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse SQL Pool Security Alert Policy. | 
 
 Additionally, all variables are provided as outputs.

@@ -14,6 +14,11 @@ output "metadata" {
   value = azurerm_storage_container.this.metadata
 }
 
+output "metadata" {
+  description = "A mapping of MetaData for this Container. All metadata keys should be lowercase. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_storage_container.this.metadata
+}
+
 output "id" {
   description = "The ID of the Storage Container."
   value       = azurerm_storage_container.this.id

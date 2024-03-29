@@ -34,7 +34,7 @@ variable "target_region" {
 # OPTIONAL VARIABLES
 
 variable "blob_uri" {
-  description = "URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created."
+  description = "URI of the Azure Storage Blob used to create the Image Version. Changing this forces a new resource to be created. -> **NOTE:** You must specify exact one of 'blob_uri', 'managed_image_id' and 'os_disk_snapshot_id'. -> **NOTE:** 'blob_uri' and 'storage_account_id' must be specified together"
   type        = string
   default     = null
 }
@@ -49,12 +49,12 @@ variable "exclude_from_latest" {
   default     = false
 }
 variable "managed_image_id" {
-  description = "The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created."
+  description = "The ID of the Managed Image or Virtual Machine ID which should be used for this Shared Image Version. Changing this forces a new resource to be created. -> **NOTE:** The ID can be sourced from the 'azurerm_image' [Data Source](https://www.terraform.io/docs/providers/azurerm/d/image.html) or [Resource](https://www.terraform.io/docs/providers/azurerm/r/image.html). -> **NOTE:** You must specify exact one of 'blob_uri', 'managed_image_id' and 'os_disk_snapshot_id'."
   type        = string
   default     = null
 }
 variable "os_disk_snapshot_id" {
-  description = "The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created."
+  description = "The ID of the OS disk snapshot which should be used for this Shared Image Version. Changing this forces a new resource to be created. -> **NOTE:** You must specify exact one of 'blob_uri', 'managed_image_id' and 'os_disk_snapshot_id'."
   type        = string
   default     = null
 }
@@ -69,7 +69,7 @@ variable "replication_mode" {
   default     = "Full"
 }
 variable "storage_account_id" {
-  description = "The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created."
+  description = "The ID of the Storage Account where the Blob exists. Changing this forces a new resource to be created. -> **NOTE:** 'blob_uri' and 'storage_account_id' must be specified together"
   type        = string
   default     = null
 }

@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **metadata** | string | No  | A mapping of MetaData which should be assigned to this Storage Queue. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Storage Queue. | 
 | **resource_manager_id** | string | No  | The Resource Manager ID of this Storage Queue. | 
 

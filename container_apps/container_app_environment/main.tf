@@ -26,8 +26,8 @@ resource "azurerm_container_app_environment" "this" {
     content {
       name                  = workload_profile.key
       workload_profile_type = lookup(workload_profile.value, "workload_profile_type") # (Required) possible values: D4 | D8 | D16 | D32 | E4 | E8 | E16 | E32
-      maximum_count         = lookup(workload_profile.value, "maximum_count", null)
-      minimum_count         = lookup(workload_profile.value, "minimum_count", null)
+      maximum_count         = lookup(workload_profile.value, "maximum_count")         # (Required) 
+      minimum_count         = lookup(workload_profile.value, "minimum_count")         # (Required) 
     }
   }
 

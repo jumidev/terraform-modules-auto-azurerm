@@ -28,7 +28,7 @@ resource "azurerm_sql_server" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type = lookup(identity.value, "type") # (Required) possible values: SystemAssigned
+      type = lookup(identity.value, "type") # (Required) possible values: type | SystemAssigned
     }
   }
 

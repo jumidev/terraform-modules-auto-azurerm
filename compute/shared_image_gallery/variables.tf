@@ -30,8 +30,8 @@ variable "sharing" {
 }
 #
 # sharing block structure  :
-#   permission (string)      : (REQUIRED) The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created.
-#   community_gallery (block): A 'community_gallery' block. Changing this forces a new resource to be created.
+#   permission (string)      : (REQUIRED) The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.Compute/CommunityGalleries' is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information.
+#   community_gallery (block): A 'community_gallery' block. Changing this forces a new resource to be created. ~> **NOTE:** 'community_gallery' must be set when 'permission' is set to 'Community'.
 #
 # community_gallery block structure:
 #   eula (string)                    : (REQUIRED) The End User Licence Agreement for the Shared Image Gallery. Changing this forces a new resource to be created.

@@ -40,6 +40,12 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
 
+### `acl` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
+
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -48,18 +54,13 @@ tfstate_store = {
 | `permissions` | string | Yes | - | The permissions which should associated with this Shared Identifier. |
 | `start` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid from. |
 
-### `acl` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **start** | string | No  | The ISO8061 UTC time at which this Access Policy should be valid from. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Table within the Storage Account. | 
 
 Additionally, all variables are provided as outputs.

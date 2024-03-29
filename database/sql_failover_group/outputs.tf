@@ -30,6 +30,11 @@ output "tags" {
   value = azurerm_sql_failover_group.this.tags
 }
 
+output "mode" {
+  description = "Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_sql_failover_group.this.mode
+}
+
 output "id" {
   description = "The failover group ID."
   value       = azurerm_sql_failover_group.this.id

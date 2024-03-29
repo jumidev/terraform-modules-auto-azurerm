@@ -19,7 +19,7 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "cidrs" {
-  description = "A list of CIDRs or IP addresses."
+  description = "A list of CIDRs or IP addresses. ~> **NOTE:** The AzureRM Terraform provider provides cidr support via the standalone resource [azurerm_ip_group_cidr](ip_group_cidr.html) and in-line within this resource using the 'cidrs' property. You cannot use both methods simultaneously. If cidrs are set via the resource 'azurerm_ip_group_cidr' then 'ignore_changes' should be used in the ip group configuration."
   type        = list(any)
   default     = []
 }

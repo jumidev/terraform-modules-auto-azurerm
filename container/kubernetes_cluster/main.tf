@@ -31,7 +31,6 @@ resource "azurerm_kubernetes_cluster" "this" {
     node_network_profile          = lookup(default_node_pool.value, "node_network_profile", null)
     node_public_ip_prefix_id      = lookup(default_node_pool.value, "node_public_ip_prefix_id", null)
     node_labels                   = lookup(default_node_pool.value, "node_labels", null)
-    node_taints                   = lookup(default_node_pool.value, "node_taints", null)
     only_critical_addons_enabled  = lookup(default_node_pool.value, "only_critical_addons_enabled", null)
     orchestrator_version          = lookup(default_node_pool.value, "orchestrator_version", null)
     os_disk_size_gb               = lookup(default_node_pool.value, "os_disk_size_gb", null)
@@ -325,7 +324,7 @@ resource "azurerm_kubernetes_cluster" "this" {
         content {
           idle_timeout_in_minutes     = lookup(load_balancer_profile.value, "idle_timeout_in_minutes", 30)
           managed_outbound_ip_count   = lookup(load_balancer_profile.value, "managed_outbound_ip_count", null)
-          managed_outbound_ipv6_count = lookup(load_balancer_profile.value, "managed_outbound_ipv6_count", null)
+          managed_outbound_ipv6_count = lookup(load_balancer_profile.value, "managed_outbound_ipv6_count", managed_outbound_ipv6_count)
           outbound_ip_address_ids     = lookup(load_balancer_profile.value, "outbound_ip_address_ids", null)
           outbound_ip_prefix_ids      = lookup(load_balancer_profile.value, "outbound_ip_prefix_ids", null)
           outbound_ports_allocated    = lookup(load_balancer_profile.value, "outbound_ports_allocated", 0)
@@ -427,7 +426,7 @@ resource "azurerm_kubernetes_cluster" "this" {
         for_each = windows_profile.value.gmsa != null ? windows_profile.value.gmsa : []
         content {
           dns_server  = lookup(gmsa.value, "dns_server")  # (Required) 
-          root_domain = lookup(gmsa.value, "root_domain") # (Required) 
+          root_domain = lookup(gmsa.value, "root_domain") # (Required) possible values: dns_server | root_domain
         }
       }
 

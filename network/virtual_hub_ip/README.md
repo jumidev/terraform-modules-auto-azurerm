@@ -53,6 +53,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **public_ip_address_id** | string | No  | The ID of the Public IP Address. This option is required since September 1st 2021. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Hub IP. | 
 
 Additionally, all variables are provided as outputs.

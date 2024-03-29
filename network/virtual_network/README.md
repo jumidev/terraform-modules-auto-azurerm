@@ -72,18 +72,12 @@ component_inputs = {
 
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **bgp_community** | string |  -  |  The BGP community attribute in format `<as-number>:<community-value>`. | 
+| **bgp_community** | string |  -  |  The BGP community attribute in format `<as-number>:<community-value>`. -> **NOTE** The `as-number` segment is the Microsoft ASN, which is always `12076` for now. | 
 | **ddos_protection_plan** | [block](#ddos_protection_plan-block-structure) |  -  |  A `ddos_protection_plan` block. | 
 | **encryption** | [block](#encryption-block-structure) |  -  |  A `encryption` block. | 
-| **dns_servers** | string |  -  |  List of IP addresses of DNS servers | 
+| **dns_servers** | string |  `azurerm_virtual_network_dns_servers`, `[]`  |  List of IP addresses of DNS servers -> **NOTE** Since `dns_servers` can be configured both inline and via the separate `azurerm_virtual_network_dns_servers` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
 | **edge_zone** | string |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
 | **flow_timeout_in_minutes** | number |  `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
-
-### `encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enforcement` | bool | Yes | - | Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. |
 
 ### `ddos_protection_plan` block structure
 
@@ -91,12 +85,19 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
 
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enforcement` | bool | Yes | - | Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **security_group** | string | No  | The Network Security Group to associate with the subnet. (Referenced by `id`, ie. `azurerm_network_security_group.example.id`) In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of this subnet. | 
 | **name** | string | No  | The name of the virtual network. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string | No  | The name of the resource group in which to create the virtual network. | 

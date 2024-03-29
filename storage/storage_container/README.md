@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **metadata** | string | No  | A mapping of MetaData for this Container. All metadata keys should be lowercase. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Storage Container. | 
 | **has_immutability_policy** | bool | No  | Is there an Immutability Policy configured on this Storage Container? | 
 | **has_legal_hold** | bool | No  | Is there a Legal Hold configured on this Storage Container? | 

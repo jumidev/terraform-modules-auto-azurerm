@@ -42,6 +42,11 @@ output "tags" {
   value = azurerm_snapshot.this.tags
 }
 
+output "source_vault_id" {
+  description = "The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_snapshot.this.source_vault_id
+}
+
 output "id" {
   description = "The Snapshot ID."
   value       = azurerm_snapshot.this.id

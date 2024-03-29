@@ -66,13 +66,6 @@ tfstate_store = {
 | **package_file** | string |  -  |  Specifies the name of the package file on the VM. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the Gallery Application Version. | 
 
-### `source` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `media_link` | string | Yes | - | The Storage Blob URI of the source application package. Changing this forces a new resource to be created. |
-| `default_configuration_link` | string | No | - | The Storage Blob URI of the default configuration. Changing this forces a new resource to be created. |
-
 ### `manage_action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,12 +83,20 @@ tfstate_store = {
 | `exclude_from_latest` | bool | No | False | Specifies whether this Gallery Application Version should be excluded from the 'latest' filter. If set to 'true', this Gallery Application Version won't be returned for the 'latest' version. Defaults to 'false'. |
 | `storage_account_type` | string | No | Standard_LRS | The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. |
 
+### `source` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `media_link` | string | Yes | - | The Storage Blob URI of the source application package. Changing this forces a new resource to be created. |
+| `default_configuration_link` | string | No | - | The Storage Blob URI of the default configuration. Changing this forces a new resource to be created. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_account_type** | string | No  | The storage account type for the Gallery Application Version. Possible values are `Standard_LRS`, `Premium_LRS` and `Standard_ZRS`. Defaults to `Standard_LRS`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Gallery Application Version. | 
 
 Additionally, all variables are provided as outputs.

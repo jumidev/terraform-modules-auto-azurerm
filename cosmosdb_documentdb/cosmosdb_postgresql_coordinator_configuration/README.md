@@ -42,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. The following attributes are exported: | 
 | **id** | string | No  | The ID of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. | 
 
 Additionally, all variables are provided as outputs.

@@ -21,7 +21,7 @@ variable "start_ip_address" {
 
 }
 variable "end_ip_address" {
-  description = "(REQUIRED) Specifies the End IP Address associated with this Firewall Rule."
+  description = "(REQUIRED) Specifies the End IP Address associated with this Firewall Rule. -> **NOTE:** The Azure feature 'Allow access to Azure services' can be enabled by setting 'start_ip_address' and 'end_ip_address' to '0.0.0.0' which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate))."
   type        = string
 
 }

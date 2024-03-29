@@ -10,6 +10,11 @@ output "tags" {
   value = azurerm_application_load_balancer_frontend.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags which should be assigned to the Application Gateway for Containers Frontend. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_application_load_balancer_frontend.this.tags
+}
+
 output "id" {
   description = "The ID of the Application Gateway for Containers Frontend."
   value       = azurerm_application_load_balancer_frontend.this.id

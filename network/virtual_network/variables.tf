@@ -24,7 +24,7 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "bgp_community" {
-  description = "The BGP community attribute in format '<as-number>:<community-value>'."
+  description = "The BGP community attribute in format '<as-number>:<community-value>'. -> **NOTE** The 'as-number' segment is the Microsoft ASN, which is always '12076' for now."
   type        = string
   default     = null
 }
@@ -49,7 +49,7 @@ variable "encryption" {
 
 
 variable "dns_servers" {
-  description = "List of IP addresses of DNS servers"
+  description = "List of IP addresses of DNS servers -> **NOTE** Since 'dns_servers' can be configured both inline and via the separate 'azurerm_virtual_network_dns_servers' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = string
   default     = null
 }

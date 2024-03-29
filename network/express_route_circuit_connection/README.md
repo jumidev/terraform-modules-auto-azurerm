@@ -44,7 +44,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **authorization_key** | string |  The authorization key which is associated with the Express Route Circuit Connection. | 
-| **address_prefix_ipv6** | string |  The IPv6 address space from which to allocate customer addresses for global reach. | 
+| **address_prefix_ipv6** | string |  The IPv6 address space from which to allocate customer addresses for global reach. -> **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port. | 
 
 
 
@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **address_prefix_ipv6** | string | No  | The IPv6 address space from which to allocate customer addresses for global reach. -> **NOTE:** `address_prefix_ipv6` cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Express Route Circuit Connection. | 
 
 Additionally, all variables are provided as outputs.

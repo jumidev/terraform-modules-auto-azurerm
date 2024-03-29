@@ -48,7 +48,7 @@ tfstate_store = {
 | **base64_encoded_yaml_fragment** | string |  -  |  The fragment of the cassandra.yaml configuration file to be included in the cassandra.yaml for all nodes in this Cassandra Datacenter. The fragment should be Base64 encoded and only a subset of keys is allowed. | 
 | **disk_sku** | string |  `P30`  |  The Disk SKU that is used for this Cassandra Datacenter. Defaults to `P30`. | 
 | **managed_disk_customer_key_uri** | string |  -  |  The key URI of the customer key to use for the encryption of the Managed Disk. | 
-| **sku_name** | string |  -  |  Determines the selected sku. | 
+| **sku_name** | string |  -  |  Determines the selected sku. -> **NOTE:** In v4.0 of the provider the `sku_name` will have a default value of `Standard_E16s_v5`. | 
 | **disk_count** | number |  -  |  Determines the number of p30 disks that are attached to each node. | 
 | **availability_zones_enabled** | bool |  `True`  |  Determines whether availability zones are enabled. Defaults to `true`. | 
 
@@ -58,6 +58,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **availability_zones_enabled** | bool | No  | Determines whether availability zones are enabled. Defaults to `true`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Cassandra Datacenter. | 
 | **seed_node_ip_addresses** | list | No  | A list of IP Address for the seed nodes in this Cassandra Datacenter. | 
 

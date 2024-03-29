@@ -22,6 +22,11 @@ output "next_hop_type" {
   value = azurerm_virtual_hub_route_table_route.this.next_hop_type
 }
 
+output "next_hop_type" {
+  description = "The type of next hop. Currently the only possible value is 'ResourceId'. Defaults to 'ResourceId'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_hub_route_table_route.this.next_hop_type
+}
+
 output "id" {
   description = "The ID of the Virtual Hub Route Table."
   value       = azurerm_virtual_hub_route_table_route.this.id

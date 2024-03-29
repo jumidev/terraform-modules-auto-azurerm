@@ -49,6 +49,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **body** | string | No  | The body of the stored procedure. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Cosmos DB SQL Stored Procedure. | 
 
 Additionally, all variables are provided as outputs.

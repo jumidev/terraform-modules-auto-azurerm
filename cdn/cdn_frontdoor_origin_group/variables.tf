@@ -34,11 +34,11 @@ variable "health_probe" {
 #   protocol (string)           : (REQUIRED) Specifies the protocol to use for health probe. Possible values are 'Http' and 'Https'.
 #   interval_in_seconds (number): (REQUIRED) Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive).
 #   request_type (string)       : Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'.
-#   path (string)               : Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'.
+#   path (string)               : Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. -> **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the 'health_probe' settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes).
 
 
 variable "restore_traffic_time_to_healed_or_new_endpoint_in_minutes" {
-  description = "Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between '0' and '50' minutes (inclusive). Default is '10' minutes."
+  description = "Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between '0' and '50' minutes (inclusive). Default is '10' minutes. -> **NOTE:** This property is currently not used, but will be in the near future."
   type        = number
   default     = 10
 }

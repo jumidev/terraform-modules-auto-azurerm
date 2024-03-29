@@ -19,12 +19,12 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "platform_update_domain_count" {
-  description = "Specifies the number of update domains that are used. Defaults to '5'. Changing this forces a new resource to be created."
+  description = "Specifies the number of update domains that are used. Defaults to '5'. Changing this forces a new resource to be created. ~> **NOTE:** The number of Update Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md)."
   type        = number
   default     = 5
 }
 variable "platform_fault_domain_count" {
-  description = "Specifies the number of fault domains that are used. Defaults to '3'. Changing this forces a new resource to be created."
+  description = "Specifies the number of fault domains that are used. Defaults to '3'. Changing this forces a new resource to be created. ~> **NOTE:** The number of Fault Domains varies depending on which Azure Region you're using - [a list can be found here](https://github.com/MicrosoftDocs/azure-docs/blob/master/includes/managed-disks-common-fault-domain-region-list.md)."
   type        = number
   default     = 3
 }

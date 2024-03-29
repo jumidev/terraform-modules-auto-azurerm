@@ -34,15 +34,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
             }
           }
 
-
-          dynamic "http_headers" { # rule.value.http_headers
-            for_each = rule.value.http_headers != null ? rule.value.http_headers : []
-            content {
-              name  = http_headers.key
-              value = lookup(http_headers.value, "value") # (Required) 
-            }
-          }
-
+          http_headers          = lookup(rule.value, "http_headers", null)
           source_addresses      = lookup(rule.value, "source_addresses", null)
           source_ip_groups      = lookup(rule.value, "source_ip_groups", null)
           destination_addresses = lookup(rule.value, "destination_addresses", null)

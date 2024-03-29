@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | A property value such as a registrar domain. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS CAA Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS CAA Record. | 
 

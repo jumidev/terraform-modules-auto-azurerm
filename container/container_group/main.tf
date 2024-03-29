@@ -22,7 +22,7 @@ resource "azurerm_container_group" "this" {
   dynamic "identity" { # var.identity
     for_each = var.identity != null ? var.identity : []
     content {
-      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned | SystemAssigned, UserAssigned
+      type         = lookup(identity.value, "type") # (Required) possible values: SystemAssigned | UserAssigned | SystemAssigned, UserAssigned | type
       identity_ids = lookup(identity.value, "identity_ids", null)
     }
   }
@@ -56,17 +56,9 @@ resource "azurerm_container_group" "this" {
     }
   }
 
-  dns_name_label              = var.dns_name_label
-  dns_name_label_reuse_policy = var.dns_name_label_reuse_policy # Default: Unsecure
-
-  dynamic "exposed_port" { # var.exposed_port
-    for_each = var.exposed_port != null ? var.exposed_port : []
-    content {
-      port     = lookup(exposed_port.value, "port", null)
-      protocol = lookup(exposed_port.value, "protocol", "TCP")
-    }
-  }
-
+  dns_name_label                      = var.dns_name_label
+  dns_name_label_reuse_policy         = var.dns_name_label_reuse_policy # Default: Unsecure
+  exposed_port                        = var.exposed_port
   ip_address_type                     = var.ip_address_type # Default: Public
   key_vault_key_id                    = var.key_vault_key_id
   key_vault_user_assigned_identity_id = var.key_vault_user_assigned_identity_id
@@ -82,6 +74,7 @@ resource "azurerm_container_group" "this" {
     }
   }
 
+  priority       = var.priority
   restart_policy = var.restart_policy # Default: Always
   zones          = var.zones
   tags           = var.tags

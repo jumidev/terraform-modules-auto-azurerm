@@ -51,11 +51,11 @@ component_inputs = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **sku** | string |  `Standard`  |  The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. | 
+| **sku** | string |  `Standard`  |  The SKU of the Public IP Prefix. Accepted values are `Standard`. Defaults to `Standard`. Changing this forces a new resource to be created. -> **Note:** Public IP Prefix can only be created with Standard SKUs at this time. | 
 | **ip_version** | string |  `IPv4`  |  The IP Version to use, `IPv6` or `IPv4`. Changing this forces a new resource to be created. Default is `IPv4`. | 
-| **prefix_length** | number |  `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. | 
+| **prefix_length** | number |  `28`  |  Specifies the number of bits of the prefix. The value can be set between 0 (4,294,967,296 addresses) and 31 (2 addresses). Defaults to `28`(16 addresses). Changing this forces a new resource to be created. -> **Please Note:** There may be Public IP address limits on the subscription . [More information available here](https://docs.microsoft.com/azure/azure-subscription-service-limits?toc=%2fazure%2fvirtual-network%2ftoc.json#publicip-address) | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-| **zones** | list |  -  |  Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. | 
+| **zones** | list |  -  |  Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. -> **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview). | 
 
 
 
@@ -63,6 +63,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **zones** | list | No  | Specifies a list of Availability Zones in which this Public IP Prefix should be located. Changing this forces a new Public IP Prefix to be created. -> **Please Note:** Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview). In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Public IP Prefix ID. | 
 | **ip_prefix** | string | No  | The IP address prefix value that was allocated. | 
 

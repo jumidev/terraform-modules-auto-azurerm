@@ -16,7 +16,7 @@ variable "start_ip_address" {
 
 }
 variable "end_ip_address" {
-  description = "(REQUIRED) The ending IP address to allow through the firewall for this rule."
+  description = "(REQUIRED) The ending IP address to allow through the firewall for this rule. -> **NOTE:** The Azure feature 'Allow access to Azure services' can be enabled by setting 'start_ip_address' and 'end_ip_address' to '0.0.0.0'. -> **NOTE:** The Azure feature 'Allow access to Azure services' requires the 'name' to be 'AllowAllWindowsAzureIps'."
   type        = string
 
 }

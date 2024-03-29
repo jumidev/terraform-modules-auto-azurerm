@@ -20,12 +20,12 @@ variable "schema" {
 #   partition_key (block) : (REQUIRED) One or more 'partition_key' blocks.
 #   cluster_key (block)   : One or more 'cluster_key' blocks.
 #
-# partition_key block structure:
-#   name (string)                : (REQUIRED) Name of the column to partition by.
-#
 # cluster_key block structure:
 #   name (string)              : (REQUIRED) Name of the cluster key to be created.
 #   order_by (string)          : (REQUIRED) Order of the key. Currently supported values are 'Asc' and 'Desc'.
+#
+# partition_key block structure:
+#   name (string)                : (REQUIRED) Name of the column to partition by.
 #
 # column block structure:
 #   name (string)         : (REQUIRED) Name of the column to be created.
@@ -46,12 +46,12 @@ variable "default_ttl" {
   default     = null
 }
 variable "analytical_storage_ttl" {
-  description = "Time to live of the Analytical Storage. Possible values are between '-1' and '2147483647' except '0'. '-1' means the Analytical Storage never expires. Changing this forces a new resource to be created."
+  description = "Time to live of the Analytical Storage. Possible values are between '-1' and '2147483647' except '0'. '-1' means the Analytical Storage never expires. Changing this forces a new resource to be created. ~> **Note:** throughput has a maximum value of '1000000' unless a higher limit is requested via Azure Support"
   type        = number
   default     = null
 }
 variable "autoscale_settings" {
-  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply."
+  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed."
   type        = map(any)
   default     = null
 }

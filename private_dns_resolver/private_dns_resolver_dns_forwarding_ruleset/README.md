@@ -50,6 +50,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Private DNS Resolver Dns Forwarding Ruleset. | 
 
 Additionally, all variables are provided as outputs.

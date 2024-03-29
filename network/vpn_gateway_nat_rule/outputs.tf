@@ -38,6 +38,11 @@ output "internal_address_space_mappings" {
   value = azurerm_vpn_gateway_nat_rule.this.internal_address_space_mappings
 }
 
+output "port_range" {
+  description = "The single port range for the VPN Gateway Nat Rule internal mapping. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_vpn_gateway_nat_rule.this.port_range
+}
+
 output "id" {
   description = "The ID of the VPN Gateway NAT Rule."
   value       = azurerm_vpn_gateway_nat_rule.this.id

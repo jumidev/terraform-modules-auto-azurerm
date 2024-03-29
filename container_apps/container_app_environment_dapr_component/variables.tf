@@ -39,7 +39,7 @@ variable "metadata" {
   default     = null
 }
 variable "scopes" {
-  description = "A list of scopes to which this component applies."
+  description = "A list of scopes to which this component applies. ~> **NOTE:** See the official docs for more information at https://learn.microsoft.com/en-us/azure/container-apps/dapr-overview?tabs=bicep1%2Cyaml#component-scopes"
   type        = list(any)
   default     = []
 }

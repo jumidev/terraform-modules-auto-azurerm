@@ -1,12 +1,12 @@
 # REQUIRED VARIABLES
 
 variable "name" {
-  description = "(REQUIRED) The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The name of the Node Pool which should be created within the Kubernetes Cluster. Changing this forces a new resource to be created. ~> **NOTE:** A Windows Node Pool cannot have a 'name' longer than 6 characters."
   type        = string
 
 }
 variable "kubernetes_cluster_id" {
-  description = "(REQUIRED) The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The ID of the Kubernetes Cluster where this Node Pool should exist. Changing this forces a new resource to be created. ~> **NOTE:** The type of Default Node Pool for the Kubernetes Cluster must be 'VirtualMachineScaleSets' to attach multiple node pools."
   type        = string
 
 }
@@ -24,7 +24,7 @@ variable "capacity_reservation_group_id" {
   default     = null
 }
 variable "custom_ca_trust_enabled" {
-  description = "Specifies whether to trust a Custom CA."
+  description = "Specifies whether to trust a Custom CA. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/CustomCATrustPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information."
   type        = bool
   default     = null
 }
@@ -34,7 +34,7 @@ variable "enable_auto_scaling" {
   default     = null
 }
 variable "enable_host_encryption" {
-  description = "Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created."
+  description = "Should the nodes in this Node Pool have host encryption enabled? Changing this forces a new resource to be created. ~> **NOTE:** Additional fields must be configured depending on the value of this field - see below."
   type        = bool
   default     = null
 }
@@ -44,9 +44,9 @@ variable "enable_node_public_ip" {
   default     = null
 }
 variable "eviction_policy" {
-  description = "The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are 'Deallocate' and 'Delete'. Changing this forces a new resource to be created."
+  description = "The Eviction Policy which should be used for Virtual Machines within the Virtual Machine Scale Set powering this Node Pool. Possible values are 'Deallocate' and 'Delete'. Changing this forces a new resource to be created. ~> **Note:** An Eviction Policy can only be configured when 'priority' is set to 'Spot' and will default to 'Delete' unless otherwise specified."
   type        = string
-  default     = null
+  default     = "Delete"
 }
 variable "host_group_id" {
   description = "The fully qualified resource ID of the Dedicated Host Group to provision virtual machines from. Changing this forces a new resource to be created."
@@ -117,7 +117,7 @@ variable "linux_os_config" {
 
 
 variable "fips_enabled" {
-  description = "Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created."
+  description = "Should the nodes in this Node Pool have Federal Information Processing Standard enabled? Changing this forces a new resource to be created. ~> **Note:** FIPS support is in Public Preview - more information and details on how to opt into the Preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-multiple-node-pools#add-a-fips-enabled-node-pool-preview)."
   type        = bool
   default     = null
 }
@@ -153,7 +153,7 @@ variable "node_network_profile" {
 }
 #
 # node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 
 
 variable "node_labels" {
@@ -172,7 +172,7 @@ variable "node_taints" {
   default     = []
 }
 variable "orchestrator_version" {
-  description = "Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version)."
+  description = "Version of Kubernetes used for the Agents. If not specified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). -> **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first."
   type        = string
   default     = null
 }
@@ -207,12 +207,12 @@ variable "priority" {
   default     = "Regular"
 }
 variable "proximity_placement_group_id" {
-  description = "The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created."
+  description = "The ID of the Proximity Placement Group where the Virtual Machine Scale Set that powers this Node Pool will be placed. Changing this forces a new resource to be created. -> **Note:** When setting 'priority' to Spot - you must configure an 'eviction_policy', 'spot_max_price' and add the applicable 'node_labels' and 'node_taints' [as per the Azure Documentation](https://docs.microsoft.com/azure/aks/spot-node-pool)."
   type        = string
   default     = null
 }
 variable "spot_max_price" {
-  description = "The maximum price you're willing to pay in USD per Virtual Machine. Valid values are '-1' (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created."
+  description = "The maximum price you're willing to pay in USD per Virtual Machine. Valid values are '-1' (the current on-demand price for a Virtual Machine) or a positive value with up to five decimal places. Changing this forces a new resource to be created. ~> **Note:** This field can only be configured when 'priority' is set to 'Spot'."
   type        = string
   default     = null
 }
@@ -222,7 +222,7 @@ variable "snapshot_id" {
   default     = null
 }
 variable "tags" {
-  description = "A mapping of tags to assign to the resource."
+  description = "A mapping of tags to assign to the resource. ~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's 'ignore_changes' functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API."
   type        = map(any)
   default     = null
 }
@@ -247,7 +247,7 @@ variable "upgrade_settings" {
 
 
 variable "vnet_subnet_id" {
-  description = "The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created."
+  description = "The ID of the Subnet where this Node Pool should exist. Changing this forces a new resource to be created. ~> **NOTE:** A route table must be configured on this Subnet."
   type        = string
   default     = null
 }
@@ -258,11 +258,11 @@ variable "windows_profile" {
 }
 #
 # windows_profile block structure:
-#   outbound_nat_enabled (bool)    : Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created.
+#   outbound_nat_enabled (bool)    : Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
 
 
 variable "workload_runtime" {
-  description = "Used to specify the workload runtime. Allowed values are 'OCIContainer', 'WasmWasi' and 'KataMshvVmIsolation'."
+  description = "Used to specify the workload runtime. Allowed values are 'OCIContainer', 'WasmWasi' and 'KataMshvVmIsolation'. ~> **Note:** WebAssembly System Interface node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://docs.microsoft.com/azure/aks/use-wasi-node-pools) ~> **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)"
   type        = string
   default     = null
 }

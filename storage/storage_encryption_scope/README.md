@@ -49,6 +49,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **key_vault_key_id** | string | No  | The ID of the Key Vault Key. Required when `source` is `Microsoft.KeyVault`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Storage Encryption Scope. | 
 
 Additionally, all variables are provided as outputs.

@@ -34,6 +34,11 @@ output "tags" {
   value = azurerm_vpn_gateway.this.tags
 }
 
+output "custom_ips" {
+  description = "A list of custom BGP peering addresses to assign to this instance. In addition to the arguments above, the following attributes are exported:"
+  value       = azurerm_vpn_gateway.this.custom_ips
+}
+
 output "id" {
   description = "The ID of the VPN Gateway."
   value       = azurerm_vpn_gateway.this.id

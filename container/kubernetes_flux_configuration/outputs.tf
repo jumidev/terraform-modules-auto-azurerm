@@ -34,6 +34,11 @@ output "continuous_reconciliation_enabled" {
   value = azurerm_kubernetes_flux_configuration.this.continuous_reconciliation_enabled
 }
 
+output "timeout_in_seconds" {
+  description = "Specifies the maximum time to attempt to reconcile the cluster git repository source with the remote. Defaults to '600'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_kubernetes_flux_configuration.this.timeout_in_seconds
+}
+
 output "id" {
   description = "The ID of the Kubernetes Flux Configuration."
   value       = azurerm_kubernetes_flux_configuration.this.id

@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **description** | string | No  | Integration runtime description. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse Self-hosted Integration Runtime. | 
 | **authorization_key_primary** | string | No  | The primary integration runtime authentication key. | 
 | **authorization_key_secondary** | string | No  | The secondary integration runtime authentication key. | 

@@ -18,6 +18,11 @@ output "usage_model" {
   value = azurerm_hpc_cache_nfs_target.this.usage_model
 }
 
+output "access_policy_name" {
+  description = "The name of the access policy applied to this target. Defaults to 'default'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_hpc_cache_nfs_target.this.access_policy_name
+}
+
 output "id" {
   description = "The ID of the HPC Cache NFS Target."
   value       = azurerm_hpc_cache_nfs_target.this.id

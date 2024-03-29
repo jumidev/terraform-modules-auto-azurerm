@@ -34,7 +34,7 @@ variable "tags" {
   default     = null
 }
 variable "zones" {
-  description = "A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created."
+  description = "A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. -> **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones)"
   type        = list(any)
   default     = []
 }

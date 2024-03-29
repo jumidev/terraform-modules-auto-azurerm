@@ -34,14 +34,14 @@ variable "enforce" {
   default     = true
 }
 variable "identity" {
-  description = "An 'identity' block."
+  description = "An 'identity' block. -> **Note:** The 'location' field must also be specified when 'identity' is specified."
   type        = map(any)
   default     = null
 }
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' or 'UserAssigned'.
-#   identity_ids (list)     : A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+#   identity_ids (list)     : A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'.
 
 
 variable "location" {

@@ -46,7 +46,7 @@ variable "index" {
 #
 # index block structure:
 #   keys (string)        : (REQUIRED) Specifies the list of user settable keys for each Cosmos DB Mongo Collection.
-#   unique (bool)        : Is the index unique or not? Defaults to 'false'.
+#   unique (bool)        : Is the index unique or not? Defaults to 'false'. ~> **Note:** An index with an '_id' key must be specified.
 
 
 variable "throughput" {
@@ -55,7 +55,7 @@ variable "throughput" {
   default     = null
 }
 variable "autoscale_settings" {
-  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply."
+  description = "An 'autoscale_settings' block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed."
   type        = map(any)
   default     = null
 }
@@ -65,17 +65,17 @@ variable "autoscale_settings" {
 
 
 variable "cosmosdb_account_resource_group_name" {
-  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  description = "Specifies the name of the resource group in which the CosmosDB Account resides..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }
 variable "cosmosdb_sql_database_resource_group_name" {
-  description = "The name of the resource group in which the Cosmos DB SQL Database is created..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
+  description = "The name of the resource group in which the Cosmos DB SQL Database is created..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }
 variable "cosmosdb_sql_database_account_name" {
-  description = "The name of the Cosmos DB SQL Database to create the table within..  If not specified, value of var.account_name will be used..  If not specified, value of var.account_name will be used..  If not specified, value of var.account_name will be used."
+  description = "The name of the Cosmos DB SQL Database to create the table within..  If not specified, value of var.account_name will be used..  If not specified, value of var.account_name will be used."
   type        = string
   default     = null
 }

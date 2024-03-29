@@ -41,7 +41,7 @@ tfstate_store = {
 | **data_disk** | [block](#data_disk-block-structure) |  -  |  One or more `data_disk` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **zone_resilient** | bool |  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
-| **hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 
+| **hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. ~> **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones. | 
 
 ### `data_disk` block structure
 
@@ -71,6 +71,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **size_gb** | number | No  | Specifies the size of the image to be created. The target size can't be smaller than the source size. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Image. | 
 
 Additionally, all variables are provided as outputs.

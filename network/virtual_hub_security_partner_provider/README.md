@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Security Partner Provider. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Security Partner Provider. | 
 
 Additionally, all variables are provided as outputs.

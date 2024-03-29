@@ -12,12 +12,16 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Arc Kubernetes Cluster Extensio..."   
-   cluster_id = "Specifies the Cluster ID"   
+   # cluster_id → set in component_inputs
    extension_type = "Specifies the type of extension"   
    identity = {
       type = "..."      
    }
    
+}
+
+component_inputs = {
+   cluster_id = "path/to/arc_kubernetes_cluster_component:id"   
 }
 
 tfstate_store = {
@@ -60,6 +64,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **type** | string | No  | Specifies the type of Managed Service Identity. The only possible value is `SystemAssigned`. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Arc Kubernetes Cluster Extension. | 
 | **current_version** | string | No  | The current version of the extension. | 
 | **identity** | block | No  | An `identity` block. | 

@@ -78,7 +78,7 @@ component_inputs = {
 | **idle_timeout_in_minutes** | number |  `4`  |  The idle timeout which should be used in minutes. Defaults to `4`. | 
 | **sku_name** | string |  `Standard`  |  The SKU which should be used. At this time the only supported value is `Standard`. Defaults to `Standard`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-| **zones** | list |  -  |  A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. | 
+| **zones** | list |  -  |  A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. -> **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones) | 
 
 
 
@@ -86,6 +86,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **zones** | list | No  | A list of Availability Zones in which this NAT Gateway should be located. Changing this forces a new NAT Gateway to be created. -> **NOTE:** Only one Availability Zone can be defined. For more information, please check out the [Azure documentation](https://learn.microsoft.com/en-us/azure/nat-gateway/nat-overview#availability-zones) In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the NAT Gateway. | 
 | **resource_guid** | string | No  | The resource GUID property of the NAT Gateway. | 
 

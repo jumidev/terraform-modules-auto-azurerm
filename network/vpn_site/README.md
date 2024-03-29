@@ -43,11 +43,17 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **link** | [block](#link-block-structure) |  One or more `link` blocks. | 
-| **address_cidrs** | list |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. | 
+| **address_cidrs** | list |  Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. -> **NOTE:** The `address_cidrs` has to be set when the `link.bgp` isn't specified. | 
 | **device_model** | string |  The model of the VPN device. | 
 | **device_vendor** | string |  The name of the VPN device vendor. | 
 | **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
+
+### `o365_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
 
 ### `traffic_category` block structure
 
@@ -62,9 +68,9 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name which should be used for this VPN Site Link. |
-| `bgp` | [block](#bgp-block-structure) | No | - | A 'bgp' block. |
+| `bgp` | [block](#bgp-block-structure) | No | - | A 'bgp' block. -> **NOTE:** The 'link.bgp' has to be set when the 'address_cidrs' isn't specified. |
 | `fqdn` | string | No | - | The FQDN of this VPN Site Link. |
-| `ip_address` | string | No | - | The IP address of this VPN Site Link. |
+| `ip_address` | string | No | - | The IP address of this VPN Site Link. -> **NOTE:** Either 'fqdn' or 'ip_address' should be specified. |
 | `provider_name` | string | No | - | The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'. |
 | `speed_in_mbps` | number | No | 0 | The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'. |
 
@@ -75,18 +81,13 @@ tfstate_store = {
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
 
-### `o365_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **optimize_endpoint_enabled** | bool | No  | Is optimize endpoint enabled? The `Optimize` endpoint is required for connectivity to every O365 service and represents the O365 scenario that is the most sensitive to network performance, latency, and availability. Defaults to `false`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the VPN Site Link. | 
 | **link** | block | No  | One or more `link` blocks. | 
 

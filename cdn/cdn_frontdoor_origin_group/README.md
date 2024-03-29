@@ -43,8 +43,17 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **health_probe** | [block](#health_probe-block-structure) |  -  |  -  |  A `health_probe` block. | 
-| **restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | number |  `10`  |  `0`, `50`, `10`  |  Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes. | 
+| **restore_traffic_time_to_healed_or_new_endpoint_in_minutes** | number |  `10`  |  `0`, `50`, `10`  |  Specifies the amount of time which should elapse before shifting traffic to another endpoint when a healthy endpoint becomes unhealthy or a new endpoint is added. Possible values are between `0` and `50` minutes (inclusive). Default is `10` minutes. -> **NOTE:** This property is currently not used, but will be in the near future. | 
 | **session_affinity_enabled** | bool |  `True`  |  -  |  Specifies whether session affinity should be enabled on this host. Defaults to `true`. | 
+
+### `health_probe` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `protocol` | string | Yes | - | Specifies the protocol to use for health probe. Possible values are 'Http' and 'Https'. |
+| `interval_in_seconds` | number | Yes | - | Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive). |
+| `request_type` | string | No | HEAD | Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'. |
+| `path` | string | No | / | Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. -> **NOTE:** Health probes can only be disabled if there is a single enabled origin in a single enabled origin group. For more information about the 'health_probe' settings please see the [product documentation](https://docs.microsoft.com/azure/frontdoor/health-probes). |
 
 ### `load_balancing` block structure
 
@@ -54,21 +63,13 @@ tfstate_store = {
 | `sample_size` | number | No | 4 | Specifies the number of samples to consider for load balancing decisions. Possible values are between '0' and '255' (inclusive). Defaults to '4'. |
 | `successful_samples_required` | number | No | 3 | Specifies the number of samples within the sample period that must succeed. Possible values are between '0' and '255' (inclusive). Defaults to '3'. |
 
-### `health_probe` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `protocol` | string | Yes | - | Specifies the protocol to use for health probe. Possible values are 'Http' and 'Https'. |
-| `interval_in_seconds` | number | Yes | - | Specifies the number of seconds between health probes. Possible values are between '5' and '31536000' seconds (inclusive). |
-| `request_type` | string | No | HEAD | Specifies the type of health probe request that is made. Possible values are 'GET' and 'HEAD'. Defaults to 'HEAD'. |
-| `path` | string | No | / | Specifies the path relative to the origin that is used to determine the health of the origin. Defaults to '/'. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **successful_samples_required** | number | No  | Specifies the number of samples within the sample period that must succeed. Possible values are between `0` and `255` (inclusive). Defaults to `3`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Front Door Origin Group. | 
 
 Additionally, all variables are provided as outputs.

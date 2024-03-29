@@ -55,7 +55,7 @@ variable "cache_size" {
   default     = null
 }
 variable "compute_isolation_enabled" {
-  description = "Indicates whether compute isolation is enabled or not. Defaults to 'false'."
+  description = "Indicates whether compute isolation is enabled or not. Defaults to 'false'. ~> **NOTE:** The 'compute_isolation_enabled' is only available with the XXXLarge (80 vCPU / 504 GB) node size and only available in the following regions: East US, West US 2, South Central US, US Gov Arizona, US Gov Virginia. See [Isolated Compute](https://docs.microsoft.com/azure/synapse-analytics/spark/apache-spark-pool-configurations#isolated-compute) for more information."
   type        = bool
   default     = false
 }

@@ -26,6 +26,11 @@ output "tags" {
   value = azurerm_web_application_firewall_policy.this.tags
 }
 
+output "selector" {
+  description = "Specifies which elements in the collection this rule applies to. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_web_application_firewall_policy.this.selector
+}
+
 output "id" {
   description = "The ID of the Web Application Firewall Policy."
   value       = azurerm_web_application_firewall_policy.this.id

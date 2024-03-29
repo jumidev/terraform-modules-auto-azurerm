@@ -30,6 +30,11 @@ output "tags" {
   value = azurerm_virtual_wan.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the Virtual WAN. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_wan.this.tags
+}
+
 output "id" {
   description = "The ID of the Virtual WAN."
   value       = azurerm_virtual_wan.this.id

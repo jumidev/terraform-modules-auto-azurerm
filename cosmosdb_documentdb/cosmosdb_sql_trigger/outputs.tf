@@ -18,6 +18,11 @@ output "type" {
   value = azurerm_cosmosdb_sql_trigger.this.type
 }
 
+output "type" {
+  description = "Type of the Trigger. Possible values are 'Pre' and 'Post'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_sql_trigger.this.type
+}
+
 output "id" {
   description = "The ID of the SQL Trigger."
   value       = azurerm_cosmosdb_sql_trigger.this.id

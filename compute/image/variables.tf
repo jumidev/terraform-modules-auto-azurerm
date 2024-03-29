@@ -64,7 +64,7 @@ variable "zone_resilient" {
   default     = false
 }
 variable "hyper_v_generation" {
-  description = "The HyperVGenerationType of the VirtualMachine created from the image as 'V1', 'V2'. Defaults to 'V1'. Changing this forces a new resource to be created."
+  description = "The HyperVGenerationType of the VirtualMachine created from the image as 'V1', 'V2'. Defaults to 'V1'. Changing this forces a new resource to be created. ~> **Note:** 'zone_resilient' can only be set to 'true' if the image is stored in a region that supports availability zones."
   type        = string
   default     = "V1"
 }

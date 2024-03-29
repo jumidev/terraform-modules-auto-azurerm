@@ -12,10 +12,14 @@ source = {
 
 inputs = {
    name = "The name which should be used for this SQL Trigger"   
-   container_id = "The id of the Cosmos DB SQL Container to create the SQL Trigger within..."   
+   # container_id → set in component_inputs
    body = "Body of the Trigger"   
    operation = "The operation the trigger is associated with"   
    type = "Type of the Trigger"   
+}
+
+component_inputs = {
+   container_id = "path/to/cosmosdb_sql_container_component:id"   
 }
 
 tfstate_store = {
@@ -42,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **type** | string | No  | Type of the Trigger. Possible values are `Pre` and `Post`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the SQL Trigger. | 
 
 Additionally, all variables are provided as outputs.

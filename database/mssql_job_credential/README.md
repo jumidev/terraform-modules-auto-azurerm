@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **password** | string | Yes  | The password part of the credential. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Elastic Job Credential. | 
 
 Additionally, all variables are provided as outputs.

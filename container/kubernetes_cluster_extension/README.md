@@ -56,7 +56,7 @@ tfstate_store = {
 | `product` | string | Yes | - | Specifies the product of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `publisher` | string | Yes | - | Specifies the publisher of the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |
 | `promotion_code` | string | No | - | Specifies the promotion code to use with the plan. Changing this forces a new Kubernetes Cluster Extension to be created. |
-| `version` | string | No | - | Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. |
+| `version` | string | No | - | Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. ~> **NOTE:** When 'plan' is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The 'azurerm_marketplace_agreement' resource or AZ CLI tool can be used to do this. |
 
 
 
@@ -64,6 +64,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **version** | string | No  | Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. ~> **NOTE:** When `plan` is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The `azurerm_marketplace_agreement` resource or AZ CLI tool can be used to do this. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Kubernetes Cluster Extension. | 
 | **aks_assigned_identity** | block | No  | An `aks_assigned_identity` block. | 
 | **current_version** | string | No  | The current version of the extension. | 

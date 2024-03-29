@@ -16,5 +16,5 @@ resource "azurerm_sql_virtual_network_rule" "this" {
   ########################################
   # optional vars
   ########################################
-  ignore_missing_vnet_service_endpoint = var.ignore_missing_vnet_service_endpoint
+  ignore_missing_vnet_service_endpoint = var.ignore_missing_vnet_service_endpoint # Default: ignore_missing_vnet_service_endpoint
 }

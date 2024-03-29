@@ -44,7 +44,7 @@ variable "storage_endpoint" {
   default     = null
 }
 variable "storage_account_access_key" {
-  description = "Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use 'storage_endpoint' to specify a storage account blob endpoint."
+  description = "Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use 'storage_endpoint' to specify a storage account blob endpoint. -> **NOTE:**  Please note that storage accounts configured with 'shared_access_key_enabled = false' cannot be used to configure 'azurerm_mssql_server_security_alert_policy' with 'storage_endpoint' for now."
   type        = string
   default     = null
 }

@@ -16,7 +16,7 @@ variable "location" {
 
 }
 variable "allocation_method" {
-  description = "(REQUIRED) Defines the allocation method for this IP address. Possible values are 'Static' or 'Dynamic'."
+  description = "(REQUIRED) Defines the allocation method for this IP address. Possible values are 'Static' or 'Dynamic'. ~> **Note** 'Dynamic' Public IP Addresses aren't allocated until they're assigned to a resource (such as a Virtual Machine or a Load Balancer) by design within Azure. See 'ip_address' argument."
   type        = string
 
 }
@@ -24,7 +24,7 @@ variable "allocation_method" {
 # OPTIONAL VARIABLES
 
 variable "zones" {
-  description = "A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created."
+  description = "A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created. -> **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default."
   type        = string
   default     = null
 }
@@ -34,7 +34,7 @@ variable "ddos_protection_mode" {
   default     = "VirtualNetworkInherited"
 }
 variable "ddos_protection_plan_id" {
-  description = "The ID of DDoS protection plan associated with the public IP."
+  description = "The ID of DDoS protection plan associated with the public IP. -> **Note:** 'ddos_protection_plan_id' can only be set when 'ddos_protection_mode' is 'Enabled'."
   type        = string
   default     = null
 }
@@ -54,12 +54,12 @@ variable "idle_timeout_in_minutes" {
   default     = null
 }
 variable "ip_tags" {
-  description = "A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created."
+  description = "A mapping of IP tags to assign to the public IP. Changing this forces a new resource to be created. -> **Note** IP Tag 'RoutingPreference' requires multiple 'zones' and 'Standard' SKU to be set."
   type        = map(any)
   default     = null
 }
 variable "ip_version" {
-  description = "The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to 'IPv4'."
+  description = "The IP Version to use, IPv6 or IPv4. Changing this forces a new resource to be created. Defaults to 'IPv4'. -> **Note** Only 'static' IP address allocation is supported for IPv6."
   type        = string
   default     = "IPv4"
 }
@@ -74,12 +74,12 @@ variable "reverse_fqdn" {
   default     = null
 }
 variable "sku" {
-  description = "The SKU of the Public IP. Accepted values are 'Basic' and 'Standard'. Defaults to 'Basic'. Changing this forces a new resource to be created."
+  description = "The SKU of the Public IP. Accepted values are 'Basic' and 'Standard'. Defaults to 'Basic'. Changing this forces a new resource to be created. -> **Note** Public IP Standard SKUs require 'allocation_method' to be set to 'Static'."
   type        = string
   default     = "Basic"
 }
 variable "sku_tier" {
-  description = "The SKU Tier that should be used for the Public IP. Possible values are 'Regional' and 'Global'. Defaults to 'Regional'. Changing this forces a new resource to be created."
+  description = "The SKU Tier that should be used for the Public IP. Possible values are 'Regional' and 'Global'. Defaults to 'Regional'. Changing this forces a new resource to be created. -> **Note** When 'sku_tier' is set to 'Global', 'sku' must be set to 'Standard'."
   type        = string
   default     = "Regional"
 }

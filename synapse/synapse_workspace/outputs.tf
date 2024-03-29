@@ -87,6 +87,11 @@ output "tags" {
   value = azurerm_synapse_workspace.this.tags
 }
 
+output "tenant_id" {
+  description = "The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
+  value       = azurerm_synapse_workspace.this.tenant_id
+}
+
 output "id" {
   description = "The ID of the synapse Workspace."
   value       = azurerm_synapse_workspace.this.id
@@ -100,10 +105,5 @@ output "connectivity_endpoints" {
 output "principal_id" {
   description = "The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
   value       = azurerm_synapse_workspace.this.principal_id
-}
-
-output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
-  value       = azurerm_synapse_workspace.this.tenant_id
 }
 

@@ -18,6 +18,11 @@ output "backend_address_ip_configuration_id" {
   value = azurerm_lb_backend_address_pool_address.this.backend_address_ip_configuration_id
 }
 
+output "backend_address_ip_configuration_id" {
+  description = "The ip config ID of the regional load balancer that's added to the global load balancer's backend address pool. -> **Note:** For cross-region load balancer, please append the name of the load balancers, virtual machines, and other resources in each region with a -R1 and -R2. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_lb_backend_address_pool_address.this.backend_address_ip_configuration_id
+}
+
 output "id" {
   description = "The ID of the Backend Address Pool Address."
   value       = azurerm_lb_backend_address_pool_address.this.id

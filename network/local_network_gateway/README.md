@@ -39,7 +39,7 @@ tfstate_store = {
 | **address_space** | string |  The list of string CIDRs representing the address spaces the gateway exposes. | 
 | **bgp_settings** | [block](#bgp_settings-block-structure) |  A `bgp_settings` block containing the Local Network Gateway's BGP speaker settings. | 
 | **gateway_address** | string |  The gateway IP address to connect with. | 
-| **gateway_fqdn** | string |  The gateway FQDN to connect with. | 
+| **gateway_fqdn** | string |  The gateway FQDN to connect with. -> **NOTE:** Either `gateway_address` or `gateway_fqdn` should be specified. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `bgp_settings` block structure
@@ -56,6 +56,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **peer_weight** | string | No  | The weight added to routes learned from this BGP speaker. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Local Network Gateway. | 
 
 Additionally, all variables are provided as outputs.

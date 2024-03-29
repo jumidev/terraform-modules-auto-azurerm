@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **exchange** | string | No  | The mail server responsible for the domain covered by the MX record. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The DNS MX Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS MX Record. | 
 

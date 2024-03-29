@@ -74,6 +74,11 @@ output "tags" {
   value = azurerm_synapse_spark_pool.this.tags
 }
 
+output "filename" {
+  description = "The name of the file where the spark configuration 'content' will be stored. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_synapse_spark_pool.this.filename
+}
+
 output "id" {
   description = "The ID of the Synapse Spark Pool."
   value       = azurerm_synapse_spark_pool.this.id

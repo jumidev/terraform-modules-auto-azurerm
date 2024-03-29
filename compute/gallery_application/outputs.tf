@@ -38,6 +38,11 @@ output "tags" {
   value = azurerm_gallery_application.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the Gallery Application. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_gallery_application.this.tags
+}
+
 output "id" {
   description = "The ID of the Gallery Application."
   value       = azurerm_gallery_application.this.id

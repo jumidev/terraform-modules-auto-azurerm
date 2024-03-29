@@ -16,7 +16,7 @@ variable "location" {
 
 }
 variable "create_option" {
-  description = "(REQUIRED) Indicates how the snapshot is to be created. Possible values are 'Copy' or 'Import'."
+  description = "(REQUIRED) Indicates how the snapshot is to be created. Possible values are 'Copy' or 'Import'. ~> **Note:** One of 'source_uri', 'source_resource_id' or 'storage_account_id' must be specified."
   type        = string
 
 }
@@ -44,7 +44,7 @@ variable "disk_size_gb" {
   default     = null
 }
 variable "encryption_settings" {
-  description = "A 'encryption_settings' block."
+  description = "A 'encryption_settings' block. ~> **NOTE:** Removing 'encryption_settings' forces a new resource to be created."
   type        = map(any)
   default     = null
 }
@@ -53,13 +53,13 @@ variable "encryption_settings" {
 #   disk_encryption_key (block)        : A 'disk_encryption_key' block.
 #   key_encryption_key (block)         : A 'key_encryption_key' block.
 #
-# disk_encryption_key block structure:
-#   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource.
-#   source_vault_id (string)           : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
-#
 # key_encryption_key block structure:
 #   key_url (string)                  : (REQUIRED) The URL to the Key Vault Key used as the Key Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_key' resource.
 #   source_vault_id (string)          : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
+#
+# disk_encryption_key block structure:
+#   secret_url (string)                : (REQUIRED) The URL to the Key Vault Secret used as the Disk Encryption Key. This can be found as 'id' on the 'azurerm_key_vault_secret' resource.
+#   source_vault_id (string)           : (REQUIRED) The ID of the source Key Vault. This can be found as 'id' on the 'azurerm_key_vault' resource.
 
 
 variable "incremental_enabled" {

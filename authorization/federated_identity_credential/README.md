@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **subject** | string | No  | Specifies the subject for this Federated Identity Credential. Changing this forces a new Federated Identity Credential to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Federated Identity Credential. | 
 
 Additionally, all variables are provided as outputs.

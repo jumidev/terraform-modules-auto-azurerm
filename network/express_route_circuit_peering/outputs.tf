@@ -46,6 +46,11 @@ output "route_filter_id" {
   value = azurerm_express_route_circuit_peering.this.route_filter_id
 }
 
+output "advertised_communities" {
+  description = "The communities of Bgp Peering specified for microsoft peering. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_express_route_circuit_peering.this.advertised_communities
+}
+
 output "id" {
   description = "The ID of the ExpressRoute Circuit Peering."
   value       = azurerm_express_route_circuit_peering.this.id

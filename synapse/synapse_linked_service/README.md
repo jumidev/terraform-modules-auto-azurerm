@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **parameters** | string | No  | A map of parameters to associate with the integration runtime. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse Linked Service. | 
 
 Additionally, all variables are provided as outputs.

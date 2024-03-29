@@ -18,6 +18,11 @@ output "server_role" {
   value = azurerm_redis_linked_server.this.server_role
 }
 
+output "server_role" {
+  description = "The role of the linked Redis cache (eg 'Secondary'). Changing this forces a new Redis to be created. Possible values are 'Primary' and 'Secondary'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_redis_linked_server.this.server_role
+}
+
 output "id" {
   description = "The ID of the Redis."
   value       = azurerm_redis_linked_server.this.id

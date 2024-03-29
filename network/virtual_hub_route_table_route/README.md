@@ -52,6 +52,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **next_hop_type** | string | No  | The type of next hop. Currently the only possible value is `ResourceId`. Defaults to `ResourceId`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Hub Route Table. | 
 
 Additionally, all variables are provided as outputs.

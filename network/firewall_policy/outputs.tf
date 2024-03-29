@@ -66,6 +66,11 @@ output "explicit_proxy" {
   value = azurerm_firewall_policy.this.explicit_proxy
 }
 
+output "pac_file" {
+  description = "Specifies a SAS URL for PAC file. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_firewall_policy.this.pac_file
+}
+
 output "id" {
   description = "The ID of the Firewall Policy."
   value       = azurerm_firewall_policy.this.id

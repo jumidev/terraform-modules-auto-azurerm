@@ -61,7 +61,7 @@ component_inputs = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **name** | string |  The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the Private DNS Zone. Must be a valid domain name. Changing this forces a new resource to be created. -> **NOTE:** If you are going to be using the Private DNS Zone with a Private Endpoint the name of the Private DNS Zone must follow the **Private DNS Zone name** schema in the [product documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-dns#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) in order for the two resources to be connected successfully. | 
 | **resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
@@ -89,6 +89,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the Record Set. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Private DNS Zone ID. | 
 | **soa_record** | block | No  | A `soa_record` block. | 
 | **number_of_record_sets** | number | No  | The current number of record sets in this Private DNS zone. | 

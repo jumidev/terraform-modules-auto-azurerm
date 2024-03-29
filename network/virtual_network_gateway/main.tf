@@ -26,17 +26,9 @@ resource "azurerm_virtual_network_gateway" "this" {
   dynamic "bgp_settings" { # var.bgp_settings
     for_each = var.bgp_settings != null ? var.bgp_settings : []
     content {
-      asn = lookup(bgp_settings.value, "asn", null)
-
-      dynamic "peering_addresses" { # bgp_settings.value.peering_addresses
-        for_each = bgp_settings.value.peering_addresses != null ? bgp_settings.value.peering_addresses : []
-        content {
-          ip_configuration_name = lookup(peering_addresses.value, "ip_configuration_name", "primary")
-          apipa_addresses       = lookup(peering_addresses.value, "apipa_addresses", null)
-        }
-      }
-
-      peer_weight = lookup(bgp_settings.value, "peer_weight", null)
+      asn               = lookup(bgp_settings.value, "asn", null)
+      peering_addresses = lookup(bgp_settings.value, "peering_addresses", null)
+      peer_weight       = lookup(bgp_settings.value, "peer_weight", null)
     }
   }
 

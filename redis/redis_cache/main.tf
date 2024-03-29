@@ -28,17 +28,8 @@ resource "azurerm_redis_cache" "this" {
     }
   }
 
-  minimum_tls_version = var.minimum_tls_version # Default: 1.0
-
-  dynamic "patch_schedule" { # var.patch_schedule
-    for_each = var.patch_schedule != null ? var.patch_schedule : []
-    content {
-      day_of_week        = lookup(patch_schedule.value, "day_of_week") # (Required) possible values: Monday | Tuesday | Wednesday
-      start_hour_utc     = lookup(patch_schedule.value, "start_hour_utc", null)
-      maintenance_window = lookup(patch_schedule.value, "maintenance_window", "PT5H")
-    }
-  }
-
+  minimum_tls_version           = var.minimum_tls_version # Default: 1.0
+  patch_schedule                = var.patch_schedule
   private_static_ip_address     = var.private_static_ip_address
   public_network_access_enabled = var.public_network_access_enabled # Default: True
 

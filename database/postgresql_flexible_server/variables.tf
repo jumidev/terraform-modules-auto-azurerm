@@ -1,7 +1,7 @@
 # REQUIRED VARIABLES
 
 variable "name" {
-  description = "(REQUIRED) The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created."
+  description = "(REQUIRED) The name which should be used for this PostgreSQL Flexible Server. Changing this forces a new PostgreSQL Flexible Server to be created. ~> **Note** This must be unique across the entire Azure service, not just within the resource group."
   type        = string
 
 }
@@ -19,7 +19,7 @@ variable "location" {
 # OPTIONAL VARIABLES
 
 variable "administrator_login" {
-  description = "The Administrator login for the PostgreSQL Flexible Server. Required when 'create_mode' is 'Default' and 'authentication.password_auth_enabled' is 'true'."
+  description = "The Administrator login for the PostgreSQL Flexible Server. Required when 'create_mode' is 'Default' and 'authentication.password_auth_enabled' is 'true'. -> **Note:** Once 'administrator_login' is specified, changing this forces a new PostgreSQL Flexible Server to be created. -> **Note:** To create with 'administrator_login' specified or update with it first specified , 'authentication.password_auth_enabled' must be set to 'true'."
   type        = string
   default     = null
 }
@@ -32,7 +32,7 @@ variable "authentication" {
 # authentication block structure      :
 #   active_directory_auth_enabled (bool): Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'false'.
 #   password_auth_enabled (bool)        : Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'.
-#   tenant_id (string)                  : The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'.
+#   tenant_id (string)                  : The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. -> **Note:** Setting 'active_directory_auth_enabled' to 'true' requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). -> **Note:** 'tenant_id' is required when 'active_directory_auth_enabled' is set to 'true'. And it should not be specified when 'active_directory_auth_enabled' is set to 'false'
 
 
 variable "backup_retention_days" {
@@ -50,7 +50,7 @@ variable "customer_managed_key" {
 #   key_vault_key_id (string)                    : The ID of the Key Vault Key.
 #   primary_user_assigned_identity_id (string)   : Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'.
 #   geo_backup_key_vault_key_id (string)         : The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
-#   geo_backup_user_assigned_identity_id (string): The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup.
+#   geo_backup_user_assigned_identity_id (string): The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. ~> **NOTE:** 'primary_user_assigned_identity_id' or 'geo_backup_user_assigned_identity_id' is required when 'type' is set to 'UserAssigned'.
 
 
 variable "geo_redundant_backup_enabled" {
@@ -59,7 +59,7 @@ variable "geo_redundant_backup_enabled" {
   default     = false
 }
 variable "create_mode" {
-  description = "The creation mode which can be used to restore or replicate existing servers. Possible values are 'Default', 'PointInTimeRestore', 'Replica' and 'Update'."
+  description = "The creation mode which can be used to restore or replicate existing servers. Possible values are 'Default', 'PointInTimeRestore', 'Replica' and 'Update'. -> **Note:** While creating the resource, 'create_mode' cannot be set to 'Update'."
   type        = string
   default     = null
 }
@@ -69,7 +69,7 @@ variable "delegated_subnet_id" {
   default     = null
 }
 variable "private_dns_zone_id" {
-  description = "The ID of the private DNS zone to create the PostgreSQL Flexible Server."
+  description = "The ID of the private DNS zone to create the PostgreSQL Flexible Server. ~> **NOTE:** There will be a breaking change from upstream service at 15th July 2021, the 'private_dns_zone_id' will be required when setting a 'delegated_subnet_id'. For existing flexible servers who don't want to be recreated, you need to provide the 'private_dns_zone_id' to the service team to manually migrate to the specified private DNS zone. The 'azurerm_private_dns_zone' should end with suffix '.postgres.database.azure.com'."
   type        = string
   default     = null
 }
@@ -81,7 +81,7 @@ variable "high_availability" {
 #
 # high_availability block structure :
 #   mode (string)                     : (REQUIRED) The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'.
-#   standby_availability_zone (string): Specifies the Availability Zone in which the standby Flexible Server should be located.
+#   standby_availability_zone (string): Specifies the Availability Zone in which the standby Flexible Server should be located. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region.
 
 
 variable "identity" {
@@ -92,13 +92,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'.
-#   identity_ids (block)    : (REQUIRED) A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block.
-#
-# customer_managed_key block structure         :
-#   key_vault_key_id (string)                    : The ID of the Key Vault Key.
-#   primary_user_assigned_identity_id (string)   : Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'.
-#   geo_backup_key_vault_key_id (string)         : The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup.
-#   geo_backup_user_assigned_identity_id (string): The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup.
+#   identity_ids (list)     : (REQUIRED) A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block.
 
 
 variable "maintenance_window" {
@@ -119,7 +113,7 @@ variable "point_in_time_restore_time_in_utc" {
   default     = null
 }
 variable "replication_role" {
-  description = "The replication role for the PostgreSQL Flexible Server. Possible value is 'None'."
+  description = "The replication role for the PostgreSQL Flexible Server. Possible value is 'None'. ~> **NOTE:** The 'replication_role' cannot be set while creating and only can be updated to 'None' for replica server."
   type        = string
   default     = null
 }
@@ -149,12 +143,12 @@ variable "tags" {
   default     = null
 }
 variable "version" {
-  description = "The version of PostgreSQL Flexible Server to use. Possible values are '11','12', '13', '14', '15' and '16'. Required when 'create_mode' is 'Default'."
+  description = "The version of PostgreSQL Flexible Server to use. Possible values are '11','12', '13', '14', '15' and '16'. Required when 'create_mode' is 'Default'. -> **Note:** When 'create_mode' is 'Update', upgrading version wouldn't force a new resource to be created."
   type        = string
   default     = null
 }
 variable "zone" {
-  description = "Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located."
+  description = "Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region."
   type        = string
   default     = null
 }

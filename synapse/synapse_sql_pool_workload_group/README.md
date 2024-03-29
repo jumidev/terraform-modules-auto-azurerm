@@ -53,6 +53,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **query_execution_timeout_in_seconds** | number | No  | The workload group query execution timeout. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Synapse SQL Pool Workload Group. | 
 
 Additionally, all variables are provided as outputs.

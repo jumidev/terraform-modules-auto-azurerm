@@ -42,6 +42,11 @@ output "tags" {
   value = azurerm_network_watcher_flow_log.this.tags
 }
 
+output "interval_in_minutes" {
+  description = "How frequently service should do flow analytics in minutes. Defaults to '60'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_watcher_flow_log.this.interval_in_minutes
+}
+
 output "id" {
   description = "The ID of the Network Watcher."
   value       = azurerm_network_watcher_flow_log.this.id

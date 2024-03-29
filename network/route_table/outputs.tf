@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_route_table.this.tags
 }
 
+output "next_hop_in_ip_address" {
+  description = "Contains the IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is 'VirtualAppliance'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_route_table.this.next_hop_in_ip_address
+}
+
 output "id" {
   description = "The Route Table ID."
   value       = azurerm_route_table.this.id
@@ -38,6 +43,11 @@ output "route_table_id" {
 
 output "subnet_id" {
   value = azurerm_subnet_route_table_association.this.*.subnet_id
+}
+
+output "subnet_id" {
+  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_subnet_route_table_association.this.*.subnet_id
 }
 
 output "id" {

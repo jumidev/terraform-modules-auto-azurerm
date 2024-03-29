@@ -18,6 +18,11 @@ output "tags" {
   value = azurerm_cdn_frontdoor_profile.this.tags
 }
 
+output "tags" {
+  description = "Specifies a mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cdn_frontdoor_profile.this.tags
+}
+
 output "id" {
   description = "The ID of this Front Door Profile."
   value       = azurerm_cdn_frontdoor_profile.this.id

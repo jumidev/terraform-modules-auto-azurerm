@@ -66,6 +66,11 @@ output "tags" {
   value = azurerm_hpc_cache.this.tags
 }
 
+output "identity_ids" {
+  description = "Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_hpc_cache.this.identity_ids
+}
+
 output "id" {
   description = "The 'id' of the HPC Cache."
   value       = azurerm_hpc_cache.this.id

@@ -24,12 +24,12 @@ variable "cidr" {
 # OPTIONAL VARIABLES
 
 variable "commissioning_enabled" {
-  description = "Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to 'false'."
+  description = "Specifies that the custom IP prefix should be commissioned after provisioning in Azure. Defaults to 'false'. !> **Warning** Changing the value of 'commissioning_enabled' from 'true' to 'false' causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting."
   type        = bool
   default     = false
 }
 variable "internet_advertising_disabled" {
-  description = "Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to 'false'."
+  description = "Specifies that the custom IP prefix should not be publicly advertised on the Internet when commissioned (regional commissioning feature). Defaults to 'false'. !> **Warning** Changing the value of 'internet_advertising_disabled' from 'true' to 'false' causes the IP prefix to stop being advertised by Azure and is functionally equivalent to deleting it when used in a production setting."
   type        = bool
   default     = false
 }
@@ -54,7 +54,7 @@ variable "wan_validation_signed_message" {
   default     = null
 }
 variable "zones" {
-  description = "Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created."
+  description = "Specifies a list of Availability Zones in which this Custom IP Prefix should be located. Should not be specified when creating an IPv6 global prefix. Changing this forces a new resource to be created. -> **Note:** In regions with [availability zones](https://docs.microsoft.com/en-us/azure/availability-zones/az-overview), the Custom IP Prefix must be specified as either 'Zone-redundant' or assigned to a specific zone. It can't be created with no zone specified in these regions. All IPs from the prefix must have the same zonal properties."
   type        = list(any)
   default     = []
 }

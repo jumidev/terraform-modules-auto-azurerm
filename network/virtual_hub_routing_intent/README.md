@@ -57,6 +57,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **next_hop** | string | No  | The resource ID of the next hop on which this routing policy is applicable to. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Virtual Hub Routing Intent. | 
 
 Additionally, all variables are provided as outputs.

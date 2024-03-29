@@ -50,6 +50,11 @@ output "conflict_resolution_policy" {
   value = azurerm_cosmosdb_sql_container.this.conflict_resolution_policy
 }
 
+output "conflict_resolution_procedure" {
+  description = "The procedure to resolve conflicts in the case of 'Custom' mode. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_sql_container.this.conflict_resolution_procedure
+}
+
 output "id" {
   description = "The ID of the CosmosDB SQL Container."
   value       = azurerm_cosmosdb_sql_container.this.id

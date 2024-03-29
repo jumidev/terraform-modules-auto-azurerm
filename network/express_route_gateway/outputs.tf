@@ -26,8 +26,13 @@ output "tags" {
   value = azurerm_express_route_gateway.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_express_route_gateway.this.tags
+}
+
 output "id" {
-  description = "The ID of the ExpressRoute gateway."
+  description = "The ID of the ExpressRoute gateway. ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
   value       = azurerm_express_route_gateway.this.id
 }
 
@@ -47,7 +52,7 @@ output "read" {
 }
 
 output "delete" {
-  description = "(Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway."
+  description = "(Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. ## Import ExpressRoute Gateways can be imported using the 'resource id', e.g. '''shell terraform import azurerm_express_route_gateway.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway '''"
   value       = azurerm_express_route_gateway.this.delete
 }
 

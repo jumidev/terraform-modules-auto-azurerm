@@ -47,6 +47,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | Specifies a mapping of tags which should be assigned to the Front Door Endpoint. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of this Front Door Endpoint. | 
 | **host_name** | string | No  | The host name of the Front Door Endpoint, in the format `{endpointName}.{dnsZone}` (for example, `contoso.azureedge.net`). | 
 

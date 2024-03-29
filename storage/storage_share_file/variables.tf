@@ -19,7 +19,7 @@ variable "path" {
   default     = ""
 }
 variable "source" {
-  description = "An absolute path to a file on the local system. Changing this forces a new resource to be created."
+  description = "An absolute path to a file on the local system. Changing this forces a new resource to be created. ~> **Note** The file specified with 'source' can not be empty."
   type        = string
   default     = null
 }

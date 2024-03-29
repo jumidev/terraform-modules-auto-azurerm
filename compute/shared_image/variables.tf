@@ -72,7 +72,7 @@ variable "eula" {
   default     = null
 }
 variable "specialized" {
-  description = "Specifies that the Operating System used inside this Image has not been Generalized (for example, 'sysprep' on Windows has not been run). Changing this forces a new resource to be created."
+  description = "Specifies that the Operating System used inside this Image has not been Generalized (for example, 'sysprep' on Windows has not been run). Changing this forces a new resource to be created. !> **Note:** It's recommended to Generalize images where possible - Specialized Images reuse the same UUID internally within each Virtual Machine, which can have unintended side-effects."
   type        = string
   default     = null
 }
@@ -132,7 +132,7 @@ variable "confidential_vm_supported" {
   default     = null
 }
 variable "confidential_vm_enabled" {
-  description = "Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created."
+  description = "Specifies if Confidential Virtual Machines enabled. It will enable all the features of trusted, with higher confidentiality features for isolate machines or encrypted data. Available for Gen2 machines. Changing this forces a new resource to be created. -> **Note:**: Only one of 'trusted_launch_supported', 'trusted_launch_enabled', 'confidential_vm_supported' and 'confidential_vm_enabled' can be specified."
   type        = bool
   default     = null
 }

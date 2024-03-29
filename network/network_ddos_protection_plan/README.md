@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the DDoS Protection Plan | 
 | **virtual_network_ids** | list | No  | A list of Virtual Network IDs associated with the DDoS Protection Plan. | 
 

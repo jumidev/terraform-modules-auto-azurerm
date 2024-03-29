@@ -30,6 +30,11 @@ output "tags" {
   value = azurerm_route_server.this.tags
 }
 
+output "tags" {
+  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_route_server.this.tags
+}
+
 output "id" {
   description = "The ID of the Route Server ."
   value       = azurerm_route_server.this.id

@@ -51,6 +51,24 @@ tfstate_store = {
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
+### `managed_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
+| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
+
+### `rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_id` | string | Yes | - | Identifier for the managed rule. |
+| `action` | string | Yes | - | The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
+| `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+
 ### `exclusion` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,30 +90,13 @@ tfstate_store = {
 | `rate_limit_duration_in_minutes` | number | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
 | `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
 
-### `rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_id` | string | Yes | - | Identifier for the managed rule. |
-| `action` | string | Yes | - | The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
-| `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-
-### `managed_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
-| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **selector** | string | No  | Selector for the value in the `match_variable` attribute this exclusion applies to. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Front Door Firewall Policy. | 
 | **location** | string | No  | The Azure Region where this Front Door Firewall Policy exists. | 
 | **frontend_endpoint_ids** | string | No  | The Frontend Endpoints associated with this Front Door Web Application Firewall policy. | 

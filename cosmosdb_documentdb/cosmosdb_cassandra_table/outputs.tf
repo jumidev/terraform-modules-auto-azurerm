@@ -26,6 +26,11 @@ output "autoscale_settings" {
   value = azurerm_cosmosdb_cassandra_table.this.autoscale_settings
 }
 
+output "name" {
+  description = "Name of the column to partition by. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_cassandra_table.this.name
+}
+
 output "id" {
   description = "the ID of the CosmosDB Cassandra Table."
   value       = azurerm_cosmosdb_cassandra_table.this.id

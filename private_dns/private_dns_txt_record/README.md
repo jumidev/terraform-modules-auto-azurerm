@@ -64,6 +64,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **value** | string | No  | The value of the TXT record. Max length: 1024 characters In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The Private DNS TXT Record ID. | 
 | **fqdn** | string | No  | The FQDN of the DNS TXT Record. | 
 

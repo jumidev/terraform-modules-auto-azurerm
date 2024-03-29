@@ -31,14 +31,14 @@ variable "cdn_managed_https" {
 
 
 variable "user_managed_https" {
-  description = "A 'user_managed_https' block."
+  description = "A 'user_managed_https' block. ~> **NOTE** Only one of 'cdn_managed_https' and 'user_managed_https' can be specified."
   type        = map(any)
   default     = null
 }
 #
 # user_managed_https block structure:
 #   key_vault_certificate_id (string) : The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of 'key_vault_secret_id'.
-#   key_vault_secret_id (string)      : The ID of the Key Vault Secret that contains the HTTPS certificate.
+#   key_vault_secret_id (string)      : The ID of the Key Vault Secret that contains the HTTPS certificate. ~> **NOTE** Either 'key_vault_certificate_id' or 'key_vault_secret_id' has to be specified.
 #   tls_version (string)              : The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'.
 
 

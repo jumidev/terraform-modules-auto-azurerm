@@ -36,7 +36,7 @@ tfstate_store = {
 | **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 | **sku_name** | string |  `tier`, `family`, `cores`, `B_Gen4_1`, `GP_Gen5_8`, `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8`, `MO_Gen5_16`  |  Specifies the SKU Name for this MariaDB Server. The name of the SKU, follows the `tier` + `family` + `cores` pattern (e.g. `B_Gen4_1`, `GP_Gen5_8`). For more information see the [product documentation](https://docs.microsoft.com/rest/api/mariadb/servers/create#sku). Possible values are `B_Gen5_1`, `B_Gen5_2`, `GP_Gen5_2`, `GP_Gen5_4`, `GP_Gen5_8`, `GP_Gen5_16`, `GP_Gen5_32`, `MO_Gen5_2`, `MO_Gen5_4`, `MO_Gen5_8` and `MO_Gen5_16`. | 
 | **version** | string |  `10.2`, `10.3`  |  Specifies the version of MariaDB to use. Possible values are `10.2` and `10.3`. Changing this forces a new resource to be created. | 
-| **ssl_enforcement_enabled** | bool |  `true`, `false`  |  Specifies if SSL should be enforced on connections. Possible values are `true` and `false`. | 
+| **ssl_enforcement_enabled** | bool |  `true`, `false`  |  Specifies if SSL should be enforced on connections. Possible values are `true` and `false`. -> **NOTE:** `ssl_minimal_tls_version_enforced` must be set to `TLSEnforcementDisabled` when `ssl_enforcement_enabled` is set to `false`. | 
 
 ## Optional Variables
 
@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MariaDB Server. | 
 | **fqdn** | string | No  | The FQDN of the MariaDB Server. | 
 

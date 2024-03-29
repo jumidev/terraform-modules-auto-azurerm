@@ -94,6 +94,11 @@ output "tags" {
   value = azurerm_virtual_network_gateway_connection.this.tags
 }
 
+output "remote_address_cidrs" {
+  description = "List of remote CIDRs. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_virtual_network_gateway_connection.this.remote_address_cidrs
+}
+
 output "id" {
   description = "The ID of the Virtual Network Gateway Connection."
   value       = azurerm_virtual_network_gateway_connection.this.id

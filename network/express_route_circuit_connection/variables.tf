@@ -29,7 +29,7 @@ variable "authorization_key" {
   default     = null
 }
 variable "address_prefix_ipv6" {
-  description = "The IPv6 address space from which to allocate customer addresses for global reach."
+  description = "The IPv6 address space from which to allocate customer addresses for global reach. -> **NOTE:** 'address_prefix_ipv6' cannot be set when ExpressRoute Circuit Connection with ExpressRoute Circuit based on ExpressRoute Port."
   type        = string
   default     = null
 }

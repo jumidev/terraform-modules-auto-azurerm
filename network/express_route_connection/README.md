@@ -69,6 +69,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **route_table_ids** | list | No  | A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Express Route Connection. | 
 
 Additionally, all variables are provided as outputs.

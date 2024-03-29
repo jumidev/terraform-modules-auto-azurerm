@@ -29,7 +29,7 @@ variable "tenant_id" {
 # OPTIONAL VARIABLES
 
 variable "access_policy" {
-  description = "[A list](/docs/configuration/attr-as-blocks.html) of 'access_policy' objects (up to 1024) describing access policies, as described below."
+  description = "[A list](/docs/configuration/attr-as-blocks.html) of 'access_policy' objects (up to 1024) describing access policies, as described below. -> **NOTE** Since 'access_policy' can be configured both inline and via the separate 'azurerm_key_vault_access_policy' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
   default     = null
 }
@@ -78,7 +78,7 @@ variable "network_acls" {
 
 
 variable "purge_protection_enabled" {
-  description = "Is Purge Protection enabled for this Key Vault?"
+  description = "Is Purge Protection enabled for this Key Vault? !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days - which will be configurable in Terraform in the future)."
   type        = bool
   default     = null
 }
@@ -88,12 +88,12 @@ variable "public_network_access_enabled" {
   default     = true
 }
 variable "soft_delete_retention_days" {
-  description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' (the default) days."
+  description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' (the default) days. ~> **Note:** This field can only be configured one time and cannot be updated."
   type        = number
   default     = null
 }
 variable "contact" {
-  description = "One or more 'contact' block."
+  description = "One or more 'contact' block. ~> **Note:** This field can only be set once user has 'managecontacts' certificate permission."
   type        = map(any)
   default     = null
 }

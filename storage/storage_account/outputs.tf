@@ -508,7 +508,7 @@ output "primary_blob_connection_string" {
 }
 
 output "secondary_blob_connection_string" {
-  description = "The connection string associated with the secondary blob location."
+  description = "The connection string associated with the secondary blob location. ~> **NOTE:** If there's a write-lock on the Storage Account, or the account doesn't have permission then these fields will have an empty value [due to a bug in the Azure API](https://github.com/Azure/azure-rest-api-specs/issues/6363)"
   value       = azurerm_storage_account.this.secondary_blob_connection_string
   sensitive   = true
 }
@@ -524,7 +524,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this Storage Account."
+  description = "The Tenant ID for the Service Principal associated with the Identity of this Storage Account. -> You can access the Principal ID via '${azurerm_storage_account.example.identity.0.principal_id}' and the Tenant ID via '${azurerm_storage_account.example.identity.0.tenant_id}'"
   value       = azurerm_storage_account.this.tenant_id
 }
 

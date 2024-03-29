@@ -26,6 +26,11 @@ output "traffic_selector_policy" {
   value = azurerm_vpn_gateway_connection.this.traffic_selector_policy
 }
 
+output "ip_configuration_id" {
+  description = "The ID of the IP Configuration which belongs to the VPN Gateway. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_vpn_gateway_connection.this.ip_configuration_id
+}
+
 output "id" {
   description = "The ID of the VPN Gateway Connection."
   value       = azurerm_vpn_gateway_connection.this.id

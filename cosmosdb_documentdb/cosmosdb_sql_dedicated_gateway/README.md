@@ -42,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **instance_count** | number | No  | The instance count for the CosmosDB SQL Dedicated Gateway. Possible value is between `1` and `5`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the CosmosDB SQL Dedicated Gateway. | 
 
 Additionally, all variables are provided as outputs.

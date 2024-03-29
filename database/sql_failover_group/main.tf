@@ -15,13 +15,7 @@ resource "azurerm_sql_failover_group" "this" {
   name                = var.name
   resource_group_name = data.azurerm_resource_group.this.name
   server_name         = data.azurerm_sql_server.this.name
-
-  dynamic "partner_servers" { # var.partner_servers
-    for_each = var.partner_servers != null ? var.partner_servers : []
-    content {
-    }
-  }
-
+  partner_servers     = var.partner_servers
 
   read_write_endpoint_failover_policy {
     mode          = lookup(read_write_endpoint_failover_policy.value, "mode") # (Required) 

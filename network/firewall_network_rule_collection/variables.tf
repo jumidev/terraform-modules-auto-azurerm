@@ -34,10 +34,10 @@ variable "rule" {
 #   name (string)               : (REQUIRED) Specifies the name of the rule.
 #   description (string)        : Specifies a description for the rule.
 #   source_addresses (list)     : A list of source IP addresses and/or IP ranges.
-#   source_ip_groups (list)     : A list of IP Group IDs for the rule.
+#   source_ip_groups (list)     : A list of IP Group IDs for the rule. -> **NOTE** At least one of 'source_addresses' and 'source_ip_groups' must be specified for a rule.
 #   destination_addresses (list): Either a list of destination IP addresses and/or IP ranges, or a list of destination [Service Tags](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags).
 #   destination_ip_groups (list): A list of destination IP Group IDs for the rule.
-#   destination_fqdns (list)    : A list of destination FQDNS for the rule.
+#   destination_fqdns (list)    : A list of destination FQDNS for the rule. -> **NOTE** [You must enable DNS Proxy to use FQDNs in your network rules](https://docs.microsoft.com/azure/firewall/fqdn-filtering-network-rules). -> **NOTE** At least one of 'destination_addresses', 'destination_ip_groups' and 'destination_fqdns' must be specified for a rule.
 #   destination_ports (list)    : (REQUIRED) A list of destination ports.
 #   protocols (list)            : (REQUIRED) A list of protocols. Possible values are 'Any', 'ICMP', 'TCP' and 'UDP'.
 

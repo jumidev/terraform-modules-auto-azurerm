@@ -30,27 +30,23 @@ variable "application_rule_collection" {
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
 #
-# http_headers block structure:
-#   name (string)               : (REQUIRED) Specifies the name of the header.
-#   value (string)              : (REQUIRED) Specifies the value of the value.
+# protocols block structure:
+#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
+#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 #
 # application_rule block structure:
 #   name (string)                   : (REQUIRED) The name which should be used for this rule.
 #   description (string)            : The description which should be used for this rule.
 #   protocols (block)               : One or more 'protocols' blocks.
-#   http_headers (block)            : (REQUIRED) Specifies a list of HTTP/HTTPS headers to insert. One or more 'http_headers' blocks.
+#   http_headers (list)             : Specifies a list of HTTP/HTTPS headers to insert. One or more 'http_headers' blocks.
 #   source_addresses (list)         : Specifies a list of source IP addresses (including CIDR, IP range and '*').
 #   source_ip_groups (list)         : Specifies a list of source IP groups.
 #   destination_addresses (list)    : Specifies a list of destination IP addresses (including CIDR, IP range and '*').
 #   destination_urls (list)         : Specifies a list of destination URLs for which policy should hold. Needs Premium SKU for Firewall Policy. Conflicts with 'destination_fqdns'.
 #   destination_fqdns (list)        : Specifies a list of destination FQDNs. Conflicts with 'destination_urls'.
-#   destination_fqdn_tags (map)     : Specifies a list of destination FQDN tags.
+#   destination_fqdn_tags (list)    : Specifies a list of destination FQDN tags.
 #   terminate_tls (string)          : Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy.
 #   web_categories (list)           : Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy.
-#
-# protocols block structure:
-#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
-#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 
 
 variable "nat_rule_collection" {
@@ -74,7 +70,7 @@ variable "nat_rule_collection" {
 #   destination_address (string): The destination IP address (including CIDR).
 #   destination_ports (list)    : Specifies a list of destination ports. Only one destination port is supported in a NAT rule.
 #   translated_address (string) : Specifies the translated address.
-#   translated_fqdn (string)    : Specifies the translated FQDN.
+#   translated_fqdn (string)    : Specifies the translated FQDN. ~> **NOTE:** Exactly one of 'translated_address' and 'translated_fqdn' should be set.
 #   translated_port (string)    : (REQUIRED) Specifies the translated port.
 
 

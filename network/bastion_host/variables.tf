@@ -22,7 +22,7 @@ variable "ip_configuration" {
 #
 # ip_configuration block structure:
 #   name (string)                   : (REQUIRED) The name of the IP configuration. Changing this forces a new resource to be created.
-#   subnet_id (string)              : (REQUIRED) Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created.
+#   subnet_id (string)              : (REQUIRED) Reference to a subnet in which this Bastion Host has been created. Changing this forces a new resource to be created. ~> **Note:** The Subnet used for the Bastion Host must have the name 'AzureBastionSubnet' and the subnet mask must be at least a '/26'.
 #   public_ip_address_id (string)   : (REQUIRED) Reference to a Public IP Address to associate with this Bastion Host. Changing this forces a new resource to be created.
 
 
@@ -35,32 +35,32 @@ variable "copy_paste_enabled" {
   default     = true
 }
 variable "file_copy_enabled" {
-  description = "Is File Copy feature enabled for the Bastion Host. Defaults to 'false'."
+  description = "Is File Copy feature enabled for the Bastion Host. Defaults to 'false'. ~> **Note:** 'file_copy_enabled' is only supported when 'sku' is 'Standard'."
   type        = bool
   default     = false
 }
 variable "sku" {
-  description = "The SKU of the Bastion Host. Accepted values are 'Basic' and 'Standard'. Defaults to 'Basic'."
+  description = "The SKU of the Bastion Host. Accepted values are 'Basic' and 'Standard'. Defaults to 'Basic'. ~> **Note** Downgrading the SKU will force a new resource to be created."
   type        = string
   default     = "Basic"
 }
 variable "ip_connect_enabled" {
-  description = "Is IP Connect feature enabled for the Bastion Host. Defaults to 'false'."
+  description = "Is IP Connect feature enabled for the Bastion Host. Defaults to 'false'. ~> **Note:** 'ip_connect_enabled' is only supported when 'sku' is 'Standard'."
   type        = bool
   default     = false
 }
 variable "scale_units" {
-  description = "The number of scale units with which to provision the Bastion Host. Possible values are between '2' and '50'. Defaults to '2'."
+  description = "The number of scale units with which to provision the Bastion Host. Possible values are between '2' and '50'. Defaults to '2'. ~> **Note:** 'scale_units' only can be changed when 'sku' is 'Standard'. 'scale_units' is always '2' when 'sku' is 'Basic'."
   type        = number
   default     = 2
 }
 variable "shareable_link_enabled" {
-  description = "Is Shareable Link feature enabled for the Bastion Host. Defaults to 'false'."
+  description = "Is Shareable Link feature enabled for the Bastion Host. Defaults to 'false'. ~> **Note:** 'shareable_link_enabled' is only supported when 'sku' is 'Standard'."
   type        = bool
   default     = false
 }
 variable "tunneling_enabled" {
-  description = "Is Tunneling feature enabled for the Bastion Host. Defaults to 'false'."
+  description = "Is Tunneling feature enabled for the Bastion Host. Defaults to 'false'. ~> **Note:** 'tunneling_enabled' is only supported when 'sku' is 'Standard'."
   type        = bool
   default     = false
 }

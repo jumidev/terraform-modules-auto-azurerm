@@ -48,6 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **metadata** | string | No  | A mapping of metadata to assign to this Directory. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Directory within the File Share. | 
 
 Additionally, all variables are provided as outputs.

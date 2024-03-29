@@ -62,6 +62,11 @@ output "tags" {
   value = azurerm_key_vault.this.tags
 }
 
+output "phone" {
+  description = "Phone number of the contact. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_key_vault.this.phone
+}
+
 output "id" {
   description = "The ID of the Key Vault."
   value       = azurerm_key_vault.this.id

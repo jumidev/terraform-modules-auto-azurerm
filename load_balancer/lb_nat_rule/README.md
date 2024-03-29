@@ -90,6 +90,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **enable_tcp_reset** | bool | No  | Is TCP Reset enabled for this Load Balancer Rule? In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Load Balancer NAT Rule. | 
 
 Additionally, all variables are provided as outputs.

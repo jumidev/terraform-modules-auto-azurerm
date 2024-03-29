@@ -18,6 +18,11 @@ output "tags" {
   value = azurerm_network_profile.this.tags
 }
 
+output "subnet_id" {
+  description = "Reference to the subnet associated with the IP Configuration. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_network_profile.this.subnet_id
+}
+
 output "id" {
   description = "The ID of the Network Profile."
   value       = azurerm_network_profile.this.id

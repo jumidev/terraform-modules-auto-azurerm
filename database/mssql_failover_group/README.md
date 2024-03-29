@@ -51,11 +51,6 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy_enabled** | bool |  `False`  |  Whether failover is enabled for the readonly endpoint. Defaults to `false`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `partner_server` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-
 ### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,19 +58,25 @@ tfstate_store = {
 | `mode` | string | Yes | - | The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'. |
 | `grace_minutes` | number | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
 
+### `partner_server` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **grace_minutes** | number | No  | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when `mode` is `Automatic`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Failover Group. | 
 | **partner_server** | block | No  | A `partner_server` block. | 
 | **location** | string | No  | The location of the partner server. | 
-| **role** | string | No  | The replication role of the partner server. Possible values include `Primary` or `Secondary`. | 
+| **role** | string | No  | The replication role of the partner server. Possible values include `Primary` or `Secondary`. ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
 | **create** | string | No  | (Defaults to 30 minutes) Used when creating the Failover Group. | 
 | **update** | string | No  | (Defaults to 30 minutes) Used when updating the Failover Group. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Failover Group. | 
-| **delete** | string | No  | (Defaults to 30 minutes) Used when deleting the Failover Group. | 
+| **delete** | string | No  | (Defaults to 30 minutes) Used when deleting the Failover Group. ## Import Failover Groups can be imported using the `resource id`, e.g. ```shell terraform import azurerm_mssql_failover_group.example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1 ``` | 
 
 Additionally, all variables are provided as outputs.

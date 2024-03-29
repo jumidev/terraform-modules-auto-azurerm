@@ -58,6 +58,11 @@ output "tags" {
   value = azurerm_databricks_workspace.this.tags
 }
 
+output "vnet_address_prefix" {
+  description = "Address prefix for Managed virtual network. Defaults to '10.139'. Changing this forces a new resource to be created. ~> **NOTE** Databricks requires that a network security group is associated with the 'public' and 'private' subnets when a 'virtual_network_id' has been defined. Both 'public' and 'private' subnets must be delegated to 'Microsoft.Databricks/workspaces'. For more information about subnet delegation see the [product documentation](https://docs.microsoft.com/azure/virtual-network/subnet-delegation-overview). ## Example HCL Configurations * [Databricks Workspace Secure Connectivity Cluster with Load Balancer](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/databricks/secure-connectivity-cluster/with-load-balancer) * [Databricks Workspace Secure Connectivity Cluster without Load Balancer](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/databricks/secure-connectivity-cluster/without-load-balancer) * [Databricks Workspace with Private Endpoint](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/databricks/private-endpoint) * [Databricks Workspace with Private Endpoint, Customer Managed Keys for Managed Services and Databricks File System Customer Managed Keys](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/private-endpoint/databricks/managed-services) * [Databricks Workspace with Databricks File System Customer Managed Keys](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/databricks/customer-managed-key/dbfs) * [Databricks Workspace with Customer Managed Keys for Managed Services](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/databricks/customer-managed-key/managed-services) In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_databricks_workspace.this.vnet_address_prefix
+}
+
 output "id" {
   description = "The ID of the Databricks Workspace in the Azure management plane."
   value       = azurerm_databricks_workspace.this.id

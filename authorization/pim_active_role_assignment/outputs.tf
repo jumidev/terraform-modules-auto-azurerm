@@ -22,6 +22,11 @@ output "ticket" {
   value = azurerm_pim_active_role_assignment.this.ticket
 }
 
+output "system" {
+  description = "The ticket system. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_pim_active_role_assignment.this.system
+}
+
 output "id" {
   description = "The ID of the Pim Active Role Assignment."
   value       = azurerm_pim_active_role_assignment.this.id

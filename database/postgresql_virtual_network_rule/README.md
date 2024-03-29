@@ -34,7 +34,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **name** | string |  The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created. | 
+| **name** | string |  The name of the PostgreSQL virtual network rule. Cannot be empty and must only contain alphanumeric characters and hyphens. Cannot start with a number, and cannot start or end with a hyphen. Changing this forces a new resource to be created. ~> **NOTE:** `name` must be between 1-128 characters long and must satisfy all of the requirements below: 1. Contains only alphanumeric and hyphen characters 2. Cannot start with a number or hyphen 3. Cannot end with a hyphen | 
 | **resource_group_name** | string |  The name of the resource group where the PostgreSQL server resides. Changing this forces a new resource to be created. | 
 | **server_name** | string |  The name of the SQL Server to which this PostgreSQL virtual network rule will be applied to. Changing this forces a new resource to be created. | 
 | **subnet_id** | string |  The ID of the subnet that the PostgreSQL server will be connected to. | 
@@ -51,6 +51,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **ignore_missing_vnet_service_endpoint** | string | No  | Should the Virtual Network Rule be created before the Subnet has the Virtual Network Service Endpoint enabled? In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the PostgreSQL Virtual Network Rule. | 
 
 Additionally, all variables are provided as outputs.

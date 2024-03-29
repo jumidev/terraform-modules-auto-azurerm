@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **port** | string | No  | DNS server port. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Private DNS Resolver Forwarding Rule. | 
 
 Additionally, all variables are provided as outputs.

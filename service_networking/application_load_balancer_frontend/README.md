@@ -46,6 +46,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **tags** | map | No  | A mapping of tags which should be assigned to the Application Gateway for Containers Frontend. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Application Gateway for Containers Frontend. | 
 | **fully_qualified_domain_name** | string | No  | The Fully Qualified Domain Name of the DNS record associated to an Application Gateway for Containers Frontend. | 
 

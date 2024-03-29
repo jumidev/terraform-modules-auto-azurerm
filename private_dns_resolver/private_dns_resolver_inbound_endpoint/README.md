@@ -61,6 +61,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **subnet_id** | string | No  | The subnet ID of the IP configuration. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Private DNS Resolver Inbound Endpoint. | 
 | **private_ip_address** | string | No  | Private IP address of the IP configuration. | 
 

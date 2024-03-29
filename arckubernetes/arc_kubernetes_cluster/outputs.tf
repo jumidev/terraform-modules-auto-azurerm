@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_arc_kubernetes_cluster.this.tags
 }
 
+output "type" {
+  description = "Specifies the type of Managed Service Identity assigned to this Arc Kubernetes Cluster. At this time the only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_arc_kubernetes_cluster.this.type
+}
+
 output "id" {
   description = "The ID of the Arc Kubernetes Cluster."
   value       = azurerm_arc_kubernetes_cluster.this.id

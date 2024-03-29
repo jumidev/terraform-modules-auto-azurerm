@@ -14,6 +14,11 @@ output "privilege" {
   value = azurerm_cosmosdb_mongo_role_definition.this.privilege
 }
 
+output "db_name" {
+  description = "The name of the Mongo DB that the Role Definition is applied. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_mongo_role_definition.this.db_name
+}
+
 output "id" {
   description = "The ID of the Cosmos DB Mongo Role Definition."
   value       = azurerm_cosmosdb_mongo_role_definition.this.id

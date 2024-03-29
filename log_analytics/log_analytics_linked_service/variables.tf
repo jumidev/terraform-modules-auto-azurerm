@@ -19,7 +19,7 @@ variable "read_access_id" {
   default     = null
 }
 variable "write_access_id" {
-  description = "The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource."
+  description = "The ID of the writable Resource that will be linked to the workspace. This should be used for linking to a Log Analytics Cluster resource. ~> **NOTE:** You must define at least one of the above access resource id attributes (e.g. 'read_access_id' or 'write_access_id')."
   type        = string
   default     = null
 }

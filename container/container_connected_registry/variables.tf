@@ -1,7 +1,7 @@
 # REQUIRED VARIABLES
 
 variable "container_registry_id" {
-  description = "(REQUIRED) The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created."
+  description = "(REQUIRED) The ID of the Container Registry that this Connected Registry will reside in. Changing this forces a new Container Connected Registry to be created. -> If 'parent_registry_id' is not specified, the Connected Registry will be connected to the Container Registry identified by 'container_registry_id'."
   type        = string
 
 }
@@ -48,7 +48,7 @@ variable "notification" {
 #   name (string)               : (REQUIRED) The name of the artifact that wants to be subscribed for the Connected Registry.
 #   action (string)             : (REQUIRED) The action of the artifact that wants to be subscribed for the Connected Registry. Possible values are 'push', 'delete' and '*' (i.e. any).
 #   tag (string)                : The tag of the artifact that wants to be subscribed for the Connected Registry.
-#   digest (string)             : The digest of the artifact that wants to be subscribed for the Connected Registry.
+#   digest (string)             : The digest of the artifact that wants to be subscribed for the Connected Registry. ~> **NOTE:** One of either 'tag' or 'digest' can be specified.
 
 
 variable "parent_registry_id" {

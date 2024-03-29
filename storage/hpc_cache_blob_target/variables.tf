@@ -21,7 +21,7 @@ variable "namespace_path" {
 
 }
 variable "storage_container_id" {
-  description = "(REQUIRED) The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The Resource Manager ID of the Storage Container used as the HPC Cache Blob Target. Changing this forces a new resource to be created. -> **Note:** This is the Resource Manager ID of the Storage Container, rather than the regular ID - and can be accessed on the 'azurerm_storage_container' Data Source/Resource as 'resource_manager_id'."
   type        = string
 
 }

@@ -31,9 +31,9 @@ variable "link" {
 #
 # link block structure  :
 #   name (string)         : (REQUIRED) The name which should be used for this VPN Site Link.
-#   bgp (block)           : A 'bgp' block.
+#   bgp (block)           : A 'bgp' block. -> **NOTE:** The 'link.bgp' has to be set when the 'address_cidrs' isn't specified.
 #   fqdn (string)         : The FQDN of this VPN Site Link.
-#   ip_address (string)   : The IP address of this VPN Site Link.
+#   ip_address (string)   : The IP address of this VPN Site Link. -> **NOTE:** Either 'fqdn' or 'ip_address' should be specified.
 #   provider_name (string): The name of the physical link at the VPN Site. Example: 'ATT', 'Verizon'.
 #   speed_in_mbps (number): The speed of the VPN device at the branch location in unit of mbps. Defaults to '0'.
 #
@@ -43,7 +43,7 @@ variable "link" {
 
 
 variable "address_cidrs" {
-  description = "Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site."
+  description = "Specifies a list of IP address CIDRs that are located on your on-premises site. Traffic destined for these address spaces is routed to your local site. -> **NOTE:** The 'address_cidrs' has to be set when the 'link.bgp' isn't specified."
   type        = list(any)
   default     = []
 }

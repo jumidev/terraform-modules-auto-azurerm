@@ -9,7 +9,7 @@ variable "server_id" {
 # OPTIONAL VARIABLES
 
 variable "enabled" {
-  description = "Whether to enable the extended auditing policy. Possible values are 'true' and 'false'. Defaults to 'true'."
+  description = "Whether to enable the extended auditing policy. Possible values are 'true' and 'false'. Defaults to 'true'. ->**NOTE:**  If 'enabled' is 'true', 'blob_storage_endpoint' or 'log_monitoring_enabled' are required."
   type        = bool
   default     = true
 }

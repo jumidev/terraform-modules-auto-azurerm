@@ -79,6 +79,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **additional_metadata_resource_id** | string | No  | The ID of a resource that contains additional metadata about this policy definition group. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Policy Set Definition. | 
 
 Additionally, all variables are provided as outputs.

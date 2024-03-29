@@ -10,6 +10,11 @@ output "value" {
   value = azurerm_cosmosdb_postgresql_coordinator_configuration.this.value
 }
 
+output "value" {
+  description = "The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster. The following attributes are exported:"
+  value       = azurerm_cosmosdb_postgresql_coordinator_configuration.this.value
+}
+
 output "id" {
   description = "The ID of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Cluster."
   value       = azurerm_cosmosdb_postgresql_coordinator_configuration.this.id

@@ -11,6 +11,12 @@ output "password" {
   sensitive = true
 }
 
+output "password" {
+  description = "The password of the Azure Cosmos DB for PostgreSQL Role. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_postgresql_role.this.password
+  sensitive   = true
+}
+
 output "id" {
   description = "The ID of the Azure Cosmos DB for PostgreSQL Role."
   value       = azurerm_cosmosdb_postgresql_role.this.id

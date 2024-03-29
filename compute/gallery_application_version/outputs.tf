@@ -46,6 +46,11 @@ output "tags" {
   value = azurerm_gallery_application_version.this.tags
 }
 
+output "storage_account_type" {
+  description = "The storage account type for the Gallery Application Version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_gallery_application_version.this.storage_account_type
+}
+
 output "id" {
   description = "The ID of the Gallery Application Version."
   value       = azurerm_gallery_application_version.this.id

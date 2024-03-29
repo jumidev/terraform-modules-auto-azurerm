@@ -44,6 +44,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **dns_servers** | string | No  | List of IP addresses of DNS servers In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The virtual network DNS server ID. | 
 
 Additionally, all variables are provided as outputs.

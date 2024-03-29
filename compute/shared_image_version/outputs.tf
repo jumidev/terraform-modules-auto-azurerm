@@ -58,6 +58,11 @@ output "tags" {
   value = azurerm_shared_image_version.this.tags
 }
 
+output "storage_account_type" {
+  description = "The storage account type for the image version. Possible values are 'Standard_LRS', 'Premium_LRS' and 'Standard_ZRS'. Defaults to 'Standard_LRS'. You can store all of your image version replicas in Zone Redundant Storage by specifying 'Standard_ZRS'. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_shared_image_version.this.storage_account_type
+}
+
 output "id" {
   description = "The ID of the Shared Image Version."
   value       = azurerm_shared_image_version.this.id

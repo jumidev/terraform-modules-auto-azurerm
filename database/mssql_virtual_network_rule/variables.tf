@@ -19,7 +19,7 @@ variable "subnet_id" {
 # OPTIONAL VARIABLES
 
 variable "ignore_missing_vnet_service_endpoint" {
-  description = "Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to 'false'."
+  description = "Create the virtual network rule before the subnet has the virtual network service endpoint enabled. Defaults to 'false'. ~> **NOTE:** If 'ignore_missing_vnet_service_endpoint' is false, and the target subnet does not contain the 'Microsoft.SQL' endpoint in the 'service_endpoints' array, the deployment will fail when it tries to create the SQL virtual network rule."
   type        = bool
   default     = false
 }

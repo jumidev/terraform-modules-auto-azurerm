@@ -42,6 +42,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **access_policy_name** | string | No  | The name of the access policy applied to this target. Defaults to `default`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the HPC Cache NFS Target. | 
 
 Additionally, all variables are provided as outputs.

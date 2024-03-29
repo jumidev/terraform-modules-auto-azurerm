@@ -103,6 +103,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **storage_endpoint** | string | No  | Specifies the blob storage endpoint (e.g. <https://example.blob.core.windows.net>). This blob storage will hold all Threat Detection audit logs. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MySQL Server. | 
 | **fqdn** | string | No  | The FQDN of the MySQL Server. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 

@@ -11,7 +11,7 @@ variable "duration_in_seconds" {
 
 }
 variable "access_level" {
-  description = "(REQUIRED) The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The level of access required on the disk. Supported are Read, Write. Changing this forces a new resource to be created. Refer to the [SAS creation reference from Azure](https://docs.microsoft.com/rest/api/compute/disks/grant-access) for additional details on the fields above."
   type        = string
 
 }

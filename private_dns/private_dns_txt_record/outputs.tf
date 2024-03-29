@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_private_dns_txt_record.this.tags
 }
 
+output "value" {
+  description = "The value of the TXT record. Max length: 1024 characters In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_private_dns_txt_record.this.value
+}
+
 output "id" {
   description = "The Private DNS TXT Record ID."
   value       = azurerm_private_dns_txt_record.this.id

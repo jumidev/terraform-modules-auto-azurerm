@@ -30,6 +30,11 @@ output "routing_weight" {
   value = azurerm_express_route_connection.this.routing_weight
 }
 
+output "route_table_ids" {
+  description = "A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_express_route_connection.this.route_table_ids
+}
+
 output "id" {
   description = "The ID of the Express Route Connection."
   value       = azurerm_express_route_connection.this.id

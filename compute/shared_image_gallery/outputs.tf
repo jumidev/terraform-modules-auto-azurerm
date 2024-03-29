@@ -22,6 +22,11 @@ output "tags" {
   value = azurerm_shared_image_gallery.this.tags
 }
 
+output "publisher_uri" {
+  description = "URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_shared_image_gallery.this.publisher_uri
+}
+
 output "id" {
   description = "The ID of the Shared Image Gallery."
   value       = azurerm_shared_image_gallery.this.id

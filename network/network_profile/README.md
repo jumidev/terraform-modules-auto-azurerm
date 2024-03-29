@@ -57,6 +57,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **subnet_id** | string | No  | Reference to the subnet associated with the IP Configuration. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Network Profile. | 
 | **container_network_interface_ids** | list | No  | A list of Container Network Interface IDs. | 
 

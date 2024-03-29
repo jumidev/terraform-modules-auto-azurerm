@@ -41,14 +41,14 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **size_gb** | number |  `1000`  |  `500`, `1000`, `2000`, `5000`  |  The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`. | 
+| **size_gb** | number |  `1000`  |  `1000`, `500`  |  The capacity of the Log Analytics Cluster is specified in GB/day. Possible values include `500`, `1000`, `2000` or `5000`. Defaults to `1000`. ~> **NOTE:** The cluster capacity must start at 500 GB and can be set to 1000, 2000 or 5000 GB/day. For more information on cluster costs, see [Dedicated clusters](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/cost-logs#dedicated-clusters). In v3.x the default value is `1000` GB, in v4.0 of the provider this will default to `500` GB. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Log Analytics Cluster. | 
 
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. ~> **NOTE:** The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned' and the Log Analytics Cluster has been created. More details are available below. |
 
 
 
@@ -56,11 +56,11 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
+| **type** | string | No  | The identity type of this Managed Service Identity. -> You can access the Principal ID via `azurerm_log_analytics_cluster.example.identity.0.principal_id` and the Tenant ID via `azurerm_log_analytics_cluster.example.identity.0.tenant_id` | 
 | **id** | string | No  | The ID of the Log Analytics Cluster. | 
 | **identity** | block | No  | A `identity` block. | 
 | **cluster_id** | string | No  | The GUID of the cluster. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
-| **type** | string | No  | The identity type of this Managed Service Identity. | 
 
 Additionally, all variables are provided as outputs.
