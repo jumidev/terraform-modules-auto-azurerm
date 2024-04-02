@@ -51,6 +51,19 @@ tfstate_store = {
 | **sql_redirect_allowed** | bool |  -  |  -  |  Whether SQL Redirect traffic filtering is allowed. Enabling this flag requires no rule using ports between `11000`-`11999`. | 
 | **explicit_proxy** | [block](#explicit_proxy-block-structure) |  -  |  -  |  A `explicit_proxy` block. | 
 
+### `log_analytics_workspace` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `firewall_location` | string | Yes | - | The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy. |
+
 ### `insights` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,6 +86,22 @@ tfstate_store = {
 | `source_addresses` | list | No | - | Specifies a list of source addresses that shall be bypassed by intrusion detection. |
 | `source_ip_groups` | list | No | - | Specifies a list of source IP groups that shall be bypassed by intrusion detection. |
 
+### `dns` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `proxy_enabled` | bool | No | False | Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'. |
+| `servers` | list | No | - | A list of custom DNS servers' IP addresses. |
+
+### `intrusion_detection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | string | No | - | In which mode you want to run intrusion detection: 'Off', 'Alert' or 'Deny'. |
+| `signature_overrides` | [block](#signature_overrides-block-structure) | No | - | One or more 'signature_overrides' blocks. |
+| `traffic_bypass` | [block](#traffic_bypass-block-structure) | No | - | One or more 'traffic_bypass' blocks. |
+| `private_ranges` | list | No | - | A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. |
+
 ### `signature_overrides` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -90,13 +119,6 @@ tfstate_store = {
 | `pac_file_port` | string | No | - | Specifies a port number for firewall to serve PAC file. |
 | `pac_file` | string | No | - | Specifies a SAS URL for PAC file. |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Firewall Policy. Only possible value is 'UserAssigned'. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Firewall Policy. |
-
 ### `threat_intelligence_allowlist` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -104,34 +126,12 @@ tfstate_store = {
 | `fqdns` | list | No | - | A list of FQDNs that will be skipped for threat detection. |
 | `ip_addresses` | list | No | - | A list of IP addresses or CIDR ranges that will be skipped for threat detection. |
 
-### `log_analytics_workspace` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `firewall_location` | string | Yes | - | The location of the Firewalls, that when matches this Log Analytics Workspace will be used to consume their logs. |
-
 ### `tls_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_vault_secret_id` | string | Yes | - | The ID of the Key Vault, where the secret or certificate is stored. |
 | `name` | string | Yes | - | The name of the certificate. |
-
-### `dns` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `proxy_enabled` | bool | No | False | Whether to enable DNS proxy on Firewalls attached to this Firewall Policy? Defaults to 'false'. |
-| `servers` | list | No | - | A list of custom DNS servers' IP addresses. |
-
-### `intrusion_detection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | No | - | In which mode you want to run intrusion detection: 'Off', 'Alert' or 'Deny'. |
-| `signature_overrides` | [block](#signature_overrides-block-structure) | No | - | One or more 'signature_overrides' blocks. |
-| `traffic_bypass` | [block](#traffic_bypass-block-structure) | No | - | One or more 'traffic_bypass' blocks. |
-| `private_ranges` | list | No | - | A list of Private IP address ranges to identify traffic direction. By default, only ranges defined by IANA RFC 1918 are considered private IP addresses. |
 
 
 

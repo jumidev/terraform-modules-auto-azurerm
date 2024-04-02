@@ -42,7 +42,9 @@ If set, makes a **azurerm_spring_cloud_app_mysql_association** - With the follow
 | `password` | string | True | null |
 
 
-Example component snippet (**See also** [spring_cloud/spring_cloud_app_mysql_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app_mysql_association))
+Example component snippet
+
+**See also** [spring_cloud/spring_cloud_app](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app)
 
 ```hcl
 inputs = {

@@ -47,7 +47,14 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | `cosmosdb_sql_database_name` | string | False | null |
 
 
-Example component snippet (**See also** [spring_cloud/spring_cloud_app_cosmosdb_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app_cosmosdb_association))
+Example component snippet
+
+**See also** [spring_cloud/spring_cloud_app](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app)
+**See also** [cosmosdb_documentdb/cosmosdb_account](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cosmosdb_documentdb/cosmosdb_account)
+**See also** [cosmosdb_documentdb/cosmosdb_gremlin_database](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cosmosdb_documentdb/cosmosdb_gremlin_database)
+**See also** [cosmosdb_documentdb/cosmosdb_gremlin_graph](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cosmosdb_documentdb/cosmosdb_gremlin_graph)
+**See also** [cosmosdb_documentdb/cosmosdb_mongo_database](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cosmosdb_documentdb/cosmosdb_mongo_database)
+**See also** [cosmosdb_documentdb/cosmosdb_sql_database](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cosmosdb_documentdb/cosmosdb_sql_database)
 
 ```hcl
 inputs = {

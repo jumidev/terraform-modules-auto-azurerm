@@ -54,7 +54,10 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet (**See also** [dns/dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/dns/dns_a_record))
+Example component snippet
+
+**See also** [dns/dns_zone](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/dns/dns_zone)
+**See also** [base/any_resource](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/base/any_resource)
 
 ```hcl
 inputs = {
@@ -95,7 +98,9 @@ If set, makes a **azurerm_network_interface_backend_address_pool_association** -
 | `backend_address_pool_id` | string | True | null |
 
 
-Example component snippet (**See also** [network/network_interface_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_backend_address_pool_association))
+Example component snippet
+
+**See also** [load_balancer/lb_backend_address_pool](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/load_balancer/lb_backend_address_pool)
 
 ```hcl
 inputs = {
@@ -133,7 +138,9 @@ If set, makes a **azurerm_network_interface_application_gateway_backend_address_
 | `backend_address_pool_id` | string | True | null |
 
 
-Example component snippet (**See also** [network/network_interface_application_gateway_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_application_gateway_backend_address_pool_association))
+Example component snippet
+
+**See also** [load_balancer/lb_backend_address_pool](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/load_balancer/lb_backend_address_pool)
 
 ```hcl
 inputs = {
@@ -159,7 +166,9 @@ If set, makes a **azurerm_network_interface_nat_rule_association** - With the fo
 | `nat_rule_id` | string | True | null |
 
 
-Example component snippet (**See also** [network/network_interface_nat_rule_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_nat_rule_association))
+Example component snippet
+
+**See also** [load_balancer/lb_nat_rule](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/load_balancer/lb_nat_rule)
 
 ```hcl
 inputs = {
@@ -188,7 +197,9 @@ If set, makes a **azurerm_private_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet (**See also** [private_dns/private_dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/private_dns/private_dns_a_record))
+Example component snippet
+
+**See also** [private_dns/private_dns_zone](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/private_dns/private_dns_zone)
 
 ```hcl
 inputs = {

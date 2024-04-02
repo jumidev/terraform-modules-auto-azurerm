@@ -43,20 +43,20 @@ tfstate_store = {
 | **cdn_managed_https** | [block](#cdn_managed_https-block-structure) |  A `cdn_managed_https` block. | 
 | **user_managed_https** | [block](#user_managed_https-block-structure) |  A `user_managed_https` block. ~> **NOTE** Only one of `cdn_managed_https` and `user_managed_https` can be specified. | 
 
-### `user_managed_https` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_certificate_id` | string | No | - | The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of 'key_vault_secret_id'. |
-| `key_vault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the HTTPS certificate. ~> **NOTE** Either 'key_vault_certificate_id' or 'key_vault_secret_id' has to be specified. |
-| `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
-
 ### `cdn_managed_https` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `certificate_type` | string | Yes | - | The type of HTTPS certificate. Possible values are 'Shared' and 'Dedicated'. |
 | `protocol_type` | string | Yes | - | The type of protocol. Possible values are 'ServerNameIndication' and 'IPBased'. |
+| `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
+
+### `user_managed_https` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_certificate_id` | string | No | - | The ID of the Key Vault Certificate that contains the HTTPS certificate. This is deprecated in favor of 'key_vault_secret_id'. |
+| `key_vault_secret_id` | string | No | - | The ID of the Key Vault Secret that contains the HTTPS certificate. ~> **NOTE** Either 'key_vault_certificate_id' or 'key_vault_secret_id' has to be specified. |
 | `tls_version` | string | No | TLS12 | The minimum TLS protocol version that is used for HTTPS. Possible values are 'TLS10' (representing TLS 1.0/1.1), 'TLS12' (representing TLS 1.2) and 'None' (representing no minimums). Defaults to 'TLS12'. |
 
 

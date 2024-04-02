@@ -68,13 +68,6 @@ component_inputs = {
 | **ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `private_dns_zone_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Private DNS Zone Group. |
-| `private_dns_zone_ids` | string | Yes | - | Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'. |
-
 ### `private_service_connection` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,6 +78,13 @@ component_inputs = {
 | `private_connection_resource_alias` | string | No | - | The Service Alias of the Private Link Enabled Remote Resource which this Private Endpoint should be connected to. One of 'private_connection_resource_id' or 'private_connection_resource_alias' must be specified. Changing this forces a new resource to be created. |
 | `subresource_names` | list | No | - | A list of subresource names which the Private Endpoint is able to connect to. 'subresource_names' corresponds to 'group_id'. Possible values are detailed in the product [documentation](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#private-link-resource) in the 'Subresources' column. Changing this forces a new resource to be created. -> **NOTE:** Some resource types (such as Storage Account) only support 1 subresource per private endpoint. |
 | `request_message` | string | No | - | A message passed to the owner of the remote resource when the private endpoint attempts to establish the connection to the remote resource. The request message can be a maximum of '140' characters in length. Only valid if 'is_manual_connection' is set to 'true'. |
+
+### `private_dns_zone_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the Name of the Private DNS Zone Group. |
+| `private_dns_zone_ids` | string | Yes | - | Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'. |
 
 ### `ip_configuration` block structure
 
