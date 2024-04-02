@@ -47,7 +47,7 @@ If set, makes a **azurerm_spring_cloud_app_cosmosdb_association** - With the fol
 | `cosmosdb_mongo_database_name` | string | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [spring_cloud/spring_cloud_app_cosmosdb_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app_cosmosdb_association))
 
 ```hcl
 inputs = {

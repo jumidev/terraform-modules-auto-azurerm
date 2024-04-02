@@ -41,7 +41,7 @@ If set, makes a **azurerm_spring_cloud_app_redis_association** - With the follow
 | `ssl_enabled` | bool | False | true |
 
 
-Example component snippet:
+Example component snippet (**See also** [spring_cloud/spring_cloud_app_redis_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/spring_cloud/spring_cloud_app_redis_association))
 
 ```hcl
 inputs = {

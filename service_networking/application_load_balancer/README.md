@@ -37,7 +37,7 @@ If set, makes a **azurerm_application_load_balancer_subnet_association** - With 
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [service_networking/application_load_balancer_subnet_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/service_networking/application_load_balancer_subnet_association))
 
 ```hcl
 inputs = {

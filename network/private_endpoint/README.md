@@ -68,6 +68,13 @@ component_inputs = {
 | **ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `private_dns_zone_group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Specifies the Name of the Private DNS Zone Group. |
+| `private_dns_zone_ids` | string | Yes | - | Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'. |
+
 ### `private_service_connection` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,13 +94,6 @@ component_inputs = {
 | `private_ip_address` | string | Yes | - | Specifies the static IP address within the private endpoint's subnet to be used. Changing this forces a new resource to be created. |
 | `subresource_name` | string | No | - | Specifies the subresource this IP address applies to. 'subresource_names' corresponds to 'group_id'. Changing this forces a new resource to be created. |
 | `member_name` | string | No | - | Specifies the member name this IP address applies to. If it is not specified, it will use the value of 'subresource_name'. Changing this forces a new resource to be created. -> **NOTE:** 'member_name' will be required and will not take the value of 'subresource_name' in the next major version. |
-
-### `private_dns_zone_group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the Name of the Private DNS Zone Group. |
-| `private_dns_zone_ids` | string | Yes | - | Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'. |
 
 
 

@@ -39,7 +39,7 @@ If set, makes a **azurerm_network_interface_backend_address_pool_association** -
 | `ip_configuration_name` | string | True | "primary" |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_backend_address_pool_association))
 
 ```hcl
 inputs = {
@@ -65,7 +65,7 @@ If set, makes a **azurerm_network_interface_application_gateway_backend_address_
 | `ip_configuration_name` | string | True | "primary" |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_application_gateway_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_application_gateway_backend_address_pool_association))
 
 ```hcl
 inputs = {

@@ -40,6 +40,15 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **rule** | [block](#rule-block-structure) |  A `rule` block. | 
 
+### `match_criterion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
+| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
+| `community` | list | No | - | A list of BGP communities which this criterion matches. |
+| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,15 +72,6 @@ tfstate_store = {
 | `as_path` | list | No | - | A list of AS paths. |
 | `community` | list | No | - | A list of BGP communities. |
 | `route_prefix` | list | No | - | A list of route prefixes. |
-
-### `match_criterion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
-| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
-| `community` | list | No | - | A list of BGP communities which this criterion matches. |
-| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
 
 
 

@@ -54,7 +54,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [dns/dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/dns/dns_a_record))
 
 ```hcl
 inputs = {
@@ -95,7 +95,7 @@ If set, makes a **azurerm_network_interface_backend_address_pool_association** -
 | `backend_address_pool_id` | string | True | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_backend_address_pool_association))
 
 ```hcl
 inputs = {
@@ -133,7 +133,7 @@ If set, makes a **azurerm_network_interface_application_gateway_backend_address_
 | `backend_address_pool_id` | string | True | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_application_gateway_backend_address_pool_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_application_gateway_backend_address_pool_association))
 
 ```hcl
 inputs = {
@@ -159,7 +159,7 @@ If set, makes a **azurerm_network_interface_nat_rule_association** - With the fo
 | `nat_rule_id` | string | True | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_nat_rule_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_nat_rule_association))
 
 ```hcl
 inputs = {
@@ -188,7 +188,7 @@ If set, makes a **azurerm_private_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [private_dns/private_dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/private_dns/private_dns_a_record))
 
 ```hcl
 inputs = {

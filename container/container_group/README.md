@@ -65,21 +65,6 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ~> **NOTE:** When 'type' is set to 'SystemAssigned', the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. ~> **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network. |
 
-### `log_analytics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
-| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
-
-### `diagnostics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
-
 ### `image_registry_credential` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +74,12 @@ tfstate_store = {
 | `password` | string | No | - | The password with which to connect to the registry. Changing this forces a new resource to be created. |
 | `server` | string | Yes | - | The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created. |
 
+### `diagnostics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics` | [block](#log_analytics-block-structure) | Yes | - | A 'log_analytics' block. Changing this forces a new resource to be created. |
+
 ### `dns_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -96,6 +87,15 @@ tfstate_store = {
 | `nameservers` | list | Yes | - | A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created. |
 | `search_domains` | list | No | - | A list of search domains that DNS requests will search along. Changing this forces a new resource to be created. |
 | `options` | list | No | - | A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created. |
+
+### `log_analytics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
+| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
 
 
 

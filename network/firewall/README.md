@@ -51,13 +51,12 @@ tfstate_store = {
 | **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Azure Firewall should be located. Changing this forces a new Azure Firewall to be created. -> **Please Note**: Availability Zones are [only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `management_ip_configuration` block structure
+### `virtual_hub` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
-| `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. -> **NOTE** The Management Subnet used for the Firewall must have the name 'AzureFirewallManagementSubnet' and the subnet mask must be at least a '/26'. |
-| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. -> **NOTE** The Public IP must have a 'Static' allocation and 'Standard' SKU. |
+| `virtual_hub_id` | string | Yes | - | Specifies the ID of the Virtual Hub where the Firewall resides in. |
+| `public_ip_count` | number | No | 1 | Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. |
 
 ### `ip_configuration` block structure
 
@@ -67,12 +66,13 @@ tfstate_store = {
 | `subnet_id` | string | No | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. -> **NOTE** The Subnet used for the Firewall must have the name 'AzureFirewallSubnet' and the subnet mask must be at least a '/26'. -> **NOTE** At least one and only one 'ip_configuration' block may contain a 'subnet_id'. |
 | `public_ip_address_id` | string | No | - | The ID of the Public IP Address associated with the firewall. -> **NOTE** A public ip address is required unless a 'management_ip_configuration' block is specified. -> **NOTE** When multiple 'ip_configuration' blocks with 'public_ip_address_id' are configured, 'terraform apply' will raise an error when one or some of these 'ip_configuration' blocks are removed. because the 'public_ip_address_id' is still used by the 'firewall' resource until the 'firewall' resource is updated. and the destruction of 'azurerm_public_ip' happens before the update of firewall by default. to destroy of 'azurerm_public_ip' will cause the error. The workaround is to set 'create_before_destroy=true' to the 'azurerm_public_ip' resource 'lifecycle' block. See more detail: [destroying.md#create-before-destroy](https://github.com/hashicorp/terraform/blob/main/docs/destroying.md#create-before-destroy) -> **NOTE** The Public IP must have a 'Static' allocation and 'Standard' SKU. |
 
-### `virtual_hub` block structure
+### `management_ip_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `virtual_hub_id` | string | Yes | - | Specifies the ID of the Virtual Hub where the Firewall resides in. |
-| `public_ip_count` | number | No | 1 | Specifies the number of public IPs to assign to the Firewall. Defaults to '1'. |
+| `name` | string | Yes | - | Specifies the name of the IP Configuration. |
+| `subnet_id` | string | Yes | - | Reference to the subnet associated with the IP Configuration. Changing this forces a new resource to be created. -> **NOTE** The Management Subnet used for the Firewall must have the name 'AzureFirewallManagementSubnet' and the subnet mask must be at least a '/26'. |
+| `public_ip_address_id` | string | Yes | - | The ID of the Public IP Address associated with the firewall. -> **NOTE** The Public IP must have a 'Static' allocation and 'Standard' SKU. |
 
 
 

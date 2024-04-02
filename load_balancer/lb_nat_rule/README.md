@@ -44,7 +44,7 @@ If set, makes a **azurerm_network_interface_nat_rule_association** - With the fo
 | `ip_configuration_name` | string | True | "primary" |
 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface_nat_rule_association](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface_nat_rule_association))
 
 ```hcl
 inputs = {

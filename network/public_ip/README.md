@@ -41,7 +41,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [dns/dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/dns/dns_a_record))
 
 ```hcl
 inputs = {
@@ -85,7 +85,7 @@ If set, makes a **azurerm_private_dns_a_record** - With the following options:
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [private_dns/private_dns_a_record](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/private_dns/private_dns_a_record))
 
 ```hcl
 inputs = {

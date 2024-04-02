@@ -39,7 +39,7 @@ If set, makes a **azurerm_private_dns_zone_virtual_network_link** - With the fol
 | `tags` | map | False | null |
 
 
-Example component snippet:
+Example component snippet (**See also** [private_dns/private_dns_zone_virtual_network_link](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/private_dns/private_dns_zone_virtual_network_link))
 
 ```hcl
 inputs = {

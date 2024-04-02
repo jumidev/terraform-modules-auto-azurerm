@@ -138,11 +138,11 @@ variable "blob_properties" {
 #   last_access_time_enabled (bool)          : Is the last access time based tracking enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
 #   container_delete_retention_policy (block): A 'container_delete_retention_policy' block.
 #
-# container_delete_retention_policy block structure:
-#   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
-#
 # restore_policy block structure:
 #   days (number)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
+#
+# container_delete_retention_policy block structure:
+#   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
 #
 # delete_retention_policy block structure:
 #   days (number)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
@@ -167,12 +167,6 @@ variable "queue_properties" {
 #   minute_metrics (block)          : A 'minute_metrics' block.
 #   hour_metrics (block)            : A 'hour_metrics' block.
 #
-# hour_metrics block structure  :
-#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
-#   version (string)              : (REQUIRED) The version of storage analytics to configure.
-#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (number): Specifies the number of days that logs will be retained.
-#
 # logging block structure       :
 #   delete (string)               : (REQUIRED) Indicates whether all delete requests should be logged.
 #   read (string)                 : (REQUIRED) Indicates whether all read requests should be logged.
@@ -192,6 +186,12 @@ variable "queue_properties" {
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
+#
+# hour_metrics block structure  :
+#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
+#   version (string)              : (REQUIRED) The version of storage analytics to configure.
+#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
 
 
 variable "static_website" {
