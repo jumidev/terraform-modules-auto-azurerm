@@ -1,6 +1,6 @@
 # azurerm_container_connected_registry
 
-Manages a Container Connected Registry.
+
 
 ## Example `component.hclt`
 
@@ -13,12 +13,11 @@ source = {
 inputs = {
    # container_registry_id → set in component_inputs
    name = "The name which should be used for this Container Connected Registry..."   
-   # sync_token_id → set in component_inputs
+   sync_token_id = "The ID of the Container Registry Token which is used for synchronizing the Conne..."   
 }
 
 component_inputs = {
    container_registry_id = "path/to/container_registry_component:id"   
-   sync_token_id = "path/to/container_registry_token_component:id"   
 }
 
 tfstate_store = {

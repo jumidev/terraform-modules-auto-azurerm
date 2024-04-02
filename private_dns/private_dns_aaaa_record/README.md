@@ -1,6 +1,6 @@
 # azurerm_private_dns_aaaa_record
 
-Enables you to manage DNS AAAA Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

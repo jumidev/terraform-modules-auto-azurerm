@@ -1,6 +1,6 @@
 # azurerm_mariadb_configuration
 
-Sets a MariaDB Configuration value on a MariaDB Server.
+
 
 ## Example `component.hclt`
 

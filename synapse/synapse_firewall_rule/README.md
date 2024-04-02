@@ -1,6 +1,6 @@
 # azurerm_synapse_firewall_rule
 
-Allows you to Manages a Synapse Firewall Rule.
+
 
 ## Example `component.hclt`
 

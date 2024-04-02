@@ -20,11 +20,3 @@ variable "value" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
-variable "mysql_flexible_server_resource_group_name" {
-  description = "The name of the resource group for the MySQL Flexible Server..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

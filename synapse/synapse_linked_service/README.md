@@ -1,6 +1,6 @@
 # azurerm_synapse_linked_service
 
-Manages a Synapse Linked Service.
+
 
 ## Example `component.hclt`
 

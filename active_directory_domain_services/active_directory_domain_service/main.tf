@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_active_directory_domain_service" "this" {
@@ -16,7 +13,7 @@ resource "azurerm_active_directory_domain_service" "this" {
     subnet_id = lookup(initial_replica_set.value, "subnet_id") # (Required) 
   }
 
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   sku                 = var.sku
 
   ########################################

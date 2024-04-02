@@ -1,10 +1,3 @@
-data "azurerm_shared_image_gallery" "this" {
-  name                = var.shared_image_gallery_name
-  resource_group_name = var.shared_image_gallery_resource_group_name == null ? null : var.shared_image_gallery_resource_group_name
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_shared_image" "this" {
@@ -13,8 +6,8 @@ resource "azurerm_shared_image" "this" {
   # required vars
   ########################################
   name                = var.name
-  gallery_name        = data.azurerm_shared_image_gallery.this.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  gallery_name        = var.gallery_name
+  resource_group_name = var.resource_group_name
   location            = var.location
 
   identifier {

@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_cdn_endpoint" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_cdn_endpoint" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   profile_name        = var.profile_name
   location            = var.location
 

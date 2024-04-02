@@ -1,6 +1,6 @@
 # azurerm_postgresql_active_directory_administrator
 
-Allows you to set a user or group as the AD administrator for an PostgreSQL server in Azure
+
 
 ## Example `component.hclt`
 

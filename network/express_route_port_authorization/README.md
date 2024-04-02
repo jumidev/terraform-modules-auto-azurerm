@@ -1,6 +1,6 @@
 # azurerm_express_route_port_authorization
 
-Manages an ExpressRoute Port Authorization.
+
 
 ## Example `component.hclt`
 

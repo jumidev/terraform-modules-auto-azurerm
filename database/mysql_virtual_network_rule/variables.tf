@@ -20,11 +20,3 @@ variable "subnet_id" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
-variable "mysql_server_resource_group_name" {
-  description = "The name of the resource group for the MySQL Server..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

@@ -1,6 +1,6 @@
 # azurerm_capacity_reservation_group
 
-Manages a Capacity Reservation Group.
+
 
 ## Example `component.hclt`
 

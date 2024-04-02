@@ -1,6 +1,6 @@
 # azurerm_active_directory_domain_service_trust
 
-Manages a Active Directory Domain Service Trust.
+
 
 ## Example `component.hclt`
 

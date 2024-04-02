@@ -1,6 +1,6 @@
 # azurerm_shared_image
 
-Manages a Shared Image within a Shared Image Gallery.
+
 
 ## Example `component.hclt`
 

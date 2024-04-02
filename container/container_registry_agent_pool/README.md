@@ -1,6 +1,6 @@
 # azurerm_container_registry_agent_pool
 
-Manages an Azure Container Registry Agent Pool.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_synapse_sql_pool
 
-Manages a Synapse SQL Pool.
+
 
 ## Example `component.hclt`
 

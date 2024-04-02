@@ -1,6 +1,6 @@
 # azurerm_stack_hci_cluster
 
-Manages an Azure Stack HCI Cluster.
+
 
 ## Example `component.hclt`
 

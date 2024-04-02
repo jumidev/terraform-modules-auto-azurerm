@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_application_gateway" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_application_gateway" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   location            = var.location
 
   dynamic "backend_address_pool" { # var.backend_address_pool

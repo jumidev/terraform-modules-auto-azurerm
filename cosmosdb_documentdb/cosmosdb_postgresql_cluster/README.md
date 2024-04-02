@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_postgresql_cluster
 
-Manages an Azure Cosmos DB for PostgreSQL Cluster.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_mssql_server
 
-Manages a Microsoft SQL Azure Database Server.~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).
+
 
 ## Example `component.hclt`
 
@@ -50,6 +50,13 @@ tfstate_store = {
 | **primary_user_assigned_identity_id** | string |  -  |  `type`, `UserAssigned`, `identity_ids`  |  Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' ~> **NOTE:** When 'type' is set to 'SystemAssigned', the assigned 'principal_id' and 'tenant_id' can be retrieved after the Microsoft SQL Server has been created. More details are available below. |
+
 ### `azuread_administrator` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,13 +65,6 @@ tfstate_store = {
 | `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this SQL Server. |
 | `tenant_id` | string | No | - | The tenant id of the Azure AD Administrator of this SQL Server. |
 | `azuread_authentication_only` | string | No | - | Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' ~> **NOTE:** When 'type' is set to 'SystemAssigned', the assigned 'principal_id' and 'tenant_id' can be retrieved after the Microsoft SQL Server has been created. More details are available below. |
 
 
 
@@ -81,6 +81,6 @@ tfstate_store = {
 | **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
 | **update** | string | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
-| **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. ## Import SQL Servers can be imported using the `resource id`, e.g. ```shell terraform import azurerm_mssql_server.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver ``` | 
+| **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
 
 Additionally, all variables are provided as outputs.

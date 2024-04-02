@@ -1,6 +1,6 @@
 # azurerm_hpc_cache_access_policy
 
-Manages a HPC Cache Access Policy.
+
 
 ## Example `component.hclt`
 

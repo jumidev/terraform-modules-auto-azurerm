@@ -1,6 +1,6 @@
 # azurerm_databricks_access_connector
 
-Manages a Databricks Access Connector
+
 
 ## Example `component.hclt`
 

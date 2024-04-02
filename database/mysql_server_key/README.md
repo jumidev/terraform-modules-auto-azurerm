@@ -1,6 +1,6 @@
 # azurerm_mysql_server_key
 
-Manages a Customer Managed Key for a MySQL Server.
+
 
 ## Example `component.hclt`
 
@@ -11,12 +11,11 @@ source = {
 }
 
 inputs = {
-   # server_id → set in component_inputs
+   server_id = "The ID of the MySQL Server"   
    # key_vault_key_id → set in component_inputs
 }
 
 component_inputs = {
-   server_id = "path/to/mysql_server_component:id"   
    key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
 

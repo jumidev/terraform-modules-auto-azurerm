@@ -1,6 +1,6 @@
 # azurerm_virtual_hub
 
-Manages a Virtual Hub within a Virtual WAN.
+
 
 ## Example `component.hclt`
 

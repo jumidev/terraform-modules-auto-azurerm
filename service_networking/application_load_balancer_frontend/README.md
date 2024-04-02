@@ -1,6 +1,6 @@
 # azurerm_application_load_balancer_frontend
 
-Manages an Application Gateway for Containers Frontend.
+
 
 ## Example `component.hclt`
 

@@ -67,7 +67,7 @@ output "read" {
 }
 
 output "delete" {
-  description = "(Defaults to 30 minutes) Used when deleting the Failover Group. ## Import Failover Groups can be imported using the 'resource id', e.g. '''shell terraform import azurerm_mssql_failover_group.example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1 '''"
+  description = "(Defaults to 30 minutes) Used when deleting the Failover Group."
   value       = azurerm_mssql_failover_group.this.delete
 }
 

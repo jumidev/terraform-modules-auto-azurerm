@@ -1,6 +1,6 @@
 # azurerm_network_packet_capture
 
-Configures Network Packet Capturing against a Virtual Machine using a Network Watcher.!> **NOTE:** The `azurerm_network_packet_capture` resource is deprecated and will be removed in favour of `azurerm_virtual_machine_packet_capture` and `azurerm_virtual_machine_scale_set_packet_capture` in version 4.0 of the AzureRM Provider.
+
 
 ## Example `component.hclt`
 

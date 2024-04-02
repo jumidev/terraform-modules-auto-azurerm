@@ -1,6 +1,6 @@
 # azurerm_databricks_virtual_network_peering
 
-Manages a Databricks Virtual Network Peering
+
 
 ## Example `component.hclt`
 

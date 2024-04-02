@@ -59,7 +59,7 @@ variable "idle_timeout_in_minutes" {
   default     = 4
 }
 variable "enable_floating_ip" {
-  description = "Are the Floating IPs enabled for this Load Balancer Rule? A 'floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to 'false'."
+  description = "Are the Floating IPs enabled for this Load Balancer Rule? A 'floating' IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to 'false'."
   type        = bool
   default     = false
 }

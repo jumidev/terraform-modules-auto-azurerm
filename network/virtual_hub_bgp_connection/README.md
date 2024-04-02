@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_bgp_connection
 
-Manages a Bgp Connection for a Virtual Hub.
+
 
 ## Example `component.hclt`
 

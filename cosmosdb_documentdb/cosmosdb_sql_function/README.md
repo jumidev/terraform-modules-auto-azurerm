@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_function
 
-Manages an SQL User Defined Function.
+
 
 ## Example `component.hclt`
 

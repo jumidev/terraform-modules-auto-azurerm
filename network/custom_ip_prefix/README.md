@@ -1,6 +1,6 @@
 # azurerm_custom_ip_prefix
 
-Manages a custom IPv4 prefix or custom IPv6 prefix.
+
 
 ## Example `component.hclt`
 

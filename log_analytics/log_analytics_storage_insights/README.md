@@ -1,6 +1,6 @@
 # azurerm_log_analytics_storage_insights
 
-Manages a Log Analytics Storage Insights resource.
+
 
 ## Example `component.hclt`
 

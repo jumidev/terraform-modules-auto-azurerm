@@ -1,6 +1,6 @@
 # azurerm_storage_share_file
 
-Manages a File within an Azure Storage File Share.
+
 
 ## Example `component.hclt`
 
@@ -43,7 +43,7 @@ tfstate_store = {
 | **content_type** | string |  `application/octet-stream`  |  The content type of the share file. Defaults to `application/octet-stream`. | 
 | **content_md5** | string |  -  |  The MD5 sum of the file contents. Changing this forces a new resource to be created. | 
 | **content_encoding** | string |  -  |  Specifies which content encodings have been applied to the file. | 
-| **content_disposition** | string |  -  |  Sets the file’s Content-Disposition header. | 
+| **content_disposition** | string |  -  |  Sets the file's Content-Disposition header. | 
 | **metadata** | string |  -  |  A mapping of metadata to assign to this file. | 
 
 

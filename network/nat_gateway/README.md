@@ -1,6 +1,6 @@
 # azurerm_nat_gateway
 
-Manages an Azure NAT Gateway.
+
 
 ## Example `component.hclt`
 
@@ -28,9 +28,9 @@ tfstate_store = {
 
 ### `public_ip_address_id` 
 
-- If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - Manages the association between a NAT Gateway and a Public IP.
+- If set to a valid `azurerm_public_ip` `id`, makes a **azurerm_nat_gateway_public_ip_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/public_ip](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/public_ip))
 
 ```hcl
 component_inputs = {
@@ -40,9 +40,9 @@ component_inputs = {
 
 ### `subnet_id` 
 
-- If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).
+- If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_nat_gateway_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/subnet](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/subnet))
 
 ```hcl
 component_inputs = {
@@ -52,9 +52,9 @@ component_inputs = {
 
 ### `public_ip_prefix_id` 
 
-- If set to a valid `azurerm_public_ip_prefix` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - Manages the association between a NAT Gateway and a Public IP Prefix.
+- If set to a valid `azurerm_public_ip_prefix` `id`, makes a **azurerm_nat_gateway_public_ip_prefix_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/public_ip_prefix](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/public_ip_prefix))
 
 ```hcl
 component_inputs = {

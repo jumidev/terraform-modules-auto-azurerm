@@ -20,11 +20,3 @@ variable "subnet_id" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
-variable "mariadb_server_resource_group_name" {
-  description = "The name of the resource group where the MariaDB Server exists..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

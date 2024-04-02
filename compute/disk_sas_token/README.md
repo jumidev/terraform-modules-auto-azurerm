@@ -1,6 +1,6 @@
 # azurerm_disk_sas_token
 
-Manages a Disk SAS Token.Use this resource to obtain a Shared Access Signature (SAS Token) for an existing Managed Disk.Shared access signatures allow fine-grained, ephemeral access control to various aspects of Managed Disk similar to blob/storage account container.With the help of this resource, data from the disk can be copied from managed disk to a storage blob or to some other system without the need of azcopy.
+
 
 ## Example `component.hclt`
 

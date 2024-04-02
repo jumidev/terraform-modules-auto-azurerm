@@ -1,6 +1,6 @@
 # azurerm_lb
 
-Manages a Load Balancer Resource.
+
 
 ## Example `component.hclt`
 

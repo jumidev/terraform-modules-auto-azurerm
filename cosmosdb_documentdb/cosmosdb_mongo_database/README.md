@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_mongo_database
 
-Manages a Mongo Database within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

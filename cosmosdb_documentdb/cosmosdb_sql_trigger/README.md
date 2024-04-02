@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_trigger
 
-Manages an SQL Trigger.
+
 
 ## Example `component.hclt`
 

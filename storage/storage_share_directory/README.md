@@ -1,6 +1,6 @@
 # azurerm_storage_share_directory
 
-Manages a Directory within an Azure Storage File Share.
+
 
 ## Example `component.hclt`
 

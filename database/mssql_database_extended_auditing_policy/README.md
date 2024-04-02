@@ -1,6 +1,6 @@
 # azurerm_mssql_database_extended_auditing_policy
 
-Manages a MS SQL Database Extended Auditing Policy.
+
 
 ## Example `component.hclt`
 

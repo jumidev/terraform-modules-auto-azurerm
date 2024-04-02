@@ -388,12 +388,6 @@ variable "rewrite_rule_set" {
 #   name (string)                   : (REQUIRED) Unique name of the rewrite rule set block
 #   rewrite_rule (block)            : One or more 'rewrite_rule' blocks.
 #
-# url block structure  :
-#   path (string)        : The URL path to rewrite.
-#   query_string (string): The query string to rewrite.
-#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only. ~> **Note:** One or both of 'path' and 'query_string' must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite 'path' or 'query_string', use 'components'.
-#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
-#
 # rewrite_rule block structure          :
 #   name (string)                         : (REQUIRED) Unique name of the rewrite rule block
 #   rule_sequence (string)                : (REQUIRED) Rule sequence of the rewrite rule that determines the order of execution in a set.
@@ -401,5 +395,11 @@ variable "rewrite_rule_set" {
 #   request_header_configuration (string) : One or more 'request_header_configuration' blocks.
 #   response_header_configuration (string): One or more 'response_header_configuration' blocks.
 #   url (block)                           : One 'url' block
+#
+# url block structure  :
+#   path (string)        : The URL path to rewrite.
+#   query_string (string): The query string to rewrite.
+#   components (string)  : The components used to rewrite the URL. Possible values are 'path_only' and 'query_string_only' to limit the rewrite to the URL Path or URL Query String only. ~> **Note:** One or both of 'path' and 'query_string' must be specified. If one of these is not specified, it means the value will be empty. If you only want to rewrite 'path' or 'query_string', use 'components'.
+#   reroute (bool)       : Whether the URL path map should be reevaluated after this rewrite has been applied. [More info on rewrite configuration](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-url#rewrite-configuration)
 
 

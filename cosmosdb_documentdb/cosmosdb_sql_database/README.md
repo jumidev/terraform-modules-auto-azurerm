@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_database
 
-Manages a SQL Database within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

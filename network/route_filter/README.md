@@ -1,6 +1,6 @@
 # azurerm_route_filter
 
-Manages a Route Filter.
+
 
 ## Example `component.hclt`
 

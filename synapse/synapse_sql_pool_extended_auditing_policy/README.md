@@ -1,6 +1,6 @@
 # azurerm_synapse_sql_pool_extended_auditing_policy
 
-Manages a Synapse SQL Pool Extended Auditing Policy.
+
 
 ## Example `component.hclt`
 
@@ -11,11 +11,7 @@ source = {
 }
 
 inputs = {
-   # sql_pool_id → set in component_inputs
-}
-
-component_inputs = {
-   sql_pool_id = "path/to/synapse_sql_pool_component:id"   
+   sql_pool_id = "The ID of the Synapse SQL pool to set the extended auditing policy..."   
 }
 
 tfstate_store = {

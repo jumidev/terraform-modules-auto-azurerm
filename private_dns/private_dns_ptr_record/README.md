@@ -1,6 +1,6 @@
 # azurerm_private_dns_ptr_record
 
-Enables you to manage DNS PTR Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

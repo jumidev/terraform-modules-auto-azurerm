@@ -1,6 +1,6 @@
 # azurerm_firewall_nat_rule_collection
 
-Manages a NAT Rule Collection within an Azure Firewall.
+
 
 ## Example `component.hclt`
 

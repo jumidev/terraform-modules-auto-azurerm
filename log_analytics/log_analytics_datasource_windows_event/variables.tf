@@ -25,11 +25,3 @@ variable "event_types" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
-variable "log_analytics_workspace_resource_group_name" {
-  description = "The name of the resource group in which the Log Analytics workspace is located in..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

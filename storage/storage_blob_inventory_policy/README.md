@@ -1,6 +1,6 @@
 # azurerm_storage_blob_inventory_policy
 
-Manages a Storage Blob Inventory Policy.
+
 
 ## Example `component.hclt`
 

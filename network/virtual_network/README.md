@@ -1,6 +1,6 @@
 # azurerm_virtual_network
 
-Manages a virtual network including any configured subnets. Each subnet canoptionally be configured with a security group to be associated with the subnet.~> **NOTE on Virtual Networks and Subnets:** Terraform currently provides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite subnets.~> **NOTE on Virtual Networks and DNS Servers:** Terraform currently provides both a standalone [virtual network DNS Servers resource](virtual_network_dns_servers.html), and allows for DNS servers to be defined in-line within the [Virtual Network resource](virtual_network.html).At this time you cannot use a Virtual Network with in-line DNS servers in conjunction with any Virtual Network DNS Servers resources. Doing so will cause a conflict of Virtual Network DNS Servers configurations and will overwrite virtual networks DNS servers.
+
 
 ## Example `component.hclt`
 
@@ -79,17 +79,17 @@ component_inputs = {
 | **edge_zone** | string |  -  |  Specifies the Edge Zone within the Azure Region where this Virtual Network should exist. Changing this forces a new Virtual Network to be created. | 
 | **flow_timeout_in_minutes** | number |  `4`, `30`  |  The flow timeout in minutes for the Virtual Network, which is used to enable connection tracking for intra-VM flows. Possible values are between `4` and `30` minutes. | 
 
-### `ddos_protection_plan` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
-
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enforcement` | bool | Yes | - | Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. |
+
+### `ddos_protection_plan` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
 
 
 

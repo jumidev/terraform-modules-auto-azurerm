@@ -73,8 +73,3 @@ variable "metadata" {
   type        = string
   default     = null
 }
-variable "storage_container_storage_account_name" {
-  description = "The name of the Storage Account where the Container exists..  If not specified, value of var.storage_account_name will be used."
-  type        = string
-  default     = null
-}

@@ -1,6 +1,6 @@
 # azurerm_bastion_host
 
-Manages a Bastion Host.
+
 
 ## Example `component.hclt`
 

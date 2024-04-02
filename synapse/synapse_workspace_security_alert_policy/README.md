@@ -1,6 +1,6 @@
 # azurerm_synapse_workspace_security_alert_policy
 
-Manages a Security Alert Policy for a Synapse Workspace.
+
 
 ## Example `component.hclt`
 

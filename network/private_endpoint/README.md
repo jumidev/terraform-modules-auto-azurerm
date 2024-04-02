@@ -1,6 +1,6 @@
 # azurerm_private_endpoint
 
-Manages a Private Endpoint.Azure Private Endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. Private Endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. The service could be an Azure service such as Azure Storage, SQL, etc. or your own Private Link Service.
+
 
 ## Example `component.hclt`
 
@@ -38,9 +38,9 @@ tfstate_store = {
 
 ### `application_security_group_id` 
 
-- If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - Manages an association between Private Endpoint and Application Security Group.
+- If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/application_security_group](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/application_security_group))
 
 ```hcl
 component_inputs = {

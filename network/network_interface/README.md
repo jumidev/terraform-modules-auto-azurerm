@@ -1,6 +1,6 @@
 # azurerm_network_interface
 
-Manages a Network Interface.
+
 
 ## Example `component.hclt`
 
@@ -47,6 +47,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
+| `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
 | `ttl` | number | True | 300 |
 | `target_resource_id` | string | False | null |
@@ -74,9 +75,9 @@ component_inputs = {
 
 ### `application_security_group_id` 
 
-- If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.
+- If set to a valid `azurerm_application_security_group` `id`, makes a **azurerm_network_interface_application_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/application_security_group](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/application_security_group))
 
 ```hcl
 component_inputs = {
@@ -112,9 +113,9 @@ component_inputs = {
 
 ### `network_security_group_id` 
 
-- If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - Manages the association between a Network Interface and a Network Security Group.
+- If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_network_interface_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_security_group](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_security_group))
 
 ```hcl
 component_inputs = {

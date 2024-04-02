@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_role_definition
 
-Manages a Cosmos DB SQL Role Definition.
+
 
 ## Example `component.hclt`
 

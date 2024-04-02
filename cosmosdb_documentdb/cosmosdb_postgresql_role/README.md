@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_postgresql_role
 
-Manages an Azure Cosmos DB for PostgreSQL Role.
+
 
 ## Example `component.hclt`
 
@@ -12,12 +12,8 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Azure Cosmos DB for PostgreSQL Role..."   
-   # cluster_id → set in component_inputs
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
    password = "The password of the Azure Cosmos DB for PostgreSQL Role..."   
-}
-
-component_inputs = {
-   cluster_id = "path/to/cosmosdb_postgresql_cluster_component:id"   
 }
 
 tfstate_store = {

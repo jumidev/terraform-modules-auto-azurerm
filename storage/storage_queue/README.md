@@ -1,6 +1,6 @@
 # azurerm_storage_queue
 
-Manages a Queue within an Azure Storage Account.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_sql_server
 
-Manages a Microsoft SQL Azure Database Server.~> **Note:** The `azurerm_sql_server` resource is deprecated in version 3.0 of the AzureRM provider and will be removed in version 4.0. Please use the [`azurerm_mssql_server`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mssql_server) resource instead.~> **Note:** All arguments including the administrator login and password will be stored in the raw state as plain-text. [Read more about sensitive data in state](https://www.terraform.io/language/state/sensitive-data).
+
 
 ## Example `component.hclt`
 
@@ -65,6 +65,6 @@ tfstate_store = {
 | **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
 | **update** | string | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 
-| **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. ## Import SQL Servers can be imported using the `resource id`, e.g. ```shell terraform import azurerm_sql_server.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver ``` | 
+| **delete** | string | No  | (Defaults to 60 minutes) Used when deleting the Microsoft SQL Server. | 
 
 Additionally, all variables are provided as outputs.

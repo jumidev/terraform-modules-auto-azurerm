@@ -1,11 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
-data "azurerm_virtual_network" "this" {
-  name                = var.virtual_network_name
-  resource_group_name = var.virtual_network_resource_group_name != null ? var.virtual_network_resource_group_name : var.resource_group_name
-
-}
 
 
 resource "azurerm_subnet" "this" {
@@ -14,8 +6,8 @@ resource "azurerm_subnet" "this" {
   # required vars
   ########################################
   name                 = var.name
-  resource_group_name  = data.azurerm_resource_group.this.name
-  virtual_network_name = data.azurerm_virtual_network.this.name
+  resource_group_name  = var.resource_group_name
+  virtual_network_name = var.virtual_network_name
   address_prefixes     = var.address_prefixes
 
   ########################################

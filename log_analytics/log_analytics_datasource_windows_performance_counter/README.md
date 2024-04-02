@@ -1,6 +1,6 @@
 # azurerm_log_analytics_datasource_windows_performance_counter
 
-Manages a Log Analytics (formally Operational Insights) Windows Performance Counter DataSource.
+
 
 ## Example `component.hclt`
 

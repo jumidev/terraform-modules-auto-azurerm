@@ -1,6 +1,6 @@
 # azurerm_mysql_flexible_database
 
-Manages a MySQL Database within a MySQL Flexible Server
+
 
 ## Example `component.hclt`
 

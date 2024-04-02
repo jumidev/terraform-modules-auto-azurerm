@@ -1,6 +1,6 @@
 # azurerm_log_analytics_datasource_windows_event
 
-Manages a Log Analytics Windows Event DataSource.
+
 
 ## Example `component.hclt`
 

@@ -62,8 +62,3 @@ variable "filter" {
 #   remote_port (string)      : The remote port to be filtered on. Notation: '80' for single port entry.'80-85' for range. '80;443;' for multiple entries. Multiple ranges not currently supported. Mixing ranges with multiple entries not currently supported. Changing this forces a new resource to be created.
 
 
-variable "network_watcher_resource_group_name" {
-  description = "Specifies the Name of the Resource Group within which the Network Watcher exists..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

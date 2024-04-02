@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_public_ip" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_public_ip" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   location            = var.location
   allocation_method   = var.allocation_method
 
@@ -30,9 +27,6 @@ resource "azurerm_public_ip" "this" {
   sku_tier                = var.sku_tier # Default: Regional
   tags                    = var.tags
 }
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 ##############################################################################################
 # optional azurerm_dns_a_record 
@@ -40,7 +34,7 @@ data "azurerm_resource_group" "this" {
 resource "azurerm_dns_a_record" "this" {
   count               = var.dns_a_record != null ? 1 : 0
   name                = lookup(var.dns_a_record, "name")
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = lookup(var.dns_a_record, "resource_group_name")
   zone_name           = lookup(var.dns_a_record, "zone_name")
   ttl                 = lookup(var.dns_a_record, "ttl", 300)
   records             = azurerm_public_ip.this.ip_address

@@ -1,11 +1,3 @@
-data "azurerm_network_watcher" "this" {
-  name                = var.network_watcher_name
-  resource_group_name = var.network_watcher_resource_group_name != null ? var.network_watcher_resource_group_name : var.resource_group_name
-
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_network_packet_capture" "this" {
@@ -14,8 +6,8 @@ resource "azurerm_network_packet_capture" "this" {
   # required vars
   ########################################
   name                 = var.name
-  network_watcher_name = data.azurerm_network_watcher.this.name
-  resource_group_name  = data.azurerm_resource_group.this.name
+  network_watcher_name = var.network_watcher_name
+  resource_group_name  = var.resource_group_name
   target_resource_id   = var.target_resource_id
 
   storage_location {

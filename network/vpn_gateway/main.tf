@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_vpn_gateway" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_vpn_gateway" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   location            = var.location
   virtual_hub_id      = var.virtual_hub_id
 

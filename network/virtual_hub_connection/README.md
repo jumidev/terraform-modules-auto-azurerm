@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_connection
 
-Manages a Connection for a Virtual Hub.
+
 
 ## Example `component.hclt`
 
@@ -52,6 +52,13 @@ tfstate_store = {
 | `address_prefixes` | list | No | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 | `next_hop_ip_address` | string | No | - | The IP Address which should be used for the Next Hop. |
 
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `labels` | string | No | - | The list of labels to assign to this route table. |
+| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
+
 ### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,13 +69,6 @@ tfstate_store = {
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
 | `static_vnet_local_route_override_criteria` | string | No | Contains | The static VNet local route override criteria that is used to determine whether NVA in spoke VNet is bypassed for traffic with destination in spoke VNet. Possible values are 'Contains' and 'Equal'. Defaults to 'Contains'. Changing this forces a new resource to be created. |
 | `static_vnet_route` | [block](#static_vnet_route-block-structure) | No | - | A 'static_vnet_route' block. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `labels` | string | No | - | The list of labels to assign to this route table. |
-| `route_table_ids` | list | No | - | A list of Route Table IDs to associated with this Virtual Hub Connection. |
 
 
 

@@ -1,6 +1,6 @@
 # azurerm_mysql_firewall_rule
 
-Manages a Firewall Rule for a MySQL Server.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_network_interface" "this" {
@@ -25,7 +22,7 @@ resource "azurerm_network_interface" "this" {
 
   location            = var.location
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
 
   ########################################
   # optional vars
@@ -39,9 +36,6 @@ resource "azurerm_network_interface" "this" {
   internal_dns_name_label       = var.internal_dns_name_label
   tags                          = var.tags
 }
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 ##############################################################################################
 # optional azurerm_dns_a_record 
@@ -49,7 +43,7 @@ data "azurerm_resource_group" "this" {
 resource "azurerm_dns_a_record" "this" {
   count               = var.dns_a_record != null ? 1 : 0
   name                = lookup(var.dns_a_record, "name")
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = lookup(var.dns_a_record, "resource_group_name")
   zone_name           = lookup(var.dns_a_record, "zone_name")
   ttl                 = lookup(var.dns_a_record, "ttl", 300)
   records             = azurerm_network_interface.this.private_ip_addresses

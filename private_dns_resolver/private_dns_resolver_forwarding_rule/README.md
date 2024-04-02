@@ -1,6 +1,6 @@
 # azurerm_private_dns_resolver_forwarding_rule
 
-Manages a Private DNS Resolver Forwarding Rule.
+
 
 ## Example `component.hclt`
 
@@ -12,16 +12,12 @@ source = {
 
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Forwarding..."   
-   # dns_forwarding_ruleset_id → set in component_inputs
+   dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver Forwarding Ruleset..."   
    domain_name = "Specifies the domain name for the Private DNS Resolver Forwarding Rule..."   
    target_dns_servers = {
       ip_address = "..."      
    }
    
-}
-
-component_inputs = {
-   dns_forwarding_ruleset_id = "path/to/private_dns_resolver_component:id"   
 }
 
 tfstate_store = {

@@ -1,6 +1,6 @@
 # azurerm_lb_outbound_rule
 
-Manages a Load Balancer Outbound Rule.~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration and a Backend Address Pool Attached.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_public_ip
 
-Manages a Public IP Address.~> **Note** If this resource is to be associated with a resource that requires disassociation before destruction (such as `azurerm_network_interface`) it is recommended to set the `lifecycle` argument `create_before_destroy = true`. Otherwise, it can fail to disassociate on destruction.
+
 
 ## Example `component.hclt`
 
@@ -34,6 +34,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | attribute | type | required? | default |
 | --------- | ---- | --------- | ------- |
 | `name` | string | True | null |
+| `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
 | `ttl` | number | True | 300 |
 | `target_resource_id` | string | False | null |
@@ -61,9 +62,9 @@ component_inputs = {
 
 ### `nat_gateway_id` 
 
-- If set to a valid `azurerm_nat_gateway` `id`, makes a **azurerm_nat_gateway_public_ip_association** - Manages the association between a NAT Gateway and a Public IP.
+- If set to a valid `azurerm_nat_gateway` `id`, makes a **azurerm_nat_gateway_public_ip_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/nat_gateway](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/nat_gateway))
 
 ```hcl
 component_inputs = {

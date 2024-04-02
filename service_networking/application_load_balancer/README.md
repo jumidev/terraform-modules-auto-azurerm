@@ -1,6 +1,6 @@
 # azurerm_application_load_balancer
 
-Manages an Application Gateway for Containers (ALB).
+
 
 ## Example `component.hclt`
 

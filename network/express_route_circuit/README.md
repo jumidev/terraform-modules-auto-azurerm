@@ -1,6 +1,6 @@
 # azurerm_express_route_circuit
 
-Manages an ExpressRoute circuit.
+
 
 ## Example `component.hclt`
 

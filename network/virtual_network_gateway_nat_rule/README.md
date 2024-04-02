@@ -1,6 +1,6 @@
 # azurerm_virtual_network_gateway_nat_rule
 
-Manages a Virtual Network Gateway Nat Rule.
+
 
 ## Example `component.hclt`
 

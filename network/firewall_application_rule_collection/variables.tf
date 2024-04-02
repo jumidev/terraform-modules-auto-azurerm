@@ -44,11 +44,3 @@ variable "rule" {
 #   type (string)           : (REQUIRED) Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'.
 
 
-
-# OPTIONAL VARIABLES
-
-variable "firewall_resource_group_name" {
-  description = "The name of the Resource Group in which the Azure Firewall exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

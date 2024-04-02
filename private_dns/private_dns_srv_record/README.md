@@ -1,6 +1,6 @@
 # azurerm_private_dns_srv_record
 
-Enables you to manage DNS SRV Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

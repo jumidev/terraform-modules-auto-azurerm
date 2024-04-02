@@ -1,6 +1,6 @@
 # azurerm_postgresql_firewall_rule
 
-Manages a Firewall Rule for a PostgreSQL Server
+
 
 ## Example `component.hclt`
 

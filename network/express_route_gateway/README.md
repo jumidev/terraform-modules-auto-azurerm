@@ -1,6 +1,6 @@
 # azurerm_express_route_gateway
 
-Manages an ExpressRoute gateway.
+
 
 ## Example `component.hclt`
 
@@ -58,6 +58,6 @@ tfstate_store = {
 | **create** | string | No  | (Defaults to 90 minutes) Used when creating the ExpressRoute Gateway. | 
 | **update** | string | No  | (Defaults to 90 minutes) Used when updating the ExpressRoute Gateway. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the ExpressRoute Gateway. | 
-| **delete** | string | No  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. ## Import ExpressRoute Gateways can be imported using the `resource id`, e.g. ```shell terraform import azurerm_express_route_gateway.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway ``` | 
+| **delete** | string | No  | (Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. | 
 
 Additionally, all variables are provided as outputs.

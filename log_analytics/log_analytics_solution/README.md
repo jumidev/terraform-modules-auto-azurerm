@@ -1,6 +1,6 @@
 # azurerm_log_analytics_solution
 
-Manages a Log Analytics (formally Operational Insights) Solution.
+
 
 ## Example `component.hclt`
 
@@ -14,7 +14,7 @@ inputs = {
    solution_name = "Specifies the name of the solution to be deployed"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   # workspace_resource_id → set in component_inputs
+   workspace_resource_id = "The full resource ID of the Log Analytics workspace with which the solution will..."   
    # workspace_name → set in component_inputs
    plan = {
       publisher = "..."      
@@ -24,7 +24,6 @@ inputs = {
 }
 
 component_inputs = {
-   workspace_resource_id = "path/to/log_analytics_workspace_component:id"   
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
 

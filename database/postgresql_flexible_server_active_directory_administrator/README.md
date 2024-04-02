@@ -1,6 +1,6 @@
 # azurerm_postgresql_flexible_server_active_directory_administrator
 
-Allows you to set a user or group as the AD administrator for a PostgreSQL Flexible Server.
+
 
 ## Example `component.hclt`
 

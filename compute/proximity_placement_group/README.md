@@ -1,6 +1,6 @@
 # azurerm_proximity_placement_group
 
-Manages a proximity placement group for virtual machines, virtual machine scale sets and availability sets.
+
 
 ## Example `component.hclt`
 

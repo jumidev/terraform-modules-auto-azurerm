@@ -1,10 +1,3 @@
-data "azurerm_firewall" "this" {
-  name                = var.firewall_name
-  resource_group_name = var.firewall_resource_group_name == null ? null : var.firewall_resource_group_name
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_firewall_application_rule_collection" "this" {
@@ -13,8 +6,8 @@ resource "azurerm_firewall_application_rule_collection" "this" {
   # required vars
   ########################################
   name                = var.name
-  azure_firewall_name = data.azurerm_firewall.this.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  azure_firewall_name = var.azure_firewall_name
+  resource_group_name = var.resource_group_name
   priority            = var.priority
   action              = var.action
 

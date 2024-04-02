@@ -1,6 +1,6 @@
 # azurerm_databricks_workspace
 
-Manages a Databricks Workspace
+
 
 ## Example `component.hclt`
 

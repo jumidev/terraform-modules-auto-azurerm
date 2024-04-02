@@ -1,6 +1,6 @@
 # azurerm_container_app_environment_certificate
 
-Manages a Container App Environment Certificate.
+
 
 ## Example `component.hclt`
 

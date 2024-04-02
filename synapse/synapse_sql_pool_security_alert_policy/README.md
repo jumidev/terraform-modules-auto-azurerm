@@ -1,6 +1,6 @@
 # azurerm_synapse_sql_pool_security_alert_policy
 
-Manages a Security Alert Policy for a Synapse SQL Pool.
+
 
 ## Example `component.hclt`
 
@@ -11,12 +11,8 @@ source = {
 }
 
 inputs = {
-   # sql_pool_id → set in component_inputs
+   sql_pool_id = "Specifies the ID of the Synapse SQL Pool"   
    policy_state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
-}
-
-component_inputs = {
-   sql_pool_id = "path/to/synapse_sql_pool_component:id"   
 }
 
 tfstate_store = {

@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_table
 
-Manages a Table within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

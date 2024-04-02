@@ -1,11 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
-data "azurerm_mssql_server" "this" {
-  name                = var.mssql_server_name
-  resource_group_name = var.mssql_server_resource_group_name != null ? var.mssql_server_resource_group_name : var.resource_group_name
-
-}
 
 
 resource "azurerm_mssql_server_security_alert_policy" "this" {
@@ -13,8 +5,8 @@ resource "azurerm_mssql_server_security_alert_policy" "this" {
   ########################################
   # required vars
   ########################################
-  resource_group_name = data.azurerm_resource_group.this.name
-  server_name         = data.azurerm_mssql_server.this.name
+  resource_group_name = var.resource_group_name
+  server_name         = var.server_name
   state               = var.state
 
   ########################################

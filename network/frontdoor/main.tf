@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_frontdoor" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_frontdoor" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
 
   backend_pool {
     name                = lookup(backend_pool.value, "name")                # (Required) 

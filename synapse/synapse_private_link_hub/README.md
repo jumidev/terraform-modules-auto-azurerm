@@ -1,6 +1,6 @@
 # azurerm_synapse_private_link_hub
 
-Manages a Synapse Private Link Hub.
+
 
 ## Example `component.hclt`
 

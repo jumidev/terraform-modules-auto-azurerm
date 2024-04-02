@@ -1,6 +1,6 @@
 # azurerm_disk_encryption_set
 
-Manages a Disk Encryption Set.
+
 
 ## Example `component.hclt`
 

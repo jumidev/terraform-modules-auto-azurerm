@@ -1,6 +1,6 @@
 # azurerm_storage_container
 
-Manages a Container within an Azure Storage Account.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_pim_eligible_role_assignment
 
-Manages a Pim Eligible Role Assignment.
+
 
 ## Example `component.hclt`
 
@@ -44,6 +44,13 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
 
+### `ticket` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `number` | string | No | - | The ticket number. |
+| `system` | string | No | - | The ticket system. |
+
 ### `expiration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -51,13 +58,6 @@ tfstate_store = {
 | `duration_days` | number | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
 | `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
 | `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
-
-### `ticket` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `number` | string | No | - | The ticket number. |
-| `system` | string | No | - | The ticket system. |
 
 ### `schedule` block structure
 

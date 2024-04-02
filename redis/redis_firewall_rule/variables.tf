@@ -25,11 +25,3 @@ variable "end_ip" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
-variable "redis_cache_resource_group_name" {
-  description = "The name of the resource group the Redis cache instance is located in..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

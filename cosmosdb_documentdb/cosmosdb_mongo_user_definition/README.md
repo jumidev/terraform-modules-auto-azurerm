@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_mongo_user_definition
 
-Manages a Cosmos DB Mongo User Definition.
+
 
 ## Example `component.hclt`
 

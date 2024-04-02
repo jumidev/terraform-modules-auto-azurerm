@@ -1,6 +1,6 @@
 # azurerm_express_route_circuit_authorization
 
-Manages an ExpressRoute Circuit Authorization.
+
 
 ## Example `component.hclt`
 

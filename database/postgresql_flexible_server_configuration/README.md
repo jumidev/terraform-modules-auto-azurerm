@@ -1,6 +1,6 @@
 # azurerm_postgresql_flexible_server_configuration
 
-Sets a PostgreSQL Configuration value on a Azure PostgreSQL Flexible Server.
+
 
 ## Example `component.hclt`
 

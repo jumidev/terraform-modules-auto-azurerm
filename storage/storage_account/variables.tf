@@ -138,14 +138,14 @@ variable "blob_properties" {
 #   last_access_time_enabled (bool)          : Is the last access time based tracking enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
 #   container_delete_retention_policy (block): A 'container_delete_retention_policy' block.
 #
+# container_delete_retention_policy block structure:
+#   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
+#
 # restore_policy block structure:
 #   days (number)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
 #
 # delete_retention_policy block structure:
 #   days (number)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
-#
-# container_delete_retention_policy block structure:
-#   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
@@ -180,18 +180,18 @@ variable "queue_properties" {
 #   write (string)                : (REQUIRED) Indicates whether all write requests should be logged.
 #   retention_policy_days (number): Specifies the number of days that logs will be retained.
 #
+# minute_metrics block structure:
+#   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
+#   version (string)              : (REQUIRED) The version of storage analytics to configure.
+#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
+#
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
 #   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
 #   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
-#
-# minute_metrics block structure:
-#   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
-#   version (string)              : (REQUIRED) The version of storage analytics to configure.
-#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (number): Specifies the number of days that logs will be retained.
 
 
 variable "static_website" {
@@ -245,7 +245,7 @@ variable "network_rules" {
 #   bypass (string)                  : Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Valid options are any combination of 'Logging', 'Metrics', 'AzureServices', or 'None'.
 #   ip_rules (string)                : List of public IP or IP ranges in CIDR Format. Only IPv4 addresses are allowed. /31 CIDRs, /32 CIDRs, and Private IP address ranges (as defined in [RFC 1918](https://tools.ietf.org/html/rfc1918#section-3)), are not allowed.
 #   virtual_network_subnet_ids (list): A list of resource ids for subnets.
-#   private_link_access (block)      : One or more 'private_link_access' block. ~> **Note:** If specifying 'network_rules', one of either 'ip_rules' or 'virtual_network_subnet_ids' must be specified and 'default_action' must be set to 'Deny'. ~> **NOTE:** Network Rules can be defined either directly on the 'azurerm_storage_account' resource, or using the 'azurerm_storage_account_network_rules' resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a 'default_action' of 'Deny' to 'Allow' requires defining, rather than removing, the block. ~> **Note:** The prefix of 'ip_rules' must be between 0 and 30 and only supports public IP addresses. ~> **Note:** [More information on Validation is available here](https://docs.microsoft.com/en-gb/azure/storage/blobs/storage-custom-domain-name)
+#   private_link_access (block)      : One or more 'private_link_access' block. ~> **Note:** If specifying 'network_rules', one of either 'ip_rules' or 'virtual_network_subnet_ids' must be specified and 'default_action' must be set to 'Deny'. ~> **NOTE:** Network Rules can be defined either directly on the 'azurerm_storage_account' resource, or using the 'azurerm_storage_account_network_rules' resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a 'default_action' of 'Deny' to 'Allow' requires defining, rather than removing, the block.
 #
 # private_link_access block structure:
 #   endpoint_resource_id (string)      : (REQUIRED) The resource id of the resource access rule to be granted access.

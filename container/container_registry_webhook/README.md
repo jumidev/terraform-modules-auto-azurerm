@@ -1,6 +1,6 @@
 # azurerm_container_registry_webhook
 
-Manages an Azure Container Registry Webhook.
+
 
 ## Example `component.hclt`
 

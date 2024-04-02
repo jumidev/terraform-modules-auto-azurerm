@@ -1,6 +1,6 @@
 # azurerm_active_directory_domain_service_replica_set
 
-Manages a Replica Set for an Active Directory Domain Service.
+
 
 ## Example `component.hclt`
 

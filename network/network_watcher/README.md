@@ -1,6 +1,6 @@
 # azurerm_network_watcher
 
-Manages a Network Watcher.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_network_profile
 
-Manages a Network Profile.
+
 
 ## Example `component.hclt`
 

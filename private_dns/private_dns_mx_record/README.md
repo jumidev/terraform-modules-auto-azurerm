@@ -1,6 +1,6 @@
 # azurerm_private_dns_mx_record
 
-Enables you to manage DNS MX Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

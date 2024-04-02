@@ -1,6 +1,6 @@
 # azurerm_redis_linked_server
 
-Manages a Redis Linked Server (ie Geo Location)
+
 
 ## Example `component.hclt`
 
@@ -15,7 +15,7 @@ inputs = {
    linked_redis_cache_location = "The location of the linked Redis cache"   
    target_redis_cache_name = "The name of Redis cache to link with"   
    resource_group_name = "${resource_group}"   
-   server_role = "The role of the linked Redis cache (eg "Secondary")..."   
+   server_role = "The role of the linked Redis cache (eg Secondary)..."   
 }
 
 component_inputs = {

@@ -1,6 +1,6 @@
 # azurerm_mariadb_database
 
-Manages a MariaDB Database within a MariaDB Server!>**IMPORTANT:** To mitigate the possibility of accidental data loss it is highly recommended that you use the `prevent_destroy` lifecycle argument in your configuration file for this resource. For more information on the `prevent_destroy` lifecycle argument please see the [terraform documentation](https://developer.hashicorp.com/terraform/tutorials/state/resource-lifecycle#prevent-resource-deletion).
+
 
 ## Example `component.hclt`
 

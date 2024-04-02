@@ -1,6 +1,6 @@
 # azurerm_mariadb_firewall_rule
 
-Manages a Firewall Rule for a MariaDB Server
+
 
 ## Example `component.hclt`
 

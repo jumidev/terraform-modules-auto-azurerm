@@ -1,6 +1,6 @@
 # azurerm_mysql_virtual_network_rule
 
-Manages a MySQL Virtual Network Rule.-> **NOTE:** MySQL Virtual Network Rules [can only be used with SKU Tiers of `GeneralPurpose` or `MemoryOptimized`](https://docs.microsoft.com/azure/mysql/concepts-data-access-and-security-vnet)
+
 
 ## Example `component.hclt`
 

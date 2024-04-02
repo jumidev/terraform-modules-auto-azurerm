@@ -28,8 +28,3 @@ variable "enabled" {
   type        = bool
   default     = true
 }
-variable "container_registry_resource_group_name" {
-  description = "The Name of the Resource Group where this Container Registry exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

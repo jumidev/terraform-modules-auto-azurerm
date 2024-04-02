@@ -86,8 +86,3 @@ variable "route_filter_id" {
   type        = string
   default     = null
 }
-variable "express_route_circuit_resource_group_name" {
-  description = "The Name of the Resource Group where the ExpressRoute circuit exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

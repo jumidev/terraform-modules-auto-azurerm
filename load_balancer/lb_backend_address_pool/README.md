@@ -1,6 +1,6 @@
 # azurerm_lb_backend_address_pool
 
-Manages a Load Balancer Backend Address Pool.~> **NOTE:** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+
 
 ## Example `component.hclt`
 

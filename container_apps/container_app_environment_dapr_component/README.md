@@ -1,6 +1,6 @@
 # azurerm_container_app_environment_dapr_component
 
-Manages a Dapr Component for a Container App Environment.
+
 
 ## Example `component.hclt`
 

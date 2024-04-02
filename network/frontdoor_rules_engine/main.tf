@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_frontdoor_rules_engine" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_frontdoor_rules_engine" "this" {
   ########################################
   name                = var.name
   frontdoor_name      = var.frontdoor_name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
 
   ########################################
   # optional vars

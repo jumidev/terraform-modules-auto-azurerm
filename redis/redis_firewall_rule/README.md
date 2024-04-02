@@ -1,6 +1,6 @@
 # azurerm_redis_firewall_rule
 
-Manages a Firewall Rule associated with a Redis Cache.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_postgresql_server_key
 
-Manages a Customer Managed Key for a PostgreSQL Server.
+
 
 ## Example `component.hclt`
 

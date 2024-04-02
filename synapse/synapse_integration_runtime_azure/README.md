@@ -1,6 +1,6 @@
 # azurerm_synapse_integration_runtime_azure
 
-Manages a Synapse Azure Integration Runtime.
+
 
 ## Example `component.hclt`
 

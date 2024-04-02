@@ -1,6 +1,6 @@
 # azurerm_disk_access
 
-Manages a Disk Access.
+
 
 ## Example `component.hclt`
 

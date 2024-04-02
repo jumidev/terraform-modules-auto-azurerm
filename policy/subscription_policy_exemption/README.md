@@ -1,6 +1,6 @@
 # azurerm_subscription_policy_exemption
 
-Manages a Subscription Policy Exemption.
+
 
 ## Example `component.hclt`
 

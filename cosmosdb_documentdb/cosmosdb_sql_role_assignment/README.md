@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_role_assignment
 
-Manages a Cosmos DB SQL Role Assignment.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_resource_policy_exemption
 
-Manages a Resource Policy Exemption.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_route_table
 
-Manages a Virtual Hub Route Table.
+
 
 ## Example `component.hclt`
 

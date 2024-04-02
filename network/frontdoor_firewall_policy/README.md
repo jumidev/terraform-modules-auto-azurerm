@@ -1,6 +1,6 @@
 # azurerm_frontdoor_firewall_policy
 
-!> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new [Azure Front Door (standard/premium) resources](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_custom_domain). For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.Manages an Azure Front Door (classic) Web Application Firewall Policy instance.!> **Be Aware:** Azure is rolling out a breaking change on Friday 9th April 2021 which may cause issues with the CDN/FrontDoor resources. [More information is available in this GitHub issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/11231) - however unfortunately this may necessitate a breaking change to the CDN and Front Door resources, more information will be posted [in the GitHub issue](https://github.com/hashicorp/terraform-provider-azurerm/issues/11231) as the necessary changes are identified.
+
 
 ## Example `component.hclt`
 
@@ -51,15 +51,6 @@ tfstate_store = {
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
-### `managed_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
-| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,6 +80,15 @@ tfstate_store = {
 | `match_condition` | string | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
 | `rate_limit_duration_in_minutes` | number | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
 | `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
+
+### `managed_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
+| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
 
 
 

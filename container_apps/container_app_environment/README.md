@@ -1,6 +1,6 @@
 # azurerm_container_app_environment
 
-Manages a Container App Environment.
+
 
 ## Example `component.hclt`
 

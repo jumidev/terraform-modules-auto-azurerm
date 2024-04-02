@@ -1,6 +1,6 @@
 # azurerm_key_vault_secret
 
-Manages a Key Vault Secret.~> **Note:** All arguments including the secret value will be stored in the raw state as plain-text.[Read more about sensitive data in state](/docs/state/sensitive-data.html).~> **Note:** The Azure Provider includes a Feature Toggle which will purge a Key Vault Secret resource on destroy, rather than the default soft-delete. See [`purge_soft_deleted_secrets_on_destroy`](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/guides/features-block#purge_soft_deleted_secrets_on_destroy) for more information.
+
 
 ## Example `component.hclt`
 
@@ -33,7 +33,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **name** | string |  -  |  Specifies the name of the Key Vault Secret. Changing this forces a new resource to be created. | 
-| **value** | string |  `\n`, `replace(file("my_secret_file"), "/\n/", "\n")`, `base64encode(file("my_secret_file"))`  |  Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. ~> **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively. | 
+| **value** | string |  `\n`, `replace(file(my_secret_file), /\n/, \n)`, `base64encode(file(my_secret_file))`  |  Specifies the value of the Key Vault Secret. Changing this will create a new version of the Key Vault Secret. ~> **Note:** Key Vault strips newlines. To preserve newlines in multi-line secrets try replacing them with `\n` or by base 64 encoding them with `replace(file("my_secret_file"), "/\n/", "\n")` or `base64encode(file("my_secret_file"))`, respectively. | 
 | **key_vault_id** | string |  -  |  The ID of the Key Vault where the Secret should be created. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

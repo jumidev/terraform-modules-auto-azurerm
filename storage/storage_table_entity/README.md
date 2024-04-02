@@ -1,6 +1,6 @@
 # azurerm_storage_table_entity
 
-Manages an Entity within a Table in an Azure Storage Account.
+
 
 ## Example `component.hclt`
 

@@ -52,7 +52,7 @@ output "read" {
 }
 
 output "delete" {
-  description = "(Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway. ## Import ExpressRoute Gateways can be imported using the 'resource id', e.g. '''shell terraform import azurerm_express_route_gateway.example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRouteGateways/myExpressRouteGateway '''"
+  description = "(Defaults to 90 minutes) Used when deleting the ExpressRoute Gateway."
   value       = azurerm_express_route_gateway.this.delete
 }
 

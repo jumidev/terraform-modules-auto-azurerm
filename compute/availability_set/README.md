@@ -1,6 +1,6 @@
 # azurerm_availability_set
 
-Manages an Availability Set for Virtual Machines.
+
 
 ## Example `component.hclt`
 

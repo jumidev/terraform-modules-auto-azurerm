@@ -1,6 +1,6 @@
 # azurerm_synapse_sql_pool_workload_group
 
-Manages a Synapse SQL Pool Workload Group.
+
 
 ## Example `component.hclt`
 
@@ -12,13 +12,9 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Synapse SQL Pool Workload Group..."   
-   # sql_pool_id → set in component_inputs
+   sql_pool_id = "The ID of the Synapse SQL Pool"   
    max_resource_percent = "The workload group cap percentage resource"   
    min_resource_percent = "The workload group minimum percentage resource"   
-}
-
-component_inputs = {
-   sql_pool_id = "path/to/synapse_sql_pool_component:id"   
 }
 
 tfstate_store = {

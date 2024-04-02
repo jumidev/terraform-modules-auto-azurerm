@@ -1,6 +1,6 @@
 # azurerm_virtual_network_gateway_connection
 
-Manages a connection in an existing Virtual Network Gateway.
+
 
 ## Example `component.hclt`
 

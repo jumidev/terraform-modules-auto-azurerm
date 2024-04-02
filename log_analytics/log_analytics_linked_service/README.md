@@ -1,6 +1,6 @@
 # azurerm_log_analytics_linked_service
 
-Manages a Log Analytics Linked Service.
+
 
 ## Example `component.hclt`
 

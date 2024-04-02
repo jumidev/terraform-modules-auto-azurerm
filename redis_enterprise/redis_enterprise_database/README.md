@@ -1,6 +1,6 @@
 # azurerm_redis_enterprise_database
 
-Manages a Redis Enterprise Database.
+
 
 ## Example `component.hclt`
 
@@ -11,11 +11,7 @@ source = {
 }
 
 inputs = {
-   # cluster_id → set in component_inputs
-}
-
-component_inputs = {
-   cluster_id = "path/to/redis_enterprise_cluster_component:id"   
+   cluster_id = "The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise ..."   
 }
 
 tfstate_store = {

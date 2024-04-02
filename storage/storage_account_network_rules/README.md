@@ -1,6 +1,6 @@
 # azurerm_storage_account_network_rules
 
-Manages network rules inside of a Azure Storage Account.~> **NOTE:** Network Rules can be defined either directly on the `azurerm_storage_account` resource, or using the `azurerm_storage_account_network_rules` resource - but the two cannot be used together. Spurious changes will occur if both are used against the same Storage Account.~> **NOTE:** Only one `azurerm_storage_account_network_rules` can be tied to an `azurerm_storage_account`. Spurious changes will occur if more than `azurerm_storage_account_network_rules` is tied to the same `azurerm_storage_account`.~> **NOTE:** Deleting this resource updates the storage account back to the default values it had when the storage account was created.
+
 
 ## Example `component.hclt`
 

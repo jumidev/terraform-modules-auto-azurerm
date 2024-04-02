@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_redis_enterprise_database" "this" {
@@ -14,7 +11,7 @@ resource "azurerm_redis_enterprise_database" "this" {
   # optional vars
   ########################################
   name                = var.name # Default: default
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   client_protocol     = var.client_protocol   # Default: Encrypted
   clustering_policy   = var.clustering_policy # Default: OSSCluster
   eviction_policy     = var.eviction_policy   # Default: VolatileLRU

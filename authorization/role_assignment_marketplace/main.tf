@@ -1,8 +1,3 @@
-data "azurerm_role_definition" "this" {
-  name               = var.role_definition_name
-  role_definition_id = var.role_definition_role_definition_id
-  scope              = var.role_definition_scope
-}
 
 
 resource "azurerm_role_assignment_marketplace" "this" {
@@ -17,7 +12,7 @@ resource "azurerm_role_assignment_marketplace" "this" {
   ########################################
   name                                   = var.name
   role_definition_id                     = var.role_definition_id
-  role_definition_name                   = data.azurerm_role_definition.this.name
+  role_definition_name                   = var.role_definition_name
   condition                              = var.condition
   condition_version                      = var.condition_version
   delegated_managed_identity_resource_id = var.delegated_managed_identity_resource_id

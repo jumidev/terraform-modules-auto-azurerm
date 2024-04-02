@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_security_partner_provider
 
-Manages a Security Partner Provider which could be associated to virtual hub.
+
 
 ## Example `component.hclt`
 

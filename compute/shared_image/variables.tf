@@ -146,8 +146,3 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-variable "shared_image_gallery_resource_group_name" {
-  description = "The name of the Resource Group in which the Shared Image Gallery exists..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

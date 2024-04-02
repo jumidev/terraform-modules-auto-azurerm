@@ -49,19 +49,13 @@ variable "default_node_pool" {
 #   scale_down_mode (string)              : Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are 'Delete' and 'Deallocate'. Defaults to 'Delete'.
 #   snapshot_id (string)                  : The ID of the Snapshot which should be used to create this default Node Pool. 'temporary_name_for_rotation' must be specified when changing this property.
 #   temporary_name_for_rotation (string)  : Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
-#   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created. -> **Note:** When creating a cluster that supports multiple node pools, the cluster must use 'VirtualMachineScaleSets'. For more information on the limitations of clusters using multiple node pools see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-multiple-node-pools#limitations).
-#   tags (map)                            : A mapping of tags to assign to the Node Pool. ~> At this time there's a bug in the AKS API where Tags for a Node Pool are not stored in the correct case - you [may wish to use Terraform's 'ignore_changes' functionality to ignore changes to the casing](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) until this is fixed in the AKS API.
-#   ultra_ssd_enabled (bool)              : Used to specify whether the UltraSSD is enabled in the Default Node Pool. Defaults to 'false'. See [the documentation](https://docs.microsoft.com/azure/aks/use-ultra-disks) for more information. 'temporary_name_for_rotation' must be specified when attempting a change.
-#   upgrade_settings (block)              : A 'upgrade_settings' block.
-#   vnet_subnet_id (string)               : The ID of a Subnet where the Kubernetes Node Pool should exist. ~> **Note:** A Route Table must be configured on this Subnet.
-#   workload_runtime (string)             : Specifies the workload runtime used by the node pool. Possible values are 'OCIContainer' and 'KataMshvVmIsolation'. ~> **Note:** Pod Sandboxing / KataVM Isolation node pools are in Public Preview - more information and details on how to opt into the preview can be found in [this article](https://learn.microsoft.com/azure/aks/use-pod-sandboxing)
-#   zones (list)                          : Specifies a list of Availability Zones in which this Kubernetes Cluster should be located. 'temporary_name_for_rotation' must be specified when changing this property. -> **Note:** This requires that the 'type' is set to 'VirtualMachineScaleSets' and that 'load_balancer_sku' is set to 'standard'. If 'enable_auto_scaling' is set to 'true', then the following fields can also be configured:
-#   max_count (number)                    : The maximum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
-#   min_count (number)                    : The minimum number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000'.
-#   node_count (number)                   : The initial number of nodes which should exist in this Node Pool. If specified this must be between '1' and '1000' and between 'min_count' and 'max_count'. -> **Note:** If specified you may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) to ignore changes to this field. -> **Note:** If 'enable_auto_scaling' is set to 'false' both 'min_count' and 'max_count' fields need to be set to 'null' or omitted from the configuration.
+#   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created.
 #
-# upgrade_settings block structure:
-#   max_surge (number)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the 'node_count' value on the current cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade.
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'.
@@ -94,6 +88,9 @@ variable "default_node_pool" {
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'.
 #
+# node_network_profile block structure:
+#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
+#
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
 #   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
@@ -105,15 +102,6 @@ variable "default_node_pool" {
 #   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
 #   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
 #   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
-#
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
-#
-# linux_os_config block structure      :
-#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                : A 'sysctl_config' block.
-#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 
 
 
@@ -435,30 +423,7 @@ variable "network_profile" {
 #   network_mode (string)          : Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ~> **Note:** 'network_mode' can only be set to 'bridge' for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future. ~> **Note:** This property can only be set when 'network_plugin' is set to 'azure'.
 #   network_policy (string)        : Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'ebpf_data_plane' field must be set to 'cilium'.
 #   dns_service_ip (string)        : IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
-#   docker_bridge_cidr (string)    : IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. -> **Note:** 'docker_bridge_cidr' has been deprecated as the API no longer supports it and will be removed in version 4.0 of the provider.
-#   ebpf_data_plane (string)       : Specifies the eBPF data plane used for building the Kubernetes network. Possible value is 'cilium'. Disabling this forces a new resource to be created. ~> **Note:** When 'ebpf_data_plane' is set to 'cilium', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'ebpf_data_plane' is set to 'cilium', one of either 'network_plugin_mode = 'overlay'' or 'pod_subnet_id' must be specified. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/CiliumDataplanePreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/azure-cni-powered-by-cilium) for more information.
-#   network_plugin_mode (string)   : Specifies the network plugin mode used for building the Kubernetes network. Possible value is 'overlay'. ~> **Note:** When 'network_plugin_mode' is set to 'overlay', the 'network_plugin' field can only be set to 'azure'. When upgrading from Azure CNI without overlay, 'pod_subnet_id' must be specified.
-#   outbound_type (string)         : The outbound (egress) routing method which should be used for this Kubernetes Cluster. Possible values are 'loadBalancer', 'userDefinedRouting', 'managedNATGateway' and 'userAssignedNATGateway'. Defaults to 'loadBalancer'. Changing this forces a new resource to be created.
-#   pod_cidr (string)              : The CIDR to use for pod IP addresses. This field can only be set when 'network_plugin' is set to 'kubenet'. Changing this forces a new resource to be created.
-#   pod_cidrs (list)               : A list of CIDRs to use for pod IP addresses. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created.
-#   service_cidr (string)          : The Network Range used by the Kubernetes service. Changing this forces a new resource to be created.
-#   service_cidrs (list)           : A list of CIDRs to use for Kubernetes services. For single-stack networking a single IPv4 CIDR is expected. For dual-stack networking an IPv4 and IPv6 CIDR are expected. Changing this forces a new resource to be created. ~> **Note:** This range should not be used by any network element on or connected to this VNet. Service address CIDR must be smaller than /12. 'docker_bridge_cidr', 'dns_service_ip' and 'service_cidr' should all be empty or all should be set. Examples of how to use [AKS with Advanced Networking](https://docs.microsoft.com/azure/aks/networking-overview#advanced-networking) can be [found in the './examples/kubernetes/' directory in the GitHub repository](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples/kubernetes).
-#   ip_versions (list)             : Specifies a list of IP versions the Kubernetes Cluster will use to assign IP addresses to its nodes and pods. Possible values are 'IPv4' and/or 'IPv6'. 'IPv4' must always be specified. Changing this forces a new resource to be created. ->**Note:** To configure dual-stack networking 'ip_versions' should be set to '['IPv4', 'IPv6']'. ->**Note:** Dual-stack networking requires that the Preview Feature 'Microsoft.ContainerService/AKS-EnableDualStack' is enabled and the Resource Provider is re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
-#   load_balancer_sku (string)     : Specifies the SKU of the Load Balancer used for this Kubernetes Cluster. Possible values are 'basic' and 'standard'. Defaults to 'standard'. Changing this forces a new resource to be created.
-#   load_balancer_profile (block)  : A 'load_balancer_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard'. Changing this forces a new resource to be created.
-#   nat_gateway_profile (block)    : A 'nat_gateway_profile' block. This can only be specified when 'load_balancer_sku' is set to 'standard' and 'outbound_type' is set to 'managedNATGateway' or 'userAssignedNATGateway'. Changing this forces a new resource to be created.
-#
-# nat_gateway_profile block structure:
-#   idle_timeout_in_minutes (number)   : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '4'.
-#   managed_outbound_ip_count (number) : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
-#
-# load_balancer_profile block structure:
-#   idle_timeout_in_minutes (number)     : Desired outbound flow idle timeout in minutes for the cluster load balancer. Must be between '4' and '120' inclusive. Defaults to '30'.
-#   managed_outbound_ip_count (number)   : Count of desired managed outbound IPs for the cluster load balancer. Must be between '1' and '100' inclusive.
-#   managed_outbound_ipv6_count (number) : The desired number of IPv6 outbound IPs created and managed by Azure for the cluster load balancer. Must be in the range of 1 to 100 (inclusive). The default value is 0 for single-stack and 1 for dual-stack. ~> **Note:** 'managed_outbound_ipv6_count' requires dual-stack networking. To enable dual-stack networking the Preview Feature 'Microsoft.ContainerService/AKS-EnableDualStack' needs to be enabled and the Resource Provider re-registered, see [the documentation](https://docs.microsoft.com/azure/aks/configure-kubenet-dual-stack?tabs=azure-cli%2Ckubectl#register-the-aks-enabledualstack-preview-feature) for more information.
-#   outbound_ip_address_ids (string)     : The ID of the Public IP Addresses which should be used for outbound communication for the cluster load balancer. -> **Note:** Set 'outbound_ip_address_ids' to an empty slice '[]' in order to unlink it from the cluster. Unlinking a 'outbound_ip_address_ids' will revert the load balancing for the cluster back to a managed one.
-#   outbound_ip_prefix_ids (string)      : The ID of the outbound Public IP Address Prefixes which should be used for the cluster load balancer. -> **Note:** Set 'outbound_ip_prefix_ids' to an empty slice '[]' in order to unlink it from the cluster. Unlinking a 'outbound_ip_prefix_ids' will revert the load balancing for the cluster back to a managed one.
-#   outbound_ports_allocated (number)    : Number of desired SNAT port for each VM in the clusters load balancer. Must be between '0' and '64000' inclusive. Defaults to '0'.
+#   docker_bridge_cidr (string)    : IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 
 
 variable "node_os_channel_upgrade" {

@@ -1,6 +1,6 @@
 # azurerm_mysql_server
 
-Manages a MySQL Server.
+
 
 ## Example `component.hclt`
 

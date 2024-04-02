@@ -1,6 +1,6 @@
 # azurerm_image
 
-Manages a custom virtual machine image that can be used to create virtual machines.
+
 
 ## Example `component.hclt`
 
@@ -41,7 +41,7 @@ tfstate_store = {
 | **data_disk** | [block](#data_disk-block-structure) |  -  |  One or more `data_disk` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **zone_resilient** | bool |  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
-| **hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. ~> **Note:** `zone_resilient` can only be set to `true` if the image is stored in a region that supports availability zones. | 
+| **hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 
 
 ### `data_disk` block structure
 

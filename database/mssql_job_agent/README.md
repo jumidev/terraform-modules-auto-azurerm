@@ -1,6 +1,6 @@
 # azurerm_mssql_job_agent
 
-Manages an Elastic Job Agent.
+
 
 ## Example `component.hclt`
 

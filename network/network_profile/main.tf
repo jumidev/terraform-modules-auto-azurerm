@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_network_profile" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_network_profile" "this" {
   ########################################
   name                = var.name
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
 
   container_network_interface {
     name             = lookup(container_network_interface.value, "name")             # (Required) 

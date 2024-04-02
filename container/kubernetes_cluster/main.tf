@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_kubernetes_cluster" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   ########################################
   name                = var.name
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
 
   default_node_pool {
     name                          = lookup(default_node_pool.value, "name")    # (Required) 
@@ -42,15 +39,6 @@ resource "azurerm_kubernetes_cluster" "this" {
     snapshot_id                   = lookup(default_node_pool.value, "snapshot_id", null)
     temporary_name_for_rotation   = lookup(default_node_pool.value, "temporary_name_for_rotation", null)
     type                          = lookup(default_node_pool.value, "type", "VirtualMachineScaleSets")
-    tags                          = lookup(default_node_pool.value, "tags", null)
-    ultra_ssd_enabled             = lookup(default_node_pool.value, "ultra_ssd_enabled", false)
-    upgrade_settings              = lookup(default_node_pool.value, "upgrade_settings", null)
-    vnet_subnet_id                = lookup(default_node_pool.value, "vnet_subnet_id", null)
-    workload_runtime              = lookup(default_node_pool.value, "workload_runtime", null)
-    zones                         = lookup(default_node_pool.value, "zones", null)
-    max_count                     = lookup(default_node_pool.value, "max_count", null)
-    min_count                     = lookup(default_node_pool.value, "min_count", null)
-    node_count                    = lookup(default_node_pool.value, "node_count", null)
   }
 
 
@@ -304,42 +292,11 @@ resource "azurerm_kubernetes_cluster" "this" {
   dynamic "network_profile" { # var.network_profile
     for_each = var.network_profile != null ? var.network_profile : []
     content {
-      network_plugin      = lookup(network_profile.value, "network_plugin") # (Required) 
-      network_mode        = lookup(network_profile.value, "network_mode", null)
-      network_policy      = lookup(network_profile.value, "network_policy", null)
-      dns_service_ip      = lookup(network_profile.value, "dns_service_ip", null)
-      docker_bridge_cidr  = lookup(network_profile.value, "docker_bridge_cidr", null)
-      ebpf_data_plane     = lookup(network_profile.value, "ebpf_data_plane", null)
-      network_plugin_mode = lookup(network_profile.value, "network_plugin_mode", null)
-      outbound_type       = lookup(network_profile.value, "outbound_type", "loadBalancer")
-      pod_cidr            = lookup(network_profile.value, "pod_cidr", null)
-      pod_cidrs           = lookup(network_profile.value, "pod_cidrs", null)
-      service_cidr        = lookup(network_profile.value, "service_cidr", null)
-      service_cidrs       = lookup(network_profile.value, "service_cidrs", null)
-      ip_versions         = lookup(network_profile.value, "ip_versions", null)
-      load_balancer_sku   = lookup(network_profile.value, "load_balancer_sku", "standard")
-
-      dynamic "load_balancer_profile" { # network_profile.value.load_balancer_profile
-        for_each = network_profile.value.load_balancer_profile != null ? network_profile.value.load_balancer_profile : []
-        content {
-          idle_timeout_in_minutes     = lookup(load_balancer_profile.value, "idle_timeout_in_minutes", 30)
-          managed_outbound_ip_count   = lookup(load_balancer_profile.value, "managed_outbound_ip_count", null)
-          managed_outbound_ipv6_count = lookup(load_balancer_profile.value, "managed_outbound_ipv6_count", managed_outbound_ipv6_count)
-          outbound_ip_address_ids     = lookup(load_balancer_profile.value, "outbound_ip_address_ids", null)
-          outbound_ip_prefix_ids      = lookup(load_balancer_profile.value, "outbound_ip_prefix_ids", null)
-          outbound_ports_allocated    = lookup(load_balancer_profile.value, "outbound_ports_allocated", 0)
-        }
-      }
-
-
-      dynamic "nat_gateway_profile" { # network_profile.value.nat_gateway_profile
-        for_each = network_profile.value.nat_gateway_profile != null ? network_profile.value.nat_gateway_profile : []
-        content {
-          idle_timeout_in_minutes   = lookup(nat_gateway_profile.value, "idle_timeout_in_minutes", 4)
-          managed_outbound_ip_count = lookup(nat_gateway_profile.value, "managed_outbound_ip_count", null)
-        }
-      }
-
+      network_plugin     = lookup(network_profile.value, "network_plugin") # (Required) 
+      network_mode       = lookup(network_profile.value, "network_mode", null)
+      network_policy     = lookup(network_profile.value, "network_policy", null)
+      dns_service_ip     = lookup(network_profile.value, "dns_service_ip", null)
+      docker_bridge_cidr = lookup(network_profile.value, "docker_bridge_cidr", null)
     }
   }
 
@@ -410,7 +367,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   dynamic "web_app_routing" { # var.web_app_routing
     for_each = var.web_app_routing != null ? var.web_app_routing : []
     content {
-      dns_zone_id = lookup(web_app_routing.value, "dns_zone_id") # (Required) possible values: ""
+      dns_zone_id = lookup(web_app_routing.value, "dns_zone_id") # (Required) possible values: 
     }
   }
 

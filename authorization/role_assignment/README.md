@@ -1,6 +1,6 @@
 # azurerm_role_assignment
 
-Assigns a given Principal (User or Group) to a given Role.
+
 
 ## Example `component.hclt`
 

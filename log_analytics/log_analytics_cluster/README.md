@@ -1,6 +1,6 @@
 # azurerm_log_analytics_cluster
 
-~> **Note:** Log Analytics Clusters are subject to 14-day soft delete policy. Clusters created with the same resource group & name as a previously deleted cluster will be recovered rather than creating anew.Manages a Log Analytics Cluster.
+
 
 ## Example `component.hclt`
 

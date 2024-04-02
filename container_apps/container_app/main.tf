@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_container_app" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_container_app" "this" {
   ########################################
   container_app_environment_id = var.container_app_environment_id
   name                         = var.name
-  resource_group_name          = data.azurerm_resource_group.this.name
+  resource_group_name          = var.resource_group_name
   revision_mode                = var.revision_mode
 
   template {

@@ -1,6 +1,6 @@
 # azurerm_user_assigned_identity
 
-Manages a User Assigned Identity.
+
 
 ## Example `component.hclt`
 

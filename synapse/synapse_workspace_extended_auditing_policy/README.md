@@ -1,6 +1,6 @@
 # azurerm_synapse_workspace_extended_auditing_policy
 
-Manages a Synapse Workspace Extended Auditing Policy.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_route_server
 
-Manages an Azure Route Server
+
 
 ## Example `component.hclt`
 

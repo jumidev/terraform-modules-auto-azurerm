@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_custom_ip_prefix" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_custom_ip_prefix" "this" {
   ########################################
   name                = var.name
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   cidr                = var.cidr
 
   ########################################

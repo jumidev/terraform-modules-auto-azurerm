@@ -1,6 +1,6 @@
 # azurerm_route_server_bgp_connection
 
-Manages a Bgp Connection for a Route Server
+
 
 ## Example `component.hclt`
 

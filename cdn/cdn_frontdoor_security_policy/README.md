@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_security_policy
 
-Manages a Front Door (standard/premium) Security Policy.
+
 
 ## Example `component.hclt`
 
@@ -52,19 +52,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `firewall` | [block](#firewall-block-structure) | Yes | - | An 'firewall' block. Changing this forces a new Front Door Security Policy to be created. |
 
-### `domain` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cdn_frontdoor_domain_id` | string | Yes | - | The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created. |
-| `active` | string | No | - | (Computed) Is the Front Door Custom Domain/Endpoint activated? |
-
 ### `association` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `domain` | [block](#domain-block-structure) | Yes | - | One or more 'domain' blocks. Changing this forces a new Front Door Security Policy to be created. |
 | `patterns_to_match` | string | Yes | - | The list of paths to match for this firewall policy. Possible value includes '/*'. Changing this forces a new Front Door Security Policy to be created. |
+
+### `domain` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cdn_frontdoor_domain_id` | string | Yes | - | The Resource Id of the **Front Door Custom Domain** or **Front Door Endpoint** that should be bound to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created. |
+| `active` | string | No | - | (Computed) Is the Front Door Custom Domain/Endpoint activated? |
 
 
 

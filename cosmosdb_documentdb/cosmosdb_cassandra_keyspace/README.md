@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_cassandra_keyspace
 
-Manages a Cassandra KeySpace within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

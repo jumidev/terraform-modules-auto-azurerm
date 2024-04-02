@@ -1,6 +1,6 @@
 # azurerm_storage_sync
 
-Manages a Storage Sync.
+
 
 ## Example `component.hclt`
 

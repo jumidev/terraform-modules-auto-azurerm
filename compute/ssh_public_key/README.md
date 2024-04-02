@@ -1,6 +1,6 @@
 # azurerm_ssh_public_key
 
-Manages a SSH Public Key.
+
 
 ## Example `component.hclt`
 

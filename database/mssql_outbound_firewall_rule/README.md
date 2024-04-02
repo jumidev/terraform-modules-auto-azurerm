@@ -1,6 +1,6 @@
 # azurerm_mssql_outbound_firewall_rule
 
-Allows you to manage an Azure SQL Outbound Firewall Rule.
+
 
 ## Example `component.hclt`
 

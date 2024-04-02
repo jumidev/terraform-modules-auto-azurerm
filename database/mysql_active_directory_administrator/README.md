@@ -1,6 +1,6 @@
 # azurerm_mysql_active_directory_administrator
 
-Allows you to set a user or group as the AD administrator for an MySQL server in Azure
+
 
 ## Example `component.hclt`
 

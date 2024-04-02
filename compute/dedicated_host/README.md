@@ -1,6 +1,6 @@
 # azurerm_dedicated_host
 
-Manage a Dedicated Host within a Dedicated Host Group.
+
 
 ## Example `component.hclt`
 

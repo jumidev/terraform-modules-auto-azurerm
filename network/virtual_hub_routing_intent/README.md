@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_routing_intent
 
-Manages a Virtual Hub Routing Intent.
+
 
 ## Example `component.hclt`
 

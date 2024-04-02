@@ -1,6 +1,6 @@
 # azurerm_subnet
 
-Manages a subnet. Subnets represent network segments within the IP space defined by the virtual network.~> **NOTE on Virtual Networks and Subnets:** Terraform currentlyprovides both a standalone [Subnet resource](subnet.html), and allows for Subnets to be defined in-line within the [Virtual Network resource](virtual_network.html).At this time you cannot use a Virtual Network with in-line Subnets in conjunction with any Subnet resources. Doing so will cause a conflict of Subnet configurations and will overwrite Subnets.
+
 
 ## Example `component.hclt`
 
@@ -33,9 +33,9 @@ tfstate_store = {
 
 ### `nat_gateway_id` 
 
-- If set to a valid `azurerm_nat_gateway` `id`, makes a **azurerm_subnet_nat_gateway_association** - Associates a [NAT Gateway](nat_gateway.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).
+- If set to a valid `azurerm_nat_gateway` `id`, makes a **azurerm_subnet_nat_gateway_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/nat_gateway](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/nat_gateway))
 
 ```hcl
 component_inputs = {
@@ -45,9 +45,9 @@ component_inputs = {
 
 ### `network_security_group_id` 
 
-- If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_subnet_network_security_group_association** - Associates a [Network Security Group](network_security_group.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).
+- If set to a valid `azurerm_network_security_group` `id`, makes a **azurerm_subnet_network_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_security_group](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_security_group))
 
 ```hcl
 component_inputs = {
@@ -57,9 +57,9 @@ component_inputs = {
 
 ### `route_table_id` 
 
-- If set to a valid `azurerm_route_table` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).
+- If set to a valid `azurerm_route_table` `id`, makes a **azurerm_subnet_route_table_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/route_table](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/route_table))
 
 ```hcl
 component_inputs = {

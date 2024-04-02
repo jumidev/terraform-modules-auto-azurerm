@@ -1,6 +1,6 @@
 # azurerm_express_route_connection
 
-Manages an Express Route Connection.~> **NOTE:** The provider status of the Express Route Circuit must be set as provisioned while creating the Express Route Connection. See more details [here](https://docs.microsoft.com/azure/expressroute/expressroute-howto-circuit-portal-resource-manager#send-the-service-key-to-your-connectivity-provider-for-provisioning).
+
 
 ## Example `component.hclt`
 
@@ -47,6 +47,13 @@ tfstate_store = {
 | **routing** | [block](#routing-block-structure) |  -  |  A `routing` block. | 
 | **routing_weight** | string |  `0`  |  The routing weight associated to the Express Route Connection. Possible value is between `0` and `32000`. Defaults to `0`. | 
 
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `labels` | string | No | - | The list of labels to logically group route tables. |
+| `route_table_ids` | list | No | - | A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. |
+
 ### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -55,13 +62,6 @@ tfstate_store = {
 | `inbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for inbound routes. |
 | `outbound_route_map_id` | string | No | - | The ID of the Route Map associated with this Express Route Connection for outbound routes. |
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
-
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `labels` | string | No | - | The list of labels to logically group route tables. |
-| `route_table_ids` | list | No | - | A list of IDs of the Virtual Hub Route Table to propagate routes from Express Route Connection to the route table. |
 
 
 

@@ -1,6 +1,6 @@
 # azurerm_private_dns_cname_record
 
-Enables you to manage DNS CNAME Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

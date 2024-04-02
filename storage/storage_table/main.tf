@@ -1,7 +1,3 @@
-data "azurerm_storage_account" "this" {
-  name                = var.storage_account_name
-  resource_group_name = var.storage_account_resource_group_name
-}
 
 
 resource "azurerm_storage_table" "this" {
@@ -10,7 +6,7 @@ resource "azurerm_storage_table" "this" {
   # required vars
   ########################################
   name                 = var.name
-  storage_account_name = data.azurerm_storage_account.this.name
+  storage_account_name = var.storage_account_name
 
   ########################################
   # optional vars

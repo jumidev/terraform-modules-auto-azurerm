@@ -1,6 +1,6 @@
 # azurerm_gallery_application
 
-Manages a Gallery Application.
+
 
 ## Example `component.hclt`
 

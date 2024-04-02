@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_profile
 
-Manages a Front Door (standard/premium) Profile which contains a collection of endpoints and origin groups.
+
 
 ## Example `component.hclt`
 

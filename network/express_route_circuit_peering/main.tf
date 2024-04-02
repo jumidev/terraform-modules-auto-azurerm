@@ -1,10 +1,3 @@
-data "azurerm_express_route_circuit" "this" {
-  name                = var.express_route_circuit_name
-  resource_group_name = var.express_route_circuit_resource_group_name == null ? null : var.express_route_circuit_resource_group_name
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_express_route_circuit_peering" "this" {
@@ -13,8 +6,8 @@ resource "azurerm_express_route_circuit_peering" "this" {
   # required vars
   ########################################
   peering_type               = var.peering_type
-  express_route_circuit_name = data.azurerm_express_route_circuit.this.name
-  resource_group_name        = data.azurerm_resource_group.this.name
+  express_route_circuit_name = var.express_route_circuit_name
+  resource_group_name        = var.resource_group_name
   vlan_id                    = var.vlan_id
 
   ########################################

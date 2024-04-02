@@ -1,6 +1,6 @@
 # azurerm_mysql_flexible_server_firewall_rule
 
-Manages a Firewall Rule for a MySQL Flexible Server.
+
 
 ## Example `component.hclt`
 

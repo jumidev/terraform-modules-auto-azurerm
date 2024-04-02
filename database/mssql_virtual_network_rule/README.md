@@ -1,6 +1,6 @@
 # azurerm_mssql_virtual_network_rule
 
-Allows you to manage rules for allowing traffic between an Azure SQL server and a subnet of a virtual network.
+
 
 ## Example `component.hclt`
 

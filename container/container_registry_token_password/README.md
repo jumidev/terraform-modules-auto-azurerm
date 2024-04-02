@@ -1,6 +1,6 @@
 # azurerm_container_registry_token_password
 
-Manages a Container Registry Token Password.
+
 
 ## Example `component.hclt`
 

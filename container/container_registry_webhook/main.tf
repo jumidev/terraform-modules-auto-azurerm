@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_container_registry_webhook" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_container_registry_webhook" "this" {
   # required vars
   ########################################
   name                = var.name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   registry_name       = var.registry_name
   location            = var.location
   service_uri         = var.service_uri

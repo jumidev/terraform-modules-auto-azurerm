@@ -1,6 +1,6 @@
 # azurerm_log_analytics_linked_storage_account
 
-Manages a Log Analytics Linked Storage Account.
+
 
 ## Example `component.hclt`
 
@@ -13,12 +13,11 @@ source = {
 inputs = {
    data_source_type = "The data source type which should be used for this Log Analytics Linked Storage ..."   
    resource_group_name = "${resource_group}"   
-   # workspace_resource_id → set in component_inputs
+   workspace_resource_id = "The resource ID of the Log Analytics Workspace"   
    # storage_account_ids → set in component_inputs
 }
 
 component_inputs = {
-   workspace_resource_id = "path/to/log_analytics_workspace_component:id"   
    storage_account_ids = "path/to/storage_account_component:id"   
 }
 

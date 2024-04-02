@@ -1,6 +1,6 @@
 # azurerm_firewall_application_rule_collection
 
-Manages an Application Rule Collection within an Azure Firewall.
+
 
 ## Example `component.hclt`
 

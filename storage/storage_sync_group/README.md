@@ -1,6 +1,6 @@
 # azurerm_storage_sync_group
 
-Manages a Storage Sync Group.
+
 
 ## Example `component.hclt`
 

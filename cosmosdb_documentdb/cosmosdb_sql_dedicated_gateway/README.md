@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_dedicated_gateway
 
-Manages a SQL Dedicated Gateway within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

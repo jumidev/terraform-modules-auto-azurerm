@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_route
 
-Manages a Front Door (standard/premium) Route.
+
 
 ## Example `component.hclt`
 
@@ -37,9 +37,9 @@ tfstate_store = {
 
 ### `cdn_frontdoor_custom_domain_id` 
 
-- If set to a valid `azurerm_cdn_frontdoor_custom_domain` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
+- If set to a valid `azurerm_cdn_frontdoor_custom_domain` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [cdn/cdn_frontdoor_custom_domain](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cdn/cdn_frontdoor_custom_domain))
 
 ```hcl
 component_inputs = {

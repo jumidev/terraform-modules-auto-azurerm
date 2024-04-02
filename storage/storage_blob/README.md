@@ -1,6 +1,6 @@
 # azurerm_storage_blob
 
-Manages a Blob within a Storage Container.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_storage_object_replication
 
-Manages a Storage Object Replication.
+
 
 ## Example `component.hclt`
 
@@ -11,8 +11,8 @@ source = {
 }
 
 inputs = {
-   # source_storage_account_id → set in component_inputs
-   # destination_storage_account_id → set in component_inputs
+   source_storage_account_id = "The ID of the source storage account"   
+   destination_storage_account_id = "The ID of the destination storage account"   
    rules = {
       this_rules = {
          source_container_name = "..."         
@@ -21,11 +21,6 @@ inputs = {
       
    }
    
-}
-
-component_inputs = {
-   source_storage_account_id = "path/to/storage_account_component:id"   
-   destination_storage_account_id = "path/to/storage_account_component:id"   
 }
 
 tfstate_store = {

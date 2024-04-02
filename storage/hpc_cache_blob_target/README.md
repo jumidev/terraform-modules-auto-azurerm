@@ -1,6 +1,6 @@
 # azurerm_hpc_cache_blob_target
 
-Manages a Blob Target within a HPC Cache.~> **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
+
 
 ## Example `component.hclt`
 

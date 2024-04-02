@@ -48,8 +48,3 @@ variable "storage_account_access_key" {
   type        = string
   default     = null
 }
-variable "mssql_server_resource_group_name" {
-  description = "The name of the Resource Group where the Microsoft SQL Server exists..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

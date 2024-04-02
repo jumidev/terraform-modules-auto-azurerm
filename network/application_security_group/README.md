@@ -1,6 +1,6 @@
 # azurerm_application_security_group
 
-Manages an Application Security Group.
+
 
 ## Example `component.hclt`
 
@@ -28,9 +28,9 @@ tfstate_store = {
 
 ### `network_interface_id` 
 
-- If set to a valid `azurerm_network_interface` `id`, makes a **azurerm_network_interface_application_security_group_association** - Manages the association between a Network Interface and a Application Security Group.
+- If set to a valid `azurerm_network_interface` `id`, makes a **azurerm_network_interface_application_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/network_interface](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/network_interface))
 
 ```hcl
 component_inputs = {
@@ -40,9 +40,9 @@ component_inputs = {
 
 ### `private_endpoint_id` 
 
-- If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - Manages an association between Private Endpoint and Application Security Group.
+- If set to a valid `azurerm_private_endpoint` `id`, makes a **azurerm_private_endpoint_application_security_group_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/private_endpoint](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/private_endpoint))
 
 ```hcl
 component_inputs = {

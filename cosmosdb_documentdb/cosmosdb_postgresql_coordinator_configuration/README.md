@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_postgresql_coordinator_configuration
 
-Sets a Coordinator Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
+
 
 ## Example `component.hclt`
 
@@ -12,12 +12,8 @@ source = {
 
 inputs = {
    name = "The name of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Clus..."   
-   # cluster_id → set in component_inputs
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to c..."   
    value = "The value of the Coordinator Configuration on Azure Cosmos DB for PostgreSQL Clu..."   
-}
-
-component_inputs = {
-   cluster_id = "path/to/cosmosdb_postgresql_cluster_component:id"   
 }
 
 tfstate_store = {

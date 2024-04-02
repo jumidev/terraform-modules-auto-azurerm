@@ -1,6 +1,6 @@
 # azurerm_lb_nat_rule
 
-Manages a Load Balancer NAT Rule.-> **NOTE:** This resource cannot be used with with virtual machine scale sets, instead use the `azurerm_lb_nat_pool` resource.~> **NOTE** When using this resource, the Load Balancer needs to have a FrontEnd IP Configuration Attached
+
 
 ## Example `component.hclt`
 
@@ -81,7 +81,7 @@ component_inputs = {
 | **frontend_port_end** | string |  -  |  -  |  The port range end for the external endpoint. This property is used together with BackendAddressPool and FrontendPortRangeStart. Individual inbound NAT rule port mappings will be created for each backend address from BackendAddressPool. Acceptable values range from 1 to 65534, inclusive. | 
 | **backend_address_pool_id** | string |  -  |  -  |  Specifies a reference to backendAddressPool resource. | 
 | **idle_timeout_in_minutes** | number |  `4`  |  `4`, `30`  |  Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes. | 
-| **enable_floating_ip** | bool |  `False`  |  -  |  Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`. | 
+| **enable_floating_ip** | bool |  `False`  |  -  |  Are the Floating IPs enabled for this Load Balancer Rule? A "floating" IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`. | 
 | **enable_tcp_reset** | bool |  -  |  -  |  Is TCP Reset enabled for this Load Balancer Rule? | 
 
 

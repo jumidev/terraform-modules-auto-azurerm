@@ -1,6 +1,6 @@
 # azurerm_synapse_integration_runtime_self_hosted
 
-Manages a Synapse Self-hosted Integration Runtime.
+
 
 ## Example `component.hclt`
 

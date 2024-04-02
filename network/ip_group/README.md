@@ -1,6 +1,6 @@
 # azurerm_ip_group
 
-Manages an IP group that contains a list of CIDRs and/or IP addresses.
+
 
 ## Example `component.hclt`
 

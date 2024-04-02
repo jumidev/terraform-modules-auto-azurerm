@@ -1,6 +1,6 @@
 # azurerm_synapse_workspace_sql_aad_admin
 
-Manages an Azure Active Directory SQL Administrator setting for a Synapse Workspace
+
 
 ## Example `component.hclt`
 
@@ -13,13 +13,12 @@ source = {
 inputs = {
    # synapse_workspace_id → set in component_inputs
    login = "The login name of the Azure AD Administrator of this Synapse Workspace..."   
-   # object_id → set in component_inputs
+   object_id = "The object id of the Azure AD Administrator of this Synapse Workspace..."   
    tenant_id = "The tenant id of the Azure AD Administrator of this Synapse Workspace..."   
 }
 
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
-   object_id = "path/to/synapse_workspace_component:id"   
 }
 
 tfstate_store = {

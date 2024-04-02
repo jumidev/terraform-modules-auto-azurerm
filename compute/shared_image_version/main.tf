@@ -1,18 +1,3 @@
-data "azurerm_shared_image_gallery" "this" {
-  name                = var.shared_image_gallery_name
-  resource_group_name = var.shared_image_gallery_resource_group_name != null ? var.shared_image_gallery_resource_group_name : var.resource_group_name
-
-}
-data "azurerm_image" "this" {
-  name                = var.image_name
-  name_regex          = var.image_name_regex
-  sort_descending     = var.image_sort_descending
-  resource_group_name = var.image_resource_group_name != null ? var.image_resource_group_name : var.resource_group_name
-
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_shared_image_version" "this" {
@@ -21,10 +6,10 @@ resource "azurerm_shared_image_version" "this" {
   # required vars
   ########################################
   name                = var.name
-  gallery_name        = data.azurerm_shared_image_gallery.this.name
-  image_name          = data.azurerm_image.this.name
+  gallery_name        = var.gallery_name
+  image_name          = var.image_name
   location            = var.location
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   target_region       = var.target_region
 
   ########################################

@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_lb_nat_pool" "this" {
@@ -9,7 +6,7 @@ resource "azurerm_lb_nat_pool" "this" {
   # required vars
   ########################################
   name                           = var.name
-  resource_group_name            = data.azurerm_resource_group.this.name
+  resource_group_name            = var.resource_group_name
   loadbalancer_id                = var.loadbalancer_id
   frontend_ip_configuration_name = var.frontend_ip_configuration_name # Default: primary
   protocol                       = var.protocol

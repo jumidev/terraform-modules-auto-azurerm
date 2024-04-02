@@ -1,6 +1,6 @@
 # azurerm_private_dns_resolver_dns_forwarding_ruleset
 
-Manages a Private DNS Resolver Dns Forwarding Ruleset.
+
 
 ## Example `component.hclt`
 

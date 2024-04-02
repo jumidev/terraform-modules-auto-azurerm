@@ -1,6 +1,6 @@
 # azurerm_container_group
 
-Manages as an Azure Container Group instance.~> **Note** `network_profile_id` is [deprecated](https://docs.microsoft.com/en-us/azure/container-instances/container-instances-vnet) by Azure. For users who want to continue to manage existing `azurerm_container_group` that rely on `network_profile_id`, please stay on provider versions prior to v3.16.0. Otherwise, use `subnet_ids` instead.
+
 
 ## Example `component.hclt`
 
@@ -58,14 +58,6 @@ tfstate_store = {
 | **zones** | list |  -  |  -  |  A list of Availability Zones in which this Container Group is located. Changing this forces a new resource to be created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `dns_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `nameservers` | list | Yes | - | A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created. |
-| `search_domains` | list | No | - | A list of search domains that DNS requests will search along. Changing this forces a new resource to be created. |
-| `options` | list | No | - | A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created. |
-
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -96,6 +88,14 @@ tfstate_store = {
 | `username` | string | No | - | The username with which to connect to the registry. Changing this forces a new resource to be created. |
 | `password` | string | No | - | The password with which to connect to the registry. Changing this forces a new resource to be created. |
 | `server` | string | Yes | - | The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created. |
+
+### `dns_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `nameservers` | list | Yes | - | A list of nameservers the containers will search out to resolve requests. Changing this forces a new resource to be created. |
+| `search_domains` | list | No | - | A list of search domains that DNS requests will search along. Changing this forces a new resource to be created. |
+| `options` | list | No | - | A list of [resolver configuration options](https://man7.org/linux/man-pages/man5/resolv.conf.5.html). Changing this forces a new resource to be created. |
 
 
 

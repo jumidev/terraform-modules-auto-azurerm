@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_postgresql_node_configuration
 
-Sets a Node Configuration value on Azure Cosmos DB for PostgreSQL Cluster.
+
 
 ## Example `component.hclt`
 
@@ -12,12 +12,8 @@ source = {
 
 inputs = {
    name = "The name of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster..."   
-   # cluster_id → set in component_inputs
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster where we want to c..."   
    value = "The value of the Node Configuration on Azure Cosmos DB for PostgreSQL Cluster..."   
-}
-
-component_inputs = {
-   cluster_id = "path/to/cosmosdb_postgresql_cluster_component:id"   
 }
 
 tfstate_store = {

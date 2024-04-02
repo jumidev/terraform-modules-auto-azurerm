@@ -1,6 +1,6 @@
 # azurerm_virtual_hub_ip
 
-Manages a Virtual Hub IP. This resource is also known as a Route Server.~> **NOTE** Virtual Hub IP only supports Standard Virtual Hub without Virtual Wan.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_synapse_sql_pool_workload_classifier
 
-Manages a Synapse SQL Pool Workload Classifier.
+
 
 ## Example `component.hclt`
 
@@ -12,12 +12,8 @@ source = {
 
 inputs = {
    name = "The name which should be used for this Synapse SQL Pool Workload Classifier..."   
-   # workload_group_id → set in component_inputs
+   workload_group_id = "The ID of the Synapse SQL Pool Workload Group"   
    member_name = "The workload classifier member name used to classified against..."   
-}
-
-component_inputs = {
-   workload_group_id = "path/to/synapse_sql_pool_workload_group_component:id"   
 }
 
 tfstate_store = {

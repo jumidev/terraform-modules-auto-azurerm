@@ -1,6 +1,6 @@
 # azurerm_express_route_circuit_peering
 
-Manages an ExpressRoute Circuit Peering.
+
 
 ## Example `component.hclt`
 
@@ -61,6 +61,15 @@ tfstate_store = {
 | `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
 | `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
 
+### `microsoft_peering` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `advertised_public_prefixes` | list | No | - | A list of Advertised Public Prefixes. |
+| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
+| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
+| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
+
 ### `ipv6` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -70,15 +79,6 @@ tfstate_store = {
 | `enabled` | bool | No | True | A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'. |
 | `microsoft_peering` | [block](#microsoft_peering-block-structure) | No | - | A 'microsoft_peering' block. |
 | `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. ~> **NOTE:** 'ipv6' can be specified when 'peering_type' is 'MicrosoftPeering' or 'AzurePrivatePeering' |
-
-### `microsoft_peering` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `advertised_public_prefixes` | list | No | - | A list of Advertised Public Prefixes. |
-| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
-| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
-| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
 
 
 

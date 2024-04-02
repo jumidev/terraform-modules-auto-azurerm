@@ -1,6 +1,6 @@
 # azurerm_mssql_job_credential
 
-Manages an Elastic Job Credential.
+
 
 ## Example `component.hclt`
 

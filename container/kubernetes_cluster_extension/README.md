@@ -1,6 +1,6 @@
 # azurerm_kubernetes_cluster_extension
 
-Manages a Kubernetes Cluster Extension.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_endpoint
 
-Manages a Front Door (standard/premium) Endpoint.
+
 
 ## Example `component.hclt`
 

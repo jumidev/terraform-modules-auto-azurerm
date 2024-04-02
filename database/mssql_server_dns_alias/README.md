@@ -1,6 +1,6 @@
 # azurerm_mssql_server_dns_alias
 
-Manages a MS SQL Server DNS Alias.
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_vpn_gateway
 
-Manages a VPN Gateway within a Virtual Hub, which enables Site-to-Site communication.
+
 
 ## Example `component.hclt`
 
@@ -48,6 +48,12 @@ tfstate_store = {
 | **scale_unit** | string |  `1`  |  The Scale Unit for this VPN Gateway. Defaults to `1`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the VPN Gateway. | 
 
+### `instance_bgp_peering_address` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `custom_ips` | list | Yes | - | A list of custom BGP peering addresses to assign to this instance. |
+
 ### `bgp_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,12 +62,6 @@ tfstate_store = {
 | `peer_weight` | string | Yes | - | The weight added to Routes learned from this BGP Speaker. Changing this forces a new resource to be created. |
 | `instance_0_bgp_peering_address` | [block](#instance_bgp_peering_address-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
 | `instance_1_bgp_peering_address` | [block](#instance_bgp_peering_address-block-structure) | No | - | An 'instance_bgp_peering_address' block. |
-
-### `instance_bgp_peering_address` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `custom_ips` | list | Yes | - | A list of custom BGP peering addresses to assign to this instance. |
 
 
 

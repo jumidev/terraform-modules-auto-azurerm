@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_database_migration_project" "this" {
@@ -10,7 +7,7 @@ resource "azurerm_database_migration_project" "this" {
   ########################################
   name                = var.name
   service_name        = var.service_name
-  resource_group_name = data.azurerm_resource_group.this.name
+  resource_group_name = var.resource_group_name
   location            = var.location
   source_platform     = var.source_platform
   target_platform     = var.target_platform

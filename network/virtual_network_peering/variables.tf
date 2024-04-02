@@ -34,7 +34,7 @@ variable "allow_forwarded_traffic" {
   default     = false
 }
 variable "allow_gateway_transit" {
-  description = "Controls gatewayLinks can be used in the remote virtual network’s link to the local virtual network. Defaults to 'false'."
+  description = "Controls gatewayLinks can be used in the remote virtual network's link to the local virtual network. Defaults to 'false'."
   type        = bool
   default     = false
 }
@@ -45,11 +45,6 @@ variable "use_remote_gateways" {
 }
 variable "triggers" {
   description = "A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See [the trigger example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering#example-usage-triggers) for an example on how to set it up."
-  type        = string
-  default     = null
-}
-variable "virtual_network_resource_group_name" {
-  description = "Specifies the name of the resource group the Virtual Network is located in..  If not specified, value of var.resource_group_name will be used..  If not specified, value of var.resource_group_name will be used."
   type        = string
   default     = null
 }

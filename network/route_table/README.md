@@ -1,6 +1,6 @@
 # azurerm_route_table
 
-Manages a Route Table~> **NOTE on Route Tables and Routes:** Terraform currentlyprovides both a standalone [Route resource](route.html), and allows for Routes to be defined in-line within the [Route Table resource](route_table.html).At this time you cannot use a Route Table with in-line Routes in conjunction with any Route resources. Doing so will cause a conflict of Route configurations and will overwrite Routes.
+
 
 ## Example `component.hclt`
 
@@ -28,9 +28,9 @@ tfstate_store = {
 
 ### `subnet_id` 
 
-- If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - Associates a [Route Table](route_table.html) with a [Subnet](subnet.html) within a [Virtual Network](virtual_network.html).
+- If set to a valid `azurerm_subnet` `id`, makes a **azurerm_subnet_route_table_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [network/subnet](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/network/subnet))
 
 ```hcl
 component_inputs = {

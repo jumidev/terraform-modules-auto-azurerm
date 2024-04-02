@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 resource "random_string" "sql_administrator_login_password" {
   length  = 32
   special = false
@@ -14,7 +11,7 @@ resource "azurerm_synapse_workspace" "this" {
   # required vars
   ########################################
   name                                 = var.name
-  resource_group_name                  = data.azurerm_resource_group.this.name
+  resource_group_name                  = var.resource_group_name
   location                             = var.location
   storage_data_lake_gen2_filesystem_id = var.storage_data_lake_gen2_filesystem_id
 

@@ -1,6 +1,6 @@
 # azurerm_mssql_server_security_alert_policy
 
-Manages a Security Alert Policy for a MSSQL Server.-> **NOTE** Security Alert Policy is currently only available for MS SQL databases.
+
 
 ## Example `component.hclt`
 

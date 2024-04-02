@@ -1,6 +1,6 @@
 # azurerm_log_analytics_query_pack
 
-Manages a Log Analytics Query Pack.
+
 
 ## Example `component.hclt`
 

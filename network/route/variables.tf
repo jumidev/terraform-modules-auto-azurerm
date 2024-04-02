@@ -33,8 +33,3 @@ variable "next_hop_in_ip_address" {
   type        = string
   default     = null
 }
-variable "route_table_resource_group_name" {
-  description = "The name of the Resource Group in which the Route Table exists..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}

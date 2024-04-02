@@ -1,6 +1,6 @@
 # azurerm_synapse_role_assignment
 
-Manages a Synapse Role Assignment.
+
 
 ## Example `component.hclt`
 

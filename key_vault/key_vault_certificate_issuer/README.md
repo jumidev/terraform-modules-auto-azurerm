@@ -1,6 +1,6 @@
 # azurerm_key_vault_certificate_issuer
 
-Manages a Key Vault Certificate Issuer.
+
 
 ## Example `component.hclt`
 

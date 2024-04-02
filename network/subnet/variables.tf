@@ -58,11 +58,6 @@ variable "service_endpoint_policy_ids" {
   type        = string
   default     = null
 }
-variable "virtual_network_resource_group_name" {
-  description = "Specifies the name of the resource group the Virtual Network is located in..  If not specified, value of var.resource_group_name will be used."
-  type        = string
-  default     = null
-}
 # REQUIRED VARIABLES
 
 variable "nat_gateway_id" {

@@ -1,6 +1,6 @@
 # azurerm_private_dns_resolver
 
-Manages a Private DNS Resolver.
+
 
 ## Example `component.hclt`
 

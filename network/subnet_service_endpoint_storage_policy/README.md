@@ -1,6 +1,6 @@
 # azurerm_subnet_service_endpoint_storage_policy
 
-Manages a Subnet Service Endpoint Storage Policy.
+
 
 ## Example `component.hclt`
 

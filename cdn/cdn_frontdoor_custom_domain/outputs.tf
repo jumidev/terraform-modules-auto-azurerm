@@ -14,10 +14,6 @@ output "dns_zone_id" {
   value = azurerm_cdn_frontdoor_custom_domain.this.dns_zone_id
 }
 
-output "tls" {
-  value = azurerm_cdn_frontdoor_custom_domain.this.tls
-}
-
 output "id" {
   description = "The ID of the Front Door Custom Domain."
   value       = azurerm_cdn_frontdoor_custom_domain.this.id

@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_custom_domain
 
-Manages a Front Door (standard/premium) Custom Domain.!>**IMPORTANT:** If you are using Terraform to manage your DNS Auth and DNS CNAME records for your Custom Domain you will need to add configuration blocks for both the `azurerm_dns_txt_record`(see the `Example DNS Auth TXT Record Usage` below) and the `azurerm_dns_cname_record`(see the `Example CNAME Record Usage` below) to your configuration file.
+
 
 ## Example `component.hclt`
 
@@ -14,15 +14,10 @@ inputs = {
    name = "The name which should be used for this Front Door Custom Domain..."   
    # cdn_frontdoor_profile_id → set in component_inputs
    host_name = "The host name of the domain"   
-   tls = {
-      # cdn_frontdoor_secret_id → (optional) set in component_inputs
-   }
-   
 }
 
 component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
-   tls.cdn_frontdoor_secret_id = "path/to/cdn_frontdoor_secret_component:id"   
 }
 
 tfstate_store = {
@@ -37,9 +32,9 @@ tfstate_store = {
 
 ### `cdn_frontdoor_route_ids` 
 
-- If set to a valid `azurerm_cdn_frontdoor_route` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
+- If set to a valid `azurerm_cdn_frontdoor_route` `id`, makes a **azurerm_cdn_frontdoor_custom_domain_association** - 
 
-Example component snippet:
+Example component snippet (**See also** [cdn/cdn_frontdoor_route](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/cdn/cdn_frontdoor_route))
 
 ```hcl
 component_inputs = {
@@ -55,21 +50,12 @@ component_inputs = {
 | **name** | string |  The name which should be used for this Front Door Custom Domain. Possible values must be between 2 and 260 characters in length, must begin with a letter or number, end with a letter or number and contain only letters, numbers and hyphens. Changing this forces a new Front Door Custom Domain to be created. | 
 | **cdn_frontdoor_profile_id** | string |  The ID of the Front Door Profile. Changing this forces a new Front Door Custom Domain to be created. | 
 | **host_name** | string |  The host name of the domain. The `host_name` field must be the FQDN of your domain(e.g. `contoso.fabrikam.com`). Changing this forces a new Front Door Custom Domain to be created. | 
-| **tls** | [block](#tls-block-structure) |  A `tls` block. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **dns_zone_id** | string |  The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually. <!-- * `pre_validated_cdn_frontdoor_custom_domain_id` -  The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door. ->**NOTE:** Currently `pre_validated_cdn_frontdoor_custom_domain_id` only supports domains validated by Static Web App. --> | 
-
-### `tls` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `certificate_type` | string | No | ManagedCertificate | Defines the source of the SSL certificate. Possible values include 'CustomerCertificate' and 'ManagedCertificate'. Defaults to 'ManagedCertificate'. ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain. |
-| `minimum_tls_version` | string | No | TLS12 | TLS protocol version that will be used for Https. Possible values include 'TLS10' and 'TLS12'. Defaults to 'TLS12'. |
-| `cdn_frontdoor_secret_id` | string | No | - | Resource ID of the Front Door Secret. |
+| **dns_zone_id** | string |  The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually. | 
 
 
 

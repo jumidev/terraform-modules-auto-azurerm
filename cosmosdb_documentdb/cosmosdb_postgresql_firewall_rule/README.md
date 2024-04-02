@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_postgresql_firewall_rule
 
-Manages an Azure Cosmos DB for PostgreSQL Firewall Rule.
+
 
 ## Example `component.hclt`
 
@@ -12,13 +12,9 @@ source = {
 
 inputs = {
    name = "The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Ru..."   
-   # cluster_id → set in component_inputs
+   cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
    end_ip_address = "The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
    start_ip_address = "The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
-}
-
-component_inputs = {
-   cluster_id = "path/to/cosmosdb_postgresql_cluster_component:id"   
 }
 
 tfstate_store = {

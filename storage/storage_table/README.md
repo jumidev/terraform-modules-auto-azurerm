@@ -1,6 +1,6 @@
 # azurerm_storage_table
 
-Manages a Table within an Azure Storage Account.
+
 
 ## Example `component.hclt`
 
@@ -40,12 +40,6 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **acl** | [block](#acl-block-structure) |  One or more `acl` blocks. | 
 
-### `acl` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -53,6 +47,12 @@ tfstate_store = {
 | `expiry` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid until. |
 | `permissions` | string | Yes | - | The permissions which should associated with this Shared Identifier. |
 | `start` | string | Yes | - | The ISO8061 UTC time at which this Access Policy should be valid from. |
+
+### `acl` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
 
 
 

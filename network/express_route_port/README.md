@@ -1,6 +1,6 @@
 # azurerm_express_route_port
 
-Manages a Express Route Port.
+
 
 ## Example `component.hclt`
 

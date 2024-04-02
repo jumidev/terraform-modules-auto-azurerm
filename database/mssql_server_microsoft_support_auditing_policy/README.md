@@ -1,6 +1,6 @@
 # azurerm_mssql_server_microsoft_support_auditing_policy
 
-Manages a MS SQL Server Microsoft Support Auditing Policy.
+
 
 ## Example `component.hclt`
 

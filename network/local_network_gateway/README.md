@@ -1,6 +1,6 @@
 # azurerm_local_network_gateway
 
-Manages a local network gateway connection over which specific connections can be configured.
+
 
 ## Example `component.hclt`
 

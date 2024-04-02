@@ -1,6 +1,6 @@
 # azurerm_lb_backend_address_pool_address
 
-Manages a Backend Address within a Backend Address Pool.-> **Note:** Backend Addresses can only be added to a `Standard` SKU Load Balancer.
+
 
 ## Example `component.hclt`
 

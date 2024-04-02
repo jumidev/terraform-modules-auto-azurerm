@@ -46,30 +46,6 @@ output "source_application_security_group_ids" {
   value = azurerm_network_security_rule.this.source_application_security_group_ids
 }
 
-output "destination_address_prefix" {
-  value = azurerm_network_security_rule.this.destination_address_prefix
-}
-
-output "destination_address_prefixes" {
-  value = azurerm_network_security_rule.this.destination_address_prefixes
-}
-
-output "destination_application_security_group_ids" {
-  value = azurerm_network_security_rule.this.destination_application_security_group_ids
-}
-
-output "access" {
-  value = azurerm_network_security_rule.this.access
-}
-
-output "priority" {
-  value = azurerm_network_security_rule.this.priority
-}
-
-output "direction" {
-  value = azurerm_network_security_rule.this.direction
-}
-
 output "direction" {
   description = "The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are 'Inbound' and 'Outbound'. In addition to the Arguments listed above - the following Attributes are exported:"
   value       = azurerm_network_security_rule.this.direction

@@ -1,6 +1,3 @@
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 resource "random_string" "default_admin_password" {
   length  = 32
   special = false
@@ -14,7 +11,7 @@ resource "azurerm_cosmosdb_cassandra_cluster" "this" {
   # required vars
   ########################################
   name                           = var.name
-  resource_group_name            = data.azurerm_resource_group.this.name
+  resource_group_name            = var.resource_group_name
   location                       = var.location
   delegated_management_subnet_id = var.delegated_management_subnet_id
   default_admin_password         = random_string.default_admin_password.result

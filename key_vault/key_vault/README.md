@@ -1,6 +1,6 @@
 # azurerm_key_vault
 
-Manages a Key Vault.## Disclaimers~> **Note:** It's possible to define Key Vault Access Policies both within [the `azurerm_key_vault` resource](key_vault.html) via the `access_policy` block and by using [the `azurerm_key_vault_access_policy` resource](key_vault_access_policy.html). However it's not possible to use both methods to manage Access Policies within a KeyVault, since there'll be conflicts.~> **Note:** It's possible to define Key Vault Certificate Contacts both within [the `azurerm_key_vault` resource](key_vault.html) via the `contact` block and by using [the `azurerm_key_vault_certificate_contacts` resource](key_vault_certificate_contacts.html). However it's not possible to use both methods to manage Certificate Contacts within a KeyVault, since there'll be conflicts.~> **Note:** Terraform will automatically recover a soft-deleted Key Vault during Creation if one is found - you can opt out of this using the `features` block within the Provider block.
+
 
 ## Example `component.hclt`
 
@@ -52,14 +52,6 @@ tfstate_store = {
 | **contact** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. ~> **Note:** This field can only be set once user has `managecontacts` certificate permission. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | E-mail address of the contact. |
-| `name` | string | No | - | Name of the contact. |
-| `phone` | number | No | - | Phone number of the contact. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +72,14 @@ tfstate_store = {
 | `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
 | `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
 | `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
+
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
+| `phone` | number | No | - | Phone number of the contact. |
 
 
 

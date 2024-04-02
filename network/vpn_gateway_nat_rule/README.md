@@ -1,6 +1,6 @@
 # azurerm_vpn_gateway_nat_rule
 
-Manages a VPN Gateway NAT Rule.
+
 
 ## Example `component.hclt`
 

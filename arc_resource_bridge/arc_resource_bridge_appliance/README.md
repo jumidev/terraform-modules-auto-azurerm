@@ -1,6 +1,6 @@
 # azurerm_arc_resource_bridge_appliance
 
-Manages an Arc Resource Bridge Appliance.
+
 
 ## Example `component.hclt`
 

@@ -1,10 +1,3 @@
-data "azurerm_virtual_network" "this" {
-  name                = var.virtual_network_name
-  resource_group_name = var.virtual_network_resource_group_name == null ? null : var.virtual_network_resource_group_name
-}
-data "azurerm_resource_group" "this" {
-  name = var.resource_group_name
-}
 
 
 resource "azurerm_virtual_network_peering" "this" {
@@ -13,9 +6,9 @@ resource "azurerm_virtual_network_peering" "this" {
   # required vars
   ########################################
   name                      = var.name
-  virtual_network_name      = data.azurerm_virtual_network.this.name
+  virtual_network_name      = var.virtual_network_name
   remote_virtual_network_id = var.remote_virtual_network_id
-  resource_group_name       = data.azurerm_resource_group.this.name
+  resource_group_name       = var.resource_group_name
 
   ########################################
   # optional vars

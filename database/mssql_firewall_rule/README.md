@@ -1,6 +1,6 @@
 # azurerm_mssql_firewall_rule
 
-Allows you to manage an Azure SQL Firewall Rule.
+
 
 ## Example `component.hclt`
 

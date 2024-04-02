@@ -1,6 +1,6 @@
 # azurerm_web_application_firewall_policy
 
-Manages a Azure Web Application Firewall Policy instance.
+
 
 ## Example `component.hclt`
 
@@ -48,13 +48,6 @@ tfstate_store = {
 | **policy_settings** | [block](#policy_settings-block-structure) |  A `policy_settings` block. | 
 | **tags** | map |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `log_scrubbing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether the log scrubbing is enabled or disabled. Defaults to 'true'. |
-| `rule` | string | No | - | One or more 'scrubbing_rule' blocks as define below. |
-
 ### `managed_rules` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,15 +55,12 @@ tfstate_store = {
 | `exclusion` | string | No | - | One or more 'exclusion' block defined below. |
 | `managed_rule_set` | string | Yes | - | One or more 'managed_rule_set' block defined below. |
 
-### `match_conditions` block structure
+### `log_scrubbing` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `match_variables` | [block](#match_variables-block-structure) | Yes | - | One or more 'match_variables' blocks. |
-| `match_values` | list | No | - | A list of match values. This is **Required** when the 'operator' is not 'Any'. |
-| `operator` | string | Yes | - | Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'. |
-| `negation_condition` | string | No | - | Describes if this is negate condition or not |
-| `transforms` | list | No | - | A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'. |
+| `enabled` | bool | No | True | Whether the log scrubbing is enabled or disabled. Defaults to 'true'. |
+| `rule` | string | No | - | One or more 'scrubbing_rule' blocks as define below. |
 
 ### `policy_settings` block structure
 
@@ -83,6 +73,16 @@ tfstate_store = {
 | `max_request_body_size_in_kb` | string | No | 128 | The Maximum Request Body Size in KB. Accepted values are in the range '8' to '2000'. Defaults to '128'. |
 | `log_scrubbing` | [block](#log_scrubbing-block-structure) | No | - | One 'log_scrubbing' block. |
 | `request_body_inspect_limit_in_kb` | string | No | 128 | Specifies the maximum request body inspection limit in KB for the Web Application Firewall. Defaults to '128'. |
+
+### `match_conditions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_variables` | [block](#match_variables-block-structure) | Yes | - | One or more 'match_variables' blocks. |
+| `match_values` | list | No | - | A list of match values. This is **Required** when the 'operator' is not 'Any'. |
+| `operator` | string | Yes | - | Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'. |
+| `negation_condition` | string | No | - | Describes if this is negate condition or not |
+| `transforms` | list | No | - | A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'. |
 
 ### `match_variables` block structure
 

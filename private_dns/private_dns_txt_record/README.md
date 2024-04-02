@@ -1,6 +1,6 @@
 # azurerm_private_dns_txt_record
 
-Enables you to manage DNS TXT Records within Azure Private DNS.
+
 
 ## Example `component.hclt`
 

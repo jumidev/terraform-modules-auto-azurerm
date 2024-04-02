@@ -15,22 +15,11 @@ variable "host_name" {
   type        = string
 
 }
-variable "tls" {
-  description = "(REQUIRED) A 'tls' block."
-  type        = map(any)
-}
-#
-# tls block structure             :
-#   certificate_type (string)       : Defines the source of the SSL certificate. Possible values include 'CustomerCertificate' and 'ManagedCertificate'. Defaults to 'ManagedCertificate'. ->**NOTE:** It may take up to 15 minutes for the Front Door Service to validate the state and Domain ownership of the Custom Domain.
-#   minimum_tls_version (string)    : TLS protocol version that will be used for Https. Possible values include 'TLS10' and 'TLS12'. Defaults to 'TLS12'.
-#   cdn_frontdoor_secret_id (string): Resource ID of the Front Door Secret.
-
-
 
 # OPTIONAL VARIABLES
 
 variable "dns_zone_id" {
-  description = "The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually. <!-- * 'pre_validated_cdn_frontdoor_custom_domain_id' -  The resource ID of the pre-validated Front Door Custom Domain. This domain type is used when you wish to onboard a validated Azure service domain, and then configure the Azure service behind an Azure Front Door. ->**NOTE:** Currently 'pre_validated_cdn_frontdoor_custom_domain_id' only supports domains validated by Static Web App. -->"
+  description = "The ID of the Azure DNS Zone which should be used for this Front Door Custom Domain. If you are using Azure to host your [DNS domains](https://learn.microsoft.com/azure/dns/dns-overview), you must delegate the domain provider's domain name system (DNS) to an Azure DNS Zone. For more information, see [Delegate a domain to Azure DNS](https://learn.microsoft.com/azure/dns/dns-delegate-domain-azure-dns). Otherwise, if you're using your own domain provider to handle your DNS, you must validate the Front Door Custom Domain by creating the DNS TXT records manually."
   type        = string
   default     = null
 }

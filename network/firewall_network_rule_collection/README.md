@@ -1,6 +1,6 @@
 # azurerm_firewall_network_rule_collection
 
-Manages a Network Rule Collection within an Azure Firewall.
+
 
 ## Example `component.hclt`
 

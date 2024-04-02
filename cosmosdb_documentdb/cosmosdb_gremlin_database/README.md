@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_gremlin_database
 
-Manages a Gremlin Database within a Cosmos DB Account.
+
 
 ## Example `component.hclt`
 

@@ -39,7 +39,7 @@ variable "content_encoding" {
   default     = null
 }
 variable "content_disposition" {
-  description = "Sets the file’s Content-Disposition header."
+  description = "Sets the file's Content-Disposition header."
   type        = string
   default     = null
 }

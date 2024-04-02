@@ -44,7 +44,7 @@ variable "probe_id" {
   default     = null
 }
 variable "enable_floating_ip" {
-  description = "Are the Floating IPs enabled for this Load Balncer Rule? A 'floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to 'false'."
+  description = "Are the Floating IPs enabled for this Load Balncer Rule? A 'floating' IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to 'false'."
   type        = bool
   default     = false
 }
@@ -54,7 +54,7 @@ variable "idle_timeout_in_minutes" {
   default     = 4
 }
 variable "load_distribution" {
-  description = "Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: 'Default' – The load balancer is configured to use a 5 tuple hash to map traffic to available servers. 'SourceIP' – The load balancer is configured to use a 2 tuple hash to map traffic to available servers. 'SourceIPProtocol' – The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where the options are called 'None', 'Client IP' and 'Client IP and Protocol' respectively."
+  description = "Specifies the load balancing distribution type to be used by the Load Balancer. Possible values are: 'Default' - The load balancer is configured to use a 5 tuple hash to map traffic to available servers. 'SourceIP' - The load balancer is configured to use a 2 tuple hash to map traffic to available servers. 'SourceIPProtocol' - The load balancer is configured to use a 3 tuple hash to map traffic to available servers. Also known as Session Persistence, where the options are called 'None', 'Client IP' and 'Client IP and Protocol' respectively."
   type        = string
   default     = null
 }

@@ -1,6 +1,6 @@
 # azurerm_private_dns_resolver_inbound_endpoint
 
-Manages a Private DNS Resolver Inbound Endpoint.
+
 
 ## Example `component.hclt`
 

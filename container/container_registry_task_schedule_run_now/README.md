@@ -1,6 +1,6 @@
 # azurerm_container_registry_task_schedule_run_now
 
-Runs a Container Registry Task Schedule.
+
 
 ## Example `component.hclt`
 

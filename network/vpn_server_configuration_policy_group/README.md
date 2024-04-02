@@ -1,6 +1,6 @@
 # azurerm_vpn_server_configuration_policy_group
 
-Manages a VPN Server Configuration Policy Group.
+
 
 ## Example `component.hclt`
 

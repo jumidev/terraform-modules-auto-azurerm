@@ -1,12 +1,3 @@
-data "azurerm_storage_account" "this" {
-  name                = var.storage_account_name
-  resource_group_name = var.storage_account_resource_group_name
-}
-data "azurerm_storage_container" "this" {
-  name                 = var.storage_container_name
-  storage_account_name = var.storage_container_storage_account_name != null ? var.storage_container_storage_account_name : var.storage_account_name
-
-}
 
 
 resource "azurerm_storage_blob" "this" {
@@ -15,8 +6,8 @@ resource "azurerm_storage_blob" "this" {
   # required vars
   ########################################
   name                   = var.name
-  storage_account_name   = data.azurerm_storage_account.this.name
-  storage_container_name = data.azurerm_storage_container.this.name
+  storage_account_name   = var.storage_account_name
+  storage_container_name = var.storage_container_name
   type                   = var.type
 
   ########################################

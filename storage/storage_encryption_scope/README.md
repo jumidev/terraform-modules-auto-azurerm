@@ -1,6 +1,6 @@
 # azurerm_storage_encryption_scope
 
-Manages a Storage Encryption Scope.~> **Note:** Storage Encryption Scopes are in Preview [more information can be found here](https://docs.microsoft.com/azure/storage/blobs/encryption-scope-manage).
+
 
 ## Example `component.hclt`
 

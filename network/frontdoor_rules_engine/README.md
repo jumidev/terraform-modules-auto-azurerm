@@ -1,6 +1,6 @@
 # azurerm_frontdoor_rules_engine
 
-!> **IMPORTANT** This deploys an Azure Front Door (classic) resource which has been deprecated and will receive security updates only. Please migrate your existing Azure Front Door (classic) deployments to the new [Azure Front Door (standard/premium) resources](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/cdn_frontdoor_custom_domain). For your convenience, the service team has exposed a `Front Door Classic` to `Front Door Standard/Premium` [migration tool](https://learn.microsoft.com/azure/frontdoor/tier-migration) to allow you to migrate your existing `Front Door Classic` instances to the new `Front Door Standard/Premium` product tiers.Manages an Azure Front Door (classic) Rules Engine configuration and rules.
+
 
 ## Example `component.hclt`
 
@@ -43,6 +43,13 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  Whether this Rules engine configuration is enabled? Defaults to `true`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  A `rule` block. | 
 
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
+| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
+
 ### `request_header` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,14 +69,6 @@ tfstate_store = {
 | `negate_condition` | bool | No | False | can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'. |
 | `value` | list | No | - | (array) can contain one or more strings. |
 
-### `response_header` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
-| `header_name` | string | No | - | header name (string). |
-| `value` | string | No | - | value name (string). |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,12 +78,13 @@ tfstate_store = {
 | `action` | [block](#action-block-structure) | No | - | An 'action' block. |
 | `match_condition` | [block](#match_condition-block-structure) | No | - | One or more 'match_condition' block. |
 
-### `action` block structure
+### `response_header` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `request_header` | [block](#request_header-block-structure) | No | - | A 'request_header' block. |
-| `response_header` | [block](#response_header-block-structure) | No | - | A 'response_header' block. |
+| `header_action_type` | string | No | - | can be set to 'Overwrite', 'Append' or 'Delete'. |
+| `header_name` | string | No | - | header name (string). |
+| `value` | string | No | - | value name (string). |
 
 
 

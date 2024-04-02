@@ -1,6 +1,6 @@
 # azurerm_mysql_flexible_server_configuration
 
-Sets a MySQL Flexible Server Configuration value on a MySQL Flexible Server.## Disclaimers~> **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+
 
 ## Example `component.hclt`
 

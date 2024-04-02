@@ -1,6 +1,6 @@
 # azurerm_mariadb_server
 
-Manages a MariaDB Server.
+
 
 ## Example `component.hclt`
 

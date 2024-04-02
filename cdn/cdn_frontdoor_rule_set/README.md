@@ -1,6 +1,6 @@
 # azurerm_cdn_frontdoor_rule_set
 
-Manages a Front Door (standard/premium) Rule Set.
+
 
 ## Example `component.hclt`
 

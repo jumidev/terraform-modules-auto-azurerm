@@ -1,6 +1,6 @@
 # azurerm_private_link_service
 
-Manages a Private Link Service.-> **NOTE** Private Link is now in [GA](https://docs.microsoft.com/en-gb/azure/private-link/).
+
 
 ## Example `component.hclt`
 

@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_sql_stored_procedure
 
-Manages a SQL Stored Procedure within a Cosmos DB Account SQL Database.
+
 
 ## Example `component.hclt`
 

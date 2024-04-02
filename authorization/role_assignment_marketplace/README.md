@@ -1,6 +1,6 @@
 # azurerm_role_assignment_marketplace
 
-Assigns a given Principal (User or Group) to a given Role in a Private Azure Marketplace.
+
 
 ## Example `component.hclt`
 

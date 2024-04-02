@@ -1,6 +1,6 @@
 # azurerm_cosmosdb_cassandra_datacenter
 
-Manages a Cassandra Datacenter.~> **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:```powershellNew-AzADServicePrincipal -ApplicationId a232010e-820c-4083-83bb-3ace5fc29d0b```
+
 
 ## Example `component.hclt`
 
@@ -13,12 +13,11 @@ source = {
 inputs = {
    name = "The name which should be used for this Cassandra Datacenter..."   
    location = "${location}"   
-   # cassandra_cluster_id → set in component_inputs
+   cassandra_cluster_id = "The ID of the Cassandra Cluster"   
    # delegated_management_subnet_id → set in component_inputs
 }
 
 component_inputs = {
-   cassandra_cluster_id = "path/to/cosmosdb_cassandra_cluster_component:id"   
    delegated_management_subnet_id = "path/to/subnet_component:id"   
 }
 

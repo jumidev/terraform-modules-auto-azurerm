@@ -1,6 +1,6 @@
 # azurerm_postgresql_server
 
-Manages a PostgreSQL Server.
+
 
 ## Example `component.hclt`
 
