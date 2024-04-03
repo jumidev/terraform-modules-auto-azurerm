@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/subnet"   
 }
-
 inputs = {
    name = "The name of the subnet"   
    resource_group_name = "${resource_group}"   
    # virtual_network_name → set in component_inputs
    address_prefixes = "The address prefixes to use for the subnet"   
 }
-
 component_inputs = {
    virtual_network_name = "path/to/virtual_network_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 
@@ -87,14 +83,11 @@ inputs = {
    application_load_balancer_subnet_association = {
       name = "..."      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    application_load_balancer_subnet_association.application_load_balancer_id = "path/to/application_load_balancer_component:id"   
 }
-
 ```
 
 

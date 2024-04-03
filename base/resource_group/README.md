@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "base/resource_group"   
 }
-
 inputs = {
    location = "${location}"   
    name = "The Name which should be used for this Resource Group..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -49,15 +46,12 @@ inputs = {
       name = "..."      
       registration_enabled = false      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    private_dns_zone_virtual_network_link.private_dns_zone_name = "path/to/private_dns_zone_component:name"   
    private_dns_zone_virtual_network_link.virtual_network_id = "path/to/virtual_network_component:id"   
 }
-
 ```
 
 

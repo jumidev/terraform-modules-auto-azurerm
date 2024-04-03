@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_sql_function"   
 }
-
 inputs = {
    name = "The name which should be used for this SQL User Defined Function..."   
    # container_id → set in component_inputs
    body = "Body of the User Defined Function"   
 }
-
 component_inputs = {
    container_id = "path/to/cosmosdb_sql_container_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

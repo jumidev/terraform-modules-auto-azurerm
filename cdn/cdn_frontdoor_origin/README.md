@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_origin"   
 }
-
 inputs = {
    name = "The name which should be used for this Front Door Origin..."   
    # cdn_frontdoor_origin_group_id → set in component_inputs
    host_name = "The IPv4 address, IPv6 address or Domain name of the Origin..."   
    certificate_name_check_enabled = "Specifies whether certificate name checks are enabled for this origin..."   
 }
-
 component_inputs = {
    cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

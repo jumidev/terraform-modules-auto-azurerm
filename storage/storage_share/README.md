@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_share"   
 }
-
 inputs = {
    name = "The name of the share"   
    # storage_account_name → set in component_inputs
    quota = "The maximum size of the share, in gigabytes"   
 }
-
 component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

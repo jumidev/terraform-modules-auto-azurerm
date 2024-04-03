@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_server_key"   
 }
-
 inputs = {
    # server_id → set in component_inputs
    # key_vault_key_id → set in component_inputs
 }
-
 component_inputs = {
    server_id = "path/to/postgresql_server_component:id"   
    key_vault_key_id = "path/to/key_vault_key_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

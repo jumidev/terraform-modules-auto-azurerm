@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "policy/resource_group_policy_assignment"   
 }
-
 inputs = {
    name = "The name which should be used for this Policy Assignment..."   
    # policy_definition_id → set in component_inputs
    resource_group_id = "The ID of the Resource Group where this Policy Assignment should be created..."   
 }
-
 component_inputs = {
    policy_definition_id = "path/to/policy_definition_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -52,26 +48,6 @@ tfstate_store = {
 | **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
 | **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
 
-### `resource_selectors` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Specifies a name for the resource selector. |
-| `selectors` | [block](#resource_selector-block-structure) | Yes | - | One or more 'resource_selector' block. |
-
-### `override_selector` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
-| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'. |
-
 ### `overrides` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -92,6 +68,26 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
 | `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+
+### `resource_selectors` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | Specifies a name for the resource selector. |
+| `selectors` | [block](#resource_selector-block-structure) | Yes | - | One or more 'resource_selector' block. |
+
+### `override_selector` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'. |
 
 
 

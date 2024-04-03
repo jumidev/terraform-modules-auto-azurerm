@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_profile"   
 }
-
 inputs = {
    name = "Specifies the name of the CDN Profile"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = "The pricing related information of current CDN profile..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

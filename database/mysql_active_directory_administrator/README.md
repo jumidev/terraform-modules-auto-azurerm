@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mysql_active_directory_administrator"   
 }
-
 inputs = {
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    object_id = "The ID of the principal to set as the server administrator..."   
    tenant_id = "The Azure Tenant ID"   
 }
-
 component_inputs = {
    server_name = "path/to/mysql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

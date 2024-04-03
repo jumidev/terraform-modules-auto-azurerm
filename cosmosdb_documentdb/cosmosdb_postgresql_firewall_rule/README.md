@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_postgresql_firewall_rule"   
 }
-
 inputs = {
    name = "The name which should be used for the Azure Cosmos DB for PostgreSQL Firewall Ru..."   
    cluster_id = "The resource ID of the Azure Cosmos DB for PostgreSQL Cluster..."   
    end_ip_address = "The end IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
    start_ip_address = "The start IP address of the Azure Cosmos DB for PostgreSQL Firewall Rule..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

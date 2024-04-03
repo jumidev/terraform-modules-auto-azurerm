@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "private_dns_resolver/private_dns_resolver"   
 }
-
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    # virtual_network_id → set in component_inputs
 }
-
 component_inputs = {
    virtual_network_id = "path/to/virtual_network_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

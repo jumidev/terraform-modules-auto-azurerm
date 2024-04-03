@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/ip_group_cidr"   
 }
-
 inputs = {
    # ip_group_id → set in component_inputs
    cidr = "The `CIDR` that should be added to the IP Group"   
 }
-
 component_inputs = {
    ip_group_id = "path/to/ip_group_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

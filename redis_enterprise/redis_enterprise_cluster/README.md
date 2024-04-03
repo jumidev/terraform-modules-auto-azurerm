@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "redis_enterprise/redis_enterprise_cluster"   
 }
-
 inputs = {
    name = "The name which should be used for this Redis Enterprise Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku_name = "The `sku_name` is comprised of two segments separated by a hyphen (e..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

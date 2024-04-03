@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_flexible_server_database"   
 }
-
 inputs = {
    name = "The name which should be used for this Azure PostgreSQL Flexible Server Database..."   
    # server_id → set in component_inputs
 }
-
 component_inputs = {
    server_id = "path/to/postgresql_flexible_server_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

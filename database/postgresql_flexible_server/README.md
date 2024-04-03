@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_flexible_server"   
 }
-
 inputs = {
    name = "The name which should be used for this PostgreSQL Flexible Server..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -73,13 +70,6 @@ tfstate_store = {
 | `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
 | `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. -> **Note:** Setting 'active_directory_auth_enabled' to 'true' requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). -> **Note:** 'tenant_id' is required when 'active_directory_auth_enabled' is set to 'true'. And it should not be specified when 'active_directory_auth_enabled' is set to 'false' |
 
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
-
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +78,13 @@ tfstate_store = {
 | `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
 | `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
 | `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. ~> **NOTE:** 'primary_user_assigned_identity_id' or 'geo_backup_user_assigned_identity_id' is required when 'type' is set to 'UserAssigned'. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
 
 ### `maintenance_window` block structure
 

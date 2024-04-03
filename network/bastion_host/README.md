@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/bastion_host"   
 }
-
 inputs = {
    name = "Specifies the name of the Bastion Host"   
    resource_group_name = "${resource_group}"   
@@ -18,21 +17,17 @@ inputs = {
       name = "..."      
       # subnet_id → set in component_inputs
       # public_ip_address_id → set in component_inputs
-   }
-   
+   }   
 }
-
 component_inputs = {
    ip_configuration.subnet_id = "path/to/subnet_component:id"   
    ip_configuration.public_ip_address_id = "path/to/public_ip_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

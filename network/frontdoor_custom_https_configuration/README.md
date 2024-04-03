@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/frontdoor_custom_https_configuration"   
 }
-
 inputs = {
    # frontend_endpoint_id → set in component_inputs
    custom_https_provisioning_enabled = "Should the HTTPS protocol be enabled for this custom domain associated with the ..."   
 }
-
 component_inputs = {
    frontend_endpoint_id = "path/to/frontdoor_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

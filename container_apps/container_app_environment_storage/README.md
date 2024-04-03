@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container_apps/container_app_environment_storage"   
 }
-
 inputs = {
    name = "The name for this Container App Environment Storage..."   
    # container_app_environment_id → set in component_inputs
@@ -18,17 +17,14 @@ inputs = {
    share_name = "The name of the Azure Storage Share to use"   
    access_mode = "The access mode to connect this storage to the Container App..."   
 }
-
 component_inputs = {
    container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

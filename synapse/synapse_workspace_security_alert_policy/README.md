@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_workspace_security_alert_policy"   
 }
-
 inputs = {
    # synapse_workspace_id → set in component_inputs
    policy_state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
 }
-
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

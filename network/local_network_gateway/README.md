@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/local_network_gateway"   
 }
-
 inputs = {
    name = "The name of the local network gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_profile"   
 }
-
 inputs = {
    name = "Specifies the name of the Front Door Profile"   
    resource_group_name = "${resource_group}"   
    sku_name = "Specifies the SKU for this Front Door Profile"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

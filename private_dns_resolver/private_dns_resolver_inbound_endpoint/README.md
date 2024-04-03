@@ -9,28 +9,23 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "private_dns_resolver/private_dns_resolver_inbound_endpoint"   
 }
-
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Inbound En..."   
    # private_dns_resolver_id → set in component_inputs
    ip_configurations = {
       # subnet_id → set in component_inputs
-   }
-   
+   }   
    location = "${location}"   
 }
-
 component_inputs = {
    private_dns_resolver_id = "path/to/private_dns_resolver_component:id"   
    ip_configurations.subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

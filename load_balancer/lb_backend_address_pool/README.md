@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_backend_address_pool"   
 }
-
 inputs = {
    name = "Specifies the name of the Backend Address Pool"   
    # loadbalancer_id → set in component_inputs
 }
-
 component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 
@@ -47,14 +43,11 @@ Example component snippet
 inputs = {
    network_interface_backend_address_pool_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_backend_address_pool_association.network_interface_id = "path/to/network_interface_component:id"   
 }
-
 ```
 
 ### `network_interface_application_gateway_backend_address_pool_association` 
@@ -75,14 +68,11 @@ Example component snippet
 inputs = {
    network_interface_application_gateway_backend_address_pool_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_application_gateway_backend_address_pool_association.network_interface_id = "path/to/network_interface_component:id"   
 }
-
 ```
 
 

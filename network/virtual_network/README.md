@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_network"   
 }
-
 inputs = {
    name = "The name of the virtual network"   
    resource_group_name = "${resource_group}"   
    address_space = "The address space that is used the virtual network"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -50,14 +47,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       registration_enabled = false      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    private_dns_zone_virtual_network_link.private_dns_zone_name = "path/to/private_dns_zone_component:name"   
 }
-
 ```
 
 

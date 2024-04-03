@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_registry_token"   
 }
-
 inputs = {
    name = "Specifies the name of the token"   
    resource_group_name = "${resource_group}"   
    # container_registry_name → set in component_inputs
    scope_map_id = "The ID of the Container Registry Scope Map associated with the token..."   
 }
-
 component_inputs = {
    container_registry_name = "path/to/container_registry_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "log_analytics/log_analytics_solution"   
 }
-
 inputs = {
    solution_name = "Specifies the name of the solution to be deployed"   
    resource_group_name = "${resource_group}"   
@@ -19,20 +18,16 @@ inputs = {
    plan = {
       publisher = "..."      
       product = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/frontdoor_firewall_policy"   
 }
-
 inputs = {
    name = "The name of the policy"   
    resource_group_name = "${resource_group}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -43,14 +40,13 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `managed_rule` block structure
+### `override` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
-| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `rule` block structure
 
@@ -69,13 +65,14 @@ tfstate_store = {
 | `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
 | `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
-### `override` block structure
+### `managed_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
+| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
 
 ### `custom_rule` block structure
 

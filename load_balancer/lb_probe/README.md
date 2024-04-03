@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_probe"   
 }
-
 inputs = {
    name = "Specifies the name of the Probe"   
    # loadbalancer_id → set in component_inputs
    port = "Port on which the Probe queries the backend endpoint..."   
 }
-
 component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

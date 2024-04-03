@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/firewall_policy_rule_collection_group"   
 }
-
 inputs = {
    name = "The name which should be used for this Firewall Policy Rule Collection Group..."   
    # firewall_policy_id → set in component_inputs
    priority = "The priority of the Firewall Policy Rule Collection Group..."   
 }
-
 component_inputs = {
    firewall_policy_id = "path/to/firewall_policy_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -59,6 +55,40 @@ tfstate_store = {
 | `translated_fqdn` | string | No | - | Specifies the translated FQDN. ~> **NOTE:** Exactly one of 'translated_address' and 'translated_fqdn' should be set. |
 | `translated_port` | string | Yes | - | Specifies the translated port. |
 
+### `application_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this application rule collection. |
+| `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#application_rule-block-structure) | Yes | - | One or more 'application_rule' blocks. |
+
+### `network_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this network rule collection. |
+| `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
+| `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#network_rule-block-structure) | Yes | - | One or more 'network_rule' blocks. |
+
+### `protocols` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
+| `port` | number | Yes | - | Port number of the protocol. Range is 0-64000. |
+
+### `nat_rule_collection` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this NAT rule collection. |
+| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
+| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
+| `rule` | [block](#nat_rule-block-structure) | Yes | - | A 'nat_rule' block. |
+
 ### `network_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,40 +119,6 @@ tfstate_store = {
 | `destination_fqdn_tags` | list | No | - | Specifies a list of destination FQDN tags. |
 | `terminate_tls` | string | No | - | Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy. |
 | `web_categories` | list | No | - | Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy. |
-
-### `nat_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this NAT rule collection. |
-| `action` | string | Yes | - | The action to take for the NAT rules in this collection. Currently, the only possible value is 'Dnat'. |
-| `priority` | string | Yes | - | The priority of the NAT rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#nat_rule-block-structure) | Yes | - | A 'nat_rule' block. |
-
-### `protocols` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Protocol type. Possible values are 'Http' and 'Https'. |
-| `port` | number | Yes | - | Port number of the protocol. Range is 0-64000. |
-
-### `network_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this network rule collection. |
-| `action` | string | Yes | - | The action to take for the network rules in this collection. Possible values are 'Allow' and 'Deny'. |
-| `priority` | string | Yes | - | The priority of the network rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#network_rule-block-structure) | Yes | - | One or more 'network_rule' blocks. |
-
-### `application_rule_collection` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this application rule collection. |
-| `action` | string | Yes | - | The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'. |
-| `priority` | string | Yes | - | The priority of the application rule collection. The range is '100' - '65000'. |
-| `rule` | [block](#application_rule-block-structure) | Yes | - | One or more 'application_rule' blocks. |
 
 
 

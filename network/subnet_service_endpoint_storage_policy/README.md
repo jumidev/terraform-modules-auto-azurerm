@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/subnet_service_endpoint_storage_policy"   
 }
-
 inputs = {
    name = "The name which should be used for this Subnet Service Endpoint Storage Policy..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

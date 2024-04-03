@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/disk_access"   
 }
-
 inputs = {
    location = "${location}"   
    name = "The name which should be used for this Disk Access"   
    resource_group_name = "${resource_group}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

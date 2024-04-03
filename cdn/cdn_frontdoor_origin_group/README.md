@@ -9,25 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_origin_group"   
 }
-
 inputs = {
    name = "The name which should be used for this Front Door Origin Group..."   
    # cdn_frontdoor_profile_id → set in component_inputs
    load_balancing = {
-   }
-   
+   }   
 }
-
 component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

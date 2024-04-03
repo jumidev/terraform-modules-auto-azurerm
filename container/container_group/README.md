@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_group"   
 }
-
 inputs = {
    name = "Specifies the name of the Container Group"   
    resource_group_name = "${resource_group}"   
@@ -17,13 +16,11 @@ inputs = {
    container = "The definition of a container that is part of the group as documented in the `co..."   
    os_type = "The OS for the container group"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -67,6 +64,15 @@ tfstate_store = {
 | `password` | string | No | - | The password with which to connect to the registry. Changing this forces a new resource to be created. |
 | `server` | string | Yes | - | The address to use to connect to the registry without protocol ('https'/'http'). For example: 'myacr.acr.io'. Changing this forces a new resource to be created. |
 
+### `log_analytics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
+| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
+| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
+
 ### `dns_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -87,15 +93,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Group. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). ~> **NOTE:** When 'type' is set to 'SystemAssigned', the identity of the Principal ID can be retrieved after the container group has been created. See [documentation](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview) for more information. |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Group. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. ~> **NOTE:** Currently you can't use a managed identity in a container group deployed to a virtual network. |
-
-### `log_analytics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_type` | string | No | - | The log type which should be used. Possible values are 'ContainerInsights' and 'ContainerInstanceLogs'. Changing this forces a new resource to be created. |
-| `workspace_id` | string | Yes | - | The Workspace ID of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `workspace_key` | string | Yes | - | The Workspace Key of the Log Analytics Workspace. Changing this forces a new resource to be created. |
-| `metadata` | string | No | - | Any metadata required for Log Analytics. Changing this forces a new resource to be created. |
 
 
 

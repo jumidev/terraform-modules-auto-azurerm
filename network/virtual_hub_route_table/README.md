@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_hub_route_table"   
 }
-
 inputs = {
    name = "The name which should be used for Virtual Hub Route Table..."   
    # virtual_hub_id → set in component_inputs
 }
-
 component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

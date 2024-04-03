@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_role_assignment"   
 }
-
 inputs = {
    role_name = "The Role Name of the Synapse Built-In Role"   
    principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Synapse..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "log_analytics/log_analytics_query_pack"   
 }
-
 inputs = {
    name = "The name which should be used for this Log Analytics Query Pack..."   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

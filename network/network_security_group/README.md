@@ -9,40 +9,38 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/network_security_group"   
 }
-
 inputs = {
    name = "Specifies the name of the network security group"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    security_rule = {
       item_1 = {
+         description = "..."         
          protocol = "*"         
+         source_port_range = "*"         
+         destination_port_range = "..."         
+         source_address_prefix = "*"         
          # source_application_security_group_ids → (optional) set in component_inputs
+         destination_address_prefix = "..."         
          # destination_application_security_group_ids → (optional) set in component_inputs
          access = "Allow"         
          priority = "..."         
          direction = "Inbound"         
-      }
-      
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 component_inputs = {
    security_rule.item_1.source_application_security_group_ids = "path/to/application_security_group_component:id"   
    security_rule.item_1.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 

@@ -9,25 +9,21 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_sync_cloud_endpoint"   
 }
-
 inputs = {
    name = "The name which should be used for this Storage Sync Cloud Endpoint..."   
    # storage_sync_group_id → set in component_inputs
    file_share_name = "The Storage Share name to be synchronized in this Storage Sync Cloud Endpoint..."   
    # storage_account_id → set in component_inputs
 }
-
 component_inputs = {
    storage_sync_group_id = "path/to/storage_sync_group_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

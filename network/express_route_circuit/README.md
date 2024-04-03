@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_circuit"   
 }
-
 inputs = {
    name = "The name of the ExpressRoute circuit"   
    resource_group_name = "${resource_group}"   
@@ -17,16 +16,13 @@ inputs = {
    sku = {
       tier = "..."      
       family = "..."      
-   }
-   
+   }   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

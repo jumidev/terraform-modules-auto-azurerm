@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_route_disable_link_to_default_domain"   
 }
-
 inputs = {
    # cdn_frontdoor_route_id → set in component_inputs
    # cdn_frontdoor_custom_domain_ids → set in component_inputs
 }
-
 component_inputs = {
    cdn_frontdoor_route_id = "path/to/cdn_frontdoor_route_component:id"   
    cdn_frontdoor_custom_domain_ids = "path/to/cdn_frontdoor_custom_domain_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

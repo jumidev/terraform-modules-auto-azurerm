@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_cassandra_cluster"   
 }
-
 inputs = {
    name = "The name which should be used for this Cassandra Cluster..."   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    # delegated_management_subnet_id → set in component_inputs
    default_admin_password = "The initial admin password for this Cassandra Cluster..."   
 }
-
 component_inputs = {
    delegated_management_subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

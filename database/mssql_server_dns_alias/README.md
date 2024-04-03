@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mssql_server_dns_alias"   
 }
-
 inputs = {
    # mssql_server_id → set in component_inputs
    name = "The name which should be used for this MSSQL Server DNS Alias..."   
 }
-
 component_inputs = {
    mssql_server_id = "path/to/mssql_server_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

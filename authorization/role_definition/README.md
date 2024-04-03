@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "authorization/role_definition"   
 }
-
 inputs = {
    name = "The name of the Role Definition"   
    scope = "The scope at which the Role Definition applies to, such as `/subscriptions/0b1f6..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

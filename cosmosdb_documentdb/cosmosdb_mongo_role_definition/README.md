@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_mongo_role_definition"   
 }
-
 inputs = {
    # cosmos_mongo_database_id → set in component_inputs
    role_name = "The user-friendly name for the Mongo Role Definition..."   
 }
-
 component_inputs = {
    cosmos_mongo_database_id = "path/to/cosmosdb_mongo_database_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

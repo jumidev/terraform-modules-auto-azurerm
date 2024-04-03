@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/ssh_public_key"   
 }
-
 inputs = {
    location = "${location}"   
    name = "The name which should be used for this SSH Public Key..."   
    public_key = "SSH public key used to authenticate to a virtual machine through ssh..."   
    resource_group_name = "${resource_group}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

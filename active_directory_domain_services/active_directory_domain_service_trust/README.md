@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "active_directory_domain_services/active_directory_domain_service_trust"   
 }
-
 inputs = {
    # domain_service_id → set in component_inputs
    name = "The name which should be used for this Active Directory Domain Service Trust..."   
@@ -17,17 +16,14 @@ inputs = {
    trusted_domain_dns_ips = "Specifies a list of DNS IPs that are used to resolve the on-premise Active Direc..."   
    trusted_domain_fqdn = "The FQDN of the on-premise Active Directory Domain Service..."   
 }
-
 component_inputs = {
    domain_service_id = "path/to/active_directory_domain_service_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

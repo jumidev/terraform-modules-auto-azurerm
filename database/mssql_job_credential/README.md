@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mssql_job_credential"   
 }
-
 inputs = {
    name = "The name which should be used for this Elastic Job Credential..."   
    # job_agent_id → set in component_inputs
    username = "The username part of the credential"   
    password = "The password part of the credential"   
 }
-
 component_inputs = {
    job_agent_id = "path/to/mssql_job_agent_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

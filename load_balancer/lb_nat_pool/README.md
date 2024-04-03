@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_nat_pool"   
 }
-
 inputs = {
    name = "Specifies the name of the NAT pool"   
    resource_group_name = "${resource_group}"   
@@ -20,18 +19,15 @@ inputs = {
    frontend_port_end = "The last port number in the range of external ports that will be used to provide..."   
    backend_port = "The port used for the internal endpoint"   
 }
-
 component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
    frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

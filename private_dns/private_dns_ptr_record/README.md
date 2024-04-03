@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "private_dns/private_dns_ptr_record"   
 }
-
 inputs = {
    name = "The name of the DNS PTR Record"   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
    records = "List of Fully Qualified Domain Names"   
 }
-
 component_inputs = {
    zone_name = "path/to/private_dns_zone_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_table"   
 }
-
 inputs = {
    name = "The name of the storage table"   
    # storage_account_name → set in component_inputs
 }
-
 component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

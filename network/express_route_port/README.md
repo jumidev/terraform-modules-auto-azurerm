@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_port"   
 }
-
 inputs = {
    name = "The name which should be used for this Express Route Port..."   
    resource_group_name = "${resource_group}"   
@@ -18,13 +17,11 @@ inputs = {
    encapsulation = "The encapsulation method used for the Express Route Port..."   
    peering_location = "The name of the peering location that this Express Route Port is physically mapp..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/kubernetes_cluster_node_pool"   
 }
-
 inputs = {
    name = "The name of the Node Pool which should be created within the Kubernetes Cluster..."   
    # kubernetes_cluster_id → set in component_inputs
    vm_size = "The SKU which should be used for the Virtual Machines used in this Node Pool..."   
 }
-
 component_inputs = {
    kubernetes_cluster_id = "path/to/kubernetes_cluster_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -81,21 +77,6 @@ tfstate_store = {
 | **min_count** | number |  -  |  `0`, `1000`, `max_count`  |  The minimum number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` and must be less than or equal to `max_count`. | 
 | **node_count** | number |  -  |  `0`, `1000`, `1`  |  The number of nodes which should exist within this Node Pool. Valid values are between `0` and `1000` (inclusive) for user pools and between `1` and `1000` (inclusive) for system pools. | 
 
-### `linux_os_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | number | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
-| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
-
-### `windows_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade. |
-
 ### `sysctl_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -135,6 +116,21 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information. |
+
+### `windows_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `outbound_nat_enabled` | bool | No | True | Should the Windows nodes in this Node Pool have outbound NAT enabled? Defaults to 'true'. Changing this forces a new resource to be created. -> **Note:** If a percentage is provided, the number of surge nodes is calculated from the current node count on the cluster. Node surge can allow a cluster to have more nodes than 'max_count' during an upgrade. Ensure that your cluster has enough [IP space](https://docs.microsoft.com/azure/aks/upgrade-cluster#customize-node-surge-upgrade) during an upgrade. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | number | No | - | Specifies the size of swap file on each node in MB. Changing this forces a new resource to be created. |
+| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. Changing this forces a new resource to be created. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. Changing this forces a new resource to be created. |
+| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. Changing this forces a new resource to be created. |
 
 ### `kubelet_config` block structure
 

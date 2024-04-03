@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/network_watcher_flow_log"   
 }
-
 inputs = {
    name = "The name of the Network Watcher Flow Log"   
    # network_watcher_name → set in component_inputs
@@ -20,22 +19,18 @@ inputs = {
    retention_policy = {
       enabled = "..."      
       days = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_watcher_name = "path/to/network_watcher_component:name"   
    network_security_group_id = "path/to/network_security_group_component:id"   
    storage_account_id = "path/to/storage_account_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -59,13 +54,6 @@ tfstate_store = {
 | **version** | string |  -  |  `1`, `2`  |  The version (revision) of the flow log. Possible values are `1` and `2`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the Network Watcher Flow Log. | 
 
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Boolean flag to enable/disable retention. |
-| `days` | number | Yes | - | The number of days to retain flow log records. |
-
 ### `traffic_analytics` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -75,6 +63,13 @@ tfstate_store = {
 | `workspace_region` | string | Yes | - | The location of the attached workspace. |
 | `workspace_resource_id` | string | Yes | - | The resource ID of the attached workspace. |
 | `interval_in_minutes` | number | No | 60 | How frequently service should do flow analytics in minutes. Defaults to '60'. |
+
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Boolean flag to enable/disable retention. |
+| `days` | number | Yes | - | The number of days to retain flow log records. |
 
 
 

@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_custom_domain"   
 }
-
 inputs = {
    name = "The name which should be used for this Front Door Custom Domain..."   
    # cdn_frontdoor_profile_id → set in component_inputs
    host_name = "The host name of the domain"   
 }
-
 component_inputs = {
    cdn_frontdoor_profile_id = "path/to/cdn_frontdoor_profile_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 

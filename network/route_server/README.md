@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/route_server"   
 }
-
 inputs = {
    name = "The name of the Route Server"   
    resource_group_name = "${resource_group}"   
@@ -18,18 +17,15 @@ inputs = {
    sku = "The SKU of the Route Server"   
    # public_ip_address_id → set in component_inputs
 }
-
 component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
    public_ip_address_id = "path/to/public_ip_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

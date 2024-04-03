@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/nat_gateway"   
 }
-
 inputs = {
    name = "Specifies the name of the NAT Gateway"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 

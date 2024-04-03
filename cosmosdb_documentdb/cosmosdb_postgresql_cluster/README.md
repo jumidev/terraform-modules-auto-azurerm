@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_postgresql_cluster"   
 }
-
 inputs = {
    name = "The name which should be used for this Azure Cosmos DB for PostgreSQL Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    node_count = "The worker node count of the Azure Cosmos DB for PostgreSQL Cluster..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

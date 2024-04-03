@@ -9,37 +9,34 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/network_interface"   
 }
-
 inputs = {
    ip_configuration = {
       primary = {
+         gateway_load_balancer_frontend_ip_configuration_id = "..."         
          # subnet_id → (optional) set in component_inputs
+         private_ip_address_version = "IPv4"         
          private_ip_address_allocation = "Dynamic"         
          # public_ip_address_id → (optional) set in component_inputs
-      }
-      
+         primary = true         
+         private_ip_address = "..."         
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
    location = "${location}"   
    name = "The name of the Network Interface"   
    resource_group_name = "${resource_group}"   
 }
-
 component_inputs = {
    ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
    ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 
@@ -69,14 +66,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
-
 ```
 
 ### `application_security_group_id` 
@@ -109,14 +103,11 @@ Example component snippet
 inputs = {
    network_interface_backend_address_pool_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_backend_address_pool_association.backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
-
 ```
 
 ### `network_security_group_id` 
@@ -149,14 +140,11 @@ Example component snippet
 inputs = {
    network_interface_application_gateway_backend_address_pool_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_application_gateway_backend_address_pool_association.backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
-
 ```
 
 ### `network_interface_nat_rule_association` 
@@ -177,14 +165,11 @@ Example component snippet
 inputs = {
    network_interface_nat_rule_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_nat_rule_association.nat_rule_id = "path/to/lb_nat_rule_component:id"   
 }
-
 ```
 
 ### `private_dns_a_record` 
@@ -211,14 +196,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
-
 ```
 
 

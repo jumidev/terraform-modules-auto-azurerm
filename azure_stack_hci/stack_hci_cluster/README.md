@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "azure_stack_hci/stack_hci_cluster"   
 }
-
 inputs = {
    name = "The name which should be used for this Azure Stack HCI Cluster..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    client_id = "The Client ID of the Azure Active Directory which is used by the Azure Stack HCI..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

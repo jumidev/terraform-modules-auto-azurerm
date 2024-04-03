@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/shared_image"   
 }
-
 inputs = {
    name = "Specifies the name of the Shared Image"   
    # gallery_name → set in component_inputs
@@ -19,21 +18,17 @@ inputs = {
       offer = "..."      
       publisher = "..."      
       sku = "..."      
-   }
-   
+   }   
    os_type = "The type of Operating System present in this Shared Image..."   
 }
-
 component_inputs = {
    gallery_name = "path/to/shared_image_gallery_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

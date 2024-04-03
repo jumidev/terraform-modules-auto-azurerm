@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_circuit_connection"   
 }
-
 inputs = {
    name = "The name which should be used for this Express Route Circuit Connection..."   
    # peering_id → set in component_inputs
    peer_peering_id = "The ID of the peered Express Route Circuit Private Peering..."   
    address_prefix_ipv4 = "The IPv4 address space from which to allocate customer address for global reach..."   
 }
-
 component_inputs = {
    peering_id = "path/to/express_route_circuit_peering_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

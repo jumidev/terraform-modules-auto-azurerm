@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mssql_server_security_alert_policy"   
 }
-
 inputs = {
    resource_group_name = "${resource_group}"   
    # server_name → set in component_inputs
    state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
 }
-
 component_inputs = {
    server_name = "path/to/mssql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

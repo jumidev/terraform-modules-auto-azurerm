@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mariadb_configuration"   
 }
-
 inputs = {
    name = "Specifies the name of the MariaDB Configuration, which needs [to be a valid Mari..."   
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MariaDB Configuration"   
 }
-
 component_inputs = {
    server_name = "path/to/mariadb_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

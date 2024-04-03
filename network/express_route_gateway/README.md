@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_gateway"   
 }
-
 inputs = {
    name = "The name of the ExpressRoute gateway"   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    # virtual_hub_id → set in component_inputs
    scale_units = "The number of scale units with which to provision the ExpressRoute gateway..."   
 }
-
 component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

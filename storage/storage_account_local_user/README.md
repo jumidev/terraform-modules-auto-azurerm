@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_account_local_user"   
 }
-
 inputs = {
    name = "The name which should be used for this Storage Account Local User..."   
    # storage_account_id → set in component_inputs
 }
-
 component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -44,14 +40,6 @@ tfstate_store = {
 | **ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
 | **ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
 
-### `permission_scope` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permissions` | [block](#permissions-block-structure) | Yes | - | A 'permissions' block. |
-| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
-| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
-
 ### `permissions` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -61,6 +49,14 @@ tfstate_store = {
 | `list` | bool | No | False | Specifies if the Local User has the list permission for this scope. Defaults to 'false'. |
 | `read` | bool | No | False | Specifies if the Local User has the read permission for this scope. Defaults to 'false'. |
 | `write` | bool | No | False | Specifies if the Local User has the write permission for this scope. Defaults to 'false'. |
+
+### `permission_scope` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permissions` | [block](#permissions-block-structure) | Yes | - | A 'permissions' block. |
+| `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
+| `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
 
 ### `ssh_authorized_key` block structure
 

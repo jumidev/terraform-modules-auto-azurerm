@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/shared_image_version"   
 }
-
 inputs = {
    name = "The version number for this Image Version, such as `1..."   
    # gallery_name → set in component_inputs
@@ -18,18 +17,15 @@ inputs = {
    resource_group_name = "${resource_group}"   
    target_region = "One or more `target_region` blocks"   
 }
-
 component_inputs = {
    gallery_name = "path/to/shared_image_gallery_component:name"   
    image_name = "path/to/image_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

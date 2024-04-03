@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_sql_role_assignment"   
 }
-
 inputs = {
    resource_group_name = "${resource_group}"   
    # account_name → set in component_inputs
@@ -17,18 +16,15 @@ inputs = {
    # role_definition_id → set in component_inputs
    scope = "The data plane resource path for which access is being granted through this Cosm..."   
 }
-
 component_inputs = {
    account_name = "path/to/cosmosdb_account_component:name"   
    role_definition_id = "path/to/role_definition_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

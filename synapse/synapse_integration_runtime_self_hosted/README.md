@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_integration_runtime_self_hosted"   
 }
-
 inputs = {
    name = "The name which should be used for this Synapse Self-hosted Integration Runtime..."   
    # synapse_workspace_id → set in component_inputs
 }
-
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

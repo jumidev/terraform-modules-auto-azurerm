@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/vpn_gateway_nat_rule"   
 }
-
 inputs = {
    name = "The name which should be used for this VPN Gateway NAT Rule..."   
    resource_group_name = "${resource_group}"   
    # vpn_gateway_id → set in component_inputs
 }
-
 component_inputs = {
    vpn_gateway_id = "path/to/vpn_gateway_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

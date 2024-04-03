@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_nat_rule"   
 }
-
 inputs = {
    name = "Specifies the name of the NAT Rule"   
    resource_group_name = "${resource_group}"   
@@ -18,18 +17,15 @@ inputs = {
    protocol = "The transport protocol for the external endpoint"   
    backend_port = "The port used for internal connections on the endpoint..."   
 }
-
 component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
    frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -52,14 +48,11 @@ Example component snippet
 inputs = {
    network_interface_nat_rule_association = {
       ip_configuration_name = "primary"      
-   }
-   
+   }   
 }
-
 component_inputs = {
    network_interface_nat_rule_association.network_interface_id = "path/to/network_interface_component:id"   
 }
-
 ```
 
 

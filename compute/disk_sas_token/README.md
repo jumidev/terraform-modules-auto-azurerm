@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/disk_sas_token"   
 }
-
 inputs = {
    # managed_disk_id → set in component_inputs
    duration_in_seconds = "The duration for which the export should be allowed..."   
    access_level = "The level of access required on the disk"   
 }
-
 component_inputs = {
    managed_disk_id = "path/to/managed_disk_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

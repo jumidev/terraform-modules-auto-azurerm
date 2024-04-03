@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "dns/dns_cname_record"   
 }
-
 inputs = {
    name = "The name of the DNS CNAME Record"   
    resource_group_name = "${resource_group}"   
    # zone_name → set in component_inputs
    ttl = "The Time To Live (TTL) of the DNS record in seconds..."   
 }
-
 component_inputs = {
    zone_name = "path/to/dns_zone_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

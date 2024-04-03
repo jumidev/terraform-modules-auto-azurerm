@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "private_dns/private_dns_zone"   
 }
-
 inputs = {
    name = "The name of the Private DNS Zone"   
    resource_group_name = "${resource_group}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -48,14 +45,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       registration_enabled = false      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    private_dns_zone_virtual_network_link.virtual_network_id = "path/to/virtual_network_component:id"   
 }
-
 ```
 
 

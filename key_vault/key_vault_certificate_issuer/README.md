@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "key_vault/key_vault_certificate_issuer"   
 }
-
 inputs = {
    # key_vault_id → set in component_inputs
    name = "The name which should be used for this Key Vault Certificate Issuer..."   
    provider_name = "The name of the third-party Certificate Issuer"   
 }
-
 component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_flexible_server_firewall_rule"   
 }
-
 inputs = {
    name = "The name which should be used for this PostgreSQL Flexible Server Firewall Rule..."   
    # server_id → set in component_inputs
    start_ip_address = "The Start IP Address associated with this PostgreSQL Flexible Server Firewall Ru..."   
    end_ip_address = "The End IP Address associated with this PostgreSQL Flexible Server Firewall Rule..."   
 }
-
 component_inputs = {
    server_id = "path/to/postgresql_flexible_server_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

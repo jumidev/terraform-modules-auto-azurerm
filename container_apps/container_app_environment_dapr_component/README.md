@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container_apps/container_app_environment_dapr_component"   
 }
-
 inputs = {
    # container_app_environment_id → set in component_inputs
    name = "The name for this Dapr component"   
    component_type = "The Dapr Component Type"   
    version = "The version of the component"   
 }
-
 component_inputs = {
    container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

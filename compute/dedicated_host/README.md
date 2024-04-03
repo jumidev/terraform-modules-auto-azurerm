@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "compute/dedicated_host"   
 }
-
 inputs = {
    name = "Specifies the name of this Dedicated Host"   
    # dedicated_host_group_id → set in component_inputs
@@ -17,17 +16,14 @@ inputs = {
    sku_name = "Specify the SKU name of the Dedicated Host"   
    platform_fault_domain = "Specify the fault domain of the Dedicated Host Group in which to create the Dedi..."   
 }
-
 component_inputs = {
    dedicated_host_group_id = "path/to/dedicated_host_group_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

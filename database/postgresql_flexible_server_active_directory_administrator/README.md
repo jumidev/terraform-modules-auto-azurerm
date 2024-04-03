@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_flexible_server_active_directory_administrator"   
 }
-
 inputs = {
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
@@ -18,17 +17,14 @@ inputs = {
    principal_name = "The name of Azure Active Directory principal"   
    principal_type = "The type of Azure Active Directory principal"   
 }
-
 component_inputs = {
    server_name = "path/to/postgresql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

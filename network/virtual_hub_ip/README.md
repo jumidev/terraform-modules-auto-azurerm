@@ -9,26 +9,22 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_hub_ip"   
 }
-
 inputs = {
    name = "The name which should be used for this Virtual Hub IP..."   
    # virtual_hub_id → set in component_inputs
    # subnet_id → set in component_inputs
    # public_ip_address_id → set in component_inputs
 }
-
 component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
    subnet_id = "path/to/subnet_component:id"   
    public_ip_address_id = "path/to/public_ip_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

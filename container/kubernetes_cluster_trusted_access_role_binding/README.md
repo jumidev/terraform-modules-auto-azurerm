@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/kubernetes_cluster_trusted_access_role_binding"   
 }
-
 inputs = {
    # kubernetes_cluster_id → set in component_inputs
    name = "Specifies the name of this Kubernetes Cluster Trusted Access Role Binding..."   
    roles = "A list of roles to bind, each item is a resource type qualified role name..."   
    source_resource_id = "The ARM resource ID of source resource that trusted access is configured for..."   
 }
-
 component_inputs = {
    kubernetes_cluster_id = "path/to/kubernetes_cluster_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

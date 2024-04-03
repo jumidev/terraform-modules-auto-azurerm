@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "key_vault/key_vault"   
 }
-
 inputs = {
    name = "Specifies the name of the Key Vault"   
    location = "${location}"   
@@ -17,13 +16,11 @@ inputs = {
    sku_name = "The Name of the SKU used for this Key Vault"   
    tenant_id = "The Azure Active Directory tenant ID that should be used for authenticating requ..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -52,23 +49,6 @@ tfstate_store = {
 | **contact** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. ~> **Note:** This field can only be set once user has `managecontacts` certificate permission. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `network_acls` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
-| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
-| `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
-| `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
-
-### `contact` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `email` | string | Yes | - | E-mail address of the contact. |
-| `name` | string | No | - | Name of the contact. |
-| `phone` | number | No | - | Phone number of the contact. |
-
 ### `access_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -80,6 +60,23 @@ tfstate_store = {
 | `key_permissions` | string | No | - | List of key permissions. Possible values are 'Backup', 'Create', 'Decrypt', 'Delete', 'Encrypt', 'Get', 'Import', 'List', 'Purge', 'Recover', 'Restore', 'Sign', 'UnwrapKey', 'Update', 'Verify', 'WrapKey', 'Release', 'Rotate', 'GetRotationPolicy' and 'SetRotationPolicy'. |
 | `secret_permissions` | list | No | - | List of secret permissions, must be one or more from the following: 'Backup', 'Delete', 'Get', 'List', 'Purge', 'Recover', 'Restore' and 'Set'. |
 | `storage_permissions` | list | No | - | List of storage permissions, must be one or more from the following: 'Backup', 'Delete', 'DeleteSAS', 'Get', 'GetSAS', 'List', 'ListSAS', 'Purge', 'Recover', 'RegenerateKey', 'Restore', 'Set', 'SetSAS' and 'Update'. |
+
+### `contact` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `email` | string | Yes | - | E-mail address of the contact. |
+| `name` | string | No | - | Name of the contact. |
+| `phone` | number | No | - | Phone number of the contact. |
+
+### `network_acls` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
+| `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
 
 
 

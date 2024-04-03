@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "key_vault/key_vault_access_policy"   
 }
-
 inputs = {
    # key_vault_id → set in component_inputs
    tenant_id = "The Azure Active Directory tenant ID that should be used for authenticating requ..."   
    object_id = "The object ID of a user, service principal or security group in the Azure Active..."   
 }
-
 component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

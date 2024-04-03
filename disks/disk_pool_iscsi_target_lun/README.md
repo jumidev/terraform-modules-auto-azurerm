@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "disks/disk_pool_iscsi_target_lun"   
 }
-
 inputs = {
    iscsi_target_id = "The ID of the iSCSI Target"   
    # disk_pool_managed_disk_attachment_id → set in component_inputs
    name = "User defined name for iSCSI LUN"   
 }
-
 component_inputs = {
    disk_pool_managed_disk_attachment_id = "path/to/disk_pool_managed_disk_attachment_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

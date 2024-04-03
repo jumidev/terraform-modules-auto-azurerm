@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_spark_pool"   
 }
-
 inputs = {
    name = "The name which should be used for this Synapse Spark Pool..."   
    # synapse_workspace_id → set in component_inputs
    node_size_family = "The kind of nodes that the Spark Pool provides"   
    node_size = "The level of node in the Spark Pool"   
 }
-
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -65,6 +61,13 @@ tfstate_store = {
 | `content` | string | Yes | - | The contents of a spark configuration. |
 | `filename` | string | Yes | - | The name of the file where the spark configuration 'content' will be stored. |
 
+### `auto_scale` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_node_count` | number | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+| `min_node_count` | number | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
+
 ### `auto_pause` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,13 +80,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
-
-### `auto_scale` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_node_count` | number | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
-| `min_node_count` | number | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
 
 

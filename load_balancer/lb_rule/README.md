@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_rule"   
 }
-
 inputs = {
    name = "Specifies the name of the LB Rule"   
    # loadbalancer_id → set in component_inputs
@@ -18,18 +17,15 @@ inputs = {
    frontend_port = "The port for the external endpoint"   
    backend_port = "The port used for internal connections on the endpoint..."   
 }
-
 component_inputs = {
    loadbalancer_id = "path/to/lb_component:id"   
    frontend_ip_configuration_name = "path/to/lb_outbound_rule_component:frontend_ip_configuration"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

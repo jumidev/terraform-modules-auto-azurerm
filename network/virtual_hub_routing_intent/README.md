@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_hub_routing_intent"   
 }
-
 inputs = {
    name = "The name which should be used for this Virtual Hub Routing Intent..."   
    # virtual_hub_id → set in component_inputs
@@ -17,26 +16,20 @@ inputs = {
       item_1 = {
          destinations = "Possible values: Internet | PrivateTraffic"         
          next_hop = "..."         
-      }
-      
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 component_inputs = {
    virtual_hub_id = "path/to/virtual_hub_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

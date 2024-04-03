@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/custom_ip_prefix"   
 }
-
 inputs = {
    name = "The name of the Custom IP Prefix"   
    location = "${location}"   
    resource_group_name = "${resource_group}"   
    cidr = "The `cidr` of the Custom IP Prefix, either IPv4 or IPv6..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

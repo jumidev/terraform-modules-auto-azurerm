@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database_migration/database_migration_service"   
 }
-
 inputs = {
    name = "Specify the name of the database migration service"   
    location = "${location}"   
@@ -17,17 +16,14 @@ inputs = {
    # subnet_id → set in component_inputs
    sku_name = "The SKU name of the database migration service"   
 }
-
 component_inputs = {
    subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/sql_server"   
 }
-
 inputs = {
    name = "The name of the Microsoft SQL Server"   
    resource_group_name = "${resource_group}"   
@@ -18,13 +17,11 @@ inputs = {
    administrator_login = "The administrator login name for the new server"   
    administrator_login_password = "The password associated with the `administrator_login` user..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

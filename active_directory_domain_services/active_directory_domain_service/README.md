@@ -9,29 +9,24 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "active_directory_domain_services/active_directory_domain_service"   
 }
-
 inputs = {
    domain_name = "The Active Directory domain to use"   
    location = "${location}"   
    name = "The display name for your managed Active Directory Domain Service resource..."   
    initial_replica_set = {
       # subnet_id → set in component_inputs
-   }
-   
+   }   
    resource_group_name = "${resource_group}"   
    sku = "The SKU to use when provisioning the Domain Service resource..."   
 }
-
 component_inputs = {
    initial_replica_set.subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -56,6 +51,20 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `notifications` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
+| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
+| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
+
+### `initial_replica_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
+
 ### `secure_ldap` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -76,20 +85,6 @@ tfstate_store = {
 | `sync_ntlm_passwords` | bool | No | False | Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. |
 | `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
 | `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
-
-### `notifications` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
-| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
-| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
-
-### `initial_replica_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_id` | string | Yes | - | The ID of the subnet in which to place the initial replica set. Changing this forces a new resource to be created. |
 
 
 

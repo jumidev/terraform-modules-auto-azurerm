@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_sql_role_definition"   
 }
-
 inputs = {
    resource_group_name = "${resource_group}"   
    # account_name → set in component_inputs
@@ -17,20 +16,16 @@ inputs = {
    name = "An user-friendly name for the Cosmos DB SQL Role Definition which must be unique..."   
    permissions = {
       data_actions = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    account_name = "path/to/cosmosdb_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

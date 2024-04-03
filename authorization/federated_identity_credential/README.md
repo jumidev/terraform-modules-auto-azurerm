@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "authorization/federated_identity_credential"   
 }
-
 inputs = {
    name = "Specifies the name of this Federated Identity Credential..."   
    resource_group_name = "${resource_group}"   
@@ -18,13 +17,11 @@ inputs = {
    parent_id = "Specifies parent ID of User Assigned Identity for this Federated Identity Creden..."   
    subject = "Specifies the subject for this Federated Identity Credential..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

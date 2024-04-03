@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database_migration/database_migration_project"   
 }
-
 inputs = {
    name = "Specify the name of the database migration project"   
    service_name = "Name of the database migration service where resource belongs to..."   
@@ -18,13 +17,11 @@ inputs = {
    source_platform = "The platform type of the migration source"   
    target_platform = "The platform type of the migration target"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

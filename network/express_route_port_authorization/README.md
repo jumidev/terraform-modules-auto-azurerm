@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_port_authorization"   
 }
-
 inputs = {
    name = "The name of the ExpressRoute Port"   
    resource_group_name = "${resource_group}"   
    # express_route_port_name → set in component_inputs
 }
-
 component_inputs = {
    express_route_port_name = "path/to/express_route_port_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

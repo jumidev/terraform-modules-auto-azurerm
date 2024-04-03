@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_registry"   
 }
-
 inputs = {
    name = "Specifies the name of the Container Registry"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = "The SKU name of the container registry"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -54,6 +51,27 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
+| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids' |
+
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | number | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+
+### `trust_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+
 ### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -69,27 +87,6 @@ tfstate_store = {
 | `regional_endpoint_enabled` | bool | No | - | Whether regional endpoint is enabled for this Container Registry? |
 | `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. ~> **NOTE:** Changing the 'zone_redundancy_enabled' forces the a underlying replication to be created. |
 | `tags` | map | No | - | A mapping of tags to assign to this replication location. |
-
-### `trust_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
-
-### `encryption` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
-| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids' |
-
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | number | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
 ### `identity` block structure
 

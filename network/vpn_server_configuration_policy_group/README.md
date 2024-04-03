@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/vpn_server_configuration_policy_group"   
 }
-
 inputs = {
    name = "The Name which should be used for this VPN Server Configuration Policy Group..."   
    # vpn_server_configuration_id → set in component_inputs
    policy = "One or more `policy` blocks"   
 }
-
 component_inputs = {
    vpn_server_configuration_id = "path/to/vpn_server_configuration_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,25 +9,21 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_blob"   
 }
-
 inputs = {
    name = "The name of the storage blob"   
    # storage_account_name → set in component_inputs
    # storage_container_name → set in component_inputs
    type = "The type of the storage blob to be created"   
 }
-
 component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
    storage_container_name = "path/to/storage_container_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

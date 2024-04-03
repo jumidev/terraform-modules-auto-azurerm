@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mysql_flexible_database"   
 }
-
 inputs = {
    name = "Specifies the name of the MySQL Database, which needs [to be a valid MySQL ident..."   
    # server_name → set in component_inputs
@@ -17,17 +16,14 @@ inputs = {
    charset = "Specifies the Charset for the MySQL Database, which needs [to be a valid MySQL C..."   
    collation = "Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL..."   
 }
-
 component_inputs = {
    server_name = "path/to/mysql_flexible_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

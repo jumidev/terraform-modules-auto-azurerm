@@ -9,17 +9,14 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "redis_enterprise/redis_enterprise_database"   
 }
-
 inputs = {
    cluster_id = "The resource id of the Redis Enterprise Cluster to deploy this Redis Enterprise ..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

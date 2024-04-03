@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "load_balancer/lb_backend_address_pool_address"   
 }
-
 inputs = {
    # backend_address_pool_id → set in component_inputs
    name = "The name which should be used for this Backend Address Pool Address..."   
 }
-
 component_inputs = {
    backend_address_pool_id = "path/to/lb_backend_address_pool_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

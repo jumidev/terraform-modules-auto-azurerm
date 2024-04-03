@@ -9,27 +9,22 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_cassandra_table"   
 }
-
 inputs = {
    name = "Specifies the name of the Cosmos DB Cassandra Table..."   
    # cassandra_keyspace_id → set in component_inputs
    schema = {
       column = "..."      
       partition_key = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    cassandra_keyspace_id = "path/to/cosmosdb_cassandra_keyspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -49,6 +44,13 @@ tfstate_store = {
 | **analytical_storage_ttl** | number |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. ~> **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed. | 
 
+### `column` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to be created. |
+| `type` | string | Yes | - | Type of the column to be created. |
+
 ### `schema` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,25 +65,18 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
 
+### `partition_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to partition by. |
+
 ### `cluster_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the cluster key to be created. |
 | `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
-### `column` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the column to be created. |
-| `type` | string | Yes | - | Type of the column to be created. |
-
-### `partition_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the column to partition by. |
 
 
 

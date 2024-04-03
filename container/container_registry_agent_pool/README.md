@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_registry_agent_pool"   
 }
-
 inputs = {
    # container_registry_name → set in component_inputs
    location = "${location}"   
    name = "The name which should be used for this Azure Container Registry Agent Pool..."   
    resource_group_name = "${resource_group}"   
 }
-
 component_inputs = {
    container_registry_name = "path/to/container_registry_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

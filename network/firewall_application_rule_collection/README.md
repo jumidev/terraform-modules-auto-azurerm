@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/firewall_application_rule_collection"   
 }
-
 inputs = {
    name = "Specifies the name of the Application Rule Collection which must be unique withi..."   
    # azure_firewall_name → set in component_inputs
@@ -18,26 +17,26 @@ inputs = {
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       item_1 = {
-      }
-      
+         description = "..."         
+         source_addresses = "..."         
+         source_ip_groups = "..."         
+         fqdn_tags = "Possible values: AppServiceEnvironment | AzureBackup | AzureKubernetesService | HDInsight | MicrosoftActiveProtectionService | WindowsDiagnostics | WindowsUpdate | WindowsVirtualDesktop"         
+         target_fqdns = "..."         
+         protocol = "..."         
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 component_inputs = {
    azure_firewall_name = "path/to/firewall_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -51,6 +50,13 @@ tfstate_store = {
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -62,13 +68,6 @@ tfstate_store = {
 | `fqdn_tags` | list | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
 | `target_fqdns` | list | No | - | A list of FQDNs. |
 | `protocol` | [block](#protocol-block-structure) | No | - | One or more 'protocol' blocks. |
-
-### `protocol` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | Specify a port for the connection. |
-| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
 
 
 

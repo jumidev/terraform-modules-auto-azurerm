@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/sql_firewall_rule"   
 }
-
 inputs = {
    name = "The name of the firewall rule"   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    start_ip_address = "The starting IP address to allow through the firewall for this rule..."   
    end_ip_address = "The ending IP address to allow through the firewall for this rule..."   
 }
-
 component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

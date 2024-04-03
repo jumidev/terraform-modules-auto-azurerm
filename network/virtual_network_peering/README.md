@@ -9,25 +9,21 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_network_peering"   
 }
-
 inputs = {
    name = "The name of the virtual network peering"   
    # virtual_network_name → set in component_inputs
    # remote_virtual_network_id → set in component_inputs
    resource_group_name = "${resource_group}"   
 }
-
 component_inputs = {
    virtual_network_name = "path/to/virtual_network_component:name"   
    remote_virtual_network_id = "path/to/virtual_network_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

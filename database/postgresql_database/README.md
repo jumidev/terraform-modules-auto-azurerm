@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_database"   
 }
-
 inputs = {
    name = "Specifies the name of the PostgreSQL Database, which needs [to be a valid Postgr..."   
    # server_name → set in component_inputs
@@ -17,17 +16,14 @@ inputs = {
    charset = "Specifies the Charset for the PostgreSQL Database, which needs [to be a valid Po..."   
    collation = "Specifies the Collation for the PostgreSQL Database, which needs [to be a valid ..."   
 }
-
 component_inputs = {
    server_name = "path/to/postgresql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

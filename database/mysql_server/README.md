@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mysql_server"   
 }
-
 inputs = {
    name = "Specifies the name of the MySQL Server"   
    resource_group_name = "${resource_group}"   
@@ -18,13 +17,11 @@ inputs = {
    version = "Specifies the version of MySQL to use"   
    ssl_enforcement_enabled = "Specifies if SSL should be enforced on connections"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -53,14 +50,11 @@ inputs = {
       database_name = "..."      
       username = "..."      
       password = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    spring_cloud_app_mysql_association.spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
 }
-
 ```
 
 

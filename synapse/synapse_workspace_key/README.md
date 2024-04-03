@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_workspace_key"   
 }
-
 inputs = {
    customer_managed_key_name = "Specifies the name of the workspace key"   
    # synapse_workspace_id → set in component_inputs
    active = "Specifies if the workspace should be encrypted with this key..."   
 }
-
 component_inputs = {
    synapse_workspace_id = "path/to/synapse_workspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

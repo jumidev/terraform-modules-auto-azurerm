@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_share_file"   
 }
-
 inputs = {
    name = "The name (or path) of the File that should be created within this File Share..."   
    # storage_share_id → set in component_inputs
 }
-
 component_inputs = {
    storage_share_id = "path/to/storage_share_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

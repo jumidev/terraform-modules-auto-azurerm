@@ -9,22 +9,18 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "log_analytics/log_analytics_workspace_table"   
 }
-
 inputs = {
    name = "Specifies the name of a table in a Log Analytics Workspace..."   
    # workspace_id → set in component_inputs
 }
-
 component_inputs = {
    workspace_id = "path/to/log_analytics_workspace_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

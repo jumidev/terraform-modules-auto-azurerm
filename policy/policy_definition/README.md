@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "policy/policy_definition"   
 }
-
 inputs = {
    name = "The name of the policy definition"   
    policy_type = "The policy type"   
    mode = "The policy resource manager mode that allows you to specify which resource types..."   
    display_name = "The display name of the policy definition"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

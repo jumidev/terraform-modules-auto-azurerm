@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "databricks/databricks_workspace"   
 }
-
 inputs = {
    name = "Specifies the name of the Databricks Workspace resource..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    sku = "The `sku` to use for the Databricks Workspace"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

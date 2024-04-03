@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "active_directory_domain_services/active_directory_domain_service_replica_set"   
 }
-
 inputs = {
    # domain_service_id → set in component_inputs
    location = "${location}"   
    # subnet_id → set in component_inputs
 }
-
 component_inputs = {
    domain_service_id = "path/to/active_directory_domain_service_component:id"   
    subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

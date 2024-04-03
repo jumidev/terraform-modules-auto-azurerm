@@ -9,24 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_registry_token_password"   
 }
-
 inputs = {
    # container_registry_token_id → set in component_inputs
    password1 = {
-   }
-   
+   }   
 }
-
 component_inputs = {
    container_registry_token_id = "path/to/container_registry_token_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

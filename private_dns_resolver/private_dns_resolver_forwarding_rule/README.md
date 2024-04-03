@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "private_dns_resolver/private_dns_resolver_forwarding_rule"   
 }
-
 inputs = {
    name = "Specifies the name which should be used for this Private DNS Resolver Forwarding..."   
    dns_forwarding_ruleset_id = "Specifies the ID of the Private DNS Resolver Forwarding Ruleset..."   
    domain_name = "Specifies the domain name for the Private DNS Resolver Forwarding Rule..."   
    target_dns_servers = {
       ip_address = "..."      
-   }
-   
+   }   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

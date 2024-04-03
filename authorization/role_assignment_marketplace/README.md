@@ -9,17 +9,14 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "authorization/role_assignment_marketplace"   
 }
-
 inputs = {
    principal_id = "The ID of the Principal (User, Group or Service Principal) to assign the Role De..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

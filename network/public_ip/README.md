@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/public_ip"   
 }
-
 inputs = {
    name = "Specifies the name of the Public IP"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    allocation_method = "Defines the allocation method for this IP address"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated components
 
@@ -52,14 +49,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    dns_a_record.zone_name = "path/to/dns_zone_component:name"   
 }
-
 ```
 
 ### `nat_gateway_id` 
@@ -98,14 +92,11 @@ inputs = {
       resource_group_name = "${resource_group}"      
       ttl = 300      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    private_dns_a_record.zone_name = "path/to/private_dns_zone_component:name"   
 }
-
 ```
 
 

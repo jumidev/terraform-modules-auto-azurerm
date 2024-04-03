@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mysql_configuration"   
 }
-
 inputs = {
    name = "Specifies the name of the MySQL Configuration, which needs [to be a valid MySQL ..."   
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MySQL Configuration"   
 }
-
 component_inputs = {
    server_name = "path/to/mysql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

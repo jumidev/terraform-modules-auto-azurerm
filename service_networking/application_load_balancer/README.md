@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "service_networking/application_load_balancer"   
 }
-
 inputs = {
    name = "The name which should be used for this Application Gateway for Containers (ALB)..."   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -46,14 +43,11 @@ inputs = {
    application_load_balancer_subnet_association = {
       name = "..."      
       tags = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    application_load_balancer_subnet_association.subnet_id = "path/to/subnet_component:id"   
 }
-
 ```
 
 

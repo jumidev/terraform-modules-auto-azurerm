@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container_apps/container_app_environment_certificate"   
 }
-
 inputs = {
    name = "The name of the Container Apps Environment Certificate..."   
    # container_app_environment_id → set in component_inputs
    certificate_blob_base64 = "The Certificate Private Key as a base64 encoded PFX or PEM..."   
    certificate_password = "The password for the Certificate"   
 }
-
 component_inputs = {
    container_app_environment_id = "path/to/container_app_environment_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

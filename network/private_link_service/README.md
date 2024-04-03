@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/private_link_service"   
 }
-
 inputs = {
    name = "Specifies the name of this Private Link Service"   
    resource_group_name = "${resource_group}"   
@@ -18,22 +17,18 @@ inputs = {
       name = "..."      
       # subnet_id → set in component_inputs
       primary = true      
-   }
-   
+   }   
    # load_balancer_frontend_ip_configuration_ids → set in component_inputs
 }
-
 component_inputs = {
    nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
    load_balancer_frontend_ip_configuration_ids = ["path/to/lb_outbound_rule_component:frontend_ip_configuration", "..."]   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

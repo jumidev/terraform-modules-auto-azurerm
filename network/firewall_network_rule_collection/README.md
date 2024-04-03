@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/firewall_network_rule_collection"   
 }
-
 inputs = {
    name = "Specifies the name of the Network Rule Collection which must be unique within th..."   
    # azure_firewall_name → set in component_inputs
@@ -18,28 +17,28 @@ inputs = {
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       item_1 = {
+         description = "..."         
+         source_addresses = "..."         
+         source_ip_groups = "..."         
+         destination_addresses = "..."         
+         destination_ip_groups = "..."         
+         destination_fqdns = "..."         
          destination_ports = "..."         
          protocols = "Possible values: Any | ICMP | TCP | UDP"         
-      }
-      
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 component_inputs = {
    azure_firewall_name = "path/to/firewall_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

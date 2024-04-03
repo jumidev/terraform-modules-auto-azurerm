@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "arc_resource_bridge/arc_resource_bridge_appliance"   
 }
-
 inputs = {
    name = "The Name which should be used for this Arc Resource Bridge Appliance..."   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    distro = "Specifies a supported Fabric/Infrastructure for this Arc Resource Bridge Applian..."   
    identity = {
       type = "..."      
-   }
-   
+   }   
    infrastructure_provider = "The infrastructure provider about the connected Arc Resource Bridge Appliance..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

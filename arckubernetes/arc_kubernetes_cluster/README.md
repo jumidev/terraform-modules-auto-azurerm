@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "arckubernetes/arc_kubernetes_cluster"   
 }
-
 inputs = {
    name = "Specifies the name which should be used for this Arc Kubernetes Cluster..."   
    resource_group_name = "${resource_group}"   
    agent_public_key_certificate = "Specifies the base64-encoded public certificate used by the agent to do the init..."   
    identity = {
       type = "..."      
-   }
-   
+   }   
    location = "${location}"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

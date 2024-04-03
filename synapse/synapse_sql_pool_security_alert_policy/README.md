@@ -9,18 +9,15 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_sql_pool_security_alert_policy"   
 }
-
 inputs = {
    sql_pool_id = "Specifies the ID of the Synapse SQL Pool"   
    policy_state = "Specifies the state of the policy, whether it is enabled or disabled or a policy..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

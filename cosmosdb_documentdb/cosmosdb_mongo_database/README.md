@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_mongo_database"   
 }
-
 inputs = {
    name = "Specifies the name of the Cosmos DB Mongo Database"   
    resource_group_name = "${resource_group}"   
    # account_name → set in component_inputs
 }
-
 component_inputs = {
    account_name = "path/to/cosmosdb_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 
@@ -62,15 +58,12 @@ inputs = {
       name = "..."      
       api_type = "..."      
       cosmosdb_access_key = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    spring_cloud_app_cosmosdb_association.spring_cloud_app_id = "path/to/spring_cloud_app_component:id"   
    spring_cloud_app_cosmosdb_association.cosmosdb_account_id = "path/to/cosmosdb_account_component:id"   
 }
-
 ```
 
 

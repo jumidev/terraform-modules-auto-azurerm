@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_connected_registry"   
 }
-
 inputs = {
    # container_registry_id → set in component_inputs
    name = "The name which should be used for this Container Connected Registry..."   
    sync_token_id = "The ID of the Container Registry Token which is used for synchronizing the Conne..."   
 }
-
 component_inputs = {
    container_registry_id = "path/to/container_registry_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

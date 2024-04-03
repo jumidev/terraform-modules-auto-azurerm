@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_sql_stored_procedure"   
 }
-
 inputs = {
    name = "Specifies the name of the Cosmos DB SQL Stored Procedure..."   
    resource_group_name = "${resource_group}"   
@@ -18,18 +17,15 @@ inputs = {
    container_name = "The name of the Cosmos DB SQL Container to create the stored procedure within..."   
    body = "The body of the stored procedure"   
 }
-
 component_inputs = {
    account_name = "path/to/cosmosdb_account_component:name"   
    database_name = "path/to/cosmosdb_sql_database_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

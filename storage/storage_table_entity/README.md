@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_table_entity"   
 }
-
 inputs = {
    # storage_account_name → set in component_inputs
    table_name = "The name of the storage table in which to create the storage table entity..."   
@@ -17,17 +16,14 @@ inputs = {
    row_key = "The key for the row where the entity will be inserted/merged..."   
    entity = "A map of key/value pairs that describe the entity to be inserted/merged in to th..."   
 }
-
 component_inputs = {
    storage_account_name = "path/to/storage_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

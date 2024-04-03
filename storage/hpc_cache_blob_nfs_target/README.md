@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/hpc_cache_blob_nfs_target"   
 }
-
 inputs = {
    cache_name = "The name of the HPC Cache, which the HPC Cache Blob NFS Target will be added to..."   
    name = "The name which should be used for this HPC Cache Blob NFS Target..."   
@@ -18,17 +17,14 @@ inputs = {
    # storage_container_id → set in component_inputs
    usage_model = "The type of usage of the HPC Cache Blob NFS Target"   
 }
-
 component_inputs = {
    storage_container_id = "path/to/storage_container_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

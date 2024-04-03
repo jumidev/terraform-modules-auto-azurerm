@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "redis/redis_firewall_rule"   
 }
-
 inputs = {
    name = "The name of the Firewall Rule"   
    # redis_cache_name → set in component_inputs
@@ -17,17 +16,14 @@ inputs = {
    start_ip = "The lowest IP address included in the range"   
    end_ip = "The highest IP address included in the range"   
 }
-
 component_inputs = {
    redis_cache_name = "path/to/redis_cache_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

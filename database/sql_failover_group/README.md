@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/sql_failover_group"   
 }
-
 inputs = {
    name = "The name of the failover group"   
    resource_group_name = "${resource_group}"   
@@ -17,20 +16,16 @@ inputs = {
    partner_servers = "A list of `partner_servers` blocks"   
    read_write_endpoint_failover_policy = {
       mode = "..."      
-   }
-   
+   }   
 }
-
 component_inputs = {
    server_name = "path/to/sql_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

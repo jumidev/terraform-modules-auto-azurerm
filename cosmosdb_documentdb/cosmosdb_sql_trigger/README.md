@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_sql_trigger"   
 }
-
 inputs = {
    name = "The name which should be used for this SQL Trigger"   
    # container_id → set in component_inputs
@@ -17,17 +16,14 @@ inputs = {
    operation = "The operation the trigger is associated with"   
    type = "Type of the Trigger"   
 }
-
 component_inputs = {
    container_id = "path/to/cosmosdb_sql_container_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cosmosdb_documentdb/cosmosdb_notebook_workspace"   
 }
-
 inputs = {
    name = "The name which should be used for this SQL Notebook Workspace..."   
    resource_group_name = "${resource_group}"   
    # account_name → set in component_inputs
 }
-
 component_inputs = {
    account_name = "path/to/cosmosdb_account_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

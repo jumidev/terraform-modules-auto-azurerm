@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mysql_flexible_server_configuration"   
 }
-
 inputs = {
    name = "Specifies the name of the MySQL Flexible Server Configuration, which needs [to b..."   
    # server_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    value = "Specifies the value of the MySQL Flexible Server Configuration..."   
 }
-
 component_inputs = {
    server_name = "path/to/mysql_flexible_server_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

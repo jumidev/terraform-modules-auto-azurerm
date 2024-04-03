@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/kubernetes_cluster"   
 }
-
 inputs = {
    name = "The name of the Managed Kubernetes Cluster to create..."   
    location = "${location}"   
@@ -23,10 +22,8 @@ inputs = {
       # pod_subnet_id → (optional) set in component_inputs
       # proximity_placement_group_id → (optional) set in component_inputs
       # snapshot_id → (optional) set in component_inputs
-   }
-   
+   }   
 }
-
 component_inputs = {
    default_node_pool.capacity_reservation_group_id = "path/to/capacity_reservation_group_component:id"   
    default_node_pool.host_group_id = "path/to/dedicated_host_group_component:id"   
@@ -35,13 +32,11 @@ component_inputs = {
    default_node_pool.proximity_placement_group_id = "path/to/proximity_placement_group_component:id"   
    default_node_pool.snapshot_id = "path/to/snapshot_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -109,94 +104,12 @@ tfstate_store = {
 | **web_app_routing** | [block](#web_app_routing-block-structure) |  -  |  -  |  A `web_app_routing` block. | 
 | **windows_profile** | [block](#windows_profile-block-structure) |  -  |  -  |  A `windows_profile` block. | 
 
-### `linux_os_config` block structure
+### `workload_autoscaler_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `swap_file_size_mb` | number | No | - | Specifies the size of the swap file on each node in MB. |
-| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. |
-| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. |
-| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. |
-
-### `windows_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
-| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
-| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
-| `gmsa` | [block](#gmsa-block-structure) | No | - | A 'gmsa' block. |
-
-### `kubelet_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
-| `container_log_max_line` | number | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
-| `container_log_max_size_mb` | number | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
-| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
-| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
-| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
-| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
-| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
-| `pod_max_pid` | number | No | - | Specifies the maximum number of processes per pod. |
-| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
-
-### `maintenance_window_node_os` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
-
-### `linux_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
-| `ssh_key` | [block](#ssh_key-block-structure) | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
-
-### `gmsa` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
-| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. -> **Note:** The properties 'dns_server' and 'root_domain' must both either be set or unset, i.e. empty. |
-
-### `confidential_computing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
-
-### `api_server_access_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
-| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
-| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information. |
-
-### `key_vault_secrets_provider` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_rotation_enabled` | bool | No | - | Should the secret store CSI driver on the AKS cluster be enabled? |
-| `secret_rotation_interval` | string | No | 2m | The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. -> **Note:** To enable'key_vault_secrets_provider' either 'secret_rotation_enabled' or 'secret_rotation_interval' must be specified. |
-
-### `node_network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information. |
+| `keda_enabled` | bool | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
+| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AKS-VPAPreview' is enabled and the Resource Provider is re-registered, see [the documentation]([Microsoft.ContainerService/AKS-VPAPreview](https://learn.microsoft.com/en-us/azure/aks/vertical-pod-autoscaler#register-the-aks-vpapreview-feature-flag) for more information. |
 
 ### `key_management_service` block structure
 
@@ -227,6 +140,40 @@ tfstate_store = {
 | `skip_nodes_with_local_storage` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods with local storage, for example, EmptyDir or HostPath. Defaults to 'true'. |
 | `skip_nodes_with_system_pods` | bool | No | True | If 'true' cluster autoscaler will never delete nodes with pods from kube-system (except for DaemonSet or mirror pods). Defaults to 'true'. |
 
+### `confidential_computing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `sgx_quote_helper_enabled` | bool | Yes | - | Should the SGX quote helper be enabled? |
+
+### `service_principal` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | Yes | - | The Client ID for the Service Principal. |
+| `client_secret` | string | Yes | - | The Client Secret for the Service Principal. |
+
+### `linux_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | The Admin Username for the Cluster. Changing this forces a new resource to be created. |
+| `ssh_key` | [block](#ssh_key-block-structure) | Yes | - | An 'ssh_key' block. Only one is currently allowed. Changing this will update the key on all node pools. More information can be found in [the documentation](https://learn.microsoft.com/en-us/azure/aks/node-access#update-ssh-key-on-an-existing-aks-cluster-preview). |
+
+### `web_app_routing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_zone_id` | string | Yes | - | Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. |
+
+### `api_server_access_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `authorized_ip_ranges` | string | No | - | Set of authorized IP ranges to allow access to API server, e.g. ['198.51.100.0/24']. |
+| `subnet_id` | string | No | - | The ID of the Subnet where the API server endpoint is delegated to. |
+| `vnet_integration_enabled` | bool | No | - | Should API Server VNet Integration be enabled? For more details please visit [Use API Server VNet Integration](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration). -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableAPIServerVnetIntegrationPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/api-server-vnet-integration#register-the-enableapiservervnetintegrationpreview-preview-feature) for more information. |
+
 ### `ingress_application_gateway` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -236,20 +183,126 @@ tfstate_store = {
 | `subnet_cidr` | string | No | - | The subnet CIDR to be used to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. |
 | `subnet_id` | string | No | - | The ID of the subnet on which to create an Application Gateway, which in turn will be integrated with the ingress controller of this Kubernetes Cluster. See [this](https://docs.microsoft.com/azure/application-gateway/tutorial-ingress-controller-add-on-new) page for further details. -> **Note:** Exactly one of 'gateway_id', 'subnet_id' or 'subnet_cidr' must be specified. -> **Note:** If specifying 'ingress_application_gateway' in conjunction with 'only_critical_addons_enabled', the AGIC pod will fail to start. A separate 'azurerm_kubernetes_cluster_node_pool' is required to run the AGIC pod successfully. This is because AGIC is classed as a 'non-critical addon'. |
 
-### `maintenance_window_auto_upgrade` block structure
+### `network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
-| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
-| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
-| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
-| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
-| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
-| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
-| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
-| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
-| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+| `network_plugin` | string | Yes | - | Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. -> **Note:** When 'network_plugin' is set to 'azure' - the 'pod_cidr' field must not be set. |
+| `network_mode` | string | No | - | Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ~> **Note:** 'network_mode' can only be set to 'bridge' for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future. ~> **Note:** This property can only be set when 'network_plugin' is set to 'azure'. |
+| `network_policy` | string | No | - | Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'ebpf_data_plane' field must be set to 'cilium'. |
+| `dns_service_ip` | string | No | - | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created. |
+| `docker_bridge_cidr` | string | No | - | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. |
+
+### `microsoft_defender` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
+
+### `kubelet_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allowed_unsafe_sysctls` | string | No | - | Specifies the allow list of unsafe sysctls command or patterns (ending in '*'). |
+| `container_log_max_line` | number | No | - | Specifies the maximum number of container log files that can be present for a container. must be at least 2. |
+| `container_log_max_size_mb` | number | No | - | Specifies the maximum size (e.g. 10MB) of container log file before it is rotated. |
+| `cpu_cfs_quota_enabled` | bool | No | - | Is CPU CFS quota enforcement for containers enabled? |
+| `cpu_cfs_quota_period` | string | No | - | Specifies the CPU CFS quota period value. |
+| `cpu_manager_policy` | string | No | - | Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',. |
+| `image_gc_high_threshold` | string | No | - | Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'. |
+| `image_gc_low_threshold` | string | No | - | Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'. |
+| `pod_max_pid` | number | No | - | Specifies the maximum number of processes per pod. |
+| `topology_manager_policy` | string | No | - | Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'. |
+
+### `monitor_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
+| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+
+### `oms_agent` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `log_analytics_workspace_id` | string | Yes | - | The ID of the Log Analytics Workspace which the OMS Agent should send data to. |
+| `msi_auth_for_monitoring_enabled` | bool | No | - | Is managed identity authentication for monitoring enabled? |
+
+### `azure_active_directory_role_based_access_control` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `managed` | string | No | - | Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. |
+| `tenant_id` | string | No | - | The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used. When 'managed' is set to 'true' the following properties can be specified: |
+| `admin_group_object_ids` | list | No | - | A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster. |
+| `azure_rbac_enabled` | bool | No | - | Is Role Based Access Control based on Azure AD enabled? When 'managed' is set to 'false' the following properties can be specified: |
+| `client_app_id` | string | No | - | The Client ID of an Azure Active Directory Application. |
+| `server_app_id` | string | No | - | The Server ID of an Azure Active Directory Application. |
+| `server_app_secret` | string | No | - | The Server Secret of an Azure Active Directory Application. |
+
+### `not_allowed` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
+| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
+
+### `http_proxy_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
+| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
+| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. -> **Note:** If you specify the 'default_node_pool.0.vnet_subnet_id', be sure to include the Subnet CIDR in the 'no_proxy' list. -> **Note:** You may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore the changes to this field. |
+| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
+
+### `kubelet_identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
+| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. -> **Note:** When 'kubelet_identity' is enabled - The 'type' field in the 'identity' block must be set to 'UserAssigned' and 'identity_ids' must be set. |
+
+### `storage_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `blob_driver_enabled` | bool | No | False | Is the Blob CSI driver enabled? Defaults to 'false'. |
+| `disk_driver_enabled` | bool | No | True | Is the Disk CSI driver enabled? Defaults to 'true'. |
+| `disk_driver_version` | string | No | v1 | Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. -> **Note:** 'Azure Disk CSI driver v2' is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature 'EnableAzureDiskCSIDriverV2' for namespace 'Microsoft.ContainerService' must be requested. |
+| `file_driver_enabled` | bool | No | True | Is the File CSI driver enabled? Defaults to 'true'. |
+| `snapshot_controller_enabled` | bool | No | True | Is the Snapshot Controller enabled? Defaults to 'true'. |
+
+### `key_vault_secrets_provider` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `secret_rotation_enabled` | bool | No | - | Should the secret store CSI driver on the AKS cluster be enabled? |
+| `secret_rotation_interval` | string | No | 2m | The interval to poll for secret rotation. This attribute is only set when 'secret_rotation' is true. Defaults to '2m'. -> **Note:** To enable'key_vault_secrets_provider' either 'secret_rotation_enabled' or 'secret_rotation_interval' must be specified. |
+
+### `gmsa` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_server` | string | Yes | - | Specifies the DNS server for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. |
+| `root_domain` | string | Yes | - | Specifies the root domain name for Windows gMSA. Set this to an empty string if you have configured the DNS server in the VNet which was used to create the managed cluster. -> **Note:** The properties 'dns_server' and 'root_domain' must both either be set or unset, i.e. empty. |
+
+### `windows_profile` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `admin_username` | string | Yes | - | The Admin Username for Windows VMs. Changing this forces a new resource to be created. |
+| `admin_password` | string | No | - | The Admin Password for Windows VMs. Length must be between 14 and 123 characters. |
+| `license` | string | No | - | Specifies the type of on-premise license which should be used for Node Pool Windows Virtual Machine. At this time the only possible value is 'Windows_Server'. |
+| `gmsa` | [block](#gmsa-block-structure) | No | - | A 'gmsa' block. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ~> **Note:** This is required when 'type' is set to 'UserAssigned'. |
 
 ### `default_node_pool` block structure
 
@@ -285,73 +338,13 @@ tfstate_store = {
 | `temporary_name_for_rotation` | string | No | - | Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing. |
 | `type` | string | No | VirtualMachineScaleSets | The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created. |
 
-### `http_proxy_config` block structure
+### `service_mesh_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `http_proxy` | string | No | - | The proxy address to be used when communicating over HTTP. |
-| `https_proxy` | string | No | - | The proxy address to be used when communicating over HTTPS. |
-| `no_proxy` | string | No | - | The list of domains that will not use the proxy for communication. -> **Note:** If you specify the 'default_node_pool.0.vnet_subnet_id', be sure to include the Subnet CIDR in the 'no_proxy' list. -> **Note:** You may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore the changes to this field. |
-| `trusted_ca` | string | No | - | The base64 encoded alternative CA certificate content in PEM format. |
-
-### `web_app_routing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `dns_zone_id` | string | Yes | - | Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''. |
-
-### `storage_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `blob_driver_enabled` | bool | No | False | Is the Blob CSI driver enabled? Defaults to 'false'. |
-| `disk_driver_enabled` | bool | No | True | Is the Disk CSI driver enabled? Defaults to 'true'. |
-| `disk_driver_version` | string | No | v1 | Disk CSI Driver version to be used. Possible values are 'v1' and 'v2'. Defaults to 'v1'. -> **Note:** 'Azure Disk CSI driver v2' is currently in [Public Preview](https://azure.microsoft.com/en-us/updates/public-preview-azure-disk-csi-driver-v2-in-aks/) on an opt-in basis. To use it, the feature 'EnableAzureDiskCSIDriverV2' for namespace 'Microsoft.ContainerService' must be requested. |
-| `file_driver_enabled` | bool | No | True | Is the File CSI driver enabled? Defaults to 'true'. |
-| `snapshot_controller_enabled` | bool | No | True | Is the Snapshot Controller enabled? Defaults to 'true'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ~> **Note:** This is required when 'type' is set to 'UserAssigned'. |
-
-### `aci_connector_linux` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. -> **Note:** At this time ACI Connectors are not supported in Azure China. -> **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so. '''hcl resource 'azurerm_subnet' 'virtual' { #... delegation { name = 'aciDelegation' service_delegation { name    = 'Microsoft.ContainerInstance/containerGroups' actions = ['Microsoft.Network/virtualNetworks/subnets/action'] } } } ''' |
-
-### `allowed` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
-| `hours` | number | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
-
-### `service_principal` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | Yes | - | The Client ID for the Service Principal. |
-| `client_secret` | string | Yes | - | The Client Secret for the Service Principal. |
-
-### `microsoft_defender` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | Specifies the ID of the Log Analytics Workspace where the audit logs collected by Microsoft Defender should be sent to. |
-
-### `network_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `network_plugin` | string | Yes | - | Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. -> **Note:** When 'network_plugin' is set to 'azure' - the 'pod_cidr' field must not be set. |
-| `network_mode` | string | No | - | Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ~> **Note:** 'network_mode' can only be set to 'bridge' for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future. ~> **Note:** This property can only be set when 'network_plugin' is set to 'azure'. |
-| `network_policy` | string | No | - | Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'ebpf_data_plane' field must be set to 'cilium'. |
-| `dns_service_ip` | string | No | - | IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created. |
-| `docker_bridge_cidr` | string | No | - | IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created. |
+| `mode` | string | Yes | - | The mode of the service mesh. Possible value is 'Istio'. |
+| `internal_ingress_gateway_enabled` | bool | No | - | Is Istio Internal Ingress Gateway enabled? |
+| `external_ingress_gateway_enabled` | bool | No | - | Is Istio External Ingress Gateway enabled? -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information. -> **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster |
 
 ### `sysctl_config` block structure
 
@@ -387,47 +380,69 @@ tfstate_store = {
 | `vm_swappiness` | string | No | - | The sysctl setting vm.swappiness. Must be between '0' and '100'. |
 | `vm_vfs_cache_pressure` | string | No | - | The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'. |
 
+### `aci_connector_linux` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `subnet_name` | string | Yes | - | The subnet name for the virtual nodes to run. -> **Note:** At this time ACI Connectors are not supported in Azure China. -> **Note:** AKS will add a delegation to the subnet named here. To prevent further runs from failing you should make sure that the subnet you create for virtual nodes has a delegation, like so. '''hcl resource 'azurerm_subnet' 'virtual' { #... delegation { name = 'aciDelegation' service_delegation { name    = 'Microsoft.ContainerInstance/containerGroups' actions = ['Microsoft.Network/virtualNetworks/subnets/action'] } } } ''' |
+
 ### `ssh_key` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `key_data` | string | Yes | - | The Public SSH Key used to access the cluster. |
 
-### `not_allowed` block structure
+### `node_network_profile` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `end` | string | Yes | - | The end of a time span, formatted as an RFC3339 string. |
-| `start` | string | Yes | - | The start of a time span, formatted as an RFC3339 string. |
+| `node_public_ip_tags` | map | No | - | Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information. |
 
-### `oms_agent` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `log_analytics_workspace_id` | string | Yes | - | The ID of the Log Analytics Workspace which the OMS Agent should send data to. |
-| `msi_auth_for_monitoring_enabled` | bool | No | - | Is managed identity authentication for monitoring enabled? |
-
-### `monitor_metrics` block structure
+### `allowed` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `annotations_allowed` | bool | No | - | Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric. |
-| `labels_allowed` | bool | No | - | Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. |
+| `day` | string | Yes | - | A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'. |
+| `hours` | number | Yes | - | An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'. |
 
-### `workload_autoscaler_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `keda_enabled` | bool | No | - | Specifies whether KEDA Autoscaler can be used for workloads. |
-| `vertical_pod_autoscaler_enabled` | bool | No | - | Specifies whether Vertical Pod Autoscaler should be enabled. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AKS-VPAPreview' is enabled and the Resource Provider is re-registered, see [the documentation]([Microsoft.ContainerService/AKS-VPAPreview](https://learn.microsoft.com/en-us/azure/aks/vertical-pod-autoscaler#register-the-aks-vpapreview-feature-flag) for more information. |
-
-### `kubelet_identity` block structure
+### `maintenance_window_auto_upgrade` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `client_id` | string | No | - | The Client ID of the user-defined Managed Identity to be assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `object_id` | string | No | - | The Object ID of the user-defined Managed Identity assigned to the Kubelets.If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. |
-| `user_assigned_identity_id` | string | No | - | The ID of the User Assigned Identity assigned to the Kubelets. If not specified a Managed Identity is created automatically. Changing this forces a new resource to be created. -> **Note:** When 'kubelet_identity' is enabled - The 'type' field in the 'identity' block must be set to 'UserAssigned' and 'identity_ids' must be set. |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+
+### `maintenance_window_node_os` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `frequency` | string | Yes | - | Frequency of maintenance. Possible options are 'Daily', 'Weekly', 'AbsoluteMonthly' and 'RelativeMonthly'. |
+| `interval` | string | Yes | - | The interval for maintenance runs. Depending on the frequency this interval is week or month based. |
+| `duration` | string | Yes | - | The duration of the window for maintenance to run in hours. |
+| `day_of_week` | string | No | - | The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'. |
+| `day_of_month` | string | No | - | The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive). |
+| `week_index` | string | No | - | The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. |
+| `start_time` | string | No | - | The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'. |
+| `utc_offset` | string | No | - | Used to determine the timezone for cluster maintenance. |
+| `start_date` | string | No | - | The date on which the maintenance window begins to take effect. |
+| `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
+
+### `linux_os_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `swap_file_size_mb` | number | No | - | Specifies the size of the swap file on each node in MB. |
+| `sysctl_config` | [block](#sysctl_config-block-structure) | No | - | A 'sysctl_config' block. |
+| `transparent_huge_page_defrag` | string | No | - | specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'. |
+| `transparent_huge_page_enabled` | bool | No | - | Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'. |
 
 ### `maintenance_window` block structure
 
@@ -435,26 +450,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `allowed` | [block](#allowed-block-structure) | No | - | One or more 'allowed' blocks. |
 | `not_allowed` | [block](#not_allowed-block-structure) | No | - | One or more 'not_allowed' block. |
-
-### `azure_active_directory_role_based_access_control` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `managed` | string | No | - | Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. |
-| `tenant_id` | string | No | - | The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used. When 'managed' is set to 'true' the following properties can be specified: |
-| `admin_group_object_ids` | list | No | - | A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster. |
-| `azure_rbac_enabled` | bool | No | - | Is Role Based Access Control based on Azure AD enabled? When 'managed' is set to 'false' the following properties can be specified: |
-| `client_app_id` | string | No | - | The Client ID of an Azure Active Directory Application. |
-| `server_app_id` | string | No | - | The Server ID of an Azure Active Directory Application. |
-| `server_app_secret` | string | No | - | The Server Secret of an Azure Active Directory Application. |
-
-### `service_mesh_profile` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The mode of the service mesh. Possible value is 'Istio'. |
-| `internal_ingress_gateway_enabled` | bool | No | - | Is Istio Internal Ingress Gateway enabled? |
-| `external_ingress_gateway_enabled` | bool | No | - | Is Istio External Ingress Gateway enabled? -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information. -> **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster |
 
 
 

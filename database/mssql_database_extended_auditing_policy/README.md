@@ -9,21 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mssql_database_extended_auditing_policy"   
 }
-
 inputs = {
    # database_id → set in component_inputs
 }
-
 component_inputs = {
    database_id = "path/to/mssql_database_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

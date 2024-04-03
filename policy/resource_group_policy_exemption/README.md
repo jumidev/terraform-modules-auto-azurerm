@@ -9,20 +9,17 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "policy/resource_group_policy_exemption"   
 }
-
 inputs = {
    name = "The name of the Policy Exemption"   
    resource_group_id = "The Resource Group ID where the Policy Exemption should be applied..."   
    exemption_category = "The category of this policy exemption"   
    policy_assignment_id = "The ID of the Policy Assignment to be exempted at the specified Scope..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,24 +9,20 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "log_analytics/log_analytics_linked_storage_account"   
 }
-
 inputs = {
    data_source_type = "The data source type which should be used for this Log Analytics Linked Storage ..."   
    resource_group_name = "${resource_group}"   
    workspace_resource_id = "The resource ID of the Log Analytics Workspace"   
    # storage_account_ids → set in component_inputs
 }
-
 component_inputs = {
    storage_account_ids = "path/to/storage_account_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

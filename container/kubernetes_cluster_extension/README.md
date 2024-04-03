@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/kubernetes_cluster_extension"   
 }
-
 inputs = {
    name = "Specifies the name which should be used for this Kubernetes Cluster Extension..."   
    # cluster_id → set in component_inputs
    extension_type = "Specifies the type of extension"   
 }
-
 component_inputs = {
    cluster_id = "path/to/kubernetes_cluster_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "cdn/cdn_frontdoor_route"   
 }
-
 inputs = {
    name = "The name which should be used for this Front Door Route..."   
    # cdn_frontdoor_endpoint_id → set in component_inputs
@@ -18,19 +17,16 @@ inputs = {
    patterns_to_match = "The route patterns of the rule"   
    supported_protocols = "One or more Protocols supported by this Front Door Route..."   
 }
-
 component_inputs = {
    cdn_frontdoor_endpoint_id = "path/to/cdn_frontdoor_endpoint_component:id"   
    cdn_frontdoor_origin_group_id = "path/to/cdn_frontdoor_origin_group_component:id"   
    cdn_frontdoor_origin_ids = "path/to/cdn_frontdoor_origin_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 ## Associated component
 

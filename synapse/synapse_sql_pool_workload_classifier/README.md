@@ -9,19 +9,16 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_sql_pool_workload_classifier"   
 }
-
 inputs = {
    name = "The name which should be used for this Synapse SQL Pool Workload Classifier..."   
    workload_group_id = "The ID of the Synapse SQL Pool Workload Group"   
    member_name = "The workload classifier member name used to classified against..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

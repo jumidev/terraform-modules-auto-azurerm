@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "container/container_registry_webhook"   
 }
-
 inputs = {
    name = "Specifies the name of the Container Registry Webhook..."   
    resource_group_name = "${resource_group}"   
@@ -18,13 +17,11 @@ inputs = {
    service_uri = "Specifies the service URI for the Webhook to post notifications..."   
    actions = "A list of actions that trigger the Webhook to post notifications..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

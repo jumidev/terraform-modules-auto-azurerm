@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/firewall_nat_rule_collection"   
 }
-
 inputs = {
    name = "Specifies the name of the NAT Rule Collection which must be unique within the Fi..."   
    # azure_firewall_name → set in component_inputs
@@ -18,31 +17,28 @@ inputs = {
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
       item_1 = {
+         description = "..."         
          destination_addresses = "..."         
          destination_ports = "..."         
          protocols = "Possible values: Any | ICMP | TCP | UDP"         
+         source_addresses = "..."         
+         source_ip_groups = "..."         
          translated_address = "..."         
          translated_port = "..."         
-      }
-      
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 component_inputs = {
    azure_firewall_name = "path/to/firewall_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/hpc_cache_nfs_target"   
 }
-
 inputs = {
    name = "The name of the HPC Cache NFS Target"   
    resource_group_name = "${resource_group}"   
@@ -17,13 +16,11 @@ inputs = {
    target_host_name = "The IP address or fully qualified domain name (FQDN) of the HPC Cache NFS target..."   
    usage_model = "The type of usage of the HPC Cache NFS Target"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

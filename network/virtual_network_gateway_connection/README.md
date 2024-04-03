@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/virtual_network_gateway_connection"   
 }
-
 inputs = {
    name = "The name of the connection"   
    resource_group_name = "${resource_group}"   
@@ -17,17 +16,14 @@ inputs = {
    type = "The type of connection"   
    # virtual_network_gateway_id → set in component_inputs
 }
-
 component_inputs = {
    virtual_network_gateway_id = "path/to/virtual_network_gateway_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

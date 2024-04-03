@@ -9,17 +9,14 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "synapse/synapse_sql_pool_extended_auditing_policy"   
 }
-
 inputs = {
    sql_pool_id = "The ID of the Synapse SQL pool to set the extended auditing policy..."   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

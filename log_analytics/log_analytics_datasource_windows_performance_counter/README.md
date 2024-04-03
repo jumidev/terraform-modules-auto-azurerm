@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "log_analytics/log_analytics_datasource_windows_performance_counter"   
 }
-
 inputs = {
    name = "The Name which should be used for this Log Analytics Windows Performance Counter..."   
    resource_group_name = "${resource_group}"   
@@ -19,17 +18,14 @@ inputs = {
    counter_name = "The friendly name of the performance counter"   
    interval_seconds = "The time of sample interval in seconds"   
 }
-
 component_inputs = {
    workspace_name = "path/to/log_analytics_workspace_component:name"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

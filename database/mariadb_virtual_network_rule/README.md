@@ -9,25 +9,21 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/mariadb_virtual_network_rule"   
 }
-
 inputs = {
    name = "The name of the MariaDB Virtual Network Rule"   
    resource_group_name = "${resource_group}"   
    # server_name → set in component_inputs
    # subnet_id → set in component_inputs
 }
-
 component_inputs = {
    server_name = "path/to/mariadb_server_component:name"   
    subnet_id = "path/to/subnet_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

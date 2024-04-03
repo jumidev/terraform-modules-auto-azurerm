@@ -9,25 +9,21 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "network/express_route_circuit_peering"   
 }
-
 inputs = {
    peering_type = "The type of the ExpressRoute Circuit Peering"   
    # express_route_circuit_name → set in component_inputs
    resource_group_name = "${resource_group}"   
    # vlan_id → set in component_inputs
 }
-
 component_inputs = {
    express_route_circuit_name = "path/to/express_route_circuit_component:name"   
    vlan_id = "path/to/virtual_network_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
@@ -52,20 +48,20 @@ tfstate_store = {
 | **ipv6** | [block](#ipv6-block-structure) |  -  |  A `ipv6` block. | 
 | **route_filter_id** | string |  -  |  The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`. | 
 
-### `microsoft_peering_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `advertised_public_prefixes` | list | Yes | - | A list of Advertised Public Prefixes. |
-| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
-| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
-| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
-
 ### `microsoft_peering` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `advertised_public_prefixes` | list | No | - | A list of Advertised Public Prefixes. |
+| `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
+| `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
+| `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
+
+### `microsoft_peering_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `advertised_public_prefixes` | list | Yes | - | A list of Advertised Public Prefixes. |
 | `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
 | `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
 | `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |

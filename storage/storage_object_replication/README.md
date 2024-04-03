@@ -9,7 +9,6 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "storage/storage_object_replication"   
 }
-
 inputs = {
    source_storage_account_id = "The ID of the source storage account"   
    destination_storage_account_id = "The ID of the destination storage account"   
@@ -17,22 +16,19 @@ inputs = {
       item_1 = {
          source_container_name = "..."         
          destination_container_name = "..."         
-      }
-      
+         copy_blobs_created_after = "OnlyNewObjects"         
+         filter_out_blobs_with_prefix = "..."         
+      }      
       item_2 = {
          ...
-      }
-      
-   }
-   
+      }      
+   }   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables

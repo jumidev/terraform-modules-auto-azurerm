@@ -9,23 +9,19 @@ source = {
    repo = "https://github.com/jumidev/terraform-modules-auto-azurerm.git"   
    path = "database/postgresql_flexible_server_configuration"   
 }
-
 inputs = {
    name = "Specifies the name of the PostgreSQL Configuration, which needs [to be a valid P..."   
    # server_id → set in component_inputs
    value = "Specifies the value of the PostgreSQL Configuration..."   
 }
-
 component_inputs = {
    server_id = "path/to/postgresql_flexible_server_component:id"   
 }
-
 tfstate_store = {
    storage_account = "${storage_account}"   
    container = "${container}"   
    container_path = "${COMPONENT_PATH}"   
 }
-
 ```
 
 ## Required Variables
