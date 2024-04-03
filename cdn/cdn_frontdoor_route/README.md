@@ -32,7 +32,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `cdn_frontdoor_custom_domain_id` 

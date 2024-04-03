@@ -27,7 +27,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `cdn_frontdoor_route_ids` 

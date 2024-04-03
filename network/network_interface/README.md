@@ -37,7 +37,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
+## Associated components
 
 
 ### `dns_a_record` 
@@ -57,7 +57,6 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 Example component snippet
 
 **See also** [dns/dns_zone](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/dns/dns_zone)
-**See also** [base/any_resource](https://github.com/jumidev/terraform-modules-auto-azurerm/tree/master/base/any_resource)
 
 ```hcl
 inputs = {

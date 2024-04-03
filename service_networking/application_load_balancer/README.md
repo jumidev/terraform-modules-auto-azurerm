@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `application_load_balancer_subnet_association` 

@@ -15,13 +15,9 @@ variable "location" {
   type        = string
 
 }
-
-# OPTIONAL VARIABLES
-
 variable "security_rule" {
-  description = "List of 'security_rule' objects representing security rules, as defined below. -> **NOTE** Since 'security_rule' can be configured both inline and via the separate 'azurerm_network_security_rule' resource, we have to explicitly set it to empty slice ('[]') to remove it."
+  description = "(REQUIRED) List of 'security_rule' objects representing security rules, as defined below. -> **NOTE** Since 'security_rule' can be configured both inline and via the separate 'azurerm_network_security_rule' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
-  default     = null
 }
 #
 # security_rule block structure                    :
@@ -38,6 +34,9 @@ variable "security_rule" {
 #   priority (string)                                : (REQUIRED) Specifies the priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule.
 #   direction (string)                               : (REQUIRED) The direction specifies if rule will be evaluated on incoming or outgoing traffic. Possible values are 'Inbound' and 'Outbound'.
 
+
+
+# OPTIONAL VARIABLES
 
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

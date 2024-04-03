@@ -69,19 +69,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the column to partition by. |
 
-### `cluster_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the cluster key to be created. |
-| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
 ### `column` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the column to be created. |
 | `type` | string | Yes | - | Type of the column to be created. |
+
+### `cluster_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the cluster key to be created. |
+| `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
 
 
 

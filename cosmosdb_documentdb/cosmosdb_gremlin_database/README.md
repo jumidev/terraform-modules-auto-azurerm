@@ -27,7 +27,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `spring_cloud_app_cosmosdb_association` 

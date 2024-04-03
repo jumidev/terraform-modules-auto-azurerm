@@ -31,7 +31,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `network_interface_nat_rule_association` 

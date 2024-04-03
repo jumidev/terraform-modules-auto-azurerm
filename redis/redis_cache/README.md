@@ -26,7 +26,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `spring_cloud_app_redis_association` 
@@ -93,6 +93,13 @@ component_inputs = {
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **zones** | list |  -  |  -  |  Specifies a list of Availability Zones in which this Redis Cache should be located. Changing this forces a new Redis Cache to be created. -> **Please Note**: Availability Zones are [in Preview and only supported in several regions at this time](https://docs.microsoft.com/azure/availability-zones/az-overview) - as such you must be opted into the Preview to use this functionality. You can [opt into the Availability Zones Preview in the Azure Portal](https://aka.ms/azenroll). | 
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
+
 ### `redis_configuration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -112,13 +119,6 @@ component_inputs = {
 | `rdb_storage_connection_string` | string | No | - | The Connection String to the Storage Account. Only supported for Premium SKUs. In the format: 'DefaultEndpointsProtocol=https;BlobEndpoint=${azurerm_storage_account.example.primary_blob_endpoint};AccountName=${azurerm_storage_account.example.name};AccountKey=${azurerm_storage_account.example.primary_access_key}'. ~> **NOTE:** There's a bug in the Redis API where the original storage connection string isn't being returned, which [is being tracked in this issue](https://github.com/Azure/azure-rest-api-specs/issues/3037). In the interim you can use [the 'ignore_changes' attribute to ignore changes to this field](https://www.terraform.io/language/meta-arguments/lifecycle#ignore_changess) e.g.: |
 | `storage_account_subscription_id` | string | No | - | The ID of the Subscription containing the Storage Account. '''hcl resource 'azurerm_redis_cache' 'example' { # ... ignore_changes = [redis_configuration.0.rdb_storage_connection_string] } ''' |
 | `notify_keyspace_events` | string | No | - | Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration) '''hcl redis_configuration { maxmemory_reserved = 10 maxmemory_delta    = 2 maxmemory_policy   = 'allkeys-lru' } ''' ### Default Redis Configuration Values | Redis Value                     | Basic        | Standard     | Premium      | | ------------------------------- | ------------ | ------------ | ------------ | | enable_authentication           | true         | true         | true         | | maxmemory_reserved              | 2            | 50           | 200          | | maxfragmentationmemory_reserved | 2            | 50           | 200          | | maxmemory_delta                 | 2            | 50           | 200          | | maxmemory_policy                | volatile-lru | volatile-lru | volatile-lru | ~> **NOTE:** The 'maxmemory_reserved', 'maxmemory_delta' and 'maxfragmentationmemory_reserved' settings are only available for Standard and Premium caches. More details are available in the Relevant Links section below. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Redis Cluster. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Redis Cluster. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
 
 

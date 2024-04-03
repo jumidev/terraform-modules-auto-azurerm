@@ -44,6 +44,13 @@ tfstate_store = {
 | **ssh_key_enabled** | bool |  `False`  |  Specifies whether SSH Key Authentication is enabled. Defaults to `false`. | 
 | **ssh_password_enabled** | bool |  `False`  |  Specifies whether SSH Password Authentication is enabled. Defaults to `false`. | 
 
+### `ssh_authorized_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key` | string | Yes | - | The public key value of this SSH authorized key. |
+| `description` | string | No | - | The description of this SSH authorized key. |
+
 ### `permissions` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -61,13 +68,6 @@ tfstate_store = {
 | `permissions` | [block](#permissions-block-structure) | Yes | - | A 'permissions' block. |
 | `resource_name` | string | Yes | - | The container name (when 'service' is set to 'blob') or the file share name (when 'service' is set to 'file'), used by the Storage Account Local User. |
 | `service` | string | Yes | - | The storage service used by this Storage Account Local User. Possible values are 'blob' and 'file'. |
-
-### `ssh_authorized_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key` | string | Yes | - | The public key value of this SSH authorized key. |
-| `description` | string | No | - | The description of this SSH authorized key. |
 
 
 

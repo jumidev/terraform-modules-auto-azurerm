@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
+## Associated components
 
 
 ### `network_interface_id` 

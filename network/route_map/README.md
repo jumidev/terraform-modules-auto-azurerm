@@ -48,22 +48,6 @@ tfstate_store = {
 | `community` | list | No | - | A list of BGP communities. |
 | `route_prefix` | list | No | - | A list of route prefixes. |
 
-### `match_criterion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
-| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
-| `community` | list | No | - | A list of BGP communities which this criterion matches. |
-| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
-| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -72,6 +56,22 @@ tfstate_store = {
 | `action` | [block](#action-block-structure) | No | - | An 'action' block. |
 | `match_criterion` | [block](#match_criterion-block-structure) | No | - | A 'match_criterion' block. |
 | `next_step_if_matched` | string | No | Unknown | The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'. |
+
+### `action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parameter` | [block](#parameter-block-structure) | Yes | - | A 'parameter' block. |
+| `type` | string | Yes | - | The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'. |
+
+### `match_criterion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_condition` | string | Yes | - | The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'. |
+| `as_path` | list | No | - | A list of AS paths which this criterion matches. |
+| `community` | list | No | - | A list of BGP communities which this criterion matches. |
+| `route_prefix` | list | No | - | A list of route prefixes which this criterion matches. |
 
 
 

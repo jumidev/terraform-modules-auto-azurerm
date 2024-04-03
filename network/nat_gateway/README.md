@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
+## Associated components
 
 
 ### `public_ip_address_id` 

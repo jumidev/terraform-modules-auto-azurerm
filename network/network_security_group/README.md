@@ -14,6 +14,23 @@ inputs = {
    name = "Specifies the name of the network security group"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
+   security_rule = {
+      this_security_rule = {
+         protocol = "*"         
+         # source_application_security_group_ids → (optional) set in component_inputs
+         # destination_application_security_group_ids → (optional) set in component_inputs
+         access = "Allow"         
+         priority = "..."         
+         direction = "Inbound"         
+      }
+      
+   }
+   
+}
+
+component_inputs = {
+   security_rule.this_security_rule.source_application_security_group_ids = "path/to/application_security_group_component:id"   
+   security_rule.this_security_rule.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
 }
 
 tfstate_store = {
@@ -23,7 +40,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
+## Associated components
 
 
 ### `subnet_id` 
@@ -58,13 +75,13 @@ component_inputs = {
 | **name** | string |  Specifies the name of the network security group. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group in which to create the network security group. Changing this forces a new resource to be created. | 
 | **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **security_rule** | [block](#security_rule-block-structure) |  List of `security_rule` objects representing security rules, as defined below. -> **NOTE** Since `security_rule` can be configured both inline and via the separate `azurerm_network_security_rule` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
 
 ## Optional Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **security_rule** | [block](#security_rule-block-structure) |  `azurerm_network_security_rule`, `[]`  |  List of `security_rule` objects representing security rules, as defined below. -> **NOTE** Since `security_rule` can be configured both inline and via the separate `azurerm_network_security_rule` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
-| **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **tags** | map |  A mapping of tags to assign to the resource. | 
 
 ### `security_rule` block structure
 

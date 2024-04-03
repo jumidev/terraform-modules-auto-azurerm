@@ -22,7 +22,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `private_dns_zone_virtual_network_link` 

@@ -64,19 +64,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
 
-### `bind` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
-
-### `directory_flat_file` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
-| `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
-
 ### `directory_active_directory` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,13 +75,6 @@ tfstate_store = {
 | `username` | string | Yes | - | The username of the Active Directory domain administrator. |
 | `password` | string | Yes | - | The password of the Active Directory domain administrator. |
 | `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
 ### `dns` block structure
 
@@ -113,6 +93,26 @@ tfstate_store = {
 | `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
 | `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
 | `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
+
+### `directory_flat_file` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `group_file_uri` | string | Yes | - | The URI of the file containing group information ('/etc/group' file format in Unix-like OS). |
+| `password_file_uri` | string | Yes | - | The URI of the file containing user information ('/etc/passwd' file format in Unix-like OS). |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
+
+### `bind` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `password` | string | Yes | - | The Bind password to be used in the secure LDAP connection. |
 
 
 

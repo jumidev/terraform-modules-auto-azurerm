@@ -30,10 +30,6 @@ variable "application_rule_collection" {
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
 #
-# protocols block structure:
-#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
-#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
-#
 # application_rule block structure:
 #   name (string)                   : (REQUIRED) The name which should be used for this rule.
 #   description (string)            : The description which should be used for this rule.
@@ -47,6 +43,10 @@ variable "application_rule_collection" {
 #   destination_fqdn_tags (list)    : Specifies a list of destination FQDN tags.
 #   terminate_tls (string)          : Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy.
 #   web_categories (list)           : Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy.
+#
+# protocols block structure:
+#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
+#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 
 
 variable "nat_rule_collection" {

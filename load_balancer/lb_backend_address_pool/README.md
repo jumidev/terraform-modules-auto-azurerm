@@ -26,7 +26,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resources
+## Associated components
 
 
 ### `network_interface_backend_address_pool_association` 

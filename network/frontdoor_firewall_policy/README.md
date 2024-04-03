@@ -43,14 +43,6 @@ tfstate_store = {
 | **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
-
 ### `custom_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -63,6 +55,14 @@ tfstate_store = {
 | `match_condition` | string | No | - | One or more 'match_condition' block defined below. Can support up to '10' 'match_condition' blocks. |
 | `rate_limit_duration_in_minutes` | number | No | 1 | The rate limit duration in minutes. Defaults to '1'. |
 | `rate_limit_threshold` | string | No | 10 | The rate limit threshold. Defaults to '10'. |
+
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `exclusion` block structure
 

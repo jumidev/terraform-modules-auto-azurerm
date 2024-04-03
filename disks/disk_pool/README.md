@@ -30,7 +30,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `managed_disk_id` 

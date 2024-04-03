@@ -23,7 +23,7 @@ tfstate_store = {
 }
 
 ```
-## Optional associated resource
+## Associated component
 
 
 ### `nat_gateway_id` 

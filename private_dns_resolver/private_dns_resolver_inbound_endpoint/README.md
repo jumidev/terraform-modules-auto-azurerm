@@ -35,12 +35,12 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  possible values |  Description |
-| ---- | --------- |  ----------- | ----------- |
-| **name** | string |  -  |  Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **private_dns_resolver_id** | string |  -  |  Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
-| **ip_configurations** | [block](#ip_configurations-block-structure) |  `ip_configurations`  |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
-| **location** | string |  -  |  Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **name** | string |  Specifies the name which should be used for this Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+| **private_dns_resolver_id** | string |  Specifies the ID of the Private DNS Resolver Inbound Endpoint. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
+| **ip_configurations** | [block](#ip_configurations-block-structure) |  Can be specified multiple times to define multiple IP configurations. Each `ip_configurations` block. | 
+| **location** | string |  Specifies the Azure Region where the Private DNS Resolver Inbound Endpoint should exist. Changing this forces a new Private DNS Resolver Inbound Endpoint to be created. | 
 
 ## Optional Variables
 

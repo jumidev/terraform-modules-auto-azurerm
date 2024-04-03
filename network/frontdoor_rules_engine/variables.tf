@@ -35,6 +35,20 @@ variable "rule" {
 #   action (block)         : An 'action' block.
 #   match_condition (block): One or more 'match_condition' block.
 #
+# request_header block structure:
+#   header_action_type (string)   : can be set to 'Overwrite', 'Append' or 'Delete'.
+#   header_name (string)          : header name (string).
+#   value (string)                : value name (string).
+#
+# response_header block structure:
+#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
+#   header_name (string)           : header name (string).
+#   value (string)                 : value name (string).
+#
+# action block structure :
+#   request_header (block) : A 'request_header' block.
+#   response_header (block): A 'response_header' block.
+#
 # match_condition block structure:
 #   variable (string)              : can be set to 'IsMobile', 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestURI', 'RequestPath', 'RequestFilename', 'RequestFilenameExtension','RequestHeader','RequestBody' or 'RequestScheme'.
 #   selector (string)              : match against a specific key when 'variable' is set to 'PostArgs' or 'RequestHeader'. It cannot be used with 'QueryString' and 'RequestMethod'.
@@ -42,19 +56,5 @@ variable "rule" {
 #   transform (list)               : can be set to one or more values out of 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' and 'UrlEncode'
 #   negate_condition (bool)        : can be set to 'true' or 'false' to negate the given condition. Defaults to 'false'.
 #   value (list)                   : (array) can contain one or more strings.
-#
-# action block structure :
-#   request_header (block) : A 'request_header' block.
-#   response_header (block): A 'response_header' block.
-#
-# response_header block structure:
-#   header_action_type (string)    : can be set to 'Overwrite', 'Append' or 'Delete'.
-#   header_name (string)           : header name (string).
-#   value (string)                 : value name (string).
-#
-# request_header block structure:
-#   header_action_type (string)   : can be set to 'Overwrite', 'Append' or 'Delete'.
-#   header_name (string)          : header name (string).
-#   value (string)                : value name (string).
 
 
