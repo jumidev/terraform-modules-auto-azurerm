@@ -17,9 +17,13 @@ inputs = {
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
    rule = {
-      this_rule = {
+      item_1 = {
          destination_ports = "..."         
          protocols = "Possible values: Any | ICMP | TCP | UDP"         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }

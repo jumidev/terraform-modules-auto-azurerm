@@ -18,6 +18,10 @@ inputs = {
          # public_ip_address_id → (optional) set in component_inputs
       }
       
+      item_2 = {
+         ...
+      }
+      
    }
    
    location = "${location}"   

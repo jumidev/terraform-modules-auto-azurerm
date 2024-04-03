@@ -22,8 +22,12 @@ inputs = {
    }
    
    client_root_certificate = {
-      this_client_root_certificate = {
+      item_1 = {
          thumbprint = "..."         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }
@@ -59,14 +63,14 @@ tfstate_store = {
 | **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
-### `client_revoked_certificate` block structure
+### `client_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
-### `client_root_certificate` block structure
+### `client_revoked_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -80,14 +84,6 @@ tfstate_store = {
 | `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
-### `azure_active_directory_authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `audience` | string | Yes | - | The Audience which should be used for authentication. |
-| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
-| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
-
 ### `ipsec_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -100,6 +96,14 @@ tfstate_store = {
 | `pfs_group` | string | Yes | - | The Pfs Group, used in IKE Phase 2. Possible values include 'ECP256', 'ECP384', 'PFS1', 'PFS2', 'PFS14', 'PFS24', 'PFS2048', 'PFSMM' and 'None'. |
 | `sa_lifetime_seconds` | number | Yes | - | The IPSec Security Association lifetime in seconds for a Site-to-Site VPN tunnel. |
 | `sa_data_size_kilobytes` | string | Yes | - | The IPSec Security Association payload size in KB for a Site-to-Site VPN tunnel. |
+
+### `azure_active_directory_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `audience` | string | Yes | - | The Audience which should be used for authentication. |
+| `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
+| `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
 
 
 

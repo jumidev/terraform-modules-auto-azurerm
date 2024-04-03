@@ -52,16 +52,6 @@ tfstate_store = {
 | **ipv6** | [block](#ipv6-block-structure) |  -  |  A `ipv6` block. | 
 | **route_filter_id** | string |  -  |  The ID of the Route Filter. Only available when `peering_type` is set to `MicrosoftPeering`. | 
 
-### `ipv6` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `primary_peer_address_prefix` | string | Yes | - | A subnet for the primary link. |
-| `secondary_peer_address_prefix` | string | Yes | - | A subnet for the secondary link. |
-| `enabled` | bool | No | True | A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'. |
-| `microsoft_peering` | [block](#microsoft_peering-block-structure) | No | - | A 'microsoft_peering' block. |
-| `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. ~> **NOTE:** 'ipv6' can be specified when 'peering_type' is 'MicrosoftPeering' or 'AzurePrivatePeering' |
-
 ### `microsoft_peering_config` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -79,6 +69,16 @@ tfstate_store = {
 | `customer_asn` | string | No | 0 | The CustomerASN of the peering. Defaults to '0'. |
 | `routing_registry_name` | string | No | NONE | The Routing Registry against which the AS number and prefixes are registered. For example: 'ARIN', 'RIPE', 'AFRINIC' etc. Defaults to 'NONE'. |
 | `advertised_communities` | string | No | - | The communities of Bgp Peering specified for microsoft peering. |
+
+### `ipv6` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `primary_peer_address_prefix` | string | Yes | - | A subnet for the primary link. |
+| `secondary_peer_address_prefix` | string | Yes | - | A subnet for the secondary link. |
+| `enabled` | bool | No | True | A boolean value indicating whether the IPv6 peering is enabled. Defaults to 'true'. |
+| `microsoft_peering` | [block](#microsoft_peering-block-structure) | No | - | A 'microsoft_peering' block. |
+| `route_filter_id` | string | No | - | The ID of the Route Filter. Only available when 'peering_type' is set to 'MicrosoftPeering'. ~> **NOTE:** 'ipv6' can be specified when 'peering_type' is 'MicrosoftPeering' or 'AzurePrivatePeering' |
 
 
 

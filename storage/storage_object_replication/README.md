@@ -14,9 +14,13 @@ inputs = {
    source_storage_account_id = "The ID of the source storage account"   
    destination_storage_account_id = "The ID of the destination storage account"   
    rules = {
-      this_rules = {
+      item_1 = {
          source_container_name = "..."         
          destination_container_name = "..."         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }

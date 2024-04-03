@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    security_rule = {
-      this_security_rule = {
+      item_1 = {
          protocol = "*"         
          # source_application_security_group_ids → (optional) set in component_inputs
          # destination_application_security_group_ids → (optional) set in component_inputs
@@ -24,13 +24,17 @@ inputs = {
          direction = "Inbound"         
       }
       
+      item_2 = {
+         ...
+      }
+      
    }
    
 }
 
 component_inputs = {
-   security_rule.this_security_rule.source_application_security_group_ids = "path/to/application_security_group_component:id"   
-   security_rule.this_security_rule.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
+   security_rule.item_1.source_application_security_group_ids = "path/to/application_security_group_component:id"   
+   security_rule.item_1.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
 }
 
 tfstate_store = {

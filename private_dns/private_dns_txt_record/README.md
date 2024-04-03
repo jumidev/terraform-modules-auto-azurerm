@@ -15,8 +15,12 @@ inputs = {
    resource_group_name = "${resource_group}"   
    # zone_name → set in component_inputs
    record = {
-      this_record = {
+      item_1 = {
          value = "..."         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }

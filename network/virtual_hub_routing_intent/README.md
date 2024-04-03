@@ -14,9 +14,13 @@ inputs = {
    name = "The name which should be used for this Virtual Hub Routing Intent..."   
    # virtual_hub_id → set in component_inputs
    routing_policy = {
-      this_routing_policy = {
+      item_1 = {
          destinations = "Possible values: Internet | PrivateTraffic"         
          next_hop = "..."         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }

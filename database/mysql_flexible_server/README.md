@@ -56,13 +56,19 @@ tfstate_store = {
 | **zone** | string |  -  |  `1`, `2`, `3`  |  Specifies the Availability Zone in which this MySQL Flexible Server should be located. Possible values are `1`, `2` and `3`. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use [Terraform's `ignore_changes` functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the `zone` and `high_availability.0.standby_availability_zone` fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. | 
 | **tags** | map |  -  |  -  |  A mapping of tags which should be assigned to the MySQL Flexible Server. | 
 
-### `maintenance_window` block structure
+### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | No | 0 | The day of week for maintenance window. Defaults to '0'. |
-| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
-| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
+| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. ~> **NOTE:** 'storage.0.auto_grow_enabled' must be enabled when 'high_availability' is enabled. To change the 'high_availability' for a MySQL Flexible Server created with 'high_availability' disabled during creation, the resource has to be recreated. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
 
 ### `storage` block structure
 
@@ -73,13 +79,6 @@ tfstate_store = {
 | `iops` | number | No | - | The storage IOPS for the MySQL Flexible Server. Possible values are between '360' and '20000'. |
 | `size_gb` | number | No | - | The max storage allowed for the MySQL Flexible Server. Possible values are between '20' and '16384'. |
 
-### `high_availability` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the MySQL Flexible Server. Possibles values are 'SameZone' and 'ZoneRedundant'. ~> **NOTE:** 'storage.0.auto_grow_enabled' must be enabled when 'high_availability' is enabled. To change the 'high_availability' for a MySQL Flexible Server created with 'high_availability' disabled during creation, the resource has to be recreated. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. Possible values are '1', '2' and '3'. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the MySQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the MySQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the MySQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. |
-
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -89,12 +88,13 @@ tfstate_store = {
 | `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
 | `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. ~> **NOTE:** 'primary_user_assigned_identity_id' or 'geo_backup_user_assigned_identity_id' is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
-### `identity` block structure
+### `maintenance_window` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
+| `day_of_week` | string | No | 0 | The day of week for maintenance window. Defaults to '0'. |
+| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
+| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
 
 
 

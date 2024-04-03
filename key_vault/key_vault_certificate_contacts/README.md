@@ -13,8 +13,12 @@ source = {
 inputs = {
    # key_vault_id → set in component_inputs
    contact = {
-      this_contact = {
+      item_1 = {
          email = "..."         
+      }
+      
+      item_2 = {
+         ...
       }
       
    }

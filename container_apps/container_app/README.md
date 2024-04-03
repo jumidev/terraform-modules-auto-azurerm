@@ -55,6 +55,13 @@ tfstate_store = {
 | **workload_profile_name** | string |  The name of the Workload Profile in the Container App Environment to place this Container App. ~> **Note:** Omit this value to use the default `Consumption` Workload Profile. | 
 | **tags** | map |  A mapping of tags to assign to the Container App. | 
 
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `secret_name` | string | Yes | - | The name of the Container App Secret to use for this Scale Rule Authentication. |
+| `trigger_parameter` | string | Yes | - | The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'. |
+
 ### `custom_scale_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -64,19 +71,13 @@ tfstate_store = {
 | `metadata` | string | Yes | - | - A map of string key-value pairs to configure the Custom Scale Rule. |
 | `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
 
-### `ingress` block structure
+### `http_scale_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allow_insecure_connections` | bool | No | - | Should this ingress allow insecure connections? |
-| `custom_domain` | string | No | - | One or more 'custom_domain' block as detailed below. |
-| `fqdn` | string | No | - | The FQDN of the ingress. |
-| `external_enabled` | bool | No | False | Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'. |
-| `ip_security_restriction` | string | No | - | One or more 'ip_security_restriction' blocks for IP-filtering rules as defined below. |
-| `target_port` | string | Yes | - | The target port on the container for the Ingress traffic. |
-| `exposed_port` | string | No | - | The exposed port on the container for the Ingress traffic. ~> **Note:** 'exposed_port' can only be specified when 'transport' is set to 'tcp'. |
-| `traffic_weight` | string | Yes | - | One or more 'traffic_weight' blocks as detailed below. |
-| `transport` | string | No | auto | The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'. |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
+| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
 
 ### `template` block structure
 
@@ -93,38 +94,6 @@ tfstate_store = {
 | `revision_suffix` | string | No | - | The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one. |
 | `volume` | [block](#volume-block-structure) | No | - | A 'volume' block as detailed below. |
 
-### `tcp_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
-| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_name` | string | Yes | - | The name of the Container App Secret to use for this Scale Rule Authentication. |
-| `trigger_parameter` | string | Yes | - | The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'. |
-
-### `http_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
-| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
-
-### `azure_queue_scale_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Scaling Rule |
-| `queue_name` | string | Yes | - | The name of the Azure Queue |
-| `queue_length` | string | Yes | - | The value of the length of the queue to trigger scaling actions. |
-| `authentication` | [block](#authentication-block-structure) | Yes | - | One or more 'authentication' blocks. |
-
 ### `registry` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -134,6 +103,14 @@ tfstate_store = {
 | `password_secret_name` | string | No | - | The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied. |
 | `username` | string | No | - | The username to use for this Container Registry, 'password_secret_name' must also be supplied.. |
 
+### `tcp_scale_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `concurrent_requests` | number | Yes | - | - The number of concurrent requests to trigger scaling. |
+| `authentication` | [block](#authentication-block-structure) | No | - | Zero or more 'authentication' blocks. |
+
 ### `dapr` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -141,6 +118,15 @@ tfstate_store = {
 | `app_id` | string | Yes | - | The Dapr Application Identifier. |
 | `app_port` | string | No | - | The port which the application is listening on. This is the same as the 'ingress' port. |
 | `app_protocol` | string | No | http | The protocol for the app. Possible values include 'http' and 'grpc'. Defaults to 'http'. |
+
+### `azure_queue_scale_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Scaling Rule |
+| `queue_name` | string | Yes | - | The name of the Azure Queue |
+| `queue_length` | string | Yes | - | The value of the length of the queue to trigger scaling actions. |
+| `authentication` | [block](#authentication-block-structure) | Yes | - | One or more 'authentication' blocks. |
 
 ### `identity` block structure
 
@@ -156,6 +142,20 @@ tfstate_store = {
 | `name` | string | Yes | - | The name of the volume. |
 | `storage_name` | string | No | - | The name of the 'AzureFile' storage. |
 | `storage_type` | string | No | EmptyDir | The type of storage volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. Defaults to 'EmptyDir'. |
+
+### `ingress` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `allow_insecure_connections` | bool | No | - | Should this ingress allow insecure connections? |
+| `custom_domain` | string | No | - | One or more 'custom_domain' block as detailed below. |
+| `fqdn` | string | No | - | The FQDN of the ingress. |
+| `external_enabled` | bool | No | False | Are connections to this Ingress from outside the Container App Environment enabled? Defaults to 'false'. |
+| `ip_security_restriction` | string | No | - | One or more 'ip_security_restriction' blocks for IP-filtering rules as defined below. |
+| `target_port` | string | Yes | - | The target port on the container for the Ingress traffic. |
+| `exposed_port` | string | No | - | The exposed port on the container for the Ingress traffic. ~> **Note:** 'exposed_port' can only be specified when 'transport' is set to 'tcp'. |
+| `traffic_weight` | string | Yes | - | One or more 'traffic_weight' blocks as detailed below. |
+| `transport` | string | No | auto | The transport method for the Ingress. Possible values are 'auto', 'http', 'http2' and 'tcp'. Defaults to 'auto'. |
 
 
 

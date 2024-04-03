@@ -51,6 +51,12 @@ variable "default_node_pool" {
 #   temporary_name_for_rotation (string)  : Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 #   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created.
 #
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
+#
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'.
 #   fs_file_max (string)                       : The sysctl setting fs.file-max. Must be between '8192' and '12000500'.
@@ -84,12 +90,6 @@ variable "default_node_pool" {
 #
 # node_network_profile block structure:
 #   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
-#
-# linux_os_config block structure      :
-#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                : A 'sysctl_config' block.
-#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 #
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
@@ -336,13 +336,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# allowed block structure:
-#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
-#
 # not_allowed block structure:
 #   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
 #   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
+#
+# allowed block structure:
+#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+#   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
 
 
 variable "maintenance_window_auto_upgrade" {
