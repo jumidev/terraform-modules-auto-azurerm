@@ -23,7 +23,7 @@ variable "virtual_wan_id" {
 
 # OPTIONAL VARIABLES
 
-variable "link" {
+variable "links" {
   description = "One or more 'link' blocks."
   type        = map(map(any))
   default     = null

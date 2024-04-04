@@ -23,7 +23,7 @@ variable "address_prefixes" {
 
 # OPTIONAL VARIABLES
 
-variable "delegation" {
+variable "delegations" {
   description = "One or more 'delegation' blocks."
   type        = map(map(any))
   default     = null

@@ -48,7 +48,7 @@ component_inputs = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **route** | [block](#route-block-structure) |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
+| **routes** | [block](#route-block-structure) |  List of `route` objects representing routes as defined below. Each object accepts the arguments documented below. -> **NOTE** Since `route` can be configured both inline and via the separate `azurerm_route` resource, we have to explicitly set it to empty slice (`[]`) to remove it. | 
 | **disable_bgp_route_propagation** | bool |  Boolean flag which controls propagation of routes learned by BGP on that route table. True means disable. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 

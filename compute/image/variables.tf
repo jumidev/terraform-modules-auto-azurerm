@@ -23,7 +23,7 @@ variable "source_virtual_machine_id" {
   type        = string
   default     = null
 }
-variable "os_disk" {
+variable "os_disks" {
   description = "One or more 'os_disk' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null
@@ -39,7 +39,7 @@ variable "os_disk" {
 #   disk_encryption_set_id (string): The ID of the Disk Encryption Set which should be used to encrypt this image. Changing this forces a new resource to be created.
 
 
-variable "data_disk" {
+variable "data_disks" {
   description = "One or more 'data_disk' blocks."
   type        = map(map(any))
   default     = null

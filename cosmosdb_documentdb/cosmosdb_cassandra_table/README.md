@@ -44,6 +44,18 @@ tfstate_store = {
 | **analytical_storage_ttl** | number |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. ~> **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed. | 
 
+### `partition_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | Name of the column to partition by. |
+
+### `autoscale_settings` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
+
 ### `column` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -58,18 +70,6 @@ tfstate_store = {
 | `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
 | `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
 | `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
-
-### `autoscale_settings` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `max_throughput` | string | No | - | The maximum throughput of the Cassandra Table (RU/s). Must be between '1,000' and '1,000,000'. Must be set in increments of '1,000'. Conflicts with 'throughput'. |
-
-### `partition_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the column to partition by. |
 
 ### `cluster_key` block structure
 

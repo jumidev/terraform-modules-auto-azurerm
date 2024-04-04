@@ -31,7 +31,7 @@ variable "azure_active_directory_authentication" {
 #   tenant (string)                                      : (REQUIRED) The Tenant which should be used for authentication.
 
 
-variable "client_root_certificate" {
+variable "client_root_certificates" {
   description = "(REQUIRED) One or more 'client_root_certificate' blocks."
   type        = map(map(any))
 }
@@ -71,7 +71,7 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-variable "client_revoked_certificate" {
+variable "client_revoked_certificates" {
   description = "One or more 'client_revoked_certificate' blocks."
   type        = map(map(any))
   default     = null

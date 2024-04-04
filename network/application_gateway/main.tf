@@ -9,8 +9,8 @@ resource "azurerm_application_gateway" "this" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  dynamic "backend_address_pool" { # var.backend_address_pool
-    for_each = var.backend_address_pool != null ? var.backend_address_pool : []
+  dynamic "backend_address_pool" { # var.backend_address_pools
+    for_each = var.backend_address_pools != null ? var.backend_address_pools : []
     content {
       name         = backend_address_pool.key
       fqdns        = lookup(backend_address_pool.value, "fqdns", null)
@@ -19,16 +19,16 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "backend_http_settings" { # var.backend_http_settings
-    for_each = var.backend_http_settings != null ? var.backend_http_settings : []
+  dynamic "backend_http_settings" { # var.backend_http_settingss
+    for_each = var.backend_http_settingss != null ? var.backend_http_settingss : []
     content {
       name = backend_http_settings.key
     }
   }
 
 
-  dynamic "frontend_ip_configuration" { # var.frontend_ip_configuration
-    for_each = var.frontend_ip_configuration != null ? var.frontend_ip_configuration : []
+  dynamic "frontend_ip_configuration" { # var.frontend_ip_configurations
+    for_each = var.frontend_ip_configurations != null ? var.frontend_ip_configurations : []
     content {
       name                            = frontend_ip_configuration.key
       subnet_id                       = lookup(frontend_ip_configuration.value, "subnet_id", null)
@@ -40,8 +40,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "frontend_port" { # var.frontend_port
-    for_each = var.frontend_port != null ? var.frontend_port : []
+  dynamic "frontend_port" { # var.frontend_ports
+    for_each = var.frontend_ports != null ? var.frontend_ports : []
     content {
       name = frontend_port.key
       port = lookup(frontend_port.value, "port") # (Required) 
@@ -49,8 +49,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "gateway_ip_configuration" { # var.gateway_ip_configuration
-    for_each = var.gateway_ip_configuration != null ? var.gateway_ip_configuration : []
+  dynamic "gateway_ip_configuration" { # var.gateway_ip_configurations
+    for_each = var.gateway_ip_configurations != null ? var.gateway_ip_configurations : []
     content {
       name      = gateway_ip_configuration.key
       subnet_id = lookup(gateway_ip_configuration.value, "subnet_id") # (Required) 
@@ -58,8 +58,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "http_listener" { # var.http_listener
-    for_each = var.http_listener != null ? var.http_listener : []
+  dynamic "http_listener" { # var.http_listeners
+    for_each = var.http_listeners != null ? var.http_listeners : []
     content {
       name                           = http_listener.key
       frontend_ip_configuration_name = lookup(http_listener.value, "frontend_ip_configuration_name", "primary") # (Required) 
@@ -84,8 +84,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "request_routing_rule" { # var.request_routing_rule
-    for_each = var.request_routing_rule != null ? var.request_routing_rule : []
+  dynamic "request_routing_rule" { # var.request_routing_rules
+    for_each = var.request_routing_rules != null ? var.request_routing_rules : []
     content {
       name                        = request_routing_rule.key
       rule_type                   = lookup(request_routing_rule.value, "rule_type")          # (Required) possible values: Basic | PathBasedRouting
@@ -130,8 +130,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "private_link_configuration" { # var.private_link_configuration
-    for_each = var.private_link_configuration != null ? var.private_link_configuration : []
+  dynamic "private_link_configuration" { # var.private_link_configurations
+    for_each = var.private_link_configurations != null ? var.private_link_configurations : []
     content {
       name = private_link_configuration.key
 
@@ -151,8 +151,8 @@ resource "azurerm_application_gateway" "this" {
 
   zones = var.zones
 
-  dynamic "trusted_client_certificate" { # var.trusted_client_certificate
-    for_each = var.trusted_client_certificate != null ? var.trusted_client_certificate : []
+  dynamic "trusted_client_certificate" { # var.trusted_client_certificates
+    for_each = var.trusted_client_certificates != null ? var.trusted_client_certificates : []
     content {
       name = trusted_client_certificate.key
       data = lookup(trusted_client_certificate.value, "data") # (Required) 
@@ -160,8 +160,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "ssl_profile" { # var.ssl_profile
-    for_each = var.ssl_profile != null ? var.ssl_profile : []
+  dynamic "ssl_profile" { # var.ssl_profiles
+    for_each = var.ssl_profiles != null ? var.ssl_profiles : []
     content {
       name                                 = ssl_profile.key
       trusted_client_certificate_names     = lookup(ssl_profile.value, "trusted_client_certificate_names", null)
@@ -183,8 +183,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "authentication_certificate" { # var.authentication_certificate
-    for_each = var.authentication_certificate != null ? var.authentication_certificate : []
+  dynamic "authentication_certificate" { # var.authentication_certificates
+    for_each = var.authentication_certificates != null ? var.authentication_certificates : []
     content {
       name = authentication_certificate.key
       data = lookup(authentication_certificate.value, "data") # (Required) 
@@ -192,8 +192,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "trusted_root_certificate" { # var.trusted_root_certificate
-    for_each = var.trusted_root_certificate != null ? var.trusted_root_certificate : []
+  dynamic "trusted_root_certificate" { # var.trusted_root_certificates
+    for_each = var.trusted_root_certificates != null ? var.trusted_root_certificates : []
     content {
       name                = trusted_root_certificate.key
       data                = lookup(trusted_root_certificate.value, "data", null)
@@ -216,8 +216,8 @@ resource "azurerm_application_gateway" "this" {
   enable_http2                      = var.enable_http2 # Default: False
   force_firewall_policy_association = var.force_firewall_policy_association
 
-  dynamic "probe" { # var.probe
-    for_each = var.probe != null ? var.probe : []
+  dynamic "probe" { # var.probes
+    for_each = var.probes != null ? var.probes : []
     content {
       host                                      = lookup(probe.value, "host", null)
       interval                                  = lookup(probe.value, "interval") # (Required) 
@@ -242,8 +242,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "ssl_certificate" { # var.ssl_certificate
-    for_each = var.ssl_certificate != null ? var.ssl_certificate : []
+  dynamic "ssl_certificate" { # var.ssl_certificates
+    for_each = var.ssl_certificates != null ? var.ssl_certificates : []
     content {
       name                = ssl_certificate.key
       data                = lookup(ssl_certificate.value, "data", null)
@@ -254,8 +254,8 @@ resource "azurerm_application_gateway" "this" {
 
   tags = var.tags
 
-  dynamic "url_path_map" { # var.url_path_map
-    for_each = var.url_path_map != null ? var.url_path_map : []
+  dynamic "url_path_map" { # var.url_path_maps
+    for_each = var.url_path_maps != null ? var.url_path_maps : []
     content {
       name                                = url_path_map.key
       default_backend_address_pool_name   = lookup(url_path_map.value, "default_backend_address_pool_name", null)
@@ -300,8 +300,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "custom_error_configuration" { # var.custom_error_configuration
-    for_each = var.custom_error_configuration != null ? var.custom_error_configuration : []
+  dynamic "custom_error_configuration" { # var.custom_error_configurations
+    for_each = var.custom_error_configurations != null ? var.custom_error_configurations : []
     content {
       status_code           = lookup(custom_error_configuration.value, "status_code")           # (Required) possible values: HttpStatus403 | HttpStatus502
       custom_error_page_url = lookup(custom_error_configuration.value, "custom_error_page_url") # (Required) 
@@ -310,8 +310,8 @@ resource "azurerm_application_gateway" "this" {
 
   firewall_policy_id = var.firewall_policy_id
 
-  dynamic "redirect_configuration" { # var.redirect_configuration
-    for_each = var.redirect_configuration != null ? var.redirect_configuration : []
+  dynamic "redirect_configuration" { # var.redirect_configurations
+    for_each = var.redirect_configurations != null ? var.redirect_configurations : []
     content {
       name                 = redirect_configuration.key
       redirect_type        = lookup(redirect_configuration.value, "redirect_type") # (Required) possible values: Permanent | Temporary | Found | SeeOther
@@ -332,8 +332,8 @@ resource "azurerm_application_gateway" "this" {
   }
 
 
-  dynamic "rewrite_rule_set" { # var.rewrite_rule_set
-    for_each = var.rewrite_rule_set != null ? var.rewrite_rule_set : []
+  dynamic "rewrite_rule_set" { # var.rewrite_rule_sets
+    for_each = var.rewrite_rule_sets != null ? var.rewrite_rule_sets : []
     content {
       name = rewrite_rule_set.key
 

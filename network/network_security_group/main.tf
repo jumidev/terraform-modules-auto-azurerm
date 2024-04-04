@@ -9,19 +9,22 @@ resource "azurerm_network_security_group" "this" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  security_rule {
-    name                                       = lookup(security_rule.value, "name") # (Required) 
-    description                                = lookup(security_rule.value, "description", null)
-    protocol                                   = lookup(security_rule.value, "protocol") # (Required) 
-    source_port_range                          = lookup(security_rule.value, "source_port_range", "*")
-    destination_port_range                     = lookup(security_rule.value, "destination_port_range", null)
-    source_address_prefix                      = lookup(security_rule.value, "source_address_prefix", "*")
-    source_application_security_group_ids      = lookup(security_rule.value, "source_application_security_group_ids", null)
-    destination_address_prefix                 = lookup(security_rule.value, "destination_address_prefix", null)
-    destination_application_security_group_ids = lookup(security_rule.value, "destination_application_security_group_ids", null)
-    access                                     = lookup(security_rule.value, "access")    # (Required) 
-    priority                                   = lookup(security_rule.value, "priority")  # (Required) 
-    direction                                  = lookup(security_rule.value, "direction") # (Required) 
+  dynamic "security_rule" { # var.security_rules
+    for_each = var.security_rules != null ? var.security_rules : []
+    content {
+      name                                       = security_rule.key
+      description                                = lookup(security_rule.value, "description", null)
+      protocol                                   = lookup(security_rule.value, "protocol", "*") # (Required) possible values: Tcp | Udp | Icmp | Esp | Ah | *
+      source_port_range                          = lookup(security_rule.value, "source_port_range", "*")
+      destination_port_range                     = lookup(security_rule.value, "destination_port_range", null)
+      source_address_prefix                      = lookup(security_rule.value, "source_address_prefix", "*")
+      source_application_security_group_ids      = lookup(security_rule.value, "source_application_security_group_ids", null)
+      destination_address_prefix                 = lookup(security_rule.value, "destination_address_prefix", null)
+      destination_application_security_group_ids = lookup(security_rule.value, "destination_application_security_group_ids", null)
+      access                                     = lookup(security_rule.value, "access", "Allow")      # (Required) possible values: Allow | Deny
+      priority                                   = lookup(security_rule.value, "priority")             # (Required) 
+      direction                                  = lookup(security_rule.value, "direction", "Inbound") # (Required) possible values: Inbound | Outbound
+    }
   }
 
 

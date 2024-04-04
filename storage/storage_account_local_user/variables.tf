@@ -18,7 +18,7 @@ variable "home_directory" {
   type        = string
   default     = null
 }
-variable "permission_scope" {
+variable "permission_scopes" {
   description = "One or more 'permission_scope' blocks."
   type        = map(map(any))
   default     = null
@@ -37,7 +37,7 @@ variable "permission_scope" {
 #   write (bool)               : Specifies if the Local User has the write permission for this scope. Defaults to 'false'.
 
 
-variable "ssh_authorized_key" {
+variable "ssh_authorized_keys" {
   description = "One or more 'ssh_authorized_key' blocks."
   type        = map(map(any))
   default     = null

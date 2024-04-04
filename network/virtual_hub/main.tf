@@ -15,8 +15,8 @@ resource "azurerm_virtual_hub" "this" {
   address_prefix         = var.address_prefix
   hub_routing_preference = var.hub_routing_preference # Default: ExpressRoute
 
-  dynamic "route" { # var.route
-    for_each = var.route != null ? var.route : []
+  dynamic "route" { # var.routes
+    for_each = var.routes != null ? var.routes : []
     content {
       address_prefixes    = lookup(route.value, "address_prefixes")    # (Required) 
       next_hop_ip_address = lookup(route.value, "next_hop_ip_address") # (Required) 

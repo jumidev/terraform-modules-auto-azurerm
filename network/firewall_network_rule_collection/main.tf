@@ -11,8 +11,8 @@ resource "azurerm_firewall_network_rule_collection" "this" {
   priority            = var.priority
   action              = var.action
 
-  dynamic "rule" { # var.rule
-    for_each = var.rule != null ? var.rule : []
+  dynamic "rule" { # var.rules
+    for_each = var.rules != null ? var.rules : []
     content {
       name                  = rule.key
       description           = lookup(rule.value, "description", null)

@@ -28,7 +28,7 @@ variable "virtual_network_subnet_ids" {
   type        = list(any)
   default     = []
 }
-variable "private_link_access" {
+variable "private_link_accesss" {
   description = "One or more 'private_link_access' block."
   type        = map(any)
   default     = null

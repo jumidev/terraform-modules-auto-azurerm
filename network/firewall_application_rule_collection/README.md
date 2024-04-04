@@ -15,12 +15,12 @@ inputs = {
    resource_group_name = "${resource_group}"   
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
-   rule = {
+   rules = {
       item_1 = {
          description = "..."         
          source_addresses = "..."         
          source_ip_groups = "..."         
-         fqdn_tags = "Possible values: AppServiceEnvironment | AzureBackup | AzureKubernetesService | HDInsight | MicrosoftActiveProtectionService | WindowsDiagnostics | WindowsUpdate | WindowsVirtualDesktop"         
+         fqdn_tags = "AppServiceEnvironment | AzureBackup | AzureKubernetesService | HDInsight | MicrosoftActiveProtectionService | WindowsDiagnostics | WindowsUpdate | WindowsVirtualDesktop"         
          target_fqdns = "..."         
          protocol = "..."         
       }      
@@ -48,14 +48,7 @@ tfstate_store = {
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
 | **priority** | number |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
-| **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
-
-### `protocol` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | Specify a port for the connection. |
-| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+| **rules** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
 ### `rule` block structure
 
@@ -68,6 +61,13 @@ tfstate_store = {
 | `fqdn_tags` | list | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
 | `target_fqdns` | list | No | - | A list of FQDNs. |
 | `protocol` | [block](#protocol-block-structure) | No | - | One or more 'protocol' blocks. |
+
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
 
 
 

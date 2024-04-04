@@ -17,8 +17,8 @@ resource "azurerm_vpn_server_configuration" "this" {
   }
 
 
-  dynamic "client_root_certificate" { # var.client_root_certificate
-    for_each = var.client_root_certificate != null ? var.client_root_certificate : []
+  dynamic "client_root_certificate" { # var.client_root_certificates
+    for_each = var.client_root_certificates != null ? var.client_root_certificates : []
     content {
       name       = client_root_certificate.key
       thumbprint = lookup(client_root_certificate.value, "thumbprint") # (Required) 
@@ -47,8 +47,8 @@ resource "azurerm_vpn_server_configuration" "this" {
   vpn_protocols = var.vpn_protocols
   tags          = var.tags
 
-  dynamic "client_revoked_certificate" { # var.client_revoked_certificate
-    for_each = var.client_revoked_certificate != null ? var.client_revoked_certificate : []
+  dynamic "client_revoked_certificate" { # var.client_revoked_certificates
+    for_each = var.client_revoked_certificates != null ? var.client_revoked_certificates : []
     content {
       name       = client_revoked_certificate.key
       thumbprint = lookup(client_revoked_certificate.value, "thumbprint") # (Required) 

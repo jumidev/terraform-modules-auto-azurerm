@@ -9,8 +9,8 @@ resource "azurerm_vpn_gateway_connection" "this" {
   remote_vpn_site_id = var.remote_vpn_site_id
   vpn_gateway_id     = var.vpn_gateway_id
 
-  dynamic "vpn_link" { # var.vpn_link
-    for_each = var.vpn_link != null ? var.vpn_link : []
+  dynamic "vpn_link" { # var.vpn_links
+    for_each = var.vpn_links != null ? var.vpn_links : []
     content {
       name                                  = vpn_link.key
       egress_nat_rule_ids                   = lookup(vpn_link.value, "egress_nat_rule_ids", null)
@@ -63,8 +63,8 @@ resource "azurerm_vpn_gateway_connection" "this" {
   }
 
 
-  dynamic "traffic_selector_policy" { # var.traffic_selector_policy
-    for_each = var.traffic_selector_policy != null ? var.traffic_selector_policy : []
+  dynamic "traffic_selector_policy" { # var.traffic_selector_policys
+    for_each = var.traffic_selector_policys != null ? var.traffic_selector_policys : []
     content {
       local_address_ranges  = lookup(traffic_selector_policy.value, "local_address_ranges")  # (Required) 
       remote_address_ranges = lookup(traffic_selector_policy.value, "remote_address_ranges") # (Required) 

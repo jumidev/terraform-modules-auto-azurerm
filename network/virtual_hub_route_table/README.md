@@ -35,7 +35,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **labels** | string |  List of labels associated with this route table. | 
-| **route** | [block](#route-block-structure) |  One or more `route` blocks. | 
+| **routes** | [block](#route-block-structure) |  One or more `route` blocks. | 
 
 ### `route` block structure
 

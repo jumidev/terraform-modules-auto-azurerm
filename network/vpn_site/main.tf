@@ -14,8 +14,8 @@ resource "azurerm_vpn_site" "this" {
   # optional vars
   ########################################
 
-  dynamic "link" { # var.link
-    for_each = var.link != null ? var.link : []
+  dynamic "link" { # var.links
+    for_each = var.links != null ? var.links : []
     content {
       name = link.key
 

@@ -51,13 +51,12 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
-### `encryption` block structure
+### `ip_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
-| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
-| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids' |
+| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
+| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
 
 ### `retention_policy` block structure
 
@@ -72,13 +71,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
-### `network_rule_set` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
-| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. ~> **NOTE:** 'network_rule_set' is only supported with the 'Premium' SKU at this time. ~> **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an 'network_rule_set' block with 'default_action' set to 'Deny'. |
-
 ### `georeplications` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +80,14 @@ tfstate_store = {
 | `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. ~> **NOTE:** Changing the 'zone_redundancy_enabled' forces the a underlying replication to be created. |
 | `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
+### `encryption` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
+| `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
+| `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids' |
+
 ### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -95,12 +95,12 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
-### `ip_rule` block structure
+### `network_rule_set` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `action` | string | Yes | - | The behaviour for requests matching this rule. At this time the only supported value is 'Allow' |
-| `ip_range` | string | Yes | - | The CIDR block from which requests will match the rule. |
+| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. ~> **NOTE:** 'network_rule_set' is only supported with the 'Premium' SKU at this time. ~> **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an 'network_rule_set' block with 'default_action' set to 'Deny'. |
 
 
 

@@ -10,7 +10,7 @@ source = {
    path = "network/network_interface"   
 }
 inputs = {
-   ip_configuration = {
+   ip_configurations = {
       primary = {
          gateway_load_balancer_frontend_ip_configuration_id = "..."         
          # subnet_id → (optional) set in component_inputs
@@ -29,8 +29,8 @@ inputs = {
    resource_group_name = "${resource_group}"   
 }
 component_inputs = {
-   ip_configuration.primary.subnet_id = "path/to/subnet_component:id"   
-   ip_configuration.primary.public_ip_address_id = "path/to/public_ip_component:id"   
+   ip_configurations.primary.subnet_id = "path/to/subnet_component:id"   
+   ip_configurations.primary.public_ip_address_id = "path/to/public_ip_component:id"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   
@@ -208,7 +208,7 @@ component_inputs = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **ip_configuration** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. | 
+| **ip_configurations** | [block](#ip_configuration-block-structure) |  One or more `ip_configuration` blocks. | 
 | **location** | string |  The location where the Network Interface should exist. Changing this forces a new resource to be created. | 
 | **name** | string |  The name of the Network Interface. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group in which to create the Network Interface. Changing this forces a new resource to be created. | 

@@ -13,7 +13,7 @@ inputs = {
    name = "The name of the policy set definition"   
    policy_type = "The policy set type"   
    display_name = "The display name of the policy set definition"   
-   policy_definition_reference = {
+   policy_definition_references = {
       item_1 = {
          # policy_definition_id → set in component_inputs
          parameter_values = "..."         
@@ -26,7 +26,7 @@ inputs = {
    }   
 }
 component_inputs = {
-   policy_definition_reference.item_1.policy_definition_id = "path/to/policy_definition_component:id"   
+   policy_definition_references.item_1.policy_definition_id = "path/to/policy_definition_component:id"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   
@@ -42,13 +42,13 @@ tfstate_store = {
 | **name** | string |  -  |  The name of the policy set definition. Changing this forces a new resource to be created. | 
 | **policy_type** | string |  `BuiltIn`, `Custom`, `NotSpecified`, `Static`  |  The policy set type. Possible values are `BuiltIn`, `Custom`, `NotSpecified` and `Static`. Changing this forces a new resource to be created. | 
 | **display_name** | string |  -  |  The display name of the policy set definition. | 
-| **policy_definition_reference** | [block](#policy_definition_reference-block-structure) |  -  |  One or more `policy_definition_reference` blocks. | 
+| **policy_definition_references** | [block](#policy_definition_reference-block-structure) |  -  |  One or more `policy_definition_reference` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **policy_definition_group** | [block](#policy_definition_group-block-structure) |  One or more `policy_definition_group` blocks. | 
+| **policy_definition_groups** | [block](#policy_definition_group-block-structure) |  One or more `policy_definition_group` blocks. | 
 | **description** | string |  The description of the policy set definition. | 
 | **management_group_id** | string |  The id of the Management Group where this policy set definition should be defined. Changing this forces a new resource to be created. | 
 | **metadata** | string |  The metadata for the policy set definition. This is a JSON object representing additional metadata that should be stored with the policy definition. | 

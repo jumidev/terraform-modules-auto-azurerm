@@ -15,7 +15,7 @@ variable "location" {
   type        = string
 
 }
-variable "backend_address_pool" {
+variable "backend_address_pools" {
   description = "(REQUIRED) One or more 'backend_address_pool' blocks."
   type        = map(map(any))
 }
@@ -26,7 +26,7 @@ variable "backend_address_pool" {
 #   ip_addresses (list)                 : A list of IP Addresses which should be part of the Backend Address Pool.
 
 
-variable "backend_http_settings" {
+variable "backend_http_settingss" {
   description = "(REQUIRED) One or more 'backend_http_settings' blocks."
   type        = map(map(any))
 }
@@ -35,7 +35,7 @@ variable "backend_http_settings" {
 #   name (string)                        : (REQUIRED) The name of the Authentication Certificate.
 
 
-variable "frontend_ip_configuration" {
+variable "frontend_ip_configurations" {
   description = "(REQUIRED) One or more 'frontend_ip_configuration' blocks."
   type        = map(map(any))
 }
@@ -49,7 +49,7 @@ variable "frontend_ip_configuration" {
 #   private_link_configuration_name (string) : The name of the private link configuration to use for this frontend IP configuration.
 
 
-variable "frontend_port" {
+variable "frontend_ports" {
   description = "(REQUIRED) One or more 'frontend_port' blocks."
   type        = map(map(any))
 }
@@ -59,7 +59,7 @@ variable "frontend_port" {
 #   port (string)                : (REQUIRED) The port used for this Frontend Port.
 
 
-variable "gateway_ip_configuration" {
+variable "gateway_ip_configurations" {
   description = "(REQUIRED) One or more 'gateway_ip_configuration' blocks."
   type        = map(map(any))
 }
@@ -69,7 +69,7 @@ variable "gateway_ip_configuration" {
 #   subnet_id (string)                      : (REQUIRED) The ID of the Subnet which the Application Gateway should be connected to.
 
 
-variable "http_listener" {
+variable "http_listeners" {
   description = "(REQUIRED) One or more 'http_listener' blocks."
   type        = map(map(any))
 }
@@ -92,7 +92,7 @@ variable "http_listener" {
 #   custom_error_page_url (string)            : (REQUIRED) Error page URL of the application gateway customer error.
 
 
-variable "request_routing_rule" {
+variable "request_routing_rules" {
   description = "(REQUIRED) One or more 'request_routing_rule' blocks."
   type        = map(map(any))
 }
@@ -150,7 +150,7 @@ variable "identity" {
 #   identity_ids (list)     : (REQUIRED) Specifies a list of User Assigned Managed Identity IDs to be assigned to this Application Gateway.
 
 
-variable "private_link_configuration" {
+variable "private_link_configurations" {
   description = "One or more 'private_link_configuration' blocks."
   type        = map(map(any))
   default     = null
@@ -173,7 +173,7 @@ variable "zones" {
   type        = list(any)
   default     = []
 }
-variable "trusted_client_certificate" {
+variable "trusted_client_certificates" {
   description = "One or more 'trusted_client_certificate' blocks."
   type        = map(map(any))
   default     = null
@@ -184,7 +184,7 @@ variable "trusted_client_certificate" {
 #   data (string)                             : (REQUIRED) The base-64 encoded certificate.
 
 
-variable "ssl_profile" {
+variable "ssl_profiles" {
   description = "One or more 'ssl_profile' blocks."
   type        = map(map(any))
   default     = null
@@ -205,7 +205,7 @@ variable "ssl_profile" {
 #   min_protocol_version (string): The minimal TLS version. Possible values are 'TLSv1_0', 'TLSv1_1', 'TLSv1_2' and 'TLSv1_3'.
 
 
-variable "authentication_certificate" {
+variable "authentication_certificates" {
   description = "One or more 'authentication_certificate' blocks."
   type        = map(map(any))
   default     = null
@@ -216,7 +216,7 @@ variable "authentication_certificate" {
 #   data (string)                             : (REQUIRED) The contents of the Authentication Certificate which should be used.
 
 
-variable "trusted_root_certificate" {
+variable "trusted_root_certificates" {
   description = "One or more 'trusted_root_certificate' blocks."
   type        = map(map(any))
   default     = null
@@ -252,7 +252,7 @@ variable "force_firewall_policy_association" {
   type        = bool
   default     = null
 }
-variable "probe" {
+variable "probes" {
   description = "One or more 'probe' blocks."
   type        = map(map(any))
   default     = null
@@ -276,7 +276,7 @@ variable "probe" {
 #   status_code (list)   : (REQUIRED) A list of allowed status codes for this Health Probe.
 
 
-variable "ssl_certificate" {
+variable "ssl_certificates" {
   description = "One or more 'ssl_certificate' blocks."
   type        = map(map(any))
   default     = null
@@ -294,7 +294,7 @@ variable "tags" {
   type        = map(any)
   default     = null
 }
-variable "url_path_map" {
+variable "url_path_maps" {
   description = "One or more 'url_path_map' blocks."
   type        = map(map(any))
   default     = null
@@ -326,17 +326,17 @@ variable "waf_configuration" {
 #   max_request_body_size_kb (string): The Maximum Request Body Size in KB. Accepted values are in the range '1'KB to '128'KB. Defaults to '128'KB.
 #   exclusion (block)                : One or more 'exclusion' blocks.
 #
+# disabled_rule_group block structure:
+#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'crs_49_inbound_blocking', 'General', 'GoodBots', 'KnownBadBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA', 'UnknownBots', 'METHOD-ENFORCEMENT', 'PROTOCOL-ENFORCEMENT', 'PROTOCOL-ATTACK', 'LFI', 'RFI', 'RCE', 'PHP', 'NODEJS', 'XSS', 'SQLI', 'FIX', 'JAVA', 'MS-ThreatIntel-WebShells', 'MS-ThreatIntel-AppSec', 'MS-ThreatIntel-SQLI' and 'MS-ThreatIntel-CVEs'.
+#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
+#
 # exclusion block structure       :
 #   match_variable (string)         : (REQUIRED) Match variable of the exclusion rule to exclude header, cookie or GET arguments. Possible values are 'RequestArgKeys', 'RequestArgNames', 'RequestArgValues', 'RequestCookieKeys', 'RequestCookieNames', 'RequestCookieValues', 'RequestHeaderKeys', 'RequestHeaderNames' and 'RequestHeaderValues'
 #   selector_match_operator (string): Operator which will be used to search in the variable content. Possible values are 'Contains', 'EndsWith', 'Equals', 'EqualsAny' and 'StartsWith'. If empty will exclude all traffic on this 'match_variable'
 #   selector (string)               : String value which will be used for the filter operation. If empty will exclude all traffic on this 'match_variable'
-#
-# disabled_rule_group block structure:
-#   rule_group_name (string)           : (REQUIRED) The rule group where specific rules should be disabled. Possible values are 'BadBots', 'crs_20_protocol_violations', 'crs_21_protocol_anomalies', 'crs_23_request_limits', 'crs_30_http_policy', 'crs_35_bad_robots', 'crs_40_generic_attacks', 'crs_41_sql_injection_attacks', 'crs_41_xss_attacks', 'crs_42_tight_security', 'crs_45_trojans', 'crs_49_inbound_blocking', 'General', 'GoodBots', 'KnownBadBots', 'Known-CVEs', 'REQUEST-911-METHOD-ENFORCEMENT', 'REQUEST-913-SCANNER-DETECTION', 'REQUEST-920-PROTOCOL-ENFORCEMENT', 'REQUEST-921-PROTOCOL-ATTACK', 'REQUEST-930-APPLICATION-ATTACK-LFI', 'REQUEST-931-APPLICATION-ATTACK-RFI', 'REQUEST-932-APPLICATION-ATTACK-RCE', 'REQUEST-933-APPLICATION-ATTACK-PHP', 'REQUEST-941-APPLICATION-ATTACK-XSS', 'REQUEST-942-APPLICATION-ATTACK-SQLI', 'REQUEST-943-APPLICATION-ATTACK-SESSION-FIXATION', 'REQUEST-944-APPLICATION-ATTACK-JAVA', 'UnknownBots', 'METHOD-ENFORCEMENT', 'PROTOCOL-ENFORCEMENT', 'PROTOCOL-ATTACK', 'LFI', 'RFI', 'RCE', 'PHP', 'NODEJS', 'XSS', 'SQLI', 'FIX', 'JAVA', 'MS-ThreatIntel-WebShells', 'MS-ThreatIntel-AppSec', 'MS-ThreatIntel-SQLI' and 'MS-ThreatIntel-CVEs'.
-#   rules (list)                       : A list of rules which should be disabled in that group. Disables all rules in the specified group if 'rules' is not specified.
 
 
-variable "custom_error_configuration" {
+variable "custom_error_configurations" {
   description = "One or more 'custom_error_configuration' blocks."
   type        = map(map(any))
   default     = null
@@ -352,7 +352,7 @@ variable "firewall_policy_id" {
   type        = string
   default     = null
 }
-variable "redirect_configuration" {
+variable "redirect_configurations" {
   description = "One or more 'redirect_configuration' blocks."
   type        = map(map(any))
   default     = null
@@ -378,7 +378,7 @@ variable "autoscale_configuration" {
 #   max_capacity (string)                  : Maximum capacity for autoscaling. Accepted values are in the range '2' to '125'.
 
 
-variable "rewrite_rule_set" {
+variable "rewrite_rule_sets" {
   description = "One or more 'rewrite_rule_set' blocks. Only valid for v2 SKUs."
   type        = map(map(any))
   default     = null

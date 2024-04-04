@@ -34,8 +34,8 @@ tfstate_store = {
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **source_virtual_machine_id** | string |  -  |  The Virtual Machine ID from which to create the image. | 
-| **os_disk** | [block](#os_disk-block-structure) |  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
-| **data_disk** | [block](#data_disk-block-structure) |  -  |  One or more `data_disk` blocks. | 
+| **os_disks** | [block](#os_disk-block-structure) |  -  |  One or more `os_disk` blocks. Changing this forces a new resource to be created. | 
+| **data_disks** | [block](#data_disk-block-structure) |  -  |  One or more `data_disk` blocks. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 | **zone_resilient** | bool |  `False`  |  Is zone resiliency enabled? Defaults to `false`. Changing this forces a new resource to be created. | 
 | **hyper_v_generation** | string |  `V1`  |  The HyperVGenerationType of the VirtualMachine created from the image as `V1`, `V2`. Defaults to `V1`. Changing this forces a new resource to be created. | 

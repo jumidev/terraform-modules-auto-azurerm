@@ -9,8 +9,8 @@ resource "azurerm_web_application_firewall_policy" "this" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  dynamic "managed_rules" { # var.managed_rules
-    for_each = var.managed_rules != null ? var.managed_rules : []
+  dynamic "managed_rules" { # var.managed_ruless
+    for_each = var.managed_ruless != null ? var.managed_ruless : []
     content {
       exclusion        = lookup(managed_rules.value, "exclusion", null)
       managed_rule_set = lookup(managed_rules.value, "managed_rule_set") # (Required) 
@@ -22,8 +22,8 @@ resource "azurerm_web_application_firewall_policy" "this" {
   # optional vars
   ########################################
 
-  dynamic "custom_rules" { # var.custom_rules
-    for_each = var.custom_rules != null ? var.custom_rules : []
+  dynamic "custom_rules" { # var.custom_ruless
+    for_each = var.custom_ruless != null ? var.custom_ruless : []
     content {
       enabled   = lookup(custom_rules.value, "enabled", true)
       name      = custom_rules.key

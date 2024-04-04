@@ -13,8 +13,8 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
   # optional vars
   ########################################
 
-  dynamic "application_rule_collection" { # var.application_rule_collection
-    for_each = var.application_rule_collection != null ? var.application_rule_collection : []
+  dynamic "application_rule_collection" { # var.application_rule_collections
+    for_each = var.application_rule_collections != null ? var.application_rule_collections : []
     content {
       name     = application_rule_collection.key
       action   = lookup(application_rule_collection.value, "action")   # (Required) possible values: Allow | Deny
@@ -50,8 +50,8 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
   }
 
 
-  dynamic "nat_rule_collection" { # var.nat_rule_collection
-    for_each = var.nat_rule_collection != null ? var.nat_rule_collection : []
+  dynamic "nat_rule_collection" { # var.nat_rule_collections
+    for_each = var.nat_rule_collections != null ? var.nat_rule_collections : []
     content {
       name     = nat_rule_collection.key
       action   = lookup(nat_rule_collection.value, "action")   # (Required) 
@@ -77,8 +77,8 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
   }
 
 
-  dynamic "network_rule_collection" { # var.network_rule_collection
-    for_each = var.network_rule_collection != null ? var.network_rule_collection : []
+  dynamic "network_rule_collection" { # var.network_rule_collections
+    for_each = var.network_rule_collections != null ? var.network_rule_collections : []
     content {
       name     = network_rule_collection.key
       action   = lookup(network_rule_collection.value, "action")   # (Required) possible values: Allow | Deny

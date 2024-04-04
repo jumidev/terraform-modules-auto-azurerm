@@ -28,7 +28,7 @@ variable "hub_routing_preference" {
   type        = string
   default     = "ExpressRoute"
 }
-variable "route" {
+variable "routes" {
   description = "One or more 'route' blocks."
   type        = map(map(any))
   default     = null

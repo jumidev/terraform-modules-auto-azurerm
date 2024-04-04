@@ -28,7 +28,7 @@ variable "tenant_id" {
 
 # OPTIONAL VARIABLES
 
-variable "access_policy" {
+variable "access_policys" {
   description = "[A list](/docs/configuration/attr-as-blocks.html) of 'access_policy' objects (up to 1024) describing access policies, as described below. -> **NOTE** Since 'access_policy' can be configured both inline and via the separate 'azurerm_key_vault_access_policy' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
   default     = null
@@ -92,7 +92,7 @@ variable "soft_delete_retention_days" {
   type        = number
   default     = null
 }
-variable "contact" {
+variable "contacts" {
   description = "One or more 'contact' block. ~> **Note:** This field can only be set once user has 'managecontacts' certificate permission."
   type        = map(any)
   default     = null

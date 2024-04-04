@@ -7,8 +7,8 @@ resource "azurerm_key_vault_certificate_contacts" "this" {
   ########################################
   key_vault_id = var.key_vault_id
 
-  dynamic "contact" { # var.contact
-    for_each = var.contact != null ? var.contact : []
+  dynamic "contact" { # var.contacts
+    for_each = var.contacts != null ? var.contacts : []
     content {
       email = lookup(contact.value, "email") # (Required) 
       name  = contact.key

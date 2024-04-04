@@ -7,8 +7,8 @@ resource "azurerm_storage_blob_inventory_policy" "this" {
   ########################################
   storage_account_id = var.storage_account_id
 
-  dynamic "rules" { # var.rules
-    for_each = var.rules != null ? var.rules : []
+  dynamic "rules" { # var.ruless
+    for_each = var.ruless != null ? var.ruless : []
     content {
       name                   = rules.key
       storage_container_name = lookup(rules.value, "storage_container_name") # (Required) 

@@ -23,7 +23,7 @@ variable "protocol" {
 
 # OPTIONAL VARIABLES
 
-variable "frontend_ip_configuration" {
+variable "frontend_ip_configurations" {
   description = "One or more 'frontend_ip_configuration' blocks."
   type        = map(map(any))
   default     = null

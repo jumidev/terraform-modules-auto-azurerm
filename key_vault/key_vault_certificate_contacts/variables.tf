@@ -5,7 +5,7 @@ variable "key_vault_id" {
   type        = string
 
 }
-variable "contact" {
+variable "contacts" {
   description = "(REQUIRED) One or more 'contact' blocks."
   type        = map(map(any))
 }

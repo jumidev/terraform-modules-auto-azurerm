@@ -15,7 +15,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
-   rule = {
+   rules = {
       item_1 = {
          description = "..."         
          source_addresses = "..."         
@@ -24,7 +24,7 @@ inputs = {
          destination_ip_groups = "..."         
          destination_fqdns = "..."         
          destination_ports = "..."         
-         protocols = "Possible values: Any | ICMP | TCP | UDP"         
+         protocols = "Any | ICMP | TCP | UDP"         
       }      
       item_2 = {
          ...
@@ -50,7 +50,7 @@ tfstate_store = {
 | **resource_group_name** | string |  -  |  Specifies the name of the Resource Group in which the Firewall exists. Changing this forces a new resource to be created. | 
 | **priority** | number |  `100`, `65000`  |  Specifies the priority of the rule collection. Possible values are between `100` - `65000`. | 
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
-| **rule** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
+| **rules** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
 ### `rule` block structure
 

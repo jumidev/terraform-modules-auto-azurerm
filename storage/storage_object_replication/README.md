@@ -12,7 +12,7 @@ source = {
 inputs = {
    source_storage_account_id = "The ID of the source storage account"   
    destination_storage_account_id = "The ID of the destination storage account"   
-   rules = {
+   ruless = {
       item_1 = {
          source_container_name = "..."         
          destination_container_name = "..."         
@@ -37,7 +37,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **source_storage_account_id** | string |  The ID of the source storage account. Changing this forces a new Storage Object Replication to be created. | 
 | **destination_storage_account_id** | string |  The ID of the destination storage account. Changing this forces a new Storage Object Replication to be created. | 
-| **rules** | [block](#rules-block-structure) |  One or more `rules` blocks. | 
+| **ruless** | [block](#rules-block-structure) |  One or more `rules` blocks. | 
 
 ### `rules` block structure
 

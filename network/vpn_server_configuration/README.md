@@ -19,7 +19,7 @@ inputs = {
       issuer = "..."      
       tenant = "..."      
    }   
-   client_root_certificate = {
+   client_root_certificates = {
       item_1 = {
          thumbprint = "..."         
       }      
@@ -44,7 +44,7 @@ tfstate_store = {
 | **location** | string |  -  |  The Azure location where this VPN Server Configuration should be created. Changing this forces a new resource to be created. | 
 | **vpn_authentication_types** | list |  `AAD`, `Certificate`, `Radius`  |  A list of Authentication Types applicable for this VPN Server Configuration. Possible values are `AAD` (Azure Active Directory), `Certificate` and `Radius`. | 
 | **azure_active_directory_authentication** | [block](#azure_active_directory_authentication-block-structure) |  -  |  A `azure_active_directory_authentication` block. | 
-| **client_root_certificate** | [block](#client_root_certificate-block-structure) |  -  |  One or more `client_root_certificate` blocks. | 
+| **client_root_certificates** | [block](#client_root_certificate-block-structure) |  -  |  One or more `client_root_certificate` blocks. | 
 
 ## Optional Variables
 
@@ -53,7 +53,7 @@ tfstate_store = {
 | **ipsec_policy** | [block](#ipsec_policy-block-structure) |  -  |  A `ipsec_policy` block. | 
 | **vpn_protocols** | list |  `IkeV2`, `OpenVPN`  |  A list of VPN Protocols to use for this Server Configuration. Possible values are `IkeV2` and `OpenVPN`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
-| **client_revoked_certificate** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
+| **client_revoked_certificates** | [block](#client_revoked_certificate-block-structure) |  -  |  One or more `client_revoked_certificate` blocks. | 
 | **radius** | [block](#radius-block-structure) |  -  |  A `radius` block. | 
 
 ### `ipsec_policy` block structure
@@ -76,7 +76,7 @@ tfstate_store = {
 | `name` | string | Yes | - | A name used to uniquely identify this certificate. |
 | `thumbprint` | string | Yes | - | The Thumbprint of the Certificate. |
 
-### `client_root_certificate` block structure
+### `client_revoked_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
@@ -91,7 +91,7 @@ tfstate_store = {
 | `issuer` | string | Yes | - | The Issuer which should be used for authentication. |
 | `tenant` | string | Yes | - | The Tenant which should be used for authentication. |
 
-### `client_revoked_certificate` block structure
+### `client_root_certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |

@@ -13,7 +13,7 @@ variable "loadbalancer_id" {
 
 # OPTIONAL VARIABLES
 
-variable "tunnel_interface" {
+variable "tunnel_interfaces" {
   description = "One or more 'tunnel_interface' blocks."
   type        = map(map(any))
   default     = null

@@ -38,7 +38,7 @@ variable "mode" {
   type        = string
   default     = "ReadWrite"
 }
-variable "notification" {
+variable "notifications" {
   description = "One or more 'notification' blocks."
   type        = map(map(any))
   default     = null

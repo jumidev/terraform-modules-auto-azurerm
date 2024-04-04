@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **org_id** | string |  The ID of the organization as provided to the issuer. | 
 | **account_id** | string |  The account number with the third-party Certificate Issuer. | 
-| **admin** | [block](#admin-block-structure) |  One or more `admin` blocks. | 
+| **admins** | [block](#admin-block-structure) |  One or more `admin` blocks. | 
 | **password** | string |  The password associated with the account and organization ID at the third-party Certificate Issuer. If not specified, will not overwrite any previous value. | 
 
 ### `admin` block structure

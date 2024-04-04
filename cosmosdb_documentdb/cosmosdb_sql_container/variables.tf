@@ -33,7 +33,7 @@ variable "partition_key_version" {
   type        = string
   default     = null
 }
-variable "unique_key" {
+variable "unique_keys" {
   description = "One or more 'unique_key' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null
@@ -74,18 +74,18 @@ variable "indexing_policy" {
 # spatial_index block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
 #
-# excluded_path block structure:
-#   path (string)                : (REQUIRED) Path that is excluded from indexing.
-#
 # included_path block structure:
 #   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
+#
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 #
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
+# excluded_path block structure:
+#   path (string)                : (REQUIRED) Path that is excluded from indexing.
 
 
 variable "default_ttl" {
@@ -98,7 +98,7 @@ variable "analytical_storage_ttl" {
   type        = string
   default     = null
 }
-variable "conflict_resolution_policy" {
+variable "conflict_resolution_policys" {
   description = "A 'conflict_resolution_policy' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null

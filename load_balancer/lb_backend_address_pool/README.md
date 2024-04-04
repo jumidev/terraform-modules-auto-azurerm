@@ -87,7 +87,7 @@ component_inputs = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **tunnel_interface** | [block](#tunnel_interface-block-structure) |  One or more `tunnel_interface` blocks. | 
+| **tunnel_interfaces** | [block](#tunnel_interface-block-structure) |  One or more `tunnel_interface` blocks. | 
 | **virtual_network_id** | string |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
 
 ### `tunnel_interface` block structure

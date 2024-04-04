@@ -13,7 +13,7 @@ variable "storage_account_name" {
 
 # OPTIONAL VARIABLES
 
-variable "acl" {
+variable "acls" {
   description = "One or more 'acl' blocks."
   type        = map(map(any))
   default     = null

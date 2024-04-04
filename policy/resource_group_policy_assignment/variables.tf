@@ -54,7 +54,7 @@ variable "metadata" {
   type        = string
   default     = null
 }
-variable "non_compliance_message" {
+variable "non_compliance_messages" {
   description = "One or more 'non_compliance_message' blocks."
   type        = map(map(any))
   default     = null
@@ -75,7 +75,7 @@ variable "parameters" {
   type        = string
   default     = null
 }
-variable "overrides" {
+variable "overridess" {
   description = "One or more 'overrides' blocks. More detail about 'overrides' and 'resource_selectors' see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview)"
   type        = map(map(any))
   default     = null
@@ -89,7 +89,7 @@ variable "overrides" {
 #   not_in (string)                  : Specify the list of policy reference id values to filter out. Cannot be used with 'in'.
 
 
-variable "resource_selectors" {
+variable "resource_selectorss" {
   description = "One or more 'resource_selectors' blocks to filter polices by resource properties."
   type        = map(map(any))
   default     = null

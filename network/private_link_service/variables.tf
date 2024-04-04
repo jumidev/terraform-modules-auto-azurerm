@@ -15,7 +15,7 @@ variable "location" {
   type        = string
 
 }
-variable "nat_ip_configuration" {
+variable "nat_ip_configurations" {
   description = "(REQUIRED) One or more (up to 8) 'nat_ip_configuration' block."
   type        = map(any)
 }

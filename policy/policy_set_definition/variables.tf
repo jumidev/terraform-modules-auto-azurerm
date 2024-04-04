@@ -15,7 +15,7 @@ variable "display_name" {
   type        = string
 
 }
-variable "policy_definition_reference" {
+variable "policy_definition_references" {
   description = "(REQUIRED) One or more 'policy_definition_reference' blocks."
   type        = map(map(any))
 }
@@ -30,7 +30,7 @@ variable "policy_definition_reference" {
 
 # OPTIONAL VARIABLES
 
-variable "policy_definition_group" {
+variable "policy_definition_groups" {
   description = "One or more 'policy_definition_group' blocks."
   type        = map(map(any))
   default     = null

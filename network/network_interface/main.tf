@@ -6,8 +6,8 @@ resource "azurerm_network_interface" "this" {
   # required vars
   ########################################
 
-  dynamic "ip_configuration" { # var.ip_configuration
-    for_each = var.ip_configuration != null ? var.ip_configuration : []
+  dynamic "ip_configuration" { # var.ip_configurations
+    for_each = var.ip_configurations != null ? var.ip_configurations : []
     content {
       name                                               = ip_configuration.key
       gateway_load_balancer_frontend_ip_configuration_id = lookup(ip_configuration.value, "gateway_load_balancer_frontend_ip_configuration_id", null)

@@ -9,12 +9,15 @@ resource "azurerm_private_link_service" "this" {
   resource_group_name = var.resource_group_name
   location            = var.location
 
-  nat_ip_configuration {
-    name                       = lookup(nat_ip_configuration.value, "name")      # (Required) 
-    subnet_id                  = lookup(nat_ip_configuration.value, "subnet_id") # (Required) 
-    primary                    = lookup(nat_ip_configuration.value, "primary")   # (Required) 
-    private_ip_address         = lookup(nat_ip_configuration.value, "private_ip_address", null)
-    private_ip_address_version = lookup(nat_ip_configuration.value, "private_ip_address_version", "IPv4")
+  dynamic "nat_ip_configuration" { # var.nat_ip_configurations
+    for_each = var.nat_ip_configurations != null ? var.nat_ip_configurations : []
+    content {
+      name                       = nat_ip_configuration.key
+      subnet_id                  = lookup(nat_ip_configuration.value, "subnet_id")     # (Required) possible values: enforce_private_link_service_network_policies | true
+      primary                    = lookup(nat_ip_configuration.value, "primary", true) # (Required) 
+      private_ip_address         = lookup(nat_ip_configuration.value, "private_ip_address", null)
+      private_ip_address_version = lookup(nat_ip_configuration.value, "private_ip_address_version", "IPv4")
+    }
   }
 
   load_balancer_frontend_ip_configuration_ids = var.load_balancer_frontend_ip_configuration_ids

@@ -23,8 +23,8 @@ resource "azurerm_network_packet_capture" "this" {
   maximum_bytes_per_session = var.maximum_bytes_per_session # Default: 1073741824
   maximum_capture_duration  = var.maximum_capture_duration  # Default: 18000
 
-  dynamic "filter" { # var.filter
-    for_each = var.filter != null ? var.filter : []
+  dynamic "filter" { # var.filters
+    for_each = var.filters != null ? var.filters : []
     content {
       local_ip_address  = lookup(filter.value, "local_ip_address", null)
       local_port        = lookup(filter.value, "local_port", null)

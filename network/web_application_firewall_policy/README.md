@@ -13,7 +13,7 @@ inputs = {
    name = "The name of the policy"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   managed_rules = {
+   managed_ruless = {
       item_1 = {
          exclusion = "..."         
          managed_rule_set = "..."         
@@ -37,32 +37,15 @@ tfstate_store = {
 | **name** | string |  The name of the policy. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the resource group. Changing this forces a new resource to be created. | 
 | **location** | string |  Resource location. Changing this forces a new resource to be created. | 
-| **managed_rules** | [block](#managed_rules-block-structure) |  A `managed_rules` blocks. | 
+| **managed_ruless** | [block](#managed_rules-block-structure) |  A `managed_rules` blocks. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **custom_rules** | [block](#custom_rules-block-structure) |  One or more `custom_rules` blocks. | 
+| **custom_ruless** | [block](#custom_rules-block-structure) |  One or more `custom_rules` blocks. | 
 | **policy_settings** | [block](#policy_settings-block-structure) |  A `policy_settings` block. | 
 | **tags** | map |  A mapping of tags to assign to the Web Application Firewall Policy. | 
-
-### `match_conditions` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variables` | [block](#match_variables-block-structure) | Yes | - | One or more 'match_variables' blocks. |
-| `match_values` | list | No | - | A list of match values. This is **Required** when the 'operator' is not 'Any'. |
-| `operator` | string | Yes | - | Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'. |
-| `negation_condition` | string | No | - | Describes if this is negate condition or not |
-| `transforms` | list | No | - | A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'. |
-
-### `log_scrubbing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | True | Whether the log scrubbing is enabled or disabled. Defaults to 'true'. |
-| `rule` | string | No | - | One or more 'scrubbing_rule' blocks as define below. |
 
 ### `match_variables` block structure
 
@@ -77,6 +60,23 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `exclusion` | string | No | - | One or more 'exclusion' block defined below. |
 | `managed_rule_set` | string | Yes | - | One or more 'managed_rule_set' block defined below. |
+
+### `log_scrubbing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | No | True | Whether the log scrubbing is enabled or disabled. Defaults to 'true'. |
+| `rule` | string | No | - | One or more 'scrubbing_rule' blocks as define below. |
+
+### `match_conditions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_variables` | [block](#match_variables-block-structure) | Yes | - | One or more 'match_variables' blocks. |
+| `match_values` | list | No | - | A list of match values. This is **Required** when the 'operator' is not 'Any'. |
+| `operator` | string | Yes | - | Describes operator to be matched. Possible values are 'Any', 'IPMatch', 'GeoMatch', 'Equal', 'Contains', 'LessThan', 'GreaterThan', 'LessThanOrEqual', 'GreaterThanOrEqual', 'BeginsWith', 'EndsWith' and 'Regex'. |
+| `negation_condition` | string | No | - | Describes if this is negate condition or not |
+| `transforms` | list | No | - | A list of transformations to do before the match is attempted. Possible values are 'HtmlEntityDecode', 'Lowercase', 'RemoveNulls', 'Trim', 'UrlDecode' and 'UrlEncode'. |
 
 ### `policy_settings` block structure
 

@@ -18,7 +18,7 @@ variable "priority" {
 
 # OPTIONAL VARIABLES
 
-variable "application_rule_collection" {
+variable "application_rule_collections" {
   description = "One or more 'application_rule_collection' blocks."
   type        = map(map(any))
   default     = null
@@ -29,10 +29,6 @@ variable "application_rule_collection" {
 #   action (string)                            : (REQUIRED) The action to take for the application rules in this collection. Possible values are 'Allow' and 'Deny'.
 #   priority (string)                          : (REQUIRED) The priority of the application rule collection. The range is '100' - '65000'.
 #   rule (block)                               : (REQUIRED) One or more 'application_rule' blocks.
-#
-# protocols block structure:
-#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
-#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 #
 # application_rule block structure:
 #   name (string)                   : (REQUIRED) The name which should be used for this rule.
@@ -47,9 +43,13 @@ variable "application_rule_collection" {
 #   destination_fqdn_tags (list)    : Specifies a list of destination FQDN tags.
 #   terminate_tls (string)          : Boolean specifying if TLS shall be terminated (true) or not (false). Must be 'true' when using 'destination_urls'. Needs Premium SKU for Firewall Policy.
 #   web_categories (list)           : Specifies a list of web categories to which access is denied or allowed depending on the value of 'action' above. Needs Premium SKU for Firewall Policy.
+#
+# protocols block structure:
+#   type (string)            : (REQUIRED) Protocol type. Possible values are 'Http' and 'Https'.
+#   port (number)            : (REQUIRED) Port number of the protocol. Range is 0-64000.
 
 
-variable "nat_rule_collection" {
+variable "nat_rule_collections" {
   description = "One or more 'nat_rule_collection' blocks."
   type        = map(map(any))
   default     = null
@@ -74,7 +74,7 @@ variable "nat_rule_collection" {
 #   translated_port (string)    : (REQUIRED) Specifies the translated port.
 
 
-variable "network_rule_collection" {
+variable "network_rule_collections" {
   description = "One or more 'network_rule_collection' blocks."
   type        = map(map(any))
   default     = null

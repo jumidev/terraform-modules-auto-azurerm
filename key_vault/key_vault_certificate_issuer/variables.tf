@@ -28,7 +28,7 @@ variable "account_id" {
   type        = string
   default     = null
 }
-variable "admin" {
+variable "admins" {
   description = "One or more 'admin' blocks."
   type        = map(map(any))
   default     = null

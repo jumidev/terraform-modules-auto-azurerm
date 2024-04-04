@@ -10,7 +10,7 @@ variable "destination_storage_account_id" {
   type        = string
 
 }
-variable "rules" {
+variable "ruless" {
   description = "(REQUIRED) One or more 'rules' blocks."
   type        = map(map(any))
 }

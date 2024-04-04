@@ -13,15 +13,21 @@ inputs = {
    name = "Specifies the name of this Private Link Service"   
    resource_group_name = "${resource_group}"   
    location = "${location}"   
-   nat_ip_configuration = {
-      name = "..."      
-      # subnet_id → set in component_inputs
-      primary = true      
+   nat_ip_configurations = {
+      item_1 = {
+         # subnet_id → set in component_inputs
+         primary = true         
+         private_ip_address = "..."         
+         private_ip_address_version = "IPv4"         
+      }      
+      item_2 = {
+         ...
+      }      
    }   
    # load_balancer_frontend_ip_configuration_ids → set in component_inputs
 }
 component_inputs = {
-   nat_ip_configuration.subnet_id = "path/to/subnet_component:id"   
+   nat_ip_configurations.item_1.subnet_id = "path/to/subnet_component:id"   
    load_balancer_frontend_ip_configuration_ids = ["path/to/lb_outbound_rule_component:frontend_ip_configuration", "..."]   
 }
 tfstate_store = {
@@ -38,7 +44,7 @@ tfstate_store = {
 | **name** | string |  Specifies the name of this Private Link Service. Changing this forces a new resource to be created. | 
 | **resource_group_name** | string |  The name of the Resource Group where the Private Link Service should exist. Changing this forces a new resource to be created. | 
 | **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **nat_ip_configuration** | [block](#nat_ip_configuration-block-structure) |  One or more (up to 8) `nat_ip_configuration` block. | 
+| **nat_ip_configurations** | [block](#nat_ip_configuration-block-structure) |  One or more (up to 8) `nat_ip_configuration` block. | 
 | **load_balancer_frontend_ip_configuration_ids** | list |  A list of Frontend IP Configuration IDs from a Standard Load Balancer, where traffic from the Private Link Service should be routed. You can use Load Balancer Rules to direct this traffic to appropriate backend pools where your applications are running. Changing this forces a new resource to be created. | 
 
 ## Optional Variables

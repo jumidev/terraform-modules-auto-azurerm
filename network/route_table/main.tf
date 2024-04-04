@@ -13,8 +13,8 @@ resource "azurerm_route_table" "this" {
   # optional vars
   ########################################
 
-  dynamic "route" { # var.route
-    for_each = var.route != null ? var.route : []
+  dynamic "route" { # var.routes
+    for_each = var.routes != null ? var.routes : []
     content {
       name                   = route.key
       address_prefix         = lookup(route.value, "address_prefix") # (Required) possible values: 10.1.0.0/16 | ApiManagement | AzureBackup | AzureMonitor

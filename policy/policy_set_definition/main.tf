@@ -9,8 +9,8 @@ resource "azurerm_policy_set_definition" "this" {
   policy_type  = var.policy_type
   display_name = var.display_name
 
-  dynamic "policy_definition_reference" { # var.policy_definition_reference
-    for_each = var.policy_definition_reference != null ? var.policy_definition_reference : []
+  dynamic "policy_definition_reference" { # var.policy_definition_references
+    for_each = var.policy_definition_references != null ? var.policy_definition_references : []
     content {
       policy_definition_id = lookup(policy_definition_reference.value, "policy_definition_id") # (Required) 
       parameter_values     = lookup(policy_definition_reference.value, "parameter_values", null)
@@ -24,8 +24,8 @@ resource "azurerm_policy_set_definition" "this" {
   # optional vars
   ########################################
 
-  dynamic "policy_definition_group" { # var.policy_definition_group
-    for_each = var.policy_definition_group != null ? var.policy_definition_group : []
+  dynamic "policy_definition_group" { # var.policy_definition_groups
+    for_each = var.policy_definition_groups != null ? var.policy_definition_groups : []
     content {
       name                            = policy_definition_group.key
       display_name                    = lookup(policy_definition_group.value, "display_name", null)

@@ -17,8 +17,8 @@ resource "azurerm_container_connected_registry" "this" {
   log_level         = var.log_level # Default: None
   mode              = var.mode      # Default: ReadWrite
 
-  dynamic "notification" { # var.notification
-    for_each = var.notification != null ? var.notification : []
+  dynamic "notification" { # var.notifications
+    for_each = var.notifications != null ? var.notifications : []
     content {
       name   = notification.key
       action = lookup(notification.value, "action") # (Required) possible values: push | delete | *

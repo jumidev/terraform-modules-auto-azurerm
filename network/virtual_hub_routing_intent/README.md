@@ -12,9 +12,9 @@ source = {
 inputs = {
    name = "The name which should be used for this Virtual Hub Routing Intent..."   
    # virtual_hub_id → set in component_inputs
-   routing_policy = {
+   routing_policys = {
       item_1 = {
-         destinations = "Possible values: Internet | PrivateTraffic"         
+         destinations = "Internet | PrivateTraffic"         
          next_hop = "..."         
       }      
       item_2 = {
@@ -38,7 +38,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **name** | string |  The name which should be used for this Virtual Hub Routing Intent. Changing this forces a new resource to be created. | 
 | **virtual_hub_id** | string |  The resource ID of the Virtual Hub. Changing this forces a new resource to be created. | 
-| **routing_policy** | [block](#routing_policy-block-structure) |  One or more `routing_policy` blocks. | 
+| **routing_policys** | [block](#routing_policy-block-structure) |  One or more `routing_policy` blocks. | 
 
 ### `routing_policy` block structure
 

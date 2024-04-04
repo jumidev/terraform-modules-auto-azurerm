@@ -16,8 +16,8 @@ resource "azurerm_cosmosdb_sql_container" "this" {
   ########################################
   partition_key_version = var.partition_key_version
 
-  dynamic "unique_key" { # var.unique_key
-    for_each = var.unique_key != null ? var.unique_key : []
+  dynamic "unique_key" { # var.unique_keys
+    for_each = var.unique_keys != null ? var.unique_keys : []
     content {
       paths = lookup(unique_key.value, "paths") # (Required) 
     }
@@ -83,8 +83,8 @@ resource "azurerm_cosmosdb_sql_container" "this" {
   default_ttl            = var.default_ttl
   analytical_storage_ttl = var.analytical_storage_ttl
 
-  dynamic "conflict_resolution_policy" { # var.conflict_resolution_policy
-    for_each = var.conflict_resolution_policy != null ? var.conflict_resolution_policy : []
+  dynamic "conflict_resolution_policy" { # var.conflict_resolution_policys
+    for_each = var.conflict_resolution_policys != null ? var.conflict_resolution_policys : []
     content {
       mode                          = lookup(conflict_resolution_policy.value, "mode") # (Required) possible values: LastWriterWins | Custom
       conflict_resolution_path      = lookup(conflict_resolution_policy.value, "conflict_resolution_path", null)

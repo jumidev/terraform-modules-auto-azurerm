@@ -10,7 +10,7 @@ variable "virtual_hub_id" {
   type        = string
 
 }
-variable "routing_policy" {
+variable "routing_policys" {
   description = "(REQUIRED) One or more 'routing_policy' blocks."
   type        = map(map(any))
 }

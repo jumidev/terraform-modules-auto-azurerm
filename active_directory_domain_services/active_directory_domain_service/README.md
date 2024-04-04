@@ -51,6 +51,18 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `security` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `kerberos_armoring_enabled` | bool | No | False | Whether to enable Kerberos Armoring. Defaults to 'false'. |
+| `kerberos_rc4_encryption_enabled` | bool | No | False | Whether to enable Kerberos RC4 Encryption. Defaults to 'false'. |
+| `ntlm_v1_enabled` | bool | No | False | Whether to enable legacy NTLM v1 support. Defaults to 'false'. |
+| `sync_kerberos_passwords` | bool | No | False | Whether to synchronize Kerberos password hashes to the managed domain. Defaults to 'false'. |
+| `sync_ntlm_passwords` | bool | No | False | Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. |
+| `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
+| `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
+
 ### `notifications` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -73,18 +85,6 @@ tfstate_store = {
 | `external_access_enabled` | bool | No | False | Whether to enable external access to LDAPS over the Internet. Defaults to 'false'. |
 | `pfx_certificate` | string | Yes | - | The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file). |
 | `pfx_certificate_password` | string | Yes | - | The password to use for decrypting the PKCS#12 bundle (PFX file). |
-
-### `security` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `kerberos_armoring_enabled` | bool | No | False | Whether to enable Kerberos Armoring. Defaults to 'false'. |
-| `kerberos_rc4_encryption_enabled` | bool | No | False | Whether to enable Kerberos RC4 Encryption. Defaults to 'false'. |
-| `ntlm_v1_enabled` | bool | No | False | Whether to enable legacy NTLM v1 support. Defaults to 'false'. |
-| `sync_kerberos_passwords` | bool | No | False | Whether to synchronize Kerberos password hashes to the managed domain. Defaults to 'false'. |
-| `sync_ntlm_passwords` | bool | No | False | Whether to synchronize NTLM password hashes to the managed domain. Defaults to 'false'. |
-| `sync_on_prem_passwords` | bool | No | False | Whether to synchronize on-premises password hashes to the managed domain. Defaults to 'false'. |
-| `tls_v1_enabled` | bool | No | False | Whether to enable legacy TLS v1 support. Defaults to 'false'. |
 
 
 

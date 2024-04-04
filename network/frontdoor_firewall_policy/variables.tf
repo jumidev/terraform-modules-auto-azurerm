@@ -28,7 +28,7 @@ variable "redirect_url" {
   type        = string
   default     = null
 }
-variable "custom_rule" {
+variable "custom_rules" {
   description = "One or more 'custom_rule' blocks."
   type        = map(map(any))
   default     = null
@@ -55,7 +55,7 @@ variable "custom_block_response_body" {
   type        = string
   default     = null
 }
-variable "managed_rule" {
+variable "managed_rules" {
   description = "One or more 'managed_rule' blocks."
   type        = map(map(any))
   default     = null
@@ -67,6 +67,12 @@ variable "managed_rule" {
 #   exclusion (block)           : One or more 'exclusion' blocks.
 #   override (block)            : One or more 'override' blocks.
 #
+# rule block structure:
+#   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
+#   action (string)     : (REQUIRED) The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
+#   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
+#   exclusion (block)   : One or more 'exclusion' blocks.
+#
 # exclusion block structure:
 #   match_variable (string)  : (REQUIRED) The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'.
 #   operator (string)        : (REQUIRED) Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'.
@@ -76,12 +82,6 @@ variable "managed_rule" {
 #   rule_group_name (string): (REQUIRED) The managed rule group to override.
 #   exclusion (block)       : One or more 'exclusion' blocks.
 #   rule (block)            : One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled.
-#
-# rule block structure:
-#   rule_id (string)    : (REQUIRED) Identifier for the managed rule.
-#   action (string)     : (REQUIRED) The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'.
-#   enabled (bool)      : Is the managed rule override enabled or disabled. Defaults to 'false'
-#   exclusion (block)   : One or more 'exclusion' blocks.
 
 
 variable "tags" {

@@ -15,8 +15,8 @@ resource "azurerm_storage_account_network_rules" "this" {
   ip_rules                   = var.ip_rules
   virtual_network_subnet_ids = var.virtual_network_subnet_ids
 
-  dynamic "private_link_access" { # var.private_link_access
-    for_each = var.private_link_access != null ? var.private_link_access : []
+  dynamic "private_link_access" { # var.private_link_accesss
+    for_each = var.private_link_accesss != null ? var.private_link_accesss : []
     content {
       endpoint_resource_id = lookup(private_link_access.value, "endpoint_resource_id") # (Required) 
       endpoint_tenant_id   = lookup(private_link_access.value, "endpoint_tenant_id", null)

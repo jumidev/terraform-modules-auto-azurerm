@@ -53,7 +53,7 @@ variable "private_dns_zone_group" {
 #   private_dns_zone_ids (string)         : (REQUIRED) Specifies the list of Private DNS Zones to include within the 'private_dns_zone_group'.
 
 
-variable "ip_configuration" {
+variable "ip_configurations" {
   description = "One or more 'ip_configuration' blocks. This allows a static IP address to be set for this Private Endpoint, otherwise an address is dynamically allocated from the Subnet."
   type        = map(map(any))
   default     = null

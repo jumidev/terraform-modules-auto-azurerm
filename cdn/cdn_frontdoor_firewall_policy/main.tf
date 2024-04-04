@@ -17,8 +17,8 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "this" {
   request_body_check_enabled = var.request_body_check_enabled # Default: True
   redirect_url               = var.redirect_url
 
-  dynamic "custom_rule" { # var.custom_rule
-    for_each = var.custom_rule != null ? var.custom_rule : []
+  dynamic "custom_rule" { # var.custom_rules
+    for_each = var.custom_rules != null ? var.custom_rules : []
     content {
       name                           = custom_rule.key
       action                         = lookup(custom_rule.value, "action") # (Required) possible values: Allow | Block | Log | Redirect
@@ -34,8 +34,8 @@ resource "azurerm_cdn_frontdoor_firewall_policy" "this" {
   custom_block_response_status_code = var.custom_block_response_status_code
   custom_block_response_body        = var.custom_block_response_body
 
-  dynamic "managed_rule" { # var.managed_rule
-    for_each = var.managed_rule != null ? var.managed_rule : []
+  dynamic "managed_rule" { # var.managed_rules
+    for_each = var.managed_rules != null ? var.managed_rules : []
     content {
       type    = lookup(managed_rule.value, "type")    # (Required) possible values: DefaultRuleSet | Microsoft_DefaultRuleSet | BotProtection | Microsoft_BotManagerRuleSet
       version = lookup(managed_rule.value, "version") # (Required) possible values: DefaultRuleSet | 1.0 | preview-0.1

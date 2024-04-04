@@ -117,7 +117,7 @@ variable "base_image_trigger" {
 #   update_trigger_payload_type (string): Type of payload body for the trigger. Possible values are 'Default' and 'Token'.
 
 
-variable "source_trigger" {
+variable "source_triggers" {
   description = "One or more 'source_trigger' blocks."
   type        = map(map(any))
   default     = null
@@ -140,7 +140,7 @@ variable "source_trigger" {
 #   scope (string)                : The scope of the access token.
 
 
-variable "timer_trigger" {
+variable "timer_triggers" {
   description = "One or more 'timer_trigger' blocks."
   type        = map(map(any))
   default     = null

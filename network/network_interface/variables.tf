@@ -1,6 +1,6 @@
 # REQUIRED VARIABLES
 
-variable "ip_configuration" {
+variable "ip_configurations" {
   description = "(REQUIRED) One or more 'ip_configuration' blocks."
   type        = map(map(any))
 }

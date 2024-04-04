@@ -14,8 +14,8 @@ resource "azurerm_subnet" "this" {
   # optional vars
   ########################################
 
-  dynamic "delegation" { # var.delegation
-    for_each = var.delegation != null ? var.delegation : []
+  dynamic "delegation" { # var.delegations
+    for_each = var.delegations != null ? var.delegations : []
     content {
       name = delegation.key
 

@@ -12,7 +12,7 @@ source = {
 inputs = {
    resource_group_name = "${resource_group}"   
    # zone_name → set in component_inputs
-   record = {
+   records = {
       item_1 = {
          preference = "..."         
          exchange = "..."         
@@ -39,7 +39,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- |
 | **resource_group_name** | string |  Specifies the resource group where the resource exists. Changing this forces a new resource to be created. | 
 | **zone_name** | string |  Specifies the Private DNS Zone where the resource exists. Changing this forces a new resource to be created. | 
-| **record** | [block](#record-block-structure) |  One or more `record` blocks. | 
+| **records** | [block](#record-block-structure) |  One or more `record` blocks. | 
 | **ttl** | number |  The Time To Live (TTL) of the DNS record in seconds. | 
 
 ## Optional Variables

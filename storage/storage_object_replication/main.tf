@@ -8,8 +8,8 @@ resource "azurerm_storage_object_replication" "this" {
   source_storage_account_id      = var.source_storage_account_id
   destination_storage_account_id = var.destination_storage_account_id
 
-  dynamic "rules" { # var.rules
-    for_each = var.rules != null ? var.rules : []
+  dynamic "rules" { # var.ruless
+    for_each = var.ruless != null ? var.ruless : []
     content {
       source_container_name        = lookup(rules.value, "source_container_name")      # (Required) 
       destination_container_name   = lookup(rules.value, "destination_container_name") # (Required) 

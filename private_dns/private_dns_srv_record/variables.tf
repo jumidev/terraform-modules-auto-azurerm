@@ -15,7 +15,7 @@ variable "zone_name" {
   type        = string
 
 }
-variable "record" {
+variable "records" {
   description = "(REQUIRED) One or more 'record' blocks."
   type        = map(map(any))
 }

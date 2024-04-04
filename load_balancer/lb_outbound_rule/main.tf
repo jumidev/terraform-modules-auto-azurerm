@@ -14,8 +14,8 @@ resource "azurerm_lb_outbound_rule" "this" {
   # optional vars
   ########################################
 
-  dynamic "frontend_ip_configuration" { # var.frontend_ip_configuration
-    for_each = var.frontend_ip_configuration != null ? var.frontend_ip_configuration : []
+  dynamic "frontend_ip_configuration" { # var.frontend_ip_configurations
+    for_each = var.frontend_ip_configurations != null ? var.frontend_ip_configurations : []
     content {
       name = frontend_ip_configuration.key
     }

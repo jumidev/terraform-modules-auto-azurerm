@@ -17,8 +17,8 @@ resource "azurerm_cosmosdb_mongo_collection" "this" {
   analytical_storage_ttl = var.analytical_storage_ttl
   default_ttl_seconds    = var.default_ttl_seconds
 
-  dynamic "index" { # var.index
-    for_each = var.index != null ? var.index : []
+  dynamic "index" { # var.indexs
+    for_each = var.indexs != null ? var.indexs : []
     content {
       keys   = lookup(index.value, "keys") # (Required) 
       unique = lookup(index.value, "unique", false)

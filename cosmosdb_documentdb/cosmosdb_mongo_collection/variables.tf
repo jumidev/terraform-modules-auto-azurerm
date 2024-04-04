@@ -38,7 +38,7 @@ variable "default_ttl_seconds" {
   type        = number
   default     = null
 }
-variable "index" {
+variable "indexs" {
   description = "One or more 'index' blocks."
   type        = map(map(any))
   default     = null

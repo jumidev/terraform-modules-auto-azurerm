@@ -15,7 +15,7 @@ variable "vpn_gateway_id" {
   type        = string
 
 }
-variable "vpn_link" {
+variable "vpn_links" {
   description = "(REQUIRED) One or more 'vpn_link' blocks."
   type        = map(map(any))
 }
@@ -67,7 +67,7 @@ variable "routing" {
 #   labels (list)                         : A list of labels to assign to this route table.
 
 
-variable "traffic_selector_policy" {
+variable "traffic_selector_policys" {
   description = "One or more 'traffic_selector_policy' blocks."
   type        = map(map(any))
   default     = null

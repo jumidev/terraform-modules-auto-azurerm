@@ -15,8 +15,8 @@ resource "azurerm_key_vault" "this" {
   # optional vars
   ########################################
 
-  dynamic "access_policy" { # var.access_policy
-    for_each = var.access_policy != null ? var.access_policy : []
+  dynamic "access_policy" { # var.access_policys
+    for_each = var.access_policys != null ? var.access_policys : []
     content {
       tenant_id               = lookup(access_policy.value, "tenant_id") # (Required) 
       object_id               = lookup(access_policy.value, "object_id") # (Required) 
@@ -47,8 +47,8 @@ resource "azurerm_key_vault" "this" {
   public_network_access_enabled = var.public_network_access_enabled # Default: True
   soft_delete_retention_days    = var.soft_delete_retention_days
 
-  dynamic "contact" { # var.contact
-    for_each = var.contact != null ? var.contact : []
+  dynamic "contact" { # var.contacts
+    for_each = var.contacts != null ? var.contacts : []
     content {
       email = lookup(contact.value, "email") # (Required) 
       name  = contact.key

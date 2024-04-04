@@ -37,9 +37,15 @@ tfstate_store = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **access_tier** | string |  -  |  `Hot`, `Cool`, `TransactionOptimized`, `Premium`  |  The access tier of the File Share. Possible values are `Hot`, `Cool` and `TransactionOptimized`, `Premium`. ~>**NOTE:** The `FileStorage` `account_kind` of the `azurerm_storage_account` requires `Premium` `access_tier`. | 
-| **acl** | [block](#acl-block-structure) |  -  |  -  |  One or more `acl` blocks. | 
+| **acls** | [block](#acl-block-structure) |  -  |  -  |  One or more `acl` blocks. | 
 | **enabled_protocol** | bool |  `False`  |  `NFS`  |  The protocol used for the share. Possible values are `SMB` and `NFS`. The `SMB` indicates the share can be accessed by SMBv3.0, SMBv2.1 and REST. The `NFS` indicates the share can be accessed by NFSv4.1. Defaults to `SMB`. Changing this forces a new resource to be created. ~>**NOTE:** The `FileStorage` `account_kind` of the `azurerm_storage_account` is required for the `NFS` protocol. | 
 | **metadata** | string |  -  |  -  |  A mapping of MetaData for this File Share. | 
+
+### `acl` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
 
 ### `access_policy` block structure
 
@@ -48,12 +54,6 @@ tfstate_store = {
 | `permissions` | string | Yes | - | The permissions which should be associated with this Shared Identifier. Possible value is combination of 'r' (read), 'w' (write), 'd' (delete), and 'l' (list). ~> **Note:** Permission order is strict at the service side, and permissions need to be listed in the order above. |
 | `start` | string | No | - | The time at which this Access Policy should be valid from, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
 | `expiry` | string | No | - | The time at which this Access Policy should be valid until, in [ISO8601](https://en.wikipedia.org/wiki/ISO_8601) format. |
-
-### `acl` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_policy` | [block](#access_policy-block-structure) | No | - | An 'access_policy' block. |
 
 
 

@@ -25,7 +25,7 @@ variable "action" {
   type        = string
 
 }
-variable "rule" {
+variable "rules" {
   description = "(REQUIRED) One or more 'rule' blocks."
   type        = map(map(any))
 }

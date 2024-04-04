@@ -39,7 +39,7 @@ tfstate_store = {
 
 | Name | Type |  Default  |  Description |
 | ---- | --------- |  ----------- | ----------- |
-| **frontend_ip_configuration** | [block](#frontend_ip_configuration-block-structure) |  -  |  One or more `frontend_ip_configuration` blocks. | 
+| **frontend_ip_configurations** | [block](#frontend_ip_configuration-block-structure) |  -  |  One or more `frontend_ip_configuration` blocks. | 
 | **enable_tcp_reset** | bool |  -  |  Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP. | 
 | **allocated_outbound_ports** | number |  `1024`  |  The number of outbound ports to be used for NAT. Defaults to `1024`. | 
 | **idle_timeout_in_minutes** | number |  `4`  |  The timeout for the TCP idle connection Defaults to `4`. | 

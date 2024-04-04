@@ -18,7 +18,7 @@ variable "location" {
 
 # OPTIONAL VARIABLES
 
-variable "route" {
+variable "routes" {
   description = "List of 'route' objects representing routes as defined below. Each object accepts the arguments documented below. -> **NOTE** Since 'route' can be configured both inline and via the separate 'azurerm_route' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
   default     = null

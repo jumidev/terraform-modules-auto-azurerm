@@ -14,8 +14,8 @@ resource "azurerm_storage_share" "this" {
   ########################################
   access_tier = var.access_tier
 
-  dynamic "acl" { # var.acl
-    for_each = var.acl != null ? var.acl : []
+  dynamic "acl" { # var.acls
+    for_each = var.acls != null ? var.acls : []
     content {
 
       dynamic "access_policy" { # acl.value.access_policy

@@ -27,8 +27,8 @@ resource "azurerm_subscription_policy_assignment" "this" {
   location = var.location
   metadata = var.metadata
 
-  dynamic "non_compliance_message" { # var.non_compliance_message
-    for_each = var.non_compliance_message != null ? var.non_compliance_message : []
+  dynamic "non_compliance_message" { # var.non_compliance_messages
+    for_each = var.non_compliance_messages != null ? var.non_compliance_messages : []
     content {
       content                        = lookup(non_compliance_message.value, "content") # (Required) 
       policy_definition_reference_id = lookup(non_compliance_message.value, "policy_definition_reference_id", null)
@@ -38,8 +38,8 @@ resource "azurerm_subscription_policy_assignment" "this" {
   not_scopes = var.not_scopes
   parameters = var.parameters
 
-  dynamic "overrides" { # var.overrides
-    for_each = var.overrides != null ? var.overrides : []
+  dynamic "overrides" { # var.overridess
+    for_each = var.overridess != null ? var.overridess : []
     content {
       value = lookup(overrides.value, "value") # (Required) possible values: policyEffect
 
@@ -54,8 +54,8 @@ resource "azurerm_subscription_policy_assignment" "this" {
   }
 
 
-  dynamic "resource_selectors" { # var.resource_selectors
-    for_each = var.resource_selectors != null ? var.resource_selectors : []
+  dynamic "resource_selectors" { # var.resource_selectorss
+    for_each = var.resource_selectorss != null ? var.resource_selectorss : []
     content {
       name = resource_selectors.key
 

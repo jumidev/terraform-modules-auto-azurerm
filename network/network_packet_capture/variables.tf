@@ -48,7 +48,7 @@ variable "maximum_capture_duration" {
   type        = number
   default     = 18000
 }
-variable "filter" {
+variable "filters" {
   description = "One or more 'filter' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null

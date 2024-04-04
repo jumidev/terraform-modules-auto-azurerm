@@ -43,8 +43,8 @@ tfstate_store = {
 | **encoded_step** | [block](#encoded_step-block-structure) |  -  |  A `encoded_step` block. | 
 | **file_step** | [block](#file_step-block-structure) |  -  |  A `file_step` block. ~> **NOTE:** For non-system task (when `is_system_task` is set to `false`), one and only one of the `docker_step`, `encoded_step` and `file_step` should be specified. | 
 | **base_image_trigger** | [block](#base_image_trigger-block-structure) |  -  |  A `base_image_trigger` block. | 
-| **source_trigger** | [block](#source_trigger-block-structure) |  -  |  One or more `source_trigger` blocks. | 
-| **timer_trigger** | [block](#timer_trigger-block-structure) |  -  |  One or more `timer_trigger` blocks. | 
+| **source_triggers** | [block](#source_trigger-block-structure) |  -  |  One or more `source_trigger` blocks. | 
+| **timer_triggers** | [block](#timer_trigger-block-structure) |  -  |  One or more `timer_trigger` blocks. | 
 | **is_system_task** | bool |  `False`  |  Whether this Container Registry Task is a system task. Changing this forces a new Container Registry Task to be created. Defaults to `false`. ~> **NOTE:** For system task, the `name` has to be set as `quicktask`. And the following properties can't be specified: `docker_step`, `encoded_step`, `file_step`, `platform`, `base_image_trigger`, `source_trigger`, `timer_trigger`. | 
 | **log_template** | string |  -  |  The template that describes the run log artifact. | 
 | **registry_credential** | [block](#registry_credential-block-structure) |  -  |  One `registry_credential` block. | 
@@ -57,12 +57,11 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `login_mode` | string | Yes | - | The login mode for the source registry. Possible values are 'None' and 'Default'. |
 
-### `registry_credential` block structure
+### `agent_setting` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `source` | [block](#source-block-structure) | No | - | One 'source' block. |
-| `custom` | string | No | - | One or more 'custom' blocks. |
+| `cpu` | number | Yes | - | The number of cores required for the Container Registry Task. |
 
 ### `encoded_step` block structure
 
@@ -74,6 +73,14 @@ tfstate_store = {
 | `secret_values` | string | No | - | Specifies a map of secret values that can be passed when running a task. |
 | `value_content` | string | No | - | The (optionally base64 encoded) content of the build parameters. |
 | `values` | string | No | - | Specifies a map of values that can be passed when running a task. |
+
+### `timer_trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this trigger. |
+| `schedule` | string | Yes | - | The CRON expression for the task schedule. |
+| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
 
 ### `docker_step` block structure
 
@@ -89,21 +96,29 @@ tfstate_store = {
 | `secret_arguments` | string | No | - | Specifies a map of *secret* arguments to be used when executing this step. |
 | `target` | string | No | - | The name of the target build stage for the docker build. |
 
-### `authentication` block structure
+### `registry_credential` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `token` | string | Yes | - | The access token used to access the source control provider. |
-| `token_type` | string | Yes | - | The type of the token. Possible values are 'PAT' (personal access token) and 'OAuth'. |
-| `expire_in_seconds` | number | No | - | Time in seconds that the token remains valid. |
-| `refresh_token` | string | No | - | The refresh token used to refresh the access token. |
-| `scope` | string | No | - | The scope of the access token. |
+| `source` | [block](#source-block-structure) | No | - | One 'source' block. |
+| `custom` | string | No | - | One or more 'custom' blocks. |
 
-### `agent_setting` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `cpu` | number | Yes | - | The number of cores required for the Container Registry Task. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
+
+### `base_image_trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this trigger. |
+| `type` | string | Yes | - | The type of the trigger. Possible values are 'All' and 'Runtime'. |
+| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
+| `update_trigger_endpoint` | string | No | - | The endpoint URL for receiving the trigger. |
+| `update_trigger_payload_type` | string | No | - | Type of payload body for the trigger. Possible values are 'Default' and 'Token'. |
 
 ### `file_step` block structure
 
@@ -116,38 +131,6 @@ tfstate_store = {
 | `value_file_path` | string | No | - | The parameters file path relative to the source context. |
 | `values` | string | No | - | Specifies a map of values that can be passed when running a task. |
 
-### `timer_trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
-| `schedule` | string | Yes | - | The CRON expression for the task schedule. |
-| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
-
-### `base_image_trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this trigger. |
-| `type` | string | Yes | - | The type of the trigger. Possible values are 'All' and 'Runtime'. |
-| `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
-| `update_trigger_endpoint` | string | No | - | The endpoint URL for receiving the trigger. |
-| `update_trigger_payload_type` | string | No | - | Type of payload body for the trigger. Possible values are 'Default' and 'Token'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry Task. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry Task. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
-
-### `platform` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `architecture` | string | No | - | The OS architecture. Possible values are 'amd64', 'x86', '386', 'arm' and 'arm64'. |
-| `variant` | string | No | - | The variant of the CPU. Possible values are 'v6', 'v7', 'v8'. |
-
 ### `source_trigger` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -159,6 +142,23 @@ tfstate_store = {
 | `authentication` | [block](#authentication-block-structure) | No | - | A 'authentication' block. |
 | `branch` | string | No | - | The branch name of the source code. |
 | `enabled` | bool | No | True | Should the trigger be enabled? Defaults to 'true'. |
+
+### `platform` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `architecture` | string | No | - | The OS architecture. Possible values are 'amd64', 'x86', '386', 'arm' and 'arm64'. |
+| `variant` | string | No | - | The variant of the CPU. Possible values are 'v6', 'v7', 'v8'. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `token` | string | Yes | - | The access token used to access the source control provider. |
+| `token_type` | string | Yes | - | The type of the token. Possible values are 'PAT' (personal access token) and 'OAuth'. |
+| `expire_in_seconds` | number | No | - | Time in seconds that the token remains valid. |
+| `refresh_token` | string | No | - | The refresh token used to refresh the access token. |
+| `scope` | string | No | - | The scope of the access token. |
 
 
 

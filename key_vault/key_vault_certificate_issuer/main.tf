@@ -15,8 +15,8 @@ resource "azurerm_key_vault_certificate_issuer" "this" {
   org_id     = var.org_id
   account_id = var.account_id
 
-  dynamic "admin" { # var.admin
-    for_each = var.admin != null ? var.admin : []
+  dynamic "admin" { # var.admins
+    for_each = var.admins != null ? var.admins : []
     content {
       email_address = lookup(admin.value, "email_address") # (Required) 
       first_name    = lookup(admin.value, "first_name", null)

@@ -94,8 +94,8 @@ resource "azurerm_container_registry_task" "this" {
   }
 
 
-  dynamic "source_trigger" { # var.source_trigger
-    for_each = var.source_trigger != null ? var.source_trigger : []
+  dynamic "source_trigger" { # var.source_triggers
+    for_each = var.source_triggers != null ? var.source_triggers : []
     content {
       name           = source_trigger.key
       events         = lookup(source_trigger.value, "events")         # (Required) possible values: commit | pullrequest
@@ -119,8 +119,8 @@ resource "azurerm_container_registry_task" "this" {
   }
 
 
-  dynamic "timer_trigger" { # var.timer_trigger
-    for_each = var.timer_trigger != null ? var.timer_trigger : []
+  dynamic "timer_trigger" { # var.timer_triggers
+    for_each = var.timer_triggers != null ? var.timer_triggers : []
     content {
       name     = timer_trigger.key
       schedule = lookup(timer_trigger.value, "schedule") # (Required) 

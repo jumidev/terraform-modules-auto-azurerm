@@ -38,19 +38,11 @@ tfstate_store = {
 | **enabled** | bool |  `True`  |  -  |  Is the Front Door Firewall Policy enabled? Defaults to `true`. | 
 | **request_body_check_enabled** | bool |  `True`  |  -  |  Should policy managed rules inspect the request body content? Defaults to `true`. -> **NOTE:** When run in `Detection` mode, the Front Door Firewall Policy doesn't take any other actions other than monitoring and logging the request and its matched Front Door Rule to the Web Application Firewall logs. | 
 | **redirect_url** | string |  -  |  -  |  If action type is redirect, this field represents redirect URL for the client. | 
-| **custom_rule** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
+| **custom_rules** | [block](#custom_rule-block-structure) |  -  |  -  |  One or more `custom_rule` blocks. | 
 | **custom_block_response_status_code** | string |  -  |  `200`, `403`, `405`, `406`, `429`  |  If a `custom_rule` block's action type is `block`, this is the response status code. Possible values are `200`, `403`, `405`, `406`, or `429`. | 
 | **custom_block_response_body** | string |  -  |  -  |  If a `custom_rule` block's action type is `block`, this is the response body. The body must be specified in base64 encoding. | 
-| **managed_rule** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
+| **managed_rules** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
-
-### `override` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `rule` block structure
 
@@ -68,6 +60,14 @@ tfstate_store = {
 | `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames' -> **NOTE:** 'RequestBodyJsonArgNames' is only available on Default Rule Set (DRS) 2.0 or later |
 | `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
 | `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. -> **NOTE:** 'selector' must be set to '*' if 'operator' is set to 'EqualsAny'. |
+
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `managed_rule` block structure
 

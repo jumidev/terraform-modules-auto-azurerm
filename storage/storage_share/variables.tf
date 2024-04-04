@@ -23,7 +23,7 @@ variable "access_tier" {
   type        = string
   default     = null
 }
-variable "acl" {
+variable "acls" {
   description = "One or more 'acl' blocks."
   type        = map(map(any))
   default     = null

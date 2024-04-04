@@ -42,18 +42,11 @@ tfstate_store = {
 | **identity** | [block](#identity-block-structure) |  -  |  An `identity` block. -> **Note:** The `location` field must also be specified when `identity` is specified. | 
 | **location** | string |  -  |  The Azure Region where the Policy Assignment should exist. Changing this forces a new Policy Assignment to be created. | 
 | **metadata** | string |  -  |  A JSON mapping of any Metadata for this Policy. | 
-| **non_compliance_message** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
+| **non_compliance_messages** | [block](#non_compliance_message-block-structure) |  -  |  One or more `non_compliance_message` blocks. | 
 | **not_scopes** | list |  -  |  Specifies a list of Resource Scopes (for example a Subscription, or a Resource Group) within this Management Group which are excluded from this Policy. | 
 | **parameters** | string |  -  |  A JSON mapping of any Parameters for this Policy. | 
-| **overrides** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
-| **resource_selectors** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
-
-### `overrides` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
-| `selectors` | [block](#override_selector-block-structure) | No | - | One or more 'override_selector' block. |
+| **overridess** | [block](#overrides-block-structure) |  -  |  One or more `overrides` blocks. More detail about `overrides` and `resource_selectors` see [policy assignment structure](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/assignment-structure#resource-selectors-preview) | 
+| **resource_selectorss** | [block](#resource_selectors-block-structure) |  -  |  One or more `resource_selectors` blocks to filter polices by resource properties. | 
 
 ### `resource_selector` block structure
 
@@ -68,6 +61,13 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The non-compliance message text. When assigning policy sets (initiatives), unless 'policy_definition_reference_id' is specified then this message will be the default for all policies. |
 | `policy_definition_reference_id` | string | No | - | When assigning policy sets (initiatives), this is the ID of the policy definition that the non-compliance message applies to. |
+
+### `overrides` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
+| `selectors` | [block](#override_selector-block-structure) | No | - | One or more 'override_selector' block. |
 
 ### `resource_selectors` block structure
 
