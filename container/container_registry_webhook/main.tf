@@ -15,7 +15,7 @@ resource "azurerm_container_registry_webhook" "this" {
   ########################################
   # optional vars
   ########################################
-  status         = var.status # Default: enabled
+  status         = var.status # Default: False
   scope          = var.scope  # Default: 
   custom_headers = var.custom_headers
   tags           = var.tags

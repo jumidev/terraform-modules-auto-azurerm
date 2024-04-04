@@ -85,7 +85,7 @@ component_inputs = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enable` | string | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
+| `enable` | bool | Yes | - | Enable/disable DDoS Protection Plan on Virtual Network. |
 
 
 

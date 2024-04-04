@@ -45,7 +45,7 @@ variable "readonly_endpoint_failover_policy" {
 }
 #
 # readonly_endpoint_failover_policy block structure:
-#   mode (string)                                    : (REQUIRED) Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled'
+#   mode (bool)                                      : (REQUIRED) Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled'
 
 
 variable "tags" {

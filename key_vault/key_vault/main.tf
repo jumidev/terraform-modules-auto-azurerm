@@ -15,8 +15,8 @@ resource "azurerm_key_vault" "this" {
   # optional vars
   ########################################
 
-  dynamic "access_policy" { # var.access_policys
-    for_each = var.access_policys != null ? var.access_policys : []
+  dynamic "access_policy" { # var.access_policies
+    for_each = var.access_policies != null ? var.access_policies : []
     content {
       tenant_id               = lookup(access_policy.value, "tenant_id") # (Required) 
       object_id               = lookup(access_policy.value, "object_id") # (Required) 

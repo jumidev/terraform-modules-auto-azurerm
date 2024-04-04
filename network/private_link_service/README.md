@@ -14,20 +14,20 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    nat_ip_configurations = {
-      item_1 = {
+      configuration_1 = {
          # subnet_id → set in component_inputs
          primary = true         
          private_ip_address = "..."         
          private_ip_address_version = "IPv4"         
       }      
-      item_2 = {
+      configuration_2 = {
          ...
       }      
    }   
    # load_balancer_frontend_ip_configuration_ids → set in component_inputs
 }
 component_inputs = {
-   nat_ip_configurations.item_1.subnet_id = "path/to/subnet_component:id"   
+   nat_ip_configurations.configuration_1.subnet_id = "path/to/subnet_component:id"   
    load_balancer_frontend_ip_configuration_ids = ["path/to/lb_outbound_rule_component:frontend_ip_configuration", "..."]   
 }
 tfstate_store = {

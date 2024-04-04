@@ -30,7 +30,7 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- |
 | **resource_group_name** | string |  -  |  The name of the resource group that contains the MS SQL Server. Changing this forces a new resource to be created. | 
 | **server_name** | string |  -  |  Specifies the name of the MS SQL Server. Changing this forces a new resource to be created. | 
-| **state** | string |  `Disabled`, `Enabled`, `New`  |  Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`. | 
+| **state** | bool |  `Disabled`, `Enabled`, `New`  |  Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database server. Possible values are `Disabled`, `Enabled` and `New`. | 
 
 ## Optional Variables
 

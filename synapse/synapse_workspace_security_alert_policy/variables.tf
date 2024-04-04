@@ -7,7 +7,7 @@ variable "synapse_workspace_id" {
 }
 variable "policy_state" {
   description = "(REQUIRED) Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific workspace. Possible values are 'Disabled', 'Enabled' and 'New'."
-  type        = string
+  type        = bool
 
 }
 

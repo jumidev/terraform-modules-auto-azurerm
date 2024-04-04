@@ -63,8 +63,8 @@ resource "azurerm_vpn_gateway_connection" "this" {
   }
 
 
-  dynamic "traffic_selector_policy" { # var.traffic_selector_policys
-    for_each = var.traffic_selector_policys != null ? var.traffic_selector_policys : []
+  dynamic "traffic_selector_policy" { # var.traffic_selector_policies
+    for_each = var.traffic_selector_policies != null ? var.traffic_selector_policies : []
     content {
       local_address_ranges  = lookup(traffic_selector_policy.value, "local_address_ranges")  # (Required) 
       remote_address_ranges = lookup(traffic_selector_policy.value, "remote_address_ranges") # (Required) 

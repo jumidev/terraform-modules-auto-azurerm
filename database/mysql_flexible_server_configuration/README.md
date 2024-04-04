@@ -16,7 +16,7 @@ inputs = {
    value = "Specifies the value of the MySQL Flexible Server Configuration..."   
 }
 component_inputs = {
-   server_name = "path/to/mysql_flexible_server_component:name"   
+   server_name = "path/to/mysql_server_component:name"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   

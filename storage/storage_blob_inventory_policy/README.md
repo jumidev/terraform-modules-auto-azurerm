@@ -12,7 +12,7 @@ source = {
 inputs = {
    # storage_account_id → set in component_inputs
    ruless = {
-      item_1 = {
+      rules_1 = {
          # storage_container_name → set in component_inputs
          format = "Csv | Parquet"         
          schedule = "Daily | Weekly"         
@@ -20,14 +20,14 @@ inputs = {
          schema_fields = "..."         
          filter = "..."         
       }      
-      item_2 = {
+      rules_2 = {
          ...
       }      
    }   
 }
 component_inputs = {
    storage_account_id = "path/to/storage_account_component:id"   
-   ruless.item_1.storage_container_name = "path/to/storage_container_component:name"   
+   ruless.rules_1.storage_container_name = "path/to/storage_container_component:name"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   

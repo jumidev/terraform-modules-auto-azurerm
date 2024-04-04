@@ -28,7 +28,7 @@ variable "tenant_id" {
 
 # OPTIONAL VARIABLES
 
-variable "access_policys" {
+variable "access_policies" {
   description = "[A list](/docs/configuration/attr-as-blocks.html) of 'access_policy' objects (up to 1024) describing access policies, as described below. -> **NOTE** Since 'access_policy' can be configured both inline and via the separate 'azurerm_key_vault_access_policy' resource, we have to explicitly set it to empty slice ('[]') to remove it."
   type        = map(map(any))
   default     = null

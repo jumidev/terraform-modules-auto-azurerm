@@ -35,8 +35,8 @@ variable "actions" {
 
 variable "status" {
   description = "Specifies if this Webhook triggers notifications or not. Valid values: 'enabled' and 'disabled'. Default is 'enabled'."
-  type        = string
-  default     = "enabled"
+  type        = bool
+  default     = false
 }
 variable "scope" {
   description = "Specifies the scope of repositories that can trigger an event. For example, 'foo:*' means events for all tags under repository 'foo'. 'foo:bar' means events for 'foo:bar' only. 'foo' is equivalent to 'foo:latest'. Empty means all events. Defaults to ''''."

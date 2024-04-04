@@ -17,7 +17,7 @@ inputs = {
    end_ip_address = "Specifies the End IP Address associated with this Firewall Rule..."   
 }
 component_inputs = {
-   server_name = "path/to/mysql_flexible_server_component:name"   
+   server_name = "path/to/mysql_server_component:name"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   

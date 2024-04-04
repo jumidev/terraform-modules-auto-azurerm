@@ -54,7 +54,7 @@ resource "azurerm_firewall_policy_rule_collection_group" "this" {
     for_each = var.nat_rule_collections != null ? var.nat_rule_collections : []
     content {
       name     = nat_rule_collection.key
-      action   = lookup(nat_rule_collection.value, "action")   # (Required) 
+      action   = lookup(nat_rule_collection.value, "action")   # (Required) possible values: Dnat
       priority = lookup(nat_rule_collection.value, "priority") # (Required) 
 
       dynamic "rule" { # nat_rule_collection.value.rule

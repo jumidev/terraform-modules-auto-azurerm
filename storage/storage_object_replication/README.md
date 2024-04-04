@@ -13,13 +13,13 @@ inputs = {
    source_storage_account_id = "The ID of the source storage account"   
    destination_storage_account_id = "The ID of the destination storage account"   
    ruless = {
-      item_1 = {
+      rules_1 = {
          source_container_name = "..."         
          destination_container_name = "..."         
          copy_blobs_created_after = "OnlyNewObjects"         
          filter_out_blobs_with_prefix = "..."         
       }      
-      item_2 = {
+      rules_2 = {
          ...
       }      
    }   

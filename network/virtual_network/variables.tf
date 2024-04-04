@@ -35,7 +35,7 @@ variable "ddos_protection_plan" {
 }
 #
 # ddos_protection_plan block structure:
-#   enable (string)                     : (REQUIRED) Enable/disable DDoS Protection Plan on Virtual Network.
+#   enable (bool)                       : (REQUIRED) Enable/disable DDoS Protection Plan on Virtual Network.
 
 
 variable "encryption" {

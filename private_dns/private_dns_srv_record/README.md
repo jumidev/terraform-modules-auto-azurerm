@@ -14,13 +14,13 @@ inputs = {
    resource_group_name = "${resource_group}"   
    # zone_name → set in component_inputs
    records = {
-      item_1 = {
+      record_1 = {
          priority = "..."         
          weight = "..."         
          port = "..."         
          target = "..."         
       }      
-      item_2 = {
+      record_2 = {
          ...
       }      
    }   

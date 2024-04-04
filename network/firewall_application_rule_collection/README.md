@@ -16,7 +16,7 @@ inputs = {
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
    rules = {
-      item_1 = {
+      rule_1 = {
          description = "..."         
          source_addresses = "..."         
          source_ip_groups = "..."         
@@ -24,7 +24,7 @@ inputs = {
          target_fqdns = "..."         
          protocol = "..."         
       }      
-      item_2 = {
+      rule_2 = {
          ...
       }      
    }   
@@ -50,6 +50,13 @@ tfstate_store = {
 | **action** | string |  `Allow`, `Deny`  |  Specifies the action the rule will apply to matching traffic. Possible values are `Allow` and `Deny`. | 
 | **rules** | [block](#rule-block-structure) |  -  |  One or more `rule` blocks. | 
 
+### `protocol` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | string | Yes | - | Specify a port for the connection. |
+| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
+
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -61,13 +68,6 @@ tfstate_store = {
 | `fqdn_tags` | list | No | - | A list of FQDN tags. Possible values are 'AppServiceEnvironment', 'AzureBackup', 'AzureKubernetesService', 'HDInsight', 'MicrosoftActiveProtectionService', 'WindowsDiagnostics', 'WindowsUpdate' and 'WindowsVirtualDesktop'. |
 | `target_fqdns` | list | No | - | A list of FQDNs. |
 | `protocol` | [block](#protocol-block-structure) | No | - | One or more 'protocol' blocks. |
-
-### `protocol` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | string | Yes | - | Specify a port for the connection. |
-| `type` | string | Yes | - | Specifies the type of connection. Possible values are 'Http', 'Https' and 'Mssql'. |
 
 
 

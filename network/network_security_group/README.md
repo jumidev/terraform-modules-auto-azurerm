@@ -14,7 +14,7 @@ inputs = {
    resource_group_name = "${resource_group}"   
    location = "${location}"   
    security_rules = {
-      item_1 = {
+      rule_1 = {
          description = "..."         
          protocol = "*"         
          source_port_range = "*"         
@@ -27,14 +27,14 @@ inputs = {
          priority = "..."         
          direction = "Inbound"         
       }      
-      item_2 = {
+      rule_2 = {
          ...
       }      
    }   
 }
 component_inputs = {
-   security_rules.item_1.source_application_security_group_ids = "path/to/application_security_group_component:id"   
-   security_rules.item_1.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
+   security_rules.rule_1.source_application_security_group_ids = "path/to/application_security_group_component:id"   
+   security_rules.rule_1.destination_application_security_group_ids = "path/to/application_security_group_component:id"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   

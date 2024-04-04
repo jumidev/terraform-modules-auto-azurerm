@@ -25,7 +25,7 @@ tfstate_store = {
 | Name | Type |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- |
 | **sql_pool_id** | string |  -  |  Specifies the ID of the Synapse SQL Pool. Changing this forces a new resource to be created. | 
-| **policy_state** | string |  `Disabled`, `Enabled`, `New`  |  Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`. | 
+| **policy_state** | bool |  `Disabled`, `Enabled`, `New`  |  Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific SQL pool. Possible values are `Disabled`, `Enabled` and `New`. | 
 
 ## Optional Variables
 

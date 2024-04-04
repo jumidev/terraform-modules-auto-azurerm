@@ -34,8 +34,8 @@ resource "azurerm_storage_account_local_user" "this" {
   }
 
 
-  dynamic "ssh_authorized_key" { # var.ssh_authorized_keys
-    for_each = var.ssh_authorized_keys != null ? var.ssh_authorized_keys : []
+  dynamic "ssh_authorized_key" { # var.ssh_authorized_keies
+    for_each = var.ssh_authorized_keies != null ? var.ssh_authorized_keies : []
     content {
       key         = lookup(ssh_authorized_key.value, "key") # (Required) 
       description = lookup(ssh_authorized_key.value, "description", null)

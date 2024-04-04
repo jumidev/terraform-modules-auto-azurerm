@@ -33,7 +33,7 @@ variable "partition_key_version" {
   type        = string
   default     = null
 }
-variable "unique_keys" {
+variable "unique_keies" {
   description = "One or more 'unique_key' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null
@@ -71,18 +71,18 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
-# spatial_index block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
-#
-# included_path block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
+# index block structure:
+#   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
+#   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 #
 # composite_index block structure:
 #   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
-# index block structure:
-#   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
-#   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
+# included_path block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
+#
+# spatial_index block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
 #
 # excluded_path block structure:
 #   path (string)                : (REQUIRED) Path that is excluded from indexing.
@@ -98,7 +98,7 @@ variable "analytical_storage_ttl" {
   type        = string
   default     = null
 }
-variable "conflict_resolution_policys" {
+variable "conflict_resolution_policies" {
   description = "A 'conflict_resolution_policy' blocks. Changing this forces a new resource to be created."
   type        = map(map(any))
   default     = null

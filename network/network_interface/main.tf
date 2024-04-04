@@ -45,7 +45,7 @@ resource "azurerm_dns_a_record" "this" {
   name                = lookup(var.dns_a_record, "name")
   resource_group_name = lookup(var.dns_a_record, "resource_group_name")
   zone_name           = lookup(var.dns_a_record, "zone_name")
-  ttl                 = lookup(var.dns_a_record, "ttl", 300)
+  ttl                 = lookup(var.dns_a_record, "ttl")
   records             = azurerm_network_interface.this.private_ip_addresses
   target_resource_id  = lookup(var.dns_a_record, "target_resource_id", null)
   tags                = lookup(var.dns_a_record, "tags", null)
@@ -107,7 +107,7 @@ resource "azurerm_private_dns_a_record" "this" {
   name                = lookup(var.private_dns_a_record, "name")
   resource_group_name = lookup(var.private_dns_a_record, "resource_group_name")
   zone_name           = lookup(var.private_dns_a_record, "zone_name")
-  ttl                 = lookup(var.private_dns_a_record, "ttl", 300)
+  ttl                 = lookup(var.private_dns_a_record, "ttl")
   records             = azurerm_network_interface.this.private_ip_addresses
   tags                = lookup(var.private_dns_a_record, "tags", null)
 }

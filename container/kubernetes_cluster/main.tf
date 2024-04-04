@@ -155,7 +155,7 @@ resource "azurerm_kubernetes_cluster" "this" {
     for_each = var.key_management_service != null ? var.key_management_service : []
     content {
       key_vault_key_id         = lookup(key_management_service.value, "key_vault_key_id") # (Required) 
-      key_vault_network_access = lookup(key_management_service.value, "key_vault_network_access", "Public")
+      key_vault_network_access = lookup(key_management_service.value, "key_vault_network_access", false)
     }
   }
 

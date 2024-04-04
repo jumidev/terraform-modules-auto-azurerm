@@ -67,7 +67,7 @@ variable "routing" {
 #   labels (list)                         : A list of labels to assign to this route table.
 
 
-variable "traffic_selector_policys" {
+variable "traffic_selector_policies" {
   description = "One or more 'traffic_selector_policy' blocks."
   type        = map(map(any))
   default     = null

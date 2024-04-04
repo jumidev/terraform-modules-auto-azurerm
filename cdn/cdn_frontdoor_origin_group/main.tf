@@ -25,7 +25,7 @@ resource "azurerm_cdn_frontdoor_origin_group" "this" {
       protocol            = lookup(health_probe.value, "protocol")            # (Required) possible values: Http | Https
       interval_in_seconds = lookup(health_probe.value, "interval_in_seconds") # (Required) possible values: 5 | 31536000
       request_type        = lookup(health_probe.value, "request_type", "HEAD")
-      path                = lookup(health_probe.value, "path", "/")
+      path                = lookup(health_probe.value, "path", false)
     }
   }
 

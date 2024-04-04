@@ -37,7 +37,7 @@ variable "permission_scopes" {
 #   write (bool)               : Specifies if the Local User has the write permission for this scope. Defaults to 'false'.
 
 
-variable "ssh_authorized_keys" {
+variable "ssh_authorized_keies" {
   description = "One or more 'ssh_authorized_key' blocks."
   type        = map(map(any))
   default     = null

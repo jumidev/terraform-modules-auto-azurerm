@@ -20,7 +20,7 @@ inputs = {
          primary = true         
          private_ip_address = "..."         
       }      
-      item_2 = {
+      configuration_2 = {
          ...
       }      
    }   
@@ -50,7 +50,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | `name` | string | True | null |
 | `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
-| `ttl` | number | True | 300 |
+| `ttl` | number | True | null |
 | `target_resource_id` | string | False | null |
 | `tags` | map | False | null |
 
@@ -64,7 +64,7 @@ inputs = {
    dns_a_record = {
       name = "..."      
       resource_group_name = "${resource_group}"      
-      ttl = 300      
+      ttl = "..."      
       tags = "..."      
    }   
 }
@@ -181,7 +181,7 @@ If set, makes a **azurerm_private_dns_a_record** - With the following options:
 | `name` | string | True | null |
 | `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
-| `ttl` | number | True | 300 |
+| `ttl` | number | True | null |
 | `tags` | map | False | null |
 
 
@@ -194,7 +194,7 @@ inputs = {
    private_dns_a_record = {
       name = "..."      
       resource_group_name = "${resource_group}"      
-      ttl = 300      
+      ttl = "..."      
       tags = "..."      
    }   
 }

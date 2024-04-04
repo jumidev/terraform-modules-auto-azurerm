@@ -17,7 +17,7 @@ inputs = {
    collation = "Specifies the Collation for the MySQL Database, which needs [to be a valid MySQL..."   
 }
 component_inputs = {
-   server_name = "path/to/mysql_flexible_server_component:name"   
+   server_name = "path/to/mysql_server_component:name"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   

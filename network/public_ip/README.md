@@ -33,7 +33,7 @@ If set, makes a **azurerm_dns_a_record** - With the following options:
 | `name` | string | True | null |
 | `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
-| `ttl` | number | True | 300 |
+| `ttl` | number | True | null |
 | `target_resource_id` | string | False | null |
 | `tags` | map | False | null |
 
@@ -47,7 +47,7 @@ inputs = {
    dns_a_record = {
       name = "..."      
       resource_group_name = "${resource_group}"      
-      ttl = 300      
+      ttl = "..."      
       tags = "..."      
    }   
 }
@@ -77,7 +77,7 @@ If set, makes a **azurerm_private_dns_a_record** - With the following options:
 | `name` | string | True | null |
 | `resource_group_name` | string | True | null |
 | `zone_name` | string | True | null |
-| `ttl` | number | True | 300 |
+| `ttl` | number | True | null |
 | `tags` | map | False | null |
 
 
@@ -90,7 +90,7 @@ inputs = {
    private_dns_a_record = {
       name = "..."      
       resource_group_name = "${resource_group}"      
-      ttl = 300      
+      ttl = "..."      
       tags = "..."      
    }   
 }
@@ -114,7 +114,7 @@ component_inputs = {
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **zones** | string |  -  |  -  |  A collection containing the availability zone to allocate the Public IP in. Changing this forces a new resource to be created. -> **Note:** Availability Zones are only supported with a [Standard SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) and [in select regions](https://docs.microsoft.com/azure/availability-zones/az-overview) at this time. Standard SKU Public IP Addresses that do not specify a zone are **not** zone-redundant by default. | 
-| **ddos_protection_mode** | string |  `VirtualNetworkInherited`  |  `Disabled`, `Enabled`, `VirtualNetworkInherited`  |  The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`. | 
+| **ddos_protection_mode** | bool |  `False`  |  `Disabled`, `Enabled`, `VirtualNetworkInherited`  |  The DDoS protection mode of the public IP. Possible values are `Disabled`, `Enabled`, and `VirtualNetworkInherited`. Defaults to `VirtualNetworkInherited`. | 
 | **ddos_protection_plan_id** | string |  -  |  -  |  The ID of DDoS protection plan associated with the public IP. -> **Note:** `ddos_protection_plan_id` can only be set when `ddos_protection_mode` is `Enabled`. | 
 | **domain_name_label** | string |  -  |  -  |  Label for the Domain Name. Will be used to make up the FQDN. If a domain name label is specified, an A DNS record is created for the public IP in the Microsoft Azure DNS system. | 
 | **edge_zone** | string |  -  |  -  |  Specifies the Edge Zone within the Azure Region where this Public IP should exist. Changing this forces a new Public IP to be created. | 

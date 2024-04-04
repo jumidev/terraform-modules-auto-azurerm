@@ -46,6 +46,12 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy** | [block](#readonly_endpoint_failover_policy-block-structure) |  A `readonly_endpoint_failover_policy` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
+### `readonly_endpoint_failover_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `mode` | bool | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
+
 ### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -53,19 +59,13 @@ tfstate_store = {
 | `mode` | string | Yes | - | the failover mode. Possible values are 'Manual', 'Automatic' |
 | `grace_minutes` | number | No | - | Applies only if 'mode' is 'Automatic'. The grace period in minutes before failover with data loss is attempted |
 
-### `readonly_endpoint_failover_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | Failover policy for the read-only endpoint. Possible values are 'Enabled', and 'Disabled' |
-
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **mode** | string | No  | Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled` In addition to the Arguments listed above - the following Attributes are exported: | 
+| **mode** | bool | No  | Failover policy for the read-only endpoint. Possible values are `Enabled`, and `Disabled` In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The failover group ID. | 
 | **location** | string | No  | the location of the failover group. | 
 | **server_name** | string | No  | the name of the primary SQL Database Server. Changing this forces a new resource to be created. | 

@@ -16,7 +16,7 @@ inputs = {
    priority = "Specifies the priority of the rule collection"   
    action = "Specifies the action the rule will apply to matching traffic..."   
    rules = {
-      item_1 = {
+      rule_1 = {
          description = "..."         
          destination_addresses = "..."         
          destination_ports = "..."         
@@ -26,7 +26,7 @@ inputs = {
          translated_address = "..."         
          translated_port = "..."         
       }      
-      item_2 = {
+      rule_2 = {
          ...
       }      
    }   

@@ -55,13 +55,6 @@ tfstate_store = {
 | **version** | string |  -  |  `11`, `12`, `13`, `14`, `15`, `16`  |  The version of PostgreSQL Flexible Server to use. Possible values are `11`,`12`, `13`, `14`, `15` and `16`. Required when `create_mode` is `Default`. -> **Note:** When `create_mode` is `Update`, upgrading version wouldn't force a new resource to be created. | 
 | **zone** | string |  -  |  `zone`, `ignore_changes`, `high_availability.0.standby_availability_zone`  |  Specifies the Availability Zone in which the PostgreSQL Flexible Server should be located. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the `zone` will be updated to reflect the current Primary Availability Zone. You can use [Terraform's `ignore_changes` functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the `zone` and `high_availability.0.standby_availability_zone` fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. | 
 
-### `high_availability` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
-| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. |
-
 ### `customer_managed_key` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -71,13 +64,13 @@ tfstate_store = {
 | `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
 | `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. ~> **NOTE:** 'primary_user_assigned_identity_id' or 'geo_backup_user_assigned_identity_id' is required when 'type' is set to 'UserAssigned'. |
 
-### `maintenance_window` block structure
+### `authentication` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `day_of_week` | string | No | 0 | The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'. |
-| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
-| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
+| `active_directory_auth_enabled` | bool | No | False | Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'false'. |
+| `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
+| `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. -> **Note:** Setting 'active_directory_auth_enabled' to 'true' requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). -> **Note:** 'tenant_id' is required when 'active_directory_auth_enabled' is set to 'true'. And it should not be specified when 'active_directory_auth_enabled' is set to 'false' |
 
 ### `identity` block structure
 
@@ -86,13 +79,20 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this PostgreSQL Flexible Server. The only possible value is 'UserAssigned'. |
 | `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this PostgreSQL Flexible Server. Required if used together with 'customer_managed_key' block. |
 
-### `authentication` block structure
+### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `active_directory_auth_enabled` | bool | No | False | Whether or not Active Directory authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'false'. |
-| `password_auth_enabled` | bool | No | True | Whether or not password authentication is allowed to access the PostgreSQL Flexible Server. Defaults to 'true'. |
-| `tenant_id` | string | No | - | The Tenant ID of the Azure Active Directory which is used by the Active Directory authentication. 'active_directory_auth_enabled' must be set to 'true'. -> **Note:** Setting 'active_directory_auth_enabled' to 'true' requires a Service Principal for the Postgres Flexible Server. For more details see [this document](https://learn.microsoft.com/en-us/azure/postgresql/flexible-server/how-to-configure-sign-in-azure-ad-authentication). -> **Note:** 'tenant_id' is required when 'active_directory_auth_enabled' is set to 'true'. And it should not be specified when 'active_directory_auth_enabled' is set to 'false' |
+| `mode` | string | Yes | - | The high availability mode for the PostgreSQL Flexible Server. Possible value are 'SameZone' or 'ZoneRedundant'. |
+| `standby_availability_zone` | string | No | - | Specifies the Availability Zone in which the standby Flexible Server should be located. -> **Note:** Azure will automatically assign an Availability Zone if one is not specified. If the PostgreSQL Flexible Server fails-over to the Standby Availability Zone, the 'zone' will be updated to reflect the current Primary Availability Zone. You can use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'zone' and 'high_availability.0.standby_availability_zone' fields should you wish for Terraform to not migrate the PostgreSQL Flexible Server back to it's primary Availability Zone after a fail-over. -> **Note:** The Availability Zones available depend on the Azure Region that the PostgreSQL Flexible Server is being deployed into - see [the Azure Availability Zones documentation](https://azure.microsoft.com/global-infrastructure/geographies/#geographies) for more information on which Availability Zones are available in each Azure Region. |
+
+### `maintenance_window` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `day_of_week` | string | No | 0 | The day of week for maintenance window, where the week starts on a Sunday, i.e. Sunday = '0', Monday = '1'. Defaults to '0'. |
+| `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
+| `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
 
 
 

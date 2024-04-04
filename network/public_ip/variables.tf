@@ -30,8 +30,8 @@ variable "zones" {
 }
 variable "ddos_protection_mode" {
   description = "The DDoS protection mode of the public IP. Possible values are 'Disabled', 'Enabled', and 'VirtualNetworkInherited'. Defaults to 'VirtualNetworkInherited'."
-  type        = string
-  default     = "VirtualNetworkInherited"
+  type        = bool
+  default     = false
 }
 variable "ddos_protection_plan_id" {
   description = "The ID of DDoS protection plan associated with the public IP. -> **Note:** 'ddos_protection_plan_id' can only be set when 'ddos_protection_mode' is 'Enabled'."
