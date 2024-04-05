@@ -57,6 +57,13 @@ tfstate_store = {
 | **sql_identity_control_enabled** | bool |  -  |  Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools? | 
 | **tags** | map |  -  |  A mapping of tags which should be assigned to the Synapse Workspace. | 
 
+### `customer_managed_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_versionless_id` | string | Yes | - | The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/'). |
+| `key_name` | string | No | - | An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified. |
+
 ### `github_repo` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -68,20 +75,17 @@ tfstate_store = {
 | `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
 | `git_url` | string | No | - | Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. -> **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository. |
 
-### `customer_managed_key` block structure
+### `azure_devops_repo` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `key_versionless_id` | string | Yes | - | The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/'). |
-| `key_name` | string | No | - | An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified. |
-
-### `sql_aad_admin` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
-| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `account_name` | string | Yes | - | Specifies the Azure DevOps account name. |
+| `branch_name` | string | Yes | - | Specifies the collaboration branch of the repository to get code from. |
+| `last_commit_id` | string | No | - | The last commit ID. |
+| `project_name` | string | Yes | - | Specifies the name of the Azure DevOps project. |
+| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
+| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
+| `tenant_id` | string | No | - | the ID of the tenant for the Azure DevOps account. |
 
 ### `identity` block structure
 
@@ -98,17 +102,13 @@ tfstate_store = {
 | `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace. |
 | `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace. |
 
-### `azure_devops_repo` block structure
+### `sql_aad_admin` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `account_name` | string | Yes | - | Specifies the Azure DevOps account name. |
-| `branch_name` | string | Yes | - | Specifies the collaboration branch of the repository to get code from. |
-| `last_commit_id` | string | No | - | The last commit ID. |
-| `project_name` | string | Yes | - | Specifies the name of the Azure DevOps project. |
-| `repository_name` | string | Yes | - | Specifies the name of the git repository. |
-| `root_folder` | string | Yes | - | Specifies the root folder within the repository. Set to '/' for the top level. |
-| `tenant_id` | string | No | - | the ID of the tenant for the Azure DevOps account. |
+| `login` | string | Yes | - | The login name of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this Synapse Workspace SQL. |
+| `tenant_id` | string | Yes | - | The tenant id of the Azure AD Administrator of this Synapse Workspace SQL. |
 
 
 

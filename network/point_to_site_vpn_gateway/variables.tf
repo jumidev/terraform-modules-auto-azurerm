@@ -29,15 +29,15 @@ variable "connection_configuration" {
 # vpn_client_address_pool block structure:
 #   address_prefixes (list)                : (REQUIRED) A list of CIDR Ranges which should be used as Address Prefixes.
 #
+# propagated_route_table block structure:
+#   ids (string)                          : (REQUIRED) The list of Virtual Hub Route Table resource id which the routes will be propagated to.
+#   labels (string)                       : The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
+#
 # route block structure             :
 #   associated_route_table_id (string): (REQUIRED) The Virtual Hub Route Table resource id associated with this Routing Configuration.
 #   inbound_route_map_id (string)     : The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes.
 #   outbound_route_map_id (string)    : The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes.
 #   propagated_route_table (block)    : A 'propagated_route_table' block.
-#
-# propagated_route_table block structure:
-#   ids (string)                          : (REQUIRED) The list of Virtual Hub Route Table resource id which the routes will be propagated to.
-#   labels (string)                       : The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to.
 
 
 variable "scale_unit" {
