@@ -40,19 +40,19 @@ tfstate_store = {
 | **mode** | string |  `EgressSnat`  |  `EgressSnat`, `IngressSnat`  |  The source NAT direction of the VPN NAT. Possible values are `EgressSnat` and `IngressSnat`. Defaults to `EgressSnat`. Changing this forces a new resource to be created. | 
 | **type** | string |  `Static`  |  `Dynamic`, `Static`  |  The type of the VPN Gateway NAT Rule. Possible values are `Dynamic` and `Static`. Defaults to `Static`. Changing this forces a new resource to be created. | 
 
-### `internal_mapping` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `address_space` | string | Yes | - | The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping. |
-| `port_range` | string | No | - | The single port range for the VPN Gateway Nat Rule internal mapping. |
-
 ### `external_mapping` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_space` | string | Yes | - | The string CIDR representing the address space for the VPN Gateway Nat Rule external mapping. |
 | `port_range` | string | No | - | The single port range for the VPN Gateway Nat Rule external mapping. |
+
+### `internal_mapping` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `address_space` | string | Yes | - | The string CIDR representing the address space for the VPN Gateway Nat Rule internal mapping. |
+| `port_range` | string | No | - | The single port range for the VPN Gateway Nat Rule internal mapping. |
 
 
 

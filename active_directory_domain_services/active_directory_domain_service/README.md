@@ -51,6 +51,14 @@ tfstate_store = {
 | **security** | [block](#security-block-structure) |  -  |  -  |  A `security` block. | 
 | **tags** | map |  -  |  -  |  A mapping of tags assigned to the resource. | 
 
+### `notifications` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
+| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
+| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
+
 ### `initial_replica_set` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -65,14 +73,6 @@ tfstate_store = {
 | `external_access_enabled` | bool | No | False | Whether to enable external access to LDAPS over the Internet. Defaults to 'false'. |
 | `pfx_certificate` | string | Yes | - | The certificate/private key to use for LDAPS, as a base64-encoded TripleDES-SHA1 encrypted PKCS#12 bundle (PFX file). |
 | `pfx_certificate_password` | string | Yes | - | The password to use for decrypting the PKCS#12 bundle (PFX file). |
-
-### `notifications` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `additional_recipients` | list | No | - | A list of additional email addresses to notify when there are alerts in the managed domain. |
-| `notify_dc_admins` | string | No | - | Whether to notify members of the _AAD DC Administrators_ group when there are alerts in the managed domain. |
-| `notify_global_admins` | string | No | - | Whether to notify all Global Administrators when there are alerts in the managed domain. |
 
 ### `security` block structure
 

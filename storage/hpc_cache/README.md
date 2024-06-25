@@ -54,17 +54,16 @@ tfstate_store = {
 | **automatically_rotate_key_to_latest_enabled** | bool |  -  |  Specifies whether the HPC Cache automatically rotates Encryption Key to the latest version. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the HPC Cache. | 
 
-### `directory_active_directory` block structure
+### `directory_ldap` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
-| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
-| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
-| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
-| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
-| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
-| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+| `server` | string | Yes | - | The FQDN or IP address of the LDAP server. |
+| `base_dn` | string | Yes | - | The base distinguished name (DN) for the LDAP domain. |
+| `encrypted` | bool | No | - | Whether the LDAP connection should be encrypted? |
+| `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
+| `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
+| `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
 
 ### `directory_flat_file` block structure
 
@@ -79,6 +78,18 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `servers` | list | Yes | - | A list of DNS servers for the HPC Cache. At most three IP(s) are allowed to set. |
 | `search_domain` | string | No | - | The DNS search domain for the HPC Cache. |
+
+### `directory_active_directory` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `dns_primary_ip` | string | Yes | - | The primary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
+| `domain_name` | string | Yes | - | The fully qualified domain name of the Active Directory domain controller. |
+| `cache_netbios_name` | string | Yes | - | The NetBIOS name to assign to the HPC Cache when it joins the Active Directory domain as a server. |
+| `domain_netbios_name` | string | Yes | - | The Active Directory domain's NetBIOS name. |
+| `username` | string | Yes | - | The username of the Active Directory domain administrator. |
+| `password` | string | Yes | - | The password of the Active Directory domain administrator. |
+| `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
 
 ### `bind` block structure
 
@@ -98,17 +109,6 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
-
-### `directory_ldap` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `server` | string | Yes | - | The FQDN or IP address of the LDAP server. |
-| `base_dn` | string | Yes | - | The base distinguished name (DN) for the LDAP domain. |
-| `encrypted` | bool | No | - | Whether the LDAP connection should be encrypted? |
-| `certificate_validation_uri` | string | No | - | The URI of the CA certificate to validate the LDAP secure connection. |
-| `download_certificate_automatically` | bool | No | - | Whether the certificate should be automatically downloaded. This can be set to 'true' only when 'certificate_validation_uri' is provided. |
-| `bind` | [block](#bind-block-structure) | No | - | A 'bind' block. |
 
 
 

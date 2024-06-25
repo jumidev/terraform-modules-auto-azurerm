@@ -9,7 +9,7 @@ terraform {
 
 provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
-  version = "~> v3.109.0"
+  version = "~> 3.109.0"
   # client_id       = var.azure_client_id
   # client_secret   = var.azure_client_secret
   # tenant_id       = var.azure_tenant_id

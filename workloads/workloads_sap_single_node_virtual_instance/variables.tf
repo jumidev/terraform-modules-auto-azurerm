@@ -55,6 +55,15 @@ variable "single_server_configuration" {
 #   size_in_gb (number)                      : (REQUIRED) The size of the Disk in GB. Changing this forces a new resource to be created.
 #   sku_name (string)                        : (REQUIRED) The name of the Disk SKU. Possible values are 'Premium_LRS', 'PremiumV2_LRS', 'Premium_ZRS', 'Standard_LRS', 'StandardSSD_LRS', 'StandardSSD_ZRS' and 'UltraSSD_LRS'. Changing this forces a new resource to be created.
 #
+# os_profile block structure:
+#   admin_username (string)   : (REQUIRED) The name of the administrator account. Changing this forces a new resource to be created.
+#   ssh_private_key (string)  : (REQUIRED) The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+#   ssh_public_key (string)   : (REQUIRED) The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
+#
+# data_disk block structure:
+#   volume_name (string)     : (REQUIRED) The name of the Volume. The only possible value is 'default'. Changing this forces a new resource to be created.
+#   names (list)             : (REQUIRED) A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
+#
 # virtual_machine_resource_names block structure:
 #   data_disk (block)                             : One or more 'data_disk' blocks. Changing this forces a new resource to be created.
 #   host_name (string)                            : The full name of the host of the Virtual Machine. Changing this forces a new resource to be created.
@@ -67,15 +76,6 @@ variable "single_server_configuration" {
 #   publisher (string)   : (REQUIRED) The publisher of the Image. Possible values are 'RedHat' and 'SUSE'. Changing this forces a new resource to be created.
 #   sku (string)         : (REQUIRED) The SKU of the Image. Changing this forces a new resource to be created.
 #   version (string)     : (REQUIRED) Specifies the version of the platform image or marketplace image used to create the virtual machine. Changing this forces a new resource to be created.
-#
-# data_disk block structure:
-#   volume_name (string)     : (REQUIRED) The name of the Volume. The only possible value is 'default'. Changing this forces a new resource to be created.
-#   names (list)             : (REQUIRED) A list of full names of Data Disks per Volume. Changing this forces a new resource to be created.
-#
-# os_profile block structure:
-#   admin_username (string)   : (REQUIRED) The name of the administrator account. Changing this forces a new resource to be created.
-#   ssh_private_key (string)  : (REQUIRED) The SSH public key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
-#   ssh_public_key (string)   : (REQUIRED) The SSH private key that is used to authenticate with the Virtual Machine. Changing this forces a new resource to be created.
 #
 # virtual_machine_configuration block structure:
 #   image (block)                                : (REQUIRED) An 'image' block. Changing this forces a new resource to be created.

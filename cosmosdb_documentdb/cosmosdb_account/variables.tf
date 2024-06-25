@@ -232,13 +232,13 @@ variable "restore" {
 #   gremlin_database (block)           : One or more 'gremlin_database' blocks. Changing this forces a new resource to be created.
 #   tables_to_restore (list)           : A list of specific tables available for restore. Changing this forces a new resource to be created.
 #
-# database block structure:
-#   name (string)           : (REQUIRED) The database name for the restore request. Changing this forces a new resource to be created.
-#   collection_names (list) : A list of the collection names for the restore request. Changing this forces a new resource to be created.
-#
 # gremlin_database block structure:
 #   name (string)                   : (REQUIRED) The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
 #   graph_names (list)              : A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+#
+# database block structure:
+#   name (string)           : (REQUIRED) The database name for the restore request. Changing this forces a new resource to be created.
+#   collection_names (list) : A list of the collection names for the restore request. Changing this forces a new resource to be created.
 
 
 

@@ -57,17 +57,10 @@ variable "default_node_pool" {
 #   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
 #   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 #
-# kubelet_config block structure    :
-#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
-#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
-#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
-#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
-#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
-#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
-#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
-#   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
-#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
+# node_network_profile block structure :
+#   allowed_host_ports (block)           : One or more 'allowed_host_ports' blocks.
+#   application_security_group_ids (list): A list of Application Security Group IDs which should be associated with this Node Pool.
+#   node_public_ip_tags (map)            : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'.
@@ -100,10 +93,17 @@ variable "default_node_pool" {
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'.
 #
-# node_network_profile block structure :
-#   allowed_host_ports (block)           : One or more 'allowed_host_ports' blocks.
-#   application_security_group_ids (list): A list of Application Security Group IDs which should be associated with this Node Pool.
-#   node_public_ip_tags (map)            : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
+# kubelet_config block structure    :
+#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
+#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
+#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
+#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
+#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
+#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
+#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
+#   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
+#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
 #
 # allowed_host_ports block structure:
 #   port_start (string)               : Specifies the start of the port range.
@@ -345,13 +345,13 @@ variable "maintenance_window" {
 #   allowed (block)                   : One or more 'allowed' blocks.
 #   not_allowed (block)               : One or more 'not_allowed' block.
 #
-# allowed block structure:
-#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
-#   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
-#
 # not_allowed block structure:
 #   end (string)               : (REQUIRED) The end of a time span, formatted as an RFC3339 string.
 #   start (string)             : (REQUIRED) The start of a time span, formatted as an RFC3339 string.
+#
+# allowed block structure:
+#   day (string)           : (REQUIRED) A day in a week. Possible values are 'Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday' and 'Saturday'.
+#   hours (number)         : (REQUIRED) An array of hour slots in a day. For example, specifying '1' will allow maintenance from 1:00am to 2:00am. Specifying '1', '2' will allow maintenance from 1:00am to 3:00m. Possible values are between '0' and '23'.
 
 
 variable "maintenance_window_auto_upgrade" {

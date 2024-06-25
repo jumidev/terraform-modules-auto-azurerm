@@ -71,34 +71,44 @@ tfstate_store = {
 | **dns_endpoint_type** | string |  `Standard`  |  `Standard`, `AzureDnsZone`  |  Specifies which DNS endpoint type to use. Possible values are `Standard` and `AzureDnsZone`. Defaults to `Standard`. Changing this forces a new resource to be created. -> **NOTE:** Azure DNS zone support requires `PartitionedDns` feature to be enabled. To enable this feature for your subscription, use the following command: `az feature register --namespace "Microsoft.Storage" --name "PartitionedDns"`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 
-### `blob_properties` block structure
+### `share_properties` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
-| `delete_retention_policy` | [block](#delete_retention_policy-block-structure) | No | - | A 'delete_retention_policy' block. |
-| `restore_policy` | [block](#restore_policy-block-structure) | No | - | A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). -> **NOTE:** 'restore_policy' can not be configured when 'dns_endpoint_type' is 'AzureDnsZone'. |
-| `versioning_enabled` | bool | No | False | Is versioning enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
-| `change_feed_enabled` | bool | No | False | Is the blob service properties for change feed events enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
-| `change_feed_retention_in_days` | number | No | - | The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
-| `default_service_version` | string | No | - | The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. |
-| `last_access_time_enabled` | bool | No | False | Is the last access time based tracking enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
-| `container_delete_retention_policy` | [block](#container_delete_retention_policy-block-structure) | No | - | A 'container_delete_retention_policy' block. |
+| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
+| `smb` | [block](#smb-block-structure) | No | - | A 'smb' block. |
 
-### `retention_policy` block structure
+### `hour_metrics` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `days` | number | No | 7 | Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'. |
-
-### `minute_metrics` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
+| `enabled` | bool | Yes | - | Indicates whether hour metrics are enabled for the Queue service. |
 | `version` | string | Yes | - | The version of storage analytics to configure. |
 | `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
 | `retention_policy_days` | number | No | - | Specifies the number of days that logs will be retained. |
+
+### `azure_files_authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
+| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
+
+### `sas_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
+| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
+
+### `customer_managed_key` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified. |
+| `managed_hsm_key_id` | string | No | - | The ID of the managed HSM Key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified. |
+| `user_assigned_identity_id` | string | Yes | - | The ID of a user assigned identity. ~> **NOTE:** 'customer_managed_key' can only be set when the 'account_kind' is set to 'StorageV2' or 'account_tier' set to 'Premium', and the identity type is 'UserAssigned'. |
 
 ### `cors_rule` block structure
 
@@ -109,6 +119,12 @@ tfstate_store = {
 | `allowed_origins` | list | Yes | - | A list of origin domains that will be allowed by CORS. |
 | `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
 | `max_age_in_seconds` | number | Yes | - | The number of seconds the client should cache a preflight response. |
+
+### `container_delete_retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | number | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
 
 ### `network_rules` block structure
 
@@ -131,12 +147,19 @@ tfstate_store = {
 | `forest_name` | string | No | - | Specifies the Active Directory forest. This is required when 'directory_type' is set to 'AD'. |
 | `netbios_domain_name` | string | No | - | Specifies the NetBIOS domain name. This is required when 'directory_type' is set to 'AD'. |
 
-### `private_link_access` block structure
+### `blob_properties` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `endpoint_resource_id` | string | Yes | - | The ID of the Azure resource that should be allowed access to the target storage account. |
-| `endpoint_tenant_id` | string | No | - | The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. |
+| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
+| `delete_retention_policy` | [block](#delete_retention_policy-block-structure) | No | - | A 'delete_retention_policy' block. |
+| `restore_policy` | [block](#restore_policy-block-structure) | No | - | A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). -> **NOTE:** 'restore_policy' can not be configured when 'dns_endpoint_type' is 'AzureDnsZone'. |
+| `versioning_enabled` | bool | No | False | Is versioning enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
+| `change_feed_enabled` | bool | No | False | Is the blob service properties for change feed events enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
+| `change_feed_retention_in_days` | number | No | - | The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
+| `default_service_version` | string | No | - | The API Version which should be used by default for requests to the Data Plane API if an incoming request doesn't specify an API Version. |
+| `last_access_time_enabled` | bool | No | False | Is the last access time based tracking enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). |
+| `container_delete_retention_policy` | [block](#container_delete_retention_policy-block-structure) | No | - | A 'container_delete_retention_policy' block. |
 
 ### `custom_domain` block structure
 
@@ -144,12 +167,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The Custom Domain Name to use for the Storage Account, which will be validated by Azure. |
 | `use_subdomain` | bool | No | - | Should the Custom Domain Name be validated by using indirect CNAME validation? |
-
-### `container_delete_retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | number | No | 7 | Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'. |
 
 ### `queue_properties` block structure
 
@@ -159,21 +176,6 @@ tfstate_store = {
 | `logging` | [block](#logging-block-structure) | No | - | A 'logging' block. |
 | `minute_metrics` | [block](#minute_metrics-block-structure) | No | - | A 'minute_metrics' block. |
 | `hour_metrics` | [block](#hour_metrics-block-structure) | No | - | A 'hour_metrics' block. |
-
-### `share_properties` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cors_rule` | [block](#cors_rule-block-structure) | No | - | A 'cors_rule' block. |
-| `retention_policy` | [block](#retention_policy-block-structure) | No | - | A 'retention_policy' block. |
-| `smb` | [block](#smb-block-structure) | No | - | A 'smb' block. |
-
-### `static_website` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `index_document` | string | No | - | The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. |
-| `error_404_document` | string | No | - | The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. |
 
 ### `smb` block structure
 
@@ -185,28 +187,6 @@ tfstate_store = {
 | `channel_encryption_type` | string | No | - | A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'. |
 | `multichannel_enabled` | bool | No | False | Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts. |
 
-### `restore_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | number | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
-
-### `customer_managed_key` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `key_vault_key_id` | string | No | - | The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified. |
-| `managed_hsm_key_id` | string | No | - | The ID of the managed HSM Key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified. |
-| `user_assigned_identity_id` | string | Yes | - | The ID of a user assigned identity. ~> **NOTE:** 'customer_managed_key' can only be set when the 'account_kind' is set to 'StorageV2' or 'account_tier' set to 'Premium', and the identity type is 'UserAssigned'. |
-
-### `routing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
-| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
-| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
-
 ### `delete_retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -214,21 +194,17 @@ tfstate_store = {
 | `days` | number | No | 7 | Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'. |
 | `permanent_delete_enabled` | bool | No | False | Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to 'false'. ~> **NOTE:** 'permanent_delete_enabled' cannot be set to true if a 'restore_policy' block is defined. |
 
-### `hour_metrics` block structure
+### `restore_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | Yes | - | Indicates whether hour metrics are enabled for the Queue service. |
-| `version` | string | Yes | - | The version of storage analytics to configure. |
-| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
-| `retention_policy_days` | number | No | - | Specifies the number of days that logs will be retained. |
+| `days` | number | Yes | - | Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'. |
 
-### `identity` block structure
+### `retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. ~> The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned'  and Storage Account has been created. More details are available below. |
+| `days` | number | No | 7 | Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'. |
 
 ### `logging` block structure
 
@@ -240,19 +216,13 @@ tfstate_store = {
 | `write` | string | Yes | - | Indicates whether all write requests should be logged. |
 | `retention_policy_days` | number | No | - | Specifies the number of days that logs will be retained. |
 
-### `sas_policy` block structure
+### `routing` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiration_period` | string | Yes | - | The SAS expiration period in format of 'DD.HH:MM:SS'. |
-| `expiration_action` | string | No | Log | The SAS expiration action. The only possible value is 'Log' at this moment. Defaults to 'Log'. |
-
-### `azure_files_authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `directory_type` | string | Yes | - | Specifies the directory service used. Possible values are 'AADDS', 'AD' and 'AADKERB'. |
-| `active_directory` | [block](#active_directory-block-structure) | No | - | A 'active_directory' block. Required when 'directory_type' is 'AD'. |
+| `publish_internet_endpoints` | bool | No | False | Should internet routing storage endpoints be published? Defaults to 'false'. |
+| `publish_microsoft_endpoints` | bool | No | False | Should Microsoft routing storage endpoints be published? Defaults to 'false'. |
+| `choice` | string | No | MicrosoftRouting | Specifies the kind of network routing opted by the user. Possible values are 'InternetRouting' and 'MicrosoftRouting'. Defaults to 'MicrosoftRouting'. |
 
 ### `immutability_policy` block structure
 
@@ -261,6 +231,36 @@ tfstate_store = {
 | `allow_protected_append_writes` | bool | Yes | - | When enabled, new blocks can be written to an append blob while maintaining immutability protection and compliance. Only new blocks can be added and any existing blocks cannot be modified or deleted. |
 | `state` | string | Yes | - | Defines the mode of the policy. 'Disabled' state disables the policy, 'Unlocked' state allows increase and decrease of immutability retention time and also allows toggling allowProtectedAppendWrites property, 'Locked' state only allows the increase of the immutability retention time. A policy can only be created in a Disabled or Unlocked state and can be toggled between the two states. Only a policy in an Unlocked state can transition to a Locked state which cannot be reverted. |
 | `period_since_creation_in_days` | number | Yes | - | The immutability period for the blobs in the container since the policy creation, in days. |
+
+### `private_link_access` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `endpoint_resource_id` | string | Yes | - | The ID of the Azure resource that should be allowed access to the target storage account. |
+| `endpoint_tenant_id` | string | No | - | The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id. |
+
+### `minute_metrics` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `enabled` | bool | Yes | - | Indicates whether minute metrics are enabled for the Queue service. |
+| `version` | string | Yes | - | The version of storage analytics to configure. |
+| `include_apis` | string | No | - | Indicates whether metrics should generate summary statistics for called API operations. |
+| `retention_policy_days` | number | No | - | Specifies the number of days that logs will be retained. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Storage Account. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Storage Account. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. ~> The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned'  and Storage Account has been created. More details are available below. |
+
+### `static_website` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `index_document` | string | No | - | The webpage that Azure Storage serves for requests to the root of a website or any subfolder. For example, index.html. The value is case-sensitive. |
+| `error_404_document` | string | No | - | The absolute path to a custom webpage that should be used when a request is made which does not correspond to an existing file. |
 
 
 
