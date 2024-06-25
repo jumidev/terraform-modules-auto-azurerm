@@ -48,8 +48,3 @@ output "id" {
   value       = azurerm_vpn_site.this.id
 }
 
-output "link" {
-  description = "One or more 'link' blocks."
-  value       = azurerm_vpn_site.this.link
-}
-

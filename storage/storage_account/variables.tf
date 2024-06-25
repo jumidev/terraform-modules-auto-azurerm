@@ -106,7 +106,8 @@ variable "customer_managed_key" {
 }
 #
 # customer_managed_key block structure:
-#   key_vault_key_id (string)           : (REQUIRED) The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key.
+#   key_vault_key_id (string)           : The ID of the Key Vault Key, supplying a version-less key ID will enable auto-rotation of this key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified.
+#   managed_hsm_key_id (string)         : The ID of the managed HSM Key. Exactly one of 'key_vault_key_id' and 'managed_hsm_key_id' may be specified.
 #   user_assigned_identity_id (string)  : (REQUIRED) The ID of a user assigned identity. ~> **NOTE:** 'customer_managed_key' can only be set when the 'account_kind' is set to 'StorageV2' or 'account_tier' set to 'Premium', and the identity type is 'UserAssigned'.
 
 
@@ -130,7 +131,7 @@ variable "blob_properties" {
 # blob_properties block structure          :
 #   cors_rule (block)                        : A 'cors_rule' block.
 #   delete_retention_policy (block)          : A 'delete_retention_policy' block.
-#   restore_policy (block)                   : A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
+#   restore_policy (block)                   : A 'restore_policy' block. This must be used together with 'delete_retention_policy' set, 'versioning_enabled' and 'change_feed_enabled' set to 'true'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1). -> **NOTE:** 'restore_policy' can not be configured when 'dns_endpoint_type' is 'AzureDnsZone'.
 #   versioning_enabled (bool)                : Is versioning enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
 #   change_feed_enabled (bool)               : Is the blob service properties for change feed events enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
 #   change_feed_retention_in_days (number)   : The duration of change feed events retention in days. The possible values are between 1 and 146000 days (400 years). Setting this to null (or omit this in the configuration file) indicates an infinite retention of the change feed. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
@@ -138,8 +139,12 @@ variable "blob_properties" {
 #   last_access_time_enabled (bool)          : Is the last access time based tracking enabled? Default to 'false'. -> **NOTE:** This field cannot be configured when 'kind' is set to 'Storage' (V1).
 #   container_delete_retention_policy (block): A 'container_delete_retention_policy' block.
 #
+# restore_policy block structure:
+#   days (number)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
+#
 # delete_retention_policy block structure:
 #   days (number)                          : Specifies the number of days that the blob should be retained, between '1' and '365' days. Defaults to '7'.
+#   permanent_delete_enabled (bool)        : Indicates whether permanent deletion of the soft deleted blob versions and snapshots is allowed. Defaults to 'false'. ~> **NOTE:** 'permanent_delete_enabled' cannot be set to true if a 'restore_policy' block is defined.
 #
 # cors_rule block structure  :
 #   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
@@ -150,13 +155,10 @@ variable "blob_properties" {
 #
 # container_delete_retention_policy block structure:
 #   days (number)                                    : Specifies the number of days that the container should be retained, between '1' and '365' days. Defaults to '7'.
-#
-# restore_policy block structure:
-#   days (number)                 : (REQUIRED) Specifies the number of days that the blob can be restored, between '1' and '365' days. This must be less than the 'days' specified for 'delete_retention_policy'.
 
 
 variable "queue_properties" {
-  description = "A 'queue_properties' block. ~> **NOTE:** 'queue_properties' cannot be set when the 'account_kind' is set to 'BlobStorage'"
+  description = "A 'queue_properties' block. ~> **NOTE:** 'queue_properties' can only be configured when 'account_tier' is set to 'Standard' and 'account_kind' is set to either 'Storage' or 'StorageV2'."
   type        = map(any)
   default     = null
 }
@@ -167,15 +169,14 @@ variable "queue_properties" {
 #   minute_metrics (block)          : A 'minute_metrics' block.
 #   hour_metrics (block)            : A 'hour_metrics' block.
 #
-# cors_rule block structure  :
-#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
-#   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
-#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
-#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
-#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
-#
 # minute_metrics block structure:
 #   enabled (bool)                : (REQUIRED) Indicates whether minute metrics are enabled for the Queue service.
+#   version (string)              : (REQUIRED) The version of storage analytics to configure.
+#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
+#   retention_policy_days (number): Specifies the number of days that logs will be retained.
+#
+# hour_metrics block structure  :
+#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
 #   version (string)              : (REQUIRED) The version of storage analytics to configure.
 #   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
 #   retention_policy_days (number): Specifies the number of days that logs will be retained.
@@ -187,11 +188,12 @@ variable "queue_properties" {
 #   write (string)                : (REQUIRED) Indicates whether all write requests should be logged.
 #   retention_policy_days (number): Specifies the number of days that logs will be retained.
 #
-# hour_metrics block structure  :
-#   enabled (bool)                : (REQUIRED) Indicates whether hour metrics are enabled for the Queue service.
-#   version (string)              : (REQUIRED) The version of storage analytics to configure.
-#   include_apis (string)         : Indicates whether metrics should generate summary statistics for called API operations.
-#   retention_policy_days (number): Specifies the number of days that logs will be retained.
+# cors_rule block structure  :
+#   allowed_headers (list)     : (REQUIRED) A list of headers that are allowed to be a part of the cross-origin request.
+#   allowed_methods (list)     : (REQUIRED) A list of HTTP methods that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'.
+#   allowed_origins (list)     : (REQUIRED) A list of origin domains that will be allowed by CORS.
+#   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
+#   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
 
 
 variable "static_website" {
@@ -206,7 +208,7 @@ variable "static_website" {
 
 
 variable "share_properties" {
-  description = "A 'share_properties' block."
+  description = "A 'share_properties' block. ~> **NOTE:** 'share_properties' can only be configured when either 'account_tier' is 'Standard' and 'account_kind' is either 'Storage' or 'StorageV2' - or when 'account_tier' is 'Premium' and 'account_kind' is 'FileStorage'."
   type        = map(any)
   default     = null
 }
@@ -223,15 +225,15 @@ variable "share_properties" {
 #   exposed_headers (list)     : (REQUIRED) A list of response headers that are exposed to CORS clients.
 #   max_age_in_seconds (number): (REQUIRED) The number of seconds the client should cache a preflight response.
 #
+# retention_policy block structure:
+#   days (number)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
+#
 # smb block structure                     :
 #   versions (string)                       : A set of SMB protocol versions. Possible values are 'SMB2.1', 'SMB3.0', and 'SMB3.1.1'.
 #   authentication_types (string)           : A set of SMB authentication methods. Possible values are 'NTLMv2', and 'Kerberos'.
 #   kerberos_ticket_encryption_type (string): A set of Kerberos ticket encryption. Possible values are 'RC4-HMAC', and 'AES-256'.
 #   channel_encryption_type (string)        : A set of SMB channel encryption. Possible values are 'AES-128-CCM', 'AES-128-GCM', and 'AES-256-GCM'.
 #   multichannel_enabled (bool)             : Indicates whether multichannel is enabled. Defaults to 'false'. This is only supported on Premium storage accounts.
-#
-# retention_policy block structure:
-#   days (number)                   : Specifies the number of days that the 'azurerm_storage_share' should be retained, between '1' and '365' days. Defaults to '7'.
 
 
 variable "network_rules" {
@@ -248,7 +250,7 @@ variable "network_rules" {
 #   private_link_access (block)      : One or more 'private_link_access' block. ~> **Note:** If specifying 'network_rules', one of either 'ip_rules' or 'virtual_network_subnet_ids' must be specified and 'default_action' must be set to 'Deny'. ~> **NOTE:** Network Rules can be defined either directly on the 'azurerm_storage_account' resource, or using the 'azurerm_storage_account_network_rules' resource - but the two cannot be used together. If both are used against the same Storage Account, spurious changes will occur. When managing Network Rules using this resource, to change from a 'default_action' of 'Deny' to 'Allow' requires defining, rather than removing, the block.
 #
 # private_link_access block structure:
-#   endpoint_resource_id (string)      : (REQUIRED) The resource id of the resource access rule to be granted access.
+#   endpoint_resource_id (string)      : (REQUIRED) The ID of the Azure resource that should be allowed access to the target storage account.
 #   endpoint_tenant_id (string)        : The tenant id of the resource of the resource access rule to be granted access. Defaults to the current tenant id.
 
 
@@ -256,6 +258,11 @@ variable "large_file_share_enabled" {
   description = "Is Large File Share Enabled?"
   type        = bool
   default     = null
+}
+variable "local_user_enabled" {
+  description = "Is Local User Enabled? Defaults to 'true'."
+  type        = bool
+  default     = true
 }
 variable "azure_files_authentication" {
   description = "A 'azure_files_authentication' block."
@@ -335,6 +342,11 @@ variable "sftp_enabled" {
   description = "Boolean, enable SFTP for the storage account -> **NOTE:** SFTP support requires 'is_hns_enabled' set to 'true'. [More information on SFTP support can be found here](https://learn.microsoft.com/azure/storage/blobs/secure-file-transfer-protocol-support). Defaults to 'false'"
   type        = bool
   default     = false
+}
+variable "dns_endpoint_type" {
+  description = "Specifies which DNS endpoint type to use. Possible values are 'Standard' and 'AzureDnsZone'. Defaults to 'Standard'. Changing this forces a new resource to be created. -> **NOTE:** Azure DNS zone support requires 'PartitionedDns' feature to be enabled. To enable this feature for your subscription, use the following command: 'az feature register --namespace 'Microsoft.Storage' --name 'PartitionedDns''."
+  type        = string
+  default     = "Standard"
 }
 variable "tags" {
   description = "A mapping of tags to assign to the resource."

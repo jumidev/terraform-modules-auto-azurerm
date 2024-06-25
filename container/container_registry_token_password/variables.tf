@@ -11,10 +11,10 @@ variable "password1" {
 }
 #
 # password1 block structure:
-#   expiry (string)          : The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+#   expiry (string)          : The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 #
 # password block structure:
-#   expiry (string)         : The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+#   expiry (string)         : The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 
 
 
@@ -27,9 +27,9 @@ variable "password2" {
 }
 #
 # password2 block structure:
-#   expiry (string)          : The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+#   expiry (string)          : The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 #
 # password block structure:
-#   expiry (string)         : The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created.
+#   expiry (string)         : The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created.
 
 

@@ -50,6 +50,10 @@ output "confidential_computing" {
   value = azurerm_kubernetes_cluster.this.confidential_computing
 }
 
+output "cost_analysis_enabled" {
+  value = azurerm_kubernetes_cluster.this.cost_analysis_enabled
+}
+
 output "custom_ca_trust_certificates_base64" {
   value = azurerm_kubernetes_cluster.this.custom_ca_trust_certificates_base64
 }
@@ -228,6 +232,11 @@ output "id" {
   value       = azurerm_kubernetes_cluster.this.id
 }
 
+output "current_kubernetes_version" {
+  description = "The current version running on the Azure Kubernetes Managed Cluster."
+  value       = azurerm_kubernetes_cluster.this.current_kubernetes_version
+}
+
 output "fqdn" {
   description = "The FQDN of the Azure Kubernetes Managed Cluster."
   value       = azurerm_kubernetes_cluster.this.fqdn
@@ -277,34 +286,9 @@ output "oidc_issuer_url" {
   value       = azurerm_kubernetes_cluster.this.oidc_issuer_url
 }
 
-output "node_resource_group" {
-  description = "The auto-generated Resource Group which contains the resources for this Managed Kubernetes Cluster."
-  value       = azurerm_kubernetes_cluster.this.node_resource_group
-}
-
 output "node_resource_group_id" {
   description = "The ID of the Resource Group containing the resources for this Managed Kubernetes Cluster."
   value       = azurerm_kubernetes_cluster.this.node_resource_group_id
-}
-
-output "network_profile" {
-  description = "A 'network_profile' block."
-  value       = azurerm_kubernetes_cluster.this.network_profile
-}
-
-output "ingress_application_gateway" {
-  description = "An 'ingress_application_gateway' block."
-  value       = azurerm_kubernetes_cluster.this.ingress_application_gateway
-}
-
-output "oms_agent" {
-  description = "An 'oms_agent' block."
-  value       = azurerm_kubernetes_cluster.this.oms_agent
-}
-
-output "key_vault_secrets_provider" {
-  description = "A 'key_vault_secrets_provider' block."
-  value       = azurerm_kubernetes_cluster.this.key_vault_secrets_provider
 }
 
 output "connector_identity" {
@@ -374,7 +358,7 @@ output "username" {
 }
 
 output "password" {
-  description = "A password or token used to authenticate to the Kubernetes cluster. -> **Note:** It's possible to use these credentials with [the Kubernetes Provider](/providers/hashicorp/kubernetes/latest/docs) like so: '''hcl provider 'kubernetes' { host                   = azurerm_kubernetes_cluster.main.kube_config.0.host username               = azurerm_kubernetes_cluster.main.kube_config.0.username password               = azurerm_kubernetes_cluster.main.kube_config.0.password client_certificate     = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_certificate) client_key             = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.client_key) cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.main.kube_config.0.cluster_ca_certificate) } '''"
+  description = "A password or token used to authenticate to the Kubernetes cluster. -> **Note:** It's possible to use these credentials with [the Kubernetes Provider](/providers/hashicorp/kubernetes/latest/docs) like so: '''hcl provider 'kubernetes' { host                   = azurerm_kubernetes_cluster.main.kube_config[0].host username               = azurerm_kubernetes_cluster.main.kube_config[0].username password               = azurerm_kubernetes_cluster.main.kube_config[0].password client_certificate     = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].client_certificate) client_key             = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].client_key) cluster_ca_certificate = base64decode(azurerm_kubernetes_cluster.main.kube_config[0].cluster_ca_certificate) } '''"
   value       = azurerm_kubernetes_cluster.this.password
   sensitive   = true
 }
@@ -402,15 +386,5 @@ output "secret_identity" {
 output "web_app_routing_identity" {
   description = "A 'web_app_routing_identity' block is exported. The exported attributes are defined below."
   value       = azurerm_kubernetes_cluster.this.web_app_routing_identity
-}
-
-output "vertical_pod_autoscaler_controlled_values" {
-  description = "Which resources values should be controlled."
-  value       = azurerm_kubernetes_cluster.this.vertical_pod_autoscaler_controlled_values
-}
-
-output "vertical_pod_autoscaler_update_mode" {
-  description = "How the autoscaler applies changes to pod resources."
-  value       = azurerm_kubernetes_cluster.this.vertical_pod_autoscaler_update_mode
 }
 

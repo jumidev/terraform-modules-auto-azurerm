@@ -32,11 +32,6 @@ output "id" {
   value       = azurerm_role_definition.this.id
 }
 
-output "role_definition_id" {
-  description = "The Role Definition ID. Changing this forces a new resource to be created."
-  value       = azurerm_role_definition.this.role_definition_id
-}
-
 output "role_definition_resource_id" {
   description = "The Azure Resource Manager ID for the resource."
   value       = azurerm_role_definition.this.role_definition_resource_id

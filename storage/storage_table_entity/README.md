@@ -10,14 +10,13 @@ source = {
    path = "storage/storage_table_entity"   
 }
 inputs = {
-   # storage_account_name → set in component_inputs
-   table_name = "The name of the storage table in which to create the storage table entity..."   
+   # storage_table_id → set in component_inputs
    partition_key = "The key for the partition where the entity will be inserted/merged..."   
    row_key = "The key for the row where the entity will be inserted/merged..."   
    entity = "A map of key/value pairs that describe the entity to be inserted/merged in to th..."   
 }
 component_inputs = {
-   storage_account_name = "path/to/storage_account_component:name"   
+   storage_table_id = "path/to/storage_table_component:id"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   
@@ -30,10 +29,9 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **storage_account_name** | string |  Specifies the storage account in which to create the storage table entity. Changing this forces a new resource to be created. | 
-| **table_name** | string |  The name of the storage table in which to create the storage table entity. Changing this forces a new resource to be created. | 
-| **partition_key** | string |  The key for the partition where the entity will be inserted/merged. Changing this forces a new resource. | 
-| **row_key** | string |  The key for the row where the entity will be inserted/merged. Changing this forces a new resource. | 
+| **storage_table_id** | string |  The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created. | 
+| **partition_key** | string |  The key for the partition where the entity will be inserted/merged. Changing this forces a new resource to be created. | 
+| **row_key** | string |  The key for the row where the entity will be inserted/merged. Changing this forces a new resource to be created. | 
 | **entity** | string |  A map of key/value pairs that describe the entity to be inserted/merged in to the storage table. | 
 
 

@@ -14,6 +14,10 @@ output "dapr_application_insights_connection_string" {
   value = azurerm_container_app_environment.this.dapr_application_insights_connection_string
 }
 
+output "infrastructure_resource_group_name" {
+  value = azurerm_container_app_environment.this.infrastructure_resource_group_name
+}
+
 output "infrastructure_subnet_id" {
   value = azurerm_container_app_environment.this.infrastructure_subnet_id
 }
@@ -34,6 +38,10 @@ output "workload_profile" {
   value = azurerm_container_app_environment.this.workload_profile
 }
 
+output "mutual_tls_enabled" {
+  value = azurerm_container_app_environment.this.mutual_tls_enabled
+}
+
 output "tags" {
   value = azurerm_container_app_environment.this.tags
 }
@@ -46,6 +54,11 @@ output "minimum_count" {
 output "id" {
   description = "The ID of the Container App Environment"
   value       = azurerm_container_app_environment.this.id
+}
+
+output "custom_domain_verification_id" {
+  description = "The ID of the Custom Domain Verification for this Container App Environment."
+  value       = azurerm_container_app_environment.this.custom_domain_verification_id
 }
 
 output "default_domain" {

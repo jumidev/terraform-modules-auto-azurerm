@@ -90,11 +90,6 @@ output "fqdn" {
   value       = azurerm_postgresql_server.this.fqdn
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_postgresql_server.this.identity
-}
-
 output "principal_id" {
   description = "The Principal ID associated with this Managed Service Identity."
   value       = azurerm_postgresql_server.this.principal_id

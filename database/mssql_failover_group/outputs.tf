@@ -36,11 +36,6 @@ output "id" {
   value       = azurerm_mssql_failover_group.this.id
 }
 
-output "partner_server" {
-  description = "A 'partner_server' block."
-  value       = azurerm_mssql_failover_group.this.partner_server
-}
-
 output "location" {
   description = "The location of the partner server."
   value       = azurerm_mssql_failover_group.this.location

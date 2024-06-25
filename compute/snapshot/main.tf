@@ -42,6 +42,9 @@ resource "azurerm_snapshot" "this" {
     }
   }
 
-  incremental_enabled = var.incremental_enabled
-  tags                = var.tags
+  incremental_enabled           = var.incremental_enabled
+  network_access_policy         = var.network_access_policy # Default: AllowAll
+  disk_access_id                = var.disk_access_id
+  public_network_access_enabled = var.public_network_access_enabled # Default: True
+  tags                          = var.tags
 }

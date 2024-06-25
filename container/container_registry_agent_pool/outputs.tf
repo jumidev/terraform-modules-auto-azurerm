@@ -30,11 +30,6 @@ output "tags" {
   value = azurerm_container_registry_agent_pool.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags which should be assigned to the Azure Container Registry Agent Pool. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_container_registry_agent_pool.this.tags
-}
-
 output "id" {
   description = "The ID of the Azure Container Registry Agent Pool."
   value       = azurerm_container_registry_agent_pool.this.id

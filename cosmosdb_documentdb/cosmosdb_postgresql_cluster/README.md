@@ -72,5 +72,8 @@ tfstate_store = {
 | **start_minute** | string | No  | The start minute for maintenance window. Defaults to `0`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Azure Cosmos DB for PostgreSQL Cluster. | 
 | **earliest_restore_time** | string | No  | The earliest restore point time (ISO8601 format) for the Azure Cosmos DB for PostgreSQL Cluster. | 
+| **servers** | block | No  | A `servers` block. | 
+| **fqdn** | string | No  | The Fully Qualified Domain Name of the server. | 
+| **name** | string | No  | The name of the server. | 
 
 Additionally, all variables are provided as outputs.

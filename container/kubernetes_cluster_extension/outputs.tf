@@ -38,11 +38,6 @@ output "version" {
   value = azurerm_kubernetes_cluster_extension.this.version
 }
 
-output "version" {
-  description = "Specifies the version of the plan from the marketplace. Changing this forces a new Kubernetes Cluster Extension to be created. ~> **NOTE:** When 'plan' is specified, legal terms must be accepted for this item on this subscription before creating the Kubernetes Cluster Extension. The 'azurerm_marketplace_agreement' resource or AZ CLI tool can be used to do this. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_kubernetes_cluster_extension.this.version
-}
-
 output "id" {
   description = "The ID of the Kubernetes Cluster Extension."
   value       = azurerm_kubernetes_cluster_extension.this.id

@@ -34,7 +34,9 @@ tfstate_store = {
 
 | Name | Type |  Default  |  possible values |  Description |
 | ---- | --------- |  ----------- | ----------- | ----------- |
-| **container_access_type** | string |  `private`  |  `blob`, `container`, `private`  |  The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`. | 
+| **container_access_type** | string |  `private`  |  `blob`, `container`, `private`  |  The Access Level configured for this Container. Possible values are `blob`, `container` or `private`. Defaults to `private`. ~> **Note** When updating `container_access_type` for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported. | 
+| **default_encryption_scope** | string |  -  |  -  |  The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created. | 
+| **encryption_scope_override_enabled** | bool |  `True`  |  -  |  Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying `default_encryption_scope`. Defaults to `true`. Changing this forces a new resource to be created. | 
 | **metadata** | string |  -  |  -  |  A mapping of MetaData for this Container. All metadata keys should be lowercase. | 
 
 

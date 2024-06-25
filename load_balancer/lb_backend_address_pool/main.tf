@@ -11,6 +11,7 @@ resource "azurerm_lb_backend_address_pool" "this" {
   ########################################
   # optional vars
   ########################################
+  synchronous_mode = var.synchronous_mode
 
   dynamic "tunnel_interface" { # var.tunnel_interfaces
     for_each = var.tunnel_interfaces != null ? var.tunnel_interfaces : []

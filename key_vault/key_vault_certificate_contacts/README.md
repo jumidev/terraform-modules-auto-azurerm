@@ -11,15 +11,6 @@ source = {
 }
 inputs = {
    # key_vault_id → set in component_inputs
-   contacts = {
-      contact_1 = {
-         email = "..."         
-         phone = "..."         
-      }      
-      contact_2 = {
-         ...
-      }      
-   }   
 }
 component_inputs = {
    key_vault_id = "path/to/key_vault_component:id"   
@@ -36,7 +27,12 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **key_vault_id** | string |  The ID of the Key Vault. Changing this forces a new resource to be created. | 
-| **contacts** | [block](#contact-block-structure) |  One or more `contact` blocks. | 
+
+## Optional Variables
+
+| Name | Type |  Description |
+| ---- | --------- |  ----------- |
+| **contacts** | [block](#contact-block-structure) |  One or more `contact` blocks. --> | 
 
 ### `contact` block structure
 

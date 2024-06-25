@@ -7,6 +7,10 @@ resource "azurerm_key_vault_certificate_contacts" "this" {
   ########################################
   key_vault_id = var.key_vault_id
 
+  ########################################
+  # optional vars
+  ########################################
+
   dynamic "contact" { # var.contacts
     for_each = var.contacts != null ? var.contacts : []
     content {

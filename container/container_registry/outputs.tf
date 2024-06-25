@@ -94,18 +94,13 @@ output "admin_password" {
   value       = azurerm_container_registry.this.admin_password
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_container_registry.this.identity
-}
-
 output "principal_id" {
   description = "The Principal ID associated with this Managed Service Identity."
   value       = azurerm_container_registry.this.principal_id
 }
 
 output "tenant_id" {
-  description = "The Tenant ID associated with this Managed Service Identity. -> You can access the Principal ID via 'azurerm_container_registry.example.identity.0.principal_id' and the Tenant ID via 'azurerm_container_registry.example.identity.0.tenant_id'"
+  description = "The Tenant ID associated with this Managed Service Identity. -> You can access the Principal ID via 'azurerm_container_registry.example.identity[0].principal_id' and the Tenant ID via 'azurerm_container_registry.example.identity[0].tenant_id'"
   value       = azurerm_container_registry.this.tenant_id
 }
 

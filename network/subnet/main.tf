@@ -30,7 +30,8 @@ resource "azurerm_subnet" "this" {
     }
   }
 
-  private_endpoint_network_policies_enabled     = var.private_endpoint_network_policies_enabled     # Default: True
+  default_outbound_access_enabled               = var.default_outbound_access_enabled               # Default: True
+  private_endpoint_network_policies             = var.private_endpoint_network_policies             # Default: False
   private_link_service_network_policies_enabled = var.private_link_service_network_policies_enabled # Default: True
   service_endpoints                             = var.service_endpoints
   service_endpoint_policy_ids                   = var.service_endpoint_policy_ids

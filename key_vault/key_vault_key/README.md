@@ -40,10 +40,17 @@ tfstate_store = {
 | ---- | --------- |  ----------- | ----------- | ----------- |
 | **key_size** | string |  -  |  `key_type`, `RSA`, `RSA-HSM`  |  Specifies the Size of the RSA key to create in bytes. For example, 1024 or 2048. *Note*: This field is required if `key_type` is `RSA` or `RSA-HSM`. Changing this forces a new resource to be created. | 
 | **curve** | string |  `P-256`  |  `EC`, `P-256`, `P-256K`, `P-384`, `P-521`  |  Specifies the curve to use when creating an `EC` key. Possible values are `P-256`, `P-256K`, `P-384`, and `P-521`. This field will be required in a future release if `key_type` is `EC` or `EC-HSM`. The API will default to `P-256` if nothing is specified. Changing this forces a new resource to be created. | 
-| **not_before_date** | string |  -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). | 
-| **expiration_date** | string |  -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). | 
+| **not_before_date** | string |  -  |  -  |  Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). ~> **Note:** Once `expiration_date` is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key. | 
+| **expiration_date** | string |  -  |  -  |  Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
 | **rotation_policy** | [block](#rotation_policy-block-structure) |  -  |  -  |  A `rotation_policy` block. | 
+
+### `automatic` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
+| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
 ### `rotation_policy` block structure
 
@@ -52,13 +59,6 @@ tfstate_store = {
 | `expire_after` | string | No | - | Expire a Key Vault Key after given duration as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 | `automatic` | [block](#automatic-block-structure) | No | - | An 'automatic' block. |
 | `notify_before_expiry` | string | No | - | Notify at a given duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-
-### `automatic` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `time_after_creation` | string | No | - | Rotate automatically at a duration after create as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
-| `time_before_expiry` | string | No | - | Rotate automatically at a duration before expiry as an [ISO 8601 duration](https://en.wikipedia.org/wiki/ISO_8601#Durations). |
 
 
 

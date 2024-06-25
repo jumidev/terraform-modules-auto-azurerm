@@ -23,11 +23,6 @@ output "id" {
   value       = azurerm_databricks_access_connector.this.id
 }
 
-output "identity" {
-  description = "A list of 'identity' blocks containing the system-assigned managed identities as defined below."
-  value       = azurerm_databricks_access_connector.this.identity
-}
-
 output "type" {
   description = "The type of Managed Service Identity that is configured on this Access Connector."
   value       = azurerm_databricks_access_connector.this.type

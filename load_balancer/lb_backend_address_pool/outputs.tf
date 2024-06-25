@@ -6,6 +6,10 @@ output "loadbalancer_id" {
   value = azurerm_lb_backend_address_pool.this.loadbalancer_id
 }
 
+output "synchronous_mode" {
+  value = azurerm_lb_backend_address_pool.this.synchronous_mode
+}
+
 output "tunnel_interface" {
   value = azurerm_lb_backend_address_pool.this.tunnel_interface
 }
@@ -15,7 +19,7 @@ output "virtual_network_id" {
 }
 
 output "port" {
-  description = "The port number that this Gateway Lodbalancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported:"
+  description = "The port number that this Gateway Load Balancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported:"
   value       = azurerm_lb_backend_address_pool.this.port
 }
 

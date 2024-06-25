@@ -140,79 +140,9 @@ output "id" {
   value       = azurerm_application_gateway.this.id
 }
 
-output "authentication_certificate" {
-  description = "A list of 'authentication_certificate' blocks."
-  value       = azurerm_application_gateway.this.authentication_certificate
-}
-
-output "backend_address_pool" {
-  description = "A list of 'backend_address_pool' blocks."
-  value       = azurerm_application_gateway.this.backend_address_pool
-}
-
-output "backend_http_settings" {
-  description = "A list of 'backend_http_settings' blocks."
-  value       = azurerm_application_gateway.this.backend_http_settings
-}
-
-output "frontend_ip_configuration" {
-  description = "A list of 'frontend_ip_configuration' blocks."
-  value       = azurerm_application_gateway.this.frontend_ip_configuration
-}
-
-output "frontend_port" {
-  description = "A list of 'frontend_port' blocks."
-  value       = azurerm_application_gateway.this.frontend_port
-}
-
-output "gateway_ip_configuration" {
-  description = "A list of 'gateway_ip_configuration' blocks."
-  value       = azurerm_application_gateway.this.gateway_ip_configuration
-}
-
-output "http_listener" {
-  description = "A list of 'http_listener' blocks."
-  value       = azurerm_application_gateway.this.http_listener
-}
-
 output "private_endpoint_connection" {
   description = "A list of 'private_endpoint_connection' blocks."
   value       = azurerm_application_gateway.this.private_endpoint_connection
-}
-
-output "private_link_configuration" {
-  description = "A list of 'private_link_configuration' blocks."
-  value       = azurerm_application_gateway.this.private_link_configuration
-}
-
-output "probe" {
-  description = "A 'probe' block."
-  value       = azurerm_application_gateway.this.probe
-}
-
-output "request_routing_rule" {
-  description = "A list of 'request_routing_rule' blocks."
-  value       = azurerm_application_gateway.this.request_routing_rule
-}
-
-output "ssl_certificate" {
-  description = "A list of 'ssl_certificate' blocks."
-  value       = azurerm_application_gateway.this.ssl_certificate
-}
-
-output "url_path_map" {
-  description = "A list of 'url_path_map' blocks."
-  value       = azurerm_application_gateway.this.url_path_map
-}
-
-output "custom_error_configuration" {
-  description = "A list of 'custom_error_configuration' blocks."
-  value       = azurerm_application_gateway.this.custom_error_configuration
-}
-
-output "redirect_configuration" {
-  description = "A list of 'redirect_configuration' blocks."
-  value       = azurerm_application_gateway.this.redirect_configuration
 }
 
 output "probe_id" {
@@ -263,11 +193,6 @@ output "redirect_configuration_id" {
 output "rewrite_rule_set_id" {
   description = "The ID of the associated Rewrite Rule Set."
   value       = azurerm_application_gateway.this.rewrite_rule_set_id
-}
-
-output "name" {
-  description = "The name of the private endpoint connection."
-  value       = azurerm_application_gateway.this.name
 }
 
 output "http_listener_id" {

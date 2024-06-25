@@ -45,18 +45,9 @@ tfstate_store = {
 | **network_acls** | [block](#network_acls-block-structure) |  -  |  -  |  A `network_acls` block. | 
 | **purge_protection_enabled** | bool |  -  |  -  |  Is Purge Protection enabled for this Key Vault? !> **Note:** Once Purge Protection has been Enabled it's not possible to Disable it. Support for [disabling purge protection is being tracked in this Azure API issue](https://github.com/Azure/azure-rest-api-specs/issues/8075). Deleting the Key Vault with Purge Protection Enabled will schedule the Key Vault to be deleted (which will happen by Azure in the configured number of days, currently 90 days - which will be configurable in Terraform in the future). | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this Key Vault. Defaults to `true`. | 
-| **soft_delete_retention_days** | number |  -  |  `7`, `90`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. ~> **Note:** This field can only be configured one time and cannot be updated. | 
-| **contacts** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. ~> **Note:** This field can only be set once user has `managecontacts` certificate permission. | 
+| **soft_delete_retention_days** | number |  -  |  `7`, `90`, `contact`  |  The number of days that items should be retained for once soft-deleted. This value can be between `7` and `90` (the default) days. ~> **Note:** This field can only be configured one time and cannot be updated. <!-- TODO: Remove `contact` and Notes in 4.0 --> | 
+| **contacts** | [block](#contact-block-structure) |  -  |  -  |  One or more `contact` block. ~> **Note:** This field can only be set once user has `managecontacts` certificate permission. ~> **Note:** This field can only be set when `public_network_access_enabled` is set to `true`. To manage the `contact` with `public_network_access_enabled` set to `false`, please use [the `azurerm_key_vault_certificate_contacts` resource](key_vault_certificate_contacts.html) instead of this property, and remove this property from the configuration. Especially for existing `azurerm_key_vault`, this means you'll need to import the `azurerm_key_vault_certificate_contacts` manually. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `network_acls` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
-| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
-| `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
-| `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
 
 ### `access_policy` block structure
 
@@ -69,6 +60,15 @@ tfstate_store = {
 | `key_permissions` | string | No | - | List of key permissions. Possible values are 'Backup', 'Create', 'Decrypt', 'Delete', 'Encrypt', 'Get', 'Import', 'List', 'Purge', 'Recover', 'Restore', 'Sign', 'UnwrapKey', 'Update', 'Verify', 'WrapKey', 'Release', 'Rotate', 'GetRotationPolicy' and 'SetRotationPolicy'. |
 | `secret_permissions` | list | No | - | List of secret permissions, must be one or more from the following: 'Backup', 'Delete', 'Get', 'List', 'Purge', 'Recover', 'Restore' and 'Set'. |
 | `storage_permissions` | list | No | - | List of storage permissions, must be one or more from the following: 'Backup', 'Delete', 'DeleteSAS', 'Get', 'GetSAS', 'List', 'ListSAS', 'Purge', 'Recover', 'RegenerateKey', 'Restore', 'Set', 'SetSAS' and 'Update'. |
+
+### `network_acls` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `bypass` | string | Yes | - | Specifies which traffic can bypass the network rules. Possible values are 'AzureServices' and 'None'. |
+| `default_action` | string | Yes | - | The Default Action to use when no rules match from 'ip_rules' / 'virtual_network_subnet_ids'. Possible values are 'Allow' and 'Deny'. |
+| `ip_rules` | string | No | - | One or more IP Addresses, or CIDR Blocks which should be able to access the Key Vault. |
+| `virtual_network_subnet_ids` | string | No | - | One or more Subnet IDs which should be able to access this Key Vault. |
 
 ### `contact` block structure
 

@@ -27,14 +27,14 @@ resource "azurerm_network_interface" "this" {
   ########################################
   # optional vars
   ########################################
-  auxiliary_mode                = var.auxiliary_mode
-  auxiliary_sku                 = var.auxiliary_sku
-  dns_servers                   = var.dns_servers
-  edge_zone                     = var.edge_zone
-  enable_ip_forwarding          = var.enable_ip_forwarding          # Default: False
-  enable_accelerated_networking = var.enable_accelerated_networking # Default: False
-  internal_dns_name_label       = var.internal_dns_name_label
-  tags                          = var.tags
+  auxiliary_mode                 = var.auxiliary_mode
+  auxiliary_sku                  = var.auxiliary_sku
+  dns_servers                    = var.dns_servers
+  edge_zone                      = var.edge_zone
+  ip_forwarding_enabled          = var.ip_forwarding_enabled          # Default: False
+  accelerated_networking_enabled = var.accelerated_networking_enabled # Default: False
+  internal_dns_name_label        = var.internal_dns_name_label
+  tags                           = var.tags
 }
 
 ##############################################################################################

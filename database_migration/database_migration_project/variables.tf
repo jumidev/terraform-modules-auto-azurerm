@@ -21,12 +21,12 @@ variable "location" {
 
 }
 variable "source_platform" {
-  description = "(REQUIRED) The platform type of the migration source. Currently only support: 'SQL'(on-premises SQL Server). Changing this forces a new resource to be created."
+  description = "(REQUIRED) The platform type of the migration source. Possible values are 'SQL', 'PostgreSQL', 'MySQL' and 'MongoDb'. Changing this forces a new resource to be created."
   type        = string
 
 }
 variable "target_platform" {
-  description = "(REQUIRED) The platform type of the migration target. Currently only support: 'SQLDB'(Azure SQL Database). Changing this forces a new resource to be created."
+  description = "(REQUIRED) The platform type of the migration target. Possible values are 'SQLDB', 'AzureDbForPostgreSql', 'AzureDbForMySql' and 'MongoDb'. Changing this forces a new resource to be created."
   type        = string
 
 }

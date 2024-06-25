@@ -112,7 +112,7 @@ variable "spark_events_folder" {
   default     = "/events"
 }
 variable "spark_version" {
-  description = "The Apache Spark version. Possible values are '2.4' , '3.1' , '3.2' and '3.3'. Defaults to '2.4'."
+  description = "The Apache Spark version. Possible values are '2.4' , '3.1' , '3.2', '3.3', and '3.4'. Defaults to '2.4'."
   type        = string
   default     = "2.4"
 }

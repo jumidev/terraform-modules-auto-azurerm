@@ -41,6 +41,7 @@ resource "azurerm_redis_cache" "this" {
       maxmemory_reserved                      = lookup(redis_configuration.value, "maxmemory_reserved", null)
       maxmemory_delta                         = lookup(redis_configuration.value, "maxmemory_delta", null)
       maxmemory_policy                        = lookup(redis_configuration.value, "maxmemory_policy", "volatile-lru")
+      data_persistence_authentication_method  = lookup(redis_configuration.value, "data_persistence_authentication_method", "SAS")
       maxfragmentationmemory_reserved         = lookup(redis_configuration.value, "maxfragmentationmemory_reserved", null)
       rdb_backup_enabled                      = lookup(redis_configuration.value, "rdb_backup_enabled", false)
       rdb_backup_frequency                    = lookup(redis_configuration.value, "rdb_backup_frequency", null)

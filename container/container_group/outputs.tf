@@ -96,11 +96,6 @@ output "id" {
   value       = azurerm_container_group.this.id
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_container_group.this.identity
-}
-
 output "ip_address" {
   description = "The IP address allocated to the container group."
   value       = azurerm_container_group.this.ip_address

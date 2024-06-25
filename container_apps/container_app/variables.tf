@@ -37,6 +37,16 @@ variable "template" {
 #   revision_suffix (string)      : The suffix for the revision. This value must be unique for the lifetime of the Resource. If omitted the service will use a hash function to create one.
 #   volume (block)                : A 'volume' block as detailed below.
 #
+# authentication block structure:
+#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
+#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
+#
+# custom_scale_rule block structure:
+#   name (string)                    : (REQUIRED) The name of the Scaling Rule
+#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
+#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
+#   authentication (block)           : Zero or more 'authentication' blocks.
+#
 # volume block structure:
 #   name (string)         : (REQUIRED) The name of the volume.
 #   storage_name (string) : The name of the 'AzureFile' storage.
@@ -47,26 +57,16 @@ variable "template" {
 #   concurrent_requests (number)   : (REQUIRED) - The number of concurrent requests to trigger scaling.
 #   authentication (block)         : Zero or more 'authentication' blocks.
 #
-# tcp_scale_rule block structure:
-#   name (string)                 : (REQUIRED) The name of the Scaling Rule
-#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
-#   authentication (block)        : Zero or more 'authentication' blocks.
-#
 # azure_queue_scale_rule block structure:
 #   name (string)                         : (REQUIRED) The name of the Scaling Rule
 #   queue_name (string)                   : (REQUIRED) The name of the Azure Queue
 #   queue_length (string)                 : (REQUIRED) The value of the length of the queue to trigger scaling actions.
 #   authentication (block)                : (REQUIRED) One or more 'authentication' blocks.
 #
-# authentication block structure:
-#   secret_name (string)          : (REQUIRED) The name of the Container App Secret to use for this Scale Rule Authentication.
-#   trigger_parameter (string)    : (REQUIRED) The Trigger Parameter name to use the supply the value retrieved from the 'secret_name'.
-#
-# custom_scale_rule block structure:
-#   name (string)                    : (REQUIRED) The name of the Scaling Rule
-#   custom_rule_type (string)        : (REQUIRED) The Custom rule type. Possible values include: 'activemq', 'artemis-queue', 'kafka', 'pulsar', 'aws-cloudwatch', 'aws-dynamodb', 'aws-dynamodb-streams', 'aws-kinesis-stream', 'aws-sqs-queue', 'azure-app-insights', 'azure-blob', 'azure-data-explorer', 'azure-eventhub', 'azure-log-analytics', 'azure-monitor', 'azure-pipelines', 'azure-servicebus', 'azure-queue', 'cassandra', 'cpu', 'cron', 'datadog', 'elasticsearch', 'external', 'external-push', 'gcp-stackdriver', 'gcp-storage', 'gcp-pubsub', 'graphite', 'http', 'huawei-cloudeye', 'ibmmq', 'influxdb', 'kubernetes-workload', 'liiklus', 'memory', 'metrics-api', 'mongodb', 'mssql', 'mysql', 'nats-jetstream', 'stan', 'tcp', 'new-relic', 'openstack-metric', 'openstack-swift', 'postgresql', 'predictkube', 'prometheus', 'rabbitmq', 'redis', 'redis-cluster', 'redis-sentinel', 'redis-streams', 'redis-cluster-streams', 'redis-sentinel-streams', 'selenium-grid','solace-event-queue', and 'github-runner'.
-#   metadata (string)                : (REQUIRED) - A map of string key-value pairs to configure the Custom Scale Rule.
-#   authentication (block)           : Zero or more 'authentication' blocks.
+# tcp_scale_rule block structure:
+#   name (string)                 : (REQUIRED) The name of the Scaling Rule
+#   concurrent_requests (number)  : (REQUIRED) - The number of concurrent requests to trigger scaling.
+#   authentication (block)        : Zero or more 'authentication' blocks.
 
 
 
@@ -121,7 +121,7 @@ variable "registry" {
 #
 # registry block structure     :
 #   server (string)              : (REQUIRED) The hostname for the Container Registry. The authentication details must also be supplied, 'identity' and 'username'/'password_secret_name' are mutually exclusive.
-#   identity (string)            : Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry.
+#   identity (string)            : Resource ID for the User Assigned Managed identity to use when pulling from the Container Registry. ~> **Note:** The Resource ID must be of a User Assigned Managed identity defined in an 'identity' block.
 #   password_secret_name (string): The name of the Secret Reference containing the password value for this user on the Container Registry, 'username' must also be supplied.
 #   username (string)            : The username to use for this Container Registry, 'password_secret_name' must also be supplied..
 

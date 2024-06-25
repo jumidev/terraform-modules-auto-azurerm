@@ -43,3 +43,13 @@ variable "storage_account_subscription_id" {
   type        = string
   default     = null
 }
+variable "predicate_expression" {
+  description = "Specifies condition of where clause when creating an audit."
+  type        = string
+  default     = null
+}
+variable "audit_actions_and_groups" {
+  description = "A list of Actions-Groups and Actions to audit."
+  type        = list(any)
+  default     = []
+}

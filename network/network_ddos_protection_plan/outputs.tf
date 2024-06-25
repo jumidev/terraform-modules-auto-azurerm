@@ -14,11 +14,6 @@ output "tags" {
   value = azurerm_network_ddos_protection_plan.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_network_ddos_protection_plan.this.tags
-}
-
 output "id" {
   description = "The ID of the DDoS Protection Plan"
   value       = azurerm_network_ddos_protection_plan.this.id

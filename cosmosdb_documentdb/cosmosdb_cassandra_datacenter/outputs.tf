@@ -46,11 +46,6 @@ output "availability_zones_enabled" {
   value = azurerm_cosmosdb_cassandra_datacenter.this.availability_zones_enabled
 }
 
-output "availability_zones_enabled" {
-  description = "Determines whether availability zones are enabled. Defaults to 'true'. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_cosmosdb_cassandra_datacenter.this.availability_zones_enabled
-}
-
 output "id" {
   description = "The ID of the Cassandra Datacenter."
   value       = azurerm_cosmosdb_cassandra_datacenter.this.id

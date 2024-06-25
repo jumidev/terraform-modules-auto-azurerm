@@ -58,7 +58,7 @@ tfstate_store = {
 | **id** | string | No  | The Microsoft SQL Server ID. | 
 | **fully_qualified_domain_name** | string | No  | The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net) | 
 | **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this SQL Server. | 
-| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via `${azurerm_mssql_server.example.identity.0.principal_id}` and the Tenant ID via `${azurerm_mssql_server.example.identity.0.tenant_id}` ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via `${azurerm_mssql_server.example.identity[0].principal_id}` and the Tenant ID via `${azurerm_mssql_server.example.identity[0].tenant_id}` ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
 | **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
 | **update** | string | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 

@@ -5,18 +5,31 @@ resource "azurerm_vpn_gateway_nat_rule" "this" {
   ########################################
   # required vars
   ########################################
-  name                = var.name
-  resource_group_name = var.resource_group_name
-  vpn_gateway_id      = var.vpn_gateway_id
+  name           = var.name
+  vpn_gateway_id = var.vpn_gateway_id
 
   ########################################
   # optional vars
   ########################################
-  external_mapping                = var.external_mapping
-  internal_mapping                = var.internal_mapping
-  ip_configuration_id             = var.ip_configuration_id
-  mode                            = var.mode # Default: EgressSnat
-  type                            = var.type # Default: Static
-  external_address_space_mappings = var.external_address_space_mappings
-  internal_address_space_mappings = var.internal_address_space_mappings
+
+  dynamic "external_mapping" { # var.external_mappings
+    for_each = var.external_mappings != null ? var.external_mappings : []
+    content {
+      address_space = lookup(external_mapping.value, "address_space") # (Required) 
+      port_range    = lookup(external_mapping.value, "port_range", null)
+    }
+  }
+
+
+  dynamic "internal_mapping" { # var.internal_mappings
+    for_each = var.internal_mappings != null ? var.internal_mappings : []
+    content {
+      address_space = lookup(internal_mapping.value, "address_space") # (Required) 
+      port_range    = lookup(internal_mapping.value, "port_range", null)
+    }
+  }
+
+  ip_configuration_id = var.ip_configuration_id
+  mode                = var.mode # Default: EgressSnat
+  type                = var.type # Default: Static
 }

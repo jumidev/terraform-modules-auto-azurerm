@@ -26,11 +26,6 @@ output "expiration_date" {
   value = azurerm_key_vault_secret.this.expiration_date
 }
 
-output "expiration_date" {
-  description = "Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_key_vault_secret.this.expiration_date
-}
-
 output "id" {
   description = "The Key Vault Secret ID."
   value       = azurerm_key_vault_secret.this.id

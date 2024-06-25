@@ -44,18 +44,6 @@ variable "azuread_authentication_only" {
   type        = bool
   default     = false
 }
-variable "aad_admin" {
-  description = "An 'aad_admin' block. Conflicts with 'customer_managed_key'."
-  type        = map(any)
-  default     = null
-}
-#
-# aad_admin block structure:
-#   login (string)           : (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace.
-#   object_id (string)       : (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace.
-#   tenant_id (string)       : (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace.
-
-
 variable "compute_subnet_id" {
   description = "Subnet ID used for computes in workspace Changing this forces a new resource to be created."
   type        = string
@@ -83,7 +71,7 @@ variable "data_exfiltration_protection_enabled" {
   default     = null
 }
 variable "customer_managed_key" {
-  description = "A 'customer_managed_key' block. Conflicts with 'aad_admin'."
+  description = "A 'customer_managed_key' block."
   type        = map(any)
   default     = null
 }
@@ -91,6 +79,7 @@ variable "customer_managed_key" {
 # customer_managed_key block structure:
 #   key_versionless_id (string)         : (REQUIRED) The Azure Key Vault Key Versionless ID to be used as the Customer Managed Key (CMK) for double encryption (e.g. 'https://example-keyvault.vault.azure.net/type/cmk/').
 #   key_name (string)                   : An identifier for the key. Name needs to match the name of the key used with the 'azurerm_synapse_workspace_key' resource. Defaults to 'cmk' if not specified.
+#   user_assigned_identity_id (string)  : The User Assigned Identity ID to be used for accessing the Customer Managed Key for encryption.
 
 
 variable "github_repo" {
@@ -133,18 +122,6 @@ variable "purview_id" {
   type        = string
   default     = null
 }
-variable "sql_aad_admin" {
-  description = "An 'sql_aad_admin' block."
-  type        = map(any)
-  default     = null
-}
-#
-# sql_aad_admin block structure:
-#   login (string)               : (REQUIRED) The login name of the Azure AD Administrator of this Synapse Workspace SQL.
-#   object_id (string)           : (REQUIRED) The object id of the Azure AD Administrator of this Synapse Workspace SQL.
-#   tenant_id (string)           : (REQUIRED) The tenant id of the Azure AD Administrator of this Synapse Workspace SQL.
-
-
 variable "sql_identity_control_enabled" {
   description = "Are pipelines (running as workspace's system assigned identity) allowed to access SQL pools?"
   type        = bool

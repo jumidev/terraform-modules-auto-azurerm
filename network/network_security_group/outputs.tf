@@ -36,11 +36,6 @@ output "subnet_id" {
   value = azurerm_subnet_network_security_group_association.this.*.subnet_id
 }
 
-output "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subnet_network_security_group_association.this.*.subnet_id
-}
-
 output "id" {
   description = "The ID of the Subnet."
   value       = azurerm_subnet_network_security_group_association.this.*.id
@@ -52,11 +47,6 @@ output "network_interface_id" {
 
 output "network_security_group_id" {
   value = azurerm_network_interface_security_group_association.this.*.network_security_group_id
-}
-
-output "network_security_group_id" {
-  description = "The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_network_interface_security_group_association.this.*.network_security_group_id
 }
 
 output "id" {

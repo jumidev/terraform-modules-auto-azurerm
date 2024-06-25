@@ -45,7 +45,7 @@ variable "encryption" {
 }
 #
 # encryption block structure:
-#   enforcement (bool)        : (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'.
+#   enforcement (bool)        : (REQUIRED) Specifies if the encrypted Virtual Network allows VM that does not support encryption. Possible values are 'DropUnencrypted' and 'AllowUnencrypted'. -> **NOTE:** Currently 'AllowUnencrypted' is the only supported value for the 'enforcement' property as 'DropUnencrypted' is not yet in public preview or general availability. Please see the [official documentation](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-network-encryption-overview#limitations) for more information.
 
 
 variable "dns_servers" {

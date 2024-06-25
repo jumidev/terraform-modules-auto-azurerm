@@ -35,27 +35,15 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **certificate** | [block](#certificate-block-structure) |  A `certificate` block, used to Import an existing certificate. Changing this will create a new version of the Key Vault Certificate. | 
-| **certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this will create a new version of the Key Vault Certificate. ~> **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate. | 
+| **certificate_policy** | [block](#certificate_policy-block-structure) |  A `certificate_policy` block. Changing this (except the `lifetime_action` field) will create a new version of the Key Vault Certificate. ~> **NOTE:** When creating a Key Vault Certificate, at least one of `certificate` or `certificate_policy` is required. Provide `certificate` to import an existing certificate, `certificate_policy` to generate a new certificate. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `issuer_parameters` block structure
+### `certificate` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones). |
-
-### `action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
-
-### `trigger` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days_before_expiry` | number | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
-| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
+| `contents` | string | Yes | - | The base64-encoded certificate contents. |
+| `password` | string | No | - | The password associated with the certificate. ~> **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the 'contents' property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style ''n' line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data. To convert a private key to pkcs8 format with openssl use: '''shell openssl pkcs8 -topk8 -nocrypt -in private_key.pem > private_key_pk8.pem ''' The PEM content should look something like: '''text -----BEGIN CERTIFICATE----- aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K : aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K -----END CERTIFICATE----- -----BEGIN PRIVATE KEY----- d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK : d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK -----END PRIVATE KEY----- ''' |
 
 ### `certificate_policy` block structure
 
@@ -67,6 +55,12 @@ tfstate_store = {
 | `secret_properties` | [block](#secret_properties-block-structure) | Yes | - | A 'secret_properties' block. |
 | `x509_certificate_properties` | [block](#x509_certificate_properties-block-structure) | No | - | A 'x509_certificate_properties' block. Required when 'certificate' block is not specified. |
 
+### `secret_properties` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
+
 ### `key_properties` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -77,19 +71,19 @@ tfstate_store = {
 | `key_type` | string | Yes | - | Specifies the type of key. Possible values are 'EC', 'EC-HSM', 'RSA', 'RSA-HSM' and 'oct'. |
 | `reuse_key` | bool | Yes | - | Is the key reusable? |
 
+### `trigger` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days_before_expiry` | number | No | - | The number of days before the Certificate expires that the action associated with this Trigger should run. Conflicts with 'lifetime_percentage'. |
+| `lifetime_percentage` | string | No | - | The percentage at which during the Certificates Lifetime the action associated with this Trigger should run. Conflicts with 'days_before_expiry'. |
+
 ### `lifetime_action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `action` | [block](#action-block-structure) | Yes | - | A 'action' block. |
 | `trigger` | [block](#trigger-block-structure) | Yes | - | A 'trigger' block. |
-
-### `certificate` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `contents` | string | Yes | - | The base64-encoded certificate contents. |
-| `password` | string | No | - | The password associated with the certificate. ~> **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the 'contents' property should include a PEM encoded X509 certificate and a private_key in pkcs8 format. There should only be linux style ''n' line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data. To convert a private key to pkcs8 format with openssl use: '''shell openssl pkcs8 -topk8 -nocrypt -in private_key.pem > private_key_pk8.pem ''' The PEM content should look something like: '''text -----BEGIN CERTIFICATE----- aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K : aGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8KaGVsbG8K -----END CERTIFICATE----- -----BEGIN PRIVATE KEY----- d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK : d29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQKd29ybGQK -----END PRIVATE KEY----- ''' |
 
 ### `subject_alternative_names` block structure
 
@@ -99,11 +93,11 @@ tfstate_store = {
 | `emails` | list | No | - | A list of email addresses identified by this Certificate. |
 | `upns` | list | No | - | A list of User Principal Names identified by the Certificate. |
 
-### `secret_properties` block structure
+### `action` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `content_type` | string | Yes | - | The Content-Type of the Certificate, such as 'application/x-pkcs12' for a PFX or 'application/x-pem-file' for a PEM. |
+| `action_type` | string | Yes | - | The Type of action to be performed when the lifetime trigger is triggerec. Possible values include 'AutoRenew' and 'EmailContacts'. |
 
 ### `x509_certificate_properties` block structure
 
@@ -114,6 +108,12 @@ tfstate_store = {
 | `subject` | string | Yes | - | The Certificate's Subject. |
 | `subject_alternative_names` | [block](#subject_alternative_names-block-structure) | No | - | A 'subject_alternative_names' block. |
 | `validity_in_months` | string | Yes | - | The Certificates Validity Period in Months. |
+
+### `issuer_parameters` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the Certificate Issuer. Possible values include 'Self' (for self-signed certificate), or 'Unknown' (for a certificate issuing authority like 'Let's Encrypt' and Azure direct supported ones). |
 
 
 

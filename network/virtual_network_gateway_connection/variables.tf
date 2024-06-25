@@ -99,6 +99,11 @@ variable "express_route_gateway_bypass" {
   type        = string
   default     = null
 }
+variable "private_link_fast_path_enabled" {
+  description = "Bypass the Express Route gateway when accessing private-links. When enabled 'express_route_gateway_bypass' must be set to 'true'. Defaults to 'false'."
+  type        = bool
+  default     = false
+}
 variable "egress_nat_rule_ids" {
   description = "A list of the egress NAT Rule Ids."
   type        = list(any)

@@ -32,7 +32,7 @@ variable "rule" {
 #   route_prefix (list)            : A list of route prefixes which this criterion matches.
 #
 # action block structure:
-#   parameter (block)     : (REQUIRED) A 'parameter' block.
+#   parameter (block)     : A 'parameter' block. Required if 'type' is anything other than 'Drop'.
 #   type (string)         : (REQUIRED) The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'.
 #
 # parameter block structure:

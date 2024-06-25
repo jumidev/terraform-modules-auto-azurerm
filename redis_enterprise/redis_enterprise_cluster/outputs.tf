@@ -26,11 +26,6 @@ output "tags" {
   value = azurerm_redis_enterprise_cluster.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags which should be assigned to the Redis Enterprise Cluster. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_redis_enterprise_cluster.this.tags
-}
-
 output "id" {
   description = "The ID of the Redis Enterprise Cluster."
   value       = azurerm_redis_enterprise_cluster.this.id

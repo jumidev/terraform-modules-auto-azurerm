@@ -35,6 +35,7 @@ resource "azurerm_virtual_network_gateway_connection" "this" {
   }
 
   express_route_gateway_bypass       = var.express_route_gateway_bypass
+  private_link_fast_path_enabled     = var.private_link_fast_path_enabled # Default: False
   egress_nat_rule_ids                = var.egress_nat_rule_ids
   ingress_nat_rule_ids               = var.ingress_nat_rule_ids
   use_policy_based_traffic_selectors = var.use_policy_based_traffic_selectors # Default: False

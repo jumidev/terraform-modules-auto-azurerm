@@ -18,11 +18,6 @@ output "end_ip_address" {
   value = azurerm_mysql_firewall_rule.this.end_ip_address
 }
 
-output "end_ip_address" {
-  description = "Specifies the End IP Address associated with this Firewall Rule. -> **NOTE:** The Azure feature 'Allow access to Azure services' can be enabled by setting 'start_ip_address' and 'end_ip_address' to '0.0.0.0' which ([is documented in the Azure API Docs](https://docs.microsoft.com/rest/api/sql/firewallrules/createorupdate)). In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_mysql_firewall_rule.this.end_ip_address
-}
-
 output "id" {
   description = "The ID of the MySQL Firewall Rule."
   value       = azurerm_mysql_firewall_rule.this.id

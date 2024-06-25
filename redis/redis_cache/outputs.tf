@@ -129,11 +129,6 @@ output "secondary_connection_string" {
   value       = azurerm_redis_cache.this.secondary_connection_string
 }
 
-output "redis_configuration" {
-  description = "A 'redis_configuration' block:"
-  value       = azurerm_redis_cache.this.redis_configuration
-}
-
 output "maxclients" {
   description = "Returns the max number of connected clients at the same time. ## Relevant Links * [Azure Cache for Redis planning](https://docs.microsoft.com/azure/azure-cache-for-redis/cache-planning-faq) * [Redis: Available Configuration Settings](https://redis.io/topics/config)"
   value       = azurerm_redis_cache.this.maxclients

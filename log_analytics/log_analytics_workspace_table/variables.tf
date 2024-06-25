@@ -19,7 +19,12 @@ variable "plan" {
   default     = "Analytics"
 }
 variable "retention_in_days" {
-  description = "The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730. -> **Note:** 'retention_in_days' will revert back to the value of azurerm_log_analytics_workspace retention_in_days when a azurerm_log_analytics_workspace_table is deleted. -> **Note:** The 'retention_in_days' cannot be specified when 'plan' is 'Basic' because the retention is fixed at eight days."
+  description = "The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730."
+  type        = number
+  default     = null
+}
+variable "total_retention_in_days" {
+  description = "The table's total retention in days. Possible values range between 30 and 4383. -> **Note:** 'retention_in_days' and 'total_retention_in_days' will revert back to the value of azurerm_log_analytics_workspace retention_in_days when a azurerm_log_analytics_workspace_table is deleted. -> **Note:** The 'retention_in_days' cannot be specified when 'plan' is 'Basic' because the retention is fixed at eight days."
   type        = number
   default     = null
 }

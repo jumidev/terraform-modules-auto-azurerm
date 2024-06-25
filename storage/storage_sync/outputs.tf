@@ -18,13 +18,13 @@ output "tags" {
   value = azurerm_storage_sync.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags which should be assigned to the Storage Sync. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_storage_sync.this.tags
-}
-
 output "id" {
   description = "The ID of the Storage Sync."
   value       = azurerm_storage_sync.this.id
+}
+
+output "registered_servers" {
+  description = "A list of registered servers owned by this Storage Sync."
+  value       = azurerm_storage_sync.this.registered_servers
 }
 

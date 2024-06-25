@@ -20,14 +20,19 @@ variable "database_name" {
   type        = string
 
 }
-variable "partition_key_path" {
-  description = "(REQUIRED) Define a partition key. Changing this forces a new resource to be created."
-  type        = string
+variable "partition_key_paths" {
+  description = "(REQUIRED) A list of partition key paths. Changing this forces a new resource to be created."
+  type        = list(any)
 
 }
 
 # OPTIONAL VARIABLES
 
+variable "partition_key_kind" {
+  description = "Define a partition key kind. Possible values are 'Hash' and 'MultiHash'. Defaults to 'Hash'. Changing this forces a new resource to be created."
+  type        = string
+  default     = "Hash"
+}
 variable "partition_key_version" {
   description = "Define a partition key version. Changing this forces a new resource to be created. Possible values are '1'and '2'. This should be set to '2' in order to use large partition keys."
   type        = string
@@ -71,21 +76,21 @@ variable "indexing_policy" {
 #   composite_index (block)        : One or more 'composite_index' blocks.
 #   spatial_index (block)          : One or more 'spatial_index' blocks.
 #
-# spatial_index block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
+# composite_index block structure:
+#   index (block)                  : (REQUIRED) One or more 'index' blocks.
 #
 # index block structure:
 #   path (string)        : (REQUIRED) Path for which the indexing behaviour applies to.
 #   order (string)       : (REQUIRED) Order of the index. Possible values are 'Ascending' or 'Descending'.
 #
-# included_path block structure:
-#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
-#
 # excluded_path block structure:
 #   path (string)                : (REQUIRED) Path that is excluded from indexing.
 #
-# composite_index block structure:
-#   index (block)                  : (REQUIRED) One or more 'index' blocks.
+# spatial_index block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to. According to the service design, all spatial types including 'LineString', 'MultiPolygon', 'Point', and 'Polygon' will be applied to the path.
+#
+# included_path block structure:
+#   path (string)                : (REQUIRED) Path for which the indexing behaviour applies to.
 
 
 variable "default_ttl" {

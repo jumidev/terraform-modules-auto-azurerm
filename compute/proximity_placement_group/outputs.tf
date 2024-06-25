@@ -22,11 +22,6 @@ output "tags" {
   value = azurerm_proximity_placement_group.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_proximity_placement_group.this.tags
-}
-
 output "id" {
   description = "The ID of the Proximity Placement Group."
   value       = azurerm_proximity_placement_group.this.id

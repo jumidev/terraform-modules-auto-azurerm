@@ -17,4 +17,6 @@ resource "azurerm_mssql_server_extended_auditing_policy" "this" {
   storage_account_access_key_is_secondary = var.storage_account_access_key_is_secondary
   log_monitoring_enabled                  = var.log_monitoring_enabled # Default: True
   storage_account_subscription_id         = var.storage_account_subscription_id
+  predicate_expression                    = var.predicate_expression
+  audit_actions_and_groups                = var.audit_actions_and_groups
 }

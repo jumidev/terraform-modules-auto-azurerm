@@ -39,21 +39,24 @@ resource "azurerm_mssql_database" "this" {
   dynamic "long_term_retention_policy" { # var.long_term_retention_policy
     for_each = var.long_term_retention_policy != null ? var.long_term_retention_policy : []
     content {
-      weekly_retention  = lookup(long_term_retention_policy.value, "weekly_retention", null)
-      monthly_retention = lookup(long_term_retention_policy.value, "monthly_retention", null)
-      yearly_retention  = lookup(long_term_retention_policy.value, "yearly_retention", null)
-      week_of_year      = lookup(long_term_retention_policy.value, "week_of_year", null)
+      weekly_retention          = lookup(long_term_retention_policy.value, "weekly_retention", null)
+      monthly_retention         = lookup(long_term_retention_policy.value, "monthly_retention", null)
+      yearly_retention          = lookup(long_term_retention_policy.value, "yearly_retention", null)
+      week_of_year              = lookup(long_term_retention_policy.value, "week_of_year", null)
+      immutable_backups_enabled = lookup(long_term_retention_policy.value, "immutable_backups_enabled", false)
     }
   }
 
-  max_size_gb                 = var.max_size_gb
-  min_capacity                = var.min_capacity
-  restore_point_in_time       = var.restore_point_in_time
-  recover_database_id         = var.recover_database_id
-  restore_dropped_database_id = var.restore_dropped_database_id
-  read_replica_count          = var.read_replica_count
-  read_scale                  = var.read_scale
-  sample_name                 = var.sample_name
+  max_size_gb                           = var.max_size_gb
+  min_capacity                          = var.min_capacity
+  restore_point_in_time                 = var.restore_point_in_time
+  recover_database_id                   = var.recover_database_id
+  recovery_point_id                     = var.recovery_point_id
+  restore_dropped_database_id           = var.restore_dropped_database_id
+  restore_long_term_retention_backup_id = var.restore_long_term_retention_backup_id
+  read_replica_count                    = var.read_replica_count
+  read_scale                            = var.read_scale
+  sample_name                           = var.sample_name
 
   dynamic "short_term_retention_policy" { # var.short_term_retention_policy
     for_each = var.short_term_retention_policy != null ? var.short_term_retention_policy : []

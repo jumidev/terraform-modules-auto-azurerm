@@ -18,11 +18,6 @@ output "tags" {
   value = azurerm_private_dns_resolver_dns_forwarding_ruleset.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the Private DNS Resolver Dns Forwarding Ruleset. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_private_dns_resolver_dns_forwarding_ruleset.this.tags
-}
-
 output "id" {
   description = "The ID of the Private DNS Resolver Dns Forwarding Ruleset."
   value       = azurerm_private_dns_resolver_dns_forwarding_ruleset.this.id

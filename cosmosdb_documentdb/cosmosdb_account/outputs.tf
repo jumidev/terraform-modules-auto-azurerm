@@ -14,6 +14,10 @@ output "tags" {
   value = azurerm_cosmosdb_account.this.tags
 }
 
+output "minimal_tls_version" {
+  value = azurerm_cosmosdb_account.this.minimal_tls_version
+}
+
 output "offer_type" {
   value = azurerm_cosmosdb_account.this.offer_type
 }
@@ -50,16 +54,20 @@ output "ip_range_filter" {
   value = azurerm_cosmosdb_account.this.ip_range_filter
 }
 
-output "enable_free_tier" {
-  value = azurerm_cosmosdb_account.this.enable_free_tier
+output "free_tier_enabled" {
+  value = azurerm_cosmosdb_account.this.free_tier_enabled
 }
 
 output "analytical_storage_enabled" {
   value = azurerm_cosmosdb_account.this.analytical_storage_enabled
 }
 
-output "enable_automatic_failover" {
-  value = azurerm_cosmosdb_account.this.enable_automatic_failover
+output "automatic_failover_enabled" {
+  value = azurerm_cosmosdb_account.this.automatic_failover_enabled
+}
+
+output "partition_merge_enabled" {
+  value = azurerm_cosmosdb_account.this.partition_merge_enabled
 }
 
 output "public_network_access_enabled" {
@@ -82,8 +90,8 @@ output "virtual_network_rule" {
   value = azurerm_cosmosdb_account.this.virtual_network_rule
 }
 
-output "enable_multiple_write_locations" {
-  value = azurerm_cosmosdb_account.this.enable_multiple_write_locations
+output "multiple_write_locations_enabled" {
+  value = azurerm_cosmosdb_account.this.multiple_write_locations_enabled
 }
 
 output "access_key_metadata_writes_enabled" {
@@ -122,9 +130,9 @@ output "restore" {
   value = azurerm_cosmosdb_account.this.restore
 }
 
-output "collection_names" {
-  description = "A list of the collection names for the restore request. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_cosmosdb_account.this.collection_names
+output "graph_names" {
+  description = "A list of the Graph names for the restore request. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_cosmosdb_account.this.graph_names
 }
 
 output "id" {
@@ -165,11 +173,6 @@ output "primary_readonly_key" {
 output "secondary_readonly_key" {
   description = "The Secondary read-only key for the CosmosDB Account."
   value       = azurerm_cosmosdb_account.this.secondary_readonly_key
-}
-
-output "connection_strings" {
-  description = "A list of connection strings available for this CosmosDB account."
-  value       = azurerm_cosmosdb_account.this.connection_strings
 }
 
 output "primary_sql_connection_string" {

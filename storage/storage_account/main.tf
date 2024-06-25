@@ -39,7 +39,8 @@ resource "azurerm_storage_account" "this" {
   dynamic "customer_managed_key" { # var.customer_managed_key
     for_each = var.customer_managed_key != null ? var.customer_managed_key : []
     content {
-      key_vault_key_id          = lookup(customer_managed_key.value, "key_vault_key_id")          # (Required) 
+      key_vault_key_id          = lookup(customer_managed_key.value, "key_vault_key_id", null)
+      managed_hsm_key_id        = lookup(customer_managed_key.value, "managed_hsm_key_id", null)
       user_assigned_identity_id = lookup(customer_managed_key.value, "user_assigned_identity_id") # (Required) 
     }
   }
@@ -73,7 +74,8 @@ resource "azurerm_storage_account" "this" {
       dynamic "delete_retention_policy" { # blob_properties.value.delete_retention_policy
         for_each = blob_properties.value.delete_retention_policy != null ? blob_properties.value.delete_retention_policy : []
         content {
-          days = lookup(delete_retention_policy.value, "days", 7)
+          days                     = lookup(delete_retention_policy.value, "days", 7)
+          permanent_delete_enabled = lookup(delete_retention_policy.value, "permanent_delete_enabled", false)
         }
       }
 
@@ -223,6 +225,7 @@ resource "azurerm_storage_account" "this" {
   }
 
   large_file_share_enabled = var.large_file_share_enabled
+  local_user_enabled       = var.local_user_enabled # Default: True
 
   dynamic "azure_files_authentication" { # var.azure_files_authentication
     for_each = var.azure_files_authentication != null ? var.azure_files_authentication : []
@@ -277,6 +280,7 @@ resource "azurerm_storage_account" "this" {
   }
 
   allowed_copy_scope = var.allowed_copy_scope
-  sftp_enabled       = var.sftp_enabled # Default: False
+  sftp_enabled       = var.sftp_enabled      # Default: False
+  dns_endpoint_type  = var.dns_endpoint_type # Default: Standard
   tags               = var.tags
 }

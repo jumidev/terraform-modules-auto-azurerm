@@ -10,7 +10,8 @@ resource "azurerm_log_analytics_cluster" "this" {
   location            = var.location
 
   identity {
-    type = lookup(identity.value, "type") # (Required) 
+    type         = lookup(identity.value, "type") # (Required) 
+    identity_ids = lookup(identity.value, "identity_ids", null)
   }
 
 

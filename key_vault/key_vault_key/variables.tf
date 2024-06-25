@@ -34,12 +34,12 @@ variable "curve" {
   default     = "P-256"
 }
 variable "not_before_date" {
-  description = "Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z')."
+  description = "Key not usable before the provided UTC datetime (Y-m-d'T'H:M:S'Z'). ~> **Note:** Once 'expiration_date' is set, it's not possible to unset the key even if it is deleted & recreated as underlying Azure API uses the restore of the purged key."
   type        = string
   default     = null
 }
 variable "expiration_date" {
-  description = "Expiration UTC datetime (Y-m-d'T'H:M:S'Z')."
+  description = "Expiration UTC datetime (Y-m-d'T'H:M:S'Z'). When this parameter gets changed on reruns, if newer date is ahead of current date, an update is performed. If the newer date is before the current date, resource will be force created."
   type        = string
   default     = null
 }

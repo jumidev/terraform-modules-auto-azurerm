@@ -70,6 +70,10 @@ output "express_route_gateway_bypass" {
   value = azurerm_virtual_network_gateway_connection.this.express_route_gateway_bypass
 }
 
+output "private_link_fast_path_enabled" {
+  value = azurerm_virtual_network_gateway_connection.this.private_link_fast_path_enabled
+}
+
 output "egress_nat_rule_ids" {
   value = azurerm_virtual_network_gateway_connection.this.egress_nat_rule_ids
 }

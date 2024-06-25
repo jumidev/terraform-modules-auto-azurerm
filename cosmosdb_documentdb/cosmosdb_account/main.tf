@@ -27,7 +27,8 @@ resource "azurerm_cosmosdb_account" "this" {
   ########################################
   # optional vars
   ########################################
-  tags = var.tags
+  tags                = var.tags
+  minimal_tls_version = var.minimal_tls_version # Default: Tls12
 
   dynamic "analytical_storage" { # var.analytical_storage
     for_each = var.analytical_storage != null ? var.analytical_storage : []
@@ -48,9 +49,10 @@ resource "azurerm_cosmosdb_account" "this" {
   default_identity_type         = var.default_identity_type # Default: FirstPartyIdentity
   kind                          = var.kind                  # Default: GlobalDocumentDB
   ip_range_filter               = var.ip_range_filter
-  enable_free_tier              = var.enable_free_tier           # Default: False
+  free_tier_enabled             = var.free_tier_enabled          # Default: False
   analytical_storage_enabled    = var.analytical_storage_enabled # Default: False
-  enable_automatic_failover     = var.enable_automatic_failover
+  automatic_failover_enabled    = var.automatic_failover_enabled
+  partition_merge_enabled       = var.partition_merge_enabled       # Default: False
   public_network_access_enabled = var.public_network_access_enabled # Default: True
 
   dynamic "capabilities" { # var.capabilities
@@ -70,7 +72,7 @@ resource "azurerm_cosmosdb_account" "this" {
     }
   }
 
-  enable_multiple_write_locations       = var.enable_multiple_write_locations
+  multiple_write_locations_enabled      = var.multiple_write_locations_enabled
   access_key_metadata_writes_enabled    = var.access_key_metadata_writes_enabled # Default: True
   mongo_server_version                  = var.mongo_server_version
   network_acl_bypass_for_azure_services = var.network_acl_bypass_for_azure_services # Default: False
@@ -81,9 +83,10 @@ resource "azurerm_cosmosdb_account" "this" {
     for_each = var.backup != null ? var.backup : []
     content {
       type                = lookup(backup.value, "type") # (Required) possible values: Continuous | Periodic
-      interval_in_minutes = lookup(backup.value, "interval_in_minutes", null)
-      retention_in_hours  = lookup(backup.value, "retention_in_hours", null)
-      storage_redundancy  = lookup(backup.value, "storage_redundancy", null)
+      tier                = lookup(backup.value, "tier", null)
+      interval_in_minutes = lookup(backup.value, "interval_in_minutes", 240)
+      retention_in_hours  = lookup(backup.value, "retention_in_hours", 8)
+      storage_redundancy  = lookup(backup.value, "storage_redundancy", "Geo")
     }
   }
 
@@ -123,6 +126,16 @@ resource "azurerm_cosmosdb_account" "this" {
         }
       }
 
+
+      dynamic "gremlin_database" { # restore.value.gremlin_database
+        for_each = restore.value.gremlin_database != null ? restore.value.gremlin_database : []
+        content {
+          name        = gremlin_database.key
+          graph_names = lookup(gremlin_database.value, "graph_names", null)
+        }
+      }
+
+      tables_to_restore = lookup(restore.value, "tables_to_restore", null)
     }
   }
 

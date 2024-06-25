@@ -14,11 +14,6 @@ output "storage_account_ids" {
   value = azurerm_log_analytics_linked_storage_account.this.storage_account_ids
 }
 
-output "storage_account_ids" {
-  description = "The storage account resource ids to be linked. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_log_analytics_linked_storage_account.this.storage_account_ids
-}
-
 output "id" {
   description = "The ID of the Log Analytics Linked Storage Account."
   value       = azurerm_log_analytics_linked_storage_account.this.id

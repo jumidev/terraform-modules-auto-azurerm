@@ -68,16 +68,6 @@ output "id" {
   value       = azurerm_firewall.this.id
 }
 
-output "ip_configuration" {
-  description = "A 'ip_configuration' block."
-  value       = azurerm_firewall.this.ip_configuration
-}
-
-output "virtual_hub" {
-  description = "A 'virtual_hub' block."
-  value       = azurerm_firewall.this.virtual_hub
-}
-
 output "private_ip_address" {
   description = "The private IP address associated with the Firewall."
   value       = azurerm_firewall.this.private_ip_address

@@ -42,11 +42,6 @@ output "virtual_network_id" {
   value = azurerm_databricks_virtual_network_peering.this.virtual_network_id
 }
 
-output "virtual_network_id" {
-  description = "The ID of the internal Virtual Network used by the DataBricks Workspace. ~> **NOTE:** The 'virtual_network_id' field is the value you must supply to the 'azurerm_virtual_network_peering' resources 'remote_virtual_network_id' field to successfully peer the Databricks Virtual Network with the remote virtual network. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_databricks_virtual_network_peering.this.virtual_network_id
-}
-
 output "id" {
   description = "The ID of the Databricks Virtual Network Peering."
   value       = azurerm_databricks_virtual_network_peering.this.id

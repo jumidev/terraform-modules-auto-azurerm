@@ -88,12 +88,12 @@ variable "public_network_access_enabled" {
   default     = true
 }
 variable "soft_delete_retention_days" {
-  description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' (the default) days. ~> **Note:** This field can only be configured one time and cannot be updated."
+  description = "The number of days that items should be retained for once soft-deleted. This value can be between '7' and '90' (the default) days. ~> **Note:** This field can only be configured one time and cannot be updated. <!-- TODO: Remove 'contact' and Notes in 4.0 -->"
   type        = number
   default     = null
 }
 variable "contacts" {
-  description = "One or more 'contact' block. ~> **Note:** This field can only be set once user has 'managecontacts' certificate permission."
+  description = "One or more 'contact' block. ~> **Note:** This field can only be set once user has 'managecontacts' certificate permission. ~> **Note:** This field can only be set when 'public_network_access_enabled' is set to 'true'. To manage the 'contact' with 'public_network_access_enabled' set to 'false', please use [the 'azurerm_key_vault_certificate_contacts' resource](key_vault_certificate_contacts.html) instead of this property, and remove this property from the configuration. Especially for existing 'azurerm_key_vault', this means you'll need to import the 'azurerm_key_vault_certificate_contacts' manually."
   type        = map(any)
   default     = null
 }

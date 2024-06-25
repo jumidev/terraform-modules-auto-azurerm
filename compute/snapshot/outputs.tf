@@ -38,6 +38,18 @@ output "incremental_enabled" {
   value = azurerm_snapshot.this.incremental_enabled
 }
 
+output "network_access_policy" {
+  value = azurerm_snapshot.this.network_access_policy
+}
+
+output "disk_access_id" {
+  value = azurerm_snapshot.this.disk_access_id
+}
+
+output "public_network_access_enabled" {
+  value = azurerm_snapshot.this.public_network_access_enabled
+}
+
 output "tags" {
   value = azurerm_snapshot.this.tags
 }
@@ -50,11 +62,6 @@ output "source_vault_id" {
 output "id" {
   description = "The Snapshot ID."
   value       = azurerm_snapshot.this.id
-}
-
-output "disk_size_gb" {
-  description = "The Size of the Snapshotted Disk in GB."
-  value       = azurerm_snapshot.this.disk_size_gb
 }
 
 output "trusted_launch_enabled" {

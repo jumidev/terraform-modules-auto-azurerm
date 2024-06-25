@@ -38,7 +38,7 @@ variable "azuread_administrator" {
 #   login_username (string)              : (REQUIRED) The login username of the Azure AD Administrator of this SQL Server.
 #   object_id (string)                   : (REQUIRED) The object id of the Azure AD Administrator of this SQL Server.
 #   tenant_id (string)                   : The tenant id of the Azure AD Administrator of this SQL Server.
-#   azuread_authentication_only (string) : Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted.
+#   azuread_authentication_only (string) : Specifies whether only AD Users and administrators (e.g. 'azuread_administrator[0].login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted.
 
 
 variable "connection_policy" {
@@ -78,7 +78,7 @@ variable "outbound_network_restriction_enabled" {
   default     = false
 }
 variable "primary_user_assigned_identity_id" {
-  description = "Specifies the primary user managed identity id. Required if 'type' is 'UserAssigned' and should be combined with 'identity_ids'."
+  description = "Specifies the primary user managed identity id. Required if 'type' within the 'identity' block is set to either 'SystemAssigned, UserAssigned' or 'UserAssigned' and should be set at same time as setting 'identity_ids'."
   type        = string
   default     = null
 }

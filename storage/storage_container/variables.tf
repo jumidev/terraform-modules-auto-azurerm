@@ -14,9 +14,19 @@ variable "storage_account_name" {
 # OPTIONAL VARIABLES
 
 variable "container_access_type" {
-  description = "The Access Level configured for this Container. Possible values are 'blob', 'container' or 'private'. Defaults to 'private'."
+  description = "The Access Level configured for this Container. Possible values are 'blob', 'container' or 'private'. Defaults to 'private'. ~> **Note** When updating 'container_access_type' for an existing storage container resource, Shared Key authentication will always be used, as AzureAD authentication is not supported."
   type        = string
   default     = "private"
+}
+variable "default_encryption_scope" {
+  description = "The default encryption scope to use for blobs uploaded to this container. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "encryption_scope_override_enabled" {
+  description = "Whether to allow blobs to override the default encryption scope for this container. Can only be set when specifying 'default_encryption_scope'. Defaults to 'true'. Changing this forces a new resource to be created."
+  type        = bool
+  default     = true
 }
 variable "metadata" {
   description = "A mapping of MetaData for this Container. All metadata keys should be lowercase."

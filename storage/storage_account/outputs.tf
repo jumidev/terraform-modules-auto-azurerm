@@ -102,6 +102,10 @@ output "large_file_share_enabled" {
   value = azurerm_storage_account.this.large_file_share_enabled
 }
 
+output "local_user_enabled" {
+  value = azurerm_storage_account.this.local_user_enabled
+}
+
 output "azure_files_authentication" {
   value = azurerm_storage_account.this.azure_files_authentication
 }
@@ -136,6 +140,10 @@ output "allowed_copy_scope" {
 
 output "sftp_enabled" {
   value = azurerm_storage_account.this.sftp_enabled
+}
+
+output "dns_endpoint_type" {
+  value = azurerm_storage_account.this.dns_endpoint_type
 }
 
 output "tags" {
@@ -513,18 +521,13 @@ output "secondary_blob_connection_string" {
   sensitive   = true
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_storage_account.this.identity
-}
-
 output "principal_id" {
   description = "The Principal ID for the Service Principal associated with the Identity of this Storage Account."
   value       = azurerm_storage_account.this.principal_id
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this Storage Account. -> You can access the Principal ID via '${azurerm_storage_account.example.identity.0.principal_id}' and the Tenant ID via '${azurerm_storage_account.example.identity.0.tenant_id}'"
+  description = "The Tenant ID for the Service Principal associated with the Identity of this Storage Account. -> You can access the Principal ID via '${azurerm_storage_account.example.identity[0].principal_id}' and the Tenant ID via '${azurerm_storage_account.example.identity[0].tenant_id}'"
   value       = azurerm_storage_account.this.tenant_id
 }
 

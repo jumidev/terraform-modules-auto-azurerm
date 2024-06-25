@@ -94,13 +94,10 @@ resource "azurerm_kubernetes_cluster" "this" {
   dynamic "azure_active_directory_role_based_access_control" { # var.azure_active_directory_role_based_access_control
     for_each = var.azure_active_directory_role_based_access_control != null ? var.azure_active_directory_role_based_access_control : []
     content {
-      managed                = lookup(azure_active_directory_role_based_access_control.value, "managed", null)
+      managed                = lookup(azure_active_directory_role_based_access_control.value, "managed", false)
       tenant_id              = lookup(azure_active_directory_role_based_access_control.value, "tenant_id", null)
       admin_group_object_ids = lookup(azure_active_directory_role_based_access_control.value, "admin_group_object_ids", null)
       azure_rbac_enabled     = lookup(azure_active_directory_role_based_access_control.value, "azure_rbac_enabled", null)
-      client_app_id          = lookup(azure_active_directory_role_based_access_control.value, "client_app_id", null)
-      server_app_id          = lookup(azure_active_directory_role_based_access_control.value, "server_app_id", null)
-      server_app_secret      = lookup(azure_active_directory_role_based_access_control.value, "server_app_secret", null)
     }
   }
 
@@ -113,6 +110,7 @@ resource "azurerm_kubernetes_cluster" "this" {
     }
   }
 
+  cost_analysis_enabled               = var.cost_analysis_enabled # Default: False
   custom_ca_trust_certificates_base64 = var.custom_ca_trust_certificates_base64
   disk_encryption_set_id              = var.disk_encryption_set_id
   edge_zone                           = var.edge_zone
@@ -367,7 +365,7 @@ resource "azurerm_kubernetes_cluster" "this" {
   dynamic "web_app_routing" { # var.web_app_routing
     for_each = var.web_app_routing != null ? var.web_app_routing : []
     content {
-      dns_zone_id = lookup(web_app_routing.value, "dns_zone_id") # (Required) possible values: 
+      dns_zone_ids = lookup(web_app_routing.value, "dns_zone_ids") # (Required) 
     }
   }
 

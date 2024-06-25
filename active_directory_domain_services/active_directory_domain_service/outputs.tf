@@ -91,11 +91,6 @@ output "external_access_ip_address" {
   value       = azurerm_active_directory_domain_service.this.external_access_ip_address
 }
 
-output "location" {
-  description = "The Azure location in which the initialreplica set resides."
-  value       = azurerm_active_directory_domain_service.this.location
-}
-
 output "service_status" {
   description = "The current service status for the initial replica set."
   value       = azurerm_active_directory_domain_service.this.service_status

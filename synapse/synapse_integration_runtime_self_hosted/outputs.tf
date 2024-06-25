@@ -10,11 +10,6 @@ output "description" {
   value = azurerm_synapse_integration_runtime_self_hosted.this.description
 }
 
-output "description" {
-  description = "Integration runtime description. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_synapse_integration_runtime_self_hosted.this.description
-}
-
 output "id" {
   description = "The ID of the Synapse Self-hosted Integration Runtime."
   value       = azurerm_synapse_integration_runtime_self_hosted.this.id

@@ -29,7 +29,7 @@ variable "container_network_interface" {
 # OPTIONAL VARIABLES
 
 variable "tags" {
-  description = "A mapping of tags to assign to the resource."
+  description = "A mapping of tags assigned to the resource."
   type        = map(any)
   default     = null
 }

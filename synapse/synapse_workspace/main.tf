@@ -30,17 +30,7 @@ resource "azurerm_synapse_workspace" "this" {
   sql_administrator_login          = var.sql_administrator_login
   sql_administrator_login_password = random_string.sql_administrator_login_password.result
   azuread_authentication_only      = var.azuread_authentication_only # Default: False
-
-  dynamic "aad_admin" { # var.aad_admin
-    for_each = var.aad_admin != null ? var.aad_admin : []
-    content {
-      login     = lookup(aad_admin.value, "login")     # (Required) 
-      object_id = lookup(aad_admin.value, "object_id") # (Required) 
-      tenant_id = lookup(aad_admin.value, "tenant_id") # (Required) 
-    }
-  }
-
-  compute_subnet_id = var.compute_subnet_id
+  compute_subnet_id                = var.compute_subnet_id
 
   dynamic "azure_devops_repo" { # var.azure_devops_repo
     for_each = var.azure_devops_repo != null ? var.azure_devops_repo : []
@@ -60,8 +50,9 @@ resource "azurerm_synapse_workspace" "this" {
   dynamic "customer_managed_key" { # var.customer_managed_key
     for_each = var.customer_managed_key != null ? var.customer_managed_key : []
     content {
-      key_versionless_id = lookup(customer_managed_key.value, "key_versionless_id") # (Required) 
-      key_name           = lookup(customer_managed_key.value, "key_name", null)
+      key_versionless_id        = lookup(customer_managed_key.value, "key_versionless_id") # (Required) 
+      key_name                  = lookup(customer_managed_key.value, "key_name", null)
+      user_assigned_identity_id = lookup(customer_managed_key.value, "user_assigned_identity_id", null)
     }
   }
 
@@ -83,16 +74,6 @@ resource "azurerm_synapse_workspace" "this" {
   managed_virtual_network_enabled    = var.managed_virtual_network_enabled
   public_network_access_enabled      = var.public_network_access_enabled # Default: True
   purview_id                         = var.purview_id
-
-  dynamic "sql_aad_admin" { # var.sql_aad_admin
-    for_each = var.sql_aad_admin != null ? var.sql_aad_admin : []
-    content {
-      login     = lookup(sql_aad_admin.value, "login")     # (Required) 
-      object_id = lookup(sql_aad_admin.value, "object_id") # (Required) 
-      tenant_id = lookup(sql_aad_admin.value, "tenant_id") # (Required) 
-    }
-  }
-
-  sql_identity_control_enabled = var.sql_identity_control_enabled
-  tags                         = var.tags
+  sql_identity_control_enabled       = var.sql_identity_control_enabled
+  tags                               = var.tags
 }

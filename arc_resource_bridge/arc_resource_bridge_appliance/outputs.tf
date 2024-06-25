@@ -40,3 +40,13 @@ output "id" {
   value       = azurerm_arc_resource_bridge_appliance.this.id
 }
 
+output "principal_id" {
+  description = "The Principal ID associated with this Managed Service Identity."
+  value       = azurerm_arc_resource_bridge_appliance.this.principal_id
+}
+
+output "tenant_id" {
+  description = "The Tenant ID associated with this Managed Service Identity."
+  value       = azurerm_arc_resource_bridge_appliance.this.tenant_id
+}
+

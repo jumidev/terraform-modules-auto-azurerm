@@ -77,7 +77,6 @@ resource "azurerm_container_registry" "this" {
   dynamic "encryption" { # var.encryption
     for_each = var.encryption != null ? var.encryption : []
     content {
-      enabled            = lookup(encryption.value, "enabled", null)
       key_vault_key_id   = lookup(encryption.value, "key_vault_key_id")   # (Required) 
       identity_client_id = lookup(encryption.value, "identity_client_id") # (Required) 
     }

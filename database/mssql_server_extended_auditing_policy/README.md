@@ -39,6 +39,8 @@ tfstate_store = {
 | **storage_account_access_key_is_secondary** | bool |  -  |  -  |  Is `storage_account_access_key` value the storage's secondary key? | 
 | **log_monitoring_enabled** | bool |  `True`  |  -  |  Enable audit events to Azure Monitor? To enable server audit events to Azure Monitor, please enable its main database audit events to Azure Monitor. Defaults to `true`. | 
 | **storage_account_subscription_id** | string |  -  |  -  |  The ID of the Subscription containing the Storage Account. | 
+| **predicate_expression** | string |  -  |  -  |  Specifies condition of where clause when creating an audit. | 
+| **audit_actions_and_groups** | list |  -  |  -  |  A list of Actions-Groups and Actions to audit. | 
 
 
 
@@ -46,7 +48,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **storage_account_subscription_id** | string | No  | The ID of the Subscription containing the Storage Account. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **audit_actions_and_groups** | list | No  | A list of Actions-Groups and Actions to audit. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the MS SQL Server Extended Auditing Policy. | 
 
 Additionally, all variables are provided as outputs.

@@ -34,11 +34,6 @@ output "metadata" {
   value = azurerm_subscription_policy_exemption.this.metadata
 }
 
-output "metadata" {
-  description = "The metadata for this policy exemption. This is a JSON string representing additional metadata that should be stored with the policy exemption. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subscription_policy_exemption.this.metadata
-}
-
 output "id" {
   description = "The Policy Exemption id."
   value       = azurerm_subscription_policy_exemption.this.id

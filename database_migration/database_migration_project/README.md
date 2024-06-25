@@ -26,14 +26,14 @@ tfstate_store = {
 
 ## Required Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **name** | string |  Specify the name of the database migration project. Changing this forces a new resource to be created. | 
-| **service_name** | string |  Name of the database migration service where resource belongs to. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created. | 
-| **location** | string |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
-| **source_platform** | string |  The platform type of the migration source. Currently only support: `SQL`(on-premises SQL Server). Changing this forces a new resource to be created. | 
-| **target_platform** | string |  The platform type of the migration target. Currently only support: `SQLDB`(Azure SQL Database). Changing this forces a new resource to be created. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **name** | string |  -  |  Specify the name of the database migration project. Changing this forces a new resource to be created. | 
+| **service_name** | string |  -  |  Name of the database migration service where resource belongs to. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  -  |  Name of the resource group in which to create the database migration project. Changing this forces a new resource to be created. | 
+| **location** | string |  -  |  Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
+| **source_platform** | string |  `SQL`, `PostgreSQL`, `MySQL`, `MongoDb`  |  The platform type of the migration source. Possible values are `SQL`, `PostgreSQL`, `MySQL` and `MongoDb`. Changing this forces a new resource to be created. | 
+| **target_platform** | string |  `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql`, `MongoDb`  |  The platform type of the migration target. Possible values are `SQLDB`, `AzureDbForPostgreSql`, `AzureDbForMySql` and `MongoDb`. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

@@ -41,7 +41,7 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiry` | string | No | - | The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. |
+| `expiry` | string | No | - | The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created. |
 
 
 
@@ -49,7 +49,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **expiry** | string | No  | The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **expiry** | string | No  | The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Container Registry Token Password. | 
 | **password1** | block | No  | One `password` block. | 
 | **password2** | block | No  | One `password` block. | 

@@ -26,11 +26,6 @@ output "tags" {
   value = azurerm_disk_pool.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags which should be assigned to the Disk Pool. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_disk_pool.this.tags
-}
-
 output "id" {
   description = "The ID of the Disk Pool."
   value       = azurerm_disk_pool.this.id
@@ -42,11 +37,6 @@ output "disk_pool_id" {
 
 output "managed_disk_id" {
   value = azurerm_disk_pool_managed_disk_attachment.this.*.managed_disk_id
-}
-
-output "managed_disk_id" {
-  description = "The ID of the Managed Disk. Changing this forces a new Disks Pool Managed Disk Attachment to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_disk_pool_managed_disk_attachment.this.*.managed_disk_id
 }
 
 output "id" {

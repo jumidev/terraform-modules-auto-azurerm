@@ -18,8 +18,12 @@ output "delegation" {
   value = azurerm_subnet.this.delegation
 }
 
-output "private_endpoint_network_policies_enabled" {
-  value = azurerm_subnet.this.private_endpoint_network_policies_enabled
+output "default_outbound_access_enabled" {
+  value = azurerm_subnet.this.default_outbound_access_enabled
+}
+
+output "private_endpoint_network_policies" {
+  value = azurerm_subnet.this.private_endpoint_network_policies
 }
 
 output "private_link_service_network_policies_enabled" {
@@ -44,37 +48,12 @@ output "id" {
   value       = azurerm_subnet.this.id
 }
 
-output "name" {
-  description = "The name of the subnet. Changing this forces a new resource to be created."
-  value       = azurerm_subnet.this.name
-}
-
-output "resource_group_name" {
-  description = "The name of the resource group in which the subnet is created in."
-  value       = azurerm_subnet.this.resource_group_name
-}
-
-output "virtual_network_name" {
-  description = "The name of the virtual network in which the subnet is created in. Changing this forces a new resource to be created."
-  value       = azurerm_subnet.this.virtual_network_name
-}
-
-output "address_prefixes" {
-  description = "The address prefixes for the subnet"
-  value       = azurerm_subnet.this.address_prefixes
-}
-
 output "nat_gateway_id" {
   value = azurerm_subnet_nat_gateway_association.this.*.nat_gateway_id
 }
 
 output "subnet_id" {
   value = azurerm_subnet_nat_gateway_association.this.*.subnet_id
-}
-
-output "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subnet_nat_gateway_association.this.*.subnet_id
 }
 
 output "id" {
@@ -90,11 +69,6 @@ output "subnet_id" {
   value = azurerm_subnet_network_security_group_association.this.*.subnet_id
 }
 
-output "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subnet_network_security_group_association.this.*.subnet_id
-}
-
 output "id" {
   description = "The ID of the Subnet."
   value       = azurerm_subnet_network_security_group_association.this.*.id
@@ -106,11 +80,6 @@ output "route_table_id" {
 
 output "subnet_id" {
   value = azurerm_subnet_route_table_association.this.*.subnet_id
-}
-
-output "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subnet_route_table_association.this.*.subnet_id
 }
 
 output "id" {

@@ -45,17 +45,17 @@ tfstate_store = {
 | **readonly_endpoint_failover_policy_enabled** | bool |  `False`  |  Whether failover is enabled for the readonly endpoint. Defaults to `false`. | 
 | **tags** | map |  -  |  A mapping of tags to assign to the resource. | 
 
-### `partner_server` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-
 ### `read_write_endpoint_failover_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `mode` | string | Yes | - | The failover policy of the read-write endpoint for the failover group. Possible values are 'Automatic' or 'Manual'. |
 | `grace_minutes` | number | No | - | The grace period in minutes, before failover with data loss is attempted for the read-write endpoint. Required when 'mode' is 'Automatic'. |
+
+### `partner_server` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
 
 
 

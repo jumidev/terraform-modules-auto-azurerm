@@ -45,11 +45,6 @@ output "subnet_id" {
   value = azurerm_subnet_route_table_association.this.*.subnet_id
 }
 
-output "subnet_id" {
-  description = "The ID of the Subnet. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_subnet_route_table_association.this.*.subnet_id
-}
-
 output "id" {
   description = "The ID of the Subnet."
   value       = azurerm_subnet_route_table_association.this.*.id

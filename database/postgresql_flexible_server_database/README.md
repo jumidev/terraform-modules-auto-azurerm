@@ -10,7 +10,7 @@ source = {
    path = "database/postgresql_flexible_server_database"   
 }
 inputs = {
-   name = "The name which should be used for this Azure PostgreSQL Flexible Server Database..."   
+   name = "Specifies the name of the PostgreSQL Database, which needs [to be a valid Postgr..."   
    # server_id → set in component_inputs
 }
 component_inputs = {
@@ -27,7 +27,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **name** | string |  The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created. | 
+| **name** | string |  Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created. | 
 | **server_id** | string |  The ID of the Azure PostgreSQL Flexible Server from which to create this PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created. | 
 
 ## Optional Variables

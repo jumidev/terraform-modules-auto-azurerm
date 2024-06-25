@@ -40,11 +40,6 @@ output "id" {
   value       = azurerm_lb.this.id
 }
 
-output "frontend_ip_configuration" {
-  description = "A 'frontend_ip_configuration' block."
-  value       = azurerm_lb.this.frontend_ip_configuration
-}
-
 output "private_ip_address" {
   description = "Private IP Address to assign to the Load Balancer."
   value       = azurerm_lb.this.private_ip_address

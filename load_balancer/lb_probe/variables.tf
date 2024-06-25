@@ -6,7 +6,7 @@ variable "name" {
 
 }
 variable "loadbalancer_id" {
-  description = "(REQUIRED) The ID of the LoadBalancer in which to create the NAT Rule. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The ID of the LoadBalancer in which to create the Probe. Changing this forces a new resource to be created."
   type        = string
 
 }
@@ -19,9 +19,9 @@ variable "port" {
 # OPTIONAL VARIABLES
 
 variable "protocol" {
-  description = "Specifies the protocol of the end point. Possible values are 'Http', 'Https' or 'Tcp'. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful."
+  description = "Specifies the protocol of the end point. Possible values are 'Http', 'Https' or 'Tcp'. If TCP is specified, a received ACK is required for the probe to be successful. If HTTP is specified, a 200 OK response from the specified URI is required for the probe to be successful. Defaults to 'Tcp'."
   type        = string
-  default     = null
+  default     = "Tcp"
 }
 variable "probe_threshold" {
   description = "The number of consecutive successful or failed probes that allow or deny traffic to this endpoint. Possible values range from '1' to '100'. The default value is '1'."

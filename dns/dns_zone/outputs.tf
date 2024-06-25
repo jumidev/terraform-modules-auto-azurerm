@@ -14,11 +14,6 @@ output "tags" {
   value = azurerm_dns_zone.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the Record Set. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_dns_zone.this.tags
-}
-
 output "id" {
   description = "The DNS Zone ID."
   value       = azurerm_dns_zone.this.id

@@ -14,8 +14,12 @@ output "database_name" {
   value = azurerm_cosmosdb_sql_container.this.database_name
 }
 
-output "partition_key_path" {
-  value = azurerm_cosmosdb_sql_container.this.partition_key_path
+output "partition_key_paths" {
+  value = azurerm_cosmosdb_sql_container.this.partition_key_paths
+}
+
+output "partition_key_kind" {
+  value = azurerm_cosmosdb_sql_container.this.partition_key_kind
 }
 
 output "partition_key_version" {

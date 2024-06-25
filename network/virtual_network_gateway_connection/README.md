@@ -53,19 +53,13 @@ tfstate_store = {
 | **enable_bgp** | bool |  `False`  |  -  |  If `true`, BGP (Border Gateway Protocol) is enabled for this connection. Defaults to `false`. | 
 | **custom_bgp_addresses** | [block](#custom_bgp_addresses-block-structure) |  -  |  -  |  A `custom_bgp_addresses` block which is documented below. The block can only be used on `IPSec` / `activeactive` connections, For details about see [the relevant section in the Azure documentation](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-howto-aws-bgp). | 
 | **express_route_gateway_bypass** | string |  -  |  -  |  If `true`, data packets will bypass ExpressRoute Gateway for data forwarding This is only valid for ExpressRoute connections. | 
+| **private_link_fast_path_enabled** | bool |  `False`  |  -  |  Bypass the Express Route gateway when accessing private-links. When enabled `express_route_gateway_bypass` must be set to `true`. Defaults to `false`. | 
 | **egress_nat_rule_ids** | list |  -  |  -  |  A list of the egress NAT Rule Ids. | 
 | **ingress_nat_rule_ids** | list |  -  |  -  |  A list of the ingress NAT Rule Ids. | 
 | **use_policy_based_traffic_selectors** | bool |  `False`  |  -  |  If `true`, policy-based traffic selectors are enabled for this connection. Enabling policy-based traffic selectors requires an `ipsec_policy` block. Defaults to `false`. | 
 | **ipsec_policy** | [block](#ipsec_policy-block-structure) |  -  |  -  |  A `ipsec_policy` block which is documented below. Only a single policy can be defined for a connection. For details on custom policies refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-ipsecikepolicy-rm-powershell). | 
 | **traffic_selector_policy** | string |  -  |  -  |  One or more `traffic_selector_policy` blocks which are documented below. A `traffic_selector_policy` allows to specify a traffic selector policy proposal to be used in a virtual network gateway connection. For details about traffic selectors refer to [the relevant section in the Azure documentation](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-connect-multiple-policybased-rm-ps). | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `custom_bgp_addresses` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `primary` | string | Yes | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (first one) |
-| `secondary` | string | No | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (second one) |
 
 ### `ipsec_policy` block structure
 
@@ -79,6 +73,13 @@ tfstate_store = {
 | `pfs_group` | string | Yes | - | The DH group used in IKE phase 2 for new child SA. Valid options are 'ECP256', 'ECP384', 'PFS1', 'PFS14', 'PFS2', 'PFS2048', 'PFS24', 'PFSMM', or 'None'. |
 | `sa_datasize` | string | No | 102400000 | The IPSec SA payload size in KB. Must be at least '1024' KB. Defaults to '102400000' KB. |
 | `sa_lifetime` | string | No | 27000 | The IPSec SA lifetime in seconds. Must be at least '300' seconds. Defaults to '27000' seconds. |
+
+### `custom_bgp_addresses` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `primary` | string | Yes | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (first one) |
+| `secondary` | string | No | - | single IP address that is part of the 'azurerm_virtual_network_gateway' ip_configuration (second one) |
 
 
 

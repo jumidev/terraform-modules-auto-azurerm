@@ -10,13 +10,16 @@ output "container_access_type" {
   value = azurerm_storage_container.this.container_access_type
 }
 
-output "metadata" {
-  value = azurerm_storage_container.this.metadata
+output "default_encryption_scope" {
+  value = azurerm_storage_container.this.default_encryption_scope
+}
+
+output "encryption_scope_override_enabled" {
+  value = azurerm_storage_container.this.encryption_scope_override_enabled
 }
 
 output "metadata" {
-  description = "A mapping of MetaData for this Container. All metadata keys should be lowercase. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_storage_container.this.metadata
+  value = azurerm_storage_container.this.metadata
 }
 
 output "id" {

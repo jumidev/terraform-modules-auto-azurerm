@@ -14,19 +14,9 @@ output "tags" {
   value = azurerm_private_dns_zone.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the Record Set. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_private_dns_zone.this.tags
-}
-
 output "id" {
   description = "The Private DNS Zone ID."
   value       = azurerm_private_dns_zone.this.id
-}
-
-output "soa_record" {
-  description = "A 'soa_record' block."
-  value       = azurerm_private_dns_zone.this.soa_record
 }
 
 output "number_of_record_sets" {

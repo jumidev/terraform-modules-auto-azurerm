@@ -35,12 +35,6 @@ output "storage_account_access_key" {
   sensitive = true
 }
 
-output "storage_account_access_key" {
-  description = "Specifies the identifier key of the Threat Detection audit storage account. This is mandatory when you use 'storage_endpoint' to specify a storage account blob endpoint. -> **NOTE:**  Please note that storage accounts configured with 'shared_access_key_enabled = false' cannot be used to configure 'azurerm_mssql_server_security_alert_policy' with 'storage_endpoint' for now. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_mssql_server_security_alert_policy.this.storage_account_access_key
-  sensitive   = true
-}
-
 output "id" {
   description = "The ID of the MS SQL Server Security Alert Policy."
   value       = azurerm_mssql_server_security_alert_policy.this.id

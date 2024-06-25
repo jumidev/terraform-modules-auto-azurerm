@@ -30,11 +30,6 @@ output "idle_timeout_in_minutes" {
   value = azurerm_lb_outbound_rule.this.idle_timeout_in_minutes
 }
 
-output "name" {
-  description = "The name of the Frontend IP Configuration. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_lb_outbound_rule.this.name
-}
-
 output "id" {
   description = "The ID of the Load Balancer Outbound Rule."
   value       = azurerm_lb_outbound_rule.this.id

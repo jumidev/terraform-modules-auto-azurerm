@@ -1,17 +1,17 @@
 # REQUIRED VARIABLES
 
 variable "principal_id" {
-  description = "(REQUIRED) The principal id. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "(REQUIRED) Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created."
   type        = string
 
 }
 variable "role_definition_id" {
-  description = "(REQUIRED) The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "(REQUIRED) The role definition ID for this eligible role assignment. Changing this forces a new resource to be created."
   type        = string
 
 }
 variable "scope" {
-  description = "(REQUIRED) The scope. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "(REQUIRED) The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created."
   type        = string
 
 }
@@ -19,34 +19,34 @@ variable "scope" {
 # OPTIONAL VARIABLES
 
 variable "justification" {
-  description = "The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "The justification of the role assignment. Changing this forces a new resource to be created."
   type        = string
   default     = null
 }
 variable "schedule" {
-  description = "A 'schedule' block. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "A 'schedule' block. Changing this forces a new resource to be created."
   type        = map(any)
   default     = null
 }
 #
 # schedule block structure:
-#   expiration (block)      : A 'expiration' block.
-#   start_date_time (string): The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created.
+#   expiration (block)      : An 'expiration' block.
+#   start_date_time (string): The start date/time of the role assignment. Changing this forces a new resource to be created.
 #
 # expiration block structure:
-#   duration_days (number)    : The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created.
-#   duration_hours (string)   : The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created.
-#   end_date_time (string)    : The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created.
+#   duration_days (number)    : The duration of the role assignment in days. Changing this forces a new resource to be created.
+#   duration_hours (string)   : The duration of the role assignment in hours. Changing this forces a new resource to be created.
+#   end_date_time (string)    : The end date/time of the role assignment. Changing this forces a new resource to be created. ~> Note: Only one of 'duration_days', 'duration_hours' or 'end_date_time' should be specified.
 
 
 variable "ticket" {
-  description = "A 'ticket' block. Changing this forces a new Pim Eligible Role Assignment to be created."
+  description = "A 'ticket' block. Changing this forces a new resource to be created."
   type        = map(any)
   default     = null
 }
 #
 # ticket block structure:
-#   number (string)       : The ticket number.
-#   system (string)       : The ticket system.
+#   number (string)       : User-supplied ticket number to be included with the request. Changing this forces a new resource to be created.
+#   system (string)       : User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created.
 
 

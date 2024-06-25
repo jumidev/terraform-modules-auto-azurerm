@@ -14,18 +14,12 @@ output "retention_in_days" {
   value = azurerm_log_analytics_workspace_table.this.retention_in_days
 }
 
-output "retention_in_days" {
-  description = "The table's data retention in days."
-  value       = azurerm_log_analytics_workspace_table.this.retention_in_days
+output "total_retention_in_days" {
+  value = azurerm_log_analytics_workspace_table.this.total_retention_in_days
 }
 
 output "id" {
   description = "The Log Analytics Workspace Table ID."
   value       = azurerm_log_analytics_workspace_table.this.id
-}
-
-output "workspace_id" {
-  description = "The Workspace (or Customer) ID for the Log Analytics Workspace."
-  value       = azurerm_log_analytics_workspace_table.this.workspace_id
 }
 

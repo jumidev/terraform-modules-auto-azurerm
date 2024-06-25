@@ -34,17 +34,18 @@ resource "azurerm_postgresql_flexible_server" "this" {
   dynamic "customer_managed_key" { # var.customer_managed_key
     for_each = var.customer_managed_key != null ? var.customer_managed_key : []
     content {
-      key_vault_key_id                     = lookup(customer_managed_key.value, "key_vault_key_id", null)
+      key_vault_key_id                     = lookup(customer_managed_key.value, "key_vault_key_id") # (Required) 
       primary_user_assigned_identity_id    = lookup(customer_managed_key.value, "primary_user_assigned_identity_id", null)
       geo_backup_key_vault_key_id          = lookup(customer_managed_key.value, "geo_backup_key_vault_key_id", null)
       geo_backup_user_assigned_identity_id = lookup(customer_managed_key.value, "geo_backup_user_assigned_identity_id", null)
     }
   }
 
-  geo_redundant_backup_enabled = var.geo_redundant_backup_enabled # Default: False
-  create_mode                  = var.create_mode
-  delegated_subnet_id          = var.delegated_subnet_id
-  private_dns_zone_id          = var.private_dns_zone_id
+  geo_redundant_backup_enabled  = var.geo_redundant_backup_enabled # Default: False
+  create_mode                   = var.create_mode
+  delegated_subnet_id           = var.delegated_subnet_id
+  private_dns_zone_id           = var.private_dns_zone_id
+  public_network_access_enabled = var.public_network_access_enabled # Default: True
 
   dynamic "high_availability" { # var.high_availability
     for_each = var.high_availability != null ? var.high_availability : []
@@ -78,7 +79,8 @@ resource "azurerm_postgresql_flexible_server" "this" {
   sku_name                          = var.sku_name
   source_server_id                  = var.source_server_id
   auto_grow_enabled                 = var.auto_grow_enabled # Default: False
-  storage_mb                        = var.storage_mb
+  storage_mb                        = var.storage_mb        # Default: 32768
+  storage_tier                      = var.storage_tier      # Default: storage_mb
   tags                              = var.tags
   version                           = var.version
   zone                              = var.zone

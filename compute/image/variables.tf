@@ -6,12 +6,12 @@ variable "name" {
 
 }
 variable "resource_group_name" {
-  description = "(REQUIRED) The name of the resource group in which to create. Changing this forces a new resource to be created. the image. Changing this forces a new resource to be created."
+  description = "(REQUIRED) The name of the resource group in which to create the image. Changing this forces a new resource to be created."
   type        = string
 
 }
 variable "location" {
-  description = "(REQUIRED) Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. Changing this forces a new resource to be created."
+  description = "(REQUIRED) Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created."
   type        = string
 
 }

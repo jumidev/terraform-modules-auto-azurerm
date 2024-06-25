@@ -45,23 +45,8 @@ output "location" {
   value       = azurerm_sql_failover_group.this.location
 }
 
-output "server_name" {
-  description = "the name of the primary SQL Database Server. Changing this forces a new resource to be created."
-  value       = azurerm_sql_failover_group.this.server_name
-}
-
 output "role" {
   description = "local replication role of the failover group instance."
   value       = azurerm_sql_failover_group.this.role
-}
-
-output "databases" {
-  description = "list of databases in the failover group."
-  value       = azurerm_sql_failover_group.this.databases
-}
-
-output "partner_servers" {
-  description = "list of partner server information for the failover group."
-  value       = azurerm_sql_failover_group.this.partner_servers
 }
 

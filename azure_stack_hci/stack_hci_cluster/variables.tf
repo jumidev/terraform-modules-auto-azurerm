@@ -15,13 +15,23 @@ variable "location" {
   type        = string
 
 }
-variable "client_id" {
-  description = "(REQUIRED) The Client ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created."
-  type        = string
-
-}
 
 # OPTIONAL VARIABLES
+
+variable "client_id" {
+  description = "The Client ID of the Azure Active Directory Application which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created."
+  type        = string
+  default     = null
+}
+variable "identity" {
+  description = "An 'identity' block."
+  type        = map(any)
+  default     = null
+}
+#
+# identity block structure:
+#   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on the Azure Stack HCI Cluster. Possible value is 'SystemAssigned'.
+
 
 variable "tenant_id" {
   description = "The Tenant ID of the Azure Active Directory which is used by the Azure Stack HCI Cluster. Changing this forces a new resource to be created. ~> **NOTE** If unspecified the Tenant ID of the Provider will be used."

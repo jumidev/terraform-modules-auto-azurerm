@@ -44,11 +44,6 @@ output "id" {
   value       = azurerm_vpn_gateway.this.id
 }
 
-output "bgp_settings" {
-  description = "A 'bgp_settings' block."
-  value       = azurerm_vpn_gateway.this.bgp_settings
-}
-
 output "bgp_peering_address" {
   description = "The Address which should be used for the BGP Peering."
   value       = azurerm_vpn_gateway.this.bgp_peering_address

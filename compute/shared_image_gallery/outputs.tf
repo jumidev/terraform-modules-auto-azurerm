@@ -37,8 +37,3 @@ output "unique_name" {
   value       = azurerm_shared_image_gallery.this.unique_name
 }
 
-output "name" {
-  description = "The community public name of the Shared Image Gallery."
-  value       = azurerm_shared_image_gallery.this.name
-}
-

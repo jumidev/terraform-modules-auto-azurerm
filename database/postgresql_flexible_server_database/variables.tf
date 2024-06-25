@@ -1,7 +1,7 @@
 # REQUIRED VARIABLES
 
 variable "name" {
-  description = "(REQUIRED) The name which should be used for this Azure PostgreSQL Flexible Server Database. Changing this forces a new Azure PostgreSQL Flexible Server Database to be created."
+  description = "(REQUIRED) Specifies the name of the PostgreSQL Database, which needs [to be a valid PostgreSQL identifier](https://www.postgresql.org/docs/current/sql-syntax-lexical.html#SQL-SYNTAX-IDENTIFIERS). Changing this forces a new Azure PostgreSQL Flexible Server Database to be created."
   type        = string
 
 }

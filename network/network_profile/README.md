@@ -38,7 +38,7 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **tags** | map |  A mapping of tags to assign to the resource. | 
+| **tags** | map |  A mapping of tags assigned to the resource. | 
 
 ### `container_network_interface` block structure
 

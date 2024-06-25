@@ -67,6 +67,21 @@ variable "incremental_enabled" {
   type        = bool
   default     = null
 }
+variable "network_access_policy" {
+  description = "Policy for accessing the disk via network. Possible values are 'AllowAll', 'AllowPrivate', or 'DenyAll'. Defaults to 'AllowAll'."
+  type        = string
+  default     = "AllowAll"
+}
+variable "disk_access_id" {
+  description = "Specifies the ID of the Disk Access which should be used for this Snapshot. This is used in conjunction with setting 'network_access_policy' to 'AllowPrivate'."
+  type        = string
+  default     = null
+}
+variable "public_network_access_enabled" {
+  description = "Policy for controlling export on the disk. Possible values are 'true' or 'false'. Defaults to 'true'."
+  type        = bool
+  default     = true
+}
 variable "tags" {
   description = "A mapping of tags to assign to the resource."
   type        = map(any)

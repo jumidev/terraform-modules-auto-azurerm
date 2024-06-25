@@ -44,6 +44,14 @@ tfstate_store = {
 | **analytical_storage_ttl** | number |  `-1`, `2147483647`, `0`  |  Time to live of the Analytical Storage. Possible values are between `-1` and `2147483647` except `0`. `-1` means the Analytical Storage never expires. Changing this forces a new resource to be created. ~> **Note:** throughput has a maximum value of `1000000` unless a higher limit is requested via Azure Support | 
 | **autoscale_settings** | [block](#autoscale_settings-block-structure) |  -  |  An `autoscale_settings` block. This must be set upon database creation otherwise it cannot be updated without a manual terraform destroy-apply. ~> **Note:** Switching between autoscale and manual throughput is not supported via Terraform and must be completed via the Azure Portal and refreshed. | 
 
+### `schema` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
+| `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
+| `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
+
 ### `autoscale_settings` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,13 +64,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the column to partition by. |
 
-### `schema` block structure
+### `column` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `column` | [block](#column-block-structure) | Yes | - | One or more 'column' blocks. |
-| `partition_key` | [block](#partition_key-block-structure) | Yes | - | One or more 'partition_key' blocks. |
-| `cluster_key` | [block](#cluster_key-block-structure) | No | - | One or more 'cluster_key' blocks. |
+| `name` | string | Yes | - | Name of the column to be created. |
+| `type` | string | Yes | - | Type of the column to be created. |
 
 ### `cluster_key` block structure
 
@@ -70,13 +77,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the cluster key to be created. |
 | `order_by` | string | Yes | - | Order of the key. Currently supported values are 'Asc' and 'Desc'. |
-
-### `column` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | Name of the column to be created. |
-| `type` | string | Yes | - | Type of the column to be created. |
 
 
 

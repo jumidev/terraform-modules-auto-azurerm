@@ -60,7 +60,7 @@ output "tags" {
 }
 
 output "azuread_authentication_only" {
-  description = "Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. In addition to the Arguments listed above - the following Attributes are exported:"
+  description = "Specifies whether only AD Users and administrators (e.g. 'azuread_administrator[0].login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. In addition to the Arguments listed above - the following Attributes are exported:"
   value       = azurerm_mssql_server.this.azuread_authentication_only
 }
 
@@ -85,7 +85,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via 'azurerm_mssql_server.example.identity.0.principal_id' and the Tenant ID via 'azurerm_mssql_server.example.identity.0.tenant_id' ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
+  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via 'azurerm_mssql_server.example.identity[0].principal_id' and the Tenant ID via 'azurerm_mssql_server.example.identity[0].tenant_id' ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
   value       = azurerm_mssql_server.this.tenant_id
 }
 

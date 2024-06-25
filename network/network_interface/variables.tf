@@ -54,12 +54,12 @@ variable "edge_zone" {
   type        = string
   default     = null
 }
-variable "enable_ip_forwarding" {
+variable "ip_forwarding_enabled" {
   description = "Should IP Forwarding be enabled? Defaults to 'false'."
   type        = bool
   default     = false
 }
-variable "enable_accelerated_networking" {
+variable "accelerated_networking_enabled" {
   description = "Should Accelerated Networking be enabled? Defaults to 'false'. -> **Note:** Only certain Virtual Machine sizes are supported for Accelerated Networking - [more information can be found in this document](https://docs.microsoft.com/azure/virtual-network/create-vm-accelerated-networking-cli). -> **Note:** To use Accelerated Networking in an Availability Set, the Availability Set must be deployed onto an Accelerated Networking enabled cluster."
   type        = bool
   default     = false

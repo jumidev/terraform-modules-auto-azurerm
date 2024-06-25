@@ -11,6 +11,8 @@ resource "azurerm_storage_container" "this" {
   ########################################
   # optional vars
   ########################################
-  container_access_type = var.container_access_type # Default: private
-  metadata              = var.metadata
+  container_access_type             = var.container_access_type # Default: private
+  default_encryption_scope          = var.default_encryption_scope
+  encryption_scope_override_enabled = var.encryption_scope_override_enabled # Default: True
+  metadata                          = var.metadata
 }

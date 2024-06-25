@@ -44,17 +44,8 @@ tfstate_store = {
 | **minimum_tls_version** | string |  `1.2`  |  `1.0`, `1.1`, `1.2`, `Disabled`  |  The Minimum TLS Version for all SQL Database and SQL Data Warehouse databases associated with the server. Valid values are: `1.0`, `1.1` , `1.2` and `Disabled`. Defaults to `1.2`. ~> **NOTE:** The `minimum_tls_version` is set to `Disabled` means all TLS versions are allowed. After you enforce a version of `minimum_tls_version`, it's not possible to revert to `Disabled`. | 
 | **public_network_access_enabled** | bool |  `True`  |  -  |  Whether public network access is allowed for this server. Defaults to `true`. | 
 | **outbound_network_restriction_enabled** | bool |  `False`  |  -  |  Whether outbound network traffic is restricted for this server. Defaults to `false`. | 
-| **primary_user_assigned_identity_id** | string |  -  |  `type`, `UserAssigned`, `identity_ids`  |  Specifies the primary user managed identity id. Required if `type` is `UserAssigned` and should be combined with `identity_ids`. | 
+| **primary_user_assigned_identity_id** | string |  -  |  `type`, `identity`, `SystemAssigned, UserAssigned`, `UserAssigned`, `identity_ids`  |  Specifies the primary user managed identity id. Required if `type` within the `identity` block is set to either `SystemAssigned, UserAssigned` or `UserAssigned` and should be set at same time as setting `identity_ids`. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the resource. | 
-
-### `azuread_administrator` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `login_username` | string | Yes | - | The login username of the Azure AD Administrator of this SQL Server. |
-| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this SQL Server. |
-| `tenant_id` | string | No | - | The tenant id of the Azure AD Administrator of this SQL Server. |
-| `azuread_authentication_only` | string | No | - | Specifies whether only AD Users and administrators (e.g. 'azuread_administrator.0.login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. |
 
 ### `identity` block structure
 
@@ -63,18 +54,27 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this SQL Server. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this SQL Server. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' ~> **NOTE:** When 'type' is set to 'SystemAssigned', the assigned 'principal_id' and 'tenant_id' can be retrieved after the Microsoft SQL Server has been created. More details are available below. |
 
+### `azuread_administrator` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `login_username` | string | Yes | - | The login username of the Azure AD Administrator of this SQL Server. |
+| `object_id` | string | Yes | - | The object id of the Azure AD Administrator of this SQL Server. |
+| `tenant_id` | string | No | - | The tenant id of the Azure AD Administrator of this SQL Server. |
+| `azuread_authentication_only` | string | No | - | Specifies whether only AD Users and administrators (e.g. 'azuread_administrator[0].login_username') can be used to login, or also local database users (e.g. 'administrator_login'). When 'true', the 'administrator_login' and 'administrator_login_password' properties can be omitted. |
+
 
 
 ## Outputs
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **azuread_authentication_only** | string | No  | Specifies whether only AD Users and administrators (e.g. `azuread_administrator.0.login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **azuread_authentication_only** | string | No  | Specifies whether only AD Users and administrators (e.g. `azuread_administrator[0].login_username`) can be used to login, or also local database users (e.g. `administrator_login`). When `true`, the `administrator_login` and `administrator_login_password` properties can be omitted. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | the Microsoft SQL Server ID. | 
 | **fully_qualified_domain_name** | string | No  | The fully qualified domain name of the Azure SQL Server (e.g. myServerName.database.windows.net) | 
 | **restorable_dropped_database_ids** | list | No  | A list of dropped restorable database IDs on the server. | 
 | **principal_id** | string | No  | The Principal ID for the Service Principal associated with the Identity of this SQL Server. | 
-| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via `azurerm_mssql_server.example.identity.0.principal_id` and the Tenant ID via `azurerm_mssql_server.example.identity.0.tenant_id` ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
+| **tenant_id** | string | No  | The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via `azurerm_mssql_server.example.identity[0].principal_id` and the Tenant ID via `azurerm_mssql_server.example.identity[0].tenant_id` ### Timeouts The `timeouts` block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions: | 
 | **create** | string | No  | (Defaults to 60 minutes) Used when creating the Microsoft SQL Server. | 
 | **update** | string | No  | (Defaults to 60 minutes) Used when updating the Microsoft SQL Server. | 
 | **read** | string | No  | (Defaults to 5 minutes) Used when retrieving the Microsoft SQL Server. | 

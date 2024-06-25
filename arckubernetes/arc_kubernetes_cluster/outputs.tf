@@ -42,11 +42,6 @@ output "distribution" {
   value       = azurerm_arc_kubernetes_cluster.this.distribution
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_arc_kubernetes_cluster.this.identity
-}
-
 output "infrastructure" {
   description = "The infrastructure on which the Arc Kubernetes Cluster is running on."
   value       = azurerm_arc_kubernetes_cluster.this.infrastructure

@@ -47,7 +47,7 @@ tfstate_store = {
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | Name of the sku, such as 'Standard_F2'. Changing this forces a new resource to be created. |
-| `capacity` | number | Yes | - | Specifies the number of instances to be reserved. It must be a positive 'integer' and not exceed the quota in the subscription. |
+| `capacity` | number | Yes | - | Specifies the number of instances to be reserved. It must be greater than or equal to '0' and not exceed the quota in the subscription. |
 
 
 
@@ -55,7 +55,7 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **capacity** | number | No  | Specifies the number of instances to be reserved. It must be a positive `integer` and not exceed the quota in the subscription. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **capacity** | number | No  | Specifies the number of instances to be reserved. It must be greater than or equal to `0` and not exceed the quota in the subscription. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Capacity Reservation. | 
 
 Additionally, all variables are provided as outputs.

@@ -34,6 +34,10 @@ output "content_md5" {
   value = azurerm_storage_blob.this.content_md5
 }
 
+output "encryption_scope" {
+  value = azurerm_storage_blob.this.encryption_scope
+}
+
 output "source" {
   value = azurerm_storage_blob.this.source
 }
@@ -52,11 +56,6 @@ output "parallelism" {
 
 output "metadata" {
   value = azurerm_storage_blob.this.metadata
-}
-
-output "metadata" {
-  description = "A map of custom blob metadata. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_storage_blob.this.metadata
 }
 
 output "id" {

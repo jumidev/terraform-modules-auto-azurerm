@@ -22,11 +22,6 @@ output "tags" {
   value = azurerm_dns_ns_record.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_dns_ns_record.this.tags
-}
-
 output "id" {
   description = "The DNS NS Record ID."
   value       = azurerm_dns_ns_record.this.id

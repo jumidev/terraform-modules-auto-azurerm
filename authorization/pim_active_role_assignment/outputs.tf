@@ -23,17 +23,17 @@ output "ticket" {
 }
 
 output "system" {
-  description = "The ticket system. In addition to the Arguments listed above - the following Attributes are exported:"
+  description = "User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
   value       = azurerm_pim_active_role_assignment.this.system
 }
 
 output "id" {
-  description = "The ID of the Pim Active Role Assignment."
+  description = "The ID of the PIM Active Role Assignment."
   value       = azurerm_pim_active_role_assignment.this.id
 }
 
 output "principal_type" {
-  description = "The type of principal."
+  description = "Type of principal to which the role will be assigned."
   value       = azurerm_pim_active_role_assignment.this.principal_type
 }
 

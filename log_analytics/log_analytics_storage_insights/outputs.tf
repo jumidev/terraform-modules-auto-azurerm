@@ -26,11 +26,6 @@ output "table_names" {
   value = azurerm_log_analytics_storage_insights.this.table_names
 }
 
-output "table_names" {
-  description = "The names of the Azure tables that the workspace should read. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_log_analytics_storage_insights.this.table_names
-}
-
 output "id" {
   description = "The ID of the Log Analytics Storage Insights."
   value       = azurerm_log_analytics_storage_insights.this.id

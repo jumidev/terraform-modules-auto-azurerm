@@ -44,7 +44,8 @@ tfstate_store = {
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. The only possible value is 'SystemAssigned'. Changing this forces a new resource to be created. ~> **NOTE:** The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned' and the Log Analytics Cluster has been created. More details are available below. |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Log Analytics Cluster. Possible values are 'SystemAssigned' and  'UserAssigned'. Changing this forces a new resource to be created. ~> **NOTE:** The assigned 'principal_id' and 'tenant_id' can be retrieved after the identity 'type' has been set to 'SystemAssigned' and the Log Analytics Cluster has been created. More details are available below. |
+| `identity_ids` | list | No | - | A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'. |
 
 
 
@@ -52,11 +53,12 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **type** | string | No  | The identity type of this Managed Service Identity. -> You can access the Principal ID via `azurerm_log_analytics_cluster.example.identity.0.principal_id` and the Tenant ID via `azurerm_log_analytics_cluster.example.identity.0.tenant_id` | 
+| **identity_ids** | list | No  | A list of User Assigned Managed Identity IDs to be assigned to this Windows Web App Slot. ~> **NOTE:** This is required when `type` is set to `UserAssigned`. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Log Analytics Cluster. | 
 | **identity** | block | No  | A `identity` block. | 
 | **cluster_id** | string | No  | The GUID of the cluster. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
 | **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. | 
+| **type** | string | No  | The identity type of this Managed Service Identity. -> You can access the Principal ID via `azurerm_log_analytics_cluster.example.identity[0].principal_id` and the Tenant ID via `azurerm_log_analytics_cluster.example.identity[0].tenant_id` | 
 
 Additionally, all variables are provided as outputs.

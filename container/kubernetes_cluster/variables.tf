@@ -26,7 +26,7 @@ variable "default_node_pool" {
 #   capacity_reservation_group_id (string): Specifies the ID of the Capacity Reservation Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
 #   custom_ca_trust_enabled (bool)        : Specifies whether to trust a Custom CA. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/CustomCATrustPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/custom-certificate-authority) for more information.
 #   enable_auto_scaling (bool)            : Should [the Kubernetes Auto Scaler](https://docs.microsoft.com/azure/aks/cluster-autoscaler) be enabled for this Node Pool? -> **Note:** This requires that the 'type' is set to 'VirtualMachineScaleSets'. -> **Note:** If you're using AutoScaling, you may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore changes to the 'node_count' field.
-#   enable_host_encryption (bool)         : Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableEncryptionAtHostPreview' is enabled and the Resource Provider is re-registered.
+#   enable_host_encryption (bool)         : Should the nodes in the Default Node Pool have host encryption enabled? 'temporary_name_for_rotation' must be specified when changing this property. -> **Note:** This requires that the  Feature 'Microsoft.ContainerService/EnableEncryptionAtHost' is enabled and the Resource Provider is registered.
 #   enable_node_public_ip (bool)          : Should nodes in this Node Pool have a Public IP Address? 'temporary_name_for_rotation' must be specified when changing this property.
 #   gpu_instance (string)                 : Specifies the GPU MIG instance profile for supported GPU VM SKU. The allowed values are 'MIG1g', 'MIG2g', 'MIG3g', 'MIG4g' and 'MIG7g'. Changing this forces a new resource to be created.
 #   host_group_id (string)                : Specifies the ID of the Host Group within which this AKS Cluster should be created. Changing this forces a new resource to be created.
@@ -43,7 +43,7 @@ variable "default_node_pool" {
 #   orchestrator_version (string)         : Version of Kubernetes used for the Agents. If not specified, the default node pool will be created with the version specified by 'kubernetes_version'. If both are unspecified, the latest recommended version will be used at provisioning time (but won't auto-upgrade). AKS does not require an exact patch version to be specified, minor version aliases such as '1.22' are also supported. - The minor version's latest GA patch is automatically chosen in that case. More details can be found in [the documentation](https://docs.microsoft.com/en-us/azure/aks/supported-kubernetes-versions?tabs=azure-cli#alias-minor-version). -> **Note:** This version must be supported by the Kubernetes Cluster - as such the version of Kubernetes used on the Cluster/Control Plane may need to be upgraded first.
 #   os_disk_size_gb (number)              : The size of the OS Disk which should be used for each agent in the Node Pool. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   os_disk_type (string)                 : The type of disk which should be used for the Operating System. Possible values are 'Ephemeral' and 'Managed'. Defaults to 'Managed'. 'temporary_name_for_rotation' must be specified when attempting a change.
-#   os_sku (string)                       : Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change.
+#   os_sku (string)                       : Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. 'temporary_name_for_rotation' must be specified when attempting a change.
 #   pod_subnet_id (string)                : The ID of the Subnet where the pods in the default Node Pool should exist.
 #   proximity_placement_group_id (string) : The ID of the Proximity Placement Group. Changing this forces a new resource to be created.
 #   scale_down_mode (string)              : Specifies the autoscaling behaviour of the Kubernetes Cluster. Allowed values are 'Delete' and 'Deallocate'. Defaults to 'Delete'.
@@ -51,8 +51,16 @@ variable "default_node_pool" {
 #   temporary_name_for_rotation (string)  : Specifies the name of the temporary node pool used to cycle the default node pool for VM resizing.
 #   type (string)                         : The type of Node Pool which should be created. Possible values are 'AvailabilitySet' and 'VirtualMachineScaleSets'. Defaults to 'VirtualMachineScaleSets'. Changing this forces a new resource to be created.
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
+# allowed_host_ports block structure:
+#   port_start (string)               : Specifies the start of the port range.
+#   port_end (string)                 : Specifies the end of the port range.
+#   protocol (string)                 : Specifies the protocol of the port range. Possible values are 'TCP' and 'UDP'.
+#
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 #
 # kubelet_config block structure    :
 #   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
@@ -65,6 +73,11 @@ variable "default_node_pool" {
 #   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
 #   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
 #   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
+#
+# node_network_profile block structure :
+#   allowed_host_ports (block)           : One or more 'allowed_host_ports' blocks.
+#   application_security_group_ids (list): A list of Application Security Group IDs which should be associated with this Node Pool.
+#   node_public_ip_tags (map)            : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
 #
 # sysctl_config block structure              :
 #   fs_aio_max_nr (string)                     : The sysctl setting fs.aio-max-nr. Must be between '65536' and '6553500'.
@@ -96,12 +109,6 @@ variable "default_node_pool" {
 #   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'.
-#
-# linux_os_config block structure      :
-#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                : A 'sysctl_config' block.
-#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
 
 
 
@@ -171,19 +178,16 @@ variable "auto_scaler_profile" {
 
 
 variable "azure_active_directory_role_based_access_control" {
-  description = "A 'azure_active_directory_role_based_access_control' block. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AKS-PrometheusAddonPreview' is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information."
+  description = "A 'azure_active_directory_role_based_access_control' block."
   type        = map(any)
   default     = null
 }
 #
 # azure_active_directory_role_based_access_control block structure:
-#   managed (string)                                                : Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration.
+#   managed (bool)                                                  : Is the Azure Active Directory integration Managed, meaning that Azure will create/manage the Service Principal used for integration. Defaults to 'false'. -> **Note:** The property 'managed' is deprecated and will be defaulted to 'true' in v4.0 of the AzureRM provider. Until the property is removed it must be specified with 'true' for AKS-managed Entra Integration.
 #   tenant_id (string)                                              : The Tenant ID used for Azure Active Directory Application. If this isn't specified the Tenant ID of the current Subscription is used. When 'managed' is set to 'true' the following properties can be specified:
 #   admin_group_object_ids (list)                                   : A list of Object IDs of Azure Active Directory Groups which should have Admin Role on the Cluster.
-#   azure_rbac_enabled (bool)                                       : Is Role Based Access Control based on Azure AD enabled? When 'managed' is set to 'false' the following properties can be specified:
-#   client_app_id (string)                                          : The Client ID of an Azure Active Directory Application.
-#   server_app_id (string)                                          : The Server ID of an Azure Active Directory Application.
-#   server_app_secret (string)                                      : The Server Secret of an Azure Active Directory Application.
+#   azure_rbac_enabled (bool)                                       : Is Role Based Access Control based on Azure AD enabled?
 
 
 variable "azure_policy_enabled" {
@@ -201,6 +205,11 @@ variable "confidential_computing" {
 #   sgx_quote_helper_enabled (bool)       : (REQUIRED) Should the SGX quote helper be enabled?
 
 
+variable "cost_analysis_enabled" {
+  description = "Should cost analysis be enabled for this Kubernetes Cluster? Defaults to 'false'. The 'sku_tier' must be set to 'Standard' or 'Premium' to enable this feature. Enabling this will add Kubernetes Namespace and Deployment details to the Cost Analysis views in the Azure portal."
+  type        = bool
+  default     = false
+}
 variable "custom_ca_trust_certificates_base64" {
   description = "A list of up to 10 base64 encoded CAs that will be added to the trust store on nodes with the 'custom_ca_trust_enabled' feature enabled. -> **Note:** Removing 'custom_ca_trust_certificates_base64' after it has been set forces a new resource to be created."
   type        = list(any)
@@ -230,7 +239,7 @@ variable "http_proxy_config" {
 # http_proxy_config block structure:
 #   http_proxy (string)              : The proxy address to be used when communicating over HTTP.
 #   https_proxy (string)             : The proxy address to be used when communicating over HTTPS.
-#   no_proxy (string)                : The list of domains that will not use the proxy for communication. -> **Note:** If you specify the 'default_node_pool.0.vnet_subnet_id', be sure to include the Subnet CIDR in the 'no_proxy' list. -> **Note:** You may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore the changes to this field.
+#   no_proxy (string)                : The list of domains that will not use the proxy for communication. -> **Note:** If you specify the 'default_node_pool[0].vnet_subnet_id', be sure to include the Subnet CIDR in the 'no_proxy' list. -> **Note:** You may wish to use [Terraform's 'ignore_changes' functionality](https://www.terraform.io/docs/language/meta-arguments/lifecycle.html#ignore_changes) to ignore the changes to this field.
 #   trusted_ca (string)              : The base64 encoded alternative CA certificate content in PEM format.
 
 
@@ -242,7 +251,7 @@ variable "identity" {
 #
 # identity block structure:
 #   type (string)           : (REQUIRED) Specifies the type of Managed Service Identity that should be configured on this Kubernetes Cluster. Possible values are 'SystemAssigned' or 'UserAssigned'.
-#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ~> **Note:** This is required when 'type' is set to 'UserAssigned'.
+#   identity_ids (list)     : Specifies a list of User Assigned Managed Identity IDs to be assigned to this Kubernetes Cluster. ~> **Note:** This is required when 'type' is set to 'UserAssigned'. Currently only one User Assigned Identity is supported.
 
 
 variable "image_cleaner_enabled" {
@@ -251,7 +260,7 @@ variable "image_cleaner_enabled" {
   default     = null
 }
 variable "image_cleaner_interval_hours" {
-  description = "Specifies the interval in hours when images should be cleaned up. Defaults to '48'. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/EnableImageCleanerPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information."
+  description = "Specifies the interval in hours when images should be cleaned up. Defaults to '48'."
   type        = string
   default     = "48"
 }
@@ -275,7 +284,7 @@ variable "key_management_service" {
 }
 #
 # key_management_service block structure:
-#   key_vault_key_id (string)             : (REQUIRED) Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details. When Azure Key Vault key management service is enabled, this field is required and must be a valid key identifier. When 'enabled' is 'false', leave the field empty.
+#   key_vault_key_id (string)             : (REQUIRED) Identifier of Azure Key Vault key. See [key identifier format](https://learn.microsoft.com/en-us/azure/key-vault/general/about-keys-secrets-certificates#vault-name-and-object-name) for more details.
 #   key_vault_network_access (bool)       : Network access of the key vault Network access of key vault. The possible values are 'Public' and 'Private'. 'Public' means the key vault allows public access from all networks. 'Private' means the key vault disables public access and enables private link. Defaults to 'Public'.
 
 
@@ -356,7 +365,7 @@ variable "maintenance_window_auto_upgrade" {
 #   interval (string)                              : (REQUIRED) The interval for maintenance runs. Depending on the frequency this interval is week or month based.
 #   duration (string)                              : (REQUIRED) The duration of the window for maintenance to run in hours.
 #   day_of_week (string)                           : The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'.
-#   day_of_month (string)                          : The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+#   day_of_month (string)                          : The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 #   week_index (string)                            : Specifies on which instance of the allowed days specified in 'day_of_week' the maintenance occurs. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'. Required in combination with relative monthly frequency.
 #   start_time (string)                            : The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'.
 #   utc_offset (string)                            : Used to determine the timezone for cluster maintenance.
@@ -379,7 +388,7 @@ variable "maintenance_window_node_os" {
 #   interval (string)                         : (REQUIRED) The interval for maintenance runs. Depending on the frequency this interval is week or month based.
 #   duration (string)                         : (REQUIRED) The duration of the window for maintenance to run in hours.
 #   day_of_week (string)                      : The day of the week for the maintenance run. Required in combination with weekly frequency. Possible values are 'Friday', 'Monday', 'Saturday', 'Sunday', 'Thursday', 'Tuesday' and 'Wednesday'.
-#   day_of_month (string)                     : The day of the month for the maintenance run. Required in combination with RelativeMonthly frequency. Value between 0 and 31 (inclusive).
+#   day_of_month (string)                     : The day of the month for the maintenance run. Required in combination with AbsoluteMonthly frequency. Value between 0 and 31 (inclusive).
 #   week_index (string)                       : The week in the month used for the maintenance run. Options are 'First', 'Second', 'Third', 'Fourth', and 'Last'.
 #   start_time (string)                       : The time for maintenance to begin, based on the timezone determined by 'utc_offset'. Format is 'HH:mm'.
 #   utc_offset (string)                       : Used to determine the timezone for cluster maintenance.
@@ -402,14 +411,14 @@ variable "microsoft_defender" {
 
 
 variable "monitor_metrics" {
-  description = "Specifies a Prometheus add-on profile for the Kubernetes Cluster. A 'monitor_metrics' block."
+  description = "Specifies a Prometheus add-on profile for the Kubernetes Cluster. A 'monitor_metrics' block. -> **Note:** If deploying Managed Prometheus, the 'monitor_metrics' properties are required to configure the cluster for metrics collection. If no value is needed, set properties to 'null'."
   type        = map(any)
   default     = null
 }
 #
 # monitor_metrics block structure:
 #   annotations_allowed (bool)     : Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
-#   labels_allowed (bool)          : Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+#   labels_allowed (bool)          : Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric. -> **Note:** Both properties 'annotations_allowed' and 'labels_allowed' are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
 
 
 variable "network_profile" {
@@ -419,9 +428,9 @@ variable "network_profile" {
 }
 #
 # network_profile block structure:
-#   network_plugin (string)        : (REQUIRED) Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. -> **Note:** When 'network_plugin' is set to 'azure' - the 'pod_cidr' field must not be set.
+#   network_plugin (string)        : (REQUIRED) Network plugin to use for networking. Currently supported values are 'azure', 'kubenet' and 'none'. Changing this forces a new resource to be created. -> **Note:** When 'network_plugin' is set to 'azure' - the 'pod_cidr' field must not be set, unless specifying 'network_plugin_mode' to 'overlay'.
 #   network_mode (string)          : Network mode to be used with Azure CNI. Possible values are 'bridge' and 'transparent'. Changing this forces a new resource to be created. ~> **Note:** 'network_mode' can only be set to 'bridge' for existing Kubernetes Clusters and cannot be used to provision new Clusters - this will be removed by Azure in the future. ~> **Note:** This property can only be set when 'network_plugin' is set to 'azure'.
-#   network_policy (string)        : Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'ebpf_data_plane' field must be set to 'cilium'.
+#   network_policy (string)        : Sets up network policy to be used with Azure CNI. [Network policy allows us to control the traffic flow between pods](https://docs.microsoft.com/azure/aks/use-network-policies). Currently supported values are 'calico', 'azure' and 'cilium'. ~> **Note:** When 'network_policy' is set to 'azure', the 'network_plugin' field can only be set to 'azure'. ~> **Note:** When 'network_policy' is set to 'cilium', the 'network_data_plane' field must be set to 'cilium'.
 #   dns_service_ip (string)        : IP address within the Kubernetes service address range that will be used by cluster service discovery (kube-dns). Changing this forces a new resource to be created.
 #   docker_bridge_cidr (string)    : IP address (in CIDR notation) used as the Docker bridge IP address on nodes. Changing this forces a new resource to be created.
 
@@ -473,7 +482,7 @@ variable "private_cluster_public_fqdn_enabled" {
   default     = false
 }
 variable "service_mesh_profile" {
-  description = "A 'service_mesh_profile' block. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information."
+  description = "A 'service_mesh_profile' block."
   type        = map(any)
   default     = null
 }
@@ -481,7 +490,7 @@ variable "service_mesh_profile" {
 # service_mesh_profile block structure   :
 #   mode (string)                          : (REQUIRED) The mode of the service mesh. Possible value is 'Istio'.
 #   internal_ingress_gateway_enabled (bool): Is Istio Internal Ingress Gateway enabled?
-#   external_ingress_gateway_enabled (bool): Is Istio External Ingress Gateway enabled? -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/AzureServiceMeshPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/istio-deploy-addon#register-the-azureservicemeshpreview-feature-flag) for more information. -> **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
+#   external_ingress_gateway_enabled (bool): Is Istio External Ingress Gateway enabled? -> **NOTE:** Currently only one Internal Ingress Gateway and one External Ingress Gateway are allowed per cluster
 
 
 variable "workload_autoscaler_profile" {
@@ -562,7 +571,7 @@ variable "web_app_routing" {
 }
 #
 # web_app_routing block structure:
-#   dns_zone_id (string)           : (REQUIRED) Specifies the ID of the DNS Zone in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. For Bring-Your-Own DNS zones this property should be set to an empty string ''''.
+#   dns_zone_ids (string)          : (REQUIRED) Specifies the list of the DNS Zone IDs in which DNS entries are created for applications deployed to the cluster when Web App Routing is enabled. If not using Bring-Your-Own DNS zones this property should be set to an empty list.
 
 
 variable "windows_profile" {

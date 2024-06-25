@@ -11,23 +11,13 @@ output "password2" {
 }
 
 output "expiry" {
-  description = "The expiration date of the password in RFC3339 format. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
+  description = "The expiration date of the password in RFC3339 format. If not specified, the password never expires. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
   value       = azurerm_container_registry_token_password.this.expiry
 }
 
 output "id" {
   description = "The ID of the Container Registry Token Password."
   value       = azurerm_container_registry_token_password.this.id
-}
-
-output "password1" {
-  description = "One 'password' block."
-  value       = azurerm_container_registry_token_password.this.password1
-}
-
-output "password2" {
-  description = "One 'password' block."
-  value       = azurerm_container_registry_token_password.this.password2
 }
 
 output "value" {

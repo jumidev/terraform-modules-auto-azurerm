@@ -76,11 +76,6 @@ output "id" {
   value       = azurerm_hpc_cache.this.id
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_hpc_cache.this.identity
-}
-
 output "mount_addresses" {
   description = "A list of IP Addresses where the HPC Cache can be mounted."
   value       = azurerm_hpc_cache.this.mount_addresses

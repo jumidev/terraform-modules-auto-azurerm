@@ -11,6 +11,7 @@ resource "azurerm_log_analytics_workspace_table" "this" {
   ########################################
   # optional vars
   ########################################
-  plan              = var.plan # Default: Analytics
-  retention_in_days = var.retention_in_days
+  plan                    = var.plan # Default: Analytics
+  retention_in_days       = var.retention_in_days
+  total_retention_in_days = var.total_retention_in_days
 }

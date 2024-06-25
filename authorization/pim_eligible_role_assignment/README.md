@@ -10,9 +10,9 @@ source = {
    path = "authorization/pim_eligible_role_assignment"   
 }
 inputs = {
-   principal_id = "The principal id"   
+   principal_id = "Object ID of the principal for this eligible role assignment..."   
    # role_definition_id → set in component_inputs
-   scope = "The scope"   
+   scope = "The scope for this eligible role assignment, should be a valid resource ID..."   
 }
 component_inputs = {
    role_definition_id = "path/to/role_definition_component:id"   
@@ -28,39 +28,39 @@ tfstate_store = {
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **principal_id** | string |  The principal id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **role_definition_id** | string |  The role definition id. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **scope** | string |  The scope. Changing this forces a new Pim Eligible Role Assignment to be created. | 
+| **principal_id** | string |  Object ID of the principal for this eligible role assignment. Changing this forces a new resource to be created. | 
+| **role_definition_id** | string |  The role definition ID for this eligible role assignment. Changing this forces a new resource to be created. | 
+| **scope** | string |  The scope for this eligible role assignment, should be a valid resource ID. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
-| **justification** | string |  The justification of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-| **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new Pim Eligible Role Assignment to be created. | 
-
-### `ticket` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `number` | string | No | - | The ticket number. |
-| `system` | string | No | - | The ticket system. |
+| **justification** | string |  The justification of the role assignment. Changing this forces a new resource to be created. | 
+| **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new resource to be created. | 
+| **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new resource to be created. | 
 
 ### `schedule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `expiration` | [block](#expiration-block-structure) | No | - | A 'expiration' block. |
-| `start_date_time` | string | No | - | The start date time of the role assignment. Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `expiration` | [block](#expiration-block-structure) | No | - | An 'expiration' block. |
+| `start_date_time` | string | No | - | The start date/time of the role assignment. Changing this forces a new resource to be created. |
 
 ### `expiration` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `duration_days` | number | No | - | The duration of the role assignment in days. Conflicts with 'schedule.0.expiration.0.duration_hours','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `duration_hours` | string | No | - | The duration of the role assignment in hours. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.end_date_time' Changing this forces a new Pim Eligible Role Assignment to be created. |
-| `end_date_time` | string | No | - | The end date time of the role assignment. Conflicts with 'schedule.0.expiration.0.duration_days','schedule.0.expiration.0.duration_hours' Changing this forces a new Pim Eligible Role Assignment to be created. |
+| `duration_days` | number | No | - | The duration of the role assignment in days. Changing this forces a new resource to be created. |
+| `duration_hours` | string | No | - | The duration of the role assignment in hours. Changing this forces a new resource to be created. |
+| `end_date_time` | string | No | - | The end date/time of the role assignment. Changing this forces a new resource to be created. ~> Note: Only one of 'duration_days', 'duration_hours' or 'end_date_time' should be specified. |
+
+### `ticket` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `number` | string | No | - | User-supplied ticket number to be included with the request. Changing this forces a new resource to be created. |
+| `system` | string | No | - | User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. |
 
 
 
@@ -68,8 +68,8 @@ tfstate_store = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **system** | string | No  | The ticket system. In addition to the Arguments listed above - the following Attributes are exported: | 
-| **id** | string | No  | The ID of the Pim Eligible Role Assignment. | 
-| **principal_type** | string | No  | The type of principal. | 
+| **system** | string | No  | User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **id** | string | No  | The ID of the PIM Eligible Role Assignment. | 
+| **principal_type** | string | No  | Type of principal to which the role will be assigned. | 
 
 Additionally, all variables are provided as outputs.

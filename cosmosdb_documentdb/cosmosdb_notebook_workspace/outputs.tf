@@ -10,11 +10,6 @@ output "account_name" {
   value = azurerm_cosmosdb_notebook_workspace.this.account_name
 }
 
-output "account_name" {
-  description = "The name of the Cosmos DB Account to create the SQL Notebook Workspace within. Changing this forces a new SQL Notebook Workspace to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_cosmosdb_notebook_workspace.this.account_name
-}
-
 output "id" {
   description = "The ID of the SQL Notebook Workspace."
   value       = azurerm_cosmosdb_notebook_workspace.this.id

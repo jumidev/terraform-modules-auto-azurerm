@@ -92,7 +92,18 @@ resource "azurerm_kubernetes_cluster_node_pool" "this" {
   dynamic "node_network_profile" { # var.node_network_profile
     for_each = var.node_network_profile != null ? var.node_network_profile : []
     content {
-      node_public_ip_tags = lookup(node_network_profile.value, "node_public_ip_tags", null)
+
+      dynamic "allowed_host_ports" { # node_network_profile.value.allowed_host_ports
+        for_each = node_network_profile.value.allowed_host_ports != null ? node_network_profile.value.allowed_host_ports : []
+        content {
+          port_start = lookup(allowed_host_ports.value, "port_start", null)
+          port_end   = lookup(allowed_host_ports.value, "port_end", null)
+          protocol   = lookup(allowed_host_ports.value, "protocol", null)
+        }
+      }
+
+      application_security_group_ids = lookup(node_network_profile.value, "application_security_group_ids", null)
+      node_public_ip_tags            = lookup(node_network_profile.value, "node_public_ip_tags", null)
     }
   }
 
@@ -116,7 +127,9 @@ resource "azurerm_kubernetes_cluster_node_pool" "this" {
   dynamic "upgrade_settings" { # var.upgrade_settings
     for_each = var.upgrade_settings != null ? var.upgrade_settings : []
     content {
-      max_surge = lookup(upgrade_settings.value, "max_surge") # (Required) 
+      drain_timeout_in_minutes      = lookup(upgrade_settings.value, "drain_timeout_in_minutes", null)
+      node_soak_duration_in_minutes = lookup(upgrade_settings.value, "node_soak_duration_in_minutes", 0)
+      max_surge                     = lookup(upgrade_settings.value, "max_surge") # (Required) 
     }
   }
 

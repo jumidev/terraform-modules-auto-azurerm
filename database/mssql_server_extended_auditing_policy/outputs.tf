@@ -31,9 +31,12 @@ output "storage_account_subscription_id" {
   value = azurerm_mssql_server_extended_auditing_policy.this.storage_account_subscription_id
 }
 
-output "storage_account_subscription_id" {
-  description = "The ID of the Subscription containing the Storage Account. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_mssql_server_extended_auditing_policy.this.storage_account_subscription_id
+output "predicate_expression" {
+  value = azurerm_mssql_server_extended_auditing_policy.this.predicate_expression
+}
+
+output "audit_actions_and_groups" {
+  value = azurerm_mssql_server_extended_auditing_policy.this.audit_actions_and_groups
 }
 
 output "id" {

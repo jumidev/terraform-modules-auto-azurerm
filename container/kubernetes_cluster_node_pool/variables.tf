@@ -152,8 +152,15 @@ variable "node_network_profile" {
   default     = null
 }
 #
-# node_network_profile block structure:
-#   node_public_ip_tags (map)           : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
+# node_network_profile block structure :
+#   allowed_host_ports (block)           : One or more 'allowed_host_ports' blocks.
+#   application_security_group_ids (list): A list of Application Security Group IDs which should be associated with this Node Pool.
+#   node_public_ip_tags (map)            : Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.ContainerService/NodePublicIPTagsPreview' is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
+#
+# allowed_host_ports block structure:
+#   port_start (string)               : Specifies the start of the port range.
+#   port_end (string)                 : Specifies the end of the port range.
+#   protocol (string)                 : Specifies the protocol of the port range. Possible values are 'TCP' and 'UDP'.
 
 
 variable "node_labels" {
@@ -167,7 +174,7 @@ variable "node_public_ip_prefix_id" {
   default     = null
 }
 variable "node_taints" {
-  description = "A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g 'key=value:NoSchedule'). Changing this forces a new resource to be created."
+  description = "A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g 'key=value:NoSchedule')."
   type        = list(any)
   default     = []
 }
@@ -192,7 +199,7 @@ variable "pod_subnet_id" {
   default     = null
 }
 variable "os_sku" {
-  description = "Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'CBLMariner', 'Mariner', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. Changing this forces a new resource to be created."
+  description = "Specifies the OS SKU used by the agent pool. Possible values are 'AzureLinux', 'Ubuntu', 'Windows2019' and 'Windows2022'. If not specified, the default is 'Ubuntu' if OSType=Linux or 'Windows2019' if OSType=Windows. And the default Windows OSSKU will be changed to 'Windows2022' after Windows2019 is deprecated. Changing this forces a new resource to be created."
   type        = string
   default     = "Ubuntu"
 }
@@ -242,8 +249,10 @@ variable "upgrade_settings" {
   default     = null
 }
 #
-# upgrade_settings block structure:
-#   max_surge (string)              : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
+# upgrade_settings block structure      :
+#   drain_timeout_in_minutes (number)     : The amount of time in minutes to wait on eviction of pods and graceful termination per node. This eviction wait time honors waiting on pod disruption budgets. If this time is exceeded, the upgrade fails. Unsetting this after configuring it will force a new resource to be created.
+#   node_soak_duration_in_minutes (number): The amount of time in minutes to wait after draining a node and before reimaging and moving on to next node. Defaults to '0'.
+#   max_surge (string)                    : (REQUIRED) The maximum number or percentage of nodes which will be added to the Node Pool size during an upgrade.
 
 
 variable "vnet_subnet_id" {

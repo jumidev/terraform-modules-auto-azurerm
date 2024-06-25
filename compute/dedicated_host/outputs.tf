@@ -30,11 +30,6 @@ output "tags" {
   value = azurerm_dedicated_host.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assign to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_dedicated_host.this.tags
-}
-
 output "id" {
   description = "The ID of the Dedicated Host."
   value       = azurerm_dedicated_host.this.id

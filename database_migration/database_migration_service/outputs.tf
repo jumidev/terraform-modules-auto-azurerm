@@ -22,11 +22,6 @@ output "tags" {
   value = azurerm_database_migration_service.this.tags
 }
 
-output "tags" {
-  description = "A mapping of tags to assigned to the resource. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_database_migration_service.this.tags
-}
-
 output "id" {
   description = "The ID of Database Migration Service."
   value       = azurerm_database_migration_service.this.id

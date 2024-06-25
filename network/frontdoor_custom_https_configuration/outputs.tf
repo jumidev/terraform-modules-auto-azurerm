@@ -15,11 +15,6 @@ output "id" {
   value       = azurerm_frontdoor_custom_https_configuration.this.id
 }
 
-output "custom_https_configuration" {
-  description = "A 'custom_https_configuration' block."
-  value       = azurerm_frontdoor_custom_https_configuration.this.custom_https_configuration
-}
-
 output "minimum_tls_version" {
   description = "Minimum client TLS version supported."
   value       = azurerm_frontdoor_custom_https_configuration.this.minimum_tls_version

@@ -55,7 +55,7 @@ variable "elastic_pool_id" {
   default     = null
 }
 variable "enclave_type" {
-  description = "Specifies the type of enclave to be used by the database. Possible value 'VBS'. ~> **NOTE:** 'enclave_type' is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs. ~> **NOTE:** Geo Replicated and Failover databases must have the same 'enclave_type'."
+  description = "Specifies the type of enclave to be used by the elastic pool. When 'enclave_type' is not specified (e.g., the default) enclaves are not enabled on the database. <!-- TODO: Uncomment in 4.0: Once enabled (e.g., by specifying 'Default' or 'VBS') removing the 'enclave_type' field from the configuration file will force the creation of a new resource.--> Possible values are 'Default' or 'VBS'. -> **NOTE:** 'enclave_type' is currently not supported for DW (e.g, DataWarehouse) and DC-series SKUs. -> **NOTE:** Geo Replicated and Failover databases must have the same 'enclave_type'. ~> **NOTE:** The default value for the 'enclave_type' field is unset not 'Default'."
   type        = string
   default     = null
 }
@@ -90,6 +90,7 @@ variable "long_term_retention_policy" {
 #   monthly_retention (string)                : The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. 'P1Y', 'P1M', 'P4W' or 'P30D'.
 #   yearly_retention (string)                 : The yearly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 10 years. e.g. 'P1Y', 'P12M', 'P52W' or 'P365D'.
 #   week_of_year (string)                     : The week of year to take the yearly backup. Value has to be between '1' and '52'.
+#   immutable_backups_enabled (bool)          : Specifies if the backups are immutable. Defaults to 'false'.
 
 
 variable "max_size_gb" {
@@ -112,8 +113,18 @@ variable "recover_database_id" {
   type        = string
   default     = null
 }
+variable "recovery_point_id" {
+  description = "The ID of the Recovery Services Recovery Point Id to be restored. This property is only applicable when the 'create_mode' is 'Recovery'."
+  type        = string
+  default     = null
+}
 variable "restore_dropped_database_id" {
   description = "The ID of the database to be restored. This property is only applicable when the 'create_mode' is 'Restore'."
+  type        = string
+  default     = null
+}
+variable "restore_long_term_retention_backup_id" {
+  description = "The ID of the long term retention backup to be restored. This property is only applicable when the 'create_mode' is 'RestoreLongTermRetentionBackup'."
   type        = string
   default     = null
 }
@@ -144,7 +155,7 @@ variable "short_term_retention_policy" {
 
 
 variable "sku_name" {
-  description = "Specifies the name of the SKU used by the database. For example, 'GP_S_Gen5_2','HS_Gen4_1','BC_Gen5_2', 'ElasticPool', 'Basic','S0', 'P2' ,'DW100c', 'DS100'. Changing this from the HyperScale service tier to another service tier will create a new resource. ~> **NOTE:** The default 'sku_name' value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the 'creation_source_database_id' property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the 'sku_name' of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same 'sku_name' in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans."
+  description = "Specifies the name of the SKU used by the database. For example, 'GP_S_Gen5_2','HS_Gen4_1','BC_Gen5_2', 'ElasticPool', 'Basic','S0', 'P2' ,'DW100c', 'DS100'. Changing this from the HyperScale service tier to another service tier will create a new resource. -> **NOTE:** The default 'sku_name' value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the 'creation_source_database_id' property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the 'sku_name' of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same 'sku_name' in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans."
   type        = list(any)
   default     = []
 }

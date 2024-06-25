@@ -11,11 +11,10 @@ source = {
 }
 inputs = {
    name = "The name (or path) of the Directory that should be created within this File Shar..."   
-   share_name = "The name of the File Share where this Directory should be created..."   
-   # storage_account_name → set in component_inputs
+   # storage_share_id → set in component_inputs
 }
 component_inputs = {
-   storage_account_name = "path/to/storage_account_component:name"   
+   storage_share_id = "path/to/storage_share_component:id"   
 }
 tfstate_store = {
    storage_account = "${storage_account}"   
@@ -29,8 +28,7 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **name** | string |  The name (or path) of the Directory that should be created within this File Share. Changing this forces a new resource to be created. | 
-| **share_name** | string |  The name of the File Share where this Directory should be created. Changing this forces a new resource to be created. | 
-| **storage_account_name** | string |  The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created. | 
+| **storage_share_id** | string |  The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

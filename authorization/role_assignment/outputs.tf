@@ -42,11 +42,6 @@ output "skip_service_principal_aad_check" {
   value = azurerm_role_assignment.this.skip_service_principal_aad_check
 }
 
-output "skip_service_principal_aad_check" {
-  description = "If the 'principal_id' is a newly provisioned 'Service Principal' set this value to 'true' to skip the 'Azure Active Directory' check which may fail due to replication lag. This argument is only valid if the 'principal_id' is a 'Service Principal' identity. Defaults to 'false'. ~> **NOTE:** If it is not a 'Service Principal' identity it will cause the role assignment to fail. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_role_assignment.this.skip_service_principal_aad_check
-}
-
 output "id" {
   description = "The Role Assignment ID."
   value       = azurerm_role_assignment.this.id

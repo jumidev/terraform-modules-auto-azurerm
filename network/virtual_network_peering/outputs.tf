@@ -26,17 +26,28 @@ output "allow_gateway_transit" {
   value = azurerm_virtual_network_peering.this.allow_gateway_transit
 }
 
+output "local_subnet_names" {
+  value = azurerm_virtual_network_peering.this.local_subnet_names
+}
+
+output "only_ipv6_peering_enabled" {
+  value = azurerm_virtual_network_peering.this.only_ipv6_peering_enabled
+}
+
+output "peer_complete_virtual_networks_enabled" {
+  value = azurerm_virtual_network_peering.this.peer_complete_virtual_networks_enabled
+}
+
+output "remote_subnet_names" {
+  value = azurerm_virtual_network_peering.this.remote_subnet_names
+}
+
 output "use_remote_gateways" {
   value = azurerm_virtual_network_peering.this.use_remote_gateways
 }
 
 output "triggers" {
   value = azurerm_virtual_network_peering.this.triggers
-}
-
-output "triggers" {
-  description = "A mapping of key values pairs that can be used to sync network routes from the remote virtual network to the local virtual network. See [the trigger example](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/virtual_network_peering#example-usage-triggers) for an example on how to set it up. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_virtual_network_peering.this.triggers
 }
 
 output "id" {

@@ -26,8 +26,8 @@ tfstate_store = {
 | Name | Type |  Description |
 | ---- | --------- |  ----------- |
 | **name** | string |  Specifies the name of the image. Changing this forces a new resource to be created. | 
-| **resource_group_name** | string |  The name of the resource group in which to create. Changing this forces a new resource to be created. the image. Changing this forces a new resource to be created. | 
-| **location** | string |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. Changing this forces a new resource to be created. | 
+| **resource_group_name** | string |  The name of the resource group in which to create the image. Changing this forces a new resource to be created. | 
+| **location** | string |  Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created. | 
 
 ## Optional Variables
 

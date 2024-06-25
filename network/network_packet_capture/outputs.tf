@@ -44,11 +44,6 @@ output "id" {
   value       = azurerm_network_packet_capture.this.id
 }
 
-output "storage_location" {
-  description = "A 'storage_location' block."
-  value       = azurerm_network_packet_capture.this.storage_location
-}
-
 output "storage_path" {
   description = "The URI of the storage path to save the packet capture."
   value       = azurerm_network_packet_capture.this.storage_path

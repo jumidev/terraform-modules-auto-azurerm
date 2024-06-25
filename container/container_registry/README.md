@@ -51,25 +51,20 @@ tfstate_store = {
 | **data_endpoint_enabled** | bool |  -  |  -  |  Whether to enable dedicated data endpoints for this Container Registry? This is only supported on resources with the `Premium` SKU. | 
 | **network_rule_bypass_option** | string |  `AzureServices`  |  `None`, `AzureServices`  |  Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are `None` and `AzureServices`. Defaults to `AzureServices`. | 
 
-### `retention_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `days` | number | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
-| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
-
 ### `trust_policy` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
 
-### `network_rule_set` block structure
+### `georeplications` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
-| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. ~> **NOTE:** 'network_rule_set' is only supported with the 'Premium' SKU at this time. ~> **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an 'network_rule_set' block with 'default_action' set to 'Deny'. |
+| `location` | string | Yes | - | A location where the container registry should be geo-replicated. |
+| `regional_endpoint_enabled` | bool | No | - | Whether regional endpoint is enabled for this Container Registry? |
+| `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. ~> **NOTE:** Changing the 'zone_redundancy_enabled' forces the a underlying replication to be created. |
+| `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
 ### `ip_rule` block structure
 
@@ -85,22 +80,26 @@ tfstate_store = {
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this Container Registry. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Container Registry. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
 
+### `retention_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `days` | number | No | 7 | The number of days to retain an untagged manifest after which it gets purged. Default is '7'. |
+| `enabled` | bool | No | - | Boolean value that indicates whether the policy is enabled. |
+
+### `network_rule_set` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `default_action` | string | No | Allow | The behaviour for requests matching no rules. Either 'Allow' or 'Deny'. Defaults to 'Allow' |
+| `ip_rule` | [block](#ip_rule-block-structure) | No | - | One or more 'ip_rule' blocks. ~> **NOTE:** 'network_rule_set' is only supported with the 'Premium' SKU at this time. ~> **NOTE:** Azure automatically configures Network Rules - to remove these you'll need to specify an 'network_rule_set' block with 'default_action' set to 'Deny'. |
+
 ### `encryption` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `enabled` | bool | No | - | Boolean value that indicates whether encryption is enabled. |
 | `key_vault_key_id` | string | Yes | - | The ID of the Key Vault Key. |
 | `identity_client_id` | string | Yes | - | The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids' |
-
-### `georeplications` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | A location where the container registry should be geo-replicated. |
-| `regional_endpoint_enabled` | bool | No | - | Whether regional endpoint is enabled for this Container Registry? |
-| `zone_redundancy_enabled` | bool | No | False | Whether zone redundancy is enabled for this replication location? Defaults to 'false'. ~> **NOTE:** Changing the 'zone_redundancy_enabled' forces the a underlying replication to be created. |
-| `tags` | map | No | - | A mapping of tags to assign to this replication location. |
 
 
 
@@ -114,6 +113,6 @@ tfstate_store = {
 | **admin_password** | string | No  | The Password associated with the Container Registry Admin account - if the admin account is enabled. | 
 | **identity** | block | No  | An `identity` block. | 
 | **principal_id** | string | No  | The Principal ID associated with this Managed Service Identity. | 
-| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. -> You can access the Principal ID via `azurerm_container_registry.example.identity.0.principal_id` and the Tenant ID via `azurerm_container_registry.example.identity.0.tenant_id` | 
+| **tenant_id** | string | No  | The Tenant ID associated with this Managed Service Identity. -> You can access the Principal ID via `azurerm_container_registry.example.identity[0].principal_id` and the Tenant ID via `azurerm_container_registry.example.identity[0].tenant_id` | 
 
 Additionally, all variables are provided as outputs.

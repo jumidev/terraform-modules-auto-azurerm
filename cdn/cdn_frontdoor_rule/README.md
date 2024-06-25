@@ -42,23 +42,13 @@ tfstate_store = {
 | **behavior_on_match** | string |  `Continue`  |  `Continue`, `Stop`  |  If this rule is a match should the rules engine continue processing the remaining rules or stop? Possible values are `Continue` and `Stop`. Defaults to `Continue`. | 
 | **conditions** | [block](#conditions-block-structure) |  -  |  -  |  A `conditions` block. | 
 
-### `request_method_condition` block structure
+### `ssl_protocol_condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `match_values` | list | Yes | - | A list of one or more HTTP methods. Possible values include 'GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS' or 'TRACE'. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `match_values` | list | Yes | - | A list of one or more HTTP methods. Possible values are 'TLSv1', 'TLSv1.1' and 'TLSv1.2' logic. |
 | `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-
-### `post_args_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `post_args_name` | string | Yes | - | A string value representing the name of the 'POST' argument. |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the 'POST' argument to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
 
 ### `route_configuration_override_action` block structure
 
@@ -72,6 +62,15 @@ tfstate_store = {
 | `compression_enabled` | bool | No | - | Should the Front Door dynamically compress the content? Possible values include 'true' or 'false'. ->**NOTE:** Content won't be compressed on AzureFrontDoor when requested content is smaller than '1 byte' or larger than '1 MB'. |
 | `cache_behavior` | string | No | - | 'HonorOrigin' the Front Door will always honor origin response header directive. If the origin directive is missing, Front Door will cache contents anywhere from '1' to '3' days. 'OverrideAlways' the TTL value returned from your Front Door Origin is overwritten with the value specified in the action. This behavior will only be applied if the response is cacheable. 'OverrideIfOriginMissing' if no TTL value gets returned from your Front Door Origin, the rule sets the TTL to the value specified in the action. This behavior will only be applied if the response is cacheable. 'Disabled' the Front Door will not cache the response contents, irrespective of Front Door Origin response directives. Possible values include 'HonorOrigin', 'OverrideAlways', 'OverrideIfOriginMissing' or 'Disabled'. |
 
+### `url_path_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request path to match. Don't include the leading slash ('/'). If multiple values are specified, they're evaluated using 'OR' logic. |
+| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
 ### `host_name_condition` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -81,143 +80,13 @@ tfstate_store = {
 | `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
 
-### `remote_address_condition` block structure
+### `request_method_condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | IPMatch | The type of the remote address to match. Possible values include 'Any', 'GeoMatch' or 'IPMatch'. Use the 'negate_condition' to specify Not 'GeoMatch' or Not 'IPMatch'. Defaults to 'IPMatch'. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | list | No | - | For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code. ->**NOTE:** See the 'Specifying IP Address Ranges' section below on how to correctly define the 'match_values' field. |
-
-### `response_header_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action` | string | Yes | - | The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'. -> **NOTE:** 'Append' causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. 'Overwrite' causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. 'Delete' causes the header to be deleted from the request. |
-| `header_name` | string | Yes | - | The name of the header to modify. |
-| `value` | string | No | - | The value to append or overwrite. ->**NOTE:** 'value' is required if the 'header_action' is set to 'Append' or 'Overwrite'. |
-
-### `request_body_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | list | Yes | - | A list of one or more string or integer values(e.g. '1') representing the value of the request body text to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
-
-### `request_scheme_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
+| `match_values` | list | Yes | - | A list of one or more HTTP methods. Possible values include 'GET', 'POST', 'PUT', 'DELETE', 'HEAD', 'OPTIONS' or 'TRACE'. If multiple values are specified, they're evaluated using 'OR' logic. |
 | `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | The requests protocol to match. Possible values include 'HTTP' or 'HTTPS'. |
-
-### `client_port_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more integer values(e.g. '1') representing the value of the client port to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-
-### `actions` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `url_rewrite_action` | [block](#url_rewrite_action-block-structure) | No | - | A 'url_rewrite_action' block. You may **not** have a 'url_rewrite_action' **and** a 'url_redirect_action' defined in the same 'actions' block. |
-| `url_redirect_action` | [block](#url_redirect_action-block-structure) | No | - | A 'url_redirect_action' block. You may **not** have a 'url_redirect_action' **and** a 'url_rewrite_action' defined in the same 'actions' block. |
-| `route_configuration_override_action` | [block](#route_configuration_override_action-block-structure) | No | - | A 'route_configuration_override_action' block. |
-| `request_header_action` | [block](#request_header_action-block-structure) | No | - | A 'request_header_action' block. |
-| `response_header_action` | [block](#response_header_action-block-structure) | No | - | A 'response_header_action' block. |
-
-### `is_device_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | Which device should this rule match on? Possible values 'Mobile' or 'Desktop'. |
-| `IPv4` | string | No | - | example: if you add two IP addresses '1.2.3.4' and '10.20.30.40', the condition is matched for any requests that arrive from either address '1.2.3.4' or '10.20.30.40'. |
-| `IPv6` | string | No | - | example: if you add two IP addresses '1:2:3:4:5:6:7:8' and '10:20:30:40:50:60:70:80', the condition is matched for any requests that arrive from either address '1:2:3:4:5:6:7:8' or '10:20:30:40:50:60:70:80'. |
-| `{variable}` | string | No | - | Include the entire server variable. For example, if the client IP address is '111.222.333.444' then the '{client_ip}' token would evaluate to '111.222.333.444'. |
-| `{variable:offset}` | string | No | - | Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is '111.222.333.444' then the '{client_ip:3}' token would evaluate to '.222.333.444'. |
-| `{variable:offset:length}` | string | No | - | Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is '111.222.333.444' then the '{client_ip:4:3}' token would evaluate to '222'. ### Action Server Variables Support Action Server variables are supported on the following actions: |
-| `route_configuration_override_action` | string | No | - |  |
-| `request_header_action` | string | No | - |  |
-| `response_header_action` | string | No | - |  |
-| `url_redirect_action` | string | No | - |  |
-| `url_rewrite_action` | string | No | - |  |
-
-### `url_rewrite_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `source_pattern` | string | Yes | - | The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash ''/'' as the source pattern value. |
-| `destination` | string | Yes | - | The destination path to use in the rewrite. The destination path overwrites the source pattern. |
-| `preserve_unmatched_path` | bool | No | False | Append the remaining path after the source pattern to the new destination path? Possible values 'true' or 'false'. Defaults to 'false'. |
-
-### `cookies_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cookie_name` | string | Yes | - | A string value representing the name of the cookie. |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
-
-### `request_header_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_name` | string | Yes | - | A string value representing the name of the 'POST' argument. |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
-
-### `query_string_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the query string to match. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
-
-### `ssl_protocol_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_values` | list | Yes | - | A list of one or more HTTP methods. Possible values are 'TLSv1', 'TLSv1.1' and 'TLSv1.2' logic. |
-| `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-
-### `request_header_action` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `header_action` | string | Yes | - | The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'. -> **NOTE:** 'Append' causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. 'Overwrite' causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. 'Delete' causes the header to be deleted from the request. |
-| `header_name` | string | Yes | - | The name of the header to modify. |
-| `value` | string | No | - | The value to append or overwrite. ->**NOTE:** 'value' is required if the 'header_action' is set to 'Append' or 'Overwrite'. |
-
-### `server_port_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | list | Yes | - | A list of one or more integer values(e.g. '1') representing the value of the client port to match. Possible values include '80' or '443'. If multiple values are specified, they're evaluated using 'OR' logic. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-
-### `socket_address_condition` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `operator` | string | No | IPMatch | The type of match. The Possible values are 'IpMatch' or 'Any'. Defaults to 'IPMatch'. ->**NOTE:** If the value of the 'operator' field is set to 'IpMatch' then the 'match_values' field is also required. |
-| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | list | No | - | Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. ->**NOTE:** See the 'Specifying IP Address Ranges' section below on how to correctly define the 'match_values' field. |
 
 ### `conditions` block structure
 
@@ -243,6 +112,24 @@ tfstate_store = {
 | `host_name_condition` | [block](#host_name_condition-block-structure) | No | - | A 'host_name_condition' block. |
 | `ssl_protocol_condition` | [block](#ssl_protocol_condition-block-structure) | No | - | A 'ssl_protocol_condition' block. |
 
+### `request_scheme_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | The requests protocol to match. Possible values include 'HTTP' or 'HTTPS'. |
+
+### `cookies_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `cookie_name` | string | Yes | - | A string value representing the name of the cookie. |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
 ### `url_redirect_action` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -254,14 +141,55 @@ tfstate_store = {
 | `query_string` | string | No |  | The query string used in the redirect URL. The value must be in the &lt;key>=&lt;value> or &lt;key>={'action_server_variable'} format and must not include the leading '?', leave blank to preserve the incoming query string. Maximum allowed length for this field is '2048' characters. Defaults to ''''. |
 | `destination_fragment` | string | No |  | The fragment to use in the redirect. The value must be a string between '0' and '1024' characters in length, leave blank to preserve the incoming fragment. Defaults to ''''. |
 
-### `url_filename_condition` block structure
+### `query_string_condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | list | No | - | A list of one or more string or integer values(e.g. '1') representing the value of the request file name to match. If multiple values are specified, they're evaluated using 'OR' logic. -> **NOTE:** The 'match_values' field is only optional if the 'operator' is set to 'Any'. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the query string to match. If multiple values are specified, they're evaluated using 'OR' logic. |
 | `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
+### `request_uri_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request URL to match. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
+### `server_port_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | list | Yes | - | A list of one or more integer values(e.g. '1') representing the value of the client port to match. Possible values include '80' or '443'. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+
+### `client_port_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more integer values(e.g. '1') representing the value of the client port to match. If multiple values are specified, they're evaluated using 'OR' logic. |
+
+### `url_rewrite_action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `source_pattern` | string | Yes | - | The source pattern in the URL path to replace. This uses prefix-based matching. For example, to match all URL paths use a forward slash ''/'' as the source pattern value. |
+| `destination` | string | Yes | - | The destination path to use in the rewrite. The destination path overwrites the source pattern. |
+| `preserve_unmatched_path` | bool | No | False | Append the remaining path after the source pattern to the new destination path? Possible values 'true' or 'false'. Defaults to 'false'. |
+
+### `request_header_action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action` | string | Yes | - | The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'. -> **NOTE:** 'Append' causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. 'Overwrite' causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. 'Delete' causes the header to be deleted from the request. |
+| `header_name` | string | Yes | - | The name of the header to modify. |
+| `value` | string | No | - | The value to append or overwrite. ->**NOTE:** 'value' is required if the 'header_action' is set to 'Append' or 'Overwrite'. |
 
 ### `url_file_extension_condition` block structure
 
@@ -272,22 +200,94 @@ tfstate_store = {
 | `match_values` | list | Yes | - | A list of one or more string or integer values(e.g. '1') representing the value of the request file extension to match. If multiple values are specified, they're evaluated using 'OR' logic. |
 | `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
 
-### `url_path_condition` block structure
+### `socket_address_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | IPMatch | The type of match. The Possible values are 'IpMatch' or 'Any'. Defaults to 'IPMatch'. ->**NOTE:** If the value of the 'operator' field is set to 'IpMatch' then the 'match_values' field is also required. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | list | No | - | Specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. ->**NOTE:** See the 'Specifying IP Address Ranges' section below on how to correctly define the 'match_values' field. |
+
+### `request_body_condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | list | Yes | - | A list of one or more string or integer values(e.g. '1') representing the value of the request body text to match. If multiple values are specified, they're evaluated using 'OR' logic. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request path to match. Don't include the leading slash ('/'). If multiple values are specified, they're evaluated using 'OR' logic. |
 | `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
 
-### `request_uri_condition` block structure
+### `url_filename_condition` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | list | No | - | A list of one or more string or integer values(e.g. '1') representing the value of the request file name to match. If multiple values are specified, they're evaluated using 'OR' logic. -> **NOTE:** The 'match_values' field is only optional if the 'operator' is set to 'Any'. |
 | `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
-| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request URL to match. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
+### `actions` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `url_rewrite_action` | [block](#url_rewrite_action-block-structure) | No | - | A 'url_rewrite_action' block. You may **not** have a 'url_rewrite_action' **and** a 'url_redirect_action' defined in the same 'actions' block. |
+| `url_redirect_action` | [block](#url_redirect_action-block-structure) | No | - | A 'url_redirect_action' block. You may **not** have a 'url_redirect_action' **and** a 'url_rewrite_action' defined in the same 'actions' block. |
+| `route_configuration_override_action` | [block](#route_configuration_override_action-block-structure) | No | - | A 'route_configuration_override_action' block. |
+| `request_header_action` | [block](#request_header_action-block-structure) | No | - | A 'request_header_action' block. |
+| `response_header_action` | [block](#response_header_action-block-structure) | No | - | A 'response_header_action' block. |
+
+### `request_header_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_name` | string | Yes | - | A string value representing the name of the 'POST' argument. |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the request header to match. If multiple values are specified, they're evaluated using 'OR' logic. |
+| `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
+
+### `response_header_action` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `header_action` | string | Yes | - | The action to be taken on the specified 'header_name'. Possible values include 'Append', 'Overwrite' or 'Delete'. -> **NOTE:** 'Append' causes the specified header to be added to the request with the specified value. If the header is already present, the value is appended to the existing header value using string concatenation. No delimiters are added. 'Overwrite' causes specified header to be added to the request with the specified value. If the header is already present, the specified value overwrites the existing value. 'Delete' causes the header to be deleted from the request. |
+| `header_name` | string | Yes | - | The name of the header to modify. |
+| `value` | string | No | - | The value to append or overwrite. ->**NOTE:** 'value' is required if the 'header_action' is set to 'Append' or 'Overwrite'. |
+
+### `is_device_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | Equal | Possible value 'Equal'. Defaults to 'Equal'. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | Which device should this rule match on? Possible values 'Mobile' or 'Desktop'. |
+| `IPv4` | string | No | - | example: if you add two IP addresses '1.2.3.4' and '10.20.30.40', the condition is matched for any requests that arrive from either address '1.2.3.4' or '10.20.30.40'. |
+| `IPv6` | string | No | - | example: if you add two IP addresses '1:2:3:4:5:6:7:8' and '10:20:30:40:50:60:70:80', the condition is matched for any requests that arrive from either address '1:2:3:4:5:6:7:8' or '10:20:30:40:50:60:70:80'. |
+| `{variable}` | string | No | - | Include the entire server variable. For example, if the client IP address is '111.222.333.444' then the '{client_ip}' token would evaluate to '111.222.333.444'. |
+| `{variable:offset}` | string | No | - | Include the server variable after a specific offset, until the end of the variable. The offset is zero-based. For example, if the client IP address is '111.222.333.444' then the '{client_ip:3}' token would evaluate to '.222.333.444'. |
+| `{variable:offset:length}` | string | No | - | Include the server variable after a specific offset, up to the specified length. The offset is zero-based. For example, if the client IP address is '111.222.333.444' then the '{client_ip:4:3}' token would evaluate to '222'. ### Action Server Variables Support Action Server variables are supported on the following actions: |
+| `route_configuration_override_action` | string | No | - |  |
+| `request_header_action` | string | No | - |  |
+| `response_header_action` | string | No | - |  |
+| `url_redirect_action` | string | No | - |  |
+| `url_rewrite_action` | string | No | - |  |
+
+### `remote_address_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `operator` | string | No | IPMatch | The type of the remote address to match. Possible values include 'Any', 'GeoMatch' or 'IPMatch'. Use the 'negate_condition' to specify Not 'GeoMatch' or Not 'IPMatch'. Defaults to 'IPMatch'. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | list | No | - | For the IP Match or IP Not Match operators: specify one or more IP address ranges. If multiple IP address ranges are specified, they're evaluated using 'OR' logic. For the Geo Match or Geo Not Match operators: specify one or more locations using their country code. ->**NOTE:** See the 'Specifying IP Address Ranges' section below on how to correctly define the 'match_values' field. |
+
+### `post_args_condition` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `post_args_name` | string | Yes | - | A string value representing the name of the 'POST' argument. |
+| `operator` | string | Yes | - | A Conditional operator. Possible values include 'Any', 'Equal', 'Contains', 'BeginsWith', 'EndsWith', 'LessThan', 'LessThanOrEqual', 'GreaterThan', 'GreaterThanOrEqual' or 'RegEx'. Details can be found in the 'Condition Operator List' below. |
+| `negate_condition` | bool | No | False | If 'true' operator becomes the opposite of its value. Possible values 'true' or 'false'. Defaults to 'false'. Details can be found in the 'Condition Operator List' below. |
+| `match_values` | string | No | - | One or more string or integer values(e.g. '1') representing the value of the 'POST' argument to match. If multiple values are specified, they're evaluated using 'OR' logic. |
 | `transforms` | string | No | - | A Conditional operator. Possible values include 'Lowercase', 'RemoveNulls', 'Trim', 'Uppercase', 'UrlDecode' or 'UrlEncode'. Details can be found in the 'Condition Transform List' below. |
 
 ### `http_version_condition` block structure

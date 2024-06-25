@@ -30,12 +30,12 @@ output "edge_zone" {
   value = azurerm_network_interface.this.edge_zone
 }
 
-output "enable_ip_forwarding" {
-  value = azurerm_network_interface.this.enable_ip_forwarding
+output "ip_forwarding_enabled" {
+  value = azurerm_network_interface.this.ip_forwarding_enabled
 }
 
-output "enable_accelerated_networking" {
-  value = azurerm_network_interface.this.enable_accelerated_networking
+output "accelerated_networking_enabled" {
+  value = azurerm_network_interface.this.accelerated_networking_enabled
 }
 
 output "internal_dns_name_label" {
@@ -93,11 +93,6 @@ output "application_security_group_id" {
   value = azurerm_network_interface_application_security_group_association.this.*.application_security_group_id
 }
 
-output "application_security_group_id" {
-  description = "The ID of the Application Security Group which this Network Interface which should be connected to. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_network_interface_application_security_group_association.this.*.application_security_group_id
-}
-
 output "id" {
   description = "The (Terraform specific) ID of the Association between the Network Interface and the Application Security Group."
   value       = azurerm_network_interface_application_security_group_association.this.*.id
@@ -113,11 +108,6 @@ output "network_interface_id" {
 
 output "network_security_group_id" {
   value = azurerm_network_interface_security_group_association.this.*.network_security_group_id
-}
-
-output "network_security_group_id" {
-  description = "The ID of the Network Security Group which should be attached to the Network Interface. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_network_interface_security_group_association.this.*.network_security_group_id
 }
 
 output "id" {

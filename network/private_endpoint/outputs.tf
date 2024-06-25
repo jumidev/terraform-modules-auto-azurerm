@@ -59,16 +59,6 @@ output "private_dns_zone_configs" {
   value       = azurerm_private_endpoint.this.private_dns_zone_configs
 }
 
-output "ip_configuration" {
-  description = "A 'ip_configuration' block."
-  value       = azurerm_private_endpoint.this.ip_configuration
-}
-
-output "name" {
-  description = "The name of the Private DNS Zone that the config belongs to."
-  value       = azurerm_private_endpoint.this.name
-}
-
 output "fqdn" {
   description = "The fully qualified domain name to the 'private_dns_zone'."
   value       = azurerm_private_endpoint.this.fqdn
@@ -115,11 +105,6 @@ output "application_security_group_id" {
 
 output "private_endpoint_id" {
   value = azurerm_private_endpoint_application_security_group_association.this.*.private_endpoint_id
-}
-
-output "private_endpoint_id" {
-  description = "The id of private endpoint to associate. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_private_endpoint_application_security_group_association.this.*.private_endpoint_id
 }
 
 output "id" {

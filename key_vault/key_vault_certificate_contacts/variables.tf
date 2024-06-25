@@ -5,9 +5,13 @@ variable "key_vault_id" {
   type        = string
 
 }
+
+# OPTIONAL VARIABLES
+
 variable "contacts" {
-  description = "(REQUIRED) One or more 'contact' blocks."
+  description = "One or more 'contact' blocks. -->"
   type        = map(map(any))
+  default     = null
 }
 #
 # contact block structure:

@@ -10,11 +10,6 @@ output "subnet_id" {
   value = azurerm_active_directory_domain_service_replica_set.this.subnet_id
 }
 
-output "subnet_id" {
-  description = "The ID of the subnet in which to place this Replica Set. Changing this forces a new resource to be created. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_active_directory_domain_service_replica_set.this.subnet_id
-}
-
 output "id" {
   description = "The ID of the Domain Service Replica Set."
   value       = azurerm_active_directory_domain_service_replica_set.this.id

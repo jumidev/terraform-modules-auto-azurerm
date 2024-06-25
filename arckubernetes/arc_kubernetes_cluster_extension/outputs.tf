@@ -53,11 +53,6 @@ output "current_version" {
   value       = azurerm_arc_kubernetes_cluster_extension.this.current_version
 }
 
-output "identity" {
-  description = "An 'identity' block."
-  value       = azurerm_arc_kubernetes_cluster_extension.this.identity
-}
-
 output "principal_id" {
   description = "The Principal ID associated with this Managed Service Identity."
   value       = azurerm_arc_kubernetes_cluster_extension.this.principal_id

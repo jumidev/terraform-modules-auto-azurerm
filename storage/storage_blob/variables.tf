@@ -6,7 +6,7 @@ variable "name" {
 
 }
 variable "storage_account_name" {
-  description = "(REQUIRED) Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created. Changing this forces a new resource to be created."
+  description = "(REQUIRED) Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created."
   type        = string
 
 }
@@ -45,6 +45,11 @@ variable "content_type" {
 }
 variable "content_md5" {
   description = "The MD5 sum of the blob contents. Cannot be defined if 'source_uri' is defined, or if blob type is Append or Page. Changing this forces a new resource to be created. ~> **NOTE:** This property is intended to be used with the Terraform internal [filemd5](https://www.terraform.io/docs/configuration/functions/filemd5.html) and [md5](https://www.terraform.io/docs/configuration/functions/md5.html) functions when 'source' or 'source_content', respectively, are defined."
+  type        = string
+  default     = null
+}
+variable "encryption_scope" {
+  description = "The encryption scope to use for this blob."
   type        = string
   default     = null
 }

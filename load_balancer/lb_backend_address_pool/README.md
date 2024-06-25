@@ -85,19 +85,20 @@ component_inputs = {
 
 ## Optional Variables
 
-| Name | Type |  Description |
-| ---- | --------- |  ----------- |
-| **tunnel_interfaces** | [block](#tunnel_interface-block-structure) |  One or more `tunnel_interface` blocks. | 
-| **virtual_network_id** | string |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
+| Name | Type |  possible values |  Description |
+| ---- | --------- |  ----------- | ----------- |
+| **synchronous_mode** | string |  `Automatic`, `Manual`  |  The backend address synchronous mode for the Backend Address Pool. Possible values are `Automatic` and `Manual`. This is required with `virtual_network_id`. Changing this forces a new resource to be created. -> **NOTE:** The `synchronous_mode` can set only for Load Balancer with `Standard` SKU. | 
+| **tunnel_interfaces** | [block](#tunnel_interface-block-structure) |  -  |  One or more `tunnel_interface` blocks. | 
+| **virtual_network_id** | string |  -  |  The ID of the Virtual Network within which the Backend Address Pool should exist. | 
 
 ### `tunnel_interface` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `identifier` | string | Yes | - | The unique identifier of this Gateway Lodbalancer Tunnel Interface. |
-| `type` | string | Yes | - | The traffic type of this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Internal' and 'External'. |
-| `protocol` | string | Yes | - | The protocol used for this Gateway Lodbalancer Tunnel Interface. Possible values are 'None', 'Native' and 'VXLAN'. |
-| `port` | string | Yes | - | The port number that this Gateway Lodbalancer Tunnel Interface listens to. |
+| `identifier` | string | Yes | - | The unique identifier of this Gateway Load Balancer Tunnel Interface. |
+| `type` | string | Yes | - | The traffic type of this Gateway Load Balancer Tunnel Interface. Possible values are 'None', 'Internal' and 'External'. |
+| `protocol` | string | Yes | - | The protocol used for this Gateway Load Balancer Tunnel Interface. Possible values are 'None', 'Native' and 'VXLAN'. |
+| `port` | string | Yes | - | The port number that this Gateway Load Balancer Tunnel Interface listens to. |
 
 
 
@@ -105,7 +106,7 @@ component_inputs = {
 
 | Name | Type | Sensitive? | Description |
 | ---- | ---- | --------- | --------- |
-| **port** | string | No  | The port number that this Gateway Lodbalancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported: | 
+| **port** | string | No  | The port number that this Gateway Load Balancer Tunnel Interface listens to. In addition to the Arguments listed above - the following Attributes are exported: | 
 | **id** | string | No  | The ID of the Backend Address Pool. | 
 | **backend_ip_configurations** | string | No  | The Backend IP Configurations associated with this Backend Address Pool. | 
 | **load_balancing_rules** | string | No  | The Load Balancing Rules associated with this Backend Address Pool. | 

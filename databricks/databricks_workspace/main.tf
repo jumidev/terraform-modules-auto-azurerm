@@ -14,6 +14,8 @@ resource "azurerm_databricks_workspace" "this" {
   # optional vars
   ########################################
   load_balancer_backend_address_pool_id               = var.load_balancer_backend_address_pool_id
+  managed_services_cmk_key_vault_id                   = var.managed_services_cmk_key_vault_id
+  managed_disk_cmk_key_vault_id                       = var.managed_disk_cmk_key_vault_id
   managed_services_cmk_key_vault_key_id               = var.managed_services_cmk_key_vault_key_id
   managed_disk_cmk_key_vault_key_id                   = var.managed_disk_cmk_key_vault_key_id
   managed_disk_cmk_rotation_to_latest_version_enabled = var.managed_disk_cmk_rotation_to_latest_version_enabled
@@ -21,6 +23,8 @@ resource "azurerm_databricks_workspace" "this" {
   customer_managed_key_enabled                        = var.customer_managed_key_enabled      # Default: False
   infrastructure_encryption_enabled                   = var.infrastructure_encryption_enabled # Default: False
   public_network_access_enabled                       = var.public_network_access_enabled     # Default: True
+  default_storage_firewall_enabled                    = var.default_storage_firewall_enabled  # Default: False
+  access_connector_id                                 = var.access_connector_id
   network_security_group_rules_required               = var.network_security_group_rules_required
 
   dynamic "custom_parameters" { # var.custom_parameters

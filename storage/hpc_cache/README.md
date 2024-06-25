@@ -84,6 +84,12 @@ tfstate_store = {
 | `password` | string | Yes | - | The password of the Active Directory domain administrator. |
 | `dns_secondary_ip` | string | No | - | The secondary DNS IP address used to resolve the Active Directory domain controller's FQDN. |
 
+### `default_access_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
+
 ### `directory_flat_file` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -97,12 +103,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this HPC Cache. Possible values are 'SystemAssigned', 'UserAssigned', 'SystemAssigned, UserAssigned' (to enable both). Changing this forces a new resource to be created. |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this HPC Cache. Changing this forces a new resource to be created. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
-
-### `default_access_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `access_rule` | string | Yes | - | One or more 'access_rule' blocks (up to three). |
 
 ### `bind` block structure
 

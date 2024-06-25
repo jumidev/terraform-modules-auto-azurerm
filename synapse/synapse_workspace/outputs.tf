@@ -31,10 +31,6 @@ output "azuread_authentication_only" {
   value = azurerm_synapse_workspace.this.azuread_authentication_only
 }
 
-output "aad_admin" {
-  value = azurerm_synapse_workspace.this.aad_admin
-}
-
 output "compute_subnet_id" {
   value = azurerm_synapse_workspace.this.compute_subnet_id
 }
@@ -75,10 +71,6 @@ output "purview_id" {
   value = azurerm_synapse_workspace.this.purview_id
 }
 
-output "sql_aad_admin" {
-  value = azurerm_synapse_workspace.this.sql_aad_admin
-}
-
 output "sql_identity_control_enabled" {
   value = azurerm_synapse_workspace.this.sql_identity_control_enabled
 }
@@ -87,9 +79,9 @@ output "tags" {
   value = azurerm_synapse_workspace.this.tags
 }
 
-output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
-  value       = azurerm_synapse_workspace.this.tenant_id
+output "git_url" {
+  description = "Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. -> **Note:** You must log in to the Synapse UI to complete the authentication to the GitHub repository. In addition to the Arguments listed above - the following Attributes are exported:"
+  value       = azurerm_synapse_workspace.this.git_url
 }
 
 output "id" {
@@ -105,5 +97,10 @@ output "connectivity_endpoints" {
 output "principal_id" {
   description = "The Principal ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
   value       = azurerm_synapse_workspace.this.principal_id
+}
+
+output "tenant_id" {
+  description = "The Tenant ID for the Service Principal associated with the Managed Service Identity of this Synapse Workspace."
+  value       = azurerm_synapse_workspace.this.tenant_id
 }
 

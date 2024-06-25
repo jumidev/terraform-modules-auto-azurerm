@@ -120,7 +120,6 @@ variable "encryption" {
 }
 #
 # encryption block structure :
-#   enabled (bool)             : Boolean value that indicates whether encryption is enabled.
 #   key_vault_key_id (string)  : (REQUIRED) The ID of the Key Vault Key.
 #   identity_client_id (string): (REQUIRED) The client ID of the managed identity associated with the encryption key. ~> **NOTE** The managed identity used in 'encryption' also needs to be part of the 'identity' block under 'identity_ids'
 

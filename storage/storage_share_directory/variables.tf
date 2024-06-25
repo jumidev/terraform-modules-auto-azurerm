@@ -5,13 +5,8 @@ variable "name" {
   type        = string
 
 }
-variable "share_name" {
-  description = "(REQUIRED) The name of the File Share where this Directory should be created. Changing this forces a new resource to be created."
-  type        = string
-
-}
-variable "storage_account_name" {
-  description = "(REQUIRED) The name of the Storage Account within which the File Share is located. Changing this forces a new resource to be created."
+variable "storage_share_id" {
+  description = "(REQUIRED) The Storage Share ID in which this file will be placed into. Changing this forces a new resource to be created."
   type        = string
 
 }

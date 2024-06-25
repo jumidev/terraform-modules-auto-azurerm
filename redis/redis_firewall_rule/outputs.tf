@@ -18,11 +18,6 @@ output "end_ip" {
   value = azurerm_redis_firewall_rule.this.end_ip
 }
 
-output "end_ip" {
-  description = "The highest IP address included in the range. In addition to the Arguments listed above - the following Attributes are exported:"
-  value       = azurerm_redis_firewall_rule.this.end_ip
-}
-
 output "id" {
   description = "The ID of the Redis Firewall Rule."
   value       = azurerm_redis_firewall_rule.this.id

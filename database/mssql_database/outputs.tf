@@ -70,8 +70,16 @@ output "recover_database_id" {
   value = azurerm_mssql_database.this.recover_database_id
 }
 
+output "recovery_point_id" {
+  value = azurerm_mssql_database.this.recovery_point_id
+}
+
 output "restore_dropped_database_id" {
   value = azurerm_mssql_database.this.restore_dropped_database_id
+}
+
+output "restore_long_term_retention_backup_id" {
+  value = azurerm_mssql_database.this.restore_long_term_retention_backup_id
 }
 
 output "read_replica_count" {
@@ -114,7 +122,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Database. -> You can access the Principal ID via 'azurerm_mssql_database.example.identity.0.principal_id' and the Tenant ID via 'azurerm_mssql_database.example.identity.0.tenant_id'"
+  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Database. -> You can access the Principal ID via 'azurerm_mssql_database.example.identity[0].principal_id' and the Tenant ID via 'azurerm_mssql_database.example.identity[0].tenant_id'"
   value       = azurerm_mssql_database.this.tenant_id
 }
 

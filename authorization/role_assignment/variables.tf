@@ -29,7 +29,7 @@ variable "role_definition_name" {
   default     = null
 }
 variable "principal_type" {
-  description = "The type of the 'principal_id'. Possible values are 'User', 'Group' and 'ServicePrincipal'. Changing this forces a new resource to be created."
+  description = "The type of the 'principal_id'. Possible values are 'User', 'Group' and 'ServicePrincipal'. Changing this forces a new resource to be created. It is necessary to explicitly set this attribute when creating role assignments if the principal creating the assignment is constrained by ABAC rules that filters on the PrincipalType attribute. ~> **NOTE:** If one of 'condition' or 'condition_version' is set both fields must be present."
   type        = string
   default     = null
 }

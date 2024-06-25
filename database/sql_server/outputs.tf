@@ -52,7 +52,7 @@ output "principal_id" {
 }
 
 output "tenant_id" {
-  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via '${azurerm_mssql_server.example.identity.0.principal_id}' and the Tenant ID via '${azurerm_mssql_server.example.identity.0.tenant_id}' ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
+  description = "The Tenant ID for the Service Principal associated with the Identity of this SQL Server. -> You can access the Principal ID via '${azurerm_mssql_server.example.identity[0].principal_id}' and the Tenant ID via '${azurerm_mssql_server.example.identity[0].tenant_id}' ### Timeouts The 'timeouts' block allows you to specify [timeouts](https://www.terraform.io/language/resources/syntax#operation-timeouts) for certain actions:"
   value       = azurerm_sql_server.this.tenant_id
 }
 

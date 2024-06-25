@@ -106,3 +106,13 @@ output "earliest_restore_time" {
   value       = azurerm_cosmosdb_postgresql_cluster.this.earliest_restore_time
 }
 
+output "servers" {
+  description = "A 'servers' block."
+  value       = azurerm_cosmosdb_postgresql_cluster.this.servers
+}
+
+output "fqdn" {
+  description = "The Fully Qualified Domain Name of the server."
+  value       = azurerm_cosmosdb_postgresql_cluster.this.fqdn
+}
+
