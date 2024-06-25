@@ -44,13 +44,13 @@ tfstate_store = {
 | **managed_rules** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Front Door Firewall Policy. | 
 
-### `override` block structure
+### `exclusion` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `rule_group_name` | string | Yes | - | The managed rule group to override. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
+| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames' -> **NOTE:** 'RequestBodyJsonArgNames' is only available on Default Rule Set (DRS) 2.0 or later |
+| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
+| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. -> **NOTE:** 'selector' must be set to '*' if 'operator' is set to 'EqualsAny'. |
 
 ### `managed_rule` block structure
 
@@ -62,14 +62,6 @@ tfstate_store = {
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
 
-### `exclusion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames', 'RequestBodyJsonArgNames' -> **NOTE:** 'RequestBodyJsonArgNames' is only available on Default Rule Set (DRS) 2.0 or later |
-| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
-| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. -> **NOTE:** 'selector' must be set to '*' if 'operator' is set to 'EqualsAny'. |
-
 ### `rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -78,6 +70,14 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the managed rule matches or when the anomaly score is 5 or greater. Possible values for DRS '1.1' and below are 'Allow', 'Log', 'Block', and 'Redirect'. For DRS '2.0' and above the possible values are 'Log' or 'AnomalyScoring'. ->**NOTE:** Please see the DRS [product documentation](https://learn.microsoft.com/azure/web-application-firewall/afds/waf-front-door-drs?tabs=drs20#anomaly-scoring-mode) for more information. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `override` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `rule_group_name` | string | Yes | - | The managed rule group to override. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
 
 ### `custom_rule` block structure
 

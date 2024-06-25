@@ -9,27 +9,27 @@ terraform {
 
 provider "azurerm" {
   # whilst the `version` attribute is optional, we recommend pinning to a given version of the Provider
-  #version = "~> 2.4.0"
-  client_id       = var.azure_client_id
-  client_secret   = var.azure_client_secret
-  tenant_id       = var.azure_tenant_id
-  subscription_id = var.azure_subscription_id
+  version = "~> v3.109.0"
+  # client_id       = var.azure_client_id
+  # client_secret   = var.azure_client_secret
+  # tenant_id       = var.azure_tenant_id
+  # subscription_id = var.azure_subscription_id
   features {}
 
 }
 
-variable "azure_client_id" {
-  type = string
-}
+# variable azure_client_id {
+#   type = string
+# }
 
-variable "azure_client_secret" {
-  type = string
-}
+# variable azure_client_secret {
+#   type = string
+# }
 
-variable "azure_tenant_id" {
-  type = string
-}
+# variable azure_tenant_id {
+#   type = string
+# }
 
-variable "azure_subscription_id" {
-  type = string
-}
+# variable azure_subscription_id {
+#   type = string
+# }

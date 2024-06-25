@@ -19,12 +19,12 @@ variable "managed_cluster_update" {
 #   upgrade (block)                       : (REQUIRED) A 'upgrade' block.
 #   node_image_selection (block)          : A 'node_image_selection' block.
 #
+# node_image_selection block structure:
+#   type (string)                       : (REQUIRED) Specifies the node image upgrade type. Possible values are 'Latest' and 'Consistent'.
+#
 # upgrade block structure    :
 #   type (string)              : (REQUIRED) Specifies the type of upgrade to perform. Possible values are 'Full' and 'NodeImageOnly'.
 #   kubernetes_version (string): Specifies the Kubernetes version to upgrade the member clusters to. This is required if 'type' is set to 'Full'.
-#
-# node_image_selection block structure:
-#   type (string)                       : (REQUIRED) Specifies the node image upgrade type. Possible values are 'Latest' and 'Consistent'.
 
 
 

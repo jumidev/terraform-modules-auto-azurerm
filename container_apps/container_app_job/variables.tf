@@ -30,29 +30,6 @@ variable "template" {
 #   init_container (block)  : A 'init_container' block.
 #   volume (block)          : A 'volume' block.
 #
-# container block structure :
-#   name (string)             : (REQUIRED) The name of the container.
-#   cpu (string)              : (REQUIRED) The amount of vCPU to allocate to the container. Possible values include '0.25', '0.5', '0.75', '1.0', '1.25', '1.5', '1.75', and '2.0'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.0' / '2.0' or '0.5' / '1.0'
-#   memory (string)           : (REQUIRED) The amount of memory to allocate to the container. Possible values are '0.5Gi', '1Gi', '1.5Gi', '2Gi', '2.5Gi', '3Gi', '3.5Gi' and '4Gi'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.25' / '2.5Gi' or '0.75' / '1.5Gi'
-#   image (string)            : (REQUIRED) The image to use to create the container.
-#   args (list)               : A list of extra arguments to pass to the container.
-#   command (list)            : A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
-#   env (string)              : One or more 'env' blocks as detailed below.
-#   ephemeral_storage (string): The amount of ephemeral storage available to the Container App. ~> **NOTE:** 'ephemeral_storage' is currently in preview and not configurable at this time.
-#   liveness_probe (block)    : A 'liveness_probe' block as detailed below.
-#   readiness_probe (block)   : A 'readiness_probe' block as detailed below.
-#   startup_probe (block)     : A 'startup_probe' block as detailed below.
-#   volume_mounts (block)     : A 'volume_mounts' block as detailed below.
-#
-# volume block structure:
-#   name (string)         : The name of the volume.
-#   storage_type (string) : The type of storage to use for the volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'.
-#   storage_name (string) : The name of the storage to use for the volume.
-#
-# volume_mounts block structure:
-#   name (string)                : (REQUIRED) The name of the volume to mount. This must match the name of a volume defined in the 'volume' block.
-#   path (string)                : (REQUIRED) The path within the container at which the volume should be mounted. Must not contain ':'.
-#
 # header block structure:
 #   name (string)         : (REQUIRED) The HTTP Header Name.
 #   value (string)        : (REQUIRED) The HTTP Header value.
@@ -79,17 +56,6 @@ variable "template" {
 #   ephemeral_storage (string)    : The amount of ephemeral storage available to the Container App. ~> **NOTE:** 'ephemeral_storage' is currently in preview and not configurable at this time.
 #   volume_mounts (block)         : A 'volume_mounts' block as detailed below.
 #
-# startup_probe block structure            :
-#   port (number)                            : (REQUIRED) The port number on which to connect. Possible values are between '1' and '65535'.
-#   transport (string)                       : (REQUIRED) Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'.
-#   failure_count_threshold (number)         : The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'.
-#   header (block)                           : A 'header' block as detailed below.
-#   host (string)                            : The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes.
-#   interval_seconds (number)                : How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10'
-#   path (string)                            : The URI to use with the 'host' for http type probes. Not valid for 'TCP' type probes. Defaults to '/'.
-#   timeout (string)                         : Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'.
-#   termination_grace_period_seconds (number): The time in seconds after the container is sent the termination signal before the process if forcibly killed.
-#
 # liveness_probe block structure           :
 #   port (number)                            : (REQUIRED) The port number on which to connect. Possible values are between '1' and '65535'.
 #   transport (string)                       : (REQUIRED) Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'.
@@ -98,6 +64,40 @@ variable "template" {
 #   host (string)                            : The probe hostname. Defaults to the pod IP address. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes.
 #   initial_delay (string)                   : The time in seconds to wait after the container has started before the probe is started.
 #   interval_seconds (number)                : How often, in seconds, the probe should run. Possible values are in the range '1' - '240'. Defaults to '10'.
+#   path (string)                            : The URI to use with the 'host' for http type probes. Not valid for 'TCP' type probes. Defaults to '/'.
+#   timeout (string)                         : Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'.
+#   termination_grace_period_seconds (number): The time in seconds after the container is sent the termination signal before the process if forcibly killed.
+#
+# volume_mounts block structure:
+#   name (string)                : (REQUIRED) The name of the volume to mount. This must match the name of a volume defined in the 'volume' block.
+#   path (string)                : (REQUIRED) The path within the container at which the volume should be mounted. Must not contain ':'.
+#
+# volume block structure:
+#   name (string)         : The name of the volume.
+#   storage_type (string) : The type of storage to use for the volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'.
+#   storage_name (string) : The name of the storage to use for the volume.
+#
+# container block structure :
+#   name (string)             : (REQUIRED) The name of the container.
+#   cpu (string)              : (REQUIRED) The amount of vCPU to allocate to the container. Possible values include '0.25', '0.5', '0.75', '1.0', '1.25', '1.5', '1.75', and '2.0'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.0' / '2.0' or '0.5' / '1.0'
+#   memory (string)           : (REQUIRED) The amount of memory to allocate to the container. Possible values are '0.5Gi', '1Gi', '1.5Gi', '2Gi', '2.5Gi', '3Gi', '3.5Gi' and '4Gi'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.25' / '2.5Gi' or '0.75' / '1.5Gi'
+#   image (string)            : (REQUIRED) The image to use to create the container.
+#   args (list)               : A list of extra arguments to pass to the container.
+#   command (list)            : A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
+#   env (string)              : One or more 'env' blocks as detailed below.
+#   ephemeral_storage (string): The amount of ephemeral storage available to the Container App. ~> **NOTE:** 'ephemeral_storage' is currently in preview and not configurable at this time.
+#   liveness_probe (block)    : A 'liveness_probe' block as detailed below.
+#   readiness_probe (block)   : A 'readiness_probe' block as detailed below.
+#   startup_probe (block)     : A 'startup_probe' block as detailed below.
+#   volume_mounts (block)     : A 'volume_mounts' block as detailed below.
+#
+# startup_probe block structure            :
+#   port (number)                            : (REQUIRED) The port number on which to connect. Possible values are between '1' and '65535'.
+#   transport (string)                       : (REQUIRED) Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'.
+#   failure_count_threshold (number)         : The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'.
+#   header (block)                           : A 'header' block as detailed below.
+#   host (string)                            : The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes.
+#   interval_seconds (number)                : How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10'
 #   path (string)                            : The URI to use with the 'host' for http type probes. Not valid for 'TCP' type probes. Defaults to '/'.
 #   timeout (string)                         : Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'.
 #   termination_grace_period_seconds (number): The time in seconds after the container is sent the termination signal before the process if forcibly killed.
@@ -169,17 +169,17 @@ variable "event_trigger_config" {
 #   replica_completion_count (number)   : Minimum number of successful replica completions before overall job completion.
 #   scale (block)                       : A 'scale' block.
 #
-# rules block structure    :
-#   name (string)            : Name of the scale rule.
-#   custom_rule_type (string): Type of the scale rule.
-#   metadata (string)        : Metadata properties to describe the scale rule.
-#   authentication (block)   : A 'authentication' block.
-#
 # scale block structure               :
 #   max_executions (number)             : Maximum number of job executions that are created for a trigger.
 #   min_executions (number)             : Minimum number of job executions that are created for a trigger.
 #   polling_interval_in_seconds (number): Interval to check each event source in seconds.
 #   rules (block)                       : A 'rules' block.
+#
+# rules block structure    :
+#   name (string)            : Name of the scale rule.
+#   custom_rule_type (string): Type of the scale rule.
+#   metadata (string)        : Metadata properties to describe the scale rule.
+#   authentication (block)   : A 'authentication' block.
 #
 # authentication block structure:
 #   secret_name (string)          : Name of the secret from which to pull the auth params.

@@ -61,6 +61,20 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `not_in` | string | No | - | Specify the list of policy reference id values to filter out. Cannot be used with 'in'. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
+| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'. |
+
+### `overrides` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
+| `selectors` | [block](#override_selector-block-structure) | No | - | One or more 'override_selector' block. |
+
 ### `resource_selectors` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -74,20 +88,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `kind` | string | Yes | - | Specifies which characteristic will narrow down the set of evaluated resources. Possible values are 'resourceLocation', 'resourceType' and 'resourceWithoutLocation'. |
 | `not_in` | string | No | - | The list of not-allowed values for the specified kind. Cannot be used with 'in'. Can contain up to 50 values. |
-
-### `overrides` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `value` | string | Yes | - | Specifies the value to override the policy property. Possible values for 'policyEffect' override listed [policy effects](https://learn.microsoft.com/en-us/azure/governance/policy/concepts/effects). |
-| `selectors` | [block](#override_selector-block-structure) | No | - | One or more 'override_selector' block. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Type of Managed Identity which should be added to this Policy Definition. Possible values are 'SystemAssigned' and 'UserAssigned'. |
-| `identity_ids` | list | No | - | A list of User Managed Identity IDs which should be assigned to the Policy Definition. ~> **NOTE:** This is required when 'type' is set to 'UserAssigned'. |
 
 
 

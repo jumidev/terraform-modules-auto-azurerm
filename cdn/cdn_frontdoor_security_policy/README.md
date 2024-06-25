@@ -47,19 +47,19 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `firewall` | [block](#firewall-block-structure) | Yes | - | An 'firewall' block. Changing this forces a new Front Door Security Policy to be created. |
 
-### `association` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `domain` | [block](#domain-block-structure) | Yes | - | One or more 'domain' blocks. Changing this forces a new Front Door Security Policy to be created. |
-| `patterns_to_match` | string | Yes | - | The list of paths to match for this firewall policy. Possible value includes '/*'. Changing this forces a new Front Door Security Policy to be created. |
-
 ### `firewall` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `cdn_frontdoor_firewall_policy_id` | string | Yes | - | The Resource Id of the Front Door Firewall Policy that should be linked to this Front Door Security Policy. Changing this forces a new Front Door Security Policy to be created. |
 | `association` | [block](#association-block-structure) | Yes | - | An 'association' block. Changing this forces a new Front Door Security Policy to be created. |
+
+### `association` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `domain` | [block](#domain-block-structure) | Yes | - | One or more 'domain' blocks. Changing this forces a new Front Door Security Policy to be created. |
+| `patterns_to_match` | string | Yes | - | The list of paths to match for this firewall policy. Possible value includes '/*'. Changing this forces a new Front Door Security Policy to be created. |
 
 
 

@@ -41,18 +41,18 @@ tfstate_store = {
 | **fleet_update_strategy_id** | string |  The ID of the Fleet Update Strategy. Only one of `fleet_update_strategy_id` or `stage` can be specified. | 
 | **stages** | [block](#stage-block-structure) |  One or more `stage` blocks. Only one of `stage` or `fleet_update_strategy_id` can be specified. | 
 
+### `managed_cluster_update` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `upgrade` | [block](#upgrade-block-structure) | Yes | - | A 'upgrade' block. |
+| `node_image_selection` | [block](#node_image_selection-block-structure) | No | - | A 'node_image_selection' block. |
+
 ### `group` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `name` | string | Yes | - | The name which should be used for this group. |
-
-### `upgrade` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of upgrade to perform. Possible values are 'Full' and 'NodeImageOnly'. |
-| `kubernetes_version` | string | No | - | Specifies the Kubernetes version to upgrade the member clusters to. This is required if 'type' is set to 'Full'. |
 
 ### `stage` block structure
 
@@ -68,12 +68,12 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | Specifies the node image upgrade type. Possible values are 'Latest' and 'Consistent'. |
 
-### `managed_cluster_update` block structure
+### `upgrade` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `upgrade` | [block](#upgrade-block-structure) | Yes | - | A 'upgrade' block. |
-| `node_image_selection` | [block](#node_image_selection-block-structure) | No | - | A 'node_image_selection' block. |
+| `type` | string | Yes | - | Specifies the type of upgrade to perform. Possible values are 'Full' and 'NodeImageOnly'. |
+| `kubernetes_version` | string | No | - | Specifies the Kubernetes version to upgrade the member clusters to. This is required if 'type' is set to 'Full'. |
 
 
 
