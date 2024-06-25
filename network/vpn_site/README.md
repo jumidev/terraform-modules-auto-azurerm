@@ -45,18 +45,18 @@ tfstate_store = {
 | **o365_policy** | [block](#o365_policy-block-structure) |  An `o365_policy` block. | 
 | **tags** | map |  A mapping of tags which should be assigned to the VPN Site. | 
 
+### `o365_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
+
 ### `bgp` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `asn` | string | Yes | - | The BGP speaker's ASN. |
 | `peering_address` | string | Yes | - | The BGP peering IP address. |
-
-### `o365_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `traffic_category` | [block](#traffic_category-block-structure) | No | - | A 'traffic_category' block. |
 
 ### `link` block structure
 

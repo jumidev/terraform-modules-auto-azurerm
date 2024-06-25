@@ -25,10 +25,9 @@ variable "rule" {
 #   match_criterion (block)      : A 'match_criterion' block.
 #   next_step_if_matched (string): The next step after the rule is evaluated. Possible values are 'Continue', 'Terminate' and 'Unknown'. Defaults to 'Unknown'.
 #
-# parameter block structure:
-#   as_path (list)           : A list of AS paths.
-#   community (list)         : A list of BGP communities.
-#   route_prefix (list)      : A list of route prefixes.
+# action block structure:
+#   parameter (block)     : A 'parameter' block. Required if 'type' is anything other than 'Drop'.
+#   type (string)         : (REQUIRED) The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'.
 #
 # match_criterion block structure:
 #   match_condition (string)       : (REQUIRED) The match condition to apply the rule of the Route Map. Possible values are 'Contains', 'Equals', 'NotContains', 'NotEquals' and 'Unknown'.
@@ -36,8 +35,9 @@ variable "rule" {
 #   community (list)               : A list of BGP communities which this criterion matches.
 #   route_prefix (list)            : A list of route prefixes which this criterion matches.
 #
-# action block structure:
-#   parameter (block)     : A 'parameter' block. Required if 'type' is anything other than 'Drop'.
-#   type (string)         : (REQUIRED) The type of the action to be taken. Possible values are 'Add', 'Drop', 'Remove', 'Replace' and 'Unknown'.
+# parameter block structure:
+#   as_path (list)           : A list of AS paths.
+#   community (list)         : A list of BGP communities.
+#   route_prefix (list)      : A list of route prefixes.
 
 

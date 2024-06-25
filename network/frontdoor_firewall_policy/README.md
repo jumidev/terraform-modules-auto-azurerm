@@ -40,15 +40,6 @@ tfstate_store = {
 | **managed_rules** | [block](#managed_rule-block-structure) |  -  |  -  |  One or more `managed_rule` blocks. | 
 | **tags** | map |  -  |  -  |  A mapping of tags to assign to the Web Application Firewall Policy. | 
 
-### `managed_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
-| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
-| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
-| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
-
 ### `override` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -56,14 +47,6 @@ tfstate_store = {
 | `rule_group_name` | string | Yes | - | The managed rule group to override. |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
 | `rule` | [block](#rule-block-structure) | No | - | One or more 'rule' blocks. If none are specified, all of the rules in the group will be disabled. |
-
-### `exclusion` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'. |
-| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
-| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
 
 ### `custom_rule` block structure
 
@@ -86,6 +69,23 @@ tfstate_store = {
 | `action` | string | Yes | - | The action to be applied when the rule matches. Possible values are 'Allow', 'Block', 'Log', or 'Redirect'. |
 | `enabled` | bool | No | False | Is the managed rule override enabled or disabled. Defaults to 'false' |
 | `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+
+### `exclusion` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `match_variable` | string | Yes | - | The variable type to be excluded. Possible values are 'QueryStringArgNames', 'RequestBodyPostArgNames', 'RequestCookieNames', 'RequestHeaderNames'. |
+| `operator` | string | Yes | - | Comparison operator to apply to the selector when specifying which elements in the collection this exclusion applies to. Possible values are: 'Equals', 'Contains', 'StartsWith', 'EndsWith', 'EqualsAny'. |
+| `selector` | string | Yes | - | Selector for the value in the 'match_variable' attribute this exclusion applies to. |
+
+### `managed_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The name of the managed rule to use with this resource. |
+| `version` | string | Yes | - | The version on the managed rule to use with this resource. |
+| `exclusion` | [block](#exclusion-block-structure) | No | - | One or more 'exclusion' blocks. |
+| `override` | [block](#override-block-structure) | No | - | One or more 'override' blocks. |
 
 
 

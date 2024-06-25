@@ -68,18 +68,18 @@ tfstate_store = {
 | `max_node_count` | number | Yes | - | The maximum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 | `min_node_count` | number | Yes | - | The minimum number of nodes the Spark Pool can support. Must be between '3' and '200'. |
 
-### `auto_pause` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `delay_in_minutes` | number | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
-
 ### `library_requirement` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `content` | string | Yes | - | The content of library requirements. |
 | `filename` | string | Yes | - | The name of the library requirements file. |
+
+### `auto_pause` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `delay_in_minutes` | number | Yes | - | Number of minutes of idle time before the Spark Pool is automatically paused. Must be between '5' and '10080'. |
 
 
 

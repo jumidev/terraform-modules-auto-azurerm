@@ -40,19 +40,19 @@ tfstate_store = {
 | **schedule** | [block](#schedule-block-structure) |  A `schedule` block. Changing this forces a new resource to be created. | 
 | **ticket** | [block](#ticket-block-structure) |  A `ticket` block. Changing this forces a new resource to be created. | 
 
-### `schedule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `expiration` | [block](#expiration-block-structure) | No | - | An 'expiration' block. |
-| `start_date_time` | string | No | - | The start date/time of the role assignment. Changing this forces a new resource to be created. |
-
 ### `ticket` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `number` | string | No | - | User-supplied ticket number to be included with the request. Changing this forces a new resource to be created. |
 | `system` | string | No | - | User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. |
+
+### `schedule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `expiration` | [block](#expiration-block-structure) | No | - | An 'expiration' block. |
+| `start_date_time` | string | No | - | The start date/time of the role assignment. Changing this forces a new resource to be created. |
 
 ### `expiration` block structure
 

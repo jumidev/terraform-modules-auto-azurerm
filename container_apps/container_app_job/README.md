@@ -53,35 +53,13 @@ tfstate_store = {
 | **identity** | [block](#identity-block-structure) |  A `identity` block. | 
 | **tags** | map |  A mapping of tags to assign to the resource. | 
 
-### `template` block structure
+### `event_trigger_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `container` | [block](#container-block-structure) | No | - | A 'container' block. |
-| `init_container` | [block](#init_container-block-structure) | No | - | A 'init_container' block. |
-| `volume` | [block](#volume-block-structure) | No | - | A 'volume' block. |
-
-### `schedule_trigger_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `cron_expression` | string | Yes | - | Cron formatted repeating schedule of a Cron Job. |
 | `parallelism` | number | No | - | Number of parallel replicas of a job that can run at a given time. |
 | `replica_completion_count` | number | No | - | Minimum number of successful replica completions before overall job completion. |
-
-### `startup_probe` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `port` | number | Yes | - | The port number on which to connect. Possible values are between '1' and '65535'. |
-| `transport` | string | Yes | - | Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'. |
-| `failure_count_threshold` | number | No | 3 | The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'. |
-| `header` | [block](#header-block-structure) | No | - | A 'header' block as detailed below. |
-| `host` | string | No | - | The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes. |
-| `interval_seconds` | number | No | 10 | How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10' |
-| `path` | string | No | / | The URI to use with the 'host' for http type probes. Not valid for 'TCP' type probes. Defaults to '/'. |
-| `timeout` | string | No | 1 | Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'. |
-| `termination_grace_period_seconds` | number | No | - | The time in seconds after the container is sent the termination signal before the process if forcibly killed. |
+| `scale` | [block](#scale-block-structure) | No | - | A 'scale' block. |
 
 ### `liveness_probe` block structure
 
@@ -98,66 +76,21 @@ tfstate_store = {
 | `timeout` | string | No | 1 | Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'. |
 | `termination_grace_period_seconds` | number | No | - | The time in seconds after the container is sent the termination signal before the process if forcibly killed. |
 
-### `header` block structure
+### `schedule_trigger_config` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The HTTP Header Name. |
-| `value` | string | Yes | - | The HTTP Header value. |
-
-### `registry` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `identity` | string | No | - | A Managed Identity to use to authenticate with Azure Container Registry. |
-| `username` | string | No | - | The username to use to authenticate with Azure Container Registry. |
-| `password_secret_name` | string | No | - | The name of the Secret that contains the registry login password. |
-| `server` | string | No | - | The URL of the Azure Container Registry server. |
-
-### `manual_trigger_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
+| `cron_expression` | string | Yes | - | Cron formatted repeating schedule of a Cron Job. |
 | `parallelism` | number | No | - | Number of parallel replicas of a job that can run at a given time. |
 | `replica_completion_count` | number | No | - | Minimum number of successful replica completions before overall job completion. |
 
-### `rules` block structure
+### `template` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | No | - | Name of the scale rule. |
-| `custom_rule_type` | string | No | - | Type of the scale rule. |
-| `metadata` | string | No | - | Metadata properties to describe the scale rule. |
-| `authentication` | [block](#authentication-block-structure) | No | - | A 'authentication' block. |
-
-### `event_trigger_config` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `parallelism` | number | No | - | Number of parallel replicas of a job that can run at a given time. |
-| `replica_completion_count` | number | No | - | Minimum number of successful replica completions before overall job completion. |
-| `scale` | [block](#scale-block-structure) | No | - | A 'scale' block. |
-
-### `init_container` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the container. |
-| `cpu` | string | Yes | - | The amount of vCPU to allocate to the container. Possible values include '0.25', '0.5', '0.75', '1.0', '1.25', '1.5', '1.75', and '2.0'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.0' / '2.0' or '0.5' / '1.0' |
-| `memory` | string | Yes | - | The amount of memory to allocate to the container. Possible values are '0.5Gi', '1Gi', '1.5Gi', '2Gi', '2.5Gi', '3Gi', '3.5Gi' and '4Gi'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.25' / '2.5Gi' or '0.75' / '1.5Gi' |
-| `image` | string | Yes | - | The image to use to create the container. |
-| `args` | list | No | - | A list of extra arguments to pass to the container. |
-| `command` | list | No | - | A command to pass to the container to override the default. This is provided as a list of command line elements without spaces. |
-| `env` | string | No | - | One or more 'env' blocks as detailed below. |
-| `ephemeral_storage` | string | No | - | The amount of ephemeral storage available to the Container App. ~> **NOTE:** 'ephemeral_storage' is currently in preview and not configurable at this time. |
-| `volume_mounts` | [block](#volume_mounts-block-structure) | No | - | A 'volume_mounts' block as detailed below. |
-
-### `authentication` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `secret_name` | string | No | - | Name of the secret from which to pull the auth params. |
-| `trigger_parameter` | string | No | - | Trigger Parameter that uses the secret. |
+| `container` | [block](#container-block-structure) | No | - | A 'container' block. |
+| `init_container` | [block](#init_container-block-structure) | No | - | A 'init_container' block. |
+| `volume` | [block](#volume-block-structure) | No | - | A 'volume' block. |
 
 ### `scale` block structure
 
@@ -168,26 +101,12 @@ tfstate_store = {
 | `polling_interval_in_seconds` | number | No | - | Interval to check each event source in seconds. |
 | `rules` | [block](#rules-block-structure) | No | - | A 'rules' block. |
 
-### `readiness_probe` block structure
+### `volume_mounts` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `port` | number | Yes | - | The port number on which to connect. Possible values are between '1' and '65535'. |
-| `transport` | string | Yes | - | Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'. |
-| `failure_count_threshold` | number | No | 3 | The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'. |
-| `header` | [block](#header-block-structure) | No | - | A 'header' block as detailed below. |
-| `host` | string | No | Host | The probe hostname. Defaults to the pod IP address. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes. |
-| `interval_seconds` | number | No | 10 | How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10' |
-| `path` | string | No | / | The URI to use for http type probes. Not valid for 'TCP' type probes. Defaults to '/'. |
-| `success_count_threshold` | number | No | 3 | The number of consecutive successful responses required to consider this probe as successful. Possible values are between '1' and '10'. Defaults to '3'. |
-| `timeout` | string | No | 1 | Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | No | None | The type of identity used for the Container App Job. Possible values are 'SystemAssigned', 'UserAssigned' and 'None'. Defaults to 'None'. |
-| `identity_ids` | list | No | - | A list of Managed Identity IDs to assign to the Container App Job. |
+| `name` | string | Yes | - | The name of the volume to mount. This must match the name of a volume defined in the 'volume' block. |
+| `path` | string | Yes | - | The path within the container at which the volume should be mounted. Must not contain ':'. |
 
 ### `container` block structure
 
@@ -206,6 +125,34 @@ tfstate_store = {
 | `startup_probe` | [block](#startup_probe-block-structure) | No | - | A 'startup_probe' block as detailed below. |
 | `volume_mounts` | [block](#volume_mounts-block-structure) | No | - | A 'volume_mounts' block as detailed below. |
 
+### `readiness_probe` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | number | Yes | - | The port number on which to connect. Possible values are between '1' and '65535'. |
+| `transport` | string | Yes | - | Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'. |
+| `failure_count_threshold` | number | No | 3 | The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'. |
+| `header` | [block](#header-block-structure) | No | - | A 'header' block as detailed below. |
+| `host` | string | No | Host | The probe hostname. Defaults to the pod IP address. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes. |
+| `interval_seconds` | number | No | 10 | How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10' |
+| `path` | string | No | / | The URI to use for http type probes. Not valid for 'TCP' type probes. Defaults to '/'. |
+| `success_count_threshold` | number | No | 3 | The number of consecutive successful responses required to consider this probe as successful. Possible values are between '1' and '10'. Defaults to '3'. |
+| `timeout` | string | No | 1 | Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'. |
+
+### `init_container` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name of the container. |
+| `cpu` | string | Yes | - | The amount of vCPU to allocate to the container. Possible values include '0.25', '0.5', '0.75', '1.0', '1.25', '1.5', '1.75', and '2.0'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.0' / '2.0' or '0.5' / '1.0' |
+| `memory` | string | Yes | - | The amount of memory to allocate to the container. Possible values are '0.5Gi', '1Gi', '1.5Gi', '2Gi', '2.5Gi', '3Gi', '3.5Gi' and '4Gi'. ~> **NOTE:** 'cpu' and 'memory' must be specified in '0.25'/'0.5Gi' combination increments. e.g. '1.25' / '2.5Gi' or '0.75' / '1.5Gi' |
+| `image` | string | Yes | - | The image to use to create the container. |
+| `args` | list | No | - | A list of extra arguments to pass to the container. |
+| `command` | list | No | - | A command to pass to the container to override the default. This is provided as a list of command line elements without spaces. |
+| `env` | string | No | - | One or more 'env' blocks as detailed below. |
+| `ephemeral_storage` | string | No | - | The amount of ephemeral storage available to the Container App. ~> **NOTE:** 'ephemeral_storage' is currently in preview and not configurable at this time. |
+| `volume_mounts` | [block](#volume_mounts-block-structure) | No | - | A 'volume_mounts' block as detailed below. |
+
 ### `volume` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -213,13 +160,6 @@ tfstate_store = {
 | `name` | string | No | - | The name of the volume. |
 | `storage_type` | string | No | - | The type of storage to use for the volume. Possible values are 'AzureFile', 'EmptyDir' and 'Secret'. |
 | `storage_name` | string | No | - | The name of the storage to use for the volume. |
-
-### `volume_mounts` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name of the volume to mount. This must match the name of a volume defined in the 'volume' block. |
-| `path` | string | Yes | - | The path within the container at which the volume should be mounted. Must not contain ':'. |
 
 ### `secret` block structure
 
@@ -229,6 +169,66 @@ tfstate_store = {
 | `identity` | string | No | - | The identity to use for accessing the Key Vault secret reference. This can either be the Resource ID of a User Assigned Identity, or 'System' for the System Assigned Identity. !> **Note:** 'identity' must be used together with 'key_vault_secret_id' |
 | `key_vault_secret_id` | string | No | - | The ID of a Key Vault secret. This can be a versioned or version-less ID. !> **Note:** When using 'key_vault_secret_id', 'ignore_changes' should be used to ignore any changes to 'value'. |
 | `value` | string | No | - | The value for this secret. !> **Note:** 'value' will be ignored if 'key_vault_secret_id' and 'identity' are provided. |
+
+### `header` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The HTTP Header Name. |
+| `value` | string | Yes | - | The HTTP Header value. |
+
+### `manual_trigger_config` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `parallelism` | number | No | - | Number of parallel replicas of a job that can run at a given time. |
+| `replica_completion_count` | number | No | - | Minimum number of successful replica completions before overall job completion. |
+
+### `authentication` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `secret_name` | string | No | - | Name of the secret from which to pull the auth params. |
+| `trigger_parameter` | string | No | - | Trigger Parameter that uses the secret. |
+
+### `registry` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `identity` | string | No | - | A Managed Identity to use to authenticate with Azure Container Registry. |
+| `username` | string | No | - | The username to use to authenticate with Azure Container Registry. |
+| `password_secret_name` | string | No | - | The name of the Secret that contains the registry login password. |
+| `server` | string | No | - | The URL of the Azure Container Registry server. |
+
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | No | None | The type of identity used for the Container App Job. Possible values are 'SystemAssigned', 'UserAssigned' and 'None'. Defaults to 'None'. |
+| `identity_ids` | list | No | - | A list of Managed Identity IDs to assign to the Container App Job. |
+
+### `rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | No | - | Name of the scale rule. |
+| `custom_rule_type` | string | No | - | Type of the scale rule. |
+| `metadata` | string | No | - | Metadata properties to describe the scale rule. |
+| `authentication` | [block](#authentication-block-structure) | No | - | A 'authentication' block. |
+
+### `startup_probe` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `port` | number | Yes | - | The port number on which to connect. Possible values are between '1' and '65535'. |
+| `transport` | string | Yes | - | Type of probe. Possible values are 'TCP', 'HTTP', and 'HTTPS'. |
+| `failure_count_threshold` | number | No | 3 | The number of consecutive failures required to consider this probe as failed. Possible values are between '1' and '10'. Defaults to '3'. |
+| `header` | [block](#header-block-structure) | No | - | A 'header' block as detailed below. |
+| `host` | string | No | - | The value for the host header which should be sent with this probe. If unspecified, the IP Address of the Pod is used as the host header. Setting a value for 'Host' in 'headers' can be used to override this for 'HTTP' and 'HTTPS' type probes. |
+| `interval_seconds` | number | No | 10 | How often, in seconds, the probe should run. Possible values are between '1' and '240'. Defaults to '10' |
+| `path` | string | No | / | The URI to use with the 'host' for http type probes. Not valid for 'TCP' type probes. Defaults to '/'. |
+| `timeout` | string | No | 1 | Time in seconds after which the probe times out. Possible values are in the range '1' - '240'. Defaults to '1'. |
+| `termination_grace_period_seconds` | number | No | - | The time in seconds after the container is sent the termination signal before the process if forcibly killed. |
 
 
 

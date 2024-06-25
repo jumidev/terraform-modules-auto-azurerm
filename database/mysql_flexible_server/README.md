@@ -70,6 +70,13 @@ tfstate_store = {
 | `start_hour` | string | No | 0 | The start hour for maintenance window. Defaults to '0'. |
 | `start_minute` | string | No | 0 | The start minute for maintenance window. Defaults to '0'. |
 
+### `identity` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
+| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
+
 ### `high_availability` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -85,13 +92,6 @@ tfstate_store = {
 | `primary_user_assigned_identity_id` | string | No | - | Specifies the primary user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. |
 | `geo_backup_key_vault_key_id` | string | No | - | The ID of the geo backup Key Vault Key. It can't cross region and need Customer Managed Key in same region as geo backup. |
 | `geo_backup_user_assigned_identity_id` | string | No | - | The geo backup user managed identity id for a Customer Managed Key. Should be added with 'identity_ids'. It can't cross region and need identity in same region as geo backup. ~> **NOTE:** 'primary_user_assigned_identity_id' or 'geo_backup_user_assigned_identity_id' is required when 'type' is set to 'UserAssigned' or 'SystemAssigned, UserAssigned'. |
-
-### `identity` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | Specifies the type of Managed Service Identity that should be configured on this MySQL Flexible Server. The only possible value is 'UserAssigned'. |
-| `identity_ids` | list | Yes | - | A list of User Assigned Managed Identity IDs to be assigned to this MySQL Flexible Server. |
 
 
 

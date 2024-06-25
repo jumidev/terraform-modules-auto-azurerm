@@ -67,13 +67,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `address_prefixes` | list | Yes | - | A list of CIDR Ranges which should be used as Address Prefixes. |
 
-### `propagated_route_table` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
-| `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
-
 ### `route` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -82,6 +75,13 @@ tfstate_store = {
 | `inbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for inbound learned routes. |
 | `outbound_route_map_id` | string | No | - | The resource ID of the Route Map associated with this Routing Configuration for outbound advertised routes. |
 | `propagated_route_table` | [block](#propagated_route_table-block-structure) | No | - | A 'propagated_route_table' block. |
+
+### `propagated_route_table` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ids` | string | Yes | - | The list of Virtual Hub Route Table resource id which the routes will be propagated to. |
+| `labels` | string | No | - | The list of labels to logically group Virtual Hub Route Tables which the routes will be propagated to. |
 
 
 

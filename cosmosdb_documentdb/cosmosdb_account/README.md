@@ -114,13 +114,6 @@ component_inputs = {
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **restore** | [block](#restore-block-structure) |  -  |  -  |  A `restore` block. ~> **Note:** `restore` should be set when `create_mode` is `Restore`. | 
 
-### `database` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The database name for the restore request. Changing this forces a new resource to be created. |
-| `collection_names` | list | No | - | A list of the collection names for the restore request. Changing this forces a new resource to be created. |
-
 ### `geo_location` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -128,6 +121,14 @@ component_inputs = {
 | `location` | string | Yes | - | The name of the Azure region to host replicated data. |
 | `failover_priority` | number | Yes | - | The failover priority of the region. A failover priority of '0' indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority '0'. |
 | `zone_redundant` | bool | No | False | Should zone redundancy be enabled for this region? Defaults to 'false'. |
+
+### `consistency_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consistency_level` | string | Yes | - | The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'. |
+| `max_interval_in_seconds` | number | No | 5 | When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'. |
+| `max_staleness_prefix` | number | No | 100 | When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' - '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'. ~> **Note:** 'max_interval_in_seconds' and 'max_staleness_prefix' can only be set to values other than default when the 'consistency_level' is set to 'BoundedStaleness'. |
 
 ### `capabilities` block structure
 
@@ -141,12 +142,6 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `total_throughput_limit` | string | Yes | - | The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least '-1'. '-1' means no limit. |
 
-### `analytical_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `schema_type` | string | Yes | - | The schema type of the Analytical Storage for this Cosmos DB account. Possible values are 'FullFidelity' and 'WellDefined'. |
-
 ### `gremlin_database` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -154,15 +149,12 @@ component_inputs = {
 | `name` | string | Yes | - | The Gremlin Database name for the restore request. Changing this forces a new resource to be created. |
 | `graph_names` | list | No | - | A list of the Graph names for the restore request. Changing this forces a new resource to be created. |
 
-### `cors_rule` block structure
+### `identity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `allowed_headers` | list | Yes | - | A list of headers that are allowed to be a part of the cross-origin request. |
-| `allowed_methods` | list | Yes | - | A list of HTTP headers that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'. |
-| `allowed_origins` | list | Yes | - | A list of origin domains that will be allowed by CORS. |
-| `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
-| `max_age_in_seconds` | number | No | - | The number of seconds the client should cache a preflight response. Possible values are between '1' and '2147483647'. |
+| `type` | string | Yes | - | The Type of Managed Identity assigned to this Cosmos account. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
+| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account. |
 
 ### `restore` block structure
 
@@ -174,12 +166,15 @@ component_inputs = {
 | `gremlin_database` | [block](#gremlin_database-block-structure) | No | - | One or more 'gremlin_database' blocks. Changing this forces a new resource to be created. |
 | `tables_to_restore` | list | No | - | A list of specific tables available for restore. Changing this forces a new resource to be created. |
 
-### `identity` block structure
+### `cors_rule` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The Type of Managed Identity assigned to this Cosmos account. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
-| `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account. |
+| `allowed_headers` | list | Yes | - | A list of headers that are allowed to be a part of the cross-origin request. |
+| `allowed_methods` | list | Yes | - | A list of HTTP headers that are allowed to be executed by the origin. Valid options are 'DELETE', 'GET', 'HEAD', 'MERGE', 'POST', 'OPTIONS', 'PUT' or 'PATCH'. |
+| `allowed_origins` | list | Yes | - | A list of origin domains that will be allowed by CORS. |
+| `exposed_headers` | list | Yes | - | A list of response headers that are exposed to CORS clients. |
+| `max_age_in_seconds` | number | No | - | The number of seconds the client should cache a preflight response. Possible values are between '1' and '2147483647'. |
 
 ### `virtual_network_rule` block structure
 
@@ -187,13 +182,18 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `ignore_missing_vnet_service_endpoint` | bool | No | False | If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to 'false'. |
 
-### `consistency_policy` block structure
+### `database` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
-| `consistency_level` | string | Yes | - | The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'. |
-| `max_interval_in_seconds` | number | No | 5 | When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'. |
-| `max_staleness_prefix` | number | No | 100 | When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' - '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'. ~> **Note:** 'max_interval_in_seconds' and 'max_staleness_prefix' can only be set to values other than default when the 'consistency_level' is set to 'BoundedStaleness'. |
+| `name` | string | Yes | - | The database name for the restore request. Changing this forces a new resource to be created. |
+| `collection_names` | list | No | - | A list of the collection names for the restore request. Changing this forces a new resource to be created. |
+
+### `analytical_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `schema_type` | string | Yes | - | The schema type of the Analytical Storage for this Cosmos DB account. Possible values are 'FullFidelity' and 'WellDefined'. |
 
 ### `backup` block structure
 
