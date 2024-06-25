@@ -47,6 +47,13 @@ tfstate_store = {
 | `expiration` | [block](#expiration-block-structure) | No | - | An 'expiration' block. |
 | `start_date_time` | string | No | - | The start date/time of the role assignment. Changing this forces a new resource to be created. |
 
+### `ticket` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `number` | string | No | - | User-supplied ticket number to be included with the request. Changing this forces a new resource to be created. |
+| `system` | string | No | - | User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. |
+
 ### `expiration` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -54,13 +61,6 @@ tfstate_store = {
 | `duration_days` | number | No | - | The duration of the role assignment in days. Changing this forces a new resource to be created. |
 | `duration_hours` | string | No | - | The duration of the role assignment in hours. Changing this forces a new resource to be created. |
 | `end_date_time` | string | No | - | The end date/time of the role assignment. Changing this forces a new resource to be created. ~> Note: Only one of 'duration_days', 'duration_hours' or 'end_date_time' should be specified. |
-
-### `ticket` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `number` | string | No | - | User-supplied ticket number to be included with the request. Changing this forces a new resource to be created. |
-| `system` | string | No | - | User-supplied ticket system name to be included with the request. Changing this forces a new resource to be created. |
 
 
 

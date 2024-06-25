@@ -56,24 +56,6 @@ variable "default_node_pool" {
 #   port_end (string)                 : Specifies the end of the port range.
 #   protocol (string)                 : Specifies the protocol of the port range. Possible values are 'TCP' and 'UDP'.
 #
-# linux_os_config block structure      :
-#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
-#   sysctl_config (block)                : A 'sysctl_config' block.
-#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
-#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
-#
-# kubelet_config block structure    :
-#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
-#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
-#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
-#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
-#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
-#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
-#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
-#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
-#   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
-#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
-#
 # node_network_profile block structure :
 #   allowed_host_ports (block)           : One or more 'allowed_host_ports' blocks.
 #   application_security_group_ids (list): A list of Application Security Group IDs which should be associated with this Node Pool.
@@ -109,6 +91,24 @@ variable "default_node_pool" {
 #   vm_max_map_count (number)                  : The sysctl setting vm.max_map_count. Must be between '65530' and '262144'.
 #   vm_swappiness (string)                     : The sysctl setting vm.swappiness. Must be between '0' and '100'.
 #   vm_vfs_cache_pressure (string)             : The sysctl setting vm.vfs_cache_pressure. Must be between '0' and '100'.
+#
+# linux_os_config block structure      :
+#   swap_file_size_mb (number)           : Specifies the size of the swap file on each node in MB.
+#   sysctl_config (block)                : A 'sysctl_config' block.
+#   transparent_huge_page_defrag (string): specifies the defrag configuration for Transparent Huge Page. Possible values are 'always', 'defer', 'defer+madvise', 'madvise' and 'never'.
+#   transparent_huge_page_enabled (bool) : Specifies the Transparent Huge Page enabled configuration. Possible values are 'always', 'madvise' and 'never'.
+#
+# kubelet_config block structure    :
+#   allowed_unsafe_sysctls (string)   : Specifies the allow list of unsafe sysctls command or patterns (ending in '*').
+#   container_log_max_line (number)   : Specifies the maximum number of container log files that can be present for a container. must be at least 2.
+#   container_log_max_size_mb (number): Specifies the maximum size (e.g. 10MB) of container log file before it is rotated.
+#   cpu_cfs_quota_enabled (bool)      : Is CPU CFS quota enforcement for containers enabled?
+#   cpu_cfs_quota_period (string)     : Specifies the CPU CFS quota period value.
+#   cpu_manager_policy (string)       : Specifies the CPU Manager policy to use. Possible values are 'none' and 'static',.
+#   image_gc_high_threshold (string)  : Specifies the percent of disk usage above which image garbage collection is always run. Must be between '0' and '100'.
+#   image_gc_low_threshold (string)   : Specifies the percent of disk usage lower than which image garbage collection is never run. Must be between '0' and '100'.
+#   pod_max_pid (number)              : Specifies the maximum number of processes per pod.
+#   topology_manager_policy (string)  : Specifies the Topology Manager policy to use. Possible values are 'none', 'best-effort', 'restricted' or 'single-numa-node'.
 
 
 

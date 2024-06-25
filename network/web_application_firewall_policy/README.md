@@ -54,6 +54,13 @@ tfstate_store = {
 | `variable_name` | string | Yes | - | The name of the Match Variable. Possible values are 'RemoteAddr', 'RequestMethod', 'QueryString', 'PostArgs', 'RequestUri', 'RequestHeaders', 'RequestBody' and 'RequestCookies'. |
 | `selector` | string | No | - | Describes field of the matchVariable collection |
 
+### `managed_rules` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `exclusion` | string | No | - | One or more 'exclusion' block defined below. |
+| `managed_rule_set` | string | Yes | - | One or more 'managed_rule_set' block defined below. |
+
 ### `custom_rules` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -84,13 +91,6 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `enabled` | bool | No | True | Whether the log scrubbing is enabled or disabled. Defaults to 'true'. |
 | `rule` | string | No | - | One or more 'scrubbing_rule' blocks as define below. |
-
-### `managed_rules` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `exclusion` | string | No | - | One or more 'exclusion' block defined below. |
-| `managed_rule_set` | string | Yes | - | One or more 'managed_rule_set' block defined below. |
 
 ### `policy_settings` block structure
 

@@ -114,19 +114,32 @@ component_inputs = {
 | **identity** | [block](#identity-block-structure) |  -  |  -  |  An `identity` block. | 
 | **restore** | [block](#restore-block-structure) |  -  |  -  |  A `restore` block. ~> **Note:** `restore` should be set when `create_mode` is `Restore`. | 
 
+### `database` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The database name for the restore request. Changing this forces a new resource to be created. |
+| `collection_names` | list | No | - | A list of the collection names for the restore request. Changing this forces a new resource to be created. |
+
+### `analytical_storage` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `schema_type` | string | Yes | - | The schema type of the Analytical Storage for this Cosmos DB account. Possible values are 'FullFidelity' and 'WellDefined'. |
+
+### `consistency_policy` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `consistency_level` | string | Yes | - | The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'. |
+| `max_interval_in_seconds` | number | No | 5 | When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'. |
+| `max_staleness_prefix` | number | No | 100 | When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' - '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'. ~> **Note:** 'max_interval_in_seconds' and 'max_staleness_prefix' can only be set to values other than default when the 'consistency_level' is set to 'BoundedStaleness'. |
+
 ### `capacity` block structure
 
 | Name | Type | Required? | Default | Description |
 | ---- | ---- | --------- | ------- | ----------- |
 | `total_throughput_limit` | string | Yes | - | The total throughput limit imposed on this Cosmos DB account (RU/s). Possible values are at least '-1'. '-1' means no limit. |
-
-### `geo_location` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `location` | string | Yes | - | The name of the Azure region to host replicated data. |
-| `failover_priority` | number | Yes | - | The failover priority of the region. A failover priority of '0' indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority '0'. |
-| `zone_redundant` | bool | No | False | Should zone redundancy be enabled for this region? Defaults to 'false'. |
 
 ### `gremlin_database` block structure
 
@@ -145,6 +158,36 @@ component_inputs = {
 | `gremlin_database` | [block](#gremlin_database-block-structure) | No | - | One or more 'gremlin_database' blocks. Changing this forces a new resource to be created. |
 | `tables_to_restore` | list | No | - | A list of specific tables available for restore. Changing this forces a new resource to be created. |
 
+### `backup` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `type` | string | Yes | - | The type of the 'backup'. Possible values are 'Continuous' and 'Periodic'. ~> **Note:** Migration of 'Periodic' to 'Continuous' is one-way, changing 'Continuous' to 'Periodic' forces a new resource to be created. |
+| `tier` | string | No | - | The continuous backup tier. Possible values are 'Continuous7Days' and 'Continuous30Days'. |
+| `interval_in_minutes` | number | No | 240 | The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to '240'. |
+| `retention_in_hours` | number | No | 8 | The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to '8'. |
+| `storage_redundancy` | string | No | Geo | The storage redundancy is used to indicate the type of backup residency. Possible values are 'Geo', 'Local' and 'Zone'. Defaults to 'Geo'. ~> **Note:** You can only configure 'interval_in_minutes', 'retention_in_hours' and 'storage_redundancy' when the 'type' field is set to 'Periodic'. |
+
+### `virtual_network_rule` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `ignore_missing_vnet_service_endpoint` | bool | No | False | If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to 'false'. |
+
+### `capabilities` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | bool | Yes | - | The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'. ~> **Note:** Setting 'MongoDBv3.4' also requires setting 'EnableMongo'. ~> **Note:** Only 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'MongoDBv3.4', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnableUniqueCompoundNestedDocs', 'EnableMongo16MBDocumentSupport', 'mongoEnableDocLevelTTL', 'EnableTtlOnCustomPath' and 'EnablePartialUniqueIndex' can be added to an existing Cosmos DB account. ~> **Note:** Only 'DisableRateLimitingResponses' and 'EnableMongoRetryableWrites' can be removed from an existing Cosmos DB account. |
+
+### `geo_location` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `location` | string | Yes | - | The name of the Azure region to host replicated data. |
+| `failover_priority` | number | Yes | - | The failover priority of the region. A failover priority of '0' indicates a write region. The maximum value for a failover priority = (total number of regions - 1). Failover priority values must be unique for each of the regions in which the database account exists. Changing this causes the location to be re-provisioned and cannot be changed for the location with failover priority '0'. |
+| `zone_redundant` | bool | No | False | Should zone redundancy be enabled for this region? Defaults to 'false'. |
+
 ### `cors_rule` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -161,49 +204,6 @@ component_inputs = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `type` | string | Yes | - | The Type of Managed Identity assigned to this Cosmos account. Possible values are 'SystemAssigned', 'UserAssigned' and 'SystemAssigned, UserAssigned'. |
 | `identity_ids` | list | No | - | Specifies a list of User Assigned Managed Identity IDs to be assigned to this Cosmos Account. |
-
-### `database` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The database name for the restore request. Changing this forces a new resource to be created. |
-| `collection_names` | list | No | - | A list of the collection names for the restore request. Changing this forces a new resource to be created. |
-
-### `capabilities` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | bool | Yes | - | The capability to enable - Possible values are 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'EnableCassandra', 'EnableGremlin', 'EnableMongo', 'EnableMongo16MBDocumentSupport', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnablePartialUniqueIndex', 'EnableServerless', 'EnableTable', 'EnableTtlOnCustomPath', 'EnableUniqueCompoundNestedDocs', 'MongoDBv3.4' and 'mongoEnableDocLevelTTL'. ~> **Note:** Setting 'MongoDBv3.4' also requires setting 'EnableMongo'. ~> **Note:** Only 'AllowSelfServeUpgradeToMongo36', 'DisableRateLimitingResponses', 'EnableAggregationPipeline', 'MongoDBv3.4', 'EnableMongoRetryableWrites', 'EnableMongoRoleBasedAccessControl', 'EnableUniqueCompoundNestedDocs', 'EnableMongo16MBDocumentSupport', 'mongoEnableDocLevelTTL', 'EnableTtlOnCustomPath' and 'EnablePartialUniqueIndex' can be added to an existing Cosmos DB account. ~> **Note:** Only 'DisableRateLimitingResponses' and 'EnableMongoRetryableWrites' can be removed from an existing Cosmos DB account. |
-
-### `consistency_policy` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `consistency_level` | string | Yes | - | The Consistency Level to use for this CosmosDB Account - can be either 'BoundedStaleness', 'Eventual', 'Session', 'Strong' or 'ConsistentPrefix'. |
-| `max_interval_in_seconds` | number | No | 5 | When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is '5' - '86400' (1 day). Defaults to '5'. Required when 'consistency_level' is set to 'BoundedStaleness'. |
-| `max_staleness_prefix` | number | No | 100 | When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is '10' - '2147483647'. Defaults to '100'. Required when 'consistency_level' is set to 'BoundedStaleness'. ~> **Note:** 'max_interval_in_seconds' and 'max_staleness_prefix' can only be set to values other than default when the 'consistency_level' is set to 'BoundedStaleness'. |
-
-### `analytical_storage` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `schema_type` | string | Yes | - | The schema type of the Analytical Storage for this Cosmos DB account. Possible values are 'FullFidelity' and 'WellDefined'. |
-
-### `virtual_network_rule` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `ignore_missing_vnet_service_endpoint` | bool | No | False | If set to true, the specified subnet will be added as a virtual network rule even if its CosmosDB service endpoint is not active. Defaults to 'false'. |
-
-### `backup` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `type` | string | Yes | - | The type of the 'backup'. Possible values are 'Continuous' and 'Periodic'. ~> **Note:** Migration of 'Periodic' to 'Continuous' is one-way, changing 'Continuous' to 'Periodic' forces a new resource to be created. |
-| `tier` | string | No | - | The continuous backup tier. Possible values are 'Continuous7Days' and 'Continuous30Days'. |
-| `interval_in_minutes` | number | No | 240 | The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to '240'. |
-| `retention_in_hours` | number | No | 8 | The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to '8'. |
-| `storage_redundancy` | string | No | Geo | The storage redundancy is used to indicate the type of backup residency. Possible values are 'Geo', 'Local' and 'Zone'. Defaults to 'Geo'. ~> **Note:** You can only configure 'interval_in_minutes', 'retention_in_hours' and 'storage_redundancy' when the 'type' field is set to 'Periodic'. |
 
 
 

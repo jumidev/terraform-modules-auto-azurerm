@@ -60,18 +60,6 @@ tfstate_store = {
 | **sku_name** | list |  -  |  `GP_S_Gen5_2`, `HS_Gen4_1`, `BC_Gen5_2`, `ElasticPool`, `Basic`, `S0`, `P2`, `DW100c`, `DS100`  |  Specifies the name of the SKU used by the database. For example, `GP_S_Gen5_2`,`HS_Gen4_1`,`BC_Gen5_2`, `ElasticPool`, `Basic`,`S0`, `P2` ,`DW100c`, `DS100`. Changing this from the HyperScale service tier to another service tier will create a new resource. -> **NOTE:** The default `sku_name` value may differ between Azure locations depending on local availability of Gen4/Gen5 capacity. When databases are replicated using the `creation_source_database_id` property, the source (primary) database cannot have a higher SKU service tier than any secondary databases. When changing the `sku_name` of a database having one or more secondary databases, this resource will first update any secondary databases as necessary. In such cases it's recommended to use the same `sku_name` in your configuration for all related databases, as not doing so may cause an unresolvable diff during subsequent plans. | 
 | **storage_account_type** | string |  `Geo`  |  `Geo`, `GeoZone`, `Local`, `Zone`  |  Specifies the storage account type used to store backups for this database. Possible values are `Geo`, `GeoZone`, `Local` and `Zone`. Defaults to `Geo`. | 
 
-### `import` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `storage_uri` | string | Yes | - | Specifies the blob URI of the .bacpac file. |
-| `storage_key` | string | Yes | - | Specifies the access key for the storage account. |
-| `storage_key_type` | string | Yes | - | Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'. |
-| `administrator_login` | string | Yes | - | Specifies the name of the SQL administrator. |
-| `administrator_login_password` | string | Yes | - | Specifies the password of the SQL administrator. |
-| `authentication_type` | string | Yes | - | Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'. |
-| `storage_account_id` | string | No | - | The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter. |
-
 ### `long_term_retention_policy` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -88,6 +76,18 @@ tfstate_store = {
 | ---- | ---- | --------- | ------- | ----------- |
 | `retention_days` | number | Yes | - | Point In Time Restore configuration. Value has to be between '1' and '35'. |
 | `backup_interval_in_hours` | string | No | 12 | The hours between each differential backup. This is only applicable to live databases but not dropped databases. Value has to be '12' or '24'. Defaults to '12' hours. |
+
+### `import` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `storage_uri` | string | Yes | - | Specifies the blob URI of the .bacpac file. |
+| `storage_key` | string | Yes | - | Specifies the access key for the storage account. |
+| `storage_key_type` | string | Yes | - | Specifies the type of access key for the storage account. Valid values are 'StorageAccessKey' or 'SharedAccessKey'. |
+| `administrator_login` | string | Yes | - | Specifies the name of the SQL administrator. |
+| `administrator_login_password` | string | Yes | - | Specifies the password of the SQL administrator. |
+| `authentication_type` | string | Yes | - | Specifies the type of authentication used to access the server. Valid values are 'SQL' or 'ADPassword'. |
+| `storage_account_id` | string | No | - | The resource id for the storage account used to store BACPAC file. If set, private endpoint connection will be created for the storage account. Must match storage account used for storage_uri parameter. |
 
 
 

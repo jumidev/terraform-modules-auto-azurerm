@@ -40,6 +40,12 @@ tfstate_store = {
 | **kubernetes_fleet_manager_id** | string |  The ID of the Fleet Manager. Changing this forces a new Kubernetes Fleet Update Strategy to be created. | 
 | **stages** | [block](#stage-block-structure) |  One or more `stage` blocks. | 
 
+### `group` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `name` | string | Yes | - | The name which should be used for this group. |
+
 ### `stage` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -47,12 +53,6 @@ tfstate_store = {
 | `group` | [block](#group-block-structure) | Yes | - | One or more 'group' blocks. |
 | `name` | string | Yes | - | The name which should be used for this stage. |
 | `after_stage_wait_in_seconds` | number | No | - | Specifies the time in seconds to wait at the end of this stage before starting the next one. |
-
-### `group` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `name` | string | Yes | - | The name which should be used for this group. |
 
 
 

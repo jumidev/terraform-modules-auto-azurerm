@@ -37,13 +37,6 @@ tfstate_store = {
 | **sharing** | [block](#sharing-block-structure) |  A `sharing` block. Changing this forces a new resource to be created. | 
 | **tags** | map |  A mapping of tags to assign to the Shared Image Gallery. | 
 
-### `sharing` block structure
-
-| Name | Type | Required? | Default | Description |
-| ---- | ---- | --------- | ------- | ----------- |
-| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.Compute/CommunityGalleries' is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information. |
-| `community_gallery` | [block](#community_gallery-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. ~> **NOTE:** 'community_gallery' must be set when 'permission' is set to 'Community'. |
-
 ### `community_gallery` block structure
 
 | Name | Type | Required? | Default | Description |
@@ -52,6 +45,13 @@ tfstate_store = {
 | `prefix` | string | Yes | - | Prefix of the community public name for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_email` | string | Yes | - | Email of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
 | `publisher_uri` | string | Yes | - | URI of the publisher for the Shared Image Gallery. Changing this forces a new resource to be created. |
+
+### `sharing` block structure
+
+| Name | Type | Required? | Default | Description |
+| ---- | ---- | --------- | ------- | ----------- |
+| `permission` | string | Yes | - | The permission of the Shared Image Gallery when sharing. Possible values are 'Community', 'Groups' and 'Private'. Changing this forces a new resource to be created. -> **Note:** This requires that the Preview Feature 'Microsoft.Compute/CommunityGalleries' is enabled, see [the documentation](https://learn.microsoft.com/azure/virtual-machines/share-gallery-community?tabs=cli) for more information. |
+| `community_gallery` | [block](#community_gallery-block-structure) | No | - | A 'community_gallery' block. Changing this forces a new resource to be created. ~> **NOTE:** 'community_gallery' must be set when 'permission' is set to 'Community'. |
 
 
 
